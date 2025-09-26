@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**name** | **String** |  |  |
+|**mangledName** | **String** |  |  |
 |**startAddress** | **Integer** |  |  |
 |**endAddress** | **Integer** |  |  |
 
