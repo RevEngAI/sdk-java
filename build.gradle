@@ -30,15 +30,17 @@ if(hasProperty('target') && target == 'android') {
     apply plugin: 'com.github.dcendents.android-maven'
 
     android {
-        compileSdkVersion 25
-        buildToolsVersion '25.0.2'
+        compileSdkVersion 35
+        buildToolsVersion '35.0.0'
         defaultConfig {
-            minSdkVersion 14
-            targetSdkVersion 25
+            minSdkVersion 21
+            targetSdkVersion 35
         }
         compileOptions {
-            sourceCompatibility JavaVersion.VERSION_1_8
-            targetCompatibility JavaVersion.VERSION_1_8
+            java {
+                sourceCompatibility JavaVersion.VERSION_24
+                targetCompatibility JavaVersion.VERSION_24
+            }
         }
 
         // Rename the aar correctly
@@ -83,8 +85,10 @@ if(hasProperty('target') && target == 'android') {
     apply plugin: 'java'
     apply plugin: 'maven-publish'
 
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
+    java {
+        sourceCompatibility = JavaVersion.VERSION_24
+        targetCompatibility = JavaVersion.VERSION_24
+    }
 
     publishing {
         publications {
@@ -96,7 +100,7 @@ if(hasProperty('target') && target == 'android') {
     }
 
     task execute(type:JavaExec) {
-       main = System.getProperty('mainClass')
+       mainClass = System.getProperty('mainClass')
        classpath = sourceSets.main.runtimeClasspath
     }
 }

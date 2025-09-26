@@ -11,3 +11,4 @@ developerName: RevEng.AI
 developerEmail: support@reveng.ai
 developerOrganization: RevEng.AI
 developerOrganizationUrl: https://reveng.ai
+library: okhttp-gson

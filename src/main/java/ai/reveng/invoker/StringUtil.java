@@ -15,7 +15,7 @@ package ai.reveng.invoker;
 import java.util.Collection;
 import java.util.Iterator;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-26T15:37:47.583998+01:00[Europe/London]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen"", comments = "Generator version: 7.15.0")
 public class StringUtil {
   /**
    * Check if the given array contains the given value (with case-insensitive comparison).

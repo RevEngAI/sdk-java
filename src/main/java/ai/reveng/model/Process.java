@@ -50,7 +50,7 @@ import ai.reveng.invoker.JSON;
 /**
  * Process
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-26T15:37:47.583998+01:00[Europe/London]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen"", comments = "Generator version: 7.15.0")
 public class Process {
   public static final String SERIALIZED_NAME_PID = "pid";
   @SerializedName(SERIALIZED_NAME_PID)

@@ -47,7 +47,7 @@ import ai.reveng.invoker.JSON;
 /**
  * TimestampModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-09-26T15:37:47.583998+01:00[Europe/London]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen"", comments = "Generator version: 7.15.0")
 public class TimestampModel {
   public static final String SERIALIZED_NAME_PE_TIMESTAMP = "pe_timestamp";
   @SerializedName(SERIALIZED_NAME_PE_TIMESTAMP)
