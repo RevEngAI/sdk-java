@@ -48,7 +48,7 @@ import ai.reveng.invoker.JSON;
 /**
  * NearestNeighbor
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen"", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.15.0")
 public class NearestNeighbor {
   public static final String SERIALIZED_NAME_DISTANCE = "distance";
   @SerializedName(SERIALIZED_NAME_DISTANCE)

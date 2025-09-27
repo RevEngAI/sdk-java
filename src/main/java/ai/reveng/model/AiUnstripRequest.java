@@ -47,7 +47,7 @@ import ai.reveng.invoker.JSON;
 /**
  * AiUnstripRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen"", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.15.0")
 public class AiUnstripRequest {
   public static final String SERIALIZED_NAME_APPLY = "apply";
   @SerializedName(SERIALIZED_NAME_APPLY)

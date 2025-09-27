@@ -50,7 +50,7 @@ import ai.reveng.invoker.JSON;
 /**
  * AnalysisStringsResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen"", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.15.0")
 public class AnalysisStringsResponse {
   public static final String SERIALIZED_NAME_STRINGS = "strings";
   @SerializedName(SERIALIZED_NAME_STRINGS)

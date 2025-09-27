@@ -49,7 +49,7 @@ import ai.reveng.invoker.JSON;
 /**
  * AnalysisConfig
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen"", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.15.0")
 public class AnalysisConfig {
   public static final String SERIALIZED_NAME_SCRAPE_THIRD_PARTY_CONFIG = "scrape_third_party_config";
   @SerializedName(SERIALIZED_NAME_SCRAPE_THIRD_PARTY_CONFIG)

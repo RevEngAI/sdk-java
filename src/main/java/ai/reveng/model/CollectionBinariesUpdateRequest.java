@@ -49,7 +49,7 @@ import ai.reveng.invoker.JSON;
 /**
  * CollectionBinariesUpdateRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen"", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.15.0")
 public class CollectionBinariesUpdateRequest {
   public static final String SERIALIZED_NAME_BINARIES = "binaries";
   @SerializedName(SERIALIZED_NAME_BINARIES)

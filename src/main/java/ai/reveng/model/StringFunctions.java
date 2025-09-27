@@ -50,7 +50,7 @@ import ai.reveng.invoker.JSON;
 /**
  * This is a string with the functions where the string is used.  A function string is a string literal referenced within a function. When analyzing stripped or obfuscated binaries, function strings can help identify the function’s purpose.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen"", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.15.0")
 public class StringFunctions {
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)

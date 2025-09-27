@@ -49,7 +49,7 @@ import com.google.gson.JsonParseException;
 
 import ai.reveng.invoker.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen"", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.15.0")
 public class Addr extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(Addr.class.getName());
 

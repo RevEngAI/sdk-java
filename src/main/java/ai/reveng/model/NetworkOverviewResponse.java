@@ -51,7 +51,7 @@ import ai.reveng.invoker.JSON;
 /**
  * NetworkOverviewResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen"", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.15.0")
 public class NetworkOverviewResponse {
   public static final String SERIALIZED_NAME_DNS = "dns";
   @SerializedName(SERIALIZED_NAME_DNS)

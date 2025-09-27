@@ -6,7 +6,7 @@
     <packaging>jar</packaging>
     <name>sdk</name>
     <version>v1.93.0</version>
-    <url>https://github.com/RevEngAI/revengai-java</url>
+    <url>https://github.com/RevEngAI/sdk-java</url>
     <description>Java SDK for the RevEng.AI API</description>
     <scm>
         <connection>scm:git:git@github.com:openapitools/openapi-generator.git</connection>

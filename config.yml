@@ -3,7 +3,7 @@ modelPackage: ai.reveng.model
 invokerPackage: ai.reveng.invoker
 groupId: ai.reveng
 artifactId: sdk
-artifactUrl: https://github.com/RevEngAI/revengai-java
+artifactUrl: https://github.com/RevEngAI/sdk-java
 artifactDescription: Java SDK for the RevEng.AI API
 licenseName: GPL-3.0-only
 licenseUrl: https://www.gnu.org/licenses/gpl-3.0.en.html
@@ -12,3 +12,4 @@ developerEmail: support@reveng.ai
 developerOrganization: RevEng.AI
 developerOrganizationUrl: https://reveng.ai
 library: okhttp-gson
+hideGenerationTimestamp: true
