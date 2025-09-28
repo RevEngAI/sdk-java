@@ -13,6 +13,7 @@
 package ai.reveng.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import ai.reveng.model.ErrorModel;
 import ai.reveng.model.FunctionBoxPlotConfidence;
 import ai.reveng.model.MetaModel;
@@ -47,13 +48,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import ai.reveng.invoker.JSON;
 
 /**
  * BaseResponseListFunctionBoxPlotConfidence
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.16.0")
 public class BaseResponseListFunctionBoxPlotConfidence {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -272,7 +274,7 @@ public class BaseResponseListFunctionBoxPlotConfidence {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!BaseResponseListFunctionBoxPlotConfidence.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in BaseResponseListFunctionBoxPlotConfidence is not found in the empty JSON string", BaseResponseListFunctionBoxPlotConfidence.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in BaseResponseListFunctionBoxPlotConfidence is not found in the empty JSON string", BaseResponseListFunctionBoxPlotConfidence.openapiRequiredFields.toString()));
         }
       }
 
@@ -280,7 +282,7 @@ public class BaseResponseListFunctionBoxPlotConfidence {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!BaseResponseListFunctionBoxPlotConfidence.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `BaseResponseListFunctionBoxPlotConfidence` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `BaseResponseListFunctionBoxPlotConfidence` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -289,7 +291,7 @@ public class BaseResponseListFunctionBoxPlotConfidence {
         if (jsonArraydata != null) {
           // ensure the json data is an array
           if (!jsonObj.get("data").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `data` to be an array in the JSON string but got `%s`", jsonObj.get("data").toString()));
+            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `data` to be an array in the JSON string but got `%s`", jsonObj.get("data").toString()));
           }
 
           // validate the optional field `data` (array)
@@ -299,14 +301,14 @@ public class BaseResponseListFunctionBoxPlotConfidence {
         }
       }
       if ((jsonObj.get("message") != null && !jsonObj.get("message").isJsonNull()) && !jsonObj.get("message").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
       }
       if (jsonObj.get("errors") != null && !jsonObj.get("errors").isJsonNull()) {
         JsonArray jsonArrayerrors = jsonObj.getAsJsonArray("errors");
         if (jsonArrayerrors != null) {
           // ensure the json data is an array
           if (!jsonObj.get("errors").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `errors` to be an array in the JSON string but got `%s`", jsonObj.get("errors").toString()));
+            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `errors` to be an array in the JSON string but got `%s`", jsonObj.get("errors").toString()));
           }
 
           // validate the optional field `errors` (array)

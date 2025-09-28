@@ -13,6 +13,7 @@
 package ai.reveng.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -45,13 +46,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import ai.reveng.invoker.JSON;
 
 /**
  * AppApiRestV1AnnSchemaANNFunction
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.16.0")
 public class AppApiRestV1AnnSchemaANNFunction {
   public static final String SERIALIZED_NAME_RESULT_PER_FUNCTION = "result_per_function";
   @SerializedName(SERIALIZED_NAME_RESULT_PER_FUNCTION)
@@ -461,7 +463,7 @@ public class AppApiRestV1AnnSchemaANNFunction {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!AppApiRestV1AnnSchemaANNFunction.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AppApiRestV1AnnSchemaANNFunction is not found in the empty JSON string", AppApiRestV1AnnSchemaANNFunction.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in AppApiRestV1AnnSchemaANNFunction is not found in the empty JSON string", AppApiRestV1AnnSchemaANNFunction.openapiRequiredFields.toString()));
         }
       }
 
@@ -469,14 +471,14 @@ public class AppApiRestV1AnnSchemaANNFunction {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!AppApiRestV1AnnSchemaANNFunction.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AppApiRestV1AnnSchemaANNFunction` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `AppApiRestV1AnnSchemaANNFunction` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : AppApiRestV1AnnSchemaANNFunction.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -484,27 +486,27 @@ public class AppApiRestV1AnnSchemaANNFunction {
       if (jsonObj.get("function_id_list") == null) {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
       } else if (!jsonObj.get("function_id_list").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `function_id_list` to be an array in the JSON string but got `%s`", jsonObj.get("function_id_list").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `function_id_list` to be an array in the JSON string but got `%s`", jsonObj.get("function_id_list").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("speculative_function_ids") != null && !jsonObj.get("speculative_function_ids").isJsonNull() && !jsonObj.get("speculative_function_ids").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `speculative_function_ids` to be an array in the JSON string but got `%s`", jsonObj.get("speculative_function_ids").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `speculative_function_ids` to be an array in the JSON string but got `%s`", jsonObj.get("speculative_function_ids").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("collection") != null && !jsonObj.get("collection").isJsonNull() && !jsonObj.get("collection").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `collection` to be an array in the JSON string but got `%s`", jsonObj.get("collection").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `collection` to be an array in the JSON string but got `%s`", jsonObj.get("collection").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("collection_search_list") != null && !jsonObj.get("collection_search_list").isJsonNull() && !jsonObj.get("collection_search_list").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `collection_search_list` to be an array in the JSON string but got `%s`", jsonObj.get("collection_search_list").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `collection_search_list` to be an array in the JSON string but got `%s`", jsonObj.get("collection_search_list").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("debug_types") != null && !jsonObj.get("debug_types").isJsonNull() && !jsonObj.get("debug_types").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `debug_types` to be an array in the JSON string but got `%s`", jsonObj.get("debug_types").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `debug_types` to be an array in the JSON string but got `%s`", jsonObj.get("debug_types").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("binaries_search_list") != null && !jsonObj.get("binaries_search_list").isJsonNull() && !jsonObj.get("binaries_search_list").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `binaries_search_list` to be an array in the JSON string but got `%s`", jsonObj.get("binaries_search_list").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `binaries_search_list` to be an array in the JSON string but got `%s`", jsonObj.get("binaries_search_list").toString()));
       }
   }
 

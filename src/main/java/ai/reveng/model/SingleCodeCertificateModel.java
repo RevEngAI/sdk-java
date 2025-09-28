@@ -13,6 +13,7 @@
 package ai.reveng.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -41,13 +42,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import ai.reveng.invoker.JSON;
 
 /**
  * SingleCodeCertificateModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.16.0")
 public class SingleCodeCertificateModel {
   public static final String SERIALIZED_NAME_VERSION = "version";
   @SerializedName(SERIALIZED_NAME_VERSION)
@@ -265,7 +267,7 @@ public class SingleCodeCertificateModel {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!SingleCodeCertificateModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in SingleCodeCertificateModel is not found in the empty JSON string", SingleCodeCertificateModel.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in SingleCodeCertificateModel is not found in the empty JSON string", SingleCodeCertificateModel.openapiRequiredFields.toString()));
         }
       }
 
@@ -273,31 +275,31 @@ public class SingleCodeCertificateModel {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!SingleCodeCertificateModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SingleCodeCertificateModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `SingleCodeCertificateModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : SingleCodeCertificateModel.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("issued_on").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `issued_on` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issued_on").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `issued_on` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issued_on").toString()));
       }
       if (!jsonObj.get("expires_on").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `expires_on` to be a primitive type in the JSON string but got `%s`", jsonObj.get("expires_on").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `expires_on` to be a primitive type in the JSON string but got `%s`", jsonObj.get("expires_on").toString()));
       }
       if (!jsonObj.get("issuer_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `issuer_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuer_name").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `issuer_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuer_name").toString()));
       }
       if (!jsonObj.get("serial_number").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `serial_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("serial_number").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `serial_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("serial_number").toString()));
       }
       if (!jsonObj.get("subject_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `subject_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subject_name").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `subject_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subject_name").toString()));
       }
   }
 

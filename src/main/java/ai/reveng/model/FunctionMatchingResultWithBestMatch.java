@@ -13,6 +13,7 @@
 package ai.reveng.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import ai.reveng.model.MatchedFunction;
 import ai.reveng.model.NameConfidence;
 import com.google.gson.TypeAdapter;
@@ -46,13 +47,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import ai.reveng.invoker.JSON;
 
 /**
  * FunctionMatchingResultWithBestMatch
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.16.0")
 public class FunctionMatchingResultWithBestMatch {
   public static final String SERIALIZED_NAME_FUNCTION_ID = "function_id";
   @SerializedName(SERIALIZED_NAME_FUNCTION_ID)
@@ -219,7 +221,7 @@ public class FunctionMatchingResultWithBestMatch {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!FunctionMatchingResultWithBestMatch.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in FunctionMatchingResultWithBestMatch is not found in the empty JSON string", FunctionMatchingResultWithBestMatch.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in FunctionMatchingResultWithBestMatch is not found in the empty JSON string", FunctionMatchingResultWithBestMatch.openapiRequiredFields.toString()));
         }
       }
 
@@ -227,20 +229,20 @@ public class FunctionMatchingResultWithBestMatch {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!FunctionMatchingResultWithBestMatch.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `FunctionMatchingResultWithBestMatch` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `FunctionMatchingResultWithBestMatch` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : FunctionMatchingResultWithBestMatch.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the json data is an array
       if (!jsonObj.get("matched_functions").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `matched_functions` to be an array in the JSON string but got `%s`", jsonObj.get("matched_functions").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `matched_functions` to be an array in the JSON string but got `%s`", jsonObj.get("matched_functions").toString()));
       }
 
       JsonArray jsonArraymatchedFunctions = jsonObj.getAsJsonArray("matched_functions");
@@ -253,7 +255,7 @@ public class FunctionMatchingResultWithBestMatch {
         if (jsonArrayconfidences != null) {
           // ensure the json data is an array
           if (!jsonObj.get("confidences").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `confidences` to be an array in the JSON string but got `%s`", jsonObj.get("confidences").toString()));
+            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `confidences` to be an array in the JSON string but got `%s`", jsonObj.get("confidences").toString()));
           }
 
           // validate the optional field `confidences` (array)

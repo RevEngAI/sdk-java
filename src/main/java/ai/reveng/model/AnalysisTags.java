@@ -13,6 +13,7 @@
 package ai.reveng.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import ai.reveng.model.AppApiRestV2AnalysesResponsesTagItem;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -44,13 +45,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import ai.reveng.invoker.JSON;
 
 /**
  * AnalysisTags
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.16.0")
 public class AnalysisTags {
   public static final String SERIALIZED_NAME_ANALYSIS_TAGS = "analysis_tags";
   @SerializedName(SERIALIZED_NAME_ANALYSIS_TAGS)
@@ -180,7 +182,7 @@ public class AnalysisTags {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!AnalysisTags.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AnalysisTags is not found in the empty JSON string", AnalysisTags.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in AnalysisTags is not found in the empty JSON string", AnalysisTags.openapiRequiredFields.toString()));
         }
       }
 
@@ -188,20 +190,20 @@ public class AnalysisTags {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!AnalysisTags.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AnalysisTags` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `AnalysisTags` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : AnalysisTags.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the json data is an array
       if (!jsonObj.get("analysis_tags").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `analysis_tags` to be an array in the JSON string but got `%s`", jsonObj.get("analysis_tags").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `analysis_tags` to be an array in the JSON string but got `%s`", jsonObj.get("analysis_tags").toString()));
       }
 
       JsonArray jsonArrayanalysisTags = jsonObj.getAsJsonArray("analysis_tags");
@@ -211,7 +213,7 @@ public class AnalysisTags {
       };
       // ensure the json data is an array
       if (!jsonObj.get("suggested_tags").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `suggested_tags` to be an array in the JSON string but got `%s`", jsonObj.get("suggested_tags").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `suggested_tags` to be an array in the JSON string but got `%s`", jsonObj.get("suggested_tags").toString()));
       }
 
       JsonArray jsonArraysuggestedTags = jsonObj.getAsJsonArray("suggested_tags");

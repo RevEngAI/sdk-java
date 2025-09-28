@@ -13,6 +13,7 @@
 package ai.reveng.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import ai.reveng.model.FunctionMappingFull;
 import ai.reveng.model.InverseFunctionMapItem;
 import com.google.gson.TypeAdapter;
@@ -46,13 +47,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import ai.reveng.invoker.JSON;
 
 /**
  * GetAiDecompilationTask
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.16.0")
 public class GetAiDecompilationTask {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -341,7 +343,7 @@ public class GetAiDecompilationTask {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetAiDecompilationTask.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GetAiDecompilationTask is not found in the empty JSON string", GetAiDecompilationTask.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in GetAiDecompilationTask is not found in the empty JSON string", GetAiDecompilationTask.openapiRequiredFields.toString()));
         }
       }
 
@@ -349,36 +351,36 @@ public class GetAiDecompilationTask {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GetAiDecompilationTask.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetAiDecompilationTask` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `GetAiDecompilationTask` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : GetAiDecompilationTask.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("status").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
       }
       if ((jsonObj.get("decompilation") != null && !jsonObj.get("decompilation").isJsonNull()) && !jsonObj.get("decompilation").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `decompilation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("decompilation").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `decompilation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("decompilation").toString()));
       }
       if ((jsonObj.get("raw_decompilation") != null && !jsonObj.get("raw_decompilation").isJsonNull()) && !jsonObj.get("raw_decompilation").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `raw_decompilation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("raw_decompilation").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `raw_decompilation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("raw_decompilation").toString()));
       }
       // validate the required field `function_mapping_full`
       FunctionMappingFull.validateJsonElement(jsonObj.get("function_mapping_full"));
       if ((jsonObj.get("summary") != null && !jsonObj.get("summary").isJsonNull()) && !jsonObj.get("summary").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `summary` to be a primitive type in the JSON string but got `%s`", jsonObj.get("summary").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `summary` to be a primitive type in the JSON string but got `%s`", jsonObj.get("summary").toString()));
       }
       if ((jsonObj.get("ai_summary") != null && !jsonObj.get("ai_summary").isJsonNull()) && !jsonObj.get("ai_summary").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ai_summary` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ai_summary").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `ai_summary` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ai_summary").toString()));
       }
       if ((jsonObj.get("raw_ai_summary") != null && !jsonObj.get("raw_ai_summary").isJsonNull()) && !jsonObj.get("raw_ai_summary").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `raw_ai_summary` to be a primitive type in the JSON string but got `%s`", jsonObj.get("raw_ai_summary").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `raw_ai_summary` to be a primitive type in the JSON string but got `%s`", jsonObj.get("raw_ai_summary").toString()));
       }
   }
 

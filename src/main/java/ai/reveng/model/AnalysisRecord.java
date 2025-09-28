@@ -13,6 +13,7 @@
 package ai.reveng.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import ai.reveng.model.AppApiRestV2AnalysesEnumsDynamicExecutionStatus;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -44,13 +45,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import ai.reveng.invoker.JSON;
 
 /**
  * AnalysisRecord
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.16.0")
 public class AnalysisRecord {
   public static final String SERIALIZED_NAME_ANALYSIS_ID = "analysis_id";
   @SerializedName(SERIALIZED_NAME_ANALYSIS_ID)
@@ -539,7 +541,7 @@ public class AnalysisRecord {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!AnalysisRecord.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AnalysisRecord is not found in the empty JSON string", AnalysisRecord.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in AnalysisRecord is not found in the empty JSON string", AnalysisRecord.openapiRequiredFields.toString()));
         }
       }
 
@@ -547,37 +549,37 @@ public class AnalysisRecord {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!AnalysisRecord.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AnalysisRecord` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `AnalysisRecord` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : AnalysisRecord.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("analysis_scope").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `analysis_scope` to be a primitive type in the JSON string but got `%s`", jsonObj.get("analysis_scope").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `analysis_scope` to be a primitive type in the JSON string but got `%s`", jsonObj.get("analysis_scope").toString()));
       }
       if (!jsonObj.get("model_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `model_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("model_name").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `model_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("model_name").toString()));
       }
       if (!jsonObj.get("status").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
       }
       if (!jsonObj.get("binary_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `binary_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("binary_name").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `binary_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("binary_name").toString()));
       }
       if (!jsonObj.get("sha_256_hash").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sha_256_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sha_256_hash").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `sha_256_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sha_256_hash").toString()));
       }
       if (!jsonObj.get("function_boundaries_hash").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `function_boundaries_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("function_boundaries_hash").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `function_boundaries_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("function_boundaries_hash").toString()));
       }
       if (!jsonObj.get("username").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("username").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("username").toString()));
       }
       // validate the optional field `dynamic_execution_status`
       if (jsonObj.get("dynamic_execution_status") != null && !jsonObj.get("dynamic_execution_status").isJsonNull()) {

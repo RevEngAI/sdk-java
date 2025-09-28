@@ -13,6 +13,7 @@
 package ai.reveng.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import ai.reveng.model.AppServicesBinaryAnnSchemaTagItem;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -45,13 +46,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import ai.reveng.invoker.JSON;
 
 /**
  * ExportedBinaryAnnResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.16.0")
 public class ExportedBinaryAnnResult {
   public static final String SERIALIZED_NAME_ANALYSIS_ID = "analysis_id";
   @SerializedName(SERIALIZED_NAME_ANALYSIS_ID)
@@ -371,7 +373,7 @@ public class ExportedBinaryAnnResult {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ExportedBinaryAnnResult.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ExportedBinaryAnnResult is not found in the empty JSON string", ExportedBinaryAnnResult.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in ExportedBinaryAnnResult is not found in the empty JSON string", ExportedBinaryAnnResult.openapiRequiredFields.toString()));
         }
       }
 
@@ -379,44 +381,44 @@ public class ExportedBinaryAnnResult {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ExportedBinaryAnnResult.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ExportedBinaryAnnResult` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ExportedBinaryAnnResult` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : ExportedBinaryAnnResult.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("binary_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `binary_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("binary_name").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `binary_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("binary_name").toString()));
       }
       if (!jsonObj.get("sha_256_hash").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sha_256_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sha_256_hash").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `sha_256_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sha_256_hash").toString()));
       }
       if (!jsonObj.get("analysis_scope").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `analysis_scope` to be a primitive type in the JSON string but got `%s`", jsonObj.get("analysis_scope").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `analysis_scope` to be a primitive type in the JSON string but got `%s`", jsonObj.get("analysis_scope").toString()));
       }
       // ensure the required json array is present
       if (jsonObj.get("embedding_3d") == null) {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
       } else if (!jsonObj.get("embedding_3d").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `embedding_3d` to be an array in the JSON string but got `%s`", jsonObj.get("embedding_3d").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `embedding_3d` to be an array in the JSON string but got `%s`", jsonObj.get("embedding_3d").toString()));
       }
       // ensure the required json array is present
       if (jsonObj.get("embedding_1d") == null) {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
       } else if (!jsonObj.get("embedding_1d").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `embedding_1d` to be an array in the JSON string but got `%s`", jsonObj.get("embedding_1d").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `embedding_1d` to be an array in the JSON string but got `%s`", jsonObj.get("embedding_1d").toString()));
       }
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull()) {
         JsonArray jsonArraytags = jsonObj.getAsJsonArray("tags");
         if (jsonArraytags != null) {
           // ensure the json data is an array
           if (!jsonObj.get("tags").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
+            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
           }
 
           // validate the optional field `tags` (array)

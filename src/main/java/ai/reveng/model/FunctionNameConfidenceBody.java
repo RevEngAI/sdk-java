@@ -13,6 +13,7 @@
 package ai.reveng.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import ai.reveng.model.FunctionNameInput;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -44,13 +45,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import ai.reveng.invoker.JSON;
 
 /**
  * FunctionNameConfidenceBody
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.16.0")
 public class FunctionNameConfidenceBody {
   public static final String SERIALIZED_NAME_FUNCTIONS = "functions";
   @SerializedName(SERIALIZED_NAME_FUNCTIONS)
@@ -172,7 +174,7 @@ public class FunctionNameConfidenceBody {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!FunctionNameConfidenceBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in FunctionNameConfidenceBody is not found in the empty JSON string", FunctionNameConfidenceBody.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in FunctionNameConfidenceBody is not found in the empty JSON string", FunctionNameConfidenceBody.openapiRequiredFields.toString()));
         }
       }
 
@@ -180,7 +182,7 @@ public class FunctionNameConfidenceBody {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!FunctionNameConfidenceBody.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `FunctionNameConfidenceBody` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `FunctionNameConfidenceBody` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -189,7 +191,7 @@ public class FunctionNameConfidenceBody {
         if (jsonArrayfunctions != null) {
           // ensure the json data is an array
           if (!jsonObj.get("functions").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `functions` to be an array in the JSON string but got `%s`", jsonObj.get("functions").toString()));
+            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `functions` to be an array in the JSON string but got `%s`", jsonObj.get("functions").toString()));
           }
 
           // validate the optional field `functions` (array)

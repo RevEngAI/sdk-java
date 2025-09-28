@@ -13,6 +13,7 @@
 package ai.reveng.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import ai.reveng.model.FunctionBlockResponse;
 import ai.reveng.model.FunctionLocalVariableResponse;
 import ai.reveng.model.FunctionParamResponse;
@@ -46,13 +47,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import ai.reveng.invoker.JSON;
 
 /**
  * Response for returning disassembly of a function.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.16.0")
 public class FunctionBlocksResponse {
   public static final String SERIALIZED_NAME_BLOCKS = "blocks";
   @SerializedName(SERIALIZED_NAME_BLOCKS)
@@ -242,7 +244,7 @@ public class FunctionBlocksResponse {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!FunctionBlocksResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in FunctionBlocksResponse is not found in the empty JSON string", FunctionBlocksResponse.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in FunctionBlocksResponse is not found in the empty JSON string", FunctionBlocksResponse.openapiRequiredFields.toString()));
         }
       }
 
@@ -250,20 +252,20 @@ public class FunctionBlocksResponse {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!FunctionBlocksResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `FunctionBlocksResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `FunctionBlocksResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : FunctionBlocksResponse.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the json data is an array
       if (!jsonObj.get("blocks").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `blocks` to be an array in the JSON string but got `%s`", jsonObj.get("blocks").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `blocks` to be an array in the JSON string but got `%s`", jsonObj.get("blocks").toString()));
       }
 
       JsonArray jsonArrayblocks = jsonObj.getAsJsonArray("blocks");
@@ -273,7 +275,7 @@ public class FunctionBlocksResponse {
       };
       // ensure the json data is an array
       if (!jsonObj.get("local_variables").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `local_variables` to be an array in the JSON string but got `%s`", jsonObj.get("local_variables").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `local_variables` to be an array in the JSON string but got `%s`", jsonObj.get("local_variables").toString()));
       }
 
       JsonArray jsonArraylocalVariables = jsonObj.getAsJsonArray("local_variables");
@@ -283,7 +285,7 @@ public class FunctionBlocksResponse {
       };
       // ensure the json data is an array
       if (!jsonObj.get("params").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `params` to be an array in the JSON string but got `%s`", jsonObj.get("params").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `params` to be an array in the JSON string but got `%s`", jsonObj.get("params").toString()));
       }
 
       JsonArray jsonArrayparams = jsonObj.getAsJsonArray("params");
@@ -292,7 +294,7 @@ public class FunctionBlocksResponse {
         FunctionParamResponse.validateJsonElement(jsonArrayparams.get(i));
       };
       if ((jsonObj.get("overview_comment") != null && !jsonObj.get("overview_comment").isJsonNull()) && !jsonObj.get("overview_comment").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `overview_comment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("overview_comment").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `overview_comment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("overview_comment").toString()));
       }
   }
 

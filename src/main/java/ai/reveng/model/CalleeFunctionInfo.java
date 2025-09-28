@@ -13,6 +13,7 @@
 package ai.reveng.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -41,13 +42,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import ai.reveng.invoker.JSON;
 
 /**
  * CalleeFunctionInfo
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.16.0")
 public class CalleeFunctionInfo {
   public static final String SERIALIZED_NAME_FUNCTION_ID = "function_id";
   @SerializedName(SERIALIZED_NAME_FUNCTION_ID)
@@ -265,7 +267,7 @@ public class CalleeFunctionInfo {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!CalleeFunctionInfo.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CalleeFunctionInfo is not found in the empty JSON string", CalleeFunctionInfo.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in CalleeFunctionInfo is not found in the empty JSON string", CalleeFunctionInfo.openapiRequiredFields.toString()));
         }
       }
 
@@ -273,25 +275,25 @@ public class CalleeFunctionInfo {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CalleeFunctionInfo.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CalleeFunctionInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CalleeFunctionInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : CalleeFunctionInfo.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("dashboard_url") != null && !jsonObj.get("dashboard_url").isJsonNull()) && !jsonObj.get("dashboard_url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `dashboard_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dashboard_url").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `dashboard_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dashboard_url").toString()));
       }
       if (!jsonObj.get("callee_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `callee_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("callee_name").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `callee_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("callee_name").toString()));
       }
       if (!jsonObj.get("callee_vaddr").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `callee_vaddr` to be a primitive type in the JSON string but got `%s`", jsonObj.get("callee_vaddr").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `callee_vaddr` to be a primitive type in the JSON string but got `%s`", jsonObj.get("callee_vaddr").toString()));
       }
   }
 

@@ -13,6 +13,7 @@
 package ai.reveng.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import ai.reveng.model.NetworkOverviewDns;
 import ai.reveng.model.NetworkOverviewMetadata;
 import com.google.gson.TypeAdapter;
@@ -45,13 +46,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import ai.reveng.invoker.JSON;
 
 /**
  * NetworkOverviewResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.16.0")
 public class NetworkOverviewResponse {
   public static final String SERIALIZED_NAME_DNS = "dns";
   @SerializedName(SERIALIZED_NAME_DNS)
@@ -181,7 +183,7 @@ public class NetworkOverviewResponse {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!NetworkOverviewResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in NetworkOverviewResponse is not found in the empty JSON string", NetworkOverviewResponse.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in NetworkOverviewResponse is not found in the empty JSON string", NetworkOverviewResponse.openapiRequiredFields.toString()));
         }
       }
 
@@ -189,20 +191,20 @@ public class NetworkOverviewResponse {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!NetworkOverviewResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `NetworkOverviewResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `NetworkOverviewResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : NetworkOverviewResponse.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the json data is an array
       if (!jsonObj.get("dns").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `dns` to be an array in the JSON string but got `%s`", jsonObj.get("dns").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `dns` to be an array in the JSON string but got `%s`", jsonObj.get("dns").toString()));
       }
 
       JsonArray jsonArraydns = jsonObj.getAsJsonArray("dns");
@@ -212,7 +214,7 @@ public class NetworkOverviewResponse {
       };
       // ensure the json data is an array
       if (!jsonObj.get("metadata").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `metadata` to be an array in the JSON string but got `%s`", jsonObj.get("metadata").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `metadata` to be an array in the JSON string but got `%s`", jsonObj.get("metadata").toString()));
       }
 
       JsonArray jsonArraymetadata = jsonObj.getAsJsonArray("metadata");

@@ -13,6 +13,7 @@
 package ai.reveng.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import ai.reveng.model.CollectionScope;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -45,13 +46,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import ai.reveng.invoker.JSON;
 
 /**
  * CollectionCreateRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.16.0")
 public class CollectionCreateRequest {
   public static final String SERIALIZED_NAME_COLLECTION_NAME = "collection_name";
   @SerializedName(SERIALIZED_NAME_COLLECTION_NAME)
@@ -296,7 +298,7 @@ public class CollectionCreateRequest {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!CollectionCreateRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CollectionCreateRequest is not found in the empty JSON string", CollectionCreateRequest.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in CollectionCreateRequest is not found in the empty JSON string", CollectionCreateRequest.openapiRequiredFields.toString()));
         }
       }
 
@@ -304,22 +306,22 @@ public class CollectionCreateRequest {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CollectionCreateRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CollectionCreateRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CollectionCreateRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : CollectionCreateRequest.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("collection_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `collection_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("collection_name").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `collection_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("collection_name").toString()));
       }
       if (!jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
       // validate the optional field `collection_scope`
       if (jsonObj.get("collection_scope") != null && !jsonObj.get("collection_scope").isJsonNull()) {
@@ -327,11 +329,11 @@ public class CollectionCreateRequest {
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("binaries") != null && !jsonObj.get("binaries").isJsonNull() && !jsonObj.get("binaries").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `binaries` to be an array in the JSON string but got `%s`", jsonObj.get("binaries").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `binaries` to be an array in the JSON string but got `%s`", jsonObj.get("binaries").toString()));
       }
   }
 

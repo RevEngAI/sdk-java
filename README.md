@@ -8,35 +8,29 @@ To use the SDK you will first need to obtain an API key from [https://reveng.ai]
 
 TODO
 
-## Getting Started
+## Usage
 
-Please follow the [installation](#installation) instruction and execute the following Java code:
+The following is an example of how to use the SDK to get the logs of an analysis:
 
 ```java
-
 import ai.reveng.invoker.*;
 import ai.reveng.invoker.auth.*;
 import ai.reveng.model.*;
-import ai.reveng.api.AnalysesCommentsApi;
+import ai.reveng.api.AnalysesCoreApi;
 
-public class AnalysesCommentsApiExample {
-
+public class App {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://api.reveng.ai");
-        
+
         // Configure API key authorization: APIKey
         ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
-        APIKey.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //APIKey.setApiKeyPrefix("Token");
+        APIKey.setApiKey(System.getenv("API_KEY"));
 
-        AnalysesCommentsApi apiInstance = new AnalysesCommentsApi(defaultClient);
-        Integer analysisId = 56; // Integer | 
-        CommentBase commentBase = new CommentBase(); // CommentBase | 
-        String authorization = "authorization_example"; // String | API Key bearer token
+        AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
+        Integer analysisId = 715320; // Integer
+
         try {
-            BaseResponseCommentResponse result = apiInstance.createAnalysisComment(analysisId, commentBase, authorization);
+            BaseResponseLogs result = apiInstance.getAnalysisLogs(analysisId, null);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AnalysesCommentsApi#createAnalysisComment");
@@ -47,7 +41,6 @@ public class AnalysesCommentsApiExample {
         }
     }
 }
-
 ```
 
 ## Documentation for API Endpoints

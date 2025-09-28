@@ -13,6 +13,7 @@
 package ai.reveng.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import ai.reveng.model.Enumeration;
 import ai.reveng.model.GlobalVariable;
 import ai.reveng.model.Structure;
@@ -39,6 +40,7 @@ import java.util.HashSet;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Locale;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -62,7 +64,7 @@ import com.google.gson.JsonParseException;
 
 import ai.reveng.invoker.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.16.0")
 public class FunctionInfoInputFuncDepsInner extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(FunctionInfoInputFuncDepsInner.class.getName());
 
@@ -132,7 +134,7 @@ public class FunctionInfoInputFuncDepsInner extends AbstractOpenApiSchema {
                         return ret;
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for Structure failed with `%s`.", e.getMessage()));
+                        errorMessages.add(String.format(Locale.ROOT, "Deserialization for Structure failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'Structure'", e);
                     }
                     // deserialize Enumeration
@@ -145,7 +147,7 @@ public class FunctionInfoInputFuncDepsInner extends AbstractOpenApiSchema {
                         return ret;
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for Enumeration failed with `%s`.", e.getMessage()));
+                        errorMessages.add(String.format(Locale.ROOT, "Deserialization for Enumeration failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'Enumeration'", e);
                     }
                     // deserialize TypeDefinition
@@ -158,7 +160,7 @@ public class FunctionInfoInputFuncDepsInner extends AbstractOpenApiSchema {
                         return ret;
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for TypeDefinition failed with `%s`.", e.getMessage()));
+                        errorMessages.add(String.format(Locale.ROOT, "Deserialization for TypeDefinition failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'TypeDefinition'", e);
                     }
                     // deserialize GlobalVariable
@@ -171,11 +173,11 @@ public class FunctionInfoInputFuncDepsInner extends AbstractOpenApiSchema {
                         return ret;
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for GlobalVariable failed with `%s`.", e.getMessage()));
+                        errorMessages.add(String.format(Locale.ROOT, "Deserialization for GlobalVariable failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'GlobalVariable'", e);
                     }
 
-                    throw new IOException(String.format("Failed deserialization for FunctionInfoInputFuncDepsInner: no class matches result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
+                    throw new IOException(String.format(Locale.ROOT, "Failed deserialization for FunctionInfoInputFuncDepsInner: no class matches result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
                 }
             }.nullSafe();
         }
@@ -307,7 +309,7 @@ public class FunctionInfoInputFuncDepsInner extends AbstractOpenApiSchema {
             Structure.validateJsonElement(jsonElement);
             return;
         } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for Structure failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format(Locale.ROOT, "Deserialization for Structure failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         // validate the json string with Enumeration
@@ -315,7 +317,7 @@ public class FunctionInfoInputFuncDepsInner extends AbstractOpenApiSchema {
             Enumeration.validateJsonElement(jsonElement);
             return;
         } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for Enumeration failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format(Locale.ROOT, "Deserialization for Enumeration failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         // validate the json string with TypeDefinition
@@ -323,7 +325,7 @@ public class FunctionInfoInputFuncDepsInner extends AbstractOpenApiSchema {
             TypeDefinition.validateJsonElement(jsonElement);
             return;
         } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for TypeDefinition failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format(Locale.ROOT, "Deserialization for TypeDefinition failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         // validate the json string with GlobalVariable
@@ -331,10 +333,10 @@ public class FunctionInfoInputFuncDepsInner extends AbstractOpenApiSchema {
             GlobalVariable.validateJsonElement(jsonElement);
             return;
         } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for GlobalVariable failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format(Locale.ROOT, "Deserialization for GlobalVariable failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        throw new IOException(String.format("The JSON string is invalid for FunctionInfoInputFuncDepsInner with anyOf schemas: Enumeration, GlobalVariable, Structure, TypeDefinition. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
+        throw new IOException(String.format(Locale.ROOT, "The JSON string is invalid for FunctionInfoInputFuncDepsInner with anyOf schemas: Enumeration, GlobalVariable, Structure, TypeDefinition. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
     }
 
     /**

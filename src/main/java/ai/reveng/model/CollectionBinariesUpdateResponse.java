@@ -13,6 +13,7 @@
 package ai.reveng.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import ai.reveng.model.CollectionBinaryResponse;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -44,13 +45,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import ai.reveng.invoker.JSON;
 
 /**
  * CollectionBinariesUpdateResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.16.0")
 public class CollectionBinariesUpdateResponse {
   public static final String SERIALIZED_NAME_BINARIES = "binaries";
   @SerializedName(SERIALIZED_NAME_BINARIES)
@@ -146,7 +148,7 @@ public class CollectionBinariesUpdateResponse {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!CollectionBinariesUpdateResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CollectionBinariesUpdateResponse is not found in the empty JSON string", CollectionBinariesUpdateResponse.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in CollectionBinariesUpdateResponse is not found in the empty JSON string", CollectionBinariesUpdateResponse.openapiRequiredFields.toString()));
         }
       }
 
@@ -154,20 +156,20 @@ public class CollectionBinariesUpdateResponse {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CollectionBinariesUpdateResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CollectionBinariesUpdateResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CollectionBinariesUpdateResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : CollectionBinariesUpdateResponse.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the json data is an array
       if (!jsonObj.get("binaries").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `binaries` to be an array in the JSON string but got `%s`", jsonObj.get("binaries").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `binaries` to be an array in the JSON string but got `%s`", jsonObj.get("binaries").toString()));
       }
 
       JsonArray jsonArraybinaries = jsonObj.getAsJsonArray("binaries");

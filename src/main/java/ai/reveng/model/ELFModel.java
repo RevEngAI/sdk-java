@@ -13,6 +13,7 @@
 package ai.reveng.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import ai.reveng.model.ELFImportModel;
 import ai.reveng.model.ELFRelocation;
 import ai.reveng.model.ELFSection;
@@ -52,13 +53,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import ai.reveng.invoker.JSON;
 
 /**
  * ELFModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.16.0")
 public class ELFModel {
   public static final String SERIALIZED_NAME_FILE_TYPE = "file_type";
   @SerializedName(SERIALIZED_NAME_FILE_TYPE)
@@ -720,7 +722,7 @@ public class ELFModel {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ELFModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ELFModel is not found in the empty JSON string", ELFModel.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in ELFModel is not found in the empty JSON string", ELFModel.openapiRequiredFields.toString()));
         }
       }
 
@@ -728,43 +730,43 @@ public class ELFModel {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ELFModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ELFModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ELFModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : ELFModel.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("file_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `file_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("file_type").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `file_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("file_type").toString()));
       }
       if (!jsonObj.get("architecture").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `architecture` to be a primitive type in the JSON string but got `%s`", jsonObj.get("architecture").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `architecture` to be a primitive type in the JSON string but got `%s`", jsonObj.get("architecture").toString()));
       }
       if (!jsonObj.get("endianness").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `endianness` to be a primitive type in the JSON string but got `%s`", jsonObj.get("endianness").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `endianness` to be a primitive type in the JSON string but got `%s`", jsonObj.get("endianness").toString()));
       }
       if (!jsonObj.get("entry_point_bytes").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `entry_point_bytes` to be a primitive type in the JSON string but got `%s`", jsonObj.get("entry_point_bytes").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `entry_point_bytes` to be a primitive type in the JSON string but got `%s`", jsonObj.get("entry_point_bytes").toString()));
       }
       if (!jsonObj.get("import_hash").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `import_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("import_hash").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `import_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("import_hash").toString()));
       }
       if (!jsonObj.get("export_hash").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `export_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("export_hash").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `export_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("export_hash").toString()));
       }
       if (!jsonObj.get("build_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `build_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("build_id").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `build_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("build_id").toString()));
       }
       // validate the required field `security`
       ELFSecurity.validateJsonElement(jsonObj.get("security"));
       // ensure the json data is an array
       if (!jsonObj.get("sections").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sections` to be an array in the JSON string but got `%s`", jsonObj.get("sections").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `sections` to be an array in the JSON string but got `%s`", jsonObj.get("sections").toString()));
       }
 
       JsonArray jsonArraysections = jsonObj.getAsJsonArray("sections");
@@ -774,7 +776,7 @@ public class ELFModel {
       };
       // ensure the json data is an array
       if (!jsonObj.get("segments").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `segments` to be an array in the JSON string but got `%s`", jsonObj.get("segments").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `segments` to be an array in the JSON string but got `%s`", jsonObj.get("segments").toString()));
       }
 
       JsonArray jsonArraysegments = jsonObj.getAsJsonArray("segments");
@@ -784,7 +786,7 @@ public class ELFModel {
       };
       // ensure the json data is an array
       if (!jsonObj.get("symbols").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `symbols` to be an array in the JSON string but got `%s`", jsonObj.get("symbols").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `symbols` to be an array in the JSON string but got `%s`", jsonObj.get("symbols").toString()));
       }
 
       JsonArray jsonArraysymbols = jsonObj.getAsJsonArray("symbols");
@@ -794,7 +796,7 @@ public class ELFModel {
       };
       // ensure the json data is an array
       if (!jsonObj.get("dynamic_symbols").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `dynamic_symbols` to be an array in the JSON string but got `%s`", jsonObj.get("dynamic_symbols").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `dynamic_symbols` to be an array in the JSON string but got `%s`", jsonObj.get("dynamic_symbols").toString()));
       }
 
       JsonArray jsonArraydynamicSymbols = jsonObj.getAsJsonArray("dynamic_symbols");
@@ -804,7 +806,7 @@ public class ELFModel {
       };
       // ensure the json data is an array
       if (!jsonObj.get("relocations").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `relocations` to be an array in the JSON string but got `%s`", jsonObj.get("relocations").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `relocations` to be an array in the JSON string but got `%s`", jsonObj.get("relocations").toString()));
       }
 
       JsonArray jsonArrayrelocations = jsonObj.getAsJsonArray("relocations");
@@ -818,11 +820,11 @@ public class ELFModel {
       if (jsonObj.get("exported_functions") == null) {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
       } else if (!jsonObj.get("exported_functions").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `exported_functions` to be an array in the JSON string but got `%s`", jsonObj.get("exported_functions").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `exported_functions` to be an array in the JSON string but got `%s`", jsonObj.get("exported_functions").toString()));
       }
       // ensure the json data is an array
       if (!jsonObj.get("dynamic_entries").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `dynamic_entries` to be an array in the JSON string but got `%s`", jsonObj.get("dynamic_entries").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `dynamic_entries` to be an array in the JSON string but got `%s`", jsonObj.get("dynamic_entries").toString()));
       }
 
       JsonArray jsonArraydynamicEntries = jsonObj.getAsJsonArray("dynamic_entries");
@@ -834,7 +836,7 @@ public class ELFModel {
       if (jsonObj.get("notes") == null) {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
       } else if (!jsonObj.get("notes").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `notes` to be an array in the JSON string but got `%s`", jsonObj.get("notes").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `notes` to be an array in the JSON string but got `%s`", jsonObj.get("notes").toString()));
       }
   }
 

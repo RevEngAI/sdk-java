@@ -13,6 +13,7 @@
 package ai.reveng.model;
 
 import java.util.Objects;
+import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -41,13 +42,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Locale;
 
 import ai.reveng.invoker.JSON;
 
 /**
  * FileHashes
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.16.0")
 public class FileHashes {
   public static final String SERIALIZED_NAME_MD5 = "md5";
   @SerializedName(SERIALIZED_NAME_MD5)
@@ -317,7 +319,7 @@ public class FileHashes {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!FileHashes.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in FileHashes is not found in the empty JSON string", FileHashes.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in FileHashes is not found in the empty JSON string", FileHashes.openapiRequiredFields.toString()));
         }
       }
 
@@ -325,40 +327,40 @@ public class FileHashes {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!FileHashes.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `FileHashes` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` in the JSON string is not defined in the `FileHashes` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : FileHashes.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("md5") != null && !jsonObj.get("md5").isJsonNull()) && !jsonObj.get("md5").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `md5` to be a primitive type in the JSON string but got `%s`", jsonObj.get("md5").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `md5` to be a primitive type in the JSON string but got `%s`", jsonObj.get("md5").toString()));
       }
       if ((jsonObj.get("sha1") != null && !jsonObj.get("sha1").isJsonNull()) && !jsonObj.get("sha1").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sha1` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sha1").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `sha1` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sha1").toString()));
       }
       if ((jsonObj.get("sha256") != null && !jsonObj.get("sha256").isJsonNull()) && !jsonObj.get("sha256").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sha256` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sha256").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `sha256` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sha256").toString()));
       }
       if ((jsonObj.get("sha512") != null && !jsonObj.get("sha512").isJsonNull()) && !jsonObj.get("sha512").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sha512` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sha512").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `sha512` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sha512").toString()));
       }
       if ((jsonObj.get("sha3_224") != null && !jsonObj.get("sha3_224").isJsonNull()) && !jsonObj.get("sha3_224").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sha3_224` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sha3_224").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `sha3_224` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sha3_224").toString()));
       }
       if ((jsonObj.get("sha3_256") != null && !jsonObj.get("sha3_256").isJsonNull()) && !jsonObj.get("sha3_256").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sha3_256` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sha3_256").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `sha3_256` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sha3_256").toString()));
       }
       if ((jsonObj.get("sha3_384") != null && !jsonObj.get("sha3_384").isJsonNull()) && !jsonObj.get("sha3_384").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sha3_384` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sha3_384").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `sha3_384` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sha3_384").toString()));
       }
       if ((jsonObj.get("sha3_512") != null && !jsonObj.get("sha3_512").isJsonNull()) && !jsonObj.get("sha3_512").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sha3_512` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sha3_512").toString()));
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `sha3_512` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sha3_512").toString()));
       }
   }
 
