@@ -1,4 +1,4 @@
-# revengai
+# RevEng.AI Java SDK
 
 This is the Java SDK for the RevEng.AI API.
 
