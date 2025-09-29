@@ -16,3 +16,6 @@ scmDeveloperConnection: scm:git:git@github.com:RevEngAI/sdk-java.git
 scmUrl: https://github.com/RevEngAI/sdk-java
 library: okhttp-gson
 hideGenerationTimestamp: true
+gradleProperties:
+  - mavenCentralPublishing: true
+  - signAllPublications: true
