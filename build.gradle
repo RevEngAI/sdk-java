@@ -168,7 +168,7 @@ test {
 }
 
 mavenPublishing {
-    publishToMavenCentral()
+    publishToMavenCentral(true)
     signAllPublications()
 
     coordinates("ai.reveng", "sdk", "v1.94.0")
