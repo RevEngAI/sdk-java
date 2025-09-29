@@ -12,7 +12,7 @@ All URIs are relative to *https://api.reveng.ai*
 
 <a id="batchRenameFunction"></a>
 # **batchRenameFunction**
-> BaseResponse batchRenameFunction(functionsListRename, authorization)
+> BaseResponse batchRenameFunction(functionsListRename)
 
 Batch Rename Functions
 
@@ -41,9 +41,8 @@ public class Example {
 
     FunctionsRenamingHistoryApi apiInstance = new FunctionsRenamingHistoryApi(defaultClient);
     FunctionsListRename functionsListRename = new FunctionsListRename(); // FunctionsListRename | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponse result = apiInstance.batchRenameFunction(functionsListRename, authorization);
+      BaseResponse result = apiInstance.batchRenameFunction(functionsListRename);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsRenamingHistoryApi#batchRenameFunction");
@@ -61,7 +60,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **functionsListRename** | [**FunctionsListRename**](FunctionsListRename.md)|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -84,7 +82,7 @@ public class Example {
 
 <a id="getFunctionNameHistory"></a>
 # **getFunctionNameHistory**
-> BaseResponseListFunctionNameHistory getFunctionNameHistory(functionId, authorization)
+> BaseResponseListFunctionNameHistory getFunctionNameHistory(functionId)
 
 Get Function Name History
 
@@ -113,9 +111,8 @@ public class Example {
 
     FunctionsRenamingHistoryApi apiInstance = new FunctionsRenamingHistoryApi(defaultClient);
     Integer functionId = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseListFunctionNameHistory result = apiInstance.getFunctionNameHistory(functionId, authorization);
+      BaseResponseListFunctionNameHistory result = apiInstance.getFunctionNameHistory(functionId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsRenamingHistoryApi#getFunctionNameHistory");
@@ -133,7 +130,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **functionId** | **Integer**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -156,7 +152,7 @@ public class Example {
 
 <a id="renameFunctionId"></a>
 # **renameFunctionId**
-> BaseResponse renameFunctionId(functionId, functionRename, authorization)
+> BaseResponse renameFunctionId(functionId, functionRename)
 
 Rename Function
 
@@ -186,9 +182,8 @@ public class Example {
     FunctionsRenamingHistoryApi apiInstance = new FunctionsRenamingHistoryApi(defaultClient);
     Integer functionId = 56; // Integer | 
     FunctionRename functionRename = new FunctionRename(); // FunctionRename | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponse result = apiInstance.renameFunctionId(functionId, functionRename, authorization);
+      BaseResponse result = apiInstance.renameFunctionId(functionId, functionRename);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsRenamingHistoryApi#renameFunctionId");
@@ -207,7 +202,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **functionId** | **Integer**|  | |
 | **functionRename** | [**FunctionRename**](FunctionRename.md)|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -230,7 +224,7 @@ public class Example {
 
 <a id="revertFunctionName"></a>
 # **revertFunctionName**
-> BaseResponse revertFunctionName(functionId, historyId, authorization)
+> BaseResponse revertFunctionName(functionId, historyId)
 
 Revert the function name
 
@@ -260,9 +254,8 @@ public class Example {
     FunctionsRenamingHistoryApi apiInstance = new FunctionsRenamingHistoryApi(defaultClient);
     Integer functionId = 56; // Integer | 
     Integer historyId = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponse result = apiInstance.revertFunctionName(functionId, historyId, authorization);
+      BaseResponse result = apiInstance.revertFunctionName(functionId, historyId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsRenamingHistoryApi#revertFunctionName");
@@ -281,7 +274,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **functionId** | **Integer**|  | |
 | **historyId** | **Integer**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 

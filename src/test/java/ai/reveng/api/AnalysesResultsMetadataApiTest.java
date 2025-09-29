@@ -44,8 +44,7 @@ public class AnalysesResultsMetadataApiTest {
     @Test
     public void getCapabilitiesTest() throws ApiException {
         Integer analysisId = null;
-        String authorization = null;
-        BaseResponseCapabilities response = api.getCapabilities(analysisId, authorization);
+        BaseResponseCapabilities response = api.getCapabilities(analysisId);
         // TODO: test validations
     }
 
@@ -58,8 +57,7 @@ public class AnalysesResultsMetadataApiTest {
     public void getCommunitiesTest() throws ApiException {
         Integer analysisId = null;
         String userName = null;
-        String authorization = null;
-        BaseResponseCommunities response = api.getCommunities(analysisId, userName, authorization);
+        BaseResponseCommunities response = api.getCommunities(analysisId, userName);
         // TODO: test validations
     }
 
@@ -76,8 +74,7 @@ public class AnalysesResultsMetadataApiTest {
         String searchTerm = null;
         Integer minVAddr = null;
         Integer maxVAddr = null;
-        String authorization = null;
-        BaseResponseAnalysisFunctions response = api.getFunctionsList(analysisId, searchTerm, minVAddr, maxVAddr, authorization);
+        BaseResponseAnalysisFunctions response = api.getFunctionsList(analysisId, searchTerm, minVAddr, maxVAddr);
         // TODO: test validations
     }
 
@@ -89,8 +86,7 @@ public class AnalysesResultsMetadataApiTest {
     @Test
     public void getPdfTest() throws ApiException {
         Integer analysisId = null;
-        String authorization = null;
-        Object response = api.getPdf(analysisId, authorization);
+        Object response = api.getPdf(analysisId);
         // TODO: test validations
     }
 
@@ -102,8 +98,7 @@ public class AnalysesResultsMetadataApiTest {
     @Test
     public void getSbomTest() throws ApiException {
         Integer analysisId = null;
-        String authorization = null;
-        BaseResponseListSBOM response = api.getSbom(analysisId, authorization);
+        BaseResponseListSBOM response = api.getSbom(analysisId);
         // TODO: test validations
     }
 
@@ -115,8 +110,7 @@ public class AnalysesResultsMetadataApiTest {
     @Test
     public void getTagsTest() throws ApiException {
         Integer analysisId = null;
-        String authorization = null;
-        BaseResponseAnalysisTags response = api.getTags(analysisId, authorization);
+        BaseResponseAnalysisTags response = api.getTags(analysisId);
         // TODO: test validations
     }
 
@@ -128,8 +122,7 @@ public class AnalysesResultsMetadataApiTest {
     @Test
     public void getVulnerabilitiesTest() throws ApiException {
         Integer analysisId = null;
-        String authorization = null;
-        BaseResponseVulnerabilities response = api.getVulnerabilities(analysisId, authorization);
+        BaseResponseVulnerabilities response = api.getVulnerabilities(analysisId);
         // TODO: test validations
     }
 

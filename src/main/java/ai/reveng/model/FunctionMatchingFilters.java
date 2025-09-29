@@ -51,7 +51,7 @@ import ai.reveng.invoker.JSON;
 /**
  * FunctionMatchingFilters
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.16.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FunctionMatchingFilters {
   public static final String SERIALIZED_NAME_BINARY_IDS = "binary_ids";
   @SerializedName(SERIALIZED_NAME_BINARY_IDS)

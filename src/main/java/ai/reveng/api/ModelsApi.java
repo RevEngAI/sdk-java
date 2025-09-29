@@ -74,7 +74,6 @@ public class ModelsApi {
 
     /**
      * Build call for getModels
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -86,7 +85,7 @@ public class ModelsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getModelsCall(@javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getModelsCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -126,25 +125,19 @@ public class ModelsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getModelsValidateBeforeCall(@javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
-        return getModelsCall(authorization, _callback);
+    private okhttp3.Call getModelsValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        return getModelsCall(_callback);
 
     }
 
     /**
      * Gets models
      * Gets active models available for analysis.
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseModelsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -155,15 +148,14 @@ public class ModelsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseModelsResponse getModels(@javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseModelsResponse> localVarResp = getModelsWithHttpInfo(authorization);
+    public BaseResponseModelsResponse getModels() throws ApiException {
+        ApiResponse<BaseResponseModelsResponse> localVarResp = getModelsWithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
      * Gets models
      * Gets active models available for analysis.
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseModelsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -174,8 +166,8 @@ public class ModelsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseModelsResponse> getModelsWithHttpInfo(@javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = getModelsValidateBeforeCall(authorization, null);
+    public ApiResponse<BaseResponseModelsResponse> getModelsWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = getModelsValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<BaseResponseModelsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -183,7 +175,6 @@ public class ModelsApi {
     /**
      * Gets models (asynchronously)
      * Gets active models available for analysis.
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -195,9 +186,9 @@ public class ModelsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getModelsAsync(@javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseModelsResponse> _callback) throws ApiException {
+    public okhttp3.Call getModelsAsync(final ApiCallback<BaseResponseModelsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getModelsValidateBeforeCall(authorization, _callback);
+        okhttp3.Call localVarCall = getModelsValidateBeforeCall(_callback);
         Type localVarReturnType = new TypeToken<BaseResponseModelsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

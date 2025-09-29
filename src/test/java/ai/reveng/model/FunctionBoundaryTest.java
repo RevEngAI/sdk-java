@@ -37,11 +37,11 @@ public class FunctionBoundaryTest {
     }
 
     /**
-     * Test the property 'name'
+     * Test the property 'mangledName'
      */
     @Test
-    public void nameTest() {
-        // TODO: test name
+    public void mangledNameTest() {
+        // TODO: test mangledName
     }
 
     /**

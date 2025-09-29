@@ -55,8 +55,7 @@ public class FunctionsCoreApiTest {
     public void aiUnstripTest() throws ApiException {
         Integer analysisId = null;
         AiUnstripRequest aiUnstripRequest = null;
-        String authorization = null;
-        AutoUnstripResponse response = api.aiUnstrip(analysisId, aiUnstripRequest, authorization);
+        AutoUnstripResponse response = api.aiUnstrip(analysisId, aiUnstripRequest);
         // TODO: test validations
     }
 
@@ -71,8 +70,7 @@ public class FunctionsCoreApiTest {
     public void analysisFunctionMatchingTest() throws ApiException {
         Integer analysisId = null;
         AnalysisFunctionMatchingRequest analysisFunctionMatchingRequest = null;
-        String authorization = null;
-        FunctionMatchingBatchResponse response = api.analysisFunctionMatching(analysisId, analysisFunctionMatchingRequest, authorization);
+        FunctionMatchingBatchResponse response = api.analysisFunctionMatching(analysisId, analysisFunctionMatchingRequest);
         // TODO: test validations
     }
 
@@ -87,8 +85,7 @@ public class FunctionsCoreApiTest {
     public void autoUnstripTest() throws ApiException {
         Integer analysisId = null;
         AutoUnstripRequest autoUnstripRequest = null;
-        String authorization = null;
-        AutoUnstripResponse response = api.autoUnstrip(analysisId, autoUnstripRequest, authorization);
+        AutoUnstripResponse response = api.autoUnstrip(analysisId, autoUnstripRequest);
         // TODO: test validations
     }
 
@@ -102,8 +99,7 @@ public class FunctionsCoreApiTest {
     @Test
     public void batchFunctionMatchingTest() throws ApiException {
         FunctionMatchingRequest functionMatchingRequest = null;
-        String authorization = null;
-        FunctionMatchingBatchResponse response = api.batchFunctionMatching(functionMatchingRequest, authorization);
+        FunctionMatchingBatchResponse response = api.batchFunctionMatching(functionMatchingRequest);
         // TODO: test validations
     }
 
@@ -117,8 +113,7 @@ public class FunctionsCoreApiTest {
     @Test
     public void cancelAiUnstripTest() throws ApiException {
         Integer analysisId = null;
-        String authorization = null;
-        AutoUnstripResponse response = api.cancelAiUnstrip(analysisId, authorization);
+        AutoUnstripResponse response = api.cancelAiUnstrip(analysisId);
         // TODO: test validations
     }
 
@@ -132,8 +127,7 @@ public class FunctionsCoreApiTest {
     @Test
     public void cancelAutoUnstripTest() throws ApiException {
         Integer analysisId = null;
-        String authorization = null;
-        AutoUnstripResponse response = api.cancelAutoUnstrip(analysisId, authorization);
+        AutoUnstripResponse response = api.cancelAutoUnstrip(analysisId);
         // TODO: test validations
     }
 
@@ -151,8 +145,7 @@ public class FunctionsCoreApiTest {
         Integer pageSize = null;
         String search = null;
         String functionSearch = null;
-        String authorization = null;
-        BaseResponseAnalysisStringsResponse response = api.getAnalysisStrings(analysisId, page, pageSize, search, functionSearch, authorization);
+        BaseResponseAnalysisStringsResponse response = api.getAnalysisStrings(analysisId, page, pageSize, search, functionSearch);
         // TODO: test validations
     }
 
@@ -166,8 +159,7 @@ public class FunctionsCoreApiTest {
     @Test
     public void getFunctionBlocksTest() throws ApiException {
         Integer functionId = null;
-        String authorization = null;
-        BaseResponseFunctionBlocksResponse response = api.getFunctionBlocks(functionId, authorization);
+        BaseResponseFunctionBlocksResponse response = api.getFunctionBlocks(functionId);
         // TODO: test validations
     }
 
@@ -179,8 +171,7 @@ public class FunctionsCoreApiTest {
     @Test
     public void getFunctionCalleesCallersTest() throws ApiException {
         Integer functionId = null;
-        String authorization = null;
-        BaseResponseCalleesCallerFunctionsResponse response = api.getFunctionCalleesCallers(functionId, authorization);
+        BaseResponseCalleesCallerFunctionsResponse response = api.getFunctionCalleesCallers(functionId);
         // TODO: test validations
     }
 
@@ -192,8 +183,7 @@ public class FunctionsCoreApiTest {
     @Test
     public void getFunctionCapabilitiesTest() throws ApiException {
         Integer functionId = null;
-        String authorization = null;
-        BaseResponseFunctionCapabilityResponse response = api.getFunctionCapabilities(functionId, authorization);
+        BaseResponseFunctionCapabilityResponse response = api.getFunctionCapabilities(functionId);
         // TODO: test validations
     }
 
@@ -205,8 +195,7 @@ public class FunctionsCoreApiTest {
     @Test
     public void getFunctionDetailsTest() throws ApiException {
         Integer functionId = null;
-        String authorization = null;
-        BaseResponseFunctionsDetailResponse response = api.getFunctionDetails(functionId, authorization);
+        BaseResponseFunctionsDetailResponse response = api.getFunctionDetails(functionId);
         // TODO: test validations
     }
 
@@ -223,8 +212,7 @@ public class FunctionsCoreApiTest {
         Integer page = null;
         Integer pageSize = null;
         String search = null;
-        String authorization = null;
-        BaseResponseFunctionStringsResponse response = api.getFunctionStrings(functionId, page, pageSize, search, authorization);
+        BaseResponseFunctionStringsResponse response = api.getFunctionStrings(functionId, page, pageSize, search);
         // TODO: test validations
     }
 
@@ -242,8 +230,7 @@ public class FunctionsCoreApiTest {
         Boolean debug = null;
         List<String> debugTypes = null;
         List<Integer> binaryIds = null;
-        String authorization = null;
-        BaseResponseListSimilarFunctionsResponse response = api.getSimilarFunctions(functionId, limit, distance, collectionIds, debug, debugTypes, binaryIds, authorization);
+        BaseResponseListSimilarFunctionsResponse response = api.getSimilarFunctions(functionId, limit, distance, collectionIds, debug, debugTypes, binaryIds);
         // TODO: test validations
     }
 

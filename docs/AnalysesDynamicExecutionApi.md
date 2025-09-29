@@ -15,7 +15,7 @@ All URIs are relative to *https://api.reveng.ai*
 
 <a id="getDynamicExecutionStatus"></a>
 # **getDynamicExecutionStatus**
-> BaseResponseDynamicExecutionStatus getDynamicExecutionStatus(analysisId, authorization)
+> BaseResponseDynamicExecutionStatus getDynamicExecutionStatus(analysisId)
 
 Get the status of a dynamic execution task
 
@@ -42,9 +42,8 @@ public class Example {
 
     AnalysesDynamicExecutionApi apiInstance = new AnalysesDynamicExecutionApi(defaultClient);
     Integer analysisId = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseDynamicExecutionStatus result = apiInstance.getDynamicExecutionStatus(analysisId, authorization);
+      BaseResponseDynamicExecutionStatus result = apiInstance.getDynamicExecutionStatus(analysisId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesDynamicExecutionApi#getDynamicExecutionStatus");
@@ -62,7 +61,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -85,7 +83,7 @@ public class Example {
 
 <a id="getNetworkOverview"></a>
 # **getNetworkOverview**
-> BaseResponseNetworkOverviewResponse getNetworkOverview(analysisId, authorization)
+> BaseResponseNetworkOverviewResponse getNetworkOverview(analysisId)
 
 Get the dynamic execution results for network overview
 
@@ -112,9 +110,8 @@ public class Example {
 
     AnalysesDynamicExecutionApi apiInstance = new AnalysesDynamicExecutionApi(defaultClient);
     Integer analysisId = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseNetworkOverviewResponse result = apiInstance.getNetworkOverview(analysisId, authorization);
+      BaseResponseNetworkOverviewResponse result = apiInstance.getNetworkOverview(analysisId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesDynamicExecutionApi#getNetworkOverview");
@@ -132,7 +129,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -155,7 +151,7 @@ public class Example {
 
 <a id="getProcessDump"></a>
 # **getProcessDump**
-> Object getProcessDump(analysisId, dumpName, authorization)
+> Object getProcessDump(analysisId, dumpName)
 
 Get the dynamic execution results for a specific process dump
 
@@ -183,9 +179,8 @@ public class Example {
     AnalysesDynamicExecutionApi apiInstance = new AnalysesDynamicExecutionApi(defaultClient);
     Integer analysisId = 56; // Integer | 
     String dumpName = "dumpName_example"; // String | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      Object result = apiInstance.getProcessDump(analysisId, dumpName, authorization);
+      Object result = apiInstance.getProcessDump(analysisId, dumpName);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesDynamicExecutionApi#getProcessDump");
@@ -204,7 +199,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
 | **dumpName** | **String**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -227,7 +221,7 @@ public class Example {
 
 <a id="getProcessDumps"></a>
 # **getProcessDumps**
-> BaseResponseProcessDumps getProcessDumps(analysisId, authorization)
+> BaseResponseProcessDumps getProcessDumps(analysisId)
 
 Get the dynamic execution results for process dumps
 
@@ -254,9 +248,8 @@ public class Example {
 
     AnalysesDynamicExecutionApi apiInstance = new AnalysesDynamicExecutionApi(defaultClient);
     Integer analysisId = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseProcessDumps result = apiInstance.getProcessDumps(analysisId, authorization);
+      BaseResponseProcessDumps result = apiInstance.getProcessDumps(analysisId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesDynamicExecutionApi#getProcessDumps");
@@ -274,7 +267,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -297,7 +289,7 @@ public class Example {
 
 <a id="getProcessRegistry"></a>
 # **getProcessRegistry**
-> BaseResponseProcessRegistry getProcessRegistry(analysisId, authorization)
+> BaseResponseProcessRegistry getProcessRegistry(analysisId)
 
 Get the dynamic execution results for process registry
 
@@ -324,9 +316,8 @@ public class Example {
 
     AnalysesDynamicExecutionApi apiInstance = new AnalysesDynamicExecutionApi(defaultClient);
     Integer analysisId = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseProcessRegistry result = apiInstance.getProcessRegistry(analysisId, authorization);
+      BaseResponseProcessRegistry result = apiInstance.getProcessRegistry(analysisId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesDynamicExecutionApi#getProcessRegistry");
@@ -344,7 +335,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -367,7 +357,7 @@ public class Example {
 
 <a id="getProcessTree"></a>
 # **getProcessTree**
-> BaseResponseProcessTree getProcessTree(analysisId, authorization)
+> BaseResponseProcessTree getProcessTree(analysisId)
 
 Get the dynamic execution results for process tree
 
@@ -394,9 +384,8 @@ public class Example {
 
     AnalysesDynamicExecutionApi apiInstance = new AnalysesDynamicExecutionApi(defaultClient);
     Integer analysisId = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseProcessTree result = apiInstance.getProcessTree(analysisId, authorization);
+      BaseResponseProcessTree result = apiInstance.getProcessTree(analysisId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesDynamicExecutionApi#getProcessTree");
@@ -414,7 +403,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -437,7 +425,7 @@ public class Example {
 
 <a id="getTtps"></a>
 # **getTtps**
-> BaseResponseTTPS getTtps(analysisId, authorization)
+> BaseResponseTTPS getTtps(analysisId)
 
 Get the dynamic execution results for ttps
 
@@ -464,9 +452,8 @@ public class Example {
 
     AnalysesDynamicExecutionApi apiInstance = new AnalysesDynamicExecutionApi(defaultClient);
     Integer analysisId = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseTTPS result = apiInstance.getTtps(analysisId, authorization);
+      BaseResponseTTPS result = apiInstance.getTtps(analysisId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesDynamicExecutionApi#getTtps");
@@ -484,7 +471,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 

@@ -79,7 +79,6 @@ public class BinariesApi {
     /**
      * Build call for downloadZippedBinary
      * @param binaryId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -91,7 +90,7 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call downloadZippedBinaryCall(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call downloadZippedBinaryCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -132,23 +131,18 @@ public class BinariesApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call downloadZippedBinaryValidateBeforeCall(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call downloadZippedBinaryValidateBeforeCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'binaryId' is set
         if (binaryId == null) {
             throw new ApiException("Missing the required parameter 'binaryId' when calling downloadZippedBinary(Async)");
         }
 
-        return downloadZippedBinaryCall(binaryId, authorization, _callback);
+        return downloadZippedBinaryCall(binaryId, _callback);
 
     }
 
@@ -156,7 +150,6 @@ public class BinariesApi {
      * Downloads a zipped binary with password protection
      * 
      * @param binaryId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -167,8 +160,8 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public Object downloadZippedBinary(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<Object> localVarResp = downloadZippedBinaryWithHttpInfo(binaryId, authorization);
+    public Object downloadZippedBinary(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
+        ApiResponse<Object> localVarResp = downloadZippedBinaryWithHttpInfo(binaryId);
         return localVarResp.getData();
     }
 
@@ -176,7 +169,6 @@ public class BinariesApi {
      * Downloads a zipped binary with password protection
      * 
      * @param binaryId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -187,8 +179,8 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> downloadZippedBinaryWithHttpInfo(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = downloadZippedBinaryValidateBeforeCall(binaryId, authorization, null);
+    public ApiResponse<Object> downloadZippedBinaryWithHttpInfo(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
+        okhttp3.Call localVarCall = downloadZippedBinaryValidateBeforeCall(binaryId, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -197,7 +189,6 @@ public class BinariesApi {
      * Downloads a zipped binary with password protection (asynchronously)
      * 
      * @param binaryId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -209,9 +200,9 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call downloadZippedBinaryAsync(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String authorization, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call downloadZippedBinaryAsync(@javax.annotation.Nonnull Integer binaryId, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = downloadZippedBinaryValidateBeforeCall(binaryId, authorization, _callback);
+        okhttp3.Call localVarCall = downloadZippedBinaryValidateBeforeCall(binaryId, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -219,7 +210,6 @@ public class BinariesApi {
     /**
      * Build call for getBinaryAdditionalDetails
      * @param binaryId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -231,7 +221,7 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBinaryAdditionalDetailsCall(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBinaryAdditionalDetailsCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -272,23 +262,18 @@ public class BinariesApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBinaryAdditionalDetailsValidateBeforeCall(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getBinaryAdditionalDetailsValidateBeforeCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'binaryId' is set
         if (binaryId == null) {
             throw new ApiException("Missing the required parameter 'binaryId' when calling getBinaryAdditionalDetails(Async)");
         }
 
-        return getBinaryAdditionalDetailsCall(binaryId, authorization, _callback);
+        return getBinaryAdditionalDetailsCall(binaryId, _callback);
 
     }
 
@@ -296,7 +281,6 @@ public class BinariesApi {
      * Gets the additional details of a binary
      * 
      * @param binaryId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseBinaryAdditionalResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -307,8 +291,8 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseBinaryAdditionalResponse getBinaryAdditionalDetails(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseBinaryAdditionalResponse> localVarResp = getBinaryAdditionalDetailsWithHttpInfo(binaryId, authorization);
+    public BaseResponseBinaryAdditionalResponse getBinaryAdditionalDetails(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
+        ApiResponse<BaseResponseBinaryAdditionalResponse> localVarResp = getBinaryAdditionalDetailsWithHttpInfo(binaryId);
         return localVarResp.getData();
     }
 
@@ -316,7 +300,6 @@ public class BinariesApi {
      * Gets the additional details of a binary
      * 
      * @param binaryId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseBinaryAdditionalResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -327,8 +310,8 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseBinaryAdditionalResponse> getBinaryAdditionalDetailsWithHttpInfo(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = getBinaryAdditionalDetailsValidateBeforeCall(binaryId, authorization, null);
+    public ApiResponse<BaseResponseBinaryAdditionalResponse> getBinaryAdditionalDetailsWithHttpInfo(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
+        okhttp3.Call localVarCall = getBinaryAdditionalDetailsValidateBeforeCall(binaryId, null);
         Type localVarReturnType = new TypeToken<BaseResponseBinaryAdditionalResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -337,7 +320,6 @@ public class BinariesApi {
      * Gets the additional details of a binary (asynchronously)
      * 
      * @param binaryId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -349,9 +331,9 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBinaryAdditionalDetailsAsync(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseBinaryAdditionalResponse> _callback) throws ApiException {
+    public okhttp3.Call getBinaryAdditionalDetailsAsync(@javax.annotation.Nonnull Integer binaryId, final ApiCallback<BaseResponseBinaryAdditionalResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBinaryAdditionalDetailsValidateBeforeCall(binaryId, authorization, _callback);
+        okhttp3.Call localVarCall = getBinaryAdditionalDetailsValidateBeforeCall(binaryId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseBinaryAdditionalResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -359,7 +341,6 @@ public class BinariesApi {
     /**
      * Build call for getBinaryDetails
      * @param binaryId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -371,7 +352,7 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBinaryDetailsCall(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBinaryDetailsCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -412,23 +393,18 @@ public class BinariesApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBinaryDetailsValidateBeforeCall(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getBinaryDetailsValidateBeforeCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'binaryId' is set
         if (binaryId == null) {
             throw new ApiException("Missing the required parameter 'binaryId' when calling getBinaryDetails(Async)");
         }
 
-        return getBinaryDetailsCall(binaryId, authorization, _callback);
+        return getBinaryDetailsCall(binaryId, _callback);
 
     }
 
@@ -436,7 +412,6 @@ public class BinariesApi {
      * Gets the details of a binary
      * 
      * @param binaryId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseBinaryDetailsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -447,8 +422,8 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseBinaryDetailsResponse getBinaryDetails(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseBinaryDetailsResponse> localVarResp = getBinaryDetailsWithHttpInfo(binaryId, authorization);
+    public BaseResponseBinaryDetailsResponse getBinaryDetails(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
+        ApiResponse<BaseResponseBinaryDetailsResponse> localVarResp = getBinaryDetailsWithHttpInfo(binaryId);
         return localVarResp.getData();
     }
 
@@ -456,7 +431,6 @@ public class BinariesApi {
      * Gets the details of a binary
      * 
      * @param binaryId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseBinaryDetailsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -467,8 +441,8 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseBinaryDetailsResponse> getBinaryDetailsWithHttpInfo(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = getBinaryDetailsValidateBeforeCall(binaryId, authorization, null);
+    public ApiResponse<BaseResponseBinaryDetailsResponse> getBinaryDetailsWithHttpInfo(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
+        okhttp3.Call localVarCall = getBinaryDetailsValidateBeforeCall(binaryId, null);
         Type localVarReturnType = new TypeToken<BaseResponseBinaryDetailsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -477,7 +451,6 @@ public class BinariesApi {
      * Gets the details of a binary (asynchronously)
      * 
      * @param binaryId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -489,9 +462,9 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBinaryDetailsAsync(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseBinaryDetailsResponse> _callback) throws ApiException {
+    public okhttp3.Call getBinaryDetailsAsync(@javax.annotation.Nonnull Integer binaryId, final ApiCallback<BaseResponseBinaryDetailsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBinaryDetailsValidateBeforeCall(binaryId, authorization, _callback);
+        okhttp3.Call localVarCall = getBinaryDetailsValidateBeforeCall(binaryId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseBinaryDetailsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -499,7 +472,6 @@ public class BinariesApi {
     /**
      * Build call for getBinaryDieInfo
      * @param binaryId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -511,7 +483,7 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBinaryDieInfoCall(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBinaryDieInfoCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -552,23 +524,18 @@ public class BinariesApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBinaryDieInfoValidateBeforeCall(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getBinaryDieInfoValidateBeforeCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'binaryId' is set
         if (binaryId == null) {
             throw new ApiException("Missing the required parameter 'binaryId' when calling getBinaryDieInfo(Async)");
         }
 
-        return getBinaryDieInfoCall(binaryId, authorization, _callback);
+        return getBinaryDieInfoCall(binaryId, _callback);
 
     }
 
@@ -576,7 +543,6 @@ public class BinariesApi {
      * Gets the die info of a binary
      * 
      * @param binaryId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseListDieMatch
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -587,8 +553,8 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseListDieMatch getBinaryDieInfo(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseListDieMatch> localVarResp = getBinaryDieInfoWithHttpInfo(binaryId, authorization);
+    public BaseResponseListDieMatch getBinaryDieInfo(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
+        ApiResponse<BaseResponseListDieMatch> localVarResp = getBinaryDieInfoWithHttpInfo(binaryId);
         return localVarResp.getData();
     }
 
@@ -596,7 +562,6 @@ public class BinariesApi {
      * Gets the die info of a binary
      * 
      * @param binaryId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseListDieMatch&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -607,8 +572,8 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseListDieMatch> getBinaryDieInfoWithHttpInfo(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = getBinaryDieInfoValidateBeforeCall(binaryId, authorization, null);
+    public ApiResponse<BaseResponseListDieMatch> getBinaryDieInfoWithHttpInfo(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
+        okhttp3.Call localVarCall = getBinaryDieInfoValidateBeforeCall(binaryId, null);
         Type localVarReturnType = new TypeToken<BaseResponseListDieMatch>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -617,7 +582,6 @@ public class BinariesApi {
      * Gets the die info of a binary (asynchronously)
      * 
      * @param binaryId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -629,9 +593,9 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBinaryDieInfoAsync(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseListDieMatch> _callback) throws ApiException {
+    public okhttp3.Call getBinaryDieInfoAsync(@javax.annotation.Nonnull Integer binaryId, final ApiCallback<BaseResponseListDieMatch> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBinaryDieInfoValidateBeforeCall(binaryId, authorization, _callback);
+        okhttp3.Call localVarCall = getBinaryDieInfoValidateBeforeCall(binaryId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseListDieMatch>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -639,7 +603,6 @@ public class BinariesApi {
     /**
      * Build call for getBinaryExternals
      * @param binaryId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -651,7 +614,7 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBinaryExternalsCall(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBinaryExternalsCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -692,23 +655,18 @@ public class BinariesApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBinaryExternalsValidateBeforeCall(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getBinaryExternalsValidateBeforeCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'binaryId' is set
         if (binaryId == null) {
             throw new ApiException("Missing the required parameter 'binaryId' when calling getBinaryExternals(Async)");
         }
 
-        return getBinaryExternalsCall(binaryId, authorization, _callback);
+        return getBinaryExternalsCall(binaryId, _callback);
 
     }
 
@@ -716,7 +674,6 @@ public class BinariesApi {
      * Gets the external details of a binary
      * 
      * @param binaryId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseBinaryExternalsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -727,8 +684,8 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseBinaryExternalsResponse getBinaryExternals(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseBinaryExternalsResponse> localVarResp = getBinaryExternalsWithHttpInfo(binaryId, authorization);
+    public BaseResponseBinaryExternalsResponse getBinaryExternals(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
+        ApiResponse<BaseResponseBinaryExternalsResponse> localVarResp = getBinaryExternalsWithHttpInfo(binaryId);
         return localVarResp.getData();
     }
 
@@ -736,7 +693,6 @@ public class BinariesApi {
      * Gets the external details of a binary
      * 
      * @param binaryId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseBinaryExternalsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -747,8 +703,8 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseBinaryExternalsResponse> getBinaryExternalsWithHttpInfo(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = getBinaryExternalsValidateBeforeCall(binaryId, authorization, null);
+    public ApiResponse<BaseResponseBinaryExternalsResponse> getBinaryExternalsWithHttpInfo(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
+        okhttp3.Call localVarCall = getBinaryExternalsValidateBeforeCall(binaryId, null);
         Type localVarReturnType = new TypeToken<BaseResponseBinaryExternalsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -757,7 +713,6 @@ public class BinariesApi {
      * Gets the external details of a binary (asynchronously)
      * 
      * @param binaryId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -769,9 +724,9 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBinaryExternalsAsync(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseBinaryExternalsResponse> _callback) throws ApiException {
+    public okhttp3.Call getBinaryExternalsAsync(@javax.annotation.Nonnull Integer binaryId, final ApiCallback<BaseResponseBinaryExternalsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBinaryExternalsValidateBeforeCall(binaryId, authorization, _callback);
+        okhttp3.Call localVarCall = getBinaryExternalsValidateBeforeCall(binaryId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseBinaryExternalsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -779,7 +734,6 @@ public class BinariesApi {
     /**
      * Build call for getRelatedBinaries
      * @param binaryId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -792,7 +746,7 @@ public class BinariesApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRelatedBinariesCall(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getRelatedBinariesCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -833,23 +787,18 @@ public class BinariesApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getRelatedBinariesValidateBeforeCall(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getRelatedBinariesValidateBeforeCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'binaryId' is set
         if (binaryId == null) {
             throw new ApiException("Missing the required parameter 'binaryId' when calling getRelatedBinaries(Async)");
         }
 
-        return getRelatedBinariesCall(binaryId, authorization, _callback);
+        return getRelatedBinariesCall(binaryId, _callback);
 
     }
 
@@ -857,7 +806,6 @@ public class BinariesApi {
      * Gets the related binaries of a binary.
      * 
      * @param binaryId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseChildBinariesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -869,8 +817,8 @@ public class BinariesApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseChildBinariesResponse getRelatedBinaries(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseChildBinariesResponse> localVarResp = getRelatedBinariesWithHttpInfo(binaryId, authorization);
+    public BaseResponseChildBinariesResponse getRelatedBinaries(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
+        ApiResponse<BaseResponseChildBinariesResponse> localVarResp = getRelatedBinariesWithHttpInfo(binaryId);
         return localVarResp.getData();
     }
 
@@ -878,7 +826,6 @@ public class BinariesApi {
      * Gets the related binaries of a binary.
      * 
      * @param binaryId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseChildBinariesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -890,8 +837,8 @@ public class BinariesApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseChildBinariesResponse> getRelatedBinariesWithHttpInfo(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = getRelatedBinariesValidateBeforeCall(binaryId, authorization, null);
+    public ApiResponse<BaseResponseChildBinariesResponse> getRelatedBinariesWithHttpInfo(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
+        okhttp3.Call localVarCall = getRelatedBinariesValidateBeforeCall(binaryId, null);
         Type localVarReturnType = new TypeToken<BaseResponseChildBinariesResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -900,7 +847,6 @@ public class BinariesApi {
      * Gets the related binaries of a binary. (asynchronously)
      * 
      * @param binaryId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -913,9 +859,9 @@ public class BinariesApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRelatedBinariesAsync(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseChildBinariesResponse> _callback) throws ApiException {
+    public okhttp3.Call getRelatedBinariesAsync(@javax.annotation.Nonnull Integer binaryId, final ApiCallback<BaseResponseChildBinariesResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getRelatedBinariesValidateBeforeCall(binaryId, authorization, _callback);
+        okhttp3.Call localVarCall = getRelatedBinariesValidateBeforeCall(binaryId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseChildBinariesResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

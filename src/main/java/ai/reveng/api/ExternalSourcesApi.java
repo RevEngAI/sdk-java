@@ -77,7 +77,6 @@ public class ExternalSourcesApi {
     /**
      * Build call for createExternalTaskMb
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -90,7 +89,7 @@ public class ExternalSourcesApi {
         <tr><td> 409 </td><td> Request already queued </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createExternalTaskMbCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createExternalTaskMbCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -131,23 +130,18 @@ public class ExternalSourcesApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createExternalTaskMbValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createExternalTaskMbValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling createExternalTaskMb(Async)");
         }
 
-        return createExternalTaskMbCall(analysisId, authorization, _callback);
+        return createExternalTaskMbCall(analysisId, _callback);
 
     }
 
@@ -155,7 +149,6 @@ public class ExternalSourcesApi {
      * Pulls data from VirusTotal
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseStr
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -167,8 +160,8 @@ public class ExternalSourcesApi {
         <tr><td> 409 </td><td> Request already queued </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseStr createExternalTaskMb(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseStr> localVarResp = createExternalTaskMbWithHttpInfo(analysisId, authorization);
+    public BaseResponseStr createExternalTaskMb(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        ApiResponse<BaseResponseStr> localVarResp = createExternalTaskMbWithHttpInfo(analysisId);
         return localVarResp.getData();
     }
 
@@ -176,7 +169,6 @@ public class ExternalSourcesApi {
      * Pulls data from VirusTotal
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseStr&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -188,8 +180,8 @@ public class ExternalSourcesApi {
         <tr><td> 409 </td><td> Request already queued </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseStr> createExternalTaskMbWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = createExternalTaskMbValidateBeforeCall(analysisId, authorization, null);
+    public ApiResponse<BaseResponseStr> createExternalTaskMbWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        okhttp3.Call localVarCall = createExternalTaskMbValidateBeforeCall(analysisId, null);
         Type localVarReturnType = new TypeToken<BaseResponseStr>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -198,7 +190,6 @@ public class ExternalSourcesApi {
      * Pulls data from VirusTotal (asynchronously)
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -211,9 +202,9 @@ public class ExternalSourcesApi {
         <tr><td> 409 </td><td> Request already queued </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createExternalTaskMbAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseStr> _callback) throws ApiException {
+    public okhttp3.Call createExternalTaskMbAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<BaseResponseStr> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createExternalTaskMbValidateBeforeCall(analysisId, authorization, _callback);
+        okhttp3.Call localVarCall = createExternalTaskMbValidateBeforeCall(analysisId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseStr>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -221,7 +212,6 @@ public class ExternalSourcesApi {
     /**
      * Build call for createExternalTaskVt
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -234,7 +224,7 @@ public class ExternalSourcesApi {
         <tr><td> 409 </td><td> Request already queued </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createExternalTaskVtCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createExternalTaskVtCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -275,23 +265,18 @@ public class ExternalSourcesApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createExternalTaskVtValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createExternalTaskVtValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling createExternalTaskVt(Async)");
         }
 
-        return createExternalTaskVtCall(analysisId, authorization, _callback);
+        return createExternalTaskVtCall(analysisId, _callback);
 
     }
 
@@ -299,7 +284,6 @@ public class ExternalSourcesApi {
      * Pulls data from VirusTotal
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseStr
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -311,8 +295,8 @@ public class ExternalSourcesApi {
         <tr><td> 409 </td><td> Request already queued </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseStr createExternalTaskVt(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseStr> localVarResp = createExternalTaskVtWithHttpInfo(analysisId, authorization);
+    public BaseResponseStr createExternalTaskVt(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        ApiResponse<BaseResponseStr> localVarResp = createExternalTaskVtWithHttpInfo(analysisId);
         return localVarResp.getData();
     }
 
@@ -320,7 +304,6 @@ public class ExternalSourcesApi {
      * Pulls data from VirusTotal
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseStr&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -332,8 +315,8 @@ public class ExternalSourcesApi {
         <tr><td> 409 </td><td> Request already queued </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseStr> createExternalTaskVtWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = createExternalTaskVtValidateBeforeCall(analysisId, authorization, null);
+    public ApiResponse<BaseResponseStr> createExternalTaskVtWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        okhttp3.Call localVarCall = createExternalTaskVtValidateBeforeCall(analysisId, null);
         Type localVarReturnType = new TypeToken<BaseResponseStr>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -342,7 +325,6 @@ public class ExternalSourcesApi {
      * Pulls data from VirusTotal (asynchronously)
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -355,9 +337,9 @@ public class ExternalSourcesApi {
         <tr><td> 409 </td><td> Request already queued </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createExternalTaskVtAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseStr> _callback) throws ApiException {
+    public okhttp3.Call createExternalTaskVtAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<BaseResponseStr> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createExternalTaskVtValidateBeforeCall(analysisId, authorization, _callback);
+        okhttp3.Call localVarCall = createExternalTaskVtValidateBeforeCall(analysisId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseStr>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -365,7 +347,6 @@ public class ExternalSourcesApi {
     /**
      * Build call for getMbData
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -378,7 +359,7 @@ public class ExternalSourcesApi {
         <tr><td> 404 </td><td> No data retrieved from MalwareBazaar for the given analysis_id </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMbDataCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getMbDataCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -419,23 +400,18 @@ public class ExternalSourcesApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getMbDataValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getMbDataValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling getMbData(Async)");
         }
 
-        return getMbDataCall(analysisId, authorization, _callback);
+        return getMbDataCall(analysisId, _callback);
 
     }
 
@@ -443,7 +419,6 @@ public class ExternalSourcesApi {
      * Get MalwareBazaar data
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseExternalResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -455,8 +430,8 @@ public class ExternalSourcesApi {
         <tr><td> 404 </td><td> No data retrieved from MalwareBazaar for the given analysis_id </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseExternalResponse getMbData(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseExternalResponse> localVarResp = getMbDataWithHttpInfo(analysisId, authorization);
+    public BaseResponseExternalResponse getMbData(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        ApiResponse<BaseResponseExternalResponse> localVarResp = getMbDataWithHttpInfo(analysisId);
         return localVarResp.getData();
     }
 
@@ -464,7 +439,6 @@ public class ExternalSourcesApi {
      * Get MalwareBazaar data
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseExternalResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -476,8 +450,8 @@ public class ExternalSourcesApi {
         <tr><td> 404 </td><td> No data retrieved from MalwareBazaar for the given analysis_id </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseExternalResponse> getMbDataWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = getMbDataValidateBeforeCall(analysisId, authorization, null);
+    public ApiResponse<BaseResponseExternalResponse> getMbDataWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        okhttp3.Call localVarCall = getMbDataValidateBeforeCall(analysisId, null);
         Type localVarReturnType = new TypeToken<BaseResponseExternalResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -486,7 +460,6 @@ public class ExternalSourcesApi {
      * Get MalwareBazaar data (asynchronously)
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -499,9 +472,9 @@ public class ExternalSourcesApi {
         <tr><td> 404 </td><td> No data retrieved from MalwareBazaar for the given analysis_id </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMbDataAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseExternalResponse> _callback) throws ApiException {
+    public okhttp3.Call getMbDataAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<BaseResponseExternalResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getMbDataValidateBeforeCall(analysisId, authorization, _callback);
+        okhttp3.Call localVarCall = getMbDataValidateBeforeCall(analysisId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseExternalResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -509,7 +482,6 @@ public class ExternalSourcesApi {
     /**
      * Build call for getMbTaskStatus
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -521,7 +493,7 @@ public class ExternalSourcesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMbTaskStatusCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getMbTaskStatusCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -562,23 +534,18 @@ public class ExternalSourcesApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getMbTaskStatusValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getMbTaskStatusValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling getMbTaskStatus(Async)");
         }
 
-        return getMbTaskStatusCall(analysisId, authorization, _callback);
+        return getMbTaskStatusCall(analysisId, _callback);
 
     }
 
@@ -586,7 +553,6 @@ public class ExternalSourcesApi {
      * Check the status of MalwareBazaar data retrieval
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseTaskResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -597,8 +563,8 @@ public class ExternalSourcesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseTaskResponse getMbTaskStatus(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseTaskResponse> localVarResp = getMbTaskStatusWithHttpInfo(analysisId, authorization);
+    public BaseResponseTaskResponse getMbTaskStatus(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        ApiResponse<BaseResponseTaskResponse> localVarResp = getMbTaskStatusWithHttpInfo(analysisId);
         return localVarResp.getData();
     }
 
@@ -606,7 +572,6 @@ public class ExternalSourcesApi {
      * Check the status of MalwareBazaar data retrieval
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseTaskResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -617,8 +582,8 @@ public class ExternalSourcesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseTaskResponse> getMbTaskStatusWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = getMbTaskStatusValidateBeforeCall(analysisId, authorization, null);
+    public ApiResponse<BaseResponseTaskResponse> getMbTaskStatusWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        okhttp3.Call localVarCall = getMbTaskStatusValidateBeforeCall(analysisId, null);
         Type localVarReturnType = new TypeToken<BaseResponseTaskResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -627,7 +592,6 @@ public class ExternalSourcesApi {
      * Check the status of MalwareBazaar data retrieval (asynchronously)
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -639,9 +603,9 @@ public class ExternalSourcesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMbTaskStatusAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseTaskResponse> _callback) throws ApiException {
+    public okhttp3.Call getMbTaskStatusAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<BaseResponseTaskResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getMbTaskStatusValidateBeforeCall(analysisId, authorization, _callback);
+        okhttp3.Call localVarCall = getMbTaskStatusValidateBeforeCall(analysisId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseTaskResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -649,7 +613,6 @@ public class ExternalSourcesApi {
     /**
      * Build call for getVtData
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -662,7 +625,7 @@ public class ExternalSourcesApi {
         <tr><td> 404 </td><td> No data retrieved from VirusTotal for the given analysis_id </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getVtDataCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getVtDataCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -703,23 +666,18 @@ public class ExternalSourcesApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getVtDataValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getVtDataValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling getVtData(Async)");
         }
 
-        return getVtDataCall(analysisId, authorization, _callback);
+        return getVtDataCall(analysisId, _callback);
 
     }
 
@@ -727,7 +685,6 @@ public class ExternalSourcesApi {
      * Get VirusTotal data
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseExternalResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -739,8 +696,8 @@ public class ExternalSourcesApi {
         <tr><td> 404 </td><td> No data retrieved from VirusTotal for the given analysis_id </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseExternalResponse getVtData(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseExternalResponse> localVarResp = getVtDataWithHttpInfo(analysisId, authorization);
+    public BaseResponseExternalResponse getVtData(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        ApiResponse<BaseResponseExternalResponse> localVarResp = getVtDataWithHttpInfo(analysisId);
         return localVarResp.getData();
     }
 
@@ -748,7 +705,6 @@ public class ExternalSourcesApi {
      * Get VirusTotal data
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseExternalResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -760,8 +716,8 @@ public class ExternalSourcesApi {
         <tr><td> 404 </td><td> No data retrieved from VirusTotal for the given analysis_id </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseExternalResponse> getVtDataWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = getVtDataValidateBeforeCall(analysisId, authorization, null);
+    public ApiResponse<BaseResponseExternalResponse> getVtDataWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        okhttp3.Call localVarCall = getVtDataValidateBeforeCall(analysisId, null);
         Type localVarReturnType = new TypeToken<BaseResponseExternalResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -770,7 +726,6 @@ public class ExternalSourcesApi {
      * Get VirusTotal data (asynchronously)
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -783,9 +738,9 @@ public class ExternalSourcesApi {
         <tr><td> 404 </td><td> No data retrieved from VirusTotal for the given analysis_id </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getVtDataAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseExternalResponse> _callback) throws ApiException {
+    public okhttp3.Call getVtDataAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<BaseResponseExternalResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getVtDataValidateBeforeCall(analysisId, authorization, _callback);
+        okhttp3.Call localVarCall = getVtDataValidateBeforeCall(analysisId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseExternalResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -793,7 +748,6 @@ public class ExternalSourcesApi {
     /**
      * Build call for getVtTaskStatus
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -805,7 +759,7 @@ public class ExternalSourcesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getVtTaskStatusCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getVtTaskStatusCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -846,23 +800,18 @@ public class ExternalSourcesApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getVtTaskStatusValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getVtTaskStatusValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling getVtTaskStatus(Async)");
         }
 
-        return getVtTaskStatusCall(analysisId, authorization, _callback);
+        return getVtTaskStatusCall(analysisId, _callback);
 
     }
 
@@ -870,7 +819,6 @@ public class ExternalSourcesApi {
      * Check the status of VirusTotal data retrieval
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseTaskResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -881,8 +829,8 @@ public class ExternalSourcesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseTaskResponse getVtTaskStatus(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseTaskResponse> localVarResp = getVtTaskStatusWithHttpInfo(analysisId, authorization);
+    public BaseResponseTaskResponse getVtTaskStatus(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        ApiResponse<BaseResponseTaskResponse> localVarResp = getVtTaskStatusWithHttpInfo(analysisId);
         return localVarResp.getData();
     }
 
@@ -890,7 +838,6 @@ public class ExternalSourcesApi {
      * Check the status of VirusTotal data retrieval
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseTaskResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -901,8 +848,8 @@ public class ExternalSourcesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseTaskResponse> getVtTaskStatusWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = getVtTaskStatusValidateBeforeCall(analysisId, authorization, null);
+    public ApiResponse<BaseResponseTaskResponse> getVtTaskStatusWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        okhttp3.Call localVarCall = getVtTaskStatusValidateBeforeCall(analysisId, null);
         Type localVarReturnType = new TypeToken<BaseResponseTaskResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -911,7 +858,6 @@ public class ExternalSourcesApi {
      * Check the status of VirusTotal data retrieval (asynchronously)
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -923,9 +869,9 @@ public class ExternalSourcesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getVtTaskStatusAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseTaskResponse> _callback) throws ApiException {
+    public okhttp3.Call getVtTaskStatusAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<BaseResponseTaskResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getVtTaskStatusValidateBeforeCall(analysisId, authorization, _callback);
+        okhttp3.Call localVarCall = getVtTaskStatusValidateBeforeCall(analysisId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseTaskResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

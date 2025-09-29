@@ -49,7 +49,7 @@ import ai.reveng.invoker.JSON;
 /**
  * DecompilationCommentContext
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.16.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DecompilationCommentContext {
   public static final String SERIALIZED_NAME_START_LINE = "start_line";
   @SerializedName(SERIALIZED_NAME_START_LINE)

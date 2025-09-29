@@ -44,8 +44,7 @@ public class AnalysesDynamicExecutionApiTest {
     @Test
     public void getDynamicExecutionStatusTest() throws ApiException {
         Integer analysisId = null;
-        String authorization = null;
-        BaseResponseDynamicExecutionStatus response = api.getDynamicExecutionStatus(analysisId, authorization);
+        BaseResponseDynamicExecutionStatus response = api.getDynamicExecutionStatus(analysisId);
         // TODO: test validations
     }
 
@@ -57,8 +56,7 @@ public class AnalysesDynamicExecutionApiTest {
     @Test
     public void getNetworkOverviewTest() throws ApiException {
         Integer analysisId = null;
-        String authorization = null;
-        BaseResponseNetworkOverviewResponse response = api.getNetworkOverview(analysisId, authorization);
+        BaseResponseNetworkOverviewResponse response = api.getNetworkOverview(analysisId);
         // TODO: test validations
     }
 
@@ -71,8 +69,7 @@ public class AnalysesDynamicExecutionApiTest {
     public void getProcessDumpTest() throws ApiException {
         Integer analysisId = null;
         String dumpName = null;
-        String authorization = null;
-        Object response = api.getProcessDump(analysisId, dumpName, authorization);
+        Object response = api.getProcessDump(analysisId, dumpName);
         // TODO: test validations
     }
 
@@ -84,8 +81,7 @@ public class AnalysesDynamicExecutionApiTest {
     @Test
     public void getProcessDumpsTest() throws ApiException {
         Integer analysisId = null;
-        String authorization = null;
-        BaseResponseProcessDumps response = api.getProcessDumps(analysisId, authorization);
+        BaseResponseProcessDumps response = api.getProcessDumps(analysisId);
         // TODO: test validations
     }
 
@@ -97,8 +93,7 @@ public class AnalysesDynamicExecutionApiTest {
     @Test
     public void getProcessRegistryTest() throws ApiException {
         Integer analysisId = null;
-        String authorization = null;
-        BaseResponseProcessRegistry response = api.getProcessRegistry(analysisId, authorization);
+        BaseResponseProcessRegistry response = api.getProcessRegistry(analysisId);
         // TODO: test validations
     }
 
@@ -110,8 +105,7 @@ public class AnalysesDynamicExecutionApiTest {
     @Test
     public void getProcessTreeTest() throws ApiException {
         Integer analysisId = null;
-        String authorization = null;
-        BaseResponseProcessTree response = api.getProcessTree(analysisId, authorization);
+        BaseResponseProcessTree response = api.getProcessTree(analysisId);
         // TODO: test validations
     }
 
@@ -123,8 +117,7 @@ public class AnalysesDynamicExecutionApiTest {
     @Test
     public void getTtpsTest() throws ApiException {
         Integer analysisId = null;
-        String authorization = null;
-        BaseResponseTTPS response = api.getTtps(analysisId, authorization);
+        BaseResponseTTPS response = api.getTtps(analysisId);
         // TODO: test validations
     }
 

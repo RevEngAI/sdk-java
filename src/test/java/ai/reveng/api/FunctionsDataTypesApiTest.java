@@ -47,8 +47,7 @@ public class FunctionsDataTypesApiTest {
     public void generateFunctionDataTypesForAnalysisTest() throws ApiException {
         Integer analysisId = null;
         FunctionDataTypesParams functionDataTypesParams = null;
-        String authorization = null;
-        BaseResponseGenerateFunctionDataTypes response = api.generateFunctionDataTypesForAnalysis(analysisId, functionDataTypesParams, authorization);
+        BaseResponseGenerateFunctionDataTypes response = api.generateFunctionDataTypesForAnalysis(analysisId, functionDataTypesParams);
         // TODO: test validations
     }
 
@@ -62,8 +61,7 @@ public class FunctionsDataTypesApiTest {
     @Test
     public void generateFunctionDataTypesForFunctionsTest() throws ApiException {
         FunctionDataTypesParams functionDataTypesParams = null;
-        String authorization = null;
-        BaseResponseGenerationStatusList response = api.generateFunctionDataTypesForFunctions(functionDataTypesParams, authorization);
+        BaseResponseGenerationStatusList response = api.generateFunctionDataTypesForFunctions(functionDataTypesParams);
         // TODO: test validations
     }
 
@@ -78,8 +76,7 @@ public class FunctionsDataTypesApiTest {
     public void getFunctionDataTypesTest() throws ApiException {
         Integer analysisId = null;
         Integer functionId = null;
-        String authorization = null;
-        BaseResponseFunctionDataTypes response = api.getFunctionDataTypes(analysisId, functionId, authorization);
+        BaseResponseFunctionDataTypes response = api.getFunctionDataTypes(analysisId, functionId);
         // TODO: test validations
     }
 
@@ -94,8 +91,7 @@ public class FunctionsDataTypesApiTest {
     public void listFunctionDataTypesForAnalysisTest() throws ApiException {
         Integer analysisId = null;
         List<Integer> functionIds = null;
-        String authorization = null;
-        BaseResponseFunctionDataTypesList response = api.listFunctionDataTypesForAnalysis(analysisId, functionIds, authorization);
+        BaseResponseFunctionDataTypesList response = api.listFunctionDataTypesForAnalysis(analysisId, functionIds);
         // TODO: test validations
     }
 
@@ -109,8 +105,7 @@ public class FunctionsDataTypesApiTest {
     @Test
     public void listFunctionDataTypesForFunctionsTest() throws ApiException {
         List<Integer> functionIds = null;
-        String authorization = null;
-        BaseResponseFunctionDataTypesList response = api.listFunctionDataTypesForFunctions(functionIds, authorization);
+        BaseResponseFunctionDataTypesList response = api.listFunctionDataTypesForFunctions(functionIds);
         // TODO: test validations
     }
 
@@ -126,8 +121,7 @@ public class FunctionsDataTypesApiTest {
         Integer analysisId = null;
         Integer functionId = null;
         UpdateFunctionDataTypes updateFunctionDataTypes = null;
-        String authorization = null;
-        BaseResponseFunctionDataTypes response = api.updateFunctionDataTypes(analysisId, functionId, updateFunctionDataTypes, authorization);
+        BaseResponseFunctionDataTypes response = api.updateFunctionDataTypes(analysisId, functionId, updateFunctionDataTypes);
         // TODO: test validations
     }
 

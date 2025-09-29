@@ -52,7 +52,7 @@ import ai.reveng.invoker.JSON;
 /**
  * FunctionsListRename
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.16.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FunctionsListRename {
   public static final String SERIALIZED_NAME_FUNCTIONS = "functions";
   @SerializedName(SERIALIZED_NAME_FUNCTIONS)

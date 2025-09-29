@@ -14,7 +14,7 @@ All URIs are relative to *https://api.reveng.ai*
 
 <a id="createExternalTaskMb"></a>
 # **createExternalTaskMb**
-> BaseResponseStr createExternalTaskMb(analysisId, authorization)
+> BaseResponseStr createExternalTaskMb(analysisId)
 
 Pulls data from VirusTotal
 
@@ -41,9 +41,8 @@ public class Example {
 
     ExternalSourcesApi apiInstance = new ExternalSourcesApi(defaultClient);
     Integer analysisId = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseStr result = apiInstance.createExternalTaskMb(analysisId, authorization);
+      BaseResponseStr result = apiInstance.createExternalTaskMb(analysisId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ExternalSourcesApi#createExternalTaskMb");
@@ -61,7 +60,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -85,7 +83,7 @@ public class Example {
 
 <a id="createExternalTaskVt"></a>
 # **createExternalTaskVt**
-> BaseResponseStr createExternalTaskVt(analysisId, authorization)
+> BaseResponseStr createExternalTaskVt(analysisId)
 
 Pulls data from VirusTotal
 
@@ -112,9 +110,8 @@ public class Example {
 
     ExternalSourcesApi apiInstance = new ExternalSourcesApi(defaultClient);
     Integer analysisId = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseStr result = apiInstance.createExternalTaskVt(analysisId, authorization);
+      BaseResponseStr result = apiInstance.createExternalTaskVt(analysisId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ExternalSourcesApi#createExternalTaskVt");
@@ -132,7 +129,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -156,7 +152,7 @@ public class Example {
 
 <a id="getMbData"></a>
 # **getMbData**
-> BaseResponseExternalResponse getMbData(analysisId, authorization)
+> BaseResponseExternalResponse getMbData(analysisId)
 
 Get MalwareBazaar data
 
@@ -183,9 +179,8 @@ public class Example {
 
     ExternalSourcesApi apiInstance = new ExternalSourcesApi(defaultClient);
     Integer analysisId = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseExternalResponse result = apiInstance.getMbData(analysisId, authorization);
+      BaseResponseExternalResponse result = apiInstance.getMbData(analysisId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ExternalSourcesApi#getMbData");
@@ -203,7 +198,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -227,7 +221,7 @@ public class Example {
 
 <a id="getMbTaskStatus"></a>
 # **getMbTaskStatus**
-> BaseResponseTaskResponse getMbTaskStatus(analysisId, authorization)
+> BaseResponseTaskResponse getMbTaskStatus(analysisId)
 
 Check the status of MalwareBazaar data retrieval
 
@@ -254,9 +248,8 @@ public class Example {
 
     ExternalSourcesApi apiInstance = new ExternalSourcesApi(defaultClient);
     Integer analysisId = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseTaskResponse result = apiInstance.getMbTaskStatus(analysisId, authorization);
+      BaseResponseTaskResponse result = apiInstance.getMbTaskStatus(analysisId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ExternalSourcesApi#getMbTaskStatus");
@@ -274,7 +267,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -297,7 +289,7 @@ public class Example {
 
 <a id="getVtData"></a>
 # **getVtData**
-> BaseResponseExternalResponse getVtData(analysisId, authorization)
+> BaseResponseExternalResponse getVtData(analysisId)
 
 Get VirusTotal data
 
@@ -324,9 +316,8 @@ public class Example {
 
     ExternalSourcesApi apiInstance = new ExternalSourcesApi(defaultClient);
     Integer analysisId = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseExternalResponse result = apiInstance.getVtData(analysisId, authorization);
+      BaseResponseExternalResponse result = apiInstance.getVtData(analysisId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ExternalSourcesApi#getVtData");
@@ -344,7 +335,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -368,7 +358,7 @@ public class Example {
 
 <a id="getVtTaskStatus"></a>
 # **getVtTaskStatus**
-> BaseResponseTaskResponse getVtTaskStatus(analysisId, authorization)
+> BaseResponseTaskResponse getVtTaskStatus(analysisId)
 
 Check the status of VirusTotal data retrieval
 
@@ -395,9 +385,8 @@ public class Example {
 
     ExternalSourcesApi apiInstance = new ExternalSourcesApi(defaultClient);
     Integer analysisId = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseTaskResponse result = apiInstance.getVtTaskStatus(analysisId, authorization);
+      BaseResponseTaskResponse result = apiInstance.getVtTaskStatus(analysisId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ExternalSourcesApi#getVtTaskStatus");
@@ -415,7 +404,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 

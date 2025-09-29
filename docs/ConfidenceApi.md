@@ -12,7 +12,7 @@ All URIs are relative to *https://api.reveng.ai*
 
 <a id="getAnalysisTagScore"></a>
 # **getAnalysisTagScore**
-> BaseResponseListTagOriginBoxPlotConfidence getAnalysisTagScore(analysisId, tagConfidenceBody, authorization)
+> BaseResponseListTagOriginBoxPlotConfidence getAnalysisTagScore(analysisId, tagConfidenceBody)
 
 Calculate Tag Confidence Score for an Analysis
 
@@ -42,9 +42,8 @@ public class Example {
     ConfidenceApi apiInstance = new ConfidenceApi(defaultClient);
     Integer analysisId = 56; // Integer | The analysis to calculate the tag scores for
     TagConfidenceBody tagConfidenceBody = new TagConfidenceBody(); // TagConfidenceBody | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseListTagOriginBoxPlotConfidence result = apiInstance.getAnalysisTagScore(analysisId, tagConfidenceBody, authorization);
+      BaseResponseListTagOriginBoxPlotConfidence result = apiInstance.getAnalysisTagScore(analysisId, tagConfidenceBody);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ConfidenceApi#getAnalysisTagScore");
@@ -63,7 +62,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**| The analysis to calculate the tag scores for | |
 | **tagConfidenceBody** | [**TagConfidenceBody**](TagConfidenceBody.md)|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -86,7 +84,7 @@ public class Example {
 
 <a id="getAnalysisThreatScore"></a>
 # **getAnalysisThreatScore**
-> BaseResponseBoxPlotConfidence getAnalysisThreatScore(analysisId, authorization)
+> BaseResponseBoxPlotConfidence getAnalysisThreatScore(analysisId)
 
 Calculate Threat Score for Binary
 
@@ -115,9 +113,8 @@ public class Example {
 
     ConfidenceApi apiInstance = new ConfidenceApi(defaultClient);
     Integer analysisId = 56; // Integer | The analysis to calculate the threat score for
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseBoxPlotConfidence result = apiInstance.getAnalysisThreatScore(analysisId, authorization);
+      BaseResponseBoxPlotConfidence result = apiInstance.getAnalysisThreatScore(analysisId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ConfidenceApi#getAnalysisThreatScore");
@@ -135,7 +132,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**| The analysis to calculate the threat score for | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -158,7 +154,7 @@ public class Example {
 
 <a id="getFunctionsNameScore"></a>
 # **getFunctionsNameScore**
-> BaseResponseListFunctionBoxPlotConfidence getFunctionsNameScore(functionNameConfidenceBody, authorization)
+> BaseResponseListFunctionBoxPlotConfidence getFunctionsNameScore(functionNameConfidenceBody)
 
 Calculate function name confidence for a set of Functions
 
@@ -187,9 +183,8 @@ public class Example {
 
     ConfidenceApi apiInstance = new ConfidenceApi(defaultClient);
     FunctionNameConfidenceBody functionNameConfidenceBody = new FunctionNameConfidenceBody(); // FunctionNameConfidenceBody | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseListFunctionBoxPlotConfidence result = apiInstance.getFunctionsNameScore(functionNameConfidenceBody, authorization);
+      BaseResponseListFunctionBoxPlotConfidence result = apiInstance.getFunctionsNameScore(functionNameConfidenceBody);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ConfidenceApi#getFunctionsNameScore");
@@ -207,7 +202,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **functionNameConfidenceBody** | [**FunctionNameConfidenceBody**](FunctionNameConfidenceBody.md)|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -230,7 +224,7 @@ public class Example {
 
 <a id="getFunctionsThreatScore"></a>
 # **getFunctionsThreatScore**
-> BaseResponseListFunctionBoxPlotConfidence getFunctionsThreatScore(threatScoreFunctionBody, authorization)
+> BaseResponseListFunctionBoxPlotConfidence getFunctionsThreatScore(threatScoreFunctionBody)
 
 Calculate Threat Score for a set of Functions
 
@@ -259,9 +253,8 @@ public class Example {
 
     ConfidenceApi apiInstance = new ConfidenceApi(defaultClient);
     ThreatScoreFunctionBody threatScoreFunctionBody = new ThreatScoreFunctionBody(); // ThreatScoreFunctionBody | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseListFunctionBoxPlotConfidence result = apiInstance.getFunctionsThreatScore(threatScoreFunctionBody, authorization);
+      BaseResponseListFunctionBoxPlotConfidence result = apiInstance.getFunctionsThreatScore(threatScoreFunctionBody);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ConfidenceApi#getFunctionsThreatScore");
@@ -279,7 +272,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **threatScoreFunctionBody** | [**ThreatScoreFunctionBody**](ThreatScoreFunctionBody.md)|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 

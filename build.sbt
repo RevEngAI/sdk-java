@@ -2,7 +2,7 @@ lazy val root = (project in file(".")).
   settings(
     organization := "ai.reveng",
     name := "sdk",
-    version := "v1.94.0",
+    version := "v1.95.0",
     scalaVersion := "2.11.12",
     scalacOptions ++= Seq("-feature"),
     compile / javacOptions ++= Seq("-Xlint:deprecation"),

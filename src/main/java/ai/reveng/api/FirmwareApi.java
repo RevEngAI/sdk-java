@@ -75,7 +75,6 @@ public class FirmwareApi {
     /**
      * Build call for getBinariesForFirmwareTask
      * @param taskId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -87,7 +86,7 @@ public class FirmwareApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBinariesForFirmwareTaskCall(@javax.annotation.Nonnull String taskId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBinariesForFirmwareTaskCall(@javax.annotation.Nonnull String taskId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -128,23 +127,18 @@ public class FirmwareApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBinariesForFirmwareTaskValidateBeforeCall(@javax.annotation.Nonnull String taskId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getBinariesForFirmwareTaskValidateBeforeCall(@javax.annotation.Nonnull String taskId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'taskId' is set
         if (taskId == null) {
             throw new ApiException("Missing the required parameter 'taskId' when calling getBinariesForFirmwareTask(Async)");
         }
 
-        return getBinariesForFirmwareTaskCall(taskId, authorization, _callback);
+        return getBinariesForFirmwareTaskCall(taskId, _callback);
 
     }
 
@@ -152,7 +146,6 @@ public class FirmwareApi {
      * Upload firmware for unpacking
      * Uploads a firmware file and begins a &#39;Firmware Unpacker&#39; task. Returns a result identifier, which can be used to poll for the response.
      * @param taskId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -163,8 +156,8 @@ public class FirmwareApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public Object getBinariesForFirmwareTask(@javax.annotation.Nonnull String taskId, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<Object> localVarResp = getBinariesForFirmwareTaskWithHttpInfo(taskId, authorization);
+    public Object getBinariesForFirmwareTask(@javax.annotation.Nonnull String taskId) throws ApiException {
+        ApiResponse<Object> localVarResp = getBinariesForFirmwareTaskWithHttpInfo(taskId);
         return localVarResp.getData();
     }
 
@@ -172,7 +165,6 @@ public class FirmwareApi {
      * Upload firmware for unpacking
      * Uploads a firmware file and begins a &#39;Firmware Unpacker&#39; task. Returns a result identifier, which can be used to poll for the response.
      * @param taskId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -183,8 +175,8 @@ public class FirmwareApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> getBinariesForFirmwareTaskWithHttpInfo(@javax.annotation.Nonnull String taskId, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = getBinariesForFirmwareTaskValidateBeforeCall(taskId, authorization, null);
+    public ApiResponse<Object> getBinariesForFirmwareTaskWithHttpInfo(@javax.annotation.Nonnull String taskId) throws ApiException {
+        okhttp3.Call localVarCall = getBinariesForFirmwareTaskValidateBeforeCall(taskId, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -193,7 +185,6 @@ public class FirmwareApi {
      * Upload firmware for unpacking (asynchronously)
      * Uploads a firmware file and begins a &#39;Firmware Unpacker&#39; task. Returns a result identifier, which can be used to poll for the response.
      * @param taskId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -205,9 +196,9 @@ public class FirmwareApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBinariesForFirmwareTaskAsync(@javax.annotation.Nonnull String taskId, @javax.annotation.Nullable String authorization, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call getBinariesForFirmwareTaskAsync(@javax.annotation.Nonnull String taskId, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBinariesForFirmwareTaskValidateBeforeCall(taskId, authorization, _callback);
+        okhttp3.Call localVarCall = getBinariesForFirmwareTaskValidateBeforeCall(taskId, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -215,7 +206,6 @@ public class FirmwareApi {
     /**
      * Build call for uploadFirmware
      * @param _file  (required)
-     * @param authorization API Key bearer token (optional)
      * @param password  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -228,7 +218,7 @@ public class FirmwareApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call uploadFirmwareCall(@javax.annotation.Nonnull File _file, @javax.annotation.Nullable String authorization, @javax.annotation.Nullable String password, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call uploadFirmwareCall(@javax.annotation.Nonnull File _file, @javax.annotation.Nullable String password, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -277,23 +267,18 @@ public class FirmwareApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call uploadFirmwareValidateBeforeCall(@javax.annotation.Nonnull File _file, @javax.annotation.Nullable String authorization, @javax.annotation.Nullable String password, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call uploadFirmwareValidateBeforeCall(@javax.annotation.Nonnull File _file, @javax.annotation.Nullable String password, final ApiCallback _callback) throws ApiException {
         // verify the required parameter '_file' is set
         if (_file == null) {
             throw new ApiException("Missing the required parameter '_file' when calling uploadFirmware(Async)");
         }
 
-        return uploadFirmwareCall(_file, authorization, password, _callback);
+        return uploadFirmwareCall(_file, password, _callback);
 
     }
 
@@ -301,7 +286,6 @@ public class FirmwareApi {
      * Upload firmware for unpacking
      * Uploads a firmware file and begins a &#39;Firmware Unpacker&#39; task. Returns a result identifier, which can be used to poll for the response.
      * @param _file  (required)
-     * @param authorization API Key bearer token (optional)
      * @param password  (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -313,8 +297,8 @@ public class FirmwareApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public Object uploadFirmware(@javax.annotation.Nonnull File _file, @javax.annotation.Nullable String authorization, @javax.annotation.Nullable String password) throws ApiException {
-        ApiResponse<Object> localVarResp = uploadFirmwareWithHttpInfo(_file, authorization, password);
+    public Object uploadFirmware(@javax.annotation.Nonnull File _file, @javax.annotation.Nullable String password) throws ApiException {
+        ApiResponse<Object> localVarResp = uploadFirmwareWithHttpInfo(_file, password);
         return localVarResp.getData();
     }
 
@@ -322,7 +306,6 @@ public class FirmwareApi {
      * Upload firmware for unpacking
      * Uploads a firmware file and begins a &#39;Firmware Unpacker&#39; task. Returns a result identifier, which can be used to poll for the response.
      * @param _file  (required)
-     * @param authorization API Key bearer token (optional)
      * @param password  (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -334,8 +317,8 @@ public class FirmwareApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> uploadFirmwareWithHttpInfo(@javax.annotation.Nonnull File _file, @javax.annotation.Nullable String authorization, @javax.annotation.Nullable String password) throws ApiException {
-        okhttp3.Call localVarCall = uploadFirmwareValidateBeforeCall(_file, authorization, password, null);
+    public ApiResponse<Object> uploadFirmwareWithHttpInfo(@javax.annotation.Nonnull File _file, @javax.annotation.Nullable String password) throws ApiException {
+        okhttp3.Call localVarCall = uploadFirmwareValidateBeforeCall(_file, password, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -344,7 +327,6 @@ public class FirmwareApi {
      * Upload firmware for unpacking (asynchronously)
      * Uploads a firmware file and begins a &#39;Firmware Unpacker&#39; task. Returns a result identifier, which can be used to poll for the response.
      * @param _file  (required)
-     * @param authorization API Key bearer token (optional)
      * @param password  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -357,9 +339,9 @@ public class FirmwareApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call uploadFirmwareAsync(@javax.annotation.Nonnull File _file, @javax.annotation.Nullable String authorization, @javax.annotation.Nullable String password, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call uploadFirmwareAsync(@javax.annotation.Nonnull File _file, @javax.annotation.Nullable String password, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = uploadFirmwareValidateBeforeCall(_file, authorization, password, _callback);
+        okhttp3.Call localVarCall = uploadFirmwareValidateBeforeCall(_file, password, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

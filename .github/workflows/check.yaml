@@ -123,6 +123,9 @@ jobs:
         rm -Rf settings.gradle && mv java-client/settings.gradle .
         rm -Rf README.md && mv java-client/README.md .
         rm -Rf java-client
+        
+        # Move custom models
+        cp models/* src/main/java/ai/reveng/model/
 
         # Store the SDK version
         echo ${{ steps.version_check.outputs.openapi_version }} > .sdk-version

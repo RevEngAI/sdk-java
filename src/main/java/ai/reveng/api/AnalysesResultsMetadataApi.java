@@ -80,7 +80,6 @@ public class AnalysesResultsMetadataApi {
     /**
      * Build call for getCapabilities
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -92,7 +91,7 @@ public class AnalysesResultsMetadataApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCapabilitiesCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCapabilitiesCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -133,23 +132,18 @@ public class AnalysesResultsMetadataApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCapabilitiesValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCapabilitiesValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling getCapabilities(Async)");
         }
 
-        return getCapabilitiesCall(analysisId, authorization, _callback);
+        return getCapabilitiesCall(analysisId, _callback);
 
     }
 
@@ -157,7 +151,6 @@ public class AnalysesResultsMetadataApi {
      * Gets the capabilities from the analysis
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseCapabilities
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -168,8 +161,8 @@ public class AnalysesResultsMetadataApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseCapabilities getCapabilities(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseCapabilities> localVarResp = getCapabilitiesWithHttpInfo(analysisId, authorization);
+    public BaseResponseCapabilities getCapabilities(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        ApiResponse<BaseResponseCapabilities> localVarResp = getCapabilitiesWithHttpInfo(analysisId);
         return localVarResp.getData();
     }
 
@@ -177,7 +170,6 @@ public class AnalysesResultsMetadataApi {
      * Gets the capabilities from the analysis
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseCapabilities&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -188,8 +180,8 @@ public class AnalysesResultsMetadataApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseCapabilities> getCapabilitiesWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = getCapabilitiesValidateBeforeCall(analysisId, authorization, null);
+    public ApiResponse<BaseResponseCapabilities> getCapabilitiesWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        okhttp3.Call localVarCall = getCapabilitiesValidateBeforeCall(analysisId, null);
         Type localVarReturnType = new TypeToken<BaseResponseCapabilities>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -198,7 +190,6 @@ public class AnalysesResultsMetadataApi {
      * Gets the capabilities from the analysis (asynchronously)
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -210,9 +201,9 @@ public class AnalysesResultsMetadataApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCapabilitiesAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseCapabilities> _callback) throws ApiException {
+    public okhttp3.Call getCapabilitiesAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<BaseResponseCapabilities> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCapabilitiesValidateBeforeCall(analysisId, authorization, _callback);
+        okhttp3.Call localVarCall = getCapabilitiesValidateBeforeCall(analysisId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseCapabilities>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -221,7 +212,6 @@ public class AnalysesResultsMetadataApi {
      * Build call for getCommunities
      * @param analysisId  (required)
      * @param userName The user name to limit communities to (optional)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -233,7 +223,7 @@ public class AnalysesResultsMetadataApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCommunitiesCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String userName, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCommunitiesCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String userName, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -278,23 +268,18 @@ public class AnalysesResultsMetadataApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCommunitiesValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String userName, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCommunitiesValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String userName, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling getCommunities(Async)");
         }
 
-        return getCommunitiesCall(analysisId, userName, authorization, _callback);
+        return getCommunitiesCall(analysisId, userName, _callback);
 
     }
 
@@ -303,7 +288,6 @@ public class AnalysesResultsMetadataApi {
      * 
      * @param analysisId  (required)
      * @param userName The user name to limit communities to (optional)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseCommunities
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -314,8 +298,8 @@ public class AnalysesResultsMetadataApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseCommunities getCommunities(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String userName, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseCommunities> localVarResp = getCommunitiesWithHttpInfo(analysisId, userName, authorization);
+    public BaseResponseCommunities getCommunities(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String userName) throws ApiException {
+        ApiResponse<BaseResponseCommunities> localVarResp = getCommunitiesWithHttpInfo(analysisId, userName);
         return localVarResp.getData();
     }
 
@@ -324,7 +308,6 @@ public class AnalysesResultsMetadataApi {
      * 
      * @param analysisId  (required)
      * @param userName The user name to limit communities to (optional)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseCommunities&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -335,8 +318,8 @@ public class AnalysesResultsMetadataApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseCommunities> getCommunitiesWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String userName, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = getCommunitiesValidateBeforeCall(analysisId, userName, authorization, null);
+    public ApiResponse<BaseResponseCommunities> getCommunitiesWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String userName) throws ApiException {
+        okhttp3.Call localVarCall = getCommunitiesValidateBeforeCall(analysisId, userName, null);
         Type localVarReturnType = new TypeToken<BaseResponseCommunities>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -346,7 +329,6 @@ public class AnalysesResultsMetadataApi {
      * 
      * @param analysisId  (required)
      * @param userName The user name to limit communities to (optional)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -358,9 +340,9 @@ public class AnalysesResultsMetadataApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCommunitiesAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String userName, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseCommunities> _callback) throws ApiException {
+    public okhttp3.Call getCommunitiesAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String userName, final ApiCallback<BaseResponseCommunities> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCommunitiesValidateBeforeCall(analysisId, userName, authorization, _callback);
+        okhttp3.Call localVarCall = getCommunitiesValidateBeforeCall(analysisId, userName, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseCommunities>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -371,7 +353,6 @@ public class AnalysesResultsMetadataApi {
      * @param searchTerm  (optional)
      * @param minVAddr  (optional)
      * @param maxVAddr  (optional)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -383,7 +364,7 @@ public class AnalysesResultsMetadataApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFunctionsListCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable Integer minVAddr, @javax.annotation.Nullable Integer maxVAddr, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getFunctionsListCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable Integer minVAddr, @javax.annotation.Nullable Integer maxVAddr, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -436,23 +417,18 @@ public class AnalysesResultsMetadataApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getFunctionsListValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable Integer minVAddr, @javax.annotation.Nullable Integer maxVAddr, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getFunctionsListValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable Integer minVAddr, @javax.annotation.Nullable Integer maxVAddr, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling getFunctionsList(Async)");
         }
 
-        return getFunctionsListCall(analysisId, searchTerm, minVAddr, maxVAddr, authorization, _callback);
+        return getFunctionsListCall(analysisId, searchTerm, minVAddr, maxVAddr, _callback);
 
     }
 
@@ -463,7 +439,6 @@ public class AnalysesResultsMetadataApi {
      * @param searchTerm  (optional)
      * @param minVAddr  (optional)
      * @param maxVAddr  (optional)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseAnalysisFunctions
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -474,8 +449,8 @@ public class AnalysesResultsMetadataApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseAnalysisFunctions getFunctionsList(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable Integer minVAddr, @javax.annotation.Nullable Integer maxVAddr, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseAnalysisFunctions> localVarResp = getFunctionsListWithHttpInfo(analysisId, searchTerm, minVAddr, maxVAddr, authorization);
+    public BaseResponseAnalysisFunctions getFunctionsList(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable Integer minVAddr, @javax.annotation.Nullable Integer maxVAddr) throws ApiException {
+        ApiResponse<BaseResponseAnalysisFunctions> localVarResp = getFunctionsListWithHttpInfo(analysisId, searchTerm, minVAddr, maxVAddr);
         return localVarResp.getData();
     }
 
@@ -486,7 +461,6 @@ public class AnalysesResultsMetadataApi {
      * @param searchTerm  (optional)
      * @param minVAddr  (optional)
      * @param maxVAddr  (optional)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseAnalysisFunctions&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -497,8 +471,8 @@ public class AnalysesResultsMetadataApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseAnalysisFunctions> getFunctionsListWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable Integer minVAddr, @javax.annotation.Nullable Integer maxVAddr, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = getFunctionsListValidateBeforeCall(analysisId, searchTerm, minVAddr, maxVAddr, authorization, null);
+    public ApiResponse<BaseResponseAnalysisFunctions> getFunctionsListWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable Integer minVAddr, @javax.annotation.Nullable Integer maxVAddr) throws ApiException {
+        okhttp3.Call localVarCall = getFunctionsListValidateBeforeCall(analysisId, searchTerm, minVAddr, maxVAddr, null);
         Type localVarReturnType = new TypeToken<BaseResponseAnalysisFunctions>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -510,7 +484,6 @@ public class AnalysesResultsMetadataApi {
      * @param searchTerm  (optional)
      * @param minVAddr  (optional)
      * @param maxVAddr  (optional)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -522,9 +495,9 @@ public class AnalysesResultsMetadataApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFunctionsListAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable Integer minVAddr, @javax.annotation.Nullable Integer maxVAddr, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseAnalysisFunctions> _callback) throws ApiException {
+    public okhttp3.Call getFunctionsListAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable Integer minVAddr, @javax.annotation.Nullable Integer maxVAddr, final ApiCallback<BaseResponseAnalysisFunctions> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getFunctionsListValidateBeforeCall(analysisId, searchTerm, minVAddr, maxVAddr, authorization, _callback);
+        okhttp3.Call localVarCall = getFunctionsListValidateBeforeCall(analysisId, searchTerm, minVAddr, maxVAddr, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseAnalysisFunctions>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -532,7 +505,6 @@ public class AnalysesResultsMetadataApi {
     /**
      * Build call for getPdf
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -544,7 +516,7 @@ public class AnalysesResultsMetadataApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPdfCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getPdfCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -585,23 +557,18 @@ public class AnalysesResultsMetadataApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPdfValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getPdfValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling getPdf(Async)");
         }
 
-        return getPdfCall(analysisId, authorization, _callback);
+        return getPdfCall(analysisId, _callback);
 
     }
 
@@ -609,7 +576,6 @@ public class AnalysesResultsMetadataApi {
      * Gets the PDF found in the analysis
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -620,8 +586,8 @@ public class AnalysesResultsMetadataApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public Object getPdf(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<Object> localVarResp = getPdfWithHttpInfo(analysisId, authorization);
+    public Object getPdf(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        ApiResponse<Object> localVarResp = getPdfWithHttpInfo(analysisId);
         return localVarResp.getData();
     }
 
@@ -629,7 +595,6 @@ public class AnalysesResultsMetadataApi {
      * Gets the PDF found in the analysis
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -640,8 +605,8 @@ public class AnalysesResultsMetadataApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> getPdfWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = getPdfValidateBeforeCall(analysisId, authorization, null);
+    public ApiResponse<Object> getPdfWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        okhttp3.Call localVarCall = getPdfValidateBeforeCall(analysisId, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -650,7 +615,6 @@ public class AnalysesResultsMetadataApi {
      * Gets the PDF found in the analysis (asynchronously)
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -662,9 +626,9 @@ public class AnalysesResultsMetadataApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPdfAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call getPdfAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getPdfValidateBeforeCall(analysisId, authorization, _callback);
+        okhttp3.Call localVarCall = getPdfValidateBeforeCall(analysisId, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -672,7 +636,6 @@ public class AnalysesResultsMetadataApi {
     /**
      * Build call for getSbom
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -684,7 +647,7 @@ public class AnalysesResultsMetadataApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSbomCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSbomCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -725,23 +688,18 @@ public class AnalysesResultsMetadataApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSbomValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSbomValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling getSbom(Async)");
         }
 
-        return getSbomCall(analysisId, authorization, _callback);
+        return getSbomCall(analysisId, _callback);
 
     }
 
@@ -749,7 +707,6 @@ public class AnalysesResultsMetadataApi {
      * Gets the software-bill-of-materials (SBOM) found in the analysis
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseListSBOM
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -760,8 +717,8 @@ public class AnalysesResultsMetadataApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseListSBOM getSbom(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseListSBOM> localVarResp = getSbomWithHttpInfo(analysisId, authorization);
+    public BaseResponseListSBOM getSbom(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        ApiResponse<BaseResponseListSBOM> localVarResp = getSbomWithHttpInfo(analysisId);
         return localVarResp.getData();
     }
 
@@ -769,7 +726,6 @@ public class AnalysesResultsMetadataApi {
      * Gets the software-bill-of-materials (SBOM) found in the analysis
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseListSBOM&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -780,8 +736,8 @@ public class AnalysesResultsMetadataApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseListSBOM> getSbomWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = getSbomValidateBeforeCall(analysisId, authorization, null);
+    public ApiResponse<BaseResponseListSBOM> getSbomWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        okhttp3.Call localVarCall = getSbomValidateBeforeCall(analysisId, null);
         Type localVarReturnType = new TypeToken<BaseResponseListSBOM>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -790,7 +746,6 @@ public class AnalysesResultsMetadataApi {
      * Gets the software-bill-of-materials (SBOM) found in the analysis (asynchronously)
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -802,9 +757,9 @@ public class AnalysesResultsMetadataApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSbomAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseListSBOM> _callback) throws ApiException {
+    public okhttp3.Call getSbomAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<BaseResponseListSBOM> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSbomValidateBeforeCall(analysisId, authorization, _callback);
+        okhttp3.Call localVarCall = getSbomValidateBeforeCall(analysisId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseListSBOM>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -812,7 +767,6 @@ public class AnalysesResultsMetadataApi {
     /**
      * Build call for getTags
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -824,7 +778,7 @@ public class AnalysesResultsMetadataApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTagsCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTagsCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -865,23 +819,18 @@ public class AnalysesResultsMetadataApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTagsValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTagsValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling getTags(Async)");
         }
 
-        return getTagsCall(analysisId, authorization, _callback);
+        return getTagsCall(analysisId, _callback);
 
     }
 
@@ -889,7 +838,6 @@ public class AnalysesResultsMetadataApi {
      * Get function tags with maliciousness score
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseAnalysisTags
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -900,8 +848,8 @@ public class AnalysesResultsMetadataApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseAnalysisTags getTags(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseAnalysisTags> localVarResp = getTagsWithHttpInfo(analysisId, authorization);
+    public BaseResponseAnalysisTags getTags(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        ApiResponse<BaseResponseAnalysisTags> localVarResp = getTagsWithHttpInfo(analysisId);
         return localVarResp.getData();
     }
 
@@ -909,7 +857,6 @@ public class AnalysesResultsMetadataApi {
      * Get function tags with maliciousness score
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseAnalysisTags&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -920,8 +867,8 @@ public class AnalysesResultsMetadataApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseAnalysisTags> getTagsWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = getTagsValidateBeforeCall(analysisId, authorization, null);
+    public ApiResponse<BaseResponseAnalysisTags> getTagsWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        okhttp3.Call localVarCall = getTagsValidateBeforeCall(analysisId, null);
         Type localVarReturnType = new TypeToken<BaseResponseAnalysisTags>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -930,7 +877,6 @@ public class AnalysesResultsMetadataApi {
      * Get function tags with maliciousness score (asynchronously)
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -942,9 +888,9 @@ public class AnalysesResultsMetadataApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTagsAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseAnalysisTags> _callback) throws ApiException {
+    public okhttp3.Call getTagsAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<BaseResponseAnalysisTags> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTagsValidateBeforeCall(analysisId, authorization, _callback);
+        okhttp3.Call localVarCall = getTagsValidateBeforeCall(analysisId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseAnalysisTags>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -952,7 +898,6 @@ public class AnalysesResultsMetadataApi {
     /**
      * Build call for getVulnerabilities
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -964,7 +909,7 @@ public class AnalysesResultsMetadataApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getVulnerabilitiesCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getVulnerabilitiesCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1005,23 +950,18 @@ public class AnalysesResultsMetadataApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getVulnerabilitiesValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getVulnerabilitiesValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling getVulnerabilities(Async)");
         }
 
-        return getVulnerabilitiesCall(analysisId, authorization, _callback);
+        return getVulnerabilitiesCall(analysisId, _callback);
 
     }
 
@@ -1029,7 +969,6 @@ public class AnalysesResultsMetadataApi {
      * Gets the vulnerabilities found in the analysis
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseVulnerabilities
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1040,8 +979,8 @@ public class AnalysesResultsMetadataApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseVulnerabilities getVulnerabilities(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseVulnerabilities> localVarResp = getVulnerabilitiesWithHttpInfo(analysisId, authorization);
+    public BaseResponseVulnerabilities getVulnerabilities(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        ApiResponse<BaseResponseVulnerabilities> localVarResp = getVulnerabilitiesWithHttpInfo(analysisId);
         return localVarResp.getData();
     }
 
@@ -1049,7 +988,6 @@ public class AnalysesResultsMetadataApi {
      * Gets the vulnerabilities found in the analysis
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseVulnerabilities&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1060,8 +998,8 @@ public class AnalysesResultsMetadataApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseVulnerabilities> getVulnerabilitiesWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = getVulnerabilitiesValidateBeforeCall(analysisId, authorization, null);
+    public ApiResponse<BaseResponseVulnerabilities> getVulnerabilitiesWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        okhttp3.Call localVarCall = getVulnerabilitiesValidateBeforeCall(analysisId, null);
         Type localVarReturnType = new TypeToken<BaseResponseVulnerabilities>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1070,7 +1008,6 @@ public class AnalysesResultsMetadataApi {
      * Gets the vulnerabilities found in the analysis (asynchronously)
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1082,9 +1019,9 @@ public class AnalysesResultsMetadataApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getVulnerabilitiesAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseVulnerabilities> _callback) throws ApiException {
+    public okhttp3.Call getVulnerabilitiesAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<BaseResponseVulnerabilities> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getVulnerabilitiesValidateBeforeCall(analysisId, authorization, _callback);
+        okhttp3.Call localVarCall = getVulnerabilitiesValidateBeforeCall(analysisId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseVulnerabilities>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

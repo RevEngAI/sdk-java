@@ -52,7 +52,7 @@ import ai.reveng.invoker.JSON;
 /**
  * ExportModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.16.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ExportModel {
   public static final String SERIALIZED_NAME_NUMBER_OF_EXPORTS = "number_of_exports";
   @SerializedName(SERIALIZED_NAME_NUMBER_OF_EXPORTS)

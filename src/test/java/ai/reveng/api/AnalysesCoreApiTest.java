@@ -70,8 +70,7 @@ public class AnalysesCoreApiTest {
     @Test
     public void batchSymbolAnnTest() throws ApiException {
         AppApiRestV1AnnSchemaANNFunction appApiRestV1AnnSchemaANNFunction = null;
-        String authorization = null;
-        FunctionBatchAnn response = api.batchSymbolAnn(appApiRestV1AnnSchemaANNFunction, authorization);
+        FunctionBatchAnn response = api.batchSymbolAnn(appApiRestV1AnnSchemaANNFunction);
         // TODO: test validations
     }
 
@@ -85,8 +84,7 @@ public class AnalysesCoreApiTest {
     @Test
     public void createAnalysisTest() throws ApiException {
         AnalysisCreateRequest analysisCreateRequest = null;
-        String authorization = null;
-        BaseResponseAnalysisCreateResponse response = api.createAnalysis(analysisCreateRequest, authorization);
+        BaseResponseAnalysisCreateResponse response = api.createAnalysis(analysisCreateRequest);
         // TODO: test validations
     }
 
@@ -100,8 +98,7 @@ public class AnalysesCoreApiTest {
     @Test
     public void deleteAnalysisTest() throws ApiException {
         Integer analysisId = null;
-        String authorization = null;
-        BaseResponseDict response = api.deleteAnalysis(analysisId, authorization);
+        BaseResponseDict response = api.deleteAnalysis(analysisId);
         // TODO: test validations
     }
 
@@ -116,8 +113,7 @@ public class AnalysesCoreApiTest {
     public void findSimilarFunctionsBatchTest() throws ApiException {
         Integer analysisId = null;
         AppApiRestV2SimilaritySchemaANNFunction appApiRestV2SimilaritySchemaANNFunction = null;
-        String authorization = null;
-        BaseResponseNearestNeighborAnalysis response = api.findSimilarFunctionsBatch(analysisId, appApiRestV2SimilaritySchemaANNFunction, authorization);
+        BaseResponseNearestNeighborAnalysis response = api.findSimilarFunctionsBatch(analysisId, appApiRestV2SimilaritySchemaANNFunction);
         // TODO: test validations
     }
 
@@ -131,8 +127,7 @@ public class AnalysesCoreApiTest {
     @Test
     public void getAnalysisBasicInfoTest() throws ApiException {
         Integer analysisId = null;
-        String authorization = null;
-        BaseResponseBasic response = api.getAnalysisBasicInfo(analysisId, authorization);
+        BaseResponseBasic response = api.getAnalysisBasicInfo(analysisId);
         // TODO: test validations
     }
 
@@ -146,8 +141,7 @@ public class AnalysesCoreApiTest {
     @Test
     public void getAnalysisFunctionMapTest() throws ApiException {
         Integer analysisId = null;
-        String authorization = null;
-        BaseResponseAnalysisFunctionMapping response = api.getAnalysisFunctionMap(analysisId, authorization);
+        BaseResponseAnalysisFunctionMapping response = api.getAnalysisFunctionMap(analysisId);
         // TODO: test validations
     }
 
@@ -161,8 +155,7 @@ public class AnalysesCoreApiTest {
     @Test
     public void getAnalysisLogsTest() throws ApiException {
         Integer analysisId = null;
-        String authorization = null;
-        BaseResponseLogs response = api.getAnalysisLogs(analysisId, authorization);
+        BaseResponseLogs response = api.getAnalysisLogs(analysisId);
         // TODO: test validations
     }
 
@@ -176,8 +169,7 @@ public class AnalysesCoreApiTest {
     @Test
     public void getAnalysisParamsTest() throws ApiException {
         Integer analysisId = null;
-        String authorization = null;
-        BaseResponseParams response = api.getAnalysisParams(analysisId, authorization);
+        BaseResponseParams response = api.getAnalysisParams(analysisId);
         // TODO: test validations
     }
 
@@ -191,8 +183,7 @@ public class AnalysesCoreApiTest {
     @Test
     public void getAnalysisStatusTest() throws ApiException {
         Integer analysisId = null;
-        String authorization = null;
-        BaseResponseStatus response = api.getAnalysisStatus(analysisId, authorization);
+        BaseResponseStatus response = api.getAnalysisStatus(analysisId);
         // TODO: test validations
     }
 
@@ -207,8 +198,7 @@ public class AnalysesCoreApiTest {
     public void getBinaryAnnTest() throws ApiException {
         Integer analysisId = null;
         BinaryAnnForm binaryAnnForm = null;
-        String authorization = null;
-        BaseResponseBinaryAnnListResponse response = api.getBinaryAnn(analysisId, binaryAnnForm, authorization);
+        BaseResponseBinaryAnnListResponse response = api.getBinaryAnn(analysisId, binaryAnnForm);
         // TODO: test validations
     }
 
@@ -232,8 +222,7 @@ public class AnalysesCoreApiTest {
         Integer offset = null;
         AppApiRestV2AnalysesEnumsOrderBy orderBy = null;
         Order order = null;
-        String authorization = null;
-        BaseResponseRecent response = api.listAnalyses(searchTerm, workspace, status, modelName, dynamicExecutionStatus, usernames, sha256Hash, limit, offset, orderBy, order, authorization);
+        BaseResponseRecent response = api.listAnalyses(searchTerm, workspace, status, modelName, dynamicExecutionStatus, usernames, sha256Hash, limit, offset, orderBy, order);
         // TODO: test validations
     }
 
@@ -247,8 +236,7 @@ public class AnalysesCoreApiTest {
     @Test
     public void lookupBinaryIdTest() throws ApiException {
         Integer binaryId = null;
-        String authorization = null;
-        Object response = api.lookupBinaryId(binaryId, authorization);
+        Object response = api.lookupBinaryId(binaryId);
         // TODO: test validations
     }
 
@@ -263,8 +251,7 @@ public class AnalysesCoreApiTest {
     public void requeueAnalysisTest() throws ApiException {
         Integer analysisId = null;
         ReAnalysisForm reAnalysisForm = null;
-        String authorization = null;
-        BaseResponseCreated response = api.requeueAnalysis(analysisId, reAnalysisForm, authorization);
+        BaseResponseCreated response = api.requeueAnalysis(analysisId, reAnalysisForm);
         // TODO: test validations
     }
 
@@ -279,8 +266,7 @@ public class AnalysesCoreApiTest {
     public void updateAnalysisTest() throws ApiException {
         Integer analysisId = null;
         AnalysisUpdateRequest analysisUpdateRequest = null;
-        String authorization = null;
-        BaseResponseAnalysisDetailResponse response = api.updateAnalysis(analysisId, analysisUpdateRequest, authorization);
+        BaseResponseAnalysisDetailResponse response = api.updateAnalysis(analysisId, analysisUpdateRequest);
         // TODO: test validations
     }
 
@@ -295,8 +281,7 @@ public class AnalysesCoreApiTest {
     public void updateAnalysisTagsTest() throws ApiException {
         Integer analysisId = null;
         AnalysisUpdateTagsRequest analysisUpdateTagsRequest = null;
-        String authorization = null;
-        BaseResponseAnalysisUpdateTagsResponse response = api.updateAnalysisTags(analysisId, analysisUpdateTagsRequest, authorization);
+        BaseResponseAnalysisUpdateTagsResponse response = api.updateAnalysisTags(analysisId, analysisUpdateTagsRequest);
         // TODO: test validations
     }
 
@@ -310,9 +295,8 @@ public class AnalysesCoreApiTest {
         UploadFileType uploadFileType = null;
         File _file = null;
         String packedPassword = null;
-        String authorization = null;
         Boolean forceOverwrite = null;
-        BaseResponseUploadResponse response = api.uploadFile(uploadFileType, _file, packedPassword, authorization, forceOverwrite);
+        BaseResponseUploadResponse response = api.uploadFile(uploadFileType, _file, packedPassword, forceOverwrite);
         // TODO: test validations
     }
 

@@ -50,7 +50,7 @@ import ai.reveng.invoker.JSON;
 /**
  * UpdateFunctionDataTypes
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.16.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateFunctionDataTypes {
   public static final String SERIALIZED_NAME_DATA_TYPES_VERSION = "data_types_version";
   @SerializedName(SERIALIZED_NAME_DATA_TYPES_VERSION)

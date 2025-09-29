@@ -42,8 +42,7 @@ public class AnalysesSecurityChecksApiTest {
     @Test
     public void createScurityChecksTaskTest() throws ApiException {
         Integer analysisId = null;
-        String authorization = null;
-        QueuedSecurityChecksTaskResponse response = api.createScurityChecksTask(analysisId, authorization);
+        QueuedSecurityChecksTaskResponse response = api.createScurityChecksTask(analysisId);
         // TODO: test validations
     }
 
@@ -59,8 +58,7 @@ public class AnalysesSecurityChecksApiTest {
         Integer analysisId = null;
         Integer page = null;
         Integer pageSize = null;
-        String authorization = null;
-        BaseResponseSecurityChecksResponse response = api.getSecurityChecks(analysisId, page, pageSize, authorization);
+        BaseResponseSecurityChecksResponse response = api.getSecurityChecks(analysisId, page, pageSize);
         // TODO: test validations
     }
 
@@ -72,8 +70,7 @@ public class AnalysesSecurityChecksApiTest {
     @Test
     public void getSecurityChecksTaskStatusTest() throws ApiException {
         Integer analysisId = null;
-        String authorization = null;
-        CheckSecurityChecksTaskResponse response = api.getSecurityChecksTaskStatus(analysisId, authorization);
+        CheckSecurityChecksTaskResponse response = api.getSecurityChecksTaskStatus(analysisId);
         // TODO: test validations
     }
 

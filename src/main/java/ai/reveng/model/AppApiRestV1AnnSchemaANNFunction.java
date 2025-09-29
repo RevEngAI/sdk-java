@@ -53,7 +53,7 @@ import ai.reveng.invoker.JSON;
 /**
  * AppApiRestV1AnnSchemaANNFunction
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.16.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AppApiRestV1AnnSchemaANNFunction {
   public static final String SERIALIZED_NAME_RESULT_PER_FUNCTION = "result_per_function";
   @SerializedName(SERIALIZED_NAME_RESULT_PER_FUNCTION)

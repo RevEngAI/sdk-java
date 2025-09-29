@@ -46,8 +46,7 @@ public class AnalysesCommentsApiTest {
     public void createAnalysisCommentTest() throws ApiException {
         Integer analysisId = null;
         CommentBase commentBase = null;
-        String authorization = null;
-        BaseResponseCommentResponse response = api.createAnalysisComment(analysisId, commentBase, authorization);
+        BaseResponseCommentResponse response = api.createAnalysisComment(analysisId, commentBase);
         // TODO: test validations
     }
 
@@ -62,8 +61,7 @@ public class AnalysesCommentsApiTest {
     public void deleteAnalysisCommentTest() throws ApiException {
         Integer commentId = null;
         Integer analysisId = null;
-        String authorization = null;
-        BaseResponseBool response = api.deleteAnalysisComment(commentId, analysisId, authorization);
+        BaseResponseBool response = api.deleteAnalysisComment(commentId, analysisId);
         // TODO: test validations
     }
 
@@ -77,8 +75,7 @@ public class AnalysesCommentsApiTest {
     @Test
     public void getAnalysisCommentsTest() throws ApiException {
         Integer analysisId = null;
-        String authorization = null;
-        BaseResponseListCommentResponse response = api.getAnalysisComments(analysisId, authorization);
+        BaseResponseListCommentResponse response = api.getAnalysisComments(analysisId);
         // TODO: test validations
     }
 
@@ -94,8 +91,7 @@ public class AnalysesCommentsApiTest {
         Integer commentId = null;
         Integer analysisId = null;
         CommentUpdateRequest commentUpdateRequest = null;
-        String authorization = null;
-        BaseResponseCommentResponse response = api.updateAnalysisComment(commentId, analysisId, commentUpdateRequest, authorization);
+        BaseResponseCommentResponse response = api.updateAnalysisComment(commentId, analysisId, commentUpdateRequest);
         // TODO: test validations
     }
 

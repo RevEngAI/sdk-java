@@ -50,7 +50,7 @@ import ai.reveng.invoker.JSON;
 /**
  * AppApiRestV2AnalysesResponsesTagItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.16.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AppApiRestV2AnalysesResponsesTagItem {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)

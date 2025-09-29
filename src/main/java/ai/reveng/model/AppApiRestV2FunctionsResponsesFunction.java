@@ -49,7 +49,7 @@ import ai.reveng.invoker.JSON;
 /**
  * Function schema used in function strings response.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.16.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AppApiRestV2FunctionsResponsesFunction {
   public static final String SERIALIZED_NAME_FUNCTION_ID = "function_id";
   @SerializedName(SERIALIZED_NAME_FUNCTION_ID)

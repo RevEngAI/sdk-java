@@ -50,8 +50,7 @@ public class FunctionsAiDecompilationApiTest {
     public void createAiDecompilationCommentTest() throws ApiException {
         Integer functionId = null;
         FunctionCommentCreateRequest functionCommentCreateRequest = null;
-        String authorization = null;
-        BaseResponseCommentResponse response = api.createAiDecompilationComment(functionId, functionCommentCreateRequest, authorization);
+        BaseResponseCommentResponse response = api.createAiDecompilationComment(functionId, functionCommentCreateRequest);
         // TODO: test validations
     }
 
@@ -65,8 +64,7 @@ public class FunctionsAiDecompilationApiTest {
     @Test
     public void createAiDecompilationTaskTest() throws ApiException {
         Integer functionId = null;
-        String authorization = null;
-        BaseResponse response = api.createAiDecompilationTask(functionId, authorization);
+        BaseResponse response = api.createAiDecompilationTask(functionId);
         // TODO: test validations
     }
 
@@ -81,8 +79,7 @@ public class FunctionsAiDecompilationApiTest {
     public void deleteAiDecompilationCommentTest() throws ApiException {
         Integer commentId = null;
         Integer functionId = null;
-        String authorization = null;
-        BaseResponseBool response = api.deleteAiDecompilationComment(commentId, functionId, authorization);
+        BaseResponseBool response = api.deleteAiDecompilationComment(commentId, functionId);
         // TODO: test validations
     }
 
@@ -96,8 +93,7 @@ public class FunctionsAiDecompilationApiTest {
     @Test
     public void getAiDecompilationCommentsTest() throws ApiException {
         Integer functionId = null;
-        String authorization = null;
-        BaseResponseListCommentResponse response = api.getAiDecompilationComments(functionId, authorization);
+        BaseResponseListCommentResponse response = api.getAiDecompilationComments(functionId);
         // TODO: test validations
     }
 
@@ -109,8 +105,7 @@ public class FunctionsAiDecompilationApiTest {
     @Test
     public void getAiDecompilationRatingTest() throws ApiException {
         Integer functionId = null;
-        String authorization = null;
-        BaseResponseGetAiDecompilationRatingResponse response = api.getAiDecompilationRating(functionId, authorization);
+        BaseResponseGetAiDecompilationRatingResponse response = api.getAiDecompilationRating(functionId);
         // TODO: test validations
     }
 
@@ -126,8 +121,7 @@ public class FunctionsAiDecompilationApiTest {
         Integer functionId = null;
         Boolean summarise = null;
         Boolean generateInlineComments = null;
-        String authorization = null;
-        BaseResponseGetAiDecompilationTask response = api.getAiDecompilationTaskResult(functionId, summarise, generateInlineComments, authorization);
+        BaseResponseGetAiDecompilationTask response = api.getAiDecompilationTaskResult(functionId, summarise, generateInlineComments);
         // TODO: test validations
     }
 
@@ -139,8 +133,7 @@ public class FunctionsAiDecompilationApiTest {
     @Test
     public void getAiDecompilationTaskStatusTest() throws ApiException {
         Integer functionId = null;
-        String authorization = null;
-        BaseResponseFunctionTaskResponse response = api.getAiDecompilationTaskStatus(functionId, authorization);
+        BaseResponseFunctionTaskResponse response = api.getAiDecompilationTaskStatus(functionId);
         // TODO: test validations
     }
 
@@ -156,8 +149,7 @@ public class FunctionsAiDecompilationApiTest {
         Integer commentId = null;
         Integer functionId = null;
         CommentUpdateRequest commentUpdateRequest = null;
-        String authorization = null;
-        BaseResponseCommentResponse response = api.updateAiDecompilationComment(commentId, functionId, commentUpdateRequest, authorization);
+        BaseResponseCommentResponse response = api.updateAiDecompilationComment(commentId, functionId, commentUpdateRequest);
         // TODO: test validations
     }
 
@@ -170,8 +162,7 @@ public class FunctionsAiDecompilationApiTest {
     public void upsertAiDecompilationRatingTest() throws ApiException {
         Integer functionId = null;
         UpsertAiDecomplationRatingRequest upsertAiDecomplationRatingRequest = null;
-        String authorization = null;
-        BaseResponse response = api.upsertAiDecompilationRating(functionId, upsertAiDecomplationRatingRequest, authorization);
+        BaseResponse response = api.upsertAiDecompilationRating(functionId, upsertAiDecomplationRatingRequest);
         // TODO: test validations
     }
 

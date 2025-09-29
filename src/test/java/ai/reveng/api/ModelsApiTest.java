@@ -40,8 +40,7 @@ public class ModelsApiTest {
      */
     @Test
     public void getModelsTest() throws ApiException {
-        String authorization = null;
-        BaseResponseModelsResponse response = api.getModels(authorization);
+        BaseResponseModelsResponse response = api.getModels();
         // TODO: test validations
     }
 

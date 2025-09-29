@@ -12,7 +12,7 @@ All URIs are relative to *https://api.reveng.ai*
 
 <a id="searchBinaries"></a>
 # **searchBinaries**
-> BaseResponseBinarySearchResponse searchBinaries(page, pageSize, partialName, partialSha256, tags, modelName, userFilesOnly, authorization)
+> BaseResponseBinarySearchResponse searchBinaries(page, pageSize, partialName, partialSha256, tags, modelName, userFilesOnly)
 
 Binaries search
 
@@ -47,9 +47,8 @@ public class Example {
     List<String> tags = Arrays.asList(); // List<String> | The tags to be searched for
     String modelName = "modelName_example"; // String | The name of the model used to analyze the binary the function belongs to
     Boolean userFilesOnly = false; // Boolean | Whether to only search user's uploaded files
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseBinarySearchResponse result = apiInstance.searchBinaries(page, pageSize, partialName, partialSha256, tags, modelName, userFilesOnly, authorization);
+      BaseResponseBinarySearchResponse result = apiInstance.searchBinaries(page, pageSize, partialName, partialSha256, tags, modelName, userFilesOnly);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SearchApi#searchBinaries");
@@ -73,7 +72,6 @@ public class Example {
 | **tags** | [**List&lt;String&gt;**](String.md)| The tags to be searched for | [optional] |
 | **modelName** | **String**| The name of the model used to analyze the binary the function belongs to | [optional] |
 | **userFilesOnly** | **Boolean**| Whether to only search user&#39;s uploaded files | [optional] [default to false] |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -96,7 +94,7 @@ public class Example {
 
 <a id="searchCollections"></a>
 # **searchCollections**
-> BaseResponseCollectionSearchResponse searchCollections(page, pageSize, partialCollectionName, partialBinaryName, partialBinarySha256, tags, modelName, filters, orderBy, orderByDirection, authorization)
+> BaseResponseCollectionSearchResponse searchCollections(page, pageSize, partialCollectionName, partialBinaryName, partialBinarySha256, tags, modelName, filters, orderBy, orderByDirection)
 
 Collections search
 
@@ -134,9 +132,8 @@ public class Example {
     List<Filters> filters = Arrays.asList(); // List<Filters> | The filters to be used for the search
     AppApiRestV2CollectionsEnumsOrderBy orderBy = AppApiRestV2CollectionsEnumsOrderBy.fromValue("created"); // AppApiRestV2CollectionsEnumsOrderBy | The field to sort the order by in the results
     Order orderByDirection = Order.fromValue("ASC"); // Order | The order direction in which to return results
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseCollectionSearchResponse result = apiInstance.searchCollections(page, pageSize, partialCollectionName, partialBinaryName, partialBinarySha256, tags, modelName, filters, orderBy, orderByDirection, authorization);
+      BaseResponseCollectionSearchResponse result = apiInstance.searchCollections(page, pageSize, partialCollectionName, partialBinaryName, partialBinarySha256, tags, modelName, filters, orderBy, orderByDirection);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SearchApi#searchCollections");
@@ -163,7 +160,6 @@ public class Example {
 | **filters** | [**List&lt;Filters&gt;**](Filters.md)| The filters to be used for the search | [optional] |
 | **orderBy** | [**AppApiRestV2CollectionsEnumsOrderBy**](.md)| The field to sort the order by in the results | [optional] [enum: created, collection, model, owner, collection_size, updated] |
 | **orderByDirection** | [**Order**](.md)| The order direction in which to return results | [optional] [enum: ASC, DESC] |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -187,7 +183,7 @@ public class Example {
 
 <a id="searchFunctions"></a>
 # **searchFunctions**
-> BaseResponseFunctionSearchResponse searchFunctions(page, pageSize, partialName, modelName, authorization)
+> BaseResponseFunctionSearchResponse searchFunctions(page, pageSize, partialName, modelName)
 
 Functions search
 
@@ -219,9 +215,8 @@ public class Example {
     Integer pageSize = 10; // Integer | Number of items per page.
     String partialName = "partialName_example"; // String | The partial or full name of the function being searched
     String modelName = "modelName_example"; // String | The name of the model used to analyze the binary the function belongs to
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseFunctionSearchResponse result = apiInstance.searchFunctions(page, pageSize, partialName, modelName, authorization);
+      BaseResponseFunctionSearchResponse result = apiInstance.searchFunctions(page, pageSize, partialName, modelName);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SearchApi#searchFunctions");
@@ -242,7 +237,6 @@ public class Example {
 | **pageSize** | **Integer**| Number of items per page. | [optional] [default to 10] |
 | **partialName** | **String**| The partial or full name of the function being searched | [optional] |
 | **modelName** | **String**| The name of the model used to analyze the binary the function belongs to | [optional] |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 

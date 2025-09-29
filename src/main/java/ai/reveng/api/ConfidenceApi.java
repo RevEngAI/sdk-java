@@ -81,7 +81,6 @@ public class ConfidenceApi {
      * Build call for getAnalysisTagScore
      * @param analysisId The analysis to calculate the tag scores for (required)
      * @param tagConfidenceBody  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -93,7 +92,7 @@ public class ConfidenceApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAnalysisTagScoreCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull TagConfidenceBody tagConfidenceBody, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAnalysisTagScoreCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull TagConfidenceBody tagConfidenceBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -135,17 +134,12 @@ public class ConfidenceApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAnalysisTagScoreValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull TagConfidenceBody tagConfidenceBody, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAnalysisTagScoreValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull TagConfidenceBody tagConfidenceBody, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling getAnalysisTagScore(Async)");
@@ -156,7 +150,7 @@ public class ConfidenceApi {
             throw new ApiException("Missing the required parameter 'tagConfidenceBody' when calling getAnalysisTagScore(Async)");
         }
 
-        return getAnalysisTagScoreCall(analysisId, tagConfidenceBody, authorization, _callback);
+        return getAnalysisTagScoreCall(analysisId, tagConfidenceBody, _callback);
 
     }
 
@@ -165,7 +159,6 @@ public class ConfidenceApi {
      * Accepts a analysis ID and a list of tags, returns the confidence score for each tag in the list
      * @param analysisId The analysis to calculate the tag scores for (required)
      * @param tagConfidenceBody  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseListTagOriginBoxPlotConfidence
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -176,8 +169,8 @@ public class ConfidenceApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseListTagOriginBoxPlotConfidence getAnalysisTagScore(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull TagConfidenceBody tagConfidenceBody, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseListTagOriginBoxPlotConfidence> localVarResp = getAnalysisTagScoreWithHttpInfo(analysisId, tagConfidenceBody, authorization);
+    public BaseResponseListTagOriginBoxPlotConfidence getAnalysisTagScore(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull TagConfidenceBody tagConfidenceBody) throws ApiException {
+        ApiResponse<BaseResponseListTagOriginBoxPlotConfidence> localVarResp = getAnalysisTagScoreWithHttpInfo(analysisId, tagConfidenceBody);
         return localVarResp.getData();
     }
 
@@ -186,7 +179,6 @@ public class ConfidenceApi {
      * Accepts a analysis ID and a list of tags, returns the confidence score for each tag in the list
      * @param analysisId The analysis to calculate the tag scores for (required)
      * @param tagConfidenceBody  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseListTagOriginBoxPlotConfidence&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -197,8 +189,8 @@ public class ConfidenceApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseListTagOriginBoxPlotConfidence> getAnalysisTagScoreWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull TagConfidenceBody tagConfidenceBody, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = getAnalysisTagScoreValidateBeforeCall(analysisId, tagConfidenceBody, authorization, null);
+    public ApiResponse<BaseResponseListTagOriginBoxPlotConfidence> getAnalysisTagScoreWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull TagConfidenceBody tagConfidenceBody) throws ApiException {
+        okhttp3.Call localVarCall = getAnalysisTagScoreValidateBeforeCall(analysisId, tagConfidenceBody, null);
         Type localVarReturnType = new TypeToken<BaseResponseListTagOriginBoxPlotConfidence>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -208,7 +200,6 @@ public class ConfidenceApi {
      * Accepts a analysis ID and a list of tags, returns the confidence score for each tag in the list
      * @param analysisId The analysis to calculate the tag scores for (required)
      * @param tagConfidenceBody  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -220,9 +211,9 @@ public class ConfidenceApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAnalysisTagScoreAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull TagConfidenceBody tagConfidenceBody, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseListTagOriginBoxPlotConfidence> _callback) throws ApiException {
+    public okhttp3.Call getAnalysisTagScoreAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull TagConfidenceBody tagConfidenceBody, final ApiCallback<BaseResponseListTagOriginBoxPlotConfidence> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAnalysisTagScoreValidateBeforeCall(analysisId, tagConfidenceBody, authorization, _callback);
+        okhttp3.Call localVarCall = getAnalysisTagScoreValidateBeforeCall(analysisId, tagConfidenceBody, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseListTagOriginBoxPlotConfidence>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -230,7 +221,6 @@ public class ConfidenceApi {
     /**
      * Build call for getAnalysisThreatScore
      * @param analysisId The analysis to calculate the threat score for (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -242,7 +232,7 @@ public class ConfidenceApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAnalysisThreatScoreCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAnalysisThreatScoreCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -283,23 +273,18 @@ public class ConfidenceApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAnalysisThreatScoreValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAnalysisThreatScoreValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling getAnalysisThreatScore(Async)");
         }
 
-        return getAnalysisThreatScoreCall(analysisId, authorization, _callback);
+        return getAnalysisThreatScoreCall(analysisId, _callback);
 
     }
 
@@ -307,7 +292,6 @@ public class ConfidenceApi {
      * Calculate Threat Score for Binary
      * Accepts a binary ID and returns the threat score for that binary
      * @param analysisId The analysis to calculate the threat score for (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseBoxPlotConfidence
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -318,8 +302,8 @@ public class ConfidenceApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseBoxPlotConfidence getAnalysisThreatScore(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseBoxPlotConfidence> localVarResp = getAnalysisThreatScoreWithHttpInfo(analysisId, authorization);
+    public BaseResponseBoxPlotConfidence getAnalysisThreatScore(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        ApiResponse<BaseResponseBoxPlotConfidence> localVarResp = getAnalysisThreatScoreWithHttpInfo(analysisId);
         return localVarResp.getData();
     }
 
@@ -327,7 +311,6 @@ public class ConfidenceApi {
      * Calculate Threat Score for Binary
      * Accepts a binary ID and returns the threat score for that binary
      * @param analysisId The analysis to calculate the threat score for (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseBoxPlotConfidence&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -338,8 +321,8 @@ public class ConfidenceApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseBoxPlotConfidence> getAnalysisThreatScoreWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = getAnalysisThreatScoreValidateBeforeCall(analysisId, authorization, null);
+    public ApiResponse<BaseResponseBoxPlotConfidence> getAnalysisThreatScoreWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        okhttp3.Call localVarCall = getAnalysisThreatScoreValidateBeforeCall(analysisId, null);
         Type localVarReturnType = new TypeToken<BaseResponseBoxPlotConfidence>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -348,7 +331,6 @@ public class ConfidenceApi {
      * Calculate Threat Score for Binary (asynchronously)
      * Accepts a binary ID and returns the threat score for that binary
      * @param analysisId The analysis to calculate the threat score for (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -360,9 +342,9 @@ public class ConfidenceApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAnalysisThreatScoreAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseBoxPlotConfidence> _callback) throws ApiException {
+    public okhttp3.Call getAnalysisThreatScoreAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<BaseResponseBoxPlotConfidence> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAnalysisThreatScoreValidateBeforeCall(analysisId, authorization, _callback);
+        okhttp3.Call localVarCall = getAnalysisThreatScoreValidateBeforeCall(analysisId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseBoxPlotConfidence>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -370,7 +352,6 @@ public class ConfidenceApi {
     /**
      * Build call for getFunctionsNameScore
      * @param functionNameConfidenceBody  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -382,7 +363,7 @@ public class ConfidenceApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFunctionsNameScoreCall(@javax.annotation.Nonnull FunctionNameConfidenceBody functionNameConfidenceBody, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getFunctionsNameScoreCall(@javax.annotation.Nonnull FunctionNameConfidenceBody functionNameConfidenceBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -423,23 +404,18 @@ public class ConfidenceApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getFunctionsNameScoreValidateBeforeCall(@javax.annotation.Nonnull FunctionNameConfidenceBody functionNameConfidenceBody, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getFunctionsNameScoreValidateBeforeCall(@javax.annotation.Nonnull FunctionNameConfidenceBody functionNameConfidenceBody, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'functionNameConfidenceBody' is set
         if (functionNameConfidenceBody == null) {
             throw new ApiException("Missing the required parameter 'functionNameConfidenceBody' when calling getFunctionsNameScore(Async)");
         }
 
-        return getFunctionsNameScoreCall(functionNameConfidenceBody, authorization, _callback);
+        return getFunctionsNameScoreCall(functionNameConfidenceBody, _callback);
 
     }
 
@@ -447,7 +423,6 @@ public class ConfidenceApi {
      * Calculate function name confidence for a set of Functions
      * Accepts a list of function ids mapped to a function name, for each function we return a confidence score in that being the correct name for each function. Each function must be from the same model, or you may find some functions missing in the return.
      * @param functionNameConfidenceBody  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseListFunctionBoxPlotConfidence
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -458,8 +433,8 @@ public class ConfidenceApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseListFunctionBoxPlotConfidence getFunctionsNameScore(@javax.annotation.Nonnull FunctionNameConfidenceBody functionNameConfidenceBody, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseListFunctionBoxPlotConfidence> localVarResp = getFunctionsNameScoreWithHttpInfo(functionNameConfidenceBody, authorization);
+    public BaseResponseListFunctionBoxPlotConfidence getFunctionsNameScore(@javax.annotation.Nonnull FunctionNameConfidenceBody functionNameConfidenceBody) throws ApiException {
+        ApiResponse<BaseResponseListFunctionBoxPlotConfidence> localVarResp = getFunctionsNameScoreWithHttpInfo(functionNameConfidenceBody);
         return localVarResp.getData();
     }
 
@@ -467,7 +442,6 @@ public class ConfidenceApi {
      * Calculate function name confidence for a set of Functions
      * Accepts a list of function ids mapped to a function name, for each function we return a confidence score in that being the correct name for each function. Each function must be from the same model, or you may find some functions missing in the return.
      * @param functionNameConfidenceBody  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseListFunctionBoxPlotConfidence&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -478,8 +452,8 @@ public class ConfidenceApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseListFunctionBoxPlotConfidence> getFunctionsNameScoreWithHttpInfo(@javax.annotation.Nonnull FunctionNameConfidenceBody functionNameConfidenceBody, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = getFunctionsNameScoreValidateBeforeCall(functionNameConfidenceBody, authorization, null);
+    public ApiResponse<BaseResponseListFunctionBoxPlotConfidence> getFunctionsNameScoreWithHttpInfo(@javax.annotation.Nonnull FunctionNameConfidenceBody functionNameConfidenceBody) throws ApiException {
+        okhttp3.Call localVarCall = getFunctionsNameScoreValidateBeforeCall(functionNameConfidenceBody, null);
         Type localVarReturnType = new TypeToken<BaseResponseListFunctionBoxPlotConfidence>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -488,7 +462,6 @@ public class ConfidenceApi {
      * Calculate function name confidence for a set of Functions (asynchronously)
      * Accepts a list of function ids mapped to a function name, for each function we return a confidence score in that being the correct name for each function. Each function must be from the same model, or you may find some functions missing in the return.
      * @param functionNameConfidenceBody  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -500,9 +473,9 @@ public class ConfidenceApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFunctionsNameScoreAsync(@javax.annotation.Nonnull FunctionNameConfidenceBody functionNameConfidenceBody, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseListFunctionBoxPlotConfidence> _callback) throws ApiException {
+    public okhttp3.Call getFunctionsNameScoreAsync(@javax.annotation.Nonnull FunctionNameConfidenceBody functionNameConfidenceBody, final ApiCallback<BaseResponseListFunctionBoxPlotConfidence> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getFunctionsNameScoreValidateBeforeCall(functionNameConfidenceBody, authorization, _callback);
+        okhttp3.Call localVarCall = getFunctionsNameScoreValidateBeforeCall(functionNameConfidenceBody, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseListFunctionBoxPlotConfidence>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -510,7 +483,6 @@ public class ConfidenceApi {
     /**
      * Build call for getFunctionsThreatScore
      * @param threatScoreFunctionBody  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -522,7 +494,7 @@ public class ConfidenceApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFunctionsThreatScoreCall(@javax.annotation.Nonnull ThreatScoreFunctionBody threatScoreFunctionBody, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getFunctionsThreatScoreCall(@javax.annotation.Nonnull ThreatScoreFunctionBody threatScoreFunctionBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -563,23 +535,18 @@ public class ConfidenceApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getFunctionsThreatScoreValidateBeforeCall(@javax.annotation.Nonnull ThreatScoreFunctionBody threatScoreFunctionBody, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getFunctionsThreatScoreValidateBeforeCall(@javax.annotation.Nonnull ThreatScoreFunctionBody threatScoreFunctionBody, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'threatScoreFunctionBody' is set
         if (threatScoreFunctionBody == null) {
             throw new ApiException("Missing the required parameter 'threatScoreFunctionBody' when calling getFunctionsThreatScore(Async)");
         }
 
-        return getFunctionsThreatScoreCall(threatScoreFunctionBody, authorization, _callback);
+        return getFunctionsThreatScoreCall(threatScoreFunctionBody, _callback);
 
     }
 
@@ -587,7 +554,6 @@ public class ConfidenceApi {
      * Calculate Threat Score for a set of Functions
      * Accepts a list of function ids and returns the threat score for each function. Each function must be from the same model, or you may find some functions missing in the return.
      * @param threatScoreFunctionBody  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseListFunctionBoxPlotConfidence
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -598,8 +564,8 @@ public class ConfidenceApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseListFunctionBoxPlotConfidence getFunctionsThreatScore(@javax.annotation.Nonnull ThreatScoreFunctionBody threatScoreFunctionBody, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseListFunctionBoxPlotConfidence> localVarResp = getFunctionsThreatScoreWithHttpInfo(threatScoreFunctionBody, authorization);
+    public BaseResponseListFunctionBoxPlotConfidence getFunctionsThreatScore(@javax.annotation.Nonnull ThreatScoreFunctionBody threatScoreFunctionBody) throws ApiException {
+        ApiResponse<BaseResponseListFunctionBoxPlotConfidence> localVarResp = getFunctionsThreatScoreWithHttpInfo(threatScoreFunctionBody);
         return localVarResp.getData();
     }
 
@@ -607,7 +573,6 @@ public class ConfidenceApi {
      * Calculate Threat Score for a set of Functions
      * Accepts a list of function ids and returns the threat score for each function. Each function must be from the same model, or you may find some functions missing in the return.
      * @param threatScoreFunctionBody  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseListFunctionBoxPlotConfidence&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -618,8 +583,8 @@ public class ConfidenceApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseListFunctionBoxPlotConfidence> getFunctionsThreatScoreWithHttpInfo(@javax.annotation.Nonnull ThreatScoreFunctionBody threatScoreFunctionBody, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = getFunctionsThreatScoreValidateBeforeCall(threatScoreFunctionBody, authorization, null);
+    public ApiResponse<BaseResponseListFunctionBoxPlotConfidence> getFunctionsThreatScoreWithHttpInfo(@javax.annotation.Nonnull ThreatScoreFunctionBody threatScoreFunctionBody) throws ApiException {
+        okhttp3.Call localVarCall = getFunctionsThreatScoreValidateBeforeCall(threatScoreFunctionBody, null);
         Type localVarReturnType = new TypeToken<BaseResponseListFunctionBoxPlotConfidence>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -628,7 +593,6 @@ public class ConfidenceApi {
      * Calculate Threat Score for a set of Functions (asynchronously)
      * Accepts a list of function ids and returns the threat score for each function. Each function must be from the same model, or you may find some functions missing in the return.
      * @param threatScoreFunctionBody  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -640,9 +604,9 @@ public class ConfidenceApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFunctionsThreatScoreAsync(@javax.annotation.Nonnull ThreatScoreFunctionBody threatScoreFunctionBody, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseListFunctionBoxPlotConfidence> _callback) throws ApiException {
+    public okhttp3.Call getFunctionsThreatScoreAsync(@javax.annotation.Nonnull ThreatScoreFunctionBody threatScoreFunctionBody, final ApiCallback<BaseResponseListFunctionBoxPlotConfidence> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getFunctionsThreatScoreValidateBeforeCall(threatScoreFunctionBody, authorization, _callback);
+        okhttp3.Call localVarCall = getFunctionsThreatScoreValidateBeforeCall(threatScoreFunctionBody, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseListFunctionBoxPlotConfidence>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

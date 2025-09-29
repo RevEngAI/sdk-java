@@ -51,7 +51,7 @@ import ai.reveng.invoker.JSON;
 /**
  * ELFImportModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.16.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ELFImportModel {
   public static final String SERIALIZED_NAME_NUMBER_OF_IMPORTS = "number_of_imports";
   @SerializedName(SERIALIZED_NAME_NUMBER_OF_IMPORTS)
