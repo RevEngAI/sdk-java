@@ -90,6 +90,7 @@ jobs:
         distribution: 'temurin'
 
     - name: Publish package
+      if: steps.check-tag.outputs.tag_exists == 'false'
       run: ./gradlew publishToMavenCentral
       env:
         ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.MAVEN_CENTRAL_TOKEN_USERNAME }}
