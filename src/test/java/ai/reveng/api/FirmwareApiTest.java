@@ -41,8 +41,7 @@ public class FirmwareApiTest {
     @Test
     public void getBinariesForFirmwareTaskTest() throws ApiException {
         String taskId = null;
-        String authorization = null;
-        Object response = api.getBinariesForFirmwareTask(taskId, authorization);
+        Object response = api.getBinariesForFirmwareTask(taskId);
         // TODO: test validations
     }
 
@@ -56,9 +55,8 @@ public class FirmwareApiTest {
     @Test
     public void uploadFirmwareTest() throws ApiException {
         File _file = null;
-        String authorization = null;
         String password = null;
-        Object response = api.uploadFirmware(_file, authorization, password);
+        Object response = api.uploadFirmware(_file, password);
         // TODO: test validations
     }
 

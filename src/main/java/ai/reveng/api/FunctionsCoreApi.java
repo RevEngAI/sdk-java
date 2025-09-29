@@ -89,7 +89,6 @@ public class FunctionsCoreApi {
      * Build call for aiUnstrip
      * @param analysisId  (required)
      * @param aiUnstripRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -101,7 +100,7 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call aiUnstripCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AiUnstripRequest aiUnstripRequest, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call aiUnstripCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AiUnstripRequest aiUnstripRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -143,17 +142,12 @@ public class FunctionsCoreApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call aiUnstripValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AiUnstripRequest aiUnstripRequest, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call aiUnstripValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AiUnstripRequest aiUnstripRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling aiUnstrip(Async)");
@@ -164,7 +158,7 @@ public class FunctionsCoreApi {
             throw new ApiException("Missing the required parameter 'aiUnstripRequest' when calling aiUnstrip(Async)");
         }
 
-        return aiUnstripCall(analysisId, aiUnstripRequest, authorization, _callback);
+        return aiUnstripCall(analysisId, aiUnstripRequest, _callback);
 
     }
 
@@ -173,7 +167,6 @@ public class FunctionsCoreApi {
      * Takes in the analysis ID, uses the functions ID&#39;s from it and settings to find the nearest function groups for each function that&#39;s within the system
      * @param analysisId  (required)
      * @param aiUnstripRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @return AutoUnstripResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -184,8 +177,8 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public AutoUnstripResponse aiUnstrip(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AiUnstripRequest aiUnstripRequest, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<AutoUnstripResponse> localVarResp = aiUnstripWithHttpInfo(analysisId, aiUnstripRequest, authorization);
+    public AutoUnstripResponse aiUnstrip(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AiUnstripRequest aiUnstripRequest) throws ApiException {
+        ApiResponse<AutoUnstripResponse> localVarResp = aiUnstripWithHttpInfo(analysisId, aiUnstripRequest);
         return localVarResp.getData();
     }
 
@@ -194,7 +187,6 @@ public class FunctionsCoreApi {
      * Takes in the analysis ID, uses the functions ID&#39;s from it and settings to find the nearest function groups for each function that&#39;s within the system
      * @param analysisId  (required)
      * @param aiUnstripRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;AutoUnstripResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -205,8 +197,8 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AutoUnstripResponse> aiUnstripWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AiUnstripRequest aiUnstripRequest, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = aiUnstripValidateBeforeCall(analysisId, aiUnstripRequest, authorization, null);
+    public ApiResponse<AutoUnstripResponse> aiUnstripWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AiUnstripRequest aiUnstripRequest) throws ApiException {
+        okhttp3.Call localVarCall = aiUnstripValidateBeforeCall(analysisId, aiUnstripRequest, null);
         Type localVarReturnType = new TypeToken<AutoUnstripResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -216,7 +208,6 @@ public class FunctionsCoreApi {
      * Takes in the analysis ID, uses the functions ID&#39;s from it and settings to find the nearest function groups for each function that&#39;s within the system
      * @param analysisId  (required)
      * @param aiUnstripRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -228,9 +219,9 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call aiUnstripAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AiUnstripRequest aiUnstripRequest, @javax.annotation.Nullable String authorization, final ApiCallback<AutoUnstripResponse> _callback) throws ApiException {
+    public okhttp3.Call aiUnstripAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AiUnstripRequest aiUnstripRequest, final ApiCallback<AutoUnstripResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = aiUnstripValidateBeforeCall(analysisId, aiUnstripRequest, authorization, _callback);
+        okhttp3.Call localVarCall = aiUnstripValidateBeforeCall(analysisId, aiUnstripRequest, _callback);
         Type localVarReturnType = new TypeToken<AutoUnstripResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -239,7 +230,6 @@ public class FunctionsCoreApi {
      * Build call for analysisFunctionMatching
      * @param analysisId  (required)
      * @param analysisFunctionMatchingRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -251,7 +241,7 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call analysisFunctionMatchingCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisFunctionMatchingRequest analysisFunctionMatchingRequest, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call analysisFunctionMatchingCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisFunctionMatchingRequest analysisFunctionMatchingRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -293,17 +283,12 @@ public class FunctionsCoreApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call analysisFunctionMatchingValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisFunctionMatchingRequest analysisFunctionMatchingRequest, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call analysisFunctionMatchingValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisFunctionMatchingRequest analysisFunctionMatchingRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling analysisFunctionMatching(Async)");
@@ -314,7 +299,7 @@ public class FunctionsCoreApi {
             throw new ApiException("Missing the required parameter 'analysisFunctionMatchingRequest' when calling analysisFunctionMatching(Async)");
         }
 
-        return analysisFunctionMatchingCall(analysisId, analysisFunctionMatchingRequest, authorization, _callback);
+        return analysisFunctionMatchingCall(analysisId, analysisFunctionMatchingRequest, _callback);
 
     }
 
@@ -323,7 +308,6 @@ public class FunctionsCoreApi {
      * Takes in an analysis id and settings and matches the nearest functions to the ones associated with it. Results can optionally be filtered by collection, binary, debug type or (other) function ids
      * @param analysisId  (required)
      * @param analysisFunctionMatchingRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @return FunctionMatchingBatchResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -334,8 +318,8 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public FunctionMatchingBatchResponse analysisFunctionMatching(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisFunctionMatchingRequest analysisFunctionMatchingRequest, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<FunctionMatchingBatchResponse> localVarResp = analysisFunctionMatchingWithHttpInfo(analysisId, analysisFunctionMatchingRequest, authorization);
+    public FunctionMatchingBatchResponse analysisFunctionMatching(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisFunctionMatchingRequest analysisFunctionMatchingRequest) throws ApiException {
+        ApiResponse<FunctionMatchingBatchResponse> localVarResp = analysisFunctionMatchingWithHttpInfo(analysisId, analysisFunctionMatchingRequest);
         return localVarResp.getData();
     }
 
@@ -344,7 +328,6 @@ public class FunctionsCoreApi {
      * Takes in an analysis id and settings and matches the nearest functions to the ones associated with it. Results can optionally be filtered by collection, binary, debug type or (other) function ids
      * @param analysisId  (required)
      * @param analysisFunctionMatchingRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;FunctionMatchingBatchResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -355,8 +338,8 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<FunctionMatchingBatchResponse> analysisFunctionMatchingWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisFunctionMatchingRequest analysisFunctionMatchingRequest, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = analysisFunctionMatchingValidateBeforeCall(analysisId, analysisFunctionMatchingRequest, authorization, null);
+    public ApiResponse<FunctionMatchingBatchResponse> analysisFunctionMatchingWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisFunctionMatchingRequest analysisFunctionMatchingRequest) throws ApiException {
+        okhttp3.Call localVarCall = analysisFunctionMatchingValidateBeforeCall(analysisId, analysisFunctionMatchingRequest, null);
         Type localVarReturnType = new TypeToken<FunctionMatchingBatchResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -366,7 +349,6 @@ public class FunctionsCoreApi {
      * Takes in an analysis id and settings and matches the nearest functions to the ones associated with it. Results can optionally be filtered by collection, binary, debug type or (other) function ids
      * @param analysisId  (required)
      * @param analysisFunctionMatchingRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -378,9 +360,9 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call analysisFunctionMatchingAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisFunctionMatchingRequest analysisFunctionMatchingRequest, @javax.annotation.Nullable String authorization, final ApiCallback<FunctionMatchingBatchResponse> _callback) throws ApiException {
+    public okhttp3.Call analysisFunctionMatchingAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisFunctionMatchingRequest analysisFunctionMatchingRequest, final ApiCallback<FunctionMatchingBatchResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = analysisFunctionMatchingValidateBeforeCall(analysisId, analysisFunctionMatchingRequest, authorization, _callback);
+        okhttp3.Call localVarCall = analysisFunctionMatchingValidateBeforeCall(analysisId, analysisFunctionMatchingRequest, _callback);
         Type localVarReturnType = new TypeToken<FunctionMatchingBatchResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -389,7 +371,6 @@ public class FunctionsCoreApi {
      * Build call for autoUnstrip
      * @param analysisId  (required)
      * @param autoUnstripRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -401,7 +382,7 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call autoUnstripCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AutoUnstripRequest autoUnstripRequest, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call autoUnstripCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AutoUnstripRequest autoUnstripRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -443,17 +424,12 @@ public class FunctionsCoreApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call autoUnstripValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AutoUnstripRequest autoUnstripRequest, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call autoUnstripValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AutoUnstripRequest autoUnstripRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling autoUnstrip(Async)");
@@ -464,7 +440,7 @@ public class FunctionsCoreApi {
             throw new ApiException("Missing the required parameter 'autoUnstripRequest' when calling autoUnstrip(Async)");
         }
 
-        return autoUnstripCall(analysisId, autoUnstripRequest, authorization, _callback);
+        return autoUnstripCall(analysisId, autoUnstripRequest, _callback);
 
     }
 
@@ -473,7 +449,6 @@ public class FunctionsCoreApi {
      * Takes in the analysis ID, uses the functions ID&#39;s from it and settings to find the nearest function for each function that&#39;s within the system
      * @param analysisId  (required)
      * @param autoUnstripRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @return AutoUnstripResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -484,8 +459,8 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public AutoUnstripResponse autoUnstrip(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AutoUnstripRequest autoUnstripRequest, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<AutoUnstripResponse> localVarResp = autoUnstripWithHttpInfo(analysisId, autoUnstripRequest, authorization);
+    public AutoUnstripResponse autoUnstrip(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AutoUnstripRequest autoUnstripRequest) throws ApiException {
+        ApiResponse<AutoUnstripResponse> localVarResp = autoUnstripWithHttpInfo(analysisId, autoUnstripRequest);
         return localVarResp.getData();
     }
 
@@ -494,7 +469,6 @@ public class FunctionsCoreApi {
      * Takes in the analysis ID, uses the functions ID&#39;s from it and settings to find the nearest function for each function that&#39;s within the system
      * @param analysisId  (required)
      * @param autoUnstripRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;AutoUnstripResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -505,8 +479,8 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AutoUnstripResponse> autoUnstripWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AutoUnstripRequest autoUnstripRequest, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = autoUnstripValidateBeforeCall(analysisId, autoUnstripRequest, authorization, null);
+    public ApiResponse<AutoUnstripResponse> autoUnstripWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AutoUnstripRequest autoUnstripRequest) throws ApiException {
+        okhttp3.Call localVarCall = autoUnstripValidateBeforeCall(analysisId, autoUnstripRequest, null);
         Type localVarReturnType = new TypeToken<AutoUnstripResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -516,7 +490,6 @@ public class FunctionsCoreApi {
      * Takes in the analysis ID, uses the functions ID&#39;s from it and settings to find the nearest function for each function that&#39;s within the system
      * @param analysisId  (required)
      * @param autoUnstripRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -528,9 +501,9 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call autoUnstripAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AutoUnstripRequest autoUnstripRequest, @javax.annotation.Nullable String authorization, final ApiCallback<AutoUnstripResponse> _callback) throws ApiException {
+    public okhttp3.Call autoUnstripAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AutoUnstripRequest autoUnstripRequest, final ApiCallback<AutoUnstripResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = autoUnstripValidateBeforeCall(analysisId, autoUnstripRequest, authorization, _callback);
+        okhttp3.Call localVarCall = autoUnstripValidateBeforeCall(analysisId, autoUnstripRequest, _callback);
         Type localVarReturnType = new TypeToken<AutoUnstripResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -538,7 +511,6 @@ public class FunctionsCoreApi {
     /**
      * Build call for batchFunctionMatching
      * @param functionMatchingRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -550,7 +522,7 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call batchFunctionMatchingCall(@javax.annotation.Nonnull FunctionMatchingRequest functionMatchingRequest, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call batchFunctionMatchingCall(@javax.annotation.Nonnull FunctionMatchingRequest functionMatchingRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -591,23 +563,18 @@ public class FunctionsCoreApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call batchFunctionMatchingValidateBeforeCall(@javax.annotation.Nonnull FunctionMatchingRequest functionMatchingRequest, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call batchFunctionMatchingValidateBeforeCall(@javax.annotation.Nonnull FunctionMatchingRequest functionMatchingRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'functionMatchingRequest' is set
         if (functionMatchingRequest == null) {
             throw new ApiException("Missing the required parameter 'functionMatchingRequest' when calling batchFunctionMatching(Async)");
         }
 
-        return batchFunctionMatchingCall(functionMatchingRequest, authorization, _callback);
+        return batchFunctionMatchingCall(functionMatchingRequest, _callback);
 
     }
 
@@ -615,7 +582,6 @@ public class FunctionsCoreApi {
      * Perform function matching for an arbitrary batch of functions, binaries or collections
      * Takes in an input of functions ID&#39;s and settings and finds the nearest functions for each function that&#39;s within the system
      * @param functionMatchingRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @return FunctionMatchingBatchResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -626,8 +592,8 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public FunctionMatchingBatchResponse batchFunctionMatching(@javax.annotation.Nonnull FunctionMatchingRequest functionMatchingRequest, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<FunctionMatchingBatchResponse> localVarResp = batchFunctionMatchingWithHttpInfo(functionMatchingRequest, authorization);
+    public FunctionMatchingBatchResponse batchFunctionMatching(@javax.annotation.Nonnull FunctionMatchingRequest functionMatchingRequest) throws ApiException {
+        ApiResponse<FunctionMatchingBatchResponse> localVarResp = batchFunctionMatchingWithHttpInfo(functionMatchingRequest);
         return localVarResp.getData();
     }
 
@@ -635,7 +601,6 @@ public class FunctionsCoreApi {
      * Perform function matching for an arbitrary batch of functions, binaries or collections
      * Takes in an input of functions ID&#39;s and settings and finds the nearest functions for each function that&#39;s within the system
      * @param functionMatchingRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;FunctionMatchingBatchResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -646,8 +611,8 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<FunctionMatchingBatchResponse> batchFunctionMatchingWithHttpInfo(@javax.annotation.Nonnull FunctionMatchingRequest functionMatchingRequest, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = batchFunctionMatchingValidateBeforeCall(functionMatchingRequest, authorization, null);
+    public ApiResponse<FunctionMatchingBatchResponse> batchFunctionMatchingWithHttpInfo(@javax.annotation.Nonnull FunctionMatchingRequest functionMatchingRequest) throws ApiException {
+        okhttp3.Call localVarCall = batchFunctionMatchingValidateBeforeCall(functionMatchingRequest, null);
         Type localVarReturnType = new TypeToken<FunctionMatchingBatchResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -656,7 +621,6 @@ public class FunctionsCoreApi {
      * Perform function matching for an arbitrary batch of functions, binaries or collections (asynchronously)
      * Takes in an input of functions ID&#39;s and settings and finds the nearest functions for each function that&#39;s within the system
      * @param functionMatchingRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -668,9 +632,9 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call batchFunctionMatchingAsync(@javax.annotation.Nonnull FunctionMatchingRequest functionMatchingRequest, @javax.annotation.Nullable String authorization, final ApiCallback<FunctionMatchingBatchResponse> _callback) throws ApiException {
+    public okhttp3.Call batchFunctionMatchingAsync(@javax.annotation.Nonnull FunctionMatchingRequest functionMatchingRequest, final ApiCallback<FunctionMatchingBatchResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = batchFunctionMatchingValidateBeforeCall(functionMatchingRequest, authorization, _callback);
+        okhttp3.Call localVarCall = batchFunctionMatchingValidateBeforeCall(functionMatchingRequest, _callback);
         Type localVarReturnType = new TypeToken<FunctionMatchingBatchResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -678,7 +642,6 @@ public class FunctionsCoreApi {
     /**
      * Build call for cancelAiUnstrip
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -690,7 +653,7 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call cancelAiUnstripCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call cancelAiUnstripCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -731,23 +694,18 @@ public class FunctionsCoreApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call cancelAiUnstripValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call cancelAiUnstripValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling cancelAiUnstrip(Async)");
         }
 
-        return cancelAiUnstripCall(analysisId, authorization, _callback);
+        return cancelAiUnstripCall(analysisId, _callback);
 
     }
 
@@ -755,7 +713,6 @@ public class FunctionsCoreApi {
      * Cancels a running ai-unstrip
      * Takes in the analysis ID and cancels a running ai-unstrip operation
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return AutoUnstripResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -766,8 +723,8 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public AutoUnstripResponse cancelAiUnstrip(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<AutoUnstripResponse> localVarResp = cancelAiUnstripWithHttpInfo(analysisId, authorization);
+    public AutoUnstripResponse cancelAiUnstrip(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        ApiResponse<AutoUnstripResponse> localVarResp = cancelAiUnstripWithHttpInfo(analysisId);
         return localVarResp.getData();
     }
 
@@ -775,7 +732,6 @@ public class FunctionsCoreApi {
      * Cancels a running ai-unstrip
      * Takes in the analysis ID and cancels a running ai-unstrip operation
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;AutoUnstripResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -786,8 +742,8 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AutoUnstripResponse> cancelAiUnstripWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = cancelAiUnstripValidateBeforeCall(analysisId, authorization, null);
+    public ApiResponse<AutoUnstripResponse> cancelAiUnstripWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        okhttp3.Call localVarCall = cancelAiUnstripValidateBeforeCall(analysisId, null);
         Type localVarReturnType = new TypeToken<AutoUnstripResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -796,7 +752,6 @@ public class FunctionsCoreApi {
      * Cancels a running ai-unstrip (asynchronously)
      * Takes in the analysis ID and cancels a running ai-unstrip operation
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -808,9 +763,9 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call cancelAiUnstripAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback<AutoUnstripResponse> _callback) throws ApiException {
+    public okhttp3.Call cancelAiUnstripAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<AutoUnstripResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = cancelAiUnstripValidateBeforeCall(analysisId, authorization, _callback);
+        okhttp3.Call localVarCall = cancelAiUnstripValidateBeforeCall(analysisId, _callback);
         Type localVarReturnType = new TypeToken<AutoUnstripResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -818,7 +773,6 @@ public class FunctionsCoreApi {
     /**
      * Build call for cancelAutoUnstrip
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -830,7 +784,7 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call cancelAutoUnstripCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call cancelAutoUnstripCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -871,23 +825,18 @@ public class FunctionsCoreApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call cancelAutoUnstripValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call cancelAutoUnstripValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling cancelAutoUnstrip(Async)");
         }
 
-        return cancelAutoUnstripCall(analysisId, authorization, _callback);
+        return cancelAutoUnstripCall(analysisId, _callback);
 
     }
 
@@ -895,7 +844,6 @@ public class FunctionsCoreApi {
      * Cancels a running auto-unstrip
      * Takes in the analysis ID and cancels a running auto-unstrip operation
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return AutoUnstripResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -906,8 +854,8 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public AutoUnstripResponse cancelAutoUnstrip(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<AutoUnstripResponse> localVarResp = cancelAutoUnstripWithHttpInfo(analysisId, authorization);
+    public AutoUnstripResponse cancelAutoUnstrip(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        ApiResponse<AutoUnstripResponse> localVarResp = cancelAutoUnstripWithHttpInfo(analysisId);
         return localVarResp.getData();
     }
 
@@ -915,7 +863,6 @@ public class FunctionsCoreApi {
      * Cancels a running auto-unstrip
      * Takes in the analysis ID and cancels a running auto-unstrip operation
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;AutoUnstripResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -926,8 +873,8 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AutoUnstripResponse> cancelAutoUnstripWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = cancelAutoUnstripValidateBeforeCall(analysisId, authorization, null);
+    public ApiResponse<AutoUnstripResponse> cancelAutoUnstripWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        okhttp3.Call localVarCall = cancelAutoUnstripValidateBeforeCall(analysisId, null);
         Type localVarReturnType = new TypeToken<AutoUnstripResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -936,7 +883,6 @@ public class FunctionsCoreApi {
      * Cancels a running auto-unstrip (asynchronously)
      * Takes in the analysis ID and cancels a running auto-unstrip operation
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -948,9 +894,9 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call cancelAutoUnstripAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback<AutoUnstripResponse> _callback) throws ApiException {
+    public okhttp3.Call cancelAutoUnstripAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<AutoUnstripResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = cancelAutoUnstripValidateBeforeCall(analysisId, authorization, _callback);
+        okhttp3.Call localVarCall = cancelAutoUnstripValidateBeforeCall(analysisId, _callback);
         Type localVarReturnType = new TypeToken<AutoUnstripResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -962,7 +908,6 @@ public class FunctionsCoreApi {
      * @param pageSize Number of items per page. (optional, default to 100)
      * @param search Search is applied to string value (optional)
      * @param functionSearch Search is applied to function names (optional)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -974,7 +919,7 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAnalysisStringsCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String functionSearch, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAnalysisStringsCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String functionSearch, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1031,23 +976,18 @@ public class FunctionsCoreApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAnalysisStringsValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String functionSearch, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAnalysisStringsValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String functionSearch, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling getAnalysisStrings(Async)");
         }
 
-        return getAnalysisStringsCall(analysisId, page, pageSize, search, functionSearch, authorization, _callback);
+        return getAnalysisStringsCall(analysisId, page, pageSize, search, functionSearch, _callback);
 
     }
 
@@ -1059,7 +999,6 @@ public class FunctionsCoreApi {
      * @param pageSize Number of items per page. (optional, default to 100)
      * @param search Search is applied to string value (optional)
      * @param functionSearch Search is applied to function names (optional)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseAnalysisStringsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1070,8 +1009,8 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseAnalysisStringsResponse getAnalysisStrings(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String functionSearch, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseAnalysisStringsResponse> localVarResp = getAnalysisStringsWithHttpInfo(analysisId, page, pageSize, search, functionSearch, authorization);
+    public BaseResponseAnalysisStringsResponse getAnalysisStrings(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String functionSearch) throws ApiException {
+        ApiResponse<BaseResponseAnalysisStringsResponse> localVarResp = getAnalysisStringsWithHttpInfo(analysisId, page, pageSize, search, functionSearch);
         return localVarResp.getData();
     }
 
@@ -1083,7 +1022,6 @@ public class FunctionsCoreApi {
      * @param pageSize Number of items per page. (optional, default to 100)
      * @param search Search is applied to string value (optional)
      * @param functionSearch Search is applied to function names (optional)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseAnalysisStringsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1094,8 +1032,8 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseAnalysisStringsResponse> getAnalysisStringsWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String functionSearch, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = getAnalysisStringsValidateBeforeCall(analysisId, page, pageSize, search, functionSearch, authorization, null);
+    public ApiResponse<BaseResponseAnalysisStringsResponse> getAnalysisStringsWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String functionSearch) throws ApiException {
+        okhttp3.Call localVarCall = getAnalysisStringsValidateBeforeCall(analysisId, page, pageSize, search, functionSearch, null);
         Type localVarReturnType = new TypeToken<BaseResponseAnalysisStringsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1108,7 +1046,6 @@ public class FunctionsCoreApi {
      * @param pageSize Number of items per page. (optional, default to 100)
      * @param search Search is applied to string value (optional)
      * @param functionSearch Search is applied to function names (optional)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1120,9 +1057,9 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAnalysisStringsAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String functionSearch, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseAnalysisStringsResponse> _callback) throws ApiException {
+    public okhttp3.Call getAnalysisStringsAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String functionSearch, final ApiCallback<BaseResponseAnalysisStringsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAnalysisStringsValidateBeforeCall(analysisId, page, pageSize, search, functionSearch, authorization, _callback);
+        okhttp3.Call localVarCall = getAnalysisStringsValidateBeforeCall(analysisId, page, pageSize, search, functionSearch, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseAnalysisStringsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1130,7 +1067,6 @@ public class FunctionsCoreApi {
     /**
      * Build call for getFunctionBlocks
      * @param functionId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1143,7 +1079,7 @@ public class FunctionsCoreApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFunctionBlocksCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getFunctionBlocksCall(@javax.annotation.Nonnull Integer functionId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1184,23 +1120,18 @@ public class FunctionsCoreApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getFunctionBlocksValidateBeforeCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getFunctionBlocksValidateBeforeCall(@javax.annotation.Nonnull Integer functionId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'functionId' is set
         if (functionId == null) {
             throw new ApiException("Missing the required parameter 'functionId' when calling getFunctionBlocks(Async)");
         }
 
-        return getFunctionBlocksCall(functionId, authorization, _callback);
+        return getFunctionBlocksCall(functionId, _callback);
 
     }
 
@@ -1208,7 +1139,6 @@ public class FunctionsCoreApi {
      * Get disassembly blocks related to the function
      * Get disassembly blocks related to the function
      * @param functionId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseFunctionBlocksResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1220,8 +1150,8 @@ public class FunctionsCoreApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseFunctionBlocksResponse getFunctionBlocks(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseFunctionBlocksResponse> localVarResp = getFunctionBlocksWithHttpInfo(functionId, authorization);
+    public BaseResponseFunctionBlocksResponse getFunctionBlocks(@javax.annotation.Nonnull Integer functionId) throws ApiException {
+        ApiResponse<BaseResponseFunctionBlocksResponse> localVarResp = getFunctionBlocksWithHttpInfo(functionId);
         return localVarResp.getData();
     }
 
@@ -1229,7 +1159,6 @@ public class FunctionsCoreApi {
      * Get disassembly blocks related to the function
      * Get disassembly blocks related to the function
      * @param functionId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseFunctionBlocksResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1241,8 +1170,8 @@ public class FunctionsCoreApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseFunctionBlocksResponse> getFunctionBlocksWithHttpInfo(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = getFunctionBlocksValidateBeforeCall(functionId, authorization, null);
+    public ApiResponse<BaseResponseFunctionBlocksResponse> getFunctionBlocksWithHttpInfo(@javax.annotation.Nonnull Integer functionId) throws ApiException {
+        okhttp3.Call localVarCall = getFunctionBlocksValidateBeforeCall(functionId, null);
         Type localVarReturnType = new TypeToken<BaseResponseFunctionBlocksResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1251,7 +1180,6 @@ public class FunctionsCoreApi {
      * Get disassembly blocks related to the function (asynchronously)
      * Get disassembly blocks related to the function
      * @param functionId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1264,9 +1192,9 @@ public class FunctionsCoreApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFunctionBlocksAsync(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseFunctionBlocksResponse> _callback) throws ApiException {
+    public okhttp3.Call getFunctionBlocksAsync(@javax.annotation.Nonnull Integer functionId, final ApiCallback<BaseResponseFunctionBlocksResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getFunctionBlocksValidateBeforeCall(functionId, authorization, _callback);
+        okhttp3.Call localVarCall = getFunctionBlocksValidateBeforeCall(functionId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseFunctionBlocksResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1274,7 +1202,6 @@ public class FunctionsCoreApi {
     /**
      * Build call for getFunctionCalleesCallers
      * @param functionId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1286,7 +1213,7 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFunctionCalleesCallersCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getFunctionCalleesCallersCall(@javax.annotation.Nonnull Integer functionId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1327,23 +1254,18 @@ public class FunctionsCoreApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getFunctionCalleesCallersValidateBeforeCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getFunctionCalleesCallersValidateBeforeCall(@javax.annotation.Nonnull Integer functionId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'functionId' is set
         if (functionId == null) {
             throw new ApiException("Missing the required parameter 'functionId' when calling getFunctionCalleesCallers(Async)");
         }
 
-        return getFunctionCalleesCallersCall(functionId, authorization, _callback);
+        return getFunctionCalleesCallersCall(functionId, _callback);
 
     }
 
@@ -1351,7 +1273,6 @@ public class FunctionsCoreApi {
      * Get list of functions that call or are called by the specified function
      * 
      * @param functionId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseCalleesCallerFunctionsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1362,8 +1283,8 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseCalleesCallerFunctionsResponse getFunctionCalleesCallers(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseCalleesCallerFunctionsResponse> localVarResp = getFunctionCalleesCallersWithHttpInfo(functionId, authorization);
+    public BaseResponseCalleesCallerFunctionsResponse getFunctionCalleesCallers(@javax.annotation.Nonnull Integer functionId) throws ApiException {
+        ApiResponse<BaseResponseCalleesCallerFunctionsResponse> localVarResp = getFunctionCalleesCallersWithHttpInfo(functionId);
         return localVarResp.getData();
     }
 
@@ -1371,7 +1292,6 @@ public class FunctionsCoreApi {
      * Get list of functions that call or are called by the specified function
      * 
      * @param functionId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseCalleesCallerFunctionsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1382,8 +1302,8 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseCalleesCallerFunctionsResponse> getFunctionCalleesCallersWithHttpInfo(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = getFunctionCalleesCallersValidateBeforeCall(functionId, authorization, null);
+    public ApiResponse<BaseResponseCalleesCallerFunctionsResponse> getFunctionCalleesCallersWithHttpInfo(@javax.annotation.Nonnull Integer functionId) throws ApiException {
+        okhttp3.Call localVarCall = getFunctionCalleesCallersValidateBeforeCall(functionId, null);
         Type localVarReturnType = new TypeToken<BaseResponseCalleesCallerFunctionsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1392,7 +1312,6 @@ public class FunctionsCoreApi {
      * Get list of functions that call or are called by the specified function (asynchronously)
      * 
      * @param functionId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1404,9 +1323,9 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFunctionCalleesCallersAsync(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseCalleesCallerFunctionsResponse> _callback) throws ApiException {
+    public okhttp3.Call getFunctionCalleesCallersAsync(@javax.annotation.Nonnull Integer functionId, final ApiCallback<BaseResponseCalleesCallerFunctionsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getFunctionCalleesCallersValidateBeforeCall(functionId, authorization, _callback);
+        okhttp3.Call localVarCall = getFunctionCalleesCallersValidateBeforeCall(functionId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseCalleesCallerFunctionsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1414,7 +1333,6 @@ public class FunctionsCoreApi {
     /**
      * Build call for getFunctionCapabilities
      * @param functionId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1427,7 +1345,7 @@ public class FunctionsCoreApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFunctionCapabilitiesCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getFunctionCapabilitiesCall(@javax.annotation.Nonnull Integer functionId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1468,23 +1386,18 @@ public class FunctionsCoreApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getFunctionCapabilitiesValidateBeforeCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getFunctionCapabilitiesValidateBeforeCall(@javax.annotation.Nonnull Integer functionId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'functionId' is set
         if (functionId == null) {
             throw new ApiException("Missing the required parameter 'functionId' when calling getFunctionCapabilities(Async)");
         }
 
-        return getFunctionCapabilitiesCall(functionId, authorization, _callback);
+        return getFunctionCapabilitiesCall(functionId, _callback);
 
     }
 
@@ -1492,7 +1405,6 @@ public class FunctionsCoreApi {
      * Retrieve a functions capabilities
      * 
      * @param functionId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseFunctionCapabilityResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1504,8 +1416,8 @@ public class FunctionsCoreApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseFunctionCapabilityResponse getFunctionCapabilities(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseFunctionCapabilityResponse> localVarResp = getFunctionCapabilitiesWithHttpInfo(functionId, authorization);
+    public BaseResponseFunctionCapabilityResponse getFunctionCapabilities(@javax.annotation.Nonnull Integer functionId) throws ApiException {
+        ApiResponse<BaseResponseFunctionCapabilityResponse> localVarResp = getFunctionCapabilitiesWithHttpInfo(functionId);
         return localVarResp.getData();
     }
 
@@ -1513,7 +1425,6 @@ public class FunctionsCoreApi {
      * Retrieve a functions capabilities
      * 
      * @param functionId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseFunctionCapabilityResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1525,8 +1436,8 @@ public class FunctionsCoreApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseFunctionCapabilityResponse> getFunctionCapabilitiesWithHttpInfo(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = getFunctionCapabilitiesValidateBeforeCall(functionId, authorization, null);
+    public ApiResponse<BaseResponseFunctionCapabilityResponse> getFunctionCapabilitiesWithHttpInfo(@javax.annotation.Nonnull Integer functionId) throws ApiException {
+        okhttp3.Call localVarCall = getFunctionCapabilitiesValidateBeforeCall(functionId, null);
         Type localVarReturnType = new TypeToken<BaseResponseFunctionCapabilityResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1535,7 +1446,6 @@ public class FunctionsCoreApi {
      * Retrieve a functions capabilities (asynchronously)
      * 
      * @param functionId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1548,9 +1458,9 @@ public class FunctionsCoreApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFunctionCapabilitiesAsync(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseFunctionCapabilityResponse> _callback) throws ApiException {
+    public okhttp3.Call getFunctionCapabilitiesAsync(@javax.annotation.Nonnull Integer functionId, final ApiCallback<BaseResponseFunctionCapabilityResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getFunctionCapabilitiesValidateBeforeCall(functionId, authorization, _callback);
+        okhttp3.Call localVarCall = getFunctionCapabilitiesValidateBeforeCall(functionId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseFunctionCapabilityResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1558,7 +1468,6 @@ public class FunctionsCoreApi {
     /**
      * Build call for getFunctionDetails
      * @param functionId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1570,7 +1479,7 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFunctionDetailsCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getFunctionDetailsCall(@javax.annotation.Nonnull Integer functionId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1611,23 +1520,18 @@ public class FunctionsCoreApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getFunctionDetailsValidateBeforeCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getFunctionDetailsValidateBeforeCall(@javax.annotation.Nonnull Integer functionId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'functionId' is set
         if (functionId == null) {
             throw new ApiException("Missing the required parameter 'functionId' when calling getFunctionDetails(Async)");
         }
 
-        return getFunctionDetailsCall(functionId, authorization, _callback);
+        return getFunctionDetailsCall(functionId, _callback);
 
     }
 
@@ -1635,7 +1539,6 @@ public class FunctionsCoreApi {
      * Get function details
      * 
      * @param functionId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseFunctionsDetailResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1646,8 +1549,8 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseFunctionsDetailResponse getFunctionDetails(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseFunctionsDetailResponse> localVarResp = getFunctionDetailsWithHttpInfo(functionId, authorization);
+    public BaseResponseFunctionsDetailResponse getFunctionDetails(@javax.annotation.Nonnull Integer functionId) throws ApiException {
+        ApiResponse<BaseResponseFunctionsDetailResponse> localVarResp = getFunctionDetailsWithHttpInfo(functionId);
         return localVarResp.getData();
     }
 
@@ -1655,7 +1558,6 @@ public class FunctionsCoreApi {
      * Get function details
      * 
      * @param functionId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseFunctionsDetailResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1666,8 +1568,8 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseFunctionsDetailResponse> getFunctionDetailsWithHttpInfo(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = getFunctionDetailsValidateBeforeCall(functionId, authorization, null);
+    public ApiResponse<BaseResponseFunctionsDetailResponse> getFunctionDetailsWithHttpInfo(@javax.annotation.Nonnull Integer functionId) throws ApiException {
+        okhttp3.Call localVarCall = getFunctionDetailsValidateBeforeCall(functionId, null);
         Type localVarReturnType = new TypeToken<BaseResponseFunctionsDetailResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1676,7 +1578,6 @@ public class FunctionsCoreApi {
      * Get function details (asynchronously)
      * 
      * @param functionId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1688,9 +1589,9 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFunctionDetailsAsync(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseFunctionsDetailResponse> _callback) throws ApiException {
+    public okhttp3.Call getFunctionDetailsAsync(@javax.annotation.Nonnull Integer functionId, final ApiCallback<BaseResponseFunctionsDetailResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getFunctionDetailsValidateBeforeCall(functionId, authorization, _callback);
+        okhttp3.Call localVarCall = getFunctionDetailsValidateBeforeCall(functionId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseFunctionsDetailResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1701,7 +1602,6 @@ public class FunctionsCoreApi {
      * @param page The page number to retrieve. (optional, default to 1)
      * @param pageSize Number of items per page. (optional, default to 100)
      * @param search Search is applied to string value (optional)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1713,7 +1613,7 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFunctionStringsCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getFunctionStringsCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1766,23 +1666,18 @@ public class FunctionsCoreApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getFunctionStringsValidateBeforeCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getFunctionStringsValidateBeforeCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'functionId' is set
         if (functionId == null) {
             throw new ApiException("Missing the required parameter 'functionId' when calling getFunctionStrings(Async)");
         }
 
-        return getFunctionStringsCall(functionId, page, pageSize, search, authorization, _callback);
+        return getFunctionStringsCall(functionId, page, pageSize, search, _callback);
 
     }
 
@@ -1793,7 +1688,6 @@ public class FunctionsCoreApi {
      * @param page The page number to retrieve. (optional, default to 1)
      * @param pageSize Number of items per page. (optional, default to 100)
      * @param search Search is applied to string value (optional)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseFunctionStringsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1804,8 +1698,8 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseFunctionStringsResponse getFunctionStrings(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseFunctionStringsResponse> localVarResp = getFunctionStringsWithHttpInfo(functionId, page, pageSize, search, authorization);
+    public BaseResponseFunctionStringsResponse getFunctionStrings(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search) throws ApiException {
+        ApiResponse<BaseResponseFunctionStringsResponse> localVarResp = getFunctionStringsWithHttpInfo(functionId, page, pageSize, search);
         return localVarResp.getData();
     }
 
@@ -1816,7 +1710,6 @@ public class FunctionsCoreApi {
      * @param page The page number to retrieve. (optional, default to 1)
      * @param pageSize Number of items per page. (optional, default to 100)
      * @param search Search is applied to string value (optional)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseFunctionStringsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1827,8 +1720,8 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseFunctionStringsResponse> getFunctionStringsWithHttpInfo(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = getFunctionStringsValidateBeforeCall(functionId, page, pageSize, search, authorization, null);
+    public ApiResponse<BaseResponseFunctionStringsResponse> getFunctionStringsWithHttpInfo(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search) throws ApiException {
+        okhttp3.Call localVarCall = getFunctionStringsValidateBeforeCall(functionId, page, pageSize, search, null);
         Type localVarReturnType = new TypeToken<BaseResponseFunctionStringsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1840,7 +1733,6 @@ public class FunctionsCoreApi {
      * @param page The page number to retrieve. (optional, default to 1)
      * @param pageSize Number of items per page. (optional, default to 100)
      * @param search Search is applied to string value (optional)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1852,9 +1744,9 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFunctionStringsAsync(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseFunctionStringsResponse> _callback) throws ApiException {
+    public okhttp3.Call getFunctionStringsAsync(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search, final ApiCallback<BaseResponseFunctionStringsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getFunctionStringsValidateBeforeCall(functionId, page, pageSize, search, authorization, _callback);
+        okhttp3.Call localVarCall = getFunctionStringsValidateBeforeCall(functionId, page, pageSize, search, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseFunctionStringsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1868,7 +1760,6 @@ public class FunctionsCoreApi {
      * @param debug Only return matching debug functions (optional, default to false)
      * @param debugTypes If limiting results to functions with debug names, which type of debug names to include? (optional)
      * @param binaryIds Limit similar functions to specific binaries (optional)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1880,7 +1771,7 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSimilarFunctionsCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable BigDecimal distance, @javax.annotation.Nullable List<Integer> collectionIds, @javax.annotation.Nullable Boolean debug, @javax.annotation.Nullable List<String> debugTypes, @javax.annotation.Nullable List<Integer> binaryIds, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSimilarFunctionsCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable BigDecimal distance, @javax.annotation.Nullable List<Integer> collectionIds, @javax.annotation.Nullable Boolean debug, @javax.annotation.Nullable List<String> debugTypes, @javax.annotation.Nullable List<Integer> binaryIds, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1945,23 +1836,18 @@ public class FunctionsCoreApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSimilarFunctionsValidateBeforeCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable BigDecimal distance, @javax.annotation.Nullable List<Integer> collectionIds, @javax.annotation.Nullable Boolean debug, @javax.annotation.Nullable List<String> debugTypes, @javax.annotation.Nullable List<Integer> binaryIds, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSimilarFunctionsValidateBeforeCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable BigDecimal distance, @javax.annotation.Nullable List<Integer> collectionIds, @javax.annotation.Nullable Boolean debug, @javax.annotation.Nullable List<String> debugTypes, @javax.annotation.Nullable List<Integer> binaryIds, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'functionId' is set
         if (functionId == null) {
             throw new ApiException("Missing the required parameter 'functionId' when calling getSimilarFunctions(Async)");
         }
 
-        return getSimilarFunctionsCall(functionId, limit, distance, collectionIds, debug, debugTypes, binaryIds, authorization, _callback);
+        return getSimilarFunctionsCall(functionId, limit, distance, collectionIds, debug, debugTypes, binaryIds, _callback);
 
     }
 
@@ -1975,7 +1861,6 @@ public class FunctionsCoreApi {
      * @param debug Only return matching debug functions (optional, default to false)
      * @param debugTypes If limiting results to functions with debug names, which type of debug names to include? (optional)
      * @param binaryIds Limit similar functions to specific binaries (optional)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseListSimilarFunctionsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1986,8 +1871,8 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseListSimilarFunctionsResponse getSimilarFunctions(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable BigDecimal distance, @javax.annotation.Nullable List<Integer> collectionIds, @javax.annotation.Nullable Boolean debug, @javax.annotation.Nullable List<String> debugTypes, @javax.annotation.Nullable List<Integer> binaryIds, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseListSimilarFunctionsResponse> localVarResp = getSimilarFunctionsWithHttpInfo(functionId, limit, distance, collectionIds, debug, debugTypes, binaryIds, authorization);
+    public BaseResponseListSimilarFunctionsResponse getSimilarFunctions(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable BigDecimal distance, @javax.annotation.Nullable List<Integer> collectionIds, @javax.annotation.Nullable Boolean debug, @javax.annotation.Nullable List<String> debugTypes, @javax.annotation.Nullable List<Integer> binaryIds) throws ApiException {
+        ApiResponse<BaseResponseListSimilarFunctionsResponse> localVarResp = getSimilarFunctionsWithHttpInfo(functionId, limit, distance, collectionIds, debug, debugTypes, binaryIds);
         return localVarResp.getData();
     }
 
@@ -2001,7 +1886,6 @@ public class FunctionsCoreApi {
      * @param debug Only return matching debug functions (optional, default to false)
      * @param debugTypes If limiting results to functions with debug names, which type of debug names to include? (optional)
      * @param binaryIds Limit similar functions to specific binaries (optional)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseListSimilarFunctionsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2012,8 +1896,8 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseListSimilarFunctionsResponse> getSimilarFunctionsWithHttpInfo(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable BigDecimal distance, @javax.annotation.Nullable List<Integer> collectionIds, @javax.annotation.Nullable Boolean debug, @javax.annotation.Nullable List<String> debugTypes, @javax.annotation.Nullable List<Integer> binaryIds, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = getSimilarFunctionsValidateBeforeCall(functionId, limit, distance, collectionIds, debug, debugTypes, binaryIds, authorization, null);
+    public ApiResponse<BaseResponseListSimilarFunctionsResponse> getSimilarFunctionsWithHttpInfo(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable BigDecimal distance, @javax.annotation.Nullable List<Integer> collectionIds, @javax.annotation.Nullable Boolean debug, @javax.annotation.Nullable List<String> debugTypes, @javax.annotation.Nullable List<Integer> binaryIds) throws ApiException {
+        okhttp3.Call localVarCall = getSimilarFunctionsValidateBeforeCall(functionId, limit, distance, collectionIds, debug, debugTypes, binaryIds, null);
         Type localVarReturnType = new TypeToken<BaseResponseListSimilarFunctionsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2028,7 +1912,6 @@ public class FunctionsCoreApi {
      * @param debug Only return matching debug functions (optional, default to false)
      * @param debugTypes If limiting results to functions with debug names, which type of debug names to include? (optional)
      * @param binaryIds Limit similar functions to specific binaries (optional)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2040,9 +1923,9 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSimilarFunctionsAsync(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable BigDecimal distance, @javax.annotation.Nullable List<Integer> collectionIds, @javax.annotation.Nullable Boolean debug, @javax.annotation.Nullable List<String> debugTypes, @javax.annotation.Nullable List<Integer> binaryIds, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseListSimilarFunctionsResponse> _callback) throws ApiException {
+    public okhttp3.Call getSimilarFunctionsAsync(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable BigDecimal distance, @javax.annotation.Nullable List<Integer> collectionIds, @javax.annotation.Nullable Boolean debug, @javax.annotation.Nullable List<String> debugTypes, @javax.annotation.Nullable List<Integer> binaryIds, final ApiCallback<BaseResponseListSimilarFunctionsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSimilarFunctionsValidateBeforeCall(functionId, limit, distance, collectionIds, debug, debugTypes, binaryIds, authorization, _callback);
+        okhttp3.Call localVarCall = getSimilarFunctionsValidateBeforeCall(functionId, limit, distance, collectionIds, debug, debugTypes, binaryIds, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseListSimilarFunctionsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

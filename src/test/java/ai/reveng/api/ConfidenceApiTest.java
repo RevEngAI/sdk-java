@@ -47,8 +47,7 @@ public class ConfidenceApiTest {
     public void getAnalysisTagScoreTest() throws ApiException {
         Integer analysisId = null;
         TagConfidenceBody tagConfidenceBody = null;
-        String authorization = null;
-        BaseResponseListTagOriginBoxPlotConfidence response = api.getAnalysisTagScore(analysisId, tagConfidenceBody, authorization);
+        BaseResponseListTagOriginBoxPlotConfidence response = api.getAnalysisTagScore(analysisId, tagConfidenceBody);
         // TODO: test validations
     }
 
@@ -62,8 +61,7 @@ public class ConfidenceApiTest {
     @Test
     public void getAnalysisThreatScoreTest() throws ApiException {
         Integer analysisId = null;
-        String authorization = null;
-        BaseResponseBoxPlotConfidence response = api.getAnalysisThreatScore(analysisId, authorization);
+        BaseResponseBoxPlotConfidence response = api.getAnalysisThreatScore(analysisId);
         // TODO: test validations
     }
 
@@ -77,8 +75,7 @@ public class ConfidenceApiTest {
     @Test
     public void getFunctionsNameScoreTest() throws ApiException {
         FunctionNameConfidenceBody functionNameConfidenceBody = null;
-        String authorization = null;
-        BaseResponseListFunctionBoxPlotConfidence response = api.getFunctionsNameScore(functionNameConfidenceBody, authorization);
+        BaseResponseListFunctionBoxPlotConfidence response = api.getFunctionsNameScore(functionNameConfidenceBody);
         // TODO: test validations
     }
 
@@ -92,8 +89,7 @@ public class ConfidenceApiTest {
     @Test
     public void getFunctionsThreatScoreTest() throws ApiException {
         ThreatScoreFunctionBody threatScoreFunctionBody = null;
-        String authorization = null;
-        BaseResponseListFunctionBoxPlotConfidence response = api.getFunctionsThreatScore(threatScoreFunctionBody, authorization);
+        BaseResponseListFunctionBoxPlotConfidence response = api.getFunctionsThreatScore(threatScoreFunctionBody);
         // TODO: test validations
     }
 

@@ -14,7 +14,7 @@ All URIs are relative to *https://api.reveng.ai*
 
 <a id="downloadZippedBinary"></a>
 # **downloadZippedBinary**
-> Object downloadZippedBinary(binaryId, authorization)
+> Object downloadZippedBinary(binaryId)
 
 Downloads a zipped binary with password protection
 
@@ -41,9 +41,8 @@ public class Example {
 
     BinariesApi apiInstance = new BinariesApi(defaultClient);
     Integer binaryId = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      Object result = apiInstance.downloadZippedBinary(binaryId, authorization);
+      Object result = apiInstance.downloadZippedBinary(binaryId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BinariesApi#downloadZippedBinary");
@@ -61,7 +60,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **binaryId** | **Integer**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -84,7 +82,7 @@ public class Example {
 
 <a id="getBinaryAdditionalDetails"></a>
 # **getBinaryAdditionalDetails**
-> BaseResponseBinaryAdditionalResponse getBinaryAdditionalDetails(binaryId, authorization)
+> BaseResponseBinaryAdditionalResponse getBinaryAdditionalDetails(binaryId)
 
 Gets the additional details of a binary
 
@@ -111,9 +109,8 @@ public class Example {
 
     BinariesApi apiInstance = new BinariesApi(defaultClient);
     Integer binaryId = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseBinaryAdditionalResponse result = apiInstance.getBinaryAdditionalDetails(binaryId, authorization);
+      BaseResponseBinaryAdditionalResponse result = apiInstance.getBinaryAdditionalDetails(binaryId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BinariesApi#getBinaryAdditionalDetails");
@@ -131,7 +128,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **binaryId** | **Integer**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -154,7 +150,7 @@ public class Example {
 
 <a id="getBinaryDetails"></a>
 # **getBinaryDetails**
-> BaseResponseBinaryDetailsResponse getBinaryDetails(binaryId, authorization)
+> BaseResponseBinaryDetailsResponse getBinaryDetails(binaryId)
 
 Gets the details of a binary
 
@@ -181,9 +177,8 @@ public class Example {
 
     BinariesApi apiInstance = new BinariesApi(defaultClient);
     Integer binaryId = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseBinaryDetailsResponse result = apiInstance.getBinaryDetails(binaryId, authorization);
+      BaseResponseBinaryDetailsResponse result = apiInstance.getBinaryDetails(binaryId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BinariesApi#getBinaryDetails");
@@ -201,7 +196,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **binaryId** | **Integer**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -224,7 +218,7 @@ public class Example {
 
 <a id="getBinaryDieInfo"></a>
 # **getBinaryDieInfo**
-> BaseResponseListDieMatch getBinaryDieInfo(binaryId, authorization)
+> BaseResponseListDieMatch getBinaryDieInfo(binaryId)
 
 Gets the die info of a binary
 
@@ -251,9 +245,8 @@ public class Example {
 
     BinariesApi apiInstance = new BinariesApi(defaultClient);
     Integer binaryId = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseListDieMatch result = apiInstance.getBinaryDieInfo(binaryId, authorization);
+      BaseResponseListDieMatch result = apiInstance.getBinaryDieInfo(binaryId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BinariesApi#getBinaryDieInfo");
@@ -271,7 +264,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **binaryId** | **Integer**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -294,7 +286,7 @@ public class Example {
 
 <a id="getBinaryExternals"></a>
 # **getBinaryExternals**
-> BaseResponseBinaryExternalsResponse getBinaryExternals(binaryId, authorization)
+> BaseResponseBinaryExternalsResponse getBinaryExternals(binaryId)
 
 Gets the external details of a binary
 
@@ -321,9 +313,8 @@ public class Example {
 
     BinariesApi apiInstance = new BinariesApi(defaultClient);
     Integer binaryId = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseBinaryExternalsResponse result = apiInstance.getBinaryExternals(binaryId, authorization);
+      BaseResponseBinaryExternalsResponse result = apiInstance.getBinaryExternals(binaryId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BinariesApi#getBinaryExternals");
@@ -341,7 +332,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **binaryId** | **Integer**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -364,7 +354,7 @@ public class Example {
 
 <a id="getRelatedBinaries"></a>
 # **getRelatedBinaries**
-> BaseResponseChildBinariesResponse getRelatedBinaries(binaryId, authorization)
+> BaseResponseChildBinariesResponse getRelatedBinaries(binaryId)
 
 Gets the related binaries of a binary.
 
@@ -391,9 +381,8 @@ public class Example {
 
     BinariesApi apiInstance = new BinariesApi(defaultClient);
     Integer binaryId = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseChildBinariesResponse result = apiInstance.getRelatedBinaries(binaryId, authorization);
+      BaseResponseChildBinariesResponse result = apiInstance.getRelatedBinaries(binaryId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BinariesApi#getRelatedBinaries");
@@ -411,7 +400,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **binaryId** | **Integer**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 

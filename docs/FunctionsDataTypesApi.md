@@ -14,7 +14,7 @@ All URIs are relative to *https://api.reveng.ai*
 
 <a id="generateFunctionDataTypesForAnalysis"></a>
 # **generateFunctionDataTypesForAnalysis**
-> BaseResponseGenerateFunctionDataTypes generateFunctionDataTypesForAnalysis(analysisId, functionDataTypesParams, authorization)
+> BaseResponseGenerateFunctionDataTypes generateFunctionDataTypesForAnalysis(analysisId, functionDataTypesParams)
 
 Generate Function Data Types
 
@@ -44,9 +44,8 @@ public class Example {
     FunctionsDataTypesApi apiInstance = new FunctionsDataTypesApi(defaultClient);
     Integer analysisId = 56; // Integer | 
     FunctionDataTypesParams functionDataTypesParams = new FunctionDataTypesParams(); // FunctionDataTypesParams | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseGenerateFunctionDataTypes result = apiInstance.generateFunctionDataTypesForAnalysis(analysisId, functionDataTypesParams, authorization);
+      BaseResponseGenerateFunctionDataTypes result = apiInstance.generateFunctionDataTypesForAnalysis(analysisId, functionDataTypesParams);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsDataTypesApi#generateFunctionDataTypesForAnalysis");
@@ -65,7 +64,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
 | **functionDataTypesParams** | [**FunctionDataTypesParams**](FunctionDataTypesParams.md)|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -88,7 +86,7 @@ public class Example {
 
 <a id="generateFunctionDataTypesForFunctions"></a>
 # **generateFunctionDataTypesForFunctions**
-> BaseResponseGenerationStatusList generateFunctionDataTypesForFunctions(functionDataTypesParams, authorization)
+> BaseResponseGenerationStatusList generateFunctionDataTypesForFunctions(functionDataTypesParams)
 
 Generate Function Data Types for an arbitrary list of functions
 
@@ -117,9 +115,8 @@ public class Example {
 
     FunctionsDataTypesApi apiInstance = new FunctionsDataTypesApi(defaultClient);
     FunctionDataTypesParams functionDataTypesParams = new FunctionDataTypesParams(); // FunctionDataTypesParams | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseGenerationStatusList result = apiInstance.generateFunctionDataTypesForFunctions(functionDataTypesParams, authorization);
+      BaseResponseGenerationStatusList result = apiInstance.generateFunctionDataTypesForFunctions(functionDataTypesParams);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsDataTypesApi#generateFunctionDataTypesForFunctions");
@@ -137,7 +134,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **functionDataTypesParams** | [**FunctionDataTypesParams**](FunctionDataTypesParams.md)|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -160,7 +156,7 @@ public class Example {
 
 <a id="getFunctionDataTypes"></a>
 # **getFunctionDataTypes**
-> BaseResponseFunctionDataTypes getFunctionDataTypes(analysisId, functionId, authorization)
+> BaseResponseFunctionDataTypes getFunctionDataTypes(analysisId, functionId)
 
 Get Function Data Types
 
@@ -190,9 +186,8 @@ public class Example {
     FunctionsDataTypesApi apiInstance = new FunctionsDataTypesApi(defaultClient);
     Integer analysisId = 56; // Integer | 
     Integer functionId = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseFunctionDataTypes result = apiInstance.getFunctionDataTypes(analysisId, functionId, authorization);
+      BaseResponseFunctionDataTypes result = apiInstance.getFunctionDataTypes(analysisId, functionId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsDataTypesApi#getFunctionDataTypes");
@@ -211,7 +206,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
 | **functionId** | **Integer**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -234,7 +228,7 @@ public class Example {
 
 <a id="listFunctionDataTypesForAnalysis"></a>
 # **listFunctionDataTypesForAnalysis**
-> BaseResponseFunctionDataTypesList listFunctionDataTypesForAnalysis(analysisId, functionIds, authorization)
+> BaseResponseFunctionDataTypesList listFunctionDataTypesForAnalysis(analysisId, functionIds)
 
 List Function Data Types
 
@@ -264,9 +258,8 @@ public class Example {
     FunctionsDataTypesApi apiInstance = new FunctionsDataTypesApi(defaultClient);
     Integer analysisId = 56; // Integer | 
     List<Integer> functionIds = Arrays.asList(); // List<Integer> | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseFunctionDataTypesList result = apiInstance.listFunctionDataTypesForAnalysis(analysisId, functionIds, authorization);
+      BaseResponseFunctionDataTypesList result = apiInstance.listFunctionDataTypesForAnalysis(analysisId, functionIds);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsDataTypesApi#listFunctionDataTypesForAnalysis");
@@ -285,7 +278,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
 | **functionIds** | [**List&lt;Integer&gt;**](Integer.md)|  | [optional] |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -308,7 +300,7 @@ public class Example {
 
 <a id="listFunctionDataTypesForFunctions"></a>
 # **listFunctionDataTypesForFunctions**
-> BaseResponseFunctionDataTypesList listFunctionDataTypesForFunctions(functionIds, authorization)
+> BaseResponseFunctionDataTypesList listFunctionDataTypesForFunctions(functionIds)
 
 List Function Data Types
 
@@ -337,9 +329,8 @@ public class Example {
 
     FunctionsDataTypesApi apiInstance = new FunctionsDataTypesApi(defaultClient);
     List<Integer> functionIds = Arrays.asList(); // List<Integer> | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseFunctionDataTypesList result = apiInstance.listFunctionDataTypesForFunctions(functionIds, authorization);
+      BaseResponseFunctionDataTypesList result = apiInstance.listFunctionDataTypesForFunctions(functionIds);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsDataTypesApi#listFunctionDataTypesForFunctions");
@@ -357,7 +348,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **functionIds** | [**List&lt;Integer&gt;**](Integer.md)|  | [optional] |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -380,7 +370,7 @@ public class Example {
 
 <a id="updateFunctionDataTypes"></a>
 # **updateFunctionDataTypes**
-> BaseResponseFunctionDataTypes updateFunctionDataTypes(analysisId, functionId, updateFunctionDataTypes, authorization)
+> BaseResponseFunctionDataTypes updateFunctionDataTypes(analysisId, functionId, updateFunctionDataTypes)
 
 Update Function Data Types
 
@@ -411,9 +401,8 @@ public class Example {
     Integer analysisId = 56; // Integer | 
     Integer functionId = 56; // Integer | 
     UpdateFunctionDataTypes updateFunctionDataTypes = new UpdateFunctionDataTypes(); // UpdateFunctionDataTypes | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseFunctionDataTypes result = apiInstance.updateFunctionDataTypes(analysisId, functionId, updateFunctionDataTypes, authorization);
+      BaseResponseFunctionDataTypes result = apiInstance.updateFunctionDataTypes(analysisId, functionId, updateFunctionDataTypes);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsDataTypesApi#updateFunctionDataTypes");
@@ -433,7 +422,6 @@ public class Example {
 | **analysisId** | **Integer**|  | |
 | **functionId** | **Integer**|  | |
 | **updateFunctionDataTypes** | [**UpdateFunctionDataTypes**](UpdateFunctionDataTypes.md)|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 

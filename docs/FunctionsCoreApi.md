@@ -21,7 +21,7 @@ All URIs are relative to *https://api.reveng.ai*
 
 <a id="aiUnstrip"></a>
 # **aiUnstrip**
-> AutoUnstripResponse aiUnstrip(analysisId, aiUnstripRequest, authorization)
+> AutoUnstripResponse aiUnstrip(analysisId, aiUnstripRequest)
 
 Performs matching and auto-unstrip for an analysis and its functions
 
@@ -51,9 +51,8 @@ public class Example {
     FunctionsCoreApi apiInstance = new FunctionsCoreApi(defaultClient);
     Integer analysisId = 56; // Integer | 
     AiUnstripRequest aiUnstripRequest = new AiUnstripRequest(); // AiUnstripRequest | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      AutoUnstripResponse result = apiInstance.aiUnstrip(analysisId, aiUnstripRequest, authorization);
+      AutoUnstripResponse result = apiInstance.aiUnstrip(analysisId, aiUnstripRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsCoreApi#aiUnstrip");
@@ -72,7 +71,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
 | **aiUnstripRequest** | [**AiUnstripRequest**](AiUnstripRequest.md)|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -95,7 +93,7 @@ public class Example {
 
 <a id="analysisFunctionMatching"></a>
 # **analysisFunctionMatching**
-> FunctionMatchingBatchResponse analysisFunctionMatching(analysisId, analysisFunctionMatchingRequest, authorization)
+> FunctionMatchingBatchResponse analysisFunctionMatching(analysisId, analysisFunctionMatchingRequest)
 
 Perform matching for the functions of an analysis
 
@@ -125,9 +123,8 @@ public class Example {
     FunctionsCoreApi apiInstance = new FunctionsCoreApi(defaultClient);
     Integer analysisId = 56; // Integer | 
     AnalysisFunctionMatchingRequest analysisFunctionMatchingRequest = new AnalysisFunctionMatchingRequest(); // AnalysisFunctionMatchingRequest | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      FunctionMatchingBatchResponse result = apiInstance.analysisFunctionMatching(analysisId, analysisFunctionMatchingRequest, authorization);
+      FunctionMatchingBatchResponse result = apiInstance.analysisFunctionMatching(analysisId, analysisFunctionMatchingRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsCoreApi#analysisFunctionMatching");
@@ -146,7 +143,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
 | **analysisFunctionMatchingRequest** | [**AnalysisFunctionMatchingRequest**](AnalysisFunctionMatchingRequest.md)|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -169,7 +165,7 @@ public class Example {
 
 <a id="autoUnstrip"></a>
 # **autoUnstrip**
-> AutoUnstripResponse autoUnstrip(analysisId, autoUnstripRequest, authorization)
+> AutoUnstripResponse autoUnstrip(analysisId, autoUnstripRequest)
 
 Performs matching and auto-unstrip for an analysis and its functions
 
@@ -199,9 +195,8 @@ public class Example {
     FunctionsCoreApi apiInstance = new FunctionsCoreApi(defaultClient);
     Integer analysisId = 56; // Integer | 
     AutoUnstripRequest autoUnstripRequest = new AutoUnstripRequest(); // AutoUnstripRequest | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      AutoUnstripResponse result = apiInstance.autoUnstrip(analysisId, autoUnstripRequest, authorization);
+      AutoUnstripResponse result = apiInstance.autoUnstrip(analysisId, autoUnstripRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsCoreApi#autoUnstrip");
@@ -220,7 +215,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
 | **autoUnstripRequest** | [**AutoUnstripRequest**](AutoUnstripRequest.md)|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -243,7 +237,7 @@ public class Example {
 
 <a id="batchFunctionMatching"></a>
 # **batchFunctionMatching**
-> FunctionMatchingBatchResponse batchFunctionMatching(functionMatchingRequest, authorization)
+> FunctionMatchingBatchResponse batchFunctionMatching(functionMatchingRequest)
 
 Perform function matching for an arbitrary batch of functions, binaries or collections
 
@@ -272,9 +266,8 @@ public class Example {
 
     FunctionsCoreApi apiInstance = new FunctionsCoreApi(defaultClient);
     FunctionMatchingRequest functionMatchingRequest = new FunctionMatchingRequest(); // FunctionMatchingRequest | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      FunctionMatchingBatchResponse result = apiInstance.batchFunctionMatching(functionMatchingRequest, authorization);
+      FunctionMatchingBatchResponse result = apiInstance.batchFunctionMatching(functionMatchingRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsCoreApi#batchFunctionMatching");
@@ -292,7 +285,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **functionMatchingRequest** | [**FunctionMatchingRequest**](FunctionMatchingRequest.md)|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -315,7 +307,7 @@ public class Example {
 
 <a id="cancelAiUnstrip"></a>
 # **cancelAiUnstrip**
-> AutoUnstripResponse cancelAiUnstrip(analysisId, authorization)
+> AutoUnstripResponse cancelAiUnstrip(analysisId)
 
 Cancels a running ai-unstrip
 
@@ -344,9 +336,8 @@ public class Example {
 
     FunctionsCoreApi apiInstance = new FunctionsCoreApi(defaultClient);
     Integer analysisId = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      AutoUnstripResponse result = apiInstance.cancelAiUnstrip(analysisId, authorization);
+      AutoUnstripResponse result = apiInstance.cancelAiUnstrip(analysisId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsCoreApi#cancelAiUnstrip");
@@ -364,7 +355,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -387,7 +377,7 @@ public class Example {
 
 <a id="cancelAutoUnstrip"></a>
 # **cancelAutoUnstrip**
-> AutoUnstripResponse cancelAutoUnstrip(analysisId, authorization)
+> AutoUnstripResponse cancelAutoUnstrip(analysisId)
 
 Cancels a running auto-unstrip
 
@@ -416,9 +406,8 @@ public class Example {
 
     FunctionsCoreApi apiInstance = new FunctionsCoreApi(defaultClient);
     Integer analysisId = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      AutoUnstripResponse result = apiInstance.cancelAutoUnstrip(analysisId, authorization);
+      AutoUnstripResponse result = apiInstance.cancelAutoUnstrip(analysisId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsCoreApi#cancelAutoUnstrip");
@@ -436,7 +425,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -459,7 +447,7 @@ public class Example {
 
 <a id="getAnalysisStrings"></a>
 # **getAnalysisStrings**
-> BaseResponseAnalysisStringsResponse getAnalysisStrings(analysisId, page, pageSize, search, functionSearch, authorization)
+> BaseResponseAnalysisStringsResponse getAnalysisStrings(analysisId, page, pageSize, search, functionSearch)
 
 Get string information found in the Analysis
 
@@ -492,9 +480,8 @@ public class Example {
     Integer pageSize = 100; // Integer | Number of items per page.
     String search = "search_example"; // String | Search is applied to string value
     String functionSearch = "functionSearch_example"; // String | Search is applied to function names
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseAnalysisStringsResponse result = apiInstance.getAnalysisStrings(analysisId, page, pageSize, search, functionSearch, authorization);
+      BaseResponseAnalysisStringsResponse result = apiInstance.getAnalysisStrings(analysisId, page, pageSize, search, functionSearch);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsCoreApi#getAnalysisStrings");
@@ -516,7 +503,6 @@ public class Example {
 | **pageSize** | **Integer**| Number of items per page. | [optional] [default to 100] |
 | **search** | **String**| Search is applied to string value | [optional] |
 | **functionSearch** | **String**| Search is applied to function names | [optional] |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -539,7 +525,7 @@ public class Example {
 
 <a id="getFunctionBlocks"></a>
 # **getFunctionBlocks**
-> BaseResponseFunctionBlocksResponse getFunctionBlocks(functionId, authorization)
+> BaseResponseFunctionBlocksResponse getFunctionBlocks(functionId)
 
 Get disassembly blocks related to the function
 
@@ -568,9 +554,8 @@ public class Example {
 
     FunctionsCoreApi apiInstance = new FunctionsCoreApi(defaultClient);
     Integer functionId = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseFunctionBlocksResponse result = apiInstance.getFunctionBlocks(functionId, authorization);
+      BaseResponseFunctionBlocksResponse result = apiInstance.getFunctionBlocks(functionId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsCoreApi#getFunctionBlocks");
@@ -588,7 +573,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **functionId** | **Integer**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -612,7 +596,7 @@ public class Example {
 
 <a id="getFunctionCalleesCallers"></a>
 # **getFunctionCalleesCallers**
-> BaseResponseCalleesCallerFunctionsResponse getFunctionCalleesCallers(functionId, authorization)
+> BaseResponseCalleesCallerFunctionsResponse getFunctionCalleesCallers(functionId)
 
 Get list of functions that call or are called by the specified function
 
@@ -639,9 +623,8 @@ public class Example {
 
     FunctionsCoreApi apiInstance = new FunctionsCoreApi(defaultClient);
     Integer functionId = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseCalleesCallerFunctionsResponse result = apiInstance.getFunctionCalleesCallers(functionId, authorization);
+      BaseResponseCalleesCallerFunctionsResponse result = apiInstance.getFunctionCalleesCallers(functionId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsCoreApi#getFunctionCalleesCallers");
@@ -659,7 +642,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **functionId** | **Integer**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -682,7 +664,7 @@ public class Example {
 
 <a id="getFunctionCapabilities"></a>
 # **getFunctionCapabilities**
-> BaseResponseFunctionCapabilityResponse getFunctionCapabilities(functionId, authorization)
+> BaseResponseFunctionCapabilityResponse getFunctionCapabilities(functionId)
 
 Retrieve a functions capabilities
 
@@ -709,9 +691,8 @@ public class Example {
 
     FunctionsCoreApi apiInstance = new FunctionsCoreApi(defaultClient);
     Integer functionId = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseFunctionCapabilityResponse result = apiInstance.getFunctionCapabilities(functionId, authorization);
+      BaseResponseFunctionCapabilityResponse result = apiInstance.getFunctionCapabilities(functionId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsCoreApi#getFunctionCapabilities");
@@ -729,7 +710,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **functionId** | **Integer**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -753,7 +733,7 @@ public class Example {
 
 <a id="getFunctionDetails"></a>
 # **getFunctionDetails**
-> BaseResponseFunctionsDetailResponse getFunctionDetails(functionId, authorization)
+> BaseResponseFunctionsDetailResponse getFunctionDetails(functionId)
 
 Get function details
 
@@ -780,9 +760,8 @@ public class Example {
 
     FunctionsCoreApi apiInstance = new FunctionsCoreApi(defaultClient);
     Integer functionId = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseFunctionsDetailResponse result = apiInstance.getFunctionDetails(functionId, authorization);
+      BaseResponseFunctionsDetailResponse result = apiInstance.getFunctionDetails(functionId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsCoreApi#getFunctionDetails");
@@ -800,7 +779,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **functionId** | **Integer**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -823,7 +801,7 @@ public class Example {
 
 <a id="getFunctionStrings"></a>
 # **getFunctionStrings**
-> BaseResponseFunctionStringsResponse getFunctionStrings(functionId, page, pageSize, search, authorization)
+> BaseResponseFunctionStringsResponse getFunctionStrings(functionId, page, pageSize, search)
 
 Get string information found in the function
 
@@ -855,9 +833,8 @@ public class Example {
     Integer page = 1; // Integer | The page number to retrieve.
     Integer pageSize = 100; // Integer | Number of items per page.
     String search = "search_example"; // String | Search is applied to string value
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseFunctionStringsResponse result = apiInstance.getFunctionStrings(functionId, page, pageSize, search, authorization);
+      BaseResponseFunctionStringsResponse result = apiInstance.getFunctionStrings(functionId, page, pageSize, search);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsCoreApi#getFunctionStrings");
@@ -878,7 +855,6 @@ public class Example {
 | **page** | **Integer**| The page number to retrieve. | [optional] [default to 1] |
 | **pageSize** | **Integer**| Number of items per page. | [optional] [default to 100] |
 | **search** | **String**| Search is applied to string value | [optional] |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -901,7 +877,7 @@ public class Example {
 
 <a id="getSimilarFunctions"></a>
 # **getSimilarFunctions**
-> BaseResponseListSimilarFunctionsResponse getSimilarFunctions(functionId, limit, distance, collectionIds, debug, debugTypes, binaryIds, authorization)
+> BaseResponseListSimilarFunctionsResponse getSimilarFunctions(functionId, limit, distance, collectionIds, debug, debugTypes, binaryIds)
 
 Get list of similar functions
 
@@ -934,9 +910,8 @@ public class Example {
     Boolean debug = false; // Boolean | Only return matching debug functions
     List<String> debugTypes = Arrays.asList(); // List<String> | If limiting results to functions with debug names, which type of debug names to include?
     List<Integer> binaryIds = Arrays.asList(); // List<Integer> | Limit similar functions to specific binaries
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseListSimilarFunctionsResponse result = apiInstance.getSimilarFunctions(functionId, limit, distance, collectionIds, debug, debugTypes, binaryIds, authorization);
+      BaseResponseListSimilarFunctionsResponse result = apiInstance.getSimilarFunctions(functionId, limit, distance, collectionIds, debug, debugTypes, binaryIds);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsCoreApi#getSimilarFunctions");
@@ -960,7 +935,6 @@ public class Example {
 | **debug** | **Boolean**| Only return matching debug functions | [optional] [default to false] |
 | **debugTypes** | [**List&lt;String&gt;**](String.md)| If limiting results to functions with debug names, which type of debug names to include? | [optional] [enum: USER, SYSTEM, EXTERNAL] |
 | **binaryIds** | [**List&lt;Integer&gt;**](Integer.md)| Limit similar functions to specific binaries | [optional] |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 

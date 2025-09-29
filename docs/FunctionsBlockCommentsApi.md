@@ -11,7 +11,7 @@ All URIs are relative to *https://api.reveng.ai*
 
 <a id="generateBlockCommentsForBlockInFunction"></a>
 # **generateBlockCommentsForBlockInFunction**
-> BaseResponseBlockCommentsGenerationForFunctionResponse generateBlockCommentsForBlockInFunction(functionId, block, authorization)
+> BaseResponseBlockCommentsGenerationForFunctionResponse generateBlockCommentsForBlockInFunction(functionId, block)
 
 Generate block comments for a specific block in a function
 
@@ -39,9 +39,8 @@ public class Example {
     FunctionsBlockCommentsApi apiInstance = new FunctionsBlockCommentsApi(defaultClient);
     Integer functionId = 56; // Integer | 
     Block block = new Block(); // Block | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseBlockCommentsGenerationForFunctionResponse result = apiInstance.generateBlockCommentsForBlockInFunction(functionId, block, authorization);
+      BaseResponseBlockCommentsGenerationForFunctionResponse result = apiInstance.generateBlockCommentsForBlockInFunction(functionId, block);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsBlockCommentsApi#generateBlockCommentsForBlockInFunction");
@@ -60,7 +59,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **functionId** | **Integer**|  | |
 | **block** | [**Block**](Block.md)|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -83,7 +81,7 @@ public class Example {
 
 <a id="generateBlockCommentsForFunction"></a>
 # **generateBlockCommentsForFunction**
-> BaseResponseBlockCommentsGenerationForFunctionResponse generateBlockCommentsForFunction(functionId, authorization)
+> BaseResponseBlockCommentsGenerationForFunctionResponse generateBlockCommentsForFunction(functionId)
 
 Generate block comments for a function
 
@@ -110,9 +108,8 @@ public class Example {
 
     FunctionsBlockCommentsApi apiInstance = new FunctionsBlockCommentsApi(defaultClient);
     Integer functionId = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseBlockCommentsGenerationForFunctionResponse result = apiInstance.generateBlockCommentsForFunction(functionId, authorization);
+      BaseResponseBlockCommentsGenerationForFunctionResponse result = apiInstance.generateBlockCommentsForFunction(functionId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsBlockCommentsApi#generateBlockCommentsForFunction");
@@ -130,7 +127,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **functionId** | **Integer**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -153,7 +149,7 @@ public class Example {
 
 <a id="generateOverviewCommentForFunction"></a>
 # **generateOverviewCommentForFunction**
-> BaseResponseBlockCommentsOverviewGenerationResponse generateOverviewCommentForFunction(functionId, authorization)
+> BaseResponseBlockCommentsOverviewGenerationResponse generateOverviewCommentForFunction(functionId)
 
 Generate overview comment for a function
 
@@ -180,9 +176,8 @@ public class Example {
 
     FunctionsBlockCommentsApi apiInstance = new FunctionsBlockCommentsApi(defaultClient);
     Integer functionId = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseBlockCommentsOverviewGenerationResponse result = apiInstance.generateOverviewCommentForFunction(functionId, authorization);
+      BaseResponseBlockCommentsOverviewGenerationResponse result = apiInstance.generateOverviewCommentForFunction(functionId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsBlockCommentsApi#generateOverviewCommentForFunction");
@@ -200,7 +195,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **functionId** | **Integer**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 

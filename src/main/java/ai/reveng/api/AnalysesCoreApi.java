@@ -104,7 +104,6 @@ public class AnalysesCoreApi {
     /**
      * Build call for batchSymbolAnn
      * @param appApiRestV1AnnSchemaANNFunction  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -116,7 +115,7 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call batchSymbolAnnCall(@javax.annotation.Nonnull AppApiRestV1AnnSchemaANNFunction appApiRestV1AnnSchemaANNFunction, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call batchSymbolAnnCall(@javax.annotation.Nonnull AppApiRestV1AnnSchemaANNFunction appApiRestV1AnnSchemaANNFunction, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -157,23 +156,18 @@ public class AnalysesCoreApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call batchSymbolAnnValidateBeforeCall(@javax.annotation.Nonnull AppApiRestV1AnnSchemaANNFunction appApiRestV1AnnSchemaANNFunction, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call batchSymbolAnnValidateBeforeCall(@javax.annotation.Nonnull AppApiRestV1AnnSchemaANNFunction appApiRestV1AnnSchemaANNFunction, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'appApiRestV1AnnSchemaANNFunction' is set
         if (appApiRestV1AnnSchemaANNFunction == null) {
             throw new ApiException("Missing the required parameter 'appApiRestV1AnnSchemaANNFunction' when calling batchSymbolAnn(Async)");
         }
 
-        return batchSymbolAnnCall(appApiRestV1AnnSchemaANNFunction, authorization, _callback);
+        return batchSymbolAnnCall(appApiRestV1AnnSchemaANNFunction, _callback);
 
     }
 
@@ -181,7 +175,6 @@ public class AnalysesCoreApi {
      * Batch Symbol ANN using function IDs
      * Takes in an input of functions ID&#39;s and settings and finds the nearest functions for each function that&#39;s within the database
      * @param appApiRestV1AnnSchemaANNFunction  (required)
-     * @param authorization API Key bearer token (optional)
      * @return FunctionBatchAnn
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -192,8 +185,8 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public FunctionBatchAnn batchSymbolAnn(@javax.annotation.Nonnull AppApiRestV1AnnSchemaANNFunction appApiRestV1AnnSchemaANNFunction, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<FunctionBatchAnn> localVarResp = batchSymbolAnnWithHttpInfo(appApiRestV1AnnSchemaANNFunction, authorization);
+    public FunctionBatchAnn batchSymbolAnn(@javax.annotation.Nonnull AppApiRestV1AnnSchemaANNFunction appApiRestV1AnnSchemaANNFunction) throws ApiException {
+        ApiResponse<FunctionBatchAnn> localVarResp = batchSymbolAnnWithHttpInfo(appApiRestV1AnnSchemaANNFunction);
         return localVarResp.getData();
     }
 
@@ -201,7 +194,6 @@ public class AnalysesCoreApi {
      * Batch Symbol ANN using function IDs
      * Takes in an input of functions ID&#39;s and settings and finds the nearest functions for each function that&#39;s within the database
      * @param appApiRestV1AnnSchemaANNFunction  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;FunctionBatchAnn&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -212,8 +204,8 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<FunctionBatchAnn> batchSymbolAnnWithHttpInfo(@javax.annotation.Nonnull AppApiRestV1AnnSchemaANNFunction appApiRestV1AnnSchemaANNFunction, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = batchSymbolAnnValidateBeforeCall(appApiRestV1AnnSchemaANNFunction, authorization, null);
+    public ApiResponse<FunctionBatchAnn> batchSymbolAnnWithHttpInfo(@javax.annotation.Nonnull AppApiRestV1AnnSchemaANNFunction appApiRestV1AnnSchemaANNFunction) throws ApiException {
+        okhttp3.Call localVarCall = batchSymbolAnnValidateBeforeCall(appApiRestV1AnnSchemaANNFunction, null);
         Type localVarReturnType = new TypeToken<FunctionBatchAnn>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -222,7 +214,6 @@ public class AnalysesCoreApi {
      * Batch Symbol ANN using function IDs (asynchronously)
      * Takes in an input of functions ID&#39;s and settings and finds the nearest functions for each function that&#39;s within the database
      * @param appApiRestV1AnnSchemaANNFunction  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -234,9 +225,9 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call batchSymbolAnnAsync(@javax.annotation.Nonnull AppApiRestV1AnnSchemaANNFunction appApiRestV1AnnSchemaANNFunction, @javax.annotation.Nullable String authorization, final ApiCallback<FunctionBatchAnn> _callback) throws ApiException {
+    public okhttp3.Call batchSymbolAnnAsync(@javax.annotation.Nonnull AppApiRestV1AnnSchemaANNFunction appApiRestV1AnnSchemaANNFunction, final ApiCallback<FunctionBatchAnn> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = batchSymbolAnnValidateBeforeCall(appApiRestV1AnnSchemaANNFunction, authorization, _callback);
+        okhttp3.Call localVarCall = batchSymbolAnnValidateBeforeCall(appApiRestV1AnnSchemaANNFunction, _callback);
         Type localVarReturnType = new TypeToken<FunctionBatchAnn>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -244,7 +235,6 @@ public class AnalysesCoreApi {
     /**
      * Build call for createAnalysis
      * @param analysisCreateRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -258,7 +248,7 @@ public class AnalysesCoreApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAnalysisCall(@javax.annotation.Nonnull AnalysisCreateRequest analysisCreateRequest, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createAnalysisCall(@javax.annotation.Nonnull AnalysisCreateRequest analysisCreateRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -299,23 +289,18 @@ public class AnalysesCoreApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createAnalysisValidateBeforeCall(@javax.annotation.Nonnull AnalysisCreateRequest analysisCreateRequest, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createAnalysisValidateBeforeCall(@javax.annotation.Nonnull AnalysisCreateRequest analysisCreateRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisCreateRequest' is set
         if (analysisCreateRequest == null) {
             throw new ApiException("Missing the required parameter 'analysisCreateRequest' when calling createAnalysis(Async)");
         }
 
-        return createAnalysisCall(analysisCreateRequest, authorization, _callback);
+        return createAnalysisCall(analysisCreateRequest, _callback);
 
     }
 
@@ -323,7 +308,6 @@ public class AnalysesCoreApi {
      * Create Analysis
      * Begins an analysis
      * @param analysisCreateRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseAnalysisCreateResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -336,8 +320,8 @@ public class AnalysesCoreApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseAnalysisCreateResponse createAnalysis(@javax.annotation.Nonnull AnalysisCreateRequest analysisCreateRequest, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseAnalysisCreateResponse> localVarResp = createAnalysisWithHttpInfo(analysisCreateRequest, authorization);
+    public BaseResponseAnalysisCreateResponse createAnalysis(@javax.annotation.Nonnull AnalysisCreateRequest analysisCreateRequest) throws ApiException {
+        ApiResponse<BaseResponseAnalysisCreateResponse> localVarResp = createAnalysisWithHttpInfo(analysisCreateRequest);
         return localVarResp.getData();
     }
 
@@ -345,7 +329,6 @@ public class AnalysesCoreApi {
      * Create Analysis
      * Begins an analysis
      * @param analysisCreateRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseAnalysisCreateResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -358,8 +341,8 @@ public class AnalysesCoreApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseAnalysisCreateResponse> createAnalysisWithHttpInfo(@javax.annotation.Nonnull AnalysisCreateRequest analysisCreateRequest, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = createAnalysisValidateBeforeCall(analysisCreateRequest, authorization, null);
+    public ApiResponse<BaseResponseAnalysisCreateResponse> createAnalysisWithHttpInfo(@javax.annotation.Nonnull AnalysisCreateRequest analysisCreateRequest) throws ApiException {
+        okhttp3.Call localVarCall = createAnalysisValidateBeforeCall(analysisCreateRequest, null);
         Type localVarReturnType = new TypeToken<BaseResponseAnalysisCreateResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -368,7 +351,6 @@ public class AnalysesCoreApi {
      * Create Analysis (asynchronously)
      * Begins an analysis
      * @param analysisCreateRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -382,9 +364,9 @@ public class AnalysesCoreApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAnalysisAsync(@javax.annotation.Nonnull AnalysisCreateRequest analysisCreateRequest, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseAnalysisCreateResponse> _callback) throws ApiException {
+    public okhttp3.Call createAnalysisAsync(@javax.annotation.Nonnull AnalysisCreateRequest analysisCreateRequest, final ApiCallback<BaseResponseAnalysisCreateResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createAnalysisValidateBeforeCall(analysisCreateRequest, authorization, _callback);
+        okhttp3.Call localVarCall = createAnalysisValidateBeforeCall(analysisCreateRequest, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseAnalysisCreateResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -392,7 +374,6 @@ public class AnalysesCoreApi {
     /**
      * Build call for deleteAnalysis
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -406,7 +387,7 @@ public class AnalysesCoreApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteAnalysisCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteAnalysisCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -447,23 +428,18 @@ public class AnalysesCoreApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteAnalysisValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteAnalysisValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling deleteAnalysis(Async)");
         }
 
-        return deleteAnalysisCall(analysisId, authorization, _callback);
+        return deleteAnalysisCall(analysisId, _callback);
 
     }
 
@@ -471,7 +447,6 @@ public class AnalysesCoreApi {
      * Delete Analysis
      * Deletes an analysis based on the provided analysis ID.
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseDict
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -484,8 +459,8 @@ public class AnalysesCoreApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseDict deleteAnalysis(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseDict> localVarResp = deleteAnalysisWithHttpInfo(analysisId, authorization);
+    public BaseResponseDict deleteAnalysis(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        ApiResponse<BaseResponseDict> localVarResp = deleteAnalysisWithHttpInfo(analysisId);
         return localVarResp.getData();
     }
 
@@ -493,7 +468,6 @@ public class AnalysesCoreApi {
      * Delete Analysis
      * Deletes an analysis based on the provided analysis ID.
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseDict&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -506,8 +480,8 @@ public class AnalysesCoreApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseDict> deleteAnalysisWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = deleteAnalysisValidateBeforeCall(analysisId, authorization, null);
+    public ApiResponse<BaseResponseDict> deleteAnalysisWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        okhttp3.Call localVarCall = deleteAnalysisValidateBeforeCall(analysisId, null);
         Type localVarReturnType = new TypeToken<BaseResponseDict>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -516,7 +490,6 @@ public class AnalysesCoreApi {
      * Delete Analysis (asynchronously)
      * Deletes an analysis based on the provided analysis ID.
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -530,9 +503,9 @@ public class AnalysesCoreApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteAnalysisAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseDict> _callback) throws ApiException {
+    public okhttp3.Call deleteAnalysisAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<BaseResponseDict> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteAnalysisValidateBeforeCall(analysisId, authorization, _callback);
+        okhttp3.Call localVarCall = deleteAnalysisValidateBeforeCall(analysisId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseDict>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -541,7 +514,6 @@ public class AnalysesCoreApi {
      * Build call for findSimilarFunctionsBatch
      * @param analysisId  (required)
      * @param appApiRestV2SimilaritySchemaANNFunction  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -553,7 +525,7 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call findSimilarFunctionsBatchCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AppApiRestV2SimilaritySchemaANNFunction appApiRestV2SimilaritySchemaANNFunction, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call findSimilarFunctionsBatchCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AppApiRestV2SimilaritySchemaANNFunction appApiRestV2SimilaritySchemaANNFunction, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -595,17 +567,12 @@ public class AnalysesCoreApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call findSimilarFunctionsBatchValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AppApiRestV2SimilaritySchemaANNFunction appApiRestV2SimilaritySchemaANNFunction, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call findSimilarFunctionsBatchValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AppApiRestV2SimilaritySchemaANNFunction appApiRestV2SimilaritySchemaANNFunction, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling findSimilarFunctionsBatch(Async)");
@@ -616,7 +583,7 @@ public class AnalysesCoreApi {
             throw new ApiException("Missing the required parameter 'appApiRestV2SimilaritySchemaANNFunction' when calling findSimilarFunctionsBatch(Async)");
         }
 
-        return findSimilarFunctionsBatchCall(analysisId, appApiRestV2SimilaritySchemaANNFunction, authorization, _callback);
+        return findSimilarFunctionsBatchCall(analysisId, appApiRestV2SimilaritySchemaANNFunction, _callback);
 
     }
 
@@ -625,7 +592,6 @@ public class AnalysesCoreApi {
      * Takes a analysis ID and returns the nearest functions within the database that match those functions
      * @param analysisId  (required)
      * @param appApiRestV2SimilaritySchemaANNFunction  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseNearestNeighborAnalysis
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -636,8 +602,8 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseNearestNeighborAnalysis findSimilarFunctionsBatch(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AppApiRestV2SimilaritySchemaANNFunction appApiRestV2SimilaritySchemaANNFunction, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseNearestNeighborAnalysis> localVarResp = findSimilarFunctionsBatchWithHttpInfo(analysisId, appApiRestV2SimilaritySchemaANNFunction, authorization);
+    public BaseResponseNearestNeighborAnalysis findSimilarFunctionsBatch(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AppApiRestV2SimilaritySchemaANNFunction appApiRestV2SimilaritySchemaANNFunction) throws ApiException {
+        ApiResponse<BaseResponseNearestNeighborAnalysis> localVarResp = findSimilarFunctionsBatchWithHttpInfo(analysisId, appApiRestV2SimilaritySchemaANNFunction);
         return localVarResp.getData();
     }
 
@@ -646,7 +612,6 @@ public class AnalysesCoreApi {
      * Takes a analysis ID and returns the nearest functions within the database that match those functions
      * @param analysisId  (required)
      * @param appApiRestV2SimilaritySchemaANNFunction  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseNearestNeighborAnalysis&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -657,8 +622,8 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseNearestNeighborAnalysis> findSimilarFunctionsBatchWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AppApiRestV2SimilaritySchemaANNFunction appApiRestV2SimilaritySchemaANNFunction, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = findSimilarFunctionsBatchValidateBeforeCall(analysisId, appApiRestV2SimilaritySchemaANNFunction, authorization, null);
+    public ApiResponse<BaseResponseNearestNeighborAnalysis> findSimilarFunctionsBatchWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AppApiRestV2SimilaritySchemaANNFunction appApiRestV2SimilaritySchemaANNFunction) throws ApiException {
+        okhttp3.Call localVarCall = findSimilarFunctionsBatchValidateBeforeCall(analysisId, appApiRestV2SimilaritySchemaANNFunction, null);
         Type localVarReturnType = new TypeToken<BaseResponseNearestNeighborAnalysis>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -668,7 +633,6 @@ public class AnalysesCoreApi {
      * Takes a analysis ID and returns the nearest functions within the database that match those functions
      * @param analysisId  (required)
      * @param appApiRestV2SimilaritySchemaANNFunction  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -680,9 +644,9 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call findSimilarFunctionsBatchAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AppApiRestV2SimilaritySchemaANNFunction appApiRestV2SimilaritySchemaANNFunction, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseNearestNeighborAnalysis> _callback) throws ApiException {
+    public okhttp3.Call findSimilarFunctionsBatchAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AppApiRestV2SimilaritySchemaANNFunction appApiRestV2SimilaritySchemaANNFunction, final ApiCallback<BaseResponseNearestNeighborAnalysis> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = findSimilarFunctionsBatchValidateBeforeCall(analysisId, appApiRestV2SimilaritySchemaANNFunction, authorization, _callback);
+        okhttp3.Call localVarCall = findSimilarFunctionsBatchValidateBeforeCall(analysisId, appApiRestV2SimilaritySchemaANNFunction, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseNearestNeighborAnalysis>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -690,7 +654,6 @@ public class AnalysesCoreApi {
     /**
      * Build call for getAnalysisBasicInfo
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -702,7 +665,7 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAnalysisBasicInfoCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAnalysisBasicInfoCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -743,23 +706,18 @@ public class AnalysesCoreApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAnalysisBasicInfoValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAnalysisBasicInfoValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling getAnalysisBasicInfo(Async)");
         }
 
-        return getAnalysisBasicInfoCall(analysisId, authorization, _callback);
+        return getAnalysisBasicInfoCall(analysisId, _callback);
 
     }
 
@@ -767,7 +725,6 @@ public class AnalysesCoreApi {
      * Gets basic analysis information
      * Just a random placeholder for now
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseBasic
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -778,8 +735,8 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseBasic getAnalysisBasicInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseBasic> localVarResp = getAnalysisBasicInfoWithHttpInfo(analysisId, authorization);
+    public BaseResponseBasic getAnalysisBasicInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        ApiResponse<BaseResponseBasic> localVarResp = getAnalysisBasicInfoWithHttpInfo(analysisId);
         return localVarResp.getData();
     }
 
@@ -787,7 +744,6 @@ public class AnalysesCoreApi {
      * Gets basic analysis information
      * Just a random placeholder for now
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseBasic&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -798,8 +754,8 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseBasic> getAnalysisBasicInfoWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = getAnalysisBasicInfoValidateBeforeCall(analysisId, authorization, null);
+    public ApiResponse<BaseResponseBasic> getAnalysisBasicInfoWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        okhttp3.Call localVarCall = getAnalysisBasicInfoValidateBeforeCall(analysisId, null);
         Type localVarReturnType = new TypeToken<BaseResponseBasic>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -808,7 +764,6 @@ public class AnalysesCoreApi {
      * Gets basic analysis information (asynchronously)
      * Just a random placeholder for now
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -820,9 +775,9 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAnalysisBasicInfoAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseBasic> _callback) throws ApiException {
+    public okhttp3.Call getAnalysisBasicInfoAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<BaseResponseBasic> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAnalysisBasicInfoValidateBeforeCall(analysisId, authorization, _callback);
+        okhttp3.Call localVarCall = getAnalysisBasicInfoValidateBeforeCall(analysisId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseBasic>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -830,7 +785,6 @@ public class AnalysesCoreApi {
     /**
      * Build call for getAnalysisFunctionMap
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -842,7 +796,7 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAnalysisFunctionMapCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAnalysisFunctionMapCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -883,23 +837,18 @@ public class AnalysesCoreApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAnalysisFunctionMapValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAnalysisFunctionMapValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling getAnalysisFunctionMap(Async)");
         }
 
-        return getAnalysisFunctionMapCall(analysisId, authorization, _callback);
+        return getAnalysisFunctionMapCall(analysisId, _callback);
 
     }
 
@@ -907,7 +856,6 @@ public class AnalysesCoreApi {
      * Get Analysis Function Map
      * Returns three maps: a map of function ids to function addresses, it&#39;s inverse and a map of function addresses to function names.
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseAnalysisFunctionMapping
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -918,8 +866,8 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseAnalysisFunctionMapping getAnalysisFunctionMap(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseAnalysisFunctionMapping> localVarResp = getAnalysisFunctionMapWithHttpInfo(analysisId, authorization);
+    public BaseResponseAnalysisFunctionMapping getAnalysisFunctionMap(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        ApiResponse<BaseResponseAnalysisFunctionMapping> localVarResp = getAnalysisFunctionMapWithHttpInfo(analysisId);
         return localVarResp.getData();
     }
 
@@ -927,7 +875,6 @@ public class AnalysesCoreApi {
      * Get Analysis Function Map
      * Returns three maps: a map of function ids to function addresses, it&#39;s inverse and a map of function addresses to function names.
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseAnalysisFunctionMapping&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -938,8 +885,8 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseAnalysisFunctionMapping> getAnalysisFunctionMapWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = getAnalysisFunctionMapValidateBeforeCall(analysisId, authorization, null);
+    public ApiResponse<BaseResponseAnalysisFunctionMapping> getAnalysisFunctionMapWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        okhttp3.Call localVarCall = getAnalysisFunctionMapValidateBeforeCall(analysisId, null);
         Type localVarReturnType = new TypeToken<BaseResponseAnalysisFunctionMapping>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -948,7 +895,6 @@ public class AnalysesCoreApi {
      * Get Analysis Function Map (asynchronously)
      * Returns three maps: a map of function ids to function addresses, it&#39;s inverse and a map of function addresses to function names.
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -960,9 +906,9 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAnalysisFunctionMapAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseAnalysisFunctionMapping> _callback) throws ApiException {
+    public okhttp3.Call getAnalysisFunctionMapAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<BaseResponseAnalysisFunctionMapping> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAnalysisFunctionMapValidateBeforeCall(analysisId, authorization, _callback);
+        okhttp3.Call localVarCall = getAnalysisFunctionMapValidateBeforeCall(analysisId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseAnalysisFunctionMapping>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -970,7 +916,6 @@ public class AnalysesCoreApi {
     /**
      * Build call for getAnalysisLogs
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -982,7 +927,7 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAnalysisLogsCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAnalysisLogsCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1023,23 +968,18 @@ public class AnalysesCoreApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAnalysisLogsValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAnalysisLogsValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling getAnalysisLogs(Async)");
         }
 
-        return getAnalysisLogsCall(analysisId, authorization, _callback);
+        return getAnalysisLogsCall(analysisId, _callback);
 
     }
 
@@ -1047,7 +987,6 @@ public class AnalysesCoreApi {
      * Gets the logs of an analysis
      * Given an analysis ID gets the current logs of an analysis
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseLogs
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1058,8 +997,8 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseLogs getAnalysisLogs(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseLogs> localVarResp = getAnalysisLogsWithHttpInfo(analysisId, authorization);
+    public BaseResponseLogs getAnalysisLogs(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        ApiResponse<BaseResponseLogs> localVarResp = getAnalysisLogsWithHttpInfo(analysisId);
         return localVarResp.getData();
     }
 
@@ -1067,7 +1006,6 @@ public class AnalysesCoreApi {
      * Gets the logs of an analysis
      * Given an analysis ID gets the current logs of an analysis
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseLogs&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1078,8 +1016,8 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseLogs> getAnalysisLogsWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = getAnalysisLogsValidateBeforeCall(analysisId, authorization, null);
+    public ApiResponse<BaseResponseLogs> getAnalysisLogsWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        okhttp3.Call localVarCall = getAnalysisLogsValidateBeforeCall(analysisId, null);
         Type localVarReturnType = new TypeToken<BaseResponseLogs>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1088,7 +1026,6 @@ public class AnalysesCoreApi {
      * Gets the logs of an analysis (asynchronously)
      * Given an analysis ID gets the current logs of an analysis
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1100,9 +1037,9 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAnalysisLogsAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseLogs> _callback) throws ApiException {
+    public okhttp3.Call getAnalysisLogsAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<BaseResponseLogs> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAnalysisLogsValidateBeforeCall(analysisId, authorization, _callback);
+        okhttp3.Call localVarCall = getAnalysisLogsValidateBeforeCall(analysisId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseLogs>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1110,7 +1047,6 @@ public class AnalysesCoreApi {
     /**
      * Build call for getAnalysisParams
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1122,7 +1058,7 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAnalysisParamsCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAnalysisParamsCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1163,23 +1099,18 @@ public class AnalysesCoreApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAnalysisParamsValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAnalysisParamsValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling getAnalysisParams(Async)");
         }
 
-        return getAnalysisParamsCall(analysisId, authorization, _callback);
+        return getAnalysisParamsCall(analysisId, _callback);
 
     }
 
@@ -1187,7 +1118,6 @@ public class AnalysesCoreApi {
      * Gets analysis param information
      * Gets the params that the analysis was run with
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseParams
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1198,8 +1128,8 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseParams getAnalysisParams(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseParams> localVarResp = getAnalysisParamsWithHttpInfo(analysisId, authorization);
+    public BaseResponseParams getAnalysisParams(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        ApiResponse<BaseResponseParams> localVarResp = getAnalysisParamsWithHttpInfo(analysisId);
         return localVarResp.getData();
     }
 
@@ -1207,7 +1137,6 @@ public class AnalysesCoreApi {
      * Gets analysis param information
      * Gets the params that the analysis was run with
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseParams&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1218,8 +1147,8 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseParams> getAnalysisParamsWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = getAnalysisParamsValidateBeforeCall(analysisId, authorization, null);
+    public ApiResponse<BaseResponseParams> getAnalysisParamsWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        okhttp3.Call localVarCall = getAnalysisParamsValidateBeforeCall(analysisId, null);
         Type localVarReturnType = new TypeToken<BaseResponseParams>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1228,7 +1157,6 @@ public class AnalysesCoreApi {
      * Gets analysis param information (asynchronously)
      * Gets the params that the analysis was run with
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1240,9 +1168,9 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAnalysisParamsAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseParams> _callback) throws ApiException {
+    public okhttp3.Call getAnalysisParamsAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<BaseResponseParams> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAnalysisParamsValidateBeforeCall(analysisId, authorization, _callback);
+        okhttp3.Call localVarCall = getAnalysisParamsValidateBeforeCall(analysisId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseParams>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1250,7 +1178,6 @@ public class AnalysesCoreApi {
     /**
      * Build call for getAnalysisStatus
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1262,7 +1189,7 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAnalysisStatusCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAnalysisStatusCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1303,23 +1230,18 @@ public class AnalysesCoreApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAnalysisStatusValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAnalysisStatusValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling getAnalysisStatus(Async)");
         }
 
-        return getAnalysisStatusCall(analysisId, authorization, _callback);
+        return getAnalysisStatusCall(analysisId, _callback);
 
     }
 
@@ -1327,7 +1249,6 @@ public class AnalysesCoreApi {
      * Gets the status of an analysis
      * Given an analysis ID gets the current status of the analysis
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseStatus
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1338,8 +1259,8 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseStatus getAnalysisStatus(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseStatus> localVarResp = getAnalysisStatusWithHttpInfo(analysisId, authorization);
+    public BaseResponseStatus getAnalysisStatus(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        ApiResponse<BaseResponseStatus> localVarResp = getAnalysisStatusWithHttpInfo(analysisId);
         return localVarResp.getData();
     }
 
@@ -1347,7 +1268,6 @@ public class AnalysesCoreApi {
      * Gets the status of an analysis
      * Given an analysis ID gets the current status of the analysis
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseStatus&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1358,8 +1278,8 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseStatus> getAnalysisStatusWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = getAnalysisStatusValidateBeforeCall(analysisId, authorization, null);
+    public ApiResponse<BaseResponseStatus> getAnalysisStatusWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        okhttp3.Call localVarCall = getAnalysisStatusValidateBeforeCall(analysisId, null);
         Type localVarReturnType = new TypeToken<BaseResponseStatus>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1368,7 +1288,6 @@ public class AnalysesCoreApi {
      * Gets the status of an analysis (asynchronously)
      * Given an analysis ID gets the current status of the analysis
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1380,9 +1299,9 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAnalysisStatusAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseStatus> _callback) throws ApiException {
+    public okhttp3.Call getAnalysisStatusAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<BaseResponseStatus> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAnalysisStatusValidateBeforeCall(analysisId, authorization, _callback);
+        okhttp3.Call localVarCall = getAnalysisStatusValidateBeforeCall(analysisId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseStatus>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1391,7 +1310,6 @@ public class AnalysesCoreApi {
      * Build call for getBinaryAnn
      * @param analysisId  (required)
      * @param binaryAnnForm  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1403,7 +1321,7 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBinaryAnnCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull BinaryAnnForm binaryAnnForm, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBinaryAnnCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull BinaryAnnForm binaryAnnForm, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1445,17 +1363,12 @@ public class AnalysesCoreApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBinaryAnnValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull BinaryAnnForm binaryAnnForm, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getBinaryAnnValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull BinaryAnnForm binaryAnnForm, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling getBinaryAnn(Async)");
@@ -1466,7 +1379,7 @@ public class AnalysesCoreApi {
             throw new ApiException("Missing the required parameter 'binaryAnnForm' when calling getBinaryAnn(Async)");
         }
 
-        return getBinaryAnnCall(analysisId, binaryAnnForm, authorization, _callback);
+        return getBinaryAnnCall(analysisId, binaryAnnForm, _callback);
 
     }
 
@@ -1475,7 +1388,6 @@ public class AnalysesCoreApi {
      * Binary Ann
      * @param analysisId  (required)
      * @param binaryAnnForm  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseBinaryAnnListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1486,8 +1398,8 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseBinaryAnnListResponse getBinaryAnn(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull BinaryAnnForm binaryAnnForm, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseBinaryAnnListResponse> localVarResp = getBinaryAnnWithHttpInfo(analysisId, binaryAnnForm, authorization);
+    public BaseResponseBinaryAnnListResponse getBinaryAnn(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull BinaryAnnForm binaryAnnForm) throws ApiException {
+        ApiResponse<BaseResponseBinaryAnnListResponse> localVarResp = getBinaryAnnWithHttpInfo(analysisId, binaryAnnForm);
         return localVarResp.getData();
     }
 
@@ -1496,7 +1408,6 @@ public class AnalysesCoreApi {
      * Binary Ann
      * @param analysisId  (required)
      * @param binaryAnnForm  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseBinaryAnnListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1507,8 +1418,8 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseBinaryAnnListResponse> getBinaryAnnWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull BinaryAnnForm binaryAnnForm, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = getBinaryAnnValidateBeforeCall(analysisId, binaryAnnForm, authorization, null);
+    public ApiResponse<BaseResponseBinaryAnnListResponse> getBinaryAnnWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull BinaryAnnForm binaryAnnForm) throws ApiException {
+        okhttp3.Call localVarCall = getBinaryAnnValidateBeforeCall(analysisId, binaryAnnForm, null);
         Type localVarReturnType = new TypeToken<BaseResponseBinaryAnnListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1518,7 +1429,6 @@ public class AnalysesCoreApi {
      * Binary Ann
      * @param analysisId  (required)
      * @param binaryAnnForm  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1530,9 +1440,9 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBinaryAnnAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull BinaryAnnForm binaryAnnForm, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseBinaryAnnListResponse> _callback) throws ApiException {
+    public okhttp3.Call getBinaryAnnAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull BinaryAnnForm binaryAnnForm, final ApiCallback<BaseResponseBinaryAnnListResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBinaryAnnValidateBeforeCall(analysisId, binaryAnnForm, authorization, _callback);
+        okhttp3.Call localVarCall = getBinaryAnnValidateBeforeCall(analysisId, binaryAnnForm, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseBinaryAnnListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1550,7 +1460,6 @@ public class AnalysesCoreApi {
      * @param offset  (optional, default to 0)
      * @param orderBy  (optional)
      * @param order  (optional)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1562,7 +1471,7 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listAnalysesCall(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<Workspace> workspace, @javax.annotation.Nullable List<StatusInput> status, @javax.annotation.Nullable List<ModelName> modelName, @javax.annotation.Nullable DynamicExecutionStatusInput dynamicExecutionStatus, @javax.annotation.Nullable List<String> usernames, @javax.annotation.Nullable String sha256Hash, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable AppApiRestV2AnalysesEnumsOrderBy orderBy, @javax.annotation.Nullable Order order, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listAnalysesCall(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<Workspace> workspace, @javax.annotation.Nullable List<StatusInput> status, @javax.annotation.Nullable List<ModelName> modelName, @javax.annotation.Nullable DynamicExecutionStatusInput dynamicExecutionStatus, @javax.annotation.Nullable List<String> usernames, @javax.annotation.Nullable String sha256Hash, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable AppApiRestV2AnalysesEnumsOrderBy orderBy, @javax.annotation.Nullable Order order, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1646,18 +1555,13 @@ public class AnalysesCoreApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listAnalysesValidateBeforeCall(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<Workspace> workspace, @javax.annotation.Nullable List<StatusInput> status, @javax.annotation.Nullable List<ModelName> modelName, @javax.annotation.Nullable DynamicExecutionStatusInput dynamicExecutionStatus, @javax.annotation.Nullable List<String> usernames, @javax.annotation.Nullable String sha256Hash, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable AppApiRestV2AnalysesEnumsOrderBy orderBy, @javax.annotation.Nullable Order order, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
-        return listAnalysesCall(searchTerm, workspace, status, modelName, dynamicExecutionStatus, usernames, sha256Hash, limit, offset, orderBy, order, authorization, _callback);
+    private okhttp3.Call listAnalysesValidateBeforeCall(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<Workspace> workspace, @javax.annotation.Nullable List<StatusInput> status, @javax.annotation.Nullable List<ModelName> modelName, @javax.annotation.Nullable DynamicExecutionStatusInput dynamicExecutionStatus, @javax.annotation.Nullable List<String> usernames, @javax.annotation.Nullable String sha256Hash, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable AppApiRestV2AnalysesEnumsOrderBy orderBy, @javax.annotation.Nullable Order order, final ApiCallback _callback) throws ApiException {
+        return listAnalysesCall(searchTerm, workspace, status, modelName, dynamicExecutionStatus, usernames, sha256Hash, limit, offset, orderBy, order, _callback);
 
     }
 
@@ -1675,7 +1579,6 @@ public class AnalysesCoreApi {
      * @param offset  (optional, default to 0)
      * @param orderBy  (optional)
      * @param order  (optional)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseRecent
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1686,8 +1589,8 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseRecent listAnalyses(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<Workspace> workspace, @javax.annotation.Nullable List<StatusInput> status, @javax.annotation.Nullable List<ModelName> modelName, @javax.annotation.Nullable DynamicExecutionStatusInput dynamicExecutionStatus, @javax.annotation.Nullable List<String> usernames, @javax.annotation.Nullable String sha256Hash, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable AppApiRestV2AnalysesEnumsOrderBy orderBy, @javax.annotation.Nullable Order order, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseRecent> localVarResp = listAnalysesWithHttpInfo(searchTerm, workspace, status, modelName, dynamicExecutionStatus, usernames, sha256Hash, limit, offset, orderBy, order, authorization);
+    public BaseResponseRecent listAnalyses(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<Workspace> workspace, @javax.annotation.Nullable List<StatusInput> status, @javax.annotation.Nullable List<ModelName> modelName, @javax.annotation.Nullable DynamicExecutionStatusInput dynamicExecutionStatus, @javax.annotation.Nullable List<String> usernames, @javax.annotation.Nullable String sha256Hash, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable AppApiRestV2AnalysesEnumsOrderBy orderBy, @javax.annotation.Nullable Order order) throws ApiException {
+        ApiResponse<BaseResponseRecent> localVarResp = listAnalysesWithHttpInfo(searchTerm, workspace, status, modelName, dynamicExecutionStatus, usernames, sha256Hash, limit, offset, orderBy, order);
         return localVarResp.getData();
     }
 
@@ -1705,7 +1608,6 @@ public class AnalysesCoreApi {
      * @param offset  (optional, default to 0)
      * @param orderBy  (optional)
      * @param order  (optional)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseRecent&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1716,8 +1618,8 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseRecent> listAnalysesWithHttpInfo(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<Workspace> workspace, @javax.annotation.Nullable List<StatusInput> status, @javax.annotation.Nullable List<ModelName> modelName, @javax.annotation.Nullable DynamicExecutionStatusInput dynamicExecutionStatus, @javax.annotation.Nullable List<String> usernames, @javax.annotation.Nullable String sha256Hash, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable AppApiRestV2AnalysesEnumsOrderBy orderBy, @javax.annotation.Nullable Order order, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = listAnalysesValidateBeforeCall(searchTerm, workspace, status, modelName, dynamicExecutionStatus, usernames, sha256Hash, limit, offset, orderBy, order, authorization, null);
+    public ApiResponse<BaseResponseRecent> listAnalysesWithHttpInfo(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<Workspace> workspace, @javax.annotation.Nullable List<StatusInput> status, @javax.annotation.Nullable List<ModelName> modelName, @javax.annotation.Nullable DynamicExecutionStatusInput dynamicExecutionStatus, @javax.annotation.Nullable List<String> usernames, @javax.annotation.Nullable String sha256Hash, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable AppApiRestV2AnalysesEnumsOrderBy orderBy, @javax.annotation.Nullable Order order) throws ApiException {
+        okhttp3.Call localVarCall = listAnalysesValidateBeforeCall(searchTerm, workspace, status, modelName, dynamicExecutionStatus, usernames, sha256Hash, limit, offset, orderBy, order, null);
         Type localVarReturnType = new TypeToken<BaseResponseRecent>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1736,7 +1638,6 @@ public class AnalysesCoreApi {
      * @param offset  (optional, default to 0)
      * @param orderBy  (optional)
      * @param order  (optional)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1748,9 +1649,9 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listAnalysesAsync(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<Workspace> workspace, @javax.annotation.Nullable List<StatusInput> status, @javax.annotation.Nullable List<ModelName> modelName, @javax.annotation.Nullable DynamicExecutionStatusInput dynamicExecutionStatus, @javax.annotation.Nullable List<String> usernames, @javax.annotation.Nullable String sha256Hash, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable AppApiRestV2AnalysesEnumsOrderBy orderBy, @javax.annotation.Nullable Order order, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseRecent> _callback) throws ApiException {
+    public okhttp3.Call listAnalysesAsync(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<Workspace> workspace, @javax.annotation.Nullable List<StatusInput> status, @javax.annotation.Nullable List<ModelName> modelName, @javax.annotation.Nullable DynamicExecutionStatusInput dynamicExecutionStatus, @javax.annotation.Nullable List<String> usernames, @javax.annotation.Nullable String sha256Hash, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable AppApiRestV2AnalysesEnumsOrderBy orderBy, @javax.annotation.Nullable Order order, final ApiCallback<BaseResponseRecent> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listAnalysesValidateBeforeCall(searchTerm, workspace, status, modelName, dynamicExecutionStatus, usernames, sha256Hash, limit, offset, orderBy, order, authorization, _callback);
+        okhttp3.Call localVarCall = listAnalysesValidateBeforeCall(searchTerm, workspace, status, modelName, dynamicExecutionStatus, usernames, sha256Hash, limit, offset, orderBy, order, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseRecent>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1758,7 +1659,6 @@ public class AnalysesCoreApi {
     /**
      * Build call for lookupBinaryId
      * @param binaryId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1770,7 +1670,7 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call lookupBinaryIdCall(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call lookupBinaryIdCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1811,23 +1711,18 @@ public class AnalysesCoreApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call lookupBinaryIdValidateBeforeCall(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call lookupBinaryIdValidateBeforeCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'binaryId' is set
         if (binaryId == null) {
             throw new ApiException("Missing the required parameter 'binaryId' when calling lookupBinaryId(Async)");
         }
 
-        return lookupBinaryIdCall(binaryId, authorization, _callback);
+        return lookupBinaryIdCall(binaryId, _callback);
 
     }
 
@@ -1835,7 +1730,6 @@ public class AnalysesCoreApi {
      * Gets the analysis ID from binary ID
      * Given an binary ID gets the ID of an analysis
      * @param binaryId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1846,8 +1740,8 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public Object lookupBinaryId(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<Object> localVarResp = lookupBinaryIdWithHttpInfo(binaryId, authorization);
+    public Object lookupBinaryId(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
+        ApiResponse<Object> localVarResp = lookupBinaryIdWithHttpInfo(binaryId);
         return localVarResp.getData();
     }
 
@@ -1855,7 +1749,6 @@ public class AnalysesCoreApi {
      * Gets the analysis ID from binary ID
      * Given an binary ID gets the ID of an analysis
      * @param binaryId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1866,8 +1759,8 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> lookupBinaryIdWithHttpInfo(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = lookupBinaryIdValidateBeforeCall(binaryId, authorization, null);
+    public ApiResponse<Object> lookupBinaryIdWithHttpInfo(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
+        okhttp3.Call localVarCall = lookupBinaryIdValidateBeforeCall(binaryId, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1876,7 +1769,6 @@ public class AnalysesCoreApi {
      * Gets the analysis ID from binary ID (asynchronously)
      * Given an binary ID gets the ID of an analysis
      * @param binaryId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1888,9 +1780,9 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call lookupBinaryIdAsync(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String authorization, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call lookupBinaryIdAsync(@javax.annotation.Nonnull Integer binaryId, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = lookupBinaryIdValidateBeforeCall(binaryId, authorization, _callback);
+        okhttp3.Call localVarCall = lookupBinaryIdValidateBeforeCall(binaryId, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1899,7 +1791,6 @@ public class AnalysesCoreApi {
      * Build call for requeueAnalysis
      * @param analysisId  (required)
      * @param reAnalysisForm  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1913,7 +1804,7 @@ public class AnalysesCoreApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call requeueAnalysisCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull ReAnalysisForm reAnalysisForm, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call requeueAnalysisCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull ReAnalysisForm reAnalysisForm, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1955,17 +1846,12 @@ public class AnalysesCoreApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call requeueAnalysisValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull ReAnalysisForm reAnalysisForm, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call requeueAnalysisValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull ReAnalysisForm reAnalysisForm, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling requeueAnalysis(Async)");
@@ -1976,7 +1862,7 @@ public class AnalysesCoreApi {
             throw new ApiException("Missing the required parameter 'reAnalysisForm' when calling requeueAnalysis(Async)");
         }
 
-        return requeueAnalysisCall(analysisId, reAnalysisForm, authorization, _callback);
+        return requeueAnalysisCall(analysisId, reAnalysisForm, _callback);
 
     }
 
@@ -1985,7 +1871,6 @@ public class AnalysesCoreApi {
      * Re-queues an already uploaded analysis
      * @param analysisId  (required)
      * @param reAnalysisForm  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseCreated
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1998,8 +1883,8 @@ public class AnalysesCoreApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseCreated requeueAnalysis(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull ReAnalysisForm reAnalysisForm, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseCreated> localVarResp = requeueAnalysisWithHttpInfo(analysisId, reAnalysisForm, authorization);
+    public BaseResponseCreated requeueAnalysis(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull ReAnalysisForm reAnalysisForm) throws ApiException {
+        ApiResponse<BaseResponseCreated> localVarResp = requeueAnalysisWithHttpInfo(analysisId, reAnalysisForm);
         return localVarResp.getData();
     }
 
@@ -2008,7 +1893,6 @@ public class AnalysesCoreApi {
      * Re-queues an already uploaded analysis
      * @param analysisId  (required)
      * @param reAnalysisForm  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseCreated&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2021,8 +1905,8 @@ public class AnalysesCoreApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseCreated> requeueAnalysisWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull ReAnalysisForm reAnalysisForm, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = requeueAnalysisValidateBeforeCall(analysisId, reAnalysisForm, authorization, null);
+    public ApiResponse<BaseResponseCreated> requeueAnalysisWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull ReAnalysisForm reAnalysisForm) throws ApiException {
+        okhttp3.Call localVarCall = requeueAnalysisValidateBeforeCall(analysisId, reAnalysisForm, null);
         Type localVarReturnType = new TypeToken<BaseResponseCreated>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2032,7 +1916,6 @@ public class AnalysesCoreApi {
      * Re-queues an already uploaded analysis
      * @param analysisId  (required)
      * @param reAnalysisForm  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2046,9 +1929,9 @@ public class AnalysesCoreApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call requeueAnalysisAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull ReAnalysisForm reAnalysisForm, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseCreated> _callback) throws ApiException {
+    public okhttp3.Call requeueAnalysisAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull ReAnalysisForm reAnalysisForm, final ApiCallback<BaseResponseCreated> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = requeueAnalysisValidateBeforeCall(analysisId, reAnalysisForm, authorization, _callback);
+        okhttp3.Call localVarCall = requeueAnalysisValidateBeforeCall(analysisId, reAnalysisForm, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseCreated>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2057,7 +1940,6 @@ public class AnalysesCoreApi {
      * Build call for updateAnalysis
      * @param analysisId  (required)
      * @param analysisUpdateRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2069,7 +1951,7 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateAnalysisCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateRequest analysisUpdateRequest, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateAnalysisCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateRequest analysisUpdateRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2111,17 +1993,12 @@ public class AnalysesCoreApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateAnalysisValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateRequest analysisUpdateRequest, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateAnalysisValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateRequest analysisUpdateRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling updateAnalysis(Async)");
@@ -2132,7 +2009,7 @@ public class AnalysesCoreApi {
             throw new ApiException("Missing the required parameter 'analysisUpdateRequest' when calling updateAnalysis(Async)");
         }
 
-        return updateAnalysisCall(analysisId, analysisUpdateRequest, authorization, _callback);
+        return updateAnalysisCall(analysisId, analysisUpdateRequest, _callback);
 
     }
 
@@ -2141,7 +2018,6 @@ public class AnalysesCoreApi {
      * Updates analysis attributes (binary_name, analysis_scope). User must be the owner.
      * @param analysisId  (required)
      * @param analysisUpdateRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseAnalysisDetailResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2152,8 +2028,8 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseAnalysisDetailResponse updateAnalysis(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateRequest analysisUpdateRequest, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseAnalysisDetailResponse> localVarResp = updateAnalysisWithHttpInfo(analysisId, analysisUpdateRequest, authorization);
+    public BaseResponseAnalysisDetailResponse updateAnalysis(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateRequest analysisUpdateRequest) throws ApiException {
+        ApiResponse<BaseResponseAnalysisDetailResponse> localVarResp = updateAnalysisWithHttpInfo(analysisId, analysisUpdateRequest);
         return localVarResp.getData();
     }
 
@@ -2162,7 +2038,6 @@ public class AnalysesCoreApi {
      * Updates analysis attributes (binary_name, analysis_scope). User must be the owner.
      * @param analysisId  (required)
      * @param analysisUpdateRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseAnalysisDetailResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2173,8 +2048,8 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseAnalysisDetailResponse> updateAnalysisWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateRequest analysisUpdateRequest, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = updateAnalysisValidateBeforeCall(analysisId, analysisUpdateRequest, authorization, null);
+    public ApiResponse<BaseResponseAnalysisDetailResponse> updateAnalysisWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateRequest analysisUpdateRequest) throws ApiException {
+        okhttp3.Call localVarCall = updateAnalysisValidateBeforeCall(analysisId, analysisUpdateRequest, null);
         Type localVarReturnType = new TypeToken<BaseResponseAnalysisDetailResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2184,7 +2059,6 @@ public class AnalysesCoreApi {
      * Updates analysis attributes (binary_name, analysis_scope). User must be the owner.
      * @param analysisId  (required)
      * @param analysisUpdateRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2196,9 +2070,9 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateAnalysisAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateRequest analysisUpdateRequest, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseAnalysisDetailResponse> _callback) throws ApiException {
+    public okhttp3.Call updateAnalysisAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateRequest analysisUpdateRequest, final ApiCallback<BaseResponseAnalysisDetailResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateAnalysisValidateBeforeCall(analysisId, analysisUpdateRequest, authorization, _callback);
+        okhttp3.Call localVarCall = updateAnalysisValidateBeforeCall(analysisId, analysisUpdateRequest, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseAnalysisDetailResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2207,7 +2081,6 @@ public class AnalysesCoreApi {
      * Build call for updateAnalysisTags
      * @param analysisId  (required)
      * @param analysisUpdateTagsRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2219,7 +2092,7 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateAnalysisTagsCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateTagsRequest analysisUpdateTagsRequest, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateAnalysisTagsCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateTagsRequest analysisUpdateTagsRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2261,17 +2134,12 @@ public class AnalysesCoreApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateAnalysisTagsValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateTagsRequest analysisUpdateTagsRequest, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateAnalysisTagsValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateTagsRequest analysisUpdateTagsRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling updateAnalysisTags(Async)");
@@ -2282,7 +2150,7 @@ public class AnalysesCoreApi {
             throw new ApiException("Missing the required parameter 'analysisUpdateTagsRequest' when calling updateAnalysisTags(Async)");
         }
 
-        return updateAnalysisTagsCall(analysisId, analysisUpdateTagsRequest, authorization, _callback);
+        return updateAnalysisTagsCall(analysisId, analysisUpdateTagsRequest, _callback);
 
     }
 
@@ -2291,7 +2159,6 @@ public class AnalysesCoreApi {
      * Updates analysis tags. User must be the owner.
      * @param analysisId  (required)
      * @param analysisUpdateTagsRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseAnalysisUpdateTagsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2302,8 +2169,8 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseAnalysisUpdateTagsResponse updateAnalysisTags(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateTagsRequest analysisUpdateTagsRequest, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseAnalysisUpdateTagsResponse> localVarResp = updateAnalysisTagsWithHttpInfo(analysisId, analysisUpdateTagsRequest, authorization);
+    public BaseResponseAnalysisUpdateTagsResponse updateAnalysisTags(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateTagsRequest analysisUpdateTagsRequest) throws ApiException {
+        ApiResponse<BaseResponseAnalysisUpdateTagsResponse> localVarResp = updateAnalysisTagsWithHttpInfo(analysisId, analysisUpdateTagsRequest);
         return localVarResp.getData();
     }
 
@@ -2312,7 +2179,6 @@ public class AnalysesCoreApi {
      * Updates analysis tags. User must be the owner.
      * @param analysisId  (required)
      * @param analysisUpdateTagsRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseAnalysisUpdateTagsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2323,8 +2189,8 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseAnalysisUpdateTagsResponse> updateAnalysisTagsWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateTagsRequest analysisUpdateTagsRequest, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = updateAnalysisTagsValidateBeforeCall(analysisId, analysisUpdateTagsRequest, authorization, null);
+    public ApiResponse<BaseResponseAnalysisUpdateTagsResponse> updateAnalysisTagsWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateTagsRequest analysisUpdateTagsRequest) throws ApiException {
+        okhttp3.Call localVarCall = updateAnalysisTagsValidateBeforeCall(analysisId, analysisUpdateTagsRequest, null);
         Type localVarReturnType = new TypeToken<BaseResponseAnalysisUpdateTagsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2334,7 +2200,6 @@ public class AnalysesCoreApi {
      * Updates analysis tags. User must be the owner.
      * @param analysisId  (required)
      * @param analysisUpdateTagsRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2346,9 +2211,9 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateAnalysisTagsAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateTagsRequest analysisUpdateTagsRequest, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseAnalysisUpdateTagsResponse> _callback) throws ApiException {
+    public okhttp3.Call updateAnalysisTagsAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateTagsRequest analysisUpdateTagsRequest, final ApiCallback<BaseResponseAnalysisUpdateTagsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateAnalysisTagsValidateBeforeCall(analysisId, analysisUpdateTagsRequest, authorization, _callback);
+        okhttp3.Call localVarCall = updateAnalysisTagsValidateBeforeCall(analysisId, analysisUpdateTagsRequest, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseAnalysisUpdateTagsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2358,7 +2223,6 @@ public class AnalysesCoreApi {
      * @param uploadFileType  (required)
      * @param _file  (required)
      * @param packedPassword  (optional)
-     * @param authorization API Key bearer token (optional)
      * @param forceOverwrite  (optional, default to false)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -2371,7 +2235,7 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call uploadFileCall(@javax.annotation.Nonnull UploadFileType uploadFileType, @javax.annotation.Nonnull File _file, @javax.annotation.Nullable String packedPassword, @javax.annotation.Nullable String authorization, @javax.annotation.Nullable Boolean forceOverwrite, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call uploadFileCall(@javax.annotation.Nonnull UploadFileType uploadFileType, @javax.annotation.Nonnull File _file, @javax.annotation.Nullable String packedPassword, @javax.annotation.Nullable Boolean forceOverwrite, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2428,17 +2292,12 @@ public class AnalysesCoreApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call uploadFileValidateBeforeCall(@javax.annotation.Nonnull UploadFileType uploadFileType, @javax.annotation.Nonnull File _file, @javax.annotation.Nullable String packedPassword, @javax.annotation.Nullable String authorization, @javax.annotation.Nullable Boolean forceOverwrite, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call uploadFileValidateBeforeCall(@javax.annotation.Nonnull UploadFileType uploadFileType, @javax.annotation.Nonnull File _file, @javax.annotation.Nullable String packedPassword, @javax.annotation.Nullable Boolean forceOverwrite, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'uploadFileType' is set
         if (uploadFileType == null) {
             throw new ApiException("Missing the required parameter 'uploadFileType' when calling uploadFile(Async)");
@@ -2449,7 +2308,7 @@ public class AnalysesCoreApi {
             throw new ApiException("Missing the required parameter '_file' when calling uploadFile(Async)");
         }
 
-        return uploadFileCall(uploadFileType, _file, packedPassword, authorization, forceOverwrite, _callback);
+        return uploadFileCall(uploadFileType, _file, packedPassword, forceOverwrite, _callback);
 
     }
 
@@ -2459,7 +2318,6 @@ public class AnalysesCoreApi {
      * @param uploadFileType  (required)
      * @param _file  (required)
      * @param packedPassword  (optional)
-     * @param authorization API Key bearer token (optional)
      * @param forceOverwrite  (optional, default to false)
      * @return BaseResponseUploadResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2471,8 +2329,8 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseUploadResponse uploadFile(@javax.annotation.Nonnull UploadFileType uploadFileType, @javax.annotation.Nonnull File _file, @javax.annotation.Nullable String packedPassword, @javax.annotation.Nullable String authorization, @javax.annotation.Nullable Boolean forceOverwrite) throws ApiException {
-        ApiResponse<BaseResponseUploadResponse> localVarResp = uploadFileWithHttpInfo(uploadFileType, _file, packedPassword, authorization, forceOverwrite);
+    public BaseResponseUploadResponse uploadFile(@javax.annotation.Nonnull UploadFileType uploadFileType, @javax.annotation.Nonnull File _file, @javax.annotation.Nullable String packedPassword, @javax.annotation.Nullable Boolean forceOverwrite) throws ApiException {
+        ApiResponse<BaseResponseUploadResponse> localVarResp = uploadFileWithHttpInfo(uploadFileType, _file, packedPassword, forceOverwrite);
         return localVarResp.getData();
     }
 
@@ -2482,7 +2340,6 @@ public class AnalysesCoreApi {
      * @param uploadFileType  (required)
      * @param _file  (required)
      * @param packedPassword  (optional)
-     * @param authorization API Key bearer token (optional)
      * @param forceOverwrite  (optional, default to false)
      * @return ApiResponse&lt;BaseResponseUploadResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2494,8 +2351,8 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseUploadResponse> uploadFileWithHttpInfo(@javax.annotation.Nonnull UploadFileType uploadFileType, @javax.annotation.Nonnull File _file, @javax.annotation.Nullable String packedPassword, @javax.annotation.Nullable String authorization, @javax.annotation.Nullable Boolean forceOverwrite) throws ApiException {
-        okhttp3.Call localVarCall = uploadFileValidateBeforeCall(uploadFileType, _file, packedPassword, authorization, forceOverwrite, null);
+    public ApiResponse<BaseResponseUploadResponse> uploadFileWithHttpInfo(@javax.annotation.Nonnull UploadFileType uploadFileType, @javax.annotation.Nonnull File _file, @javax.annotation.Nullable String packedPassword, @javax.annotation.Nullable Boolean forceOverwrite) throws ApiException {
+        okhttp3.Call localVarCall = uploadFileValidateBeforeCall(uploadFileType, _file, packedPassword, forceOverwrite, null);
         Type localVarReturnType = new TypeToken<BaseResponseUploadResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2506,7 +2363,6 @@ public class AnalysesCoreApi {
      * @param uploadFileType  (required)
      * @param _file  (required)
      * @param packedPassword  (optional)
-     * @param authorization API Key bearer token (optional)
      * @param forceOverwrite  (optional, default to false)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2519,9 +2375,9 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call uploadFileAsync(@javax.annotation.Nonnull UploadFileType uploadFileType, @javax.annotation.Nonnull File _file, @javax.annotation.Nullable String packedPassword, @javax.annotation.Nullable String authorization, @javax.annotation.Nullable Boolean forceOverwrite, final ApiCallback<BaseResponseUploadResponse> _callback) throws ApiException {
+    public okhttp3.Call uploadFileAsync(@javax.annotation.Nonnull UploadFileType uploadFileType, @javax.annotation.Nonnull File _file, @javax.annotation.Nullable String packedPassword, @javax.annotation.Nullable Boolean forceOverwrite, final ApiCallback<BaseResponseUploadResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = uploadFileValidateBeforeCall(uploadFileType, _file, packedPassword, authorization, forceOverwrite, _callback);
+        okhttp3.Call localVarCall = uploadFileValidateBeforeCall(uploadFileType, _file, packedPassword, forceOverwrite, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseUploadResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

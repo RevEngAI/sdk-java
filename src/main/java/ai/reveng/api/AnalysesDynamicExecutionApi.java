@@ -80,7 +80,6 @@ public class AnalysesDynamicExecutionApi {
     /**
      * Build call for getDynamicExecutionStatus
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -92,7 +91,7 @@ public class AnalysesDynamicExecutionApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getDynamicExecutionStatusCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getDynamicExecutionStatusCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -133,23 +132,18 @@ public class AnalysesDynamicExecutionApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getDynamicExecutionStatusValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getDynamicExecutionStatusValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling getDynamicExecutionStatus(Async)");
         }
 
-        return getDynamicExecutionStatusCall(analysisId, authorization, _callback);
+        return getDynamicExecutionStatusCall(analysisId, _callback);
 
     }
 
@@ -157,7 +151,6 @@ public class AnalysesDynamicExecutionApi {
      * Get the status of a dynamic execution task
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseDynamicExecutionStatus
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -168,8 +161,8 @@ public class AnalysesDynamicExecutionApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseDynamicExecutionStatus getDynamicExecutionStatus(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseDynamicExecutionStatus> localVarResp = getDynamicExecutionStatusWithHttpInfo(analysisId, authorization);
+    public BaseResponseDynamicExecutionStatus getDynamicExecutionStatus(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        ApiResponse<BaseResponseDynamicExecutionStatus> localVarResp = getDynamicExecutionStatusWithHttpInfo(analysisId);
         return localVarResp.getData();
     }
 
@@ -177,7 +170,6 @@ public class AnalysesDynamicExecutionApi {
      * Get the status of a dynamic execution task
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseDynamicExecutionStatus&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -188,8 +180,8 @@ public class AnalysesDynamicExecutionApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseDynamicExecutionStatus> getDynamicExecutionStatusWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = getDynamicExecutionStatusValidateBeforeCall(analysisId, authorization, null);
+    public ApiResponse<BaseResponseDynamicExecutionStatus> getDynamicExecutionStatusWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        okhttp3.Call localVarCall = getDynamicExecutionStatusValidateBeforeCall(analysisId, null);
         Type localVarReturnType = new TypeToken<BaseResponseDynamicExecutionStatus>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -198,7 +190,6 @@ public class AnalysesDynamicExecutionApi {
      * Get the status of a dynamic execution task (asynchronously)
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -210,9 +201,9 @@ public class AnalysesDynamicExecutionApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getDynamicExecutionStatusAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseDynamicExecutionStatus> _callback) throws ApiException {
+    public okhttp3.Call getDynamicExecutionStatusAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<BaseResponseDynamicExecutionStatus> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getDynamicExecutionStatusValidateBeforeCall(analysisId, authorization, _callback);
+        okhttp3.Call localVarCall = getDynamicExecutionStatusValidateBeforeCall(analysisId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseDynamicExecutionStatus>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -220,7 +211,6 @@ public class AnalysesDynamicExecutionApi {
     /**
      * Build call for getNetworkOverview
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -232,7 +222,7 @@ public class AnalysesDynamicExecutionApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getNetworkOverviewCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getNetworkOverviewCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -273,23 +263,18 @@ public class AnalysesDynamicExecutionApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getNetworkOverviewValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getNetworkOverviewValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling getNetworkOverview(Async)");
         }
 
-        return getNetworkOverviewCall(analysisId, authorization, _callback);
+        return getNetworkOverviewCall(analysisId, _callback);
 
     }
 
@@ -297,7 +282,6 @@ public class AnalysesDynamicExecutionApi {
      * Get the dynamic execution results for network overview
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseNetworkOverviewResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -308,8 +292,8 @@ public class AnalysesDynamicExecutionApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseNetworkOverviewResponse getNetworkOverview(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseNetworkOverviewResponse> localVarResp = getNetworkOverviewWithHttpInfo(analysisId, authorization);
+    public BaseResponseNetworkOverviewResponse getNetworkOverview(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        ApiResponse<BaseResponseNetworkOverviewResponse> localVarResp = getNetworkOverviewWithHttpInfo(analysisId);
         return localVarResp.getData();
     }
 
@@ -317,7 +301,6 @@ public class AnalysesDynamicExecutionApi {
      * Get the dynamic execution results for network overview
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseNetworkOverviewResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -328,8 +311,8 @@ public class AnalysesDynamicExecutionApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseNetworkOverviewResponse> getNetworkOverviewWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = getNetworkOverviewValidateBeforeCall(analysisId, authorization, null);
+    public ApiResponse<BaseResponseNetworkOverviewResponse> getNetworkOverviewWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        okhttp3.Call localVarCall = getNetworkOverviewValidateBeforeCall(analysisId, null);
         Type localVarReturnType = new TypeToken<BaseResponseNetworkOverviewResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -338,7 +321,6 @@ public class AnalysesDynamicExecutionApi {
      * Get the dynamic execution results for network overview (asynchronously)
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -350,9 +332,9 @@ public class AnalysesDynamicExecutionApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getNetworkOverviewAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseNetworkOverviewResponse> _callback) throws ApiException {
+    public okhttp3.Call getNetworkOverviewAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<BaseResponseNetworkOverviewResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getNetworkOverviewValidateBeforeCall(analysisId, authorization, _callback);
+        okhttp3.Call localVarCall = getNetworkOverviewValidateBeforeCall(analysisId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseNetworkOverviewResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -361,7 +343,6 @@ public class AnalysesDynamicExecutionApi {
      * Build call for getProcessDump
      * @param analysisId  (required)
      * @param dumpName  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -373,7 +354,7 @@ public class AnalysesDynamicExecutionApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getProcessDumpCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull String dumpName, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getProcessDumpCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull String dumpName, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -415,17 +396,12 @@ public class AnalysesDynamicExecutionApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getProcessDumpValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull String dumpName, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getProcessDumpValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull String dumpName, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling getProcessDump(Async)");
@@ -436,7 +412,7 @@ public class AnalysesDynamicExecutionApi {
             throw new ApiException("Missing the required parameter 'dumpName' when calling getProcessDump(Async)");
         }
 
-        return getProcessDumpCall(analysisId, dumpName, authorization, _callback);
+        return getProcessDumpCall(analysisId, dumpName, _callback);
 
     }
 
@@ -445,7 +421,6 @@ public class AnalysesDynamicExecutionApi {
      * 
      * @param analysisId  (required)
      * @param dumpName  (required)
-     * @param authorization API Key bearer token (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -456,8 +431,8 @@ public class AnalysesDynamicExecutionApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public Object getProcessDump(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull String dumpName, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<Object> localVarResp = getProcessDumpWithHttpInfo(analysisId, dumpName, authorization);
+    public Object getProcessDump(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull String dumpName) throws ApiException {
+        ApiResponse<Object> localVarResp = getProcessDumpWithHttpInfo(analysisId, dumpName);
         return localVarResp.getData();
     }
 
@@ -466,7 +441,6 @@ public class AnalysesDynamicExecutionApi {
      * 
      * @param analysisId  (required)
      * @param dumpName  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -477,8 +451,8 @@ public class AnalysesDynamicExecutionApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> getProcessDumpWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull String dumpName, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = getProcessDumpValidateBeforeCall(analysisId, dumpName, authorization, null);
+    public ApiResponse<Object> getProcessDumpWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull String dumpName) throws ApiException {
+        okhttp3.Call localVarCall = getProcessDumpValidateBeforeCall(analysisId, dumpName, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -488,7 +462,6 @@ public class AnalysesDynamicExecutionApi {
      * 
      * @param analysisId  (required)
      * @param dumpName  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -500,9 +473,9 @@ public class AnalysesDynamicExecutionApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getProcessDumpAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull String dumpName, @javax.annotation.Nullable String authorization, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call getProcessDumpAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull String dumpName, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getProcessDumpValidateBeforeCall(analysisId, dumpName, authorization, _callback);
+        okhttp3.Call localVarCall = getProcessDumpValidateBeforeCall(analysisId, dumpName, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -510,7 +483,6 @@ public class AnalysesDynamicExecutionApi {
     /**
      * Build call for getProcessDumps
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -522,7 +494,7 @@ public class AnalysesDynamicExecutionApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getProcessDumpsCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getProcessDumpsCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -563,23 +535,18 @@ public class AnalysesDynamicExecutionApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getProcessDumpsValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getProcessDumpsValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling getProcessDumps(Async)");
         }
 
-        return getProcessDumpsCall(analysisId, authorization, _callback);
+        return getProcessDumpsCall(analysisId, _callback);
 
     }
 
@@ -587,7 +554,6 @@ public class AnalysesDynamicExecutionApi {
      * Get the dynamic execution results for process dumps
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseProcessDumps
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -598,8 +564,8 @@ public class AnalysesDynamicExecutionApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseProcessDumps getProcessDumps(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseProcessDumps> localVarResp = getProcessDumpsWithHttpInfo(analysisId, authorization);
+    public BaseResponseProcessDumps getProcessDumps(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        ApiResponse<BaseResponseProcessDumps> localVarResp = getProcessDumpsWithHttpInfo(analysisId);
         return localVarResp.getData();
     }
 
@@ -607,7 +573,6 @@ public class AnalysesDynamicExecutionApi {
      * Get the dynamic execution results for process dumps
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseProcessDumps&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -618,8 +583,8 @@ public class AnalysesDynamicExecutionApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseProcessDumps> getProcessDumpsWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = getProcessDumpsValidateBeforeCall(analysisId, authorization, null);
+    public ApiResponse<BaseResponseProcessDumps> getProcessDumpsWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        okhttp3.Call localVarCall = getProcessDumpsValidateBeforeCall(analysisId, null);
         Type localVarReturnType = new TypeToken<BaseResponseProcessDumps>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -628,7 +593,6 @@ public class AnalysesDynamicExecutionApi {
      * Get the dynamic execution results for process dumps (asynchronously)
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -640,9 +604,9 @@ public class AnalysesDynamicExecutionApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getProcessDumpsAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseProcessDumps> _callback) throws ApiException {
+    public okhttp3.Call getProcessDumpsAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<BaseResponseProcessDumps> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getProcessDumpsValidateBeforeCall(analysisId, authorization, _callback);
+        okhttp3.Call localVarCall = getProcessDumpsValidateBeforeCall(analysisId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseProcessDumps>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -650,7 +614,6 @@ public class AnalysesDynamicExecutionApi {
     /**
      * Build call for getProcessRegistry
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -662,7 +625,7 @@ public class AnalysesDynamicExecutionApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getProcessRegistryCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getProcessRegistryCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -703,23 +666,18 @@ public class AnalysesDynamicExecutionApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getProcessRegistryValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getProcessRegistryValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling getProcessRegistry(Async)");
         }
 
-        return getProcessRegistryCall(analysisId, authorization, _callback);
+        return getProcessRegistryCall(analysisId, _callback);
 
     }
 
@@ -727,7 +685,6 @@ public class AnalysesDynamicExecutionApi {
      * Get the dynamic execution results for process registry
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseProcessRegistry
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -738,8 +695,8 @@ public class AnalysesDynamicExecutionApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseProcessRegistry getProcessRegistry(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseProcessRegistry> localVarResp = getProcessRegistryWithHttpInfo(analysisId, authorization);
+    public BaseResponseProcessRegistry getProcessRegistry(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        ApiResponse<BaseResponseProcessRegistry> localVarResp = getProcessRegistryWithHttpInfo(analysisId);
         return localVarResp.getData();
     }
 
@@ -747,7 +704,6 @@ public class AnalysesDynamicExecutionApi {
      * Get the dynamic execution results for process registry
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseProcessRegistry&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -758,8 +714,8 @@ public class AnalysesDynamicExecutionApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseProcessRegistry> getProcessRegistryWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = getProcessRegistryValidateBeforeCall(analysisId, authorization, null);
+    public ApiResponse<BaseResponseProcessRegistry> getProcessRegistryWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        okhttp3.Call localVarCall = getProcessRegistryValidateBeforeCall(analysisId, null);
         Type localVarReturnType = new TypeToken<BaseResponseProcessRegistry>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -768,7 +724,6 @@ public class AnalysesDynamicExecutionApi {
      * Get the dynamic execution results for process registry (asynchronously)
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -780,9 +735,9 @@ public class AnalysesDynamicExecutionApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getProcessRegistryAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseProcessRegistry> _callback) throws ApiException {
+    public okhttp3.Call getProcessRegistryAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<BaseResponseProcessRegistry> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getProcessRegistryValidateBeforeCall(analysisId, authorization, _callback);
+        okhttp3.Call localVarCall = getProcessRegistryValidateBeforeCall(analysisId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseProcessRegistry>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -790,7 +745,6 @@ public class AnalysesDynamicExecutionApi {
     /**
      * Build call for getProcessTree
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -802,7 +756,7 @@ public class AnalysesDynamicExecutionApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getProcessTreeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getProcessTreeCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -843,23 +797,18 @@ public class AnalysesDynamicExecutionApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getProcessTreeValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getProcessTreeValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling getProcessTree(Async)");
         }
 
-        return getProcessTreeCall(analysisId, authorization, _callback);
+        return getProcessTreeCall(analysisId, _callback);
 
     }
 
@@ -867,7 +816,6 @@ public class AnalysesDynamicExecutionApi {
      * Get the dynamic execution results for process tree
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseProcessTree
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -878,8 +826,8 @@ public class AnalysesDynamicExecutionApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseProcessTree getProcessTree(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseProcessTree> localVarResp = getProcessTreeWithHttpInfo(analysisId, authorization);
+    public BaseResponseProcessTree getProcessTree(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        ApiResponse<BaseResponseProcessTree> localVarResp = getProcessTreeWithHttpInfo(analysisId);
         return localVarResp.getData();
     }
 
@@ -887,7 +835,6 @@ public class AnalysesDynamicExecutionApi {
      * Get the dynamic execution results for process tree
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseProcessTree&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -898,8 +845,8 @@ public class AnalysesDynamicExecutionApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseProcessTree> getProcessTreeWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = getProcessTreeValidateBeforeCall(analysisId, authorization, null);
+    public ApiResponse<BaseResponseProcessTree> getProcessTreeWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        okhttp3.Call localVarCall = getProcessTreeValidateBeforeCall(analysisId, null);
         Type localVarReturnType = new TypeToken<BaseResponseProcessTree>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -908,7 +855,6 @@ public class AnalysesDynamicExecutionApi {
      * Get the dynamic execution results for process tree (asynchronously)
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -920,9 +866,9 @@ public class AnalysesDynamicExecutionApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getProcessTreeAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseProcessTree> _callback) throws ApiException {
+    public okhttp3.Call getProcessTreeAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<BaseResponseProcessTree> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getProcessTreeValidateBeforeCall(analysisId, authorization, _callback);
+        okhttp3.Call localVarCall = getProcessTreeValidateBeforeCall(analysisId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseProcessTree>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -930,7 +876,6 @@ public class AnalysesDynamicExecutionApi {
     /**
      * Build call for getTtps
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -942,7 +887,7 @@ public class AnalysesDynamicExecutionApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTtpsCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTtpsCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -983,23 +928,18 @@ public class AnalysesDynamicExecutionApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTtpsValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTtpsValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling getTtps(Async)");
         }
 
-        return getTtpsCall(analysisId, authorization, _callback);
+        return getTtpsCall(analysisId, _callback);
 
     }
 
@@ -1007,7 +947,6 @@ public class AnalysesDynamicExecutionApi {
      * Get the dynamic execution results for ttps
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseTTPS
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1018,8 +957,8 @@ public class AnalysesDynamicExecutionApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseTTPS getTtps(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseTTPS> localVarResp = getTtpsWithHttpInfo(analysisId, authorization);
+    public BaseResponseTTPS getTtps(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        ApiResponse<BaseResponseTTPS> localVarResp = getTtpsWithHttpInfo(analysisId);
         return localVarResp.getData();
     }
 
@@ -1027,7 +966,6 @@ public class AnalysesDynamicExecutionApi {
      * Get the dynamic execution results for ttps
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseTTPS&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1038,8 +976,8 @@ public class AnalysesDynamicExecutionApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseTTPS> getTtpsWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = getTtpsValidateBeforeCall(analysisId, authorization, null);
+    public ApiResponse<BaseResponseTTPS> getTtpsWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        okhttp3.Call localVarCall = getTtpsValidateBeforeCall(analysisId, null);
         Type localVarReturnType = new TypeToken<BaseResponseTTPS>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1048,7 +986,6 @@ public class AnalysesDynamicExecutionApi {
      * Get the dynamic execution results for ttps (asynchronously)
      * 
      * @param analysisId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1060,9 +997,9 @@ public class AnalysesDynamicExecutionApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTtpsAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseTTPS> _callback) throws ApiException {
+    public okhttp3.Call getTtpsAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<BaseResponseTTPS> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTtpsValidateBeforeCall(analysisId, authorization, _callback);
+        okhttp3.Call localVarCall = getTtpsValidateBeforeCall(analysisId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseTTPS>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

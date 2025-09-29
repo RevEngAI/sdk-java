@@ -50,7 +50,7 @@ import ai.reveng.invoker.JSON;
 /**
  * GenerateFunctionDataTypes
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.16.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0-SNAPSHOT")
 public class GenerateFunctionDataTypes {
   public static final String SERIALIZED_NAME_QUEUED = "queued";
   @Deprecated

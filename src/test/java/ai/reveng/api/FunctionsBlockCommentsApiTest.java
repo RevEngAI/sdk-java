@@ -42,8 +42,7 @@ public class FunctionsBlockCommentsApiTest {
     public void generateBlockCommentsForBlockInFunctionTest() throws ApiException {
         Integer functionId = null;
         Block block = null;
-        String authorization = null;
-        BaseResponseBlockCommentsGenerationForFunctionResponse response = api.generateBlockCommentsForBlockInFunction(functionId, block, authorization);
+        BaseResponseBlockCommentsGenerationForFunctionResponse response = api.generateBlockCommentsForBlockInFunction(functionId, block);
         // TODO: test validations
     }
 
@@ -55,8 +54,7 @@ public class FunctionsBlockCommentsApiTest {
     @Test
     public void generateBlockCommentsForFunctionTest() throws ApiException {
         Integer functionId = null;
-        String authorization = null;
-        BaseResponseBlockCommentsGenerationForFunctionResponse response = api.generateBlockCommentsForFunction(functionId, authorization);
+        BaseResponseBlockCommentsGenerationForFunctionResponse response = api.generateBlockCommentsForFunction(functionId);
         // TODO: test validations
     }
 
@@ -68,8 +66,7 @@ public class FunctionsBlockCommentsApiTest {
     @Test
     public void generateOverviewCommentForFunctionTest() throws ApiException {
         Integer functionId = null;
-        String authorization = null;
-        BaseResponseBlockCommentsOverviewGenerationResponse response = api.generateOverviewCommentForFunction(functionId, authorization);
+        BaseResponseBlockCommentsOverviewGenerationResponse response = api.generateOverviewCommentForFunction(functionId);
         // TODO: test validations
     }
 

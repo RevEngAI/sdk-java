@@ -82,7 +82,6 @@ public class FunctionsDecompilationApi {
     /**
      * Build call for checkFunctionDecompilationTask
      * @param functionId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -94,7 +93,7 @@ public class FunctionsDecompilationApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call checkFunctionDecompilationTaskCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call checkFunctionDecompilationTaskCall(@javax.annotation.Nonnull Integer functionId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -135,23 +134,18 @@ public class FunctionsDecompilationApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call checkFunctionDecompilationTaskValidateBeforeCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call checkFunctionDecompilationTaskValidateBeforeCall(@javax.annotation.Nonnull Integer functionId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'functionId' is set
         if (functionId == null) {
             throw new ApiException("Missing the required parameter 'functionId' when calling checkFunctionDecompilationTask(Async)");
         }
 
-        return checkFunctionDecompilationTaskCall(functionId, authorization, _callback);
+        return checkFunctionDecompilationTaskCall(functionId, _callback);
 
     }
 
@@ -159,7 +153,6 @@ public class FunctionsDecompilationApi {
      * Check the status of a function decompilation
      * 
      * @param functionId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseFunctionTaskResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -170,8 +163,8 @@ public class FunctionsDecompilationApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseFunctionTaskResponse checkFunctionDecompilationTask(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseFunctionTaskResponse> localVarResp = checkFunctionDecompilationTaskWithHttpInfo(functionId, authorization);
+    public BaseResponseFunctionTaskResponse checkFunctionDecompilationTask(@javax.annotation.Nonnull Integer functionId) throws ApiException {
+        ApiResponse<BaseResponseFunctionTaskResponse> localVarResp = checkFunctionDecompilationTaskWithHttpInfo(functionId);
         return localVarResp.getData();
     }
 
@@ -179,7 +172,6 @@ public class FunctionsDecompilationApi {
      * Check the status of a function decompilation
      * 
      * @param functionId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseFunctionTaskResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -190,8 +182,8 @@ public class FunctionsDecompilationApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseFunctionTaskResponse> checkFunctionDecompilationTaskWithHttpInfo(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = checkFunctionDecompilationTaskValidateBeforeCall(functionId, authorization, null);
+    public ApiResponse<BaseResponseFunctionTaskResponse> checkFunctionDecompilationTaskWithHttpInfo(@javax.annotation.Nonnull Integer functionId) throws ApiException {
+        okhttp3.Call localVarCall = checkFunctionDecompilationTaskValidateBeforeCall(functionId, null);
         Type localVarReturnType = new TypeToken<BaseResponseFunctionTaskResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -200,7 +192,6 @@ public class FunctionsDecompilationApi {
      * Check the status of a function decompilation (asynchronously)
      * 
      * @param functionId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -212,9 +203,9 @@ public class FunctionsDecompilationApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call checkFunctionDecompilationTaskAsync(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseFunctionTaskResponse> _callback) throws ApiException {
+    public okhttp3.Call checkFunctionDecompilationTaskAsync(@javax.annotation.Nonnull Integer functionId, final ApiCallback<BaseResponseFunctionTaskResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = checkFunctionDecompilationTaskValidateBeforeCall(functionId, authorization, _callback);
+        okhttp3.Call localVarCall = checkFunctionDecompilationTaskValidateBeforeCall(functionId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseFunctionTaskResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -223,7 +214,6 @@ public class FunctionsDecompilationApi {
      * Build call for createDecompilationComment
      * @param functionId  (required)
      * @param functionCommentCreateRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -236,7 +226,7 @@ public class FunctionsDecompilationApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createDecompilationCommentCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull FunctionCommentCreateRequest functionCommentCreateRequest, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createDecompilationCommentCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull FunctionCommentCreateRequest functionCommentCreateRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -278,17 +268,12 @@ public class FunctionsDecompilationApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createDecompilationCommentValidateBeforeCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull FunctionCommentCreateRequest functionCommentCreateRequest, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createDecompilationCommentValidateBeforeCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull FunctionCommentCreateRequest functionCommentCreateRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'functionId' is set
         if (functionId == null) {
             throw new ApiException("Missing the required parameter 'functionId' when calling createDecompilationComment(Async)");
@@ -299,7 +284,7 @@ public class FunctionsDecompilationApi {
             throw new ApiException("Missing the required parameter 'functionCommentCreateRequest' when calling createDecompilationComment(Async)");
         }
 
-        return createDecompilationCommentCall(functionId, functionCommentCreateRequest, authorization, _callback);
+        return createDecompilationCommentCall(functionId, functionCommentCreateRequest, _callback);
 
     }
 
@@ -308,7 +293,6 @@ public class FunctionsDecompilationApi {
      * Creates a comment associated with a specified function).
      * @param functionId  (required)
      * @param functionCommentCreateRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseCommentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -320,8 +304,8 @@ public class FunctionsDecompilationApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseCommentResponse createDecompilationComment(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull FunctionCommentCreateRequest functionCommentCreateRequest, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseCommentResponse> localVarResp = createDecompilationCommentWithHttpInfo(functionId, functionCommentCreateRequest, authorization);
+    public BaseResponseCommentResponse createDecompilationComment(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull FunctionCommentCreateRequest functionCommentCreateRequest) throws ApiException {
+        ApiResponse<BaseResponseCommentResponse> localVarResp = createDecompilationCommentWithHttpInfo(functionId, functionCommentCreateRequest);
         return localVarResp.getData();
     }
 
@@ -330,7 +314,6 @@ public class FunctionsDecompilationApi {
      * Creates a comment associated with a specified function).
      * @param functionId  (required)
      * @param functionCommentCreateRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseCommentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -342,8 +325,8 @@ public class FunctionsDecompilationApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseCommentResponse> createDecompilationCommentWithHttpInfo(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull FunctionCommentCreateRequest functionCommentCreateRequest, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = createDecompilationCommentValidateBeforeCall(functionId, functionCommentCreateRequest, authorization, null);
+    public ApiResponse<BaseResponseCommentResponse> createDecompilationCommentWithHttpInfo(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull FunctionCommentCreateRequest functionCommentCreateRequest) throws ApiException {
+        okhttp3.Call localVarCall = createDecompilationCommentValidateBeforeCall(functionId, functionCommentCreateRequest, null);
         Type localVarReturnType = new TypeToken<BaseResponseCommentResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -353,7 +336,6 @@ public class FunctionsDecompilationApi {
      * Creates a comment associated with a specified function).
      * @param functionId  (required)
      * @param functionCommentCreateRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -366,9 +348,9 @@ public class FunctionsDecompilationApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createDecompilationCommentAsync(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull FunctionCommentCreateRequest functionCommentCreateRequest, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseCommentResponse> _callback) throws ApiException {
+    public okhttp3.Call createDecompilationCommentAsync(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull FunctionCommentCreateRequest functionCommentCreateRequest, final ApiCallback<BaseResponseCommentResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createDecompilationCommentValidateBeforeCall(functionId, functionCommentCreateRequest, authorization, _callback);
+        okhttp3.Call localVarCall = createDecompilationCommentValidateBeforeCall(functionId, functionCommentCreateRequest, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseCommentResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -376,7 +358,6 @@ public class FunctionsDecompilationApi {
     /**
      * Build call for createFunctionDecompilationTask
      * @param functionId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -389,7 +370,7 @@ public class FunctionsDecompilationApi {
         <tr><td> 409 </td><td> Security checks already extracted or queued </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createFunctionDecompilationTaskCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createFunctionDecompilationTaskCall(@javax.annotation.Nonnull Integer functionId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -430,23 +411,18 @@ public class FunctionsDecompilationApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createFunctionDecompilationTaskValidateBeforeCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createFunctionDecompilationTaskValidateBeforeCall(@javax.annotation.Nonnull Integer functionId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'functionId' is set
         if (functionId == null) {
             throw new ApiException("Missing the required parameter 'functionId' when calling createFunctionDecompilationTask(Async)");
         }
 
-        return createFunctionDecompilationTaskCall(functionId, authorization, _callback);
+        return createFunctionDecompilationTaskCall(functionId, _callback);
 
     }
 
@@ -454,7 +430,6 @@ public class FunctionsDecompilationApi {
      * Queues a function decompilation
      * 
      * @param functionId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseStr
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -466,8 +441,8 @@ public class FunctionsDecompilationApi {
         <tr><td> 409 </td><td> Security checks already extracted or queued </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseStr createFunctionDecompilationTask(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseStr> localVarResp = createFunctionDecompilationTaskWithHttpInfo(functionId, authorization);
+    public BaseResponseStr createFunctionDecompilationTask(@javax.annotation.Nonnull Integer functionId) throws ApiException {
+        ApiResponse<BaseResponseStr> localVarResp = createFunctionDecompilationTaskWithHttpInfo(functionId);
         return localVarResp.getData();
     }
 
@@ -475,7 +450,6 @@ public class FunctionsDecompilationApi {
      * Queues a function decompilation
      * 
      * @param functionId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseStr&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -487,8 +461,8 @@ public class FunctionsDecompilationApi {
         <tr><td> 409 </td><td> Security checks already extracted or queued </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseStr> createFunctionDecompilationTaskWithHttpInfo(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = createFunctionDecompilationTaskValidateBeforeCall(functionId, authorization, null);
+    public ApiResponse<BaseResponseStr> createFunctionDecompilationTaskWithHttpInfo(@javax.annotation.Nonnull Integer functionId) throws ApiException {
+        okhttp3.Call localVarCall = createFunctionDecompilationTaskValidateBeforeCall(functionId, null);
         Type localVarReturnType = new TypeToken<BaseResponseStr>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -497,7 +471,6 @@ public class FunctionsDecompilationApi {
      * Queues a function decompilation (asynchronously)
      * 
      * @param functionId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -510,9 +483,9 @@ public class FunctionsDecompilationApi {
         <tr><td> 409 </td><td> Security checks already extracted or queued </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createFunctionDecompilationTaskAsync(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseStr> _callback) throws ApiException {
+    public okhttp3.Call createFunctionDecompilationTaskAsync(@javax.annotation.Nonnull Integer functionId, final ApiCallback<BaseResponseStr> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createFunctionDecompilationTaskValidateBeforeCall(functionId, authorization, _callback);
+        okhttp3.Call localVarCall = createFunctionDecompilationTaskValidateBeforeCall(functionId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseStr>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -521,7 +494,6 @@ public class FunctionsDecompilationApi {
      * Build call for deleteDecompilationComment
      * @param commentId  (required)
      * @param functionId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -535,7 +507,7 @@ public class FunctionsDecompilationApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteDecompilationCommentCall(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteDecompilationCommentCall(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -577,17 +549,12 @@ public class FunctionsDecompilationApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteDecompilationCommentValidateBeforeCall(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteDecompilationCommentValidateBeforeCall(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'commentId' is set
         if (commentId == null) {
             throw new ApiException("Missing the required parameter 'commentId' when calling deleteDecompilationComment(Async)");
@@ -598,7 +565,7 @@ public class FunctionsDecompilationApi {
             throw new ApiException("Missing the required parameter 'functionId' when calling deleteDecompilationComment(Async)");
         }
 
-        return deleteDecompilationCommentCall(commentId, functionId, authorization, _callback);
+        return deleteDecompilationCommentCall(commentId, functionId, _callback);
 
     }
 
@@ -607,7 +574,6 @@ public class FunctionsDecompilationApi {
      * Deletes an existing comment. Users can only delete their own comments.
      * @param commentId  (required)
      * @param functionId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseBool
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -620,8 +586,8 @@ public class FunctionsDecompilationApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseBool deleteDecompilationComment(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseBool> localVarResp = deleteDecompilationCommentWithHttpInfo(commentId, functionId, authorization);
+    public BaseResponseBool deleteDecompilationComment(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId) throws ApiException {
+        ApiResponse<BaseResponseBool> localVarResp = deleteDecompilationCommentWithHttpInfo(commentId, functionId);
         return localVarResp.getData();
     }
 
@@ -630,7 +596,6 @@ public class FunctionsDecompilationApi {
      * Deletes an existing comment. Users can only delete their own comments.
      * @param commentId  (required)
      * @param functionId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseBool&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -643,8 +608,8 @@ public class FunctionsDecompilationApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseBool> deleteDecompilationCommentWithHttpInfo(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = deleteDecompilationCommentValidateBeforeCall(commentId, functionId, authorization, null);
+    public ApiResponse<BaseResponseBool> deleteDecompilationCommentWithHttpInfo(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId) throws ApiException {
+        okhttp3.Call localVarCall = deleteDecompilationCommentValidateBeforeCall(commentId, functionId, null);
         Type localVarReturnType = new TypeToken<BaseResponseBool>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -654,7 +619,6 @@ public class FunctionsDecompilationApi {
      * Deletes an existing comment. Users can only delete their own comments.
      * @param commentId  (required)
      * @param functionId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -668,9 +632,9 @@ public class FunctionsDecompilationApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteDecompilationCommentAsync(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseBool> _callback) throws ApiException {
+    public okhttp3.Call deleteDecompilationCommentAsync(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId, final ApiCallback<BaseResponseBool> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteDecompilationCommentValidateBeforeCall(commentId, functionId, authorization, _callback);
+        okhttp3.Call localVarCall = deleteDecompilationCommentValidateBeforeCall(commentId, functionId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseBool>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -678,7 +642,6 @@ public class FunctionsDecompilationApi {
     /**
      * Build call for getDecompilationComments
      * @param functionId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -690,7 +653,7 @@ public class FunctionsDecompilationApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getDecompilationCommentsCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getDecompilationCommentsCall(@javax.annotation.Nonnull Integer functionId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -731,23 +694,18 @@ public class FunctionsDecompilationApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getDecompilationCommentsValidateBeforeCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getDecompilationCommentsValidateBeforeCall(@javax.annotation.Nonnull Integer functionId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'functionId' is set
         if (functionId == null) {
             throw new ApiException("Missing the required parameter 'functionId' when calling getDecompilationComments(Async)");
         }
 
-        return getDecompilationCommentsCall(functionId, authorization, _callback);
+        return getDecompilationCommentsCall(functionId, _callback);
 
     }
 
@@ -755,7 +713,6 @@ public class FunctionsDecompilationApi {
      * Get comments for this function
      * Retrieves all comments created for a specific function. Only returns comments for resources the requesting user has access to.
      * @param functionId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseListCommentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -766,8 +723,8 @@ public class FunctionsDecompilationApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseListCommentResponse getDecompilationComments(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseListCommentResponse> localVarResp = getDecompilationCommentsWithHttpInfo(functionId, authorization);
+    public BaseResponseListCommentResponse getDecompilationComments(@javax.annotation.Nonnull Integer functionId) throws ApiException {
+        ApiResponse<BaseResponseListCommentResponse> localVarResp = getDecompilationCommentsWithHttpInfo(functionId);
         return localVarResp.getData();
     }
 
@@ -775,7 +732,6 @@ public class FunctionsDecompilationApi {
      * Get comments for this function
      * Retrieves all comments created for a specific function. Only returns comments for resources the requesting user has access to.
      * @param functionId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseListCommentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -786,8 +742,8 @@ public class FunctionsDecompilationApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseListCommentResponse> getDecompilationCommentsWithHttpInfo(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = getDecompilationCommentsValidateBeforeCall(functionId, authorization, null);
+    public ApiResponse<BaseResponseListCommentResponse> getDecompilationCommentsWithHttpInfo(@javax.annotation.Nonnull Integer functionId) throws ApiException {
+        okhttp3.Call localVarCall = getDecompilationCommentsValidateBeforeCall(functionId, null);
         Type localVarReturnType = new TypeToken<BaseResponseListCommentResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -796,7 +752,6 @@ public class FunctionsDecompilationApi {
      * Get comments for this function (asynchronously)
      * Retrieves all comments created for a specific function. Only returns comments for resources the requesting user has access to.
      * @param functionId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -808,9 +763,9 @@ public class FunctionsDecompilationApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getDecompilationCommentsAsync(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseListCommentResponse> _callback) throws ApiException {
+    public okhttp3.Call getDecompilationCommentsAsync(@javax.annotation.Nonnull Integer functionId, final ApiCallback<BaseResponseListCommentResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getDecompilationCommentsValidateBeforeCall(functionId, authorization, _callback);
+        okhttp3.Call localVarCall = getDecompilationCommentsValidateBeforeCall(functionId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseListCommentResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -818,7 +773,6 @@ public class FunctionsDecompilationApi {
     /**
      * Build call for getFunctionDecompilation
      * @param functionId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -831,7 +785,7 @@ public class FunctionsDecompilationApi {
         <tr><td> 404 </td><td> Unable to find a decompilation for the function_id given </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFunctionDecompilationCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getFunctionDecompilationCall(@javax.annotation.Nonnull Integer functionId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -872,23 +826,18 @@ public class FunctionsDecompilationApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getFunctionDecompilationValidateBeforeCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getFunctionDecompilationValidateBeforeCall(@javax.annotation.Nonnull Integer functionId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'functionId' is set
         if (functionId == null) {
             throw new ApiException("Missing the required parameter 'functionId' when calling getFunctionDecompilation(Async)");
         }
 
-        return getFunctionDecompilationCall(functionId, authorization, _callback);
+        return getFunctionDecompilationCall(functionId, _callback);
 
     }
 
@@ -896,7 +845,6 @@ public class FunctionsDecompilationApi {
      * Get decompilation result
      * 
      * @param functionId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseDecompilationResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -908,8 +856,8 @@ public class FunctionsDecompilationApi {
         <tr><td> 404 </td><td> Unable to find a decompilation for the function_id given </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseDecompilationResponse getFunctionDecompilation(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseDecompilationResponse> localVarResp = getFunctionDecompilationWithHttpInfo(functionId, authorization);
+    public BaseResponseDecompilationResponse getFunctionDecompilation(@javax.annotation.Nonnull Integer functionId) throws ApiException {
+        ApiResponse<BaseResponseDecompilationResponse> localVarResp = getFunctionDecompilationWithHttpInfo(functionId);
         return localVarResp.getData();
     }
 
@@ -917,7 +865,6 @@ public class FunctionsDecompilationApi {
      * Get decompilation result
      * 
      * @param functionId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseDecompilationResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -929,8 +876,8 @@ public class FunctionsDecompilationApi {
         <tr><td> 404 </td><td> Unable to find a decompilation for the function_id given </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseDecompilationResponse> getFunctionDecompilationWithHttpInfo(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = getFunctionDecompilationValidateBeforeCall(functionId, authorization, null);
+    public ApiResponse<BaseResponseDecompilationResponse> getFunctionDecompilationWithHttpInfo(@javax.annotation.Nonnull Integer functionId) throws ApiException {
+        okhttp3.Call localVarCall = getFunctionDecompilationValidateBeforeCall(functionId, null);
         Type localVarReturnType = new TypeToken<BaseResponseDecompilationResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -939,7 +886,6 @@ public class FunctionsDecompilationApi {
      * Get decompilation result (asynchronously)
      * 
      * @param functionId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -952,9 +898,9 @@ public class FunctionsDecompilationApi {
         <tr><td> 404 </td><td> Unable to find a decompilation for the function_id given </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFunctionDecompilationAsync(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseDecompilationResponse> _callback) throws ApiException {
+    public okhttp3.Call getFunctionDecompilationAsync(@javax.annotation.Nonnull Integer functionId, final ApiCallback<BaseResponseDecompilationResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getFunctionDecompilationValidateBeforeCall(functionId, authorization, _callback);
+        okhttp3.Call localVarCall = getFunctionDecompilationValidateBeforeCall(functionId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseDecompilationResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -964,7 +910,6 @@ public class FunctionsDecompilationApi {
      * @param commentId  (required)
      * @param functionId  (required)
      * @param commentUpdateRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -978,7 +923,7 @@ public class FunctionsDecompilationApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateDecompilationCommentCall(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull CommentUpdateRequest commentUpdateRequest, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateDecompilationCommentCall(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull CommentUpdateRequest commentUpdateRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1021,17 +966,12 @@ public class FunctionsDecompilationApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateDecompilationCommentValidateBeforeCall(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull CommentUpdateRequest commentUpdateRequest, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateDecompilationCommentValidateBeforeCall(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull CommentUpdateRequest commentUpdateRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'commentId' is set
         if (commentId == null) {
             throw new ApiException("Missing the required parameter 'commentId' when calling updateDecompilationComment(Async)");
@@ -1047,7 +987,7 @@ public class FunctionsDecompilationApi {
             throw new ApiException("Missing the required parameter 'commentUpdateRequest' when calling updateDecompilationComment(Async)");
         }
 
-        return updateDecompilationCommentCall(commentId, functionId, commentUpdateRequest, authorization, _callback);
+        return updateDecompilationCommentCall(commentId, functionId, commentUpdateRequest, _callback);
 
     }
 
@@ -1057,7 +997,6 @@ public class FunctionsDecompilationApi {
      * @param commentId  (required)
      * @param functionId  (required)
      * @param commentUpdateRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseCommentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1070,8 +1009,8 @@ public class FunctionsDecompilationApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseCommentResponse updateDecompilationComment(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull CommentUpdateRequest commentUpdateRequest, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseCommentResponse> localVarResp = updateDecompilationCommentWithHttpInfo(commentId, functionId, commentUpdateRequest, authorization);
+    public BaseResponseCommentResponse updateDecompilationComment(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull CommentUpdateRequest commentUpdateRequest) throws ApiException {
+        ApiResponse<BaseResponseCommentResponse> localVarResp = updateDecompilationCommentWithHttpInfo(commentId, functionId, commentUpdateRequest);
         return localVarResp.getData();
     }
 
@@ -1081,7 +1020,6 @@ public class FunctionsDecompilationApi {
      * @param commentId  (required)
      * @param functionId  (required)
      * @param commentUpdateRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseCommentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1094,8 +1032,8 @@ public class FunctionsDecompilationApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseCommentResponse> updateDecompilationCommentWithHttpInfo(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull CommentUpdateRequest commentUpdateRequest, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = updateDecompilationCommentValidateBeforeCall(commentId, functionId, commentUpdateRequest, authorization, null);
+    public ApiResponse<BaseResponseCommentResponse> updateDecompilationCommentWithHttpInfo(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull CommentUpdateRequest commentUpdateRequest) throws ApiException {
+        okhttp3.Call localVarCall = updateDecompilationCommentValidateBeforeCall(commentId, functionId, commentUpdateRequest, null);
         Type localVarReturnType = new TypeToken<BaseResponseCommentResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1106,7 +1044,6 @@ public class FunctionsDecompilationApi {
      * @param commentId  (required)
      * @param functionId  (required)
      * @param commentUpdateRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1120,9 +1057,9 @@ public class FunctionsDecompilationApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateDecompilationCommentAsync(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull CommentUpdateRequest commentUpdateRequest, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseCommentResponse> _callback) throws ApiException {
+    public okhttp3.Call updateDecompilationCommentAsync(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull CommentUpdateRequest commentUpdateRequest, final ApiCallback<BaseResponseCommentResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateDecompilationCommentValidateBeforeCall(commentId, functionId, commentUpdateRequest, authorization, _callback);
+        okhttp3.Call localVarCall = updateDecompilationCommentValidateBeforeCall(commentId, functionId, commentUpdateRequest, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseCommentResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

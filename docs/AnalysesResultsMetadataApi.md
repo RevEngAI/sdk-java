@@ -15,7 +15,7 @@ All URIs are relative to *https://api.reveng.ai*
 
 <a id="getCapabilities"></a>
 # **getCapabilities**
-> BaseResponseCapabilities getCapabilities(analysisId, authorization)
+> BaseResponseCapabilities getCapabilities(analysisId)
 
 Gets the capabilities from the analysis
 
@@ -42,9 +42,8 @@ public class Example {
 
     AnalysesResultsMetadataApi apiInstance = new AnalysesResultsMetadataApi(defaultClient);
     Integer analysisId = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseCapabilities result = apiInstance.getCapabilities(analysisId, authorization);
+      BaseResponseCapabilities result = apiInstance.getCapabilities(analysisId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesResultsMetadataApi#getCapabilities");
@@ -62,7 +61,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -85,7 +83,7 @@ public class Example {
 
 <a id="getCommunities"></a>
 # **getCommunities**
-> BaseResponseCommunities getCommunities(analysisId, userName, authorization)
+> BaseResponseCommunities getCommunities(analysisId, userName)
 
 Gets the communities found in the analysis
 
@@ -113,9 +111,8 @@ public class Example {
     AnalysesResultsMetadataApi apiInstance = new AnalysesResultsMetadataApi(defaultClient);
     Integer analysisId = 56; // Integer | 
     String userName = "userName_example"; // String | The user name to limit communities to
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseCommunities result = apiInstance.getCommunities(analysisId, userName, authorization);
+      BaseResponseCommunities result = apiInstance.getCommunities(analysisId, userName);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesResultsMetadataApi#getCommunities");
@@ -134,7 +131,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
 | **userName** | **String**| The user name to limit communities to | [optional] |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -157,7 +153,7 @@ public class Example {
 
 <a id="getFunctionsList"></a>
 # **getFunctionsList**
-> BaseResponseAnalysisFunctions getFunctionsList(analysisId, searchTerm, minVAddr, maxVAddr, authorization)
+> BaseResponseAnalysisFunctions getFunctionsList(analysisId, searchTerm, minVAddr, maxVAddr)
 
 Gets functions from analysis
 
@@ -189,9 +185,8 @@ public class Example {
     String searchTerm = "searchTerm_example"; // String | 
     Integer minVAddr = 56; // Integer | 
     Integer maxVAddr = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseAnalysisFunctions result = apiInstance.getFunctionsList(analysisId, searchTerm, minVAddr, maxVAddr, authorization);
+      BaseResponseAnalysisFunctions result = apiInstance.getFunctionsList(analysisId, searchTerm, minVAddr, maxVAddr);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesResultsMetadataApi#getFunctionsList");
@@ -212,7 +207,6 @@ public class Example {
 | **searchTerm** | **String**|  | [optional] |
 | **minVAddr** | **Integer**|  | [optional] |
 | **maxVAddr** | **Integer**|  | [optional] |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -235,7 +229,7 @@ public class Example {
 
 <a id="getPdf"></a>
 # **getPdf**
-> Object getPdf(analysisId, authorization)
+> Object getPdf(analysisId)
 
 Gets the PDF found in the analysis
 
@@ -262,9 +256,8 @@ public class Example {
 
     AnalysesResultsMetadataApi apiInstance = new AnalysesResultsMetadataApi(defaultClient);
     Integer analysisId = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      Object result = apiInstance.getPdf(analysisId, authorization);
+      Object result = apiInstance.getPdf(analysisId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesResultsMetadataApi#getPdf");
@@ -282,7 +275,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -305,7 +297,7 @@ public class Example {
 
 <a id="getSbom"></a>
 # **getSbom**
-> BaseResponseListSBOM getSbom(analysisId, authorization)
+> BaseResponseListSBOM getSbom(analysisId)
 
 Gets the software-bill-of-materials (SBOM) found in the analysis
 
@@ -332,9 +324,8 @@ public class Example {
 
     AnalysesResultsMetadataApi apiInstance = new AnalysesResultsMetadataApi(defaultClient);
     Integer analysisId = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseListSBOM result = apiInstance.getSbom(analysisId, authorization);
+      BaseResponseListSBOM result = apiInstance.getSbom(analysisId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesResultsMetadataApi#getSbom");
@@ -352,7 +343,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -375,7 +365,7 @@ public class Example {
 
 <a id="getTags"></a>
 # **getTags**
-> BaseResponseAnalysisTags getTags(analysisId, authorization)
+> BaseResponseAnalysisTags getTags(analysisId)
 
 Get function tags with maliciousness score
 
@@ -402,9 +392,8 @@ public class Example {
 
     AnalysesResultsMetadataApi apiInstance = new AnalysesResultsMetadataApi(defaultClient);
     Integer analysisId = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseAnalysisTags result = apiInstance.getTags(analysisId, authorization);
+      BaseResponseAnalysisTags result = apiInstance.getTags(analysisId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesResultsMetadataApi#getTags");
@@ -422,7 +411,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -445,7 +433,7 @@ public class Example {
 
 <a id="getVulnerabilities"></a>
 # **getVulnerabilities**
-> BaseResponseVulnerabilities getVulnerabilities(analysisId, authorization)
+> BaseResponseVulnerabilities getVulnerabilities(analysisId)
 
 Gets the vulnerabilities found in the analysis
 
@@ -472,9 +460,8 @@ public class Example {
 
     AnalysesResultsMetadataApi apiInstance = new AnalysesResultsMetadataApi(defaultClient);
     Integer analysisId = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseVulnerabilities result = apiInstance.getVulnerabilities(analysisId, authorization);
+      BaseResponseVulnerabilities result = apiInstance.getVulnerabilities(analysisId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesResultsMetadataApi#getVulnerabilities");
@@ -492,7 +479,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 

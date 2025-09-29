@@ -41,8 +41,7 @@ public class ExternalSourcesApiTest {
     @Test
     public void createExternalTaskMbTest() throws ApiException {
         Integer analysisId = null;
-        String authorization = null;
-        BaseResponseStr response = api.createExternalTaskMb(analysisId, authorization);
+        BaseResponseStr response = api.createExternalTaskMb(analysisId);
         // TODO: test validations
     }
 
@@ -54,8 +53,7 @@ public class ExternalSourcesApiTest {
     @Test
     public void createExternalTaskVtTest() throws ApiException {
         Integer analysisId = null;
-        String authorization = null;
-        BaseResponseStr response = api.createExternalTaskVt(analysisId, authorization);
+        BaseResponseStr response = api.createExternalTaskVt(analysisId);
         // TODO: test validations
     }
 
@@ -67,8 +65,7 @@ public class ExternalSourcesApiTest {
     @Test
     public void getMbDataTest() throws ApiException {
         Integer analysisId = null;
-        String authorization = null;
-        BaseResponseExternalResponse response = api.getMbData(analysisId, authorization);
+        BaseResponseExternalResponse response = api.getMbData(analysisId);
         // TODO: test validations
     }
 
@@ -80,8 +77,7 @@ public class ExternalSourcesApiTest {
     @Test
     public void getMbTaskStatusTest() throws ApiException {
         Integer analysisId = null;
-        String authorization = null;
-        BaseResponseTaskResponse response = api.getMbTaskStatus(analysisId, authorization);
+        BaseResponseTaskResponse response = api.getMbTaskStatus(analysisId);
         // TODO: test validations
     }
 
@@ -93,8 +89,7 @@ public class ExternalSourcesApiTest {
     @Test
     public void getVtDataTest() throws ApiException {
         Integer analysisId = null;
-        String authorization = null;
-        BaseResponseExternalResponse response = api.getVtData(analysisId, authorization);
+        BaseResponseExternalResponse response = api.getVtData(analysisId);
         // TODO: test validations
     }
 
@@ -106,8 +101,7 @@ public class ExternalSourcesApiTest {
     @Test
     public void getVtTaskStatusTest() throws ApiException {
         Integer analysisId = null;
-        String authorization = null;
-        BaseResponseTaskResponse response = api.getVtTaskStatus(analysisId, authorization);
+        BaseResponseTaskResponse response = api.getVtTaskStatus(analysisId);
         // TODO: test validations
     }
 

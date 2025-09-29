@@ -24,7 +24,7 @@ All URIs are relative to *https://api.reveng.ai*
 
 <a id="batchSymbolAnn"></a>
 # **batchSymbolAnn**
-> FunctionBatchAnn batchSymbolAnn(appApiRestV1AnnSchemaANNFunction, authorization)
+> FunctionBatchAnn batchSymbolAnn(appApiRestV1AnnSchemaANNFunction)
 
 Batch Symbol ANN using function IDs
 
@@ -53,9 +53,8 @@ public class Example {
 
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
     AppApiRestV1AnnSchemaANNFunction appApiRestV1AnnSchemaANNFunction = new AppApiRestV1AnnSchemaANNFunction(); // AppApiRestV1AnnSchemaANNFunction | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      FunctionBatchAnn result = apiInstance.batchSymbolAnn(appApiRestV1AnnSchemaANNFunction, authorization);
+      FunctionBatchAnn result = apiInstance.batchSymbolAnn(appApiRestV1AnnSchemaANNFunction);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCoreApi#batchSymbolAnn");
@@ -73,7 +72,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **appApiRestV1AnnSchemaANNFunction** | [**AppApiRestV1AnnSchemaANNFunction**](AppApiRestV1AnnSchemaANNFunction.md)|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -96,7 +94,7 @@ public class Example {
 
 <a id="createAnalysis"></a>
 # **createAnalysis**
-> BaseResponseAnalysisCreateResponse createAnalysis(analysisCreateRequest, authorization)
+> BaseResponseAnalysisCreateResponse createAnalysis(analysisCreateRequest)
 
 Create Analysis
 
@@ -125,9 +123,8 @@ public class Example {
 
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
     AnalysisCreateRequest analysisCreateRequest = new AnalysisCreateRequest(); // AnalysisCreateRequest | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseAnalysisCreateResponse result = apiInstance.createAnalysis(analysisCreateRequest, authorization);
+      BaseResponseAnalysisCreateResponse result = apiInstance.createAnalysis(analysisCreateRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCoreApi#createAnalysis");
@@ -145,7 +142,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisCreateRequest** | [**AnalysisCreateRequest**](AnalysisCreateRequest.md)|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -170,7 +166,7 @@ public class Example {
 
 <a id="deleteAnalysis"></a>
 # **deleteAnalysis**
-> BaseResponseDict deleteAnalysis(analysisId, authorization)
+> BaseResponseDict deleteAnalysis(analysisId)
 
 Delete Analysis
 
@@ -199,9 +195,8 @@ public class Example {
 
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
     Integer analysisId = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseDict result = apiInstance.deleteAnalysis(analysisId, authorization);
+      BaseResponseDict result = apiInstance.deleteAnalysis(analysisId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCoreApi#deleteAnalysis");
@@ -219,7 +214,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -244,7 +238,7 @@ public class Example {
 
 <a id="findSimilarFunctionsBatch"></a>
 # **findSimilarFunctionsBatch**
-> BaseResponseNearestNeighborAnalysis findSimilarFunctionsBatch(analysisId, appApiRestV2SimilaritySchemaANNFunction, authorization)
+> BaseResponseNearestNeighborAnalysis findSimilarFunctionsBatch(analysisId, appApiRestV2SimilaritySchemaANNFunction)
 
 Batch Symbol ANN using Analysis ID
 
@@ -274,9 +268,8 @@ public class Example {
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
     Integer analysisId = 56; // Integer | 
     AppApiRestV2SimilaritySchemaANNFunction appApiRestV2SimilaritySchemaANNFunction = new AppApiRestV2SimilaritySchemaANNFunction(); // AppApiRestV2SimilaritySchemaANNFunction | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseNearestNeighborAnalysis result = apiInstance.findSimilarFunctionsBatch(analysisId, appApiRestV2SimilaritySchemaANNFunction, authorization);
+      BaseResponseNearestNeighborAnalysis result = apiInstance.findSimilarFunctionsBatch(analysisId, appApiRestV2SimilaritySchemaANNFunction);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCoreApi#findSimilarFunctionsBatch");
@@ -295,7 +288,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
 | **appApiRestV2SimilaritySchemaANNFunction** | [**AppApiRestV2SimilaritySchemaANNFunction**](AppApiRestV2SimilaritySchemaANNFunction.md)|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -318,7 +310,7 @@ public class Example {
 
 <a id="getAnalysisBasicInfo"></a>
 # **getAnalysisBasicInfo**
-> BaseResponseBasic getAnalysisBasicInfo(analysisId, authorization)
+> BaseResponseBasic getAnalysisBasicInfo(analysisId)
 
 Gets basic analysis information
 
@@ -347,9 +339,8 @@ public class Example {
 
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
     Integer analysisId = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseBasic result = apiInstance.getAnalysisBasicInfo(analysisId, authorization);
+      BaseResponseBasic result = apiInstance.getAnalysisBasicInfo(analysisId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCoreApi#getAnalysisBasicInfo");
@@ -367,7 +358,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -390,7 +380,7 @@ public class Example {
 
 <a id="getAnalysisFunctionMap"></a>
 # **getAnalysisFunctionMap**
-> BaseResponseAnalysisFunctionMapping getAnalysisFunctionMap(analysisId, authorization)
+> BaseResponseAnalysisFunctionMapping getAnalysisFunctionMap(analysisId)
 
 Get Analysis Function Map
 
@@ -419,9 +409,8 @@ public class Example {
 
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
     Integer analysisId = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseAnalysisFunctionMapping result = apiInstance.getAnalysisFunctionMap(analysisId, authorization);
+      BaseResponseAnalysisFunctionMapping result = apiInstance.getAnalysisFunctionMap(analysisId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCoreApi#getAnalysisFunctionMap");
@@ -439,7 +428,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -462,7 +450,7 @@ public class Example {
 
 <a id="getAnalysisLogs"></a>
 # **getAnalysisLogs**
-> BaseResponseLogs getAnalysisLogs(analysisId, authorization)
+> BaseResponseLogs getAnalysisLogs(analysisId)
 
 Gets the logs of an analysis
 
@@ -491,9 +479,8 @@ public class Example {
 
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
     Integer analysisId = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseLogs result = apiInstance.getAnalysisLogs(analysisId, authorization);
+      BaseResponseLogs result = apiInstance.getAnalysisLogs(analysisId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCoreApi#getAnalysisLogs");
@@ -511,7 +498,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -534,7 +520,7 @@ public class Example {
 
 <a id="getAnalysisParams"></a>
 # **getAnalysisParams**
-> BaseResponseParams getAnalysisParams(analysisId, authorization)
+> BaseResponseParams getAnalysisParams(analysisId)
 
 Gets analysis param information
 
@@ -563,9 +549,8 @@ public class Example {
 
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
     Integer analysisId = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseParams result = apiInstance.getAnalysisParams(analysisId, authorization);
+      BaseResponseParams result = apiInstance.getAnalysisParams(analysisId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCoreApi#getAnalysisParams");
@@ -583,7 +568,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -606,7 +590,7 @@ public class Example {
 
 <a id="getAnalysisStatus"></a>
 # **getAnalysisStatus**
-> BaseResponseStatus getAnalysisStatus(analysisId, authorization)
+> BaseResponseStatus getAnalysisStatus(analysisId)
 
 Gets the status of an analysis
 
@@ -635,9 +619,8 @@ public class Example {
 
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
     Integer analysisId = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseStatus result = apiInstance.getAnalysisStatus(analysisId, authorization);
+      BaseResponseStatus result = apiInstance.getAnalysisStatus(analysisId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCoreApi#getAnalysisStatus");
@@ -655,7 +638,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -678,7 +660,7 @@ public class Example {
 
 <a id="getBinaryAnn"></a>
 # **getBinaryAnn**
-> BaseResponseBinaryAnnListResponse getBinaryAnn(analysisId, binaryAnnForm, authorization)
+> BaseResponseBinaryAnnListResponse getBinaryAnn(analysisId, binaryAnnForm)
 
 Binary Ann
 
@@ -708,9 +690,8 @@ public class Example {
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
     Integer analysisId = 56; // Integer | 
     BinaryAnnForm binaryAnnForm = new BinaryAnnForm(); // BinaryAnnForm | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseBinaryAnnListResponse result = apiInstance.getBinaryAnn(analysisId, binaryAnnForm, authorization);
+      BaseResponseBinaryAnnListResponse result = apiInstance.getBinaryAnn(analysisId, binaryAnnForm);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCoreApi#getBinaryAnn");
@@ -729,7 +710,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
 | **binaryAnnForm** | [**BinaryAnnForm**](BinaryAnnForm.md)|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -752,7 +732,7 @@ public class Example {
 
 <a id="listAnalyses"></a>
 # **listAnalyses**
-> BaseResponseRecent listAnalyses(searchTerm, workspace, status, modelName, dynamicExecutionStatus, usernames, sha256Hash, limit, offset, orderBy, order, authorization)
+> BaseResponseRecent listAnalyses(searchTerm, workspace, status, modelName, dynamicExecutionStatus, usernames, sha256Hash, limit, offset, orderBy, order)
 
 Gets the most recent analyses
 
@@ -791,9 +771,8 @@ public class Example {
     Integer offset = 0; // Integer | 
     AppApiRestV2AnalysesEnumsOrderBy orderBy = AppApiRestV2AnalysesEnumsOrderBy.fromValue("created"); // AppApiRestV2AnalysesEnumsOrderBy | 
     Order order = Order.fromValue("ASC"); // Order | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseRecent result = apiInstance.listAnalyses(searchTerm, workspace, status, modelName, dynamicExecutionStatus, usernames, sha256Hash, limit, offset, orderBy, order, authorization);
+      BaseResponseRecent result = apiInstance.listAnalyses(searchTerm, workspace, status, modelName, dynamicExecutionStatus, usernames, sha256Hash, limit, offset, orderBy, order);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCoreApi#listAnalyses");
@@ -821,7 +800,6 @@ public class Example {
 | **offset** | **Integer**|  | [optional] [default to 0] |
 | **orderBy** | [**AppApiRestV2AnalysesEnumsOrderBy**](.md)|  | [optional] [enum: created, name, size] |
 | **order** | [**Order**](.md)|  | [optional] [enum: ASC, DESC] |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -844,7 +822,7 @@ public class Example {
 
 <a id="lookupBinaryId"></a>
 # **lookupBinaryId**
-> Object lookupBinaryId(binaryId, authorization)
+> Object lookupBinaryId(binaryId)
 
 Gets the analysis ID from binary ID
 
@@ -873,9 +851,8 @@ public class Example {
 
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
     Integer binaryId = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      Object result = apiInstance.lookupBinaryId(binaryId, authorization);
+      Object result = apiInstance.lookupBinaryId(binaryId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCoreApi#lookupBinaryId");
@@ -893,7 +870,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **binaryId** | **Integer**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -916,7 +892,7 @@ public class Example {
 
 <a id="requeueAnalysis"></a>
 # **requeueAnalysis**
-> BaseResponseCreated requeueAnalysis(analysisId, reAnalysisForm, authorization)
+> BaseResponseCreated requeueAnalysis(analysisId, reAnalysisForm)
 
 Requeue Analysis
 
@@ -946,9 +922,8 @@ public class Example {
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
     Integer analysisId = 56; // Integer | 
     ReAnalysisForm reAnalysisForm = new ReAnalysisForm(); // ReAnalysisForm | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseCreated result = apiInstance.requeueAnalysis(analysisId, reAnalysisForm, authorization);
+      BaseResponseCreated result = apiInstance.requeueAnalysis(analysisId, reAnalysisForm);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCoreApi#requeueAnalysis");
@@ -967,7 +942,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
 | **reAnalysisForm** | [**ReAnalysisForm**](ReAnalysisForm.md)|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -992,7 +966,7 @@ public class Example {
 
 <a id="updateAnalysis"></a>
 # **updateAnalysis**
-> BaseResponseAnalysisDetailResponse updateAnalysis(analysisId, analysisUpdateRequest, authorization)
+> BaseResponseAnalysisDetailResponse updateAnalysis(analysisId, analysisUpdateRequest)
 
 Update Analysis
 
@@ -1022,9 +996,8 @@ public class Example {
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
     Integer analysisId = 56; // Integer | 
     AnalysisUpdateRequest analysisUpdateRequest = new AnalysisUpdateRequest(); // AnalysisUpdateRequest | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseAnalysisDetailResponse result = apiInstance.updateAnalysis(analysisId, analysisUpdateRequest, authorization);
+      BaseResponseAnalysisDetailResponse result = apiInstance.updateAnalysis(analysisId, analysisUpdateRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCoreApi#updateAnalysis");
@@ -1043,7 +1016,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
 | **analysisUpdateRequest** | [**AnalysisUpdateRequest**](AnalysisUpdateRequest.md)|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -1066,7 +1038,7 @@ public class Example {
 
 <a id="updateAnalysisTags"></a>
 # **updateAnalysisTags**
-> BaseResponseAnalysisUpdateTagsResponse updateAnalysisTags(analysisId, analysisUpdateTagsRequest, authorization)
+> BaseResponseAnalysisUpdateTagsResponse updateAnalysisTags(analysisId, analysisUpdateTagsRequest)
 
 Update Analysis Tags
 
@@ -1096,9 +1068,8 @@ public class Example {
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
     Integer analysisId = 56; // Integer | 
     AnalysisUpdateTagsRequest analysisUpdateTagsRequest = new AnalysisUpdateTagsRequest(); // AnalysisUpdateTagsRequest | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseAnalysisUpdateTagsResponse result = apiInstance.updateAnalysisTags(analysisId, analysisUpdateTagsRequest, authorization);
+      BaseResponseAnalysisUpdateTagsResponse result = apiInstance.updateAnalysisTags(analysisId, analysisUpdateTagsRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCoreApi#updateAnalysisTags");
@@ -1117,7 +1088,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
 | **analysisUpdateTagsRequest** | [**AnalysisUpdateTagsRequest**](AnalysisUpdateTagsRequest.md)|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -1140,7 +1110,7 @@ public class Example {
 
 <a id="uploadFile"></a>
 # **uploadFile**
-> BaseResponseUploadResponse uploadFile(uploadFileType, _file, packedPassword, authorization, forceOverwrite)
+> BaseResponseUploadResponse uploadFile(uploadFileType, _file, packedPassword, forceOverwrite)
 
 Upload File
 
@@ -1169,10 +1139,9 @@ public class Example {
     UploadFileType uploadFileType = UploadFileType.fromValue("BINARY"); // UploadFileType | 
     File _file = new File("/path/to/file"); // File | 
     String packedPassword = "packedPassword_example"; // String | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     Boolean forceOverwrite = false; // Boolean | 
     try {
-      BaseResponseUploadResponse result = apiInstance.uploadFile(uploadFileType, _file, packedPassword, authorization, forceOverwrite);
+      BaseResponseUploadResponse result = apiInstance.uploadFile(uploadFileType, _file, packedPassword, forceOverwrite);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCoreApi#uploadFile");
@@ -1192,7 +1161,6 @@ public class Example {
 | **uploadFileType** | [**UploadFileType**](UploadFileType.md)|  | [enum: BINARY, DEBUG, PACKED, FIRMWARE] |
 | **_file** | **File**|  | |
 | **packedPassword** | **String**|  | [optional] |
-| **authorization** | **String**| API Key bearer token | [optional] |
 | **forceOverwrite** | **Boolean**|  | [optional] [default to false] |
 
 ### Return type

@@ -10,7 +10,7 @@ All URIs are relative to *https://api.reveng.ai*
 
 <a id="getBinariesForFirmwareTask"></a>
 # **getBinariesForFirmwareTask**
-> Object getBinariesForFirmwareTask(taskId, authorization)
+> Object getBinariesForFirmwareTask(taskId)
 
 Upload firmware for unpacking
 
@@ -39,9 +39,8 @@ public class Example {
 
     FirmwareApi apiInstance = new FirmwareApi(defaultClient);
     String taskId = "taskId_example"; // String | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      Object result = apiInstance.getBinariesForFirmwareTask(taskId, authorization);
+      Object result = apiInstance.getBinariesForFirmwareTask(taskId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FirmwareApi#getBinariesForFirmwareTask");
@@ -59,7 +58,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **taskId** | **String**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -82,7 +80,7 @@ public class Example {
 
 <a id="uploadFirmware"></a>
 # **uploadFirmware**
-> Object uploadFirmware(_file, authorization, password)
+> Object uploadFirmware(_file, password)
 
 Upload firmware for unpacking
 
@@ -111,10 +109,9 @@ public class Example {
 
     FirmwareApi apiInstance = new FirmwareApi(defaultClient);
     File _file = new File("/path/to/file"); // File | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     String password = "password_example"; // String | 
     try {
-      Object result = apiInstance.uploadFirmware(_file, authorization, password);
+      Object result = apiInstance.uploadFirmware(_file, password);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FirmwareApi#uploadFirmware");
@@ -132,7 +129,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **_file** | **File**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 | **password** | **String**|  | [optional] |
 
 ### Return type

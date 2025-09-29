@@ -51,7 +51,7 @@ import ai.reveng.invoker.JSON;
 /**
  * CollectionUpdateRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.16.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0-SNAPSHOT")
 public class CollectionUpdateRequest {
   public static final String SERIALIZED_NAME_COLLECTION_NAME = "collection_name";
   @SerializedName(SERIALIZED_NAME_COLLECTION_NAME)

@@ -15,7 +15,7 @@ All URIs are relative to *https://api.reveng.ai*
 
 <a id="createCollection"></a>
 # **createCollection**
-> BaseResponseCollectionResponse createCollection(collectionCreateRequest, authorization)
+> BaseResponseCollectionResponse createCollection(collectionCreateRequest)
 
 Creates new collection information
 
@@ -44,9 +44,8 @@ public class Example {
 
     CollectionsApi apiInstance = new CollectionsApi(defaultClient);
     CollectionCreateRequest collectionCreateRequest = new CollectionCreateRequest(); // CollectionCreateRequest | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseCollectionResponse result = apiInstance.createCollection(collectionCreateRequest, authorization);
+      BaseResponseCollectionResponse result = apiInstance.createCollection(collectionCreateRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CollectionsApi#createCollection");
@@ -64,7 +63,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **collectionCreateRequest** | [**CollectionCreateRequest**](CollectionCreateRequest.md)|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -87,7 +85,7 @@ public class Example {
 
 <a id="deleteCollection"></a>
 # **deleteCollection**
-> BaseResponseBool deleteCollection(collectionId, authorization)
+> BaseResponseBool deleteCollection(collectionId)
 
 Deletes a collection
 
@@ -116,9 +114,8 @@ public class Example {
 
     CollectionsApi apiInstance = new CollectionsApi(defaultClient);
     Integer collectionId = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseBool result = apiInstance.deleteCollection(collectionId, authorization);
+      BaseResponseBool result = apiInstance.deleteCollection(collectionId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CollectionsApi#deleteCollection");
@@ -136,7 +133,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **collectionId** | **Integer**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -159,7 +155,7 @@ public class Example {
 
 <a id="getCollection"></a>
 # **getCollection**
-> BaseResponseCollectionResponse getCollection(collectionId, includeTags, includeBinaries, authorization)
+> BaseResponseCollectionResponse getCollection(collectionId, includeTags, includeBinaries)
 
 Returns a collection
 
@@ -190,9 +186,8 @@ public class Example {
     Integer collectionId = 56; // Integer | 
     Boolean includeTags = false; // Boolean | 
     Boolean includeBinaries = false; // Boolean | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseCollectionResponse result = apiInstance.getCollection(collectionId, includeTags, includeBinaries, authorization);
+      BaseResponseCollectionResponse result = apiInstance.getCollection(collectionId, includeTags, includeBinaries);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CollectionsApi#getCollection");
@@ -212,7 +207,6 @@ public class Example {
 | **collectionId** | **Integer**|  | |
 | **includeTags** | **Boolean**|  | [optional] [default to false] |
 | **includeBinaries** | **Boolean**|  | [optional] [default to false] |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -235,7 +229,7 @@ public class Example {
 
 <a id="listCollections"></a>
 # **listCollections**
-> BaseResponseListCollectionResults listCollections(searchTerm, filters, limit, offset, orderBy, order, authorization)
+> BaseResponseListCollectionResults listCollections(searchTerm, filters, limit, offset, orderBy, order)
 
 Gets basic collections information
 
@@ -269,9 +263,8 @@ public class Example {
     Integer offset = 0; // Integer | 
     AppApiRestV2CollectionsEnumsOrderBy orderBy = AppApiRestV2CollectionsEnumsOrderBy.fromValue("created"); // AppApiRestV2CollectionsEnumsOrderBy | 
     Order order = Order.fromValue("ASC"); // Order | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseListCollectionResults result = apiInstance.listCollections(searchTerm, filters, limit, offset, orderBy, order, authorization);
+      BaseResponseListCollectionResults result = apiInstance.listCollections(searchTerm, filters, limit, offset, orderBy, order);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CollectionsApi#listCollections");
@@ -294,7 +287,6 @@ public class Example {
 | **offset** | **Integer**|  | [optional] [default to 0] |
 | **orderBy** | [**AppApiRestV2CollectionsEnumsOrderBy**](.md)|  | [optional] [enum: created, collection, model, owner, collection_size, updated] |
 | **order** | [**Order**](.md)|  | [optional] [enum: ASC, DESC] |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -317,7 +309,7 @@ public class Example {
 
 <a id="updateCollection"></a>
 # **updateCollection**
-> BaseResponseCollectionResponse updateCollection(collectionId, collectionUpdateRequest, authorization)
+> BaseResponseCollectionResponse updateCollection(collectionId, collectionUpdateRequest)
 
 Updates a collection
 
@@ -347,9 +339,8 @@ public class Example {
     CollectionsApi apiInstance = new CollectionsApi(defaultClient);
     Integer collectionId = 56; // Integer | 
     CollectionUpdateRequest collectionUpdateRequest = new CollectionUpdateRequest(); // CollectionUpdateRequest | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseCollectionResponse result = apiInstance.updateCollection(collectionId, collectionUpdateRequest, authorization);
+      BaseResponseCollectionResponse result = apiInstance.updateCollection(collectionId, collectionUpdateRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CollectionsApi#updateCollection");
@@ -368,7 +359,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **collectionId** | **Integer**|  | |
 | **collectionUpdateRequest** | [**CollectionUpdateRequest**](CollectionUpdateRequest.md)|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -391,7 +381,7 @@ public class Example {
 
 <a id="updateCollectionBinaries"></a>
 # **updateCollectionBinaries**
-> BaseResponseCollectionBinariesUpdateResponse updateCollectionBinaries(collectionId, collectionBinariesUpdateRequest, authorization)
+> BaseResponseCollectionBinariesUpdateResponse updateCollectionBinaries(collectionId, collectionBinariesUpdateRequest)
 
 Updates a collection binaries
 
@@ -421,9 +411,8 @@ public class Example {
     CollectionsApi apiInstance = new CollectionsApi(defaultClient);
     Integer collectionId = 56; // Integer | 
     CollectionBinariesUpdateRequest collectionBinariesUpdateRequest = new CollectionBinariesUpdateRequest(); // CollectionBinariesUpdateRequest | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseCollectionBinariesUpdateResponse result = apiInstance.updateCollectionBinaries(collectionId, collectionBinariesUpdateRequest, authorization);
+      BaseResponseCollectionBinariesUpdateResponse result = apiInstance.updateCollectionBinaries(collectionId, collectionBinariesUpdateRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CollectionsApi#updateCollectionBinaries");
@@ -442,7 +431,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **collectionId** | **Integer**|  | |
 | **collectionBinariesUpdateRequest** | [**CollectionBinariesUpdateRequest**](CollectionBinariesUpdateRequest.md)|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -465,7 +453,7 @@ public class Example {
 
 <a id="updateCollectionTags"></a>
 # **updateCollectionTags**
-> BaseResponseCollectionTagsUpdateResponse updateCollectionTags(collectionId, collectionTagsUpdateRequest, authorization)
+> BaseResponseCollectionTagsUpdateResponse updateCollectionTags(collectionId, collectionTagsUpdateRequest)
 
 Updates a collection tags
 
@@ -495,9 +483,8 @@ public class Example {
     CollectionsApi apiInstance = new CollectionsApi(defaultClient);
     Integer collectionId = 56; // Integer | 
     CollectionTagsUpdateRequest collectionTagsUpdateRequest = new CollectionTagsUpdateRequest(); // CollectionTagsUpdateRequest | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseCollectionTagsUpdateResponse result = apiInstance.updateCollectionTags(collectionId, collectionTagsUpdateRequest, authorization);
+      BaseResponseCollectionTagsUpdateResponse result = apiInstance.updateCollectionTags(collectionId, collectionTagsUpdateRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CollectionsApi#updateCollectionTags");
@@ -516,7 +503,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **collectionId** | **Integer**|  | |
 | **collectionTagsUpdateRequest** | [**CollectionTagsUpdateRequest**](CollectionTagsUpdateRequest.md)|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 

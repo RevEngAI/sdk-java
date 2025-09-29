@@ -13,7 +13,7 @@ All URIs are relative to *https://api.reveng.ai*
 
 <a id="getRequesterUserInfo"></a>
 # **getRequesterUserInfo**
-> BaseResponseGetUserResponse getRequesterUserInfo(authorization)
+> BaseResponseGetUserResponse getRequesterUserInfo()
 
 Get the requesters user information
 
@@ -39,9 +39,8 @@ public class Example {
     //APIKey.setApiKeyPrefix("Token");
 
     AuthenticationUsersApi apiInstance = new AuthenticationUsersApi(defaultClient);
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseGetUserResponse result = apiInstance.getRequesterUserInfo(authorization);
+      BaseResponseGetUserResponse result = apiInstance.getRequesterUserInfo();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AuthenticationUsersApi#getRequesterUserInfo");
@@ -55,10 +54,7 @@ public class Example {
 ```
 
 ### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **authorization** | **String**| API Key bearer token | [optional] |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -81,7 +77,7 @@ public class Example {
 
 <a id="getUser"></a>
 # **getUser**
-> BaseResponseGetPublicUserResponse getUser(userId, authorization)
+> BaseResponseGetPublicUserResponse getUser(userId)
 
 Get a user&#39;s public information
 
@@ -108,9 +104,8 @@ public class Example {
 
     AuthenticationUsersApi apiInstance = new AuthenticationUsersApi(defaultClient);
     Integer userId = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseGetPublicUserResponse result = apiInstance.getUser(userId, authorization);
+      BaseResponseGetPublicUserResponse result = apiInstance.getUser(userId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AuthenticationUsersApi#getUser");
@@ -128,7 +123,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **userId** | **Integer**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -151,7 +145,7 @@ public class Example {
 
 <a id="getUserActivity"></a>
 # **getUserActivity**
-> BaseResponseListUserActivityResponse getUserActivity(authorization)
+> BaseResponseListUserActivityResponse getUserActivity()
 
 Get auth user activity
 
@@ -177,9 +171,8 @@ public class Example {
     //APIKey.setApiKeyPrefix("Token");
 
     AuthenticationUsersApi apiInstance = new AuthenticationUsersApi(defaultClient);
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseListUserActivityResponse result = apiInstance.getUserActivity(authorization);
+      BaseResponseListUserActivityResponse result = apiInstance.getUserActivity();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AuthenticationUsersApi#getUserActivity");
@@ -193,10 +186,7 @@ public class Example {
 ```
 
 ### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **authorization** | **String**| API Key bearer token | [optional] |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -219,7 +209,7 @@ public class Example {
 
 <a id="getUserComments"></a>
 # **getUserComments**
-> BaseResponseListCommentResponse getUserComments(authorization)
+> BaseResponseListCommentResponse getUserComments()
 
 Get comments by user
 
@@ -247,9 +237,8 @@ public class Example {
     //APIKey.setApiKeyPrefix("Token");
 
     AuthenticationUsersApi apiInstance = new AuthenticationUsersApi(defaultClient);
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseListCommentResponse result = apiInstance.getUserComments(authorization);
+      BaseResponseListCommentResponse result = apiInstance.getUserComments();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AuthenticationUsersApi#getUserComments");
@@ -263,10 +252,7 @@ public class Example {
 ```
 
 ### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **authorization** | **String**| API Key bearer token | [optional] |
+This endpoint does not need any parameter.
 
 ### Return type
 

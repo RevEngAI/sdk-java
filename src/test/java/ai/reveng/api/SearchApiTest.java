@@ -53,8 +53,7 @@ public class SearchApiTest {
         List<String> tags = null;
         String modelName = null;
         Boolean userFilesOnly = null;
-        String authorization = null;
-        BaseResponseBinarySearchResponse response = api.searchBinaries(page, pageSize, partialName, partialSha256, tags, modelName, userFilesOnly, authorization);
+        BaseResponseBinarySearchResponse response = api.searchBinaries(page, pageSize, partialName, partialSha256, tags, modelName, userFilesOnly);
         // TODO: test validations
     }
 
@@ -77,8 +76,7 @@ public class SearchApiTest {
         List<Filters> filters = null;
         AppApiRestV2CollectionsEnumsOrderBy orderBy = null;
         Order orderByDirection = null;
-        String authorization = null;
-        BaseResponseCollectionSearchResponse response = api.searchCollections(page, pageSize, partialCollectionName, partialBinaryName, partialBinarySha256, tags, modelName, filters, orderBy, orderByDirection, authorization);
+        BaseResponseCollectionSearchResponse response = api.searchCollections(page, pageSize, partialCollectionName, partialBinaryName, partialBinarySha256, tags, modelName, filters, orderBy, orderByDirection);
         // TODO: test validations
     }
 
@@ -95,8 +93,7 @@ public class SearchApiTest {
         Integer pageSize = null;
         String partialName = null;
         String modelName = null;
-        String authorization = null;
-        BaseResponseFunctionSearchResponse response = api.searchFunctions(page, pageSize, partialName, modelName, authorization);
+        BaseResponseFunctionSearchResponse response = api.searchFunctions(page, pageSize, partialName, modelName);
         // TODO: test validations
     }
 

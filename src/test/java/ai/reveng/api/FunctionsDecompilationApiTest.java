@@ -46,8 +46,7 @@ public class FunctionsDecompilationApiTest {
     @Test
     public void checkFunctionDecompilationTaskTest() throws ApiException {
         Integer functionId = null;
-        String authorization = null;
-        BaseResponseFunctionTaskResponse response = api.checkFunctionDecompilationTask(functionId, authorization);
+        BaseResponseFunctionTaskResponse response = api.checkFunctionDecompilationTask(functionId);
         // TODO: test validations
     }
 
@@ -62,8 +61,7 @@ public class FunctionsDecompilationApiTest {
     public void createDecompilationCommentTest() throws ApiException {
         Integer functionId = null;
         FunctionCommentCreateRequest functionCommentCreateRequest = null;
-        String authorization = null;
-        BaseResponseCommentResponse response = api.createDecompilationComment(functionId, functionCommentCreateRequest, authorization);
+        BaseResponseCommentResponse response = api.createDecompilationComment(functionId, functionCommentCreateRequest);
         // TODO: test validations
     }
 
@@ -75,8 +73,7 @@ public class FunctionsDecompilationApiTest {
     @Test
     public void createFunctionDecompilationTaskTest() throws ApiException {
         Integer functionId = null;
-        String authorization = null;
-        BaseResponseStr response = api.createFunctionDecompilationTask(functionId, authorization);
+        BaseResponseStr response = api.createFunctionDecompilationTask(functionId);
         // TODO: test validations
     }
 
@@ -91,8 +88,7 @@ public class FunctionsDecompilationApiTest {
     public void deleteDecompilationCommentTest() throws ApiException {
         Integer commentId = null;
         Integer functionId = null;
-        String authorization = null;
-        BaseResponseBool response = api.deleteDecompilationComment(commentId, functionId, authorization);
+        BaseResponseBool response = api.deleteDecompilationComment(commentId, functionId);
         // TODO: test validations
     }
 
@@ -106,8 +102,7 @@ public class FunctionsDecompilationApiTest {
     @Test
     public void getDecompilationCommentsTest() throws ApiException {
         Integer functionId = null;
-        String authorization = null;
-        BaseResponseListCommentResponse response = api.getDecompilationComments(functionId, authorization);
+        BaseResponseListCommentResponse response = api.getDecompilationComments(functionId);
         // TODO: test validations
     }
 
@@ -119,8 +114,7 @@ public class FunctionsDecompilationApiTest {
     @Test
     public void getFunctionDecompilationTest() throws ApiException {
         Integer functionId = null;
-        String authorization = null;
-        BaseResponseDecompilationResponse response = api.getFunctionDecompilation(functionId, authorization);
+        BaseResponseDecompilationResponse response = api.getFunctionDecompilation(functionId);
         // TODO: test validations
     }
 
@@ -136,8 +130,7 @@ public class FunctionsDecompilationApiTest {
         Integer commentId = null;
         Integer functionId = null;
         CommentUpdateRequest commentUpdateRequest = null;
-        String authorization = null;
-        BaseResponseCommentResponse response = api.updateDecompilationComment(commentId, functionId, commentUpdateRequest, authorization);
+        BaseResponseCommentResponse response = api.updateDecompilationComment(commentId, functionId, commentUpdateRequest);
         // TODO: test validations
     }
 

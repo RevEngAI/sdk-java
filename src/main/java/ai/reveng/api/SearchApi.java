@@ -87,7 +87,6 @@ public class SearchApi {
      * @param tags The tags to be searched for (optional)
      * @param modelName The name of the model used to analyze the binary the function belongs to (optional)
      * @param userFilesOnly Whether to only search user&#39;s uploaded files (optional, default to false)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -99,7 +98,7 @@ public class SearchApi {
         <tr><td> 422 </td><td> You must provide at least one of the filters; partial_name, partial_sha256, tags or model_name to search </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchBinariesCall(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialName, @javax.annotation.Nullable String partialSha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable Boolean userFilesOnly, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchBinariesCall(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialName, @javax.annotation.Nullable String partialSha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable Boolean userFilesOnly, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -167,18 +166,13 @@ public class SearchApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchBinariesValidateBeforeCall(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialName, @javax.annotation.Nullable String partialSha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable Boolean userFilesOnly, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
-        return searchBinariesCall(page, pageSize, partialName, partialSha256, tags, modelName, userFilesOnly, authorization, _callback);
+    private okhttp3.Call searchBinariesValidateBeforeCall(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialName, @javax.annotation.Nullable String partialSha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable Boolean userFilesOnly, final ApiCallback _callback) throws ApiException {
+        return searchBinariesCall(page, pageSize, partialName, partialSha256, tags, modelName, userFilesOnly, _callback);
 
     }
 
@@ -192,7 +186,6 @@ public class SearchApi {
      * @param tags The tags to be searched for (optional)
      * @param modelName The name of the model used to analyze the binary the function belongs to (optional)
      * @param userFilesOnly Whether to only search user&#39;s uploaded files (optional, default to false)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseBinarySearchResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -203,8 +196,8 @@ public class SearchApi {
         <tr><td> 422 </td><td> You must provide at least one of the filters; partial_name, partial_sha256, tags or model_name to search </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseBinarySearchResponse searchBinaries(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialName, @javax.annotation.Nullable String partialSha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable Boolean userFilesOnly, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseBinarySearchResponse> localVarResp = searchBinariesWithHttpInfo(page, pageSize, partialName, partialSha256, tags, modelName, userFilesOnly, authorization);
+    public BaseResponseBinarySearchResponse searchBinaries(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialName, @javax.annotation.Nullable String partialSha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable Boolean userFilesOnly) throws ApiException {
+        ApiResponse<BaseResponseBinarySearchResponse> localVarResp = searchBinariesWithHttpInfo(page, pageSize, partialName, partialSha256, tags, modelName, userFilesOnly);
         return localVarResp.getData();
     }
 
@@ -218,7 +211,6 @@ public class SearchApi {
      * @param tags The tags to be searched for (optional)
      * @param modelName The name of the model used to analyze the binary the function belongs to (optional)
      * @param userFilesOnly Whether to only search user&#39;s uploaded files (optional, default to false)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseBinarySearchResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -229,8 +221,8 @@ public class SearchApi {
         <tr><td> 422 </td><td> You must provide at least one of the filters; partial_name, partial_sha256, tags or model_name to search </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseBinarySearchResponse> searchBinariesWithHttpInfo(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialName, @javax.annotation.Nullable String partialSha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable Boolean userFilesOnly, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = searchBinariesValidateBeforeCall(page, pageSize, partialName, partialSha256, tags, modelName, userFilesOnly, authorization, null);
+    public ApiResponse<BaseResponseBinarySearchResponse> searchBinariesWithHttpInfo(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialName, @javax.annotation.Nullable String partialSha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable Boolean userFilesOnly) throws ApiException {
+        okhttp3.Call localVarCall = searchBinariesValidateBeforeCall(page, pageSize, partialName, partialSha256, tags, modelName, userFilesOnly, null);
         Type localVarReturnType = new TypeToken<BaseResponseBinarySearchResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -245,7 +237,6 @@ public class SearchApi {
      * @param tags The tags to be searched for (optional)
      * @param modelName The name of the model used to analyze the binary the function belongs to (optional)
      * @param userFilesOnly Whether to only search user&#39;s uploaded files (optional, default to false)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -257,9 +248,9 @@ public class SearchApi {
         <tr><td> 422 </td><td> You must provide at least one of the filters; partial_name, partial_sha256, tags or model_name to search </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchBinariesAsync(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialName, @javax.annotation.Nullable String partialSha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable Boolean userFilesOnly, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseBinarySearchResponse> _callback) throws ApiException {
+    public okhttp3.Call searchBinariesAsync(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialName, @javax.annotation.Nullable String partialSha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable Boolean userFilesOnly, final ApiCallback<BaseResponseBinarySearchResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchBinariesValidateBeforeCall(page, pageSize, partialName, partialSha256, tags, modelName, userFilesOnly, authorization, _callback);
+        okhttp3.Call localVarCall = searchBinariesValidateBeforeCall(page, pageSize, partialName, partialSha256, tags, modelName, userFilesOnly, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseBinarySearchResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -276,7 +267,6 @@ public class SearchApi {
      * @param filters The filters to be used for the search (optional)
      * @param orderBy The field to sort the order by in the results (optional)
      * @param orderByDirection The order direction in which to return results (optional)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -289,7 +279,7 @@ public class SearchApi {
         <tr><td> 404 </td><td> The model name provided does not exist </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchCollectionsCall(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialCollectionName, @javax.annotation.Nullable String partialBinaryName, @javax.annotation.Nullable String partialBinarySha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable List<Filters> filters, @javax.annotation.Nullable AppApiRestV2CollectionsEnumsOrderBy orderBy, @javax.annotation.Nullable Order orderByDirection, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchCollectionsCall(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialCollectionName, @javax.annotation.Nullable String partialBinaryName, @javax.annotation.Nullable String partialBinarySha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable List<Filters> filters, @javax.annotation.Nullable AppApiRestV2CollectionsEnumsOrderBy orderBy, @javax.annotation.Nullable Order orderByDirection, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -369,18 +359,13 @@ public class SearchApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchCollectionsValidateBeforeCall(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialCollectionName, @javax.annotation.Nullable String partialBinaryName, @javax.annotation.Nullable String partialBinarySha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable List<Filters> filters, @javax.annotation.Nullable AppApiRestV2CollectionsEnumsOrderBy orderBy, @javax.annotation.Nullable Order orderByDirection, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
-        return searchCollectionsCall(page, pageSize, partialCollectionName, partialBinaryName, partialBinarySha256, tags, modelName, filters, orderBy, orderByDirection, authorization, _callback);
+    private okhttp3.Call searchCollectionsValidateBeforeCall(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialCollectionName, @javax.annotation.Nullable String partialBinaryName, @javax.annotation.Nullable String partialBinarySha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable List<Filters> filters, @javax.annotation.Nullable AppApiRestV2CollectionsEnumsOrderBy orderBy, @javax.annotation.Nullable Order orderByDirection, final ApiCallback _callback) throws ApiException {
+        return searchCollectionsCall(page, pageSize, partialCollectionName, partialBinaryName, partialBinarySha256, tags, modelName, filters, orderBy, orderByDirection, _callback);
 
     }
 
@@ -397,7 +382,6 @@ public class SearchApi {
      * @param filters The filters to be used for the search (optional)
      * @param orderBy The field to sort the order by in the results (optional)
      * @param orderByDirection The order direction in which to return results (optional)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseCollectionSearchResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -409,8 +393,8 @@ public class SearchApi {
         <tr><td> 404 </td><td> The model name provided does not exist </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseCollectionSearchResponse searchCollections(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialCollectionName, @javax.annotation.Nullable String partialBinaryName, @javax.annotation.Nullable String partialBinarySha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable List<Filters> filters, @javax.annotation.Nullable AppApiRestV2CollectionsEnumsOrderBy orderBy, @javax.annotation.Nullable Order orderByDirection, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseCollectionSearchResponse> localVarResp = searchCollectionsWithHttpInfo(page, pageSize, partialCollectionName, partialBinaryName, partialBinarySha256, tags, modelName, filters, orderBy, orderByDirection, authorization);
+    public BaseResponseCollectionSearchResponse searchCollections(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialCollectionName, @javax.annotation.Nullable String partialBinaryName, @javax.annotation.Nullable String partialBinarySha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable List<Filters> filters, @javax.annotation.Nullable AppApiRestV2CollectionsEnumsOrderBy orderBy, @javax.annotation.Nullable Order orderByDirection) throws ApiException {
+        ApiResponse<BaseResponseCollectionSearchResponse> localVarResp = searchCollectionsWithHttpInfo(page, pageSize, partialCollectionName, partialBinaryName, partialBinarySha256, tags, modelName, filters, orderBy, orderByDirection);
         return localVarResp.getData();
     }
 
@@ -427,7 +411,6 @@ public class SearchApi {
      * @param filters The filters to be used for the search (optional)
      * @param orderBy The field to sort the order by in the results (optional)
      * @param orderByDirection The order direction in which to return results (optional)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseCollectionSearchResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -439,8 +422,8 @@ public class SearchApi {
         <tr><td> 404 </td><td> The model name provided does not exist </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseCollectionSearchResponse> searchCollectionsWithHttpInfo(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialCollectionName, @javax.annotation.Nullable String partialBinaryName, @javax.annotation.Nullable String partialBinarySha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable List<Filters> filters, @javax.annotation.Nullable AppApiRestV2CollectionsEnumsOrderBy orderBy, @javax.annotation.Nullable Order orderByDirection, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = searchCollectionsValidateBeforeCall(page, pageSize, partialCollectionName, partialBinaryName, partialBinarySha256, tags, modelName, filters, orderBy, orderByDirection, authorization, null);
+    public ApiResponse<BaseResponseCollectionSearchResponse> searchCollectionsWithHttpInfo(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialCollectionName, @javax.annotation.Nullable String partialBinaryName, @javax.annotation.Nullable String partialBinarySha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable List<Filters> filters, @javax.annotation.Nullable AppApiRestV2CollectionsEnumsOrderBy orderBy, @javax.annotation.Nullable Order orderByDirection) throws ApiException {
+        okhttp3.Call localVarCall = searchCollectionsValidateBeforeCall(page, pageSize, partialCollectionName, partialBinaryName, partialBinarySha256, tags, modelName, filters, orderBy, orderByDirection, null);
         Type localVarReturnType = new TypeToken<BaseResponseCollectionSearchResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -458,7 +441,6 @@ public class SearchApi {
      * @param filters The filters to be used for the search (optional)
      * @param orderBy The field to sort the order by in the results (optional)
      * @param orderByDirection The order direction in which to return results (optional)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -471,9 +453,9 @@ public class SearchApi {
         <tr><td> 404 </td><td> The model name provided does not exist </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchCollectionsAsync(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialCollectionName, @javax.annotation.Nullable String partialBinaryName, @javax.annotation.Nullable String partialBinarySha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable List<Filters> filters, @javax.annotation.Nullable AppApiRestV2CollectionsEnumsOrderBy orderBy, @javax.annotation.Nullable Order orderByDirection, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseCollectionSearchResponse> _callback) throws ApiException {
+    public okhttp3.Call searchCollectionsAsync(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialCollectionName, @javax.annotation.Nullable String partialBinaryName, @javax.annotation.Nullable String partialBinarySha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable List<Filters> filters, @javax.annotation.Nullable AppApiRestV2CollectionsEnumsOrderBy orderBy, @javax.annotation.Nullable Order orderByDirection, final ApiCallback<BaseResponseCollectionSearchResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchCollectionsValidateBeforeCall(page, pageSize, partialCollectionName, partialBinaryName, partialBinarySha256, tags, modelName, filters, orderBy, orderByDirection, authorization, _callback);
+        okhttp3.Call localVarCall = searchCollectionsValidateBeforeCall(page, pageSize, partialCollectionName, partialBinaryName, partialBinarySha256, tags, modelName, filters, orderBy, orderByDirection, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseCollectionSearchResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -484,7 +466,6 @@ public class SearchApi {
      * @param pageSize Number of items per page. (optional, default to 10)
      * @param partialName The partial or full name of the function being searched (optional)
      * @param modelName The name of the model used to analyze the binary the function belongs to (optional)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -496,7 +477,7 @@ public class SearchApi {
         <tr><td> 422 </td><td> You must provide at least one of the filters; partial_name, or model_name to search </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchFunctionsCall(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialName, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchFunctionsCall(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialName, @javax.annotation.Nullable String modelName, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -552,18 +533,13 @@ public class SearchApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchFunctionsValidateBeforeCall(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialName, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
-        return searchFunctionsCall(page, pageSize, partialName, modelName, authorization, _callback);
+    private okhttp3.Call searchFunctionsValidateBeforeCall(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialName, @javax.annotation.Nullable String modelName, final ApiCallback _callback) throws ApiException {
+        return searchFunctionsCall(page, pageSize, partialName, modelName, _callback);
 
     }
 
@@ -574,7 +550,6 @@ public class SearchApi {
      * @param pageSize Number of items per page. (optional, default to 10)
      * @param partialName The partial or full name of the function being searched (optional)
      * @param modelName The name of the model used to analyze the binary the function belongs to (optional)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseFunctionSearchResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -585,8 +560,8 @@ public class SearchApi {
         <tr><td> 422 </td><td> You must provide at least one of the filters; partial_name, or model_name to search </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseFunctionSearchResponse searchFunctions(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialName, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseFunctionSearchResponse> localVarResp = searchFunctionsWithHttpInfo(page, pageSize, partialName, modelName, authorization);
+    public BaseResponseFunctionSearchResponse searchFunctions(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialName, @javax.annotation.Nullable String modelName) throws ApiException {
+        ApiResponse<BaseResponseFunctionSearchResponse> localVarResp = searchFunctionsWithHttpInfo(page, pageSize, partialName, modelName);
         return localVarResp.getData();
     }
 
@@ -597,7 +572,6 @@ public class SearchApi {
      * @param pageSize Number of items per page. (optional, default to 10)
      * @param partialName The partial or full name of the function being searched (optional)
      * @param modelName The name of the model used to analyze the binary the function belongs to (optional)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseFunctionSearchResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -608,8 +582,8 @@ public class SearchApi {
         <tr><td> 422 </td><td> You must provide at least one of the filters; partial_name, or model_name to search </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseFunctionSearchResponse> searchFunctionsWithHttpInfo(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialName, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = searchFunctionsValidateBeforeCall(page, pageSize, partialName, modelName, authorization, null);
+    public ApiResponse<BaseResponseFunctionSearchResponse> searchFunctionsWithHttpInfo(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialName, @javax.annotation.Nullable String modelName) throws ApiException {
+        okhttp3.Call localVarCall = searchFunctionsValidateBeforeCall(page, pageSize, partialName, modelName, null);
         Type localVarReturnType = new TypeToken<BaseResponseFunctionSearchResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -621,7 +595,6 @@ public class SearchApi {
      * @param pageSize Number of items per page. (optional, default to 10)
      * @param partialName The partial or full name of the function being searched (optional)
      * @param modelName The name of the model used to analyze the binary the function belongs to (optional)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -633,9 +606,9 @@ public class SearchApi {
         <tr><td> 422 </td><td> You must provide at least one of the filters; partial_name, or model_name to search </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchFunctionsAsync(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialName, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseFunctionSearchResponse> _callback) throws ApiException {
+    public okhttp3.Call searchFunctionsAsync(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialName, @javax.annotation.Nullable String modelName, final ApiCallback<BaseResponseFunctionSearchResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchFunctionsValidateBeforeCall(page, pageSize, partialName, modelName, authorization, _callback);
+        okhttp3.Call localVarCall = searchFunctionsValidateBeforeCall(page, pageSize, partialName, modelName, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseFunctionSearchResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

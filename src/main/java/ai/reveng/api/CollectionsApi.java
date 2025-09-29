@@ -86,7 +86,6 @@ public class CollectionsApi {
     /**
      * Build call for createCollection
      * @param collectionCreateRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -98,7 +97,7 @@ public class CollectionsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createCollectionCall(@javax.annotation.Nonnull CollectionCreateRequest collectionCreateRequest, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createCollectionCall(@javax.annotation.Nonnull CollectionCreateRequest collectionCreateRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -139,23 +138,18 @@ public class CollectionsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createCollectionValidateBeforeCall(@javax.annotation.Nonnull CollectionCreateRequest collectionCreateRequest, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createCollectionValidateBeforeCall(@javax.annotation.Nonnull CollectionCreateRequest collectionCreateRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'collectionCreateRequest' is set
         if (collectionCreateRequest == null) {
             throw new ApiException("Missing the required parameter 'collectionCreateRequest' when calling createCollection(Async)");
         }
 
-        return createCollectionCall(collectionCreateRequest, authorization, _callback);
+        return createCollectionCall(collectionCreateRequest, _callback);
 
     }
 
@@ -163,7 +157,6 @@ public class CollectionsApi {
      * Creates new collection information
      * A collection is a group of binaries that are related in some way. This endpoint creates a new collection and allows you to add tags and binaries to it. If you add tags or binaries to the collection, they will be returned in the response.
      * @param collectionCreateRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseCollectionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -174,8 +167,8 @@ public class CollectionsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseCollectionResponse createCollection(@javax.annotation.Nonnull CollectionCreateRequest collectionCreateRequest, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseCollectionResponse> localVarResp = createCollectionWithHttpInfo(collectionCreateRequest, authorization);
+    public BaseResponseCollectionResponse createCollection(@javax.annotation.Nonnull CollectionCreateRequest collectionCreateRequest) throws ApiException {
+        ApiResponse<BaseResponseCollectionResponse> localVarResp = createCollectionWithHttpInfo(collectionCreateRequest);
         return localVarResp.getData();
     }
 
@@ -183,7 +176,6 @@ public class CollectionsApi {
      * Creates new collection information
      * A collection is a group of binaries that are related in some way. This endpoint creates a new collection and allows you to add tags and binaries to it. If you add tags or binaries to the collection, they will be returned in the response.
      * @param collectionCreateRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseCollectionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -194,8 +186,8 @@ public class CollectionsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseCollectionResponse> createCollectionWithHttpInfo(@javax.annotation.Nonnull CollectionCreateRequest collectionCreateRequest, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = createCollectionValidateBeforeCall(collectionCreateRequest, authorization, null);
+    public ApiResponse<BaseResponseCollectionResponse> createCollectionWithHttpInfo(@javax.annotation.Nonnull CollectionCreateRequest collectionCreateRequest) throws ApiException {
+        okhttp3.Call localVarCall = createCollectionValidateBeforeCall(collectionCreateRequest, null);
         Type localVarReturnType = new TypeToken<BaseResponseCollectionResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -204,7 +196,6 @@ public class CollectionsApi {
      * Creates new collection information (asynchronously)
      * A collection is a group of binaries that are related in some way. This endpoint creates a new collection and allows you to add tags and binaries to it. If you add tags or binaries to the collection, they will be returned in the response.
      * @param collectionCreateRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -216,9 +207,9 @@ public class CollectionsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createCollectionAsync(@javax.annotation.Nonnull CollectionCreateRequest collectionCreateRequest, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseCollectionResponse> _callback) throws ApiException {
+    public okhttp3.Call createCollectionAsync(@javax.annotation.Nonnull CollectionCreateRequest collectionCreateRequest, final ApiCallback<BaseResponseCollectionResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createCollectionValidateBeforeCall(collectionCreateRequest, authorization, _callback);
+        okhttp3.Call localVarCall = createCollectionValidateBeforeCall(collectionCreateRequest, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseCollectionResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -226,7 +217,6 @@ public class CollectionsApi {
     /**
      * Build call for deleteCollection
      * @param collectionId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -238,7 +228,7 @@ public class CollectionsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteCollectionCall(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteCollectionCall(@javax.annotation.Nonnull Integer collectionId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -279,23 +269,18 @@ public class CollectionsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteCollectionValidateBeforeCall(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionValidateBeforeCall(@javax.annotation.Nonnull Integer collectionId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
             throw new ApiException("Missing the required parameter 'collectionId' when calling deleteCollection(Async)");
         }
 
-        return deleteCollectionCall(collectionId, authorization, _callback);
+        return deleteCollectionCall(collectionId, _callback);
 
     }
 
@@ -303,7 +288,6 @@ public class CollectionsApi {
      * Deletes a collection
      * Deletes a collection
      * @param collectionId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseBool
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -314,8 +298,8 @@ public class CollectionsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseBool deleteCollection(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseBool> localVarResp = deleteCollectionWithHttpInfo(collectionId, authorization);
+    public BaseResponseBool deleteCollection(@javax.annotation.Nonnull Integer collectionId) throws ApiException {
+        ApiResponse<BaseResponseBool> localVarResp = deleteCollectionWithHttpInfo(collectionId);
         return localVarResp.getData();
     }
 
@@ -323,7 +307,6 @@ public class CollectionsApi {
      * Deletes a collection
      * Deletes a collection
      * @param collectionId  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseBool&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -334,8 +317,8 @@ public class CollectionsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseBool> deleteCollectionWithHttpInfo(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = deleteCollectionValidateBeforeCall(collectionId, authorization, null);
+    public ApiResponse<BaseResponseBool> deleteCollectionWithHttpInfo(@javax.annotation.Nonnull Integer collectionId) throws ApiException {
+        okhttp3.Call localVarCall = deleteCollectionValidateBeforeCall(collectionId, null);
         Type localVarReturnType = new TypeToken<BaseResponseBool>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -344,7 +327,6 @@ public class CollectionsApi {
      * Deletes a collection (asynchronously)
      * Deletes a collection
      * @param collectionId  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -356,9 +338,9 @@ public class CollectionsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteCollectionAsync(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseBool> _callback) throws ApiException {
+    public okhttp3.Call deleteCollectionAsync(@javax.annotation.Nonnull Integer collectionId, final ApiCallback<BaseResponseBool> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteCollectionValidateBeforeCall(collectionId, authorization, _callback);
+        okhttp3.Call localVarCall = deleteCollectionValidateBeforeCall(collectionId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseBool>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -368,7 +350,6 @@ public class CollectionsApi {
      * @param collectionId  (required)
      * @param includeTags  (optional, default to false)
      * @param includeBinaries  (optional, default to false)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -380,7 +361,7 @@ public class CollectionsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCollectionCall(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nullable Boolean includeTags, @javax.annotation.Nullable Boolean includeBinaries, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCollectionCall(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nullable Boolean includeTags, @javax.annotation.Nullable Boolean includeBinaries, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -429,23 +410,18 @@ public class CollectionsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCollectionValidateBeforeCall(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nullable Boolean includeTags, @javax.annotation.Nullable Boolean includeBinaries, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCollectionValidateBeforeCall(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nullable Boolean includeTags, @javax.annotation.Nullable Boolean includeBinaries, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
             throw new ApiException("Missing the required parameter 'collectionId' when calling getCollection(Async)");
         }
 
-        return getCollectionCall(collectionId, includeTags, includeBinaries, authorization, _callback);
+        return getCollectionCall(collectionId, includeTags, includeBinaries, _callback);
 
     }
 
@@ -455,7 +431,6 @@ public class CollectionsApi {
      * @param collectionId  (required)
      * @param includeTags  (optional, default to false)
      * @param includeBinaries  (optional, default to false)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseCollectionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -466,8 +441,8 @@ public class CollectionsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseCollectionResponse getCollection(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nullable Boolean includeTags, @javax.annotation.Nullable Boolean includeBinaries, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseCollectionResponse> localVarResp = getCollectionWithHttpInfo(collectionId, includeTags, includeBinaries, authorization);
+    public BaseResponseCollectionResponse getCollection(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nullable Boolean includeTags, @javax.annotation.Nullable Boolean includeBinaries) throws ApiException {
+        ApiResponse<BaseResponseCollectionResponse> localVarResp = getCollectionWithHttpInfo(collectionId, includeTags, includeBinaries);
         return localVarResp.getData();
     }
 
@@ -477,7 +452,6 @@ public class CollectionsApi {
      * @param collectionId  (required)
      * @param includeTags  (optional, default to false)
      * @param includeBinaries  (optional, default to false)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseCollectionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -488,8 +462,8 @@ public class CollectionsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseCollectionResponse> getCollectionWithHttpInfo(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nullable Boolean includeTags, @javax.annotation.Nullable Boolean includeBinaries, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = getCollectionValidateBeforeCall(collectionId, includeTags, includeBinaries, authorization, null);
+    public ApiResponse<BaseResponseCollectionResponse> getCollectionWithHttpInfo(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nullable Boolean includeTags, @javax.annotation.Nullable Boolean includeBinaries) throws ApiException {
+        okhttp3.Call localVarCall = getCollectionValidateBeforeCall(collectionId, includeTags, includeBinaries, null);
         Type localVarReturnType = new TypeToken<BaseResponseCollectionResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -500,7 +474,6 @@ public class CollectionsApi {
      * @param collectionId  (required)
      * @param includeTags  (optional, default to false)
      * @param includeBinaries  (optional, default to false)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -512,9 +485,9 @@ public class CollectionsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCollectionAsync(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nullable Boolean includeTags, @javax.annotation.Nullable Boolean includeBinaries, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseCollectionResponse> _callback) throws ApiException {
+    public okhttp3.Call getCollectionAsync(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nullable Boolean includeTags, @javax.annotation.Nullable Boolean includeBinaries, final ApiCallback<BaseResponseCollectionResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCollectionValidateBeforeCall(collectionId, includeTags, includeBinaries, authorization, _callback);
+        okhttp3.Call localVarCall = getCollectionValidateBeforeCall(collectionId, includeTags, includeBinaries, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseCollectionResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -527,7 +500,6 @@ public class CollectionsApi {
      * @param offset  (optional, default to 0)
      * @param orderBy  (optional)
      * @param order  (optional)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -539,7 +511,7 @@ public class CollectionsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listCollectionsCall(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<Filters> filters, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable AppApiRestV2CollectionsEnumsOrderBy orderBy, @javax.annotation.Nullable Order order, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listCollectionsCall(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<Filters> filters, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable AppApiRestV2CollectionsEnumsOrderBy orderBy, @javax.annotation.Nullable Order order, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -603,18 +575,13 @@ public class CollectionsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listCollectionsValidateBeforeCall(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<Filters> filters, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable AppApiRestV2CollectionsEnumsOrderBy orderBy, @javax.annotation.Nullable Order order, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
-        return listCollectionsCall(searchTerm, filters, limit, offset, orderBy, order, authorization, _callback);
+    private okhttp3.Call listCollectionsValidateBeforeCall(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<Filters> filters, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable AppApiRestV2CollectionsEnumsOrderBy orderBy, @javax.annotation.Nullable Order order, final ApiCallback _callback) throws ApiException {
+        return listCollectionsCall(searchTerm, filters, limit, offset, orderBy, order, _callback);
 
     }
 
@@ -627,7 +594,6 @@ public class CollectionsApi {
      * @param offset  (optional, default to 0)
      * @param orderBy  (optional)
      * @param order  (optional)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseListCollectionResults
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -638,8 +604,8 @@ public class CollectionsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseListCollectionResults listCollections(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<Filters> filters, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable AppApiRestV2CollectionsEnumsOrderBy orderBy, @javax.annotation.Nullable Order order, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseListCollectionResults> localVarResp = listCollectionsWithHttpInfo(searchTerm, filters, limit, offset, orderBy, order, authorization);
+    public BaseResponseListCollectionResults listCollections(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<Filters> filters, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable AppApiRestV2CollectionsEnumsOrderBy orderBy, @javax.annotation.Nullable Order order) throws ApiException {
+        ApiResponse<BaseResponseListCollectionResults> localVarResp = listCollectionsWithHttpInfo(searchTerm, filters, limit, offset, orderBy, order);
         return localVarResp.getData();
     }
 
@@ -652,7 +618,6 @@ public class CollectionsApi {
      * @param offset  (optional, default to 0)
      * @param orderBy  (optional)
      * @param order  (optional)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseListCollectionResults&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -663,8 +628,8 @@ public class CollectionsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseListCollectionResults> listCollectionsWithHttpInfo(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<Filters> filters, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable AppApiRestV2CollectionsEnumsOrderBy orderBy, @javax.annotation.Nullable Order order, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = listCollectionsValidateBeforeCall(searchTerm, filters, limit, offset, orderBy, order, authorization, null);
+    public ApiResponse<BaseResponseListCollectionResults> listCollectionsWithHttpInfo(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<Filters> filters, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable AppApiRestV2CollectionsEnumsOrderBy orderBy, @javax.annotation.Nullable Order order) throws ApiException {
+        okhttp3.Call localVarCall = listCollectionsValidateBeforeCall(searchTerm, filters, limit, offset, orderBy, order, null);
         Type localVarReturnType = new TypeToken<BaseResponseListCollectionResults>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -678,7 +643,6 @@ public class CollectionsApi {
      * @param offset  (optional, default to 0)
      * @param orderBy  (optional)
      * @param order  (optional)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -690,9 +654,9 @@ public class CollectionsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listCollectionsAsync(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<Filters> filters, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable AppApiRestV2CollectionsEnumsOrderBy orderBy, @javax.annotation.Nullable Order order, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseListCollectionResults> _callback) throws ApiException {
+    public okhttp3.Call listCollectionsAsync(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<Filters> filters, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable AppApiRestV2CollectionsEnumsOrderBy orderBy, @javax.annotation.Nullable Order order, final ApiCallback<BaseResponseListCollectionResults> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listCollectionsValidateBeforeCall(searchTerm, filters, limit, offset, orderBy, order, authorization, _callback);
+        okhttp3.Call localVarCall = listCollectionsValidateBeforeCall(searchTerm, filters, limit, offset, orderBy, order, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseListCollectionResults>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -701,7 +665,6 @@ public class CollectionsApi {
      * Build call for updateCollection
      * @param collectionId  (required)
      * @param collectionUpdateRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -713,7 +676,7 @@ public class CollectionsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCollectionCall(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nonnull CollectionUpdateRequest collectionUpdateRequest, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateCollectionCall(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nonnull CollectionUpdateRequest collectionUpdateRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -755,17 +718,12 @@ public class CollectionsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateCollectionValidateBeforeCall(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nonnull CollectionUpdateRequest collectionUpdateRequest, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateCollectionValidateBeforeCall(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nonnull CollectionUpdateRequest collectionUpdateRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
             throw new ApiException("Missing the required parameter 'collectionId' when calling updateCollection(Async)");
@@ -776,7 +734,7 @@ public class CollectionsApi {
             throw new ApiException("Missing the required parameter 'collectionUpdateRequest' when calling updateCollection(Async)");
         }
 
-        return updateCollectionCall(collectionId, collectionUpdateRequest, authorization, _callback);
+        return updateCollectionCall(collectionId, collectionUpdateRequest, _callback);
 
     }
 
@@ -785,7 +743,6 @@ public class CollectionsApi {
      * Updates a collection, you can update the collection name, description, and scope
      * @param collectionId  (required)
      * @param collectionUpdateRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseCollectionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -796,8 +753,8 @@ public class CollectionsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseCollectionResponse updateCollection(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nonnull CollectionUpdateRequest collectionUpdateRequest, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseCollectionResponse> localVarResp = updateCollectionWithHttpInfo(collectionId, collectionUpdateRequest, authorization);
+    public BaseResponseCollectionResponse updateCollection(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nonnull CollectionUpdateRequest collectionUpdateRequest) throws ApiException {
+        ApiResponse<BaseResponseCollectionResponse> localVarResp = updateCollectionWithHttpInfo(collectionId, collectionUpdateRequest);
         return localVarResp.getData();
     }
 
@@ -806,7 +763,6 @@ public class CollectionsApi {
      * Updates a collection, you can update the collection name, description, and scope
      * @param collectionId  (required)
      * @param collectionUpdateRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseCollectionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -817,8 +773,8 @@ public class CollectionsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseCollectionResponse> updateCollectionWithHttpInfo(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nonnull CollectionUpdateRequest collectionUpdateRequest, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = updateCollectionValidateBeforeCall(collectionId, collectionUpdateRequest, authorization, null);
+    public ApiResponse<BaseResponseCollectionResponse> updateCollectionWithHttpInfo(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nonnull CollectionUpdateRequest collectionUpdateRequest) throws ApiException {
+        okhttp3.Call localVarCall = updateCollectionValidateBeforeCall(collectionId, collectionUpdateRequest, null);
         Type localVarReturnType = new TypeToken<BaseResponseCollectionResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -828,7 +784,6 @@ public class CollectionsApi {
      * Updates a collection, you can update the collection name, description, and scope
      * @param collectionId  (required)
      * @param collectionUpdateRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -840,9 +795,9 @@ public class CollectionsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCollectionAsync(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nonnull CollectionUpdateRequest collectionUpdateRequest, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseCollectionResponse> _callback) throws ApiException {
+    public okhttp3.Call updateCollectionAsync(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nonnull CollectionUpdateRequest collectionUpdateRequest, final ApiCallback<BaseResponseCollectionResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateCollectionValidateBeforeCall(collectionId, collectionUpdateRequest, authorization, _callback);
+        okhttp3.Call localVarCall = updateCollectionValidateBeforeCall(collectionId, collectionUpdateRequest, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseCollectionResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -851,7 +806,6 @@ public class CollectionsApi {
      * Build call for updateCollectionBinaries
      * @param collectionId  (required)
      * @param collectionBinariesUpdateRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -863,7 +817,7 @@ public class CollectionsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCollectionBinariesCall(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nonnull CollectionBinariesUpdateRequest collectionBinariesUpdateRequest, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateCollectionBinariesCall(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nonnull CollectionBinariesUpdateRequest collectionBinariesUpdateRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -905,17 +859,12 @@ public class CollectionsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateCollectionBinariesValidateBeforeCall(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nonnull CollectionBinariesUpdateRequest collectionBinariesUpdateRequest, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateCollectionBinariesValidateBeforeCall(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nonnull CollectionBinariesUpdateRequest collectionBinariesUpdateRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
             throw new ApiException("Missing the required parameter 'collectionId' when calling updateCollectionBinaries(Async)");
@@ -926,7 +875,7 @@ public class CollectionsApi {
             throw new ApiException("Missing the required parameter 'collectionBinariesUpdateRequest' when calling updateCollectionBinaries(Async)");
         }
 
-        return updateCollectionBinariesCall(collectionId, collectionBinariesUpdateRequest, authorization, _callback);
+        return updateCollectionBinariesCall(collectionId, collectionBinariesUpdateRequest, _callback);
 
     }
 
@@ -935,7 +884,6 @@ public class CollectionsApi {
      * Updates/changes a collection binaries to whatever is provided in the request. After this update the collection will only contain the binaries provided in the request.
      * @param collectionId  (required)
      * @param collectionBinariesUpdateRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseCollectionBinariesUpdateResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -946,8 +894,8 @@ public class CollectionsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseCollectionBinariesUpdateResponse updateCollectionBinaries(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nonnull CollectionBinariesUpdateRequest collectionBinariesUpdateRequest, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseCollectionBinariesUpdateResponse> localVarResp = updateCollectionBinariesWithHttpInfo(collectionId, collectionBinariesUpdateRequest, authorization);
+    public BaseResponseCollectionBinariesUpdateResponse updateCollectionBinaries(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nonnull CollectionBinariesUpdateRequest collectionBinariesUpdateRequest) throws ApiException {
+        ApiResponse<BaseResponseCollectionBinariesUpdateResponse> localVarResp = updateCollectionBinariesWithHttpInfo(collectionId, collectionBinariesUpdateRequest);
         return localVarResp.getData();
     }
 
@@ -956,7 +904,6 @@ public class CollectionsApi {
      * Updates/changes a collection binaries to whatever is provided in the request. After this update the collection will only contain the binaries provided in the request.
      * @param collectionId  (required)
      * @param collectionBinariesUpdateRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseCollectionBinariesUpdateResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -967,8 +914,8 @@ public class CollectionsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseCollectionBinariesUpdateResponse> updateCollectionBinariesWithHttpInfo(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nonnull CollectionBinariesUpdateRequest collectionBinariesUpdateRequest, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = updateCollectionBinariesValidateBeforeCall(collectionId, collectionBinariesUpdateRequest, authorization, null);
+    public ApiResponse<BaseResponseCollectionBinariesUpdateResponse> updateCollectionBinariesWithHttpInfo(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nonnull CollectionBinariesUpdateRequest collectionBinariesUpdateRequest) throws ApiException {
+        okhttp3.Call localVarCall = updateCollectionBinariesValidateBeforeCall(collectionId, collectionBinariesUpdateRequest, null);
         Type localVarReturnType = new TypeToken<BaseResponseCollectionBinariesUpdateResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -978,7 +925,6 @@ public class CollectionsApi {
      * Updates/changes a collection binaries to whatever is provided in the request. After this update the collection will only contain the binaries provided in the request.
      * @param collectionId  (required)
      * @param collectionBinariesUpdateRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -990,9 +936,9 @@ public class CollectionsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCollectionBinariesAsync(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nonnull CollectionBinariesUpdateRequest collectionBinariesUpdateRequest, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseCollectionBinariesUpdateResponse> _callback) throws ApiException {
+    public okhttp3.Call updateCollectionBinariesAsync(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nonnull CollectionBinariesUpdateRequest collectionBinariesUpdateRequest, final ApiCallback<BaseResponseCollectionBinariesUpdateResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateCollectionBinariesValidateBeforeCall(collectionId, collectionBinariesUpdateRequest, authorization, _callback);
+        okhttp3.Call localVarCall = updateCollectionBinariesValidateBeforeCall(collectionId, collectionBinariesUpdateRequest, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseCollectionBinariesUpdateResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1001,7 +947,6 @@ public class CollectionsApi {
      * Build call for updateCollectionTags
      * @param collectionId  (required)
      * @param collectionTagsUpdateRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1013,7 +958,7 @@ public class CollectionsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCollectionTagsCall(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nonnull CollectionTagsUpdateRequest collectionTagsUpdateRequest, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateCollectionTagsCall(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nonnull CollectionTagsUpdateRequest collectionTagsUpdateRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1055,17 +1000,12 @@ public class CollectionsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        if (authorization != null) {
-            localVarHeaderParams.put("authorization", localVarApiClient.parameterToString(authorization));
-        }
-
-
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateCollectionTagsValidateBeforeCall(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nonnull CollectionTagsUpdateRequest collectionTagsUpdateRequest, @javax.annotation.Nullable String authorization, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateCollectionTagsValidateBeforeCall(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nonnull CollectionTagsUpdateRequest collectionTagsUpdateRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
             throw new ApiException("Missing the required parameter 'collectionId' when calling updateCollectionTags(Async)");
@@ -1076,7 +1016,7 @@ public class CollectionsApi {
             throw new ApiException("Missing the required parameter 'collectionTagsUpdateRequest' when calling updateCollectionTags(Async)");
         }
 
-        return updateCollectionTagsCall(collectionId, collectionTagsUpdateRequest, authorization, _callback);
+        return updateCollectionTagsCall(collectionId, collectionTagsUpdateRequest, _callback);
 
     }
 
@@ -1085,7 +1025,6 @@ public class CollectionsApi {
      * Updates/changes a collection tags to whatever is provided in the request. After this update the collection will only contain the tags provided in the request.
      * @param collectionId  (required)
      * @param collectionTagsUpdateRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @return BaseResponseCollectionTagsUpdateResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1096,8 +1035,8 @@ public class CollectionsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseCollectionTagsUpdateResponse updateCollectionTags(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nonnull CollectionTagsUpdateRequest collectionTagsUpdateRequest, @javax.annotation.Nullable String authorization) throws ApiException {
-        ApiResponse<BaseResponseCollectionTagsUpdateResponse> localVarResp = updateCollectionTagsWithHttpInfo(collectionId, collectionTagsUpdateRequest, authorization);
+    public BaseResponseCollectionTagsUpdateResponse updateCollectionTags(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nonnull CollectionTagsUpdateRequest collectionTagsUpdateRequest) throws ApiException {
+        ApiResponse<BaseResponseCollectionTagsUpdateResponse> localVarResp = updateCollectionTagsWithHttpInfo(collectionId, collectionTagsUpdateRequest);
         return localVarResp.getData();
     }
 
@@ -1106,7 +1045,6 @@ public class CollectionsApi {
      * Updates/changes a collection tags to whatever is provided in the request. After this update the collection will only contain the tags provided in the request.
      * @param collectionId  (required)
      * @param collectionTagsUpdateRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @return ApiResponse&lt;BaseResponseCollectionTagsUpdateResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1117,8 +1055,8 @@ public class CollectionsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseCollectionTagsUpdateResponse> updateCollectionTagsWithHttpInfo(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nonnull CollectionTagsUpdateRequest collectionTagsUpdateRequest, @javax.annotation.Nullable String authorization) throws ApiException {
-        okhttp3.Call localVarCall = updateCollectionTagsValidateBeforeCall(collectionId, collectionTagsUpdateRequest, authorization, null);
+    public ApiResponse<BaseResponseCollectionTagsUpdateResponse> updateCollectionTagsWithHttpInfo(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nonnull CollectionTagsUpdateRequest collectionTagsUpdateRequest) throws ApiException {
+        okhttp3.Call localVarCall = updateCollectionTagsValidateBeforeCall(collectionId, collectionTagsUpdateRequest, null);
         Type localVarReturnType = new TypeToken<BaseResponseCollectionTagsUpdateResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1128,7 +1066,6 @@ public class CollectionsApi {
      * Updates/changes a collection tags to whatever is provided in the request. After this update the collection will only contain the tags provided in the request.
      * @param collectionId  (required)
      * @param collectionTagsUpdateRequest  (required)
-     * @param authorization API Key bearer token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1140,9 +1077,9 @@ public class CollectionsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateCollectionTagsAsync(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nonnull CollectionTagsUpdateRequest collectionTagsUpdateRequest, @javax.annotation.Nullable String authorization, final ApiCallback<BaseResponseCollectionTagsUpdateResponse> _callback) throws ApiException {
+    public okhttp3.Call updateCollectionTagsAsync(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nonnull CollectionTagsUpdateRequest collectionTagsUpdateRequest, final ApiCallback<BaseResponseCollectionTagsUpdateResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateCollectionTagsValidateBeforeCall(collectionId, collectionTagsUpdateRequest, authorization, _callback);
+        okhttp3.Call localVarCall = updateCollectionTagsValidateBeforeCall(collectionId, collectionTagsUpdateRequest, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseCollectionTagsUpdateResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

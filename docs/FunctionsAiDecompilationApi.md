@@ -17,7 +17,7 @@ All URIs are relative to *https://api.reveng.ai*
 
 <a id="createAiDecompilationComment"></a>
 # **createAiDecompilationComment**
-> BaseResponseCommentResponse createAiDecompilationComment(functionId, functionCommentCreateRequest, authorization)
+> BaseResponseCommentResponse createAiDecompilationComment(functionId, functionCommentCreateRequest)
 
 Create a comment for this function
 
@@ -47,9 +47,8 @@ public class Example {
     FunctionsAiDecompilationApi apiInstance = new FunctionsAiDecompilationApi(defaultClient);
     Integer functionId = 56; // Integer | 
     FunctionCommentCreateRequest functionCommentCreateRequest = new FunctionCommentCreateRequest(); // FunctionCommentCreateRequest | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseCommentResponse result = apiInstance.createAiDecompilationComment(functionId, functionCommentCreateRequest, authorization);
+      BaseResponseCommentResponse result = apiInstance.createAiDecompilationComment(functionId, functionCommentCreateRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsAiDecompilationApi#createAiDecompilationComment");
@@ -68,7 +67,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **functionId** | **Integer**|  | |
 | **functionCommentCreateRequest** | [**FunctionCommentCreateRequest**](FunctionCommentCreateRequest.md)|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -92,7 +90,7 @@ public class Example {
 
 <a id="createAiDecompilationTask"></a>
 # **createAiDecompilationTask**
-> BaseResponse createAiDecompilationTask(functionId, authorization)
+> BaseResponse createAiDecompilationTask(functionId)
 
 Begins AI Decompilation Process
 
@@ -121,9 +119,8 @@ public class Example {
 
     FunctionsAiDecompilationApi apiInstance = new FunctionsAiDecompilationApi(defaultClient);
     Integer functionId = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponse result = apiInstance.createAiDecompilationTask(functionId, authorization);
+      BaseResponse result = apiInstance.createAiDecompilationTask(functionId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsAiDecompilationApi#createAiDecompilationTask");
@@ -141,7 +138,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **functionId** | **Integer**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -168,7 +164,7 @@ public class Example {
 
 <a id="deleteAiDecompilationComment"></a>
 # **deleteAiDecompilationComment**
-> BaseResponseBool deleteAiDecompilationComment(commentId, functionId, authorization)
+> BaseResponseBool deleteAiDecompilationComment(commentId, functionId)
 
 Delete a comment
 
@@ -198,9 +194,8 @@ public class Example {
     FunctionsAiDecompilationApi apiInstance = new FunctionsAiDecompilationApi(defaultClient);
     Integer commentId = 56; // Integer | 
     Integer functionId = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseBool result = apiInstance.deleteAiDecompilationComment(commentId, functionId, authorization);
+      BaseResponseBool result = apiInstance.deleteAiDecompilationComment(commentId, functionId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsAiDecompilationApi#deleteAiDecompilationComment");
@@ -219,7 +214,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **commentId** | **Integer**|  | |
 | **functionId** | **Integer**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -244,7 +238,7 @@ public class Example {
 
 <a id="getAiDecompilationComments"></a>
 # **getAiDecompilationComments**
-> BaseResponseListCommentResponse getAiDecompilationComments(functionId, authorization)
+> BaseResponseListCommentResponse getAiDecompilationComments(functionId)
 
 Get comments for this function
 
@@ -273,9 +267,8 @@ public class Example {
 
     FunctionsAiDecompilationApi apiInstance = new FunctionsAiDecompilationApi(defaultClient);
     Integer functionId = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseListCommentResponse result = apiInstance.getAiDecompilationComments(functionId, authorization);
+      BaseResponseListCommentResponse result = apiInstance.getAiDecompilationComments(functionId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsAiDecompilationApi#getAiDecompilationComments");
@@ -293,7 +286,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **functionId** | **Integer**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -316,7 +308,7 @@ public class Example {
 
 <a id="getAiDecompilationRating"></a>
 # **getAiDecompilationRating**
-> BaseResponseGetAiDecompilationRatingResponse getAiDecompilationRating(functionId, authorization)
+> BaseResponseGetAiDecompilationRatingResponse getAiDecompilationRating(functionId)
 
 Get rating for AI decompilation
 
@@ -343,9 +335,8 @@ public class Example {
 
     FunctionsAiDecompilationApi apiInstance = new FunctionsAiDecompilationApi(defaultClient);
     Integer functionId = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseGetAiDecompilationRatingResponse result = apiInstance.getAiDecompilationRating(functionId, authorization);
+      BaseResponseGetAiDecompilationRatingResponse result = apiInstance.getAiDecompilationRating(functionId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsAiDecompilationApi#getAiDecompilationRating");
@@ -363,7 +354,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **functionId** | **Integer**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -386,7 +376,7 @@ public class Example {
 
 <a id="getAiDecompilationTaskResult"></a>
 # **getAiDecompilationTaskResult**
-> BaseResponseGetAiDecompilationTask getAiDecompilationTaskResult(functionId, summarise, generateInlineComments, authorization)
+> BaseResponseGetAiDecompilationTask getAiDecompilationTaskResult(functionId, summarise, generateInlineComments)
 
 Polls AI Decompilation Process
 
@@ -417,9 +407,8 @@ public class Example {
     Integer functionId = 56; // Integer | 
     Boolean summarise = true; // Boolean | Generate a summary for the decompilation
     Boolean generateInlineComments = true; // Boolean | Generate inline comments for the decompilation (only works if summarise is enabled)
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseGetAiDecompilationTask result = apiInstance.getAiDecompilationTaskResult(functionId, summarise, generateInlineComments, authorization);
+      BaseResponseGetAiDecompilationTask result = apiInstance.getAiDecompilationTaskResult(functionId, summarise, generateInlineComments);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsAiDecompilationApi#getAiDecompilationTaskResult");
@@ -439,7 +428,6 @@ public class Example {
 | **functionId** | **Integer**|  | |
 | **summarise** | **Boolean**| Generate a summary for the decompilation | [optional] [default to true] |
 | **generateInlineComments** | **Boolean**| Generate inline comments for the decompilation (only works if summarise is enabled) | [optional] [default to true] |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -463,7 +451,7 @@ public class Example {
 
 <a id="getAiDecompilationTaskStatus"></a>
 # **getAiDecompilationTaskStatus**
-> BaseResponseFunctionTaskResponse getAiDecompilationTaskStatus(functionId, authorization)
+> BaseResponseFunctionTaskResponse getAiDecompilationTaskStatus(functionId)
 
 Check the status of a function ai decompilation
 
@@ -490,9 +478,8 @@ public class Example {
 
     FunctionsAiDecompilationApi apiInstance = new FunctionsAiDecompilationApi(defaultClient);
     Integer functionId = 56; // Integer | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseFunctionTaskResponse result = apiInstance.getAiDecompilationTaskStatus(functionId, authorization);
+      BaseResponseFunctionTaskResponse result = apiInstance.getAiDecompilationTaskStatus(functionId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsAiDecompilationApi#getAiDecompilationTaskStatus");
@@ -510,7 +497,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **functionId** | **Integer**|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -533,7 +519,7 @@ public class Example {
 
 <a id="updateAiDecompilationComment"></a>
 # **updateAiDecompilationComment**
-> BaseResponseCommentResponse updateAiDecompilationComment(commentId, functionId, commentUpdateRequest, authorization)
+> BaseResponseCommentResponse updateAiDecompilationComment(commentId, functionId, commentUpdateRequest)
 
 Update a comment
 
@@ -564,9 +550,8 @@ public class Example {
     Integer commentId = 56; // Integer | 
     Integer functionId = 56; // Integer | 
     CommentUpdateRequest commentUpdateRequest = new CommentUpdateRequest(); // CommentUpdateRequest | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponseCommentResponse result = apiInstance.updateAiDecompilationComment(commentId, functionId, commentUpdateRequest, authorization);
+      BaseResponseCommentResponse result = apiInstance.updateAiDecompilationComment(commentId, functionId, commentUpdateRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsAiDecompilationApi#updateAiDecompilationComment");
@@ -586,7 +571,6 @@ public class Example {
 | **commentId** | **Integer**|  | |
 | **functionId** | **Integer**|  | |
 | **commentUpdateRequest** | [**CommentUpdateRequest**](CommentUpdateRequest.md)|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
@@ -611,7 +595,7 @@ public class Example {
 
 <a id="upsertAiDecompilationRating"></a>
 # **upsertAiDecompilationRating**
-> BaseResponse upsertAiDecompilationRating(functionId, upsertAiDecomplationRatingRequest, authorization)
+> BaseResponse upsertAiDecompilationRating(functionId, upsertAiDecomplationRatingRequest)
 
 Upsert rating for AI decompilation
 
@@ -639,9 +623,8 @@ public class Example {
     FunctionsAiDecompilationApi apiInstance = new FunctionsAiDecompilationApi(defaultClient);
     Integer functionId = 56; // Integer | 
     UpsertAiDecomplationRatingRequest upsertAiDecomplationRatingRequest = new UpsertAiDecomplationRatingRequest(); // UpsertAiDecomplationRatingRequest | 
-    String authorization = "authorization_example"; // String | API Key bearer token
     try {
-      BaseResponse result = apiInstance.upsertAiDecompilationRating(functionId, upsertAiDecomplationRatingRequest, authorization);
+      BaseResponse result = apiInstance.upsertAiDecompilationRating(functionId, upsertAiDecomplationRatingRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsAiDecompilationApi#upsertAiDecompilationRating");
@@ -660,7 +643,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **functionId** | **Integer**|  | |
 | **upsertAiDecomplationRatingRequest** | [**UpsertAiDecomplationRatingRequest**](UpsertAiDecomplationRatingRequest.md)|  | |
-| **authorization** | **String**| API Key bearer token | [optional] |
 
 ### Return type
 
