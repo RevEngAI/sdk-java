@@ -5,11 +5,14 @@ groupId: ai.reveng
 artifactId: sdk
 artifactUrl: https://github.com/RevEngAI/sdk-java
 artifactDescription: Java SDK for the RevEng.AI API
-licenseName: GPL-3.0-only
-licenseUrl: https://www.gnu.org/licenses/gpl-3.0.en.html
+licenseName: MIT
+licenseUrl: https://opensource.org/license/mit
 developerName: RevEng.AI
 developerEmail: support@reveng.ai
 developerOrganization: RevEng.AI
 developerOrganizationUrl: https://reveng.ai
+scmConnection: scm:git:git@github.com:RevEngAI/sdk-java.git
+scmDeveloperConnection: scm:git:git@github.com:RevEngAI/sdk-java.git
+scmUrl: https://github.com/RevEngAI/sdk-java
 library: okhttp-gson
 hideGenerationTimestamp: true

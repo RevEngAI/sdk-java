@@ -79,12 +79,12 @@ public class AppApiRestV2SimilaritySchemaANNFunction {
   public static final String SERIALIZED_NAME_SEARCH_BINARY_IDS = "search_binary_ids";
   @SerializedName(SERIALIZED_NAME_SEARCH_BINARY_IDS)
   @javax.annotation.Nullable
-  private SearchBinaryIds searchBinaryIds = [];
+  private SearchBinaryIds searchBinaryIds;
 
   public static final String SERIALIZED_NAME_SEARCH_FUNCTION_IDS = "search_function_ids";
   @SerializedName(SERIALIZED_NAME_SEARCH_FUNCTION_IDS)
   @javax.annotation.Nullable
-  private SearchFunctionIds searchFunctionIds = [];
+  private SearchFunctionIds searchFunctionIds;
 
   public static final String SERIALIZED_NAME_DEBUG_ONLY = "debug_only";
   @SerializedName(SERIALIZED_NAME_DEBUG_ONLY)

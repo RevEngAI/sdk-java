@@ -15,7 +15,7 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.+'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
-        classpath 'com.diffplug.spotless:spotless-plugin-gradle:6.11.0'
+        classpath 'com.diffplug.spotless:spotless-plugin-gradle:6.25.0'
     }
 }
 
@@ -34,16 +34,16 @@ if(hasProperty('target') && target == 'android') {
     apply plugin: 'com.github.dcendents.android-maven'
 
     android {
-        compileSdkVersion 35
-        buildToolsVersion '35.0.0'
+        compileSdkVersion 25
+        buildToolsVersion '25.0.2'
         defaultConfig {
-            minSdkVersion 21
-            targetSdkVersion 35
+            minSdkVersion 14
+            targetSdkVersion 25
         }
         compileOptions {
             java {
-                sourceCompatibility JavaVersion.VERSION_24
-                targetCompatibility JavaVersion.VERSION_24
+                sourceCompatibility JavaVersion.VERSION_21
+                targetCompatibility JavaVersion.VERSION_21
             }
         }
 
@@ -90,8 +90,8 @@ if(hasProperty('target') && target == 'android') {
     apply plugin: 'maven-publish'
 
     java {
-        sourceCompatibility = JavaVersion.VERSION_24
-        targetCompatibility = JavaVersion.VERSION_24
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
 
     publishing {
@@ -136,7 +136,7 @@ dependencies {
     implementation 'io.gsonfire:gson-fire:1.9.0'
     implementation 'jakarta.ws.rs:jakarta.ws.rs-api:2.1.6'
     {{#openApiNullable}}
-    implementation 'org.openapitools:jackson-databind-nullable:0.2.6'
+    implementation 'org.openapitools:jackson-databind-nullable:0.2.7'
     {{/openApiNullable}}
     {{#withAWSV4Signature}}
     implementation 'software.amazon.awssdk:auth:2.20.157'
@@ -156,6 +156,8 @@ dependencies {
     implementation "jakarta.validation:jakarta.validation-api:$bean_validation_version"
     {{/useBeanValidation}}
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.3'
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.10.3'
+    testImplementation 'org.junit.platform:junit-platform-launcher:1.10.3'
     testImplementation 'org.mockito:mockito-core:3.12.4'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.3'
 }
