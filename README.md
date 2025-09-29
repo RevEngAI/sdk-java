@@ -6,7 +6,34 @@ To use the SDK you will first need to obtain an API key from [https://reveng.ai]
 
 ## Installation
 
-TODO
+Once you have the API key you can install the SDK using Maven or Gradle:
+
+### Maven
+
+Add this dependency to your project's POM:
+
+```xml
+<dependency>
+    <groupId>ai.reveng</groupId>
+    <artifactId>sdk</artifactId>
+    <version>v1.94.0</version>
+    <scope>compile</scope>
+</dependency>
+```
+
+### Gradle
+
+Add this dependency to your project's build file:
+
+```groovy
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "ai.reveng:sdk:v1.94.0"
+}
+```
 
 ## Usage
 
