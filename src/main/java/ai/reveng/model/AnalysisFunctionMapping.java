@@ -50,7 +50,7 @@ import ai.reveng.invoker.JSON;
 /**
  * AnalysisFunctionMapping
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AnalysisFunctionMapping {
   public static final String SERIALIZED_NAME_FUNCTION_MAPS = "function_maps";
   @SerializedName(SERIALIZED_NAME_FUNCTION_MAPS)

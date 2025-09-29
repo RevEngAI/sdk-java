@@ -51,7 +51,7 @@ import ai.reveng.invoker.JSON;
 /**
  * BinaryDetailsResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class BinaryDetailsResponse {
   public static final String SERIALIZED_NAME_ARCH = "arch";
   @SerializedName(SERIALIZED_NAME_ARCH)

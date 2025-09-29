@@ -54,7 +54,7 @@ import ai.reveng.invoker.JSON;
 /**
  * FunctionTypeInput
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FunctionTypeInput {
   public static final String SERIALIZED_NAME_LAST_CHANGE = "last_change";
   @SerializedName(SERIALIZED_NAME_LAST_CHANGE)

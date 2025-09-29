@@ -49,7 +49,7 @@ import ai.reveng.invoker.JSON;
 /**
  * SecurityModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SecurityModel {
   public static final String SERIALIZED_NAME_ASLR = "aslr";
   @SerializedName(SERIALIZED_NAME_ASLR)

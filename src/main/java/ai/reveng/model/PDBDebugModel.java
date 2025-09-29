@@ -52,7 +52,7 @@ import ai.reveng.invoker.JSON;
 /**
  * PDBDebugModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class PDBDebugModel {
   public static final String SERIALIZED_NAME_DEBUG_ENTRIES = "debug_entries";
   @SerializedName(SERIALIZED_NAME_DEBUG_ENTRIES)

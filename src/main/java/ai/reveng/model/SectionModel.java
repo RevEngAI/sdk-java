@@ -52,7 +52,7 @@ import ai.reveng.invoker.JSON;
 /**
  * SectionModel
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SectionModel {
   public static final String SERIALIZED_NAME_NUMBER_OF_SECTIONS = "number_of_sections";
   @SerializedName(SERIALIZED_NAME_NUMBER_OF_SECTIONS)

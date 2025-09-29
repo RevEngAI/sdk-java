@@ -51,7 +51,7 @@ import ai.reveng.invoker.JSON;
 /**
  * FunctionDataTypesParams
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FunctionDataTypesParams {
   public static final String SERIALIZED_NAME_FUNCTION_IDS = "function_ids";
   @SerializedName(SERIALIZED_NAME_FUNCTION_IDS)

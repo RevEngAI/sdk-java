@@ -49,7 +49,7 @@ import ai.reveng.invoker.JSON;
 /**
  * FunctionBoundary
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FunctionBoundary {
   public static final String SERIALIZED_NAME_MANGLED_NAME = "mangled_name";
   @SerializedName(SERIALIZED_NAME_MANGLED_NAME)

@@ -49,7 +49,7 @@ import ai.reveng.invoker.JSON;
 /**
  * RelativeBinaryResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class RelativeBinaryResponse {
   public static final String SERIALIZED_NAME_BINARY_ID = "binary_id";
   @SerializedName(SERIALIZED_NAME_BINARY_ID)

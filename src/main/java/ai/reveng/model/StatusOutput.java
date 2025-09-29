@@ -49,7 +49,7 @@ import ai.reveng.invoker.JSON;
 /**
  * StatusOutput
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.17.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class StatusOutput {
   public static final String SERIALIZED_NAME_ANALYSIS_ID = "analysis_id";
   @SerializedName(SERIALIZED_NAME_ANALYSIS_ID)
