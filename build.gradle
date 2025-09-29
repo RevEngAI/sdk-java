@@ -169,6 +169,33 @@ test {
 
 mavenPublishing {
     publishToMavenCentral()
-
     signAllPublications()
+
+    coordinates("ai.reveng", "sdk", "v1.94.0")
+
+    pom {
+        name = "sdk"
+        description = "Java SDK for the RevEng.AI API"
+        inceptionYear = "2025"
+        url = "https://github.com/RevEngAI/sdk-java"
+        licenses {
+          license {
+            name = "MIT"
+            url = "https://opensource.org/license/mit"
+            distribution = "repo"
+          }
+        }
+        developers {
+          developer {
+            id = "support@reveng.ai"
+            name = "RevEng.AI"
+            url = "https://reveng.ai"
+          }
+        }
+        scm {
+          url = "https://github.com/RevEngAI/sdk-java"
+          connection = "scm:git:git@github.com:RevEngAI/sdk-java.git"
+          developerConnection = "scm:git:git@github.com:RevEngAI/sdk-java.git"
+        }
+    }
 }

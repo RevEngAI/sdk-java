@@ -205,6 +205,33 @@ test {
 
 mavenPublishing {
     publishToMavenCentral()
-
     signAllPublications()
+
+    coordinates("{{groupId}}", "{{artifactId}}", "{{artifactVersion}}")
+
+    pom {
+        name = "{{artifactId}}"
+        description = "{{artifactDescription}}"
+        inceptionYear = "2025"
+        url = "{{artifactUrl}}"
+        licenses {
+          license {
+            name = "{{licenseName}}"
+            url = "{{licenseUrl}}"
+            distribution = "repo"
+          }
+        }
+        developers {
+          developer {
+            id = "{{developerEmail}}"
+            name = "{{developerName}}"
+            url = "{{developerOrganizationUrl}}"
+          }
+        }
+        scm {
+          url = "{{scmUrl}}"
+          connection = "{{scmConnection}}"
+          developerConnection = "{{scmDeveloperConnection}}"
+        }
+    }
 }
