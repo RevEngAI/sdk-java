@@ -118,7 +118,7 @@ jobs:
         rm -Rf build.sbt && mv java-client/build.sbt .
         rm -Rf gradle.properties && mv java-client/gradle.properties .
         rm -Rf gradlew && mv java-client/gradlew .
-        rm -Rf gradle.bat && mv java-client/gradle.bat .
+        rm -Rf gradlew.bat && mv java-client/gradlew.bat .
         rm -Rf pom.xml && mv java-client/pom.xml .
         rm -Rf settings.gradle && mv java-client/settings.gradle .
         rm -Rf README.md && mv java-client/README.md .
