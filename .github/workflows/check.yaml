@@ -79,6 +79,10 @@ jobs:
         
         print(f"📋 OpenAPI version: {openapi_version}")
         
+        # Create Maven-compatible version (remove 'v' prefix if it exists)
+        openapi_version_maven = openapi_version.lstrip('v')
+        print(f"📋 Maven version: {openapi_version_maven}")
+        
         # Check for existing PRs
         if check_existing_prs():
             print("📋 Existing PR found, skipping SDK generation")
@@ -89,6 +93,7 @@ jobs:
             with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
                 f.write(f"should_generate=true\n")
                 f.write(f"openapi_version={openapi_version}\n")
+                f.write(f"openapi_version_maven={openapi_version_maven}\n")
         
         print("✅ Check completed")
         EOF
@@ -103,8 +108,9 @@ jobs:
         openapi-url: https://api.reveng.ai/openapi.json
         config-file: config.yml
         template-dir: templates
+        # For the artifact version drop the `v` prefix as it's not usually used in Maven versions
         command-args: |
-          --additional-properties=artifactVersion=${{ steps.version_check.outputs.openapi_version }}
+          --additional-properties=artifactVersion=${{ steps.version_check.outputs.openapi_version_maven }}
 
     - name: Check for changes
       if: steps.version_check.outputs.should_generate == 'true'
