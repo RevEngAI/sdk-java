@@ -140,7 +140,7 @@ public class ApiClient {
         json = new JSON();
 
         // Set default User-Agent.
-        setUserAgent("OpenAPI-Generator/1.95.0/java");
+        setUserAgent("OpenAPI-Generator/1.96.0/java");
 
         authentications = new HashMap<String, Authentication>();
     }
@@ -1397,7 +1397,7 @@ public class ApiClient {
         for (Entry<String, Object> param : formParams.entrySet()) {
             Object value = param.getValue();
 
-            // Convert enums to plain string
+            // Convert enums to plain strings otherwise they get serialized to JSON strings and our API is not expecting that
             if (value instanceof Enum) {
                 value = ((Enum<?>) value).name();
             }
