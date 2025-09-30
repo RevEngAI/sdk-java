@@ -57,7 +57,7 @@ public class App {
         Integer analysisId = 715320; // Integer
 
         try {
-            BaseResponseLogs result = apiInstance.getAnalysisLogs(analysisId, null);
+            BaseResponseLogs result = apiInstance.getAnalysisLogs(analysisId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AnalysesCommentsApi#createAnalysisComment");
