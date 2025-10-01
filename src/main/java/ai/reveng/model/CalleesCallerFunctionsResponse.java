@@ -58,7 +58,7 @@ public class CalleesCallerFunctionsResponse {
   public static final String SERIALIZED_NAME_BASE_ADDRESS = "base_address";
   @SerializedName(SERIALIZED_NAME_BASE_ADDRESS)
   @javax.annotation.Nonnull
-  private Integer baseAddress;
+  private Long baseAddress;
 
   public static final String SERIALIZED_NAME_CALLEES = "callees";
   @SerializedName(SERIALIZED_NAME_CALLEES)
@@ -73,7 +73,7 @@ public class CalleesCallerFunctionsResponse {
   public CalleesCallerFunctionsResponse() {
   }
 
-  public CalleesCallerFunctionsResponse baseAddress(@javax.annotation.Nonnull Integer baseAddress) {
+  public CalleesCallerFunctionsResponse baseAddress(@javax.annotation.Nonnull Long baseAddress) {
     this.baseAddress = baseAddress;
     return this;
   }
@@ -83,11 +83,11 @@ public class CalleesCallerFunctionsResponse {
    * @return baseAddress
    */
   @javax.annotation.Nonnull
-  public Integer getBaseAddress() {
+  public Long getBaseAddress() {
     return baseAddress;
   }
 
-  public void setBaseAddress(@javax.annotation.Nonnull Integer baseAddress) {
+  public void setBaseAddress(@javax.annotation.Nonnull Long baseAddress) {
     this.baseAddress = baseAddress;
   }
 

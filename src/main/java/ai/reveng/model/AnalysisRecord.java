@@ -132,7 +132,7 @@ public class AnalysisRecord {
   public static final String SERIALIZED_NAME_BASE_ADDRESS = "base_address";
   @SerializedName(SERIALIZED_NAME_BASE_ADDRESS)
   @javax.annotation.Nonnull
-  private Integer baseAddress;
+  private Long baseAddress;
 
   public AnalysisRecord() {
   }
@@ -422,7 +422,7 @@ public class AnalysisRecord {
   }
 
 
-  public AnalysisRecord baseAddress(@javax.annotation.Nonnull Integer baseAddress) {
+  public AnalysisRecord baseAddress(@javax.annotation.Nonnull Long baseAddress) {
     this.baseAddress = baseAddress;
     return this;
   }
@@ -432,11 +432,11 @@ public class AnalysisRecord {
    * @return baseAddress
    */
   @javax.annotation.Nonnull
-  public Integer getBaseAddress() {
+  public Long getBaseAddress() {
     return baseAddress;
   }
 
-  public void setBaseAddress(@javax.annotation.Nonnull Integer baseAddress) {
+  public void setBaseAddress(@javax.annotation.Nonnull Long baseAddress) {
     this.baseAddress = baseAddress;
   }
 
