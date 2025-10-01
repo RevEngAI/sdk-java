@@ -59,12 +59,12 @@ public class FunctionBoundary {
   public static final String SERIALIZED_NAME_START_ADDRESS = "start_address";
   @SerializedName(SERIALIZED_NAME_START_ADDRESS)
   @javax.annotation.Nonnull
-  private Integer startAddress;
+  private Long startAddress;
 
   public static final String SERIALIZED_NAME_END_ADDRESS = "end_address";
   @SerializedName(SERIALIZED_NAME_END_ADDRESS)
   @javax.annotation.Nonnull
-  private Integer endAddress;
+  private Long endAddress;
 
   public FunctionBoundary() {
   }
@@ -88,7 +88,7 @@ public class FunctionBoundary {
   }
 
 
-  public FunctionBoundary startAddress(@javax.annotation.Nonnull Integer startAddress) {
+  public FunctionBoundary startAddress(@javax.annotation.Nonnull Long startAddress) {
     this.startAddress = startAddress;
     return this;
   }
@@ -98,16 +98,16 @@ public class FunctionBoundary {
    * @return startAddress
    */
   @javax.annotation.Nonnull
-  public Integer getStartAddress() {
+  public Long getStartAddress() {
     return startAddress;
   }
 
-  public void setStartAddress(@javax.annotation.Nonnull Integer startAddress) {
+  public void setStartAddress(@javax.annotation.Nonnull Long startAddress) {
     this.startAddress = startAddress;
   }
 
 
-  public FunctionBoundary endAddress(@javax.annotation.Nonnull Integer endAddress) {
+  public FunctionBoundary endAddress(@javax.annotation.Nonnull Long endAddress) {
     this.endAddress = endAddress;
     return this;
   }
@@ -117,11 +117,11 @@ public class FunctionBoundary {
    * @return endAddress
    */
   @javax.annotation.Nonnull
-  public Integer getEndAddress() {
+  public Long getEndAddress() {
     return endAddress;
   }
 
-  public void setEndAddress(@javax.annotation.Nonnull Integer endAddress) {
+  public void setEndAddress(@javax.annotation.Nonnull Long endAddress) {
     this.endAddress = endAddress;
   }
 

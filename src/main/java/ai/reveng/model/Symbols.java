@@ -57,7 +57,7 @@ public class Symbols {
   public static final String SERIALIZED_NAME_BASE_ADDRESS = "base_address";
   @SerializedName(SERIALIZED_NAME_BASE_ADDRESS)
   @javax.annotation.Nonnull
-  private Integer baseAddress;
+  private Long baseAddress;
 
   public static final String SERIALIZED_NAME_FUNCTION_BOUNDARIES = "function_boundaries";
   @SerializedName(SERIALIZED_NAME_FUNCTION_BOUNDARIES)
@@ -67,7 +67,7 @@ public class Symbols {
   public Symbols() {
   }
 
-  public Symbols baseAddress(@javax.annotation.Nonnull Integer baseAddress) {
+  public Symbols baseAddress(@javax.annotation.Nonnull Long baseAddress) {
     this.baseAddress = baseAddress;
     return this;
   }
@@ -77,11 +77,11 @@ public class Symbols {
    * @return baseAddress
    */
   @javax.annotation.Nonnull
-  public Integer getBaseAddress() {
+  public Long getBaseAddress() {
     return baseAddress;
   }
 
-  public void setBaseAddress(@javax.annotation.Nonnull Integer baseAddress) {
+  public void setBaseAddress(@javax.annotation.Nonnull Long baseAddress) {
     this.baseAddress = baseAddress;
   }
 
