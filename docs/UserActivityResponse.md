@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**actions** | **String** |  |  |
 |**activityScope** | **String** |  |  |
-|**creation** | **OffsetDateTime** |  |  |
+|**creation** | **java.time.Instant** |  |  |
 |**message** | **String** |  |  |
 |**sources** | **String** |  |  |
 |**username** | **String** |  |  |

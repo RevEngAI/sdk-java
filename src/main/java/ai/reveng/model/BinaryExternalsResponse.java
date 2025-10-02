@@ -20,7 +20,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -67,7 +66,7 @@ public class BinaryExternalsResponse {
   public static final String SERIALIZED_NAME_VT_LAST_UPDATED = "vt_last_updated";
   @SerializedName(SERIALIZED_NAME_VT_LAST_UPDATED)
   @javax.annotation.Nonnull
-  private OffsetDateTime vtLastUpdated;
+  private java.time.Instant vtLastUpdated;
 
   public static final String SERIALIZED_NAME_MB = "mb";
   @SerializedName(SERIALIZED_NAME_MB)
@@ -77,7 +76,7 @@ public class BinaryExternalsResponse {
   public static final String SERIALIZED_NAME_MB_LAST_UPDATED = "mb_last_updated";
   @SerializedName(SERIALIZED_NAME_MB_LAST_UPDATED)
   @javax.annotation.Nonnull
-  private OffsetDateTime mbLastUpdated;
+  private java.time.Instant mbLastUpdated;
 
   public BinaryExternalsResponse() {
   }
@@ -128,7 +127,7 @@ public class BinaryExternalsResponse {
   }
 
 
-  public BinaryExternalsResponse vtLastUpdated(@javax.annotation.Nonnull OffsetDateTime vtLastUpdated) {
+  public BinaryExternalsResponse vtLastUpdated(@javax.annotation.Nonnull java.time.Instant vtLastUpdated) {
     this.vtLastUpdated = vtLastUpdated;
     return this;
   }
@@ -138,11 +137,11 @@ public class BinaryExternalsResponse {
    * @return vtLastUpdated
    */
   @javax.annotation.Nonnull
-  public OffsetDateTime getVtLastUpdated() {
+  public java.time.Instant getVtLastUpdated() {
     return vtLastUpdated;
   }
 
-  public void setVtLastUpdated(@javax.annotation.Nonnull OffsetDateTime vtLastUpdated) {
+  public void setVtLastUpdated(@javax.annotation.Nonnull java.time.Instant vtLastUpdated) {
     this.vtLastUpdated = vtLastUpdated;
   }
 
@@ -174,7 +173,7 @@ public class BinaryExternalsResponse {
   }
 
 
-  public BinaryExternalsResponse mbLastUpdated(@javax.annotation.Nonnull OffsetDateTime mbLastUpdated) {
+  public BinaryExternalsResponse mbLastUpdated(@javax.annotation.Nonnull java.time.Instant mbLastUpdated) {
     this.mbLastUpdated = mbLastUpdated;
     return this;
   }
@@ -184,11 +183,11 @@ public class BinaryExternalsResponse {
    * @return mbLastUpdated
    */
   @javax.annotation.Nonnull
-  public OffsetDateTime getMbLastUpdated() {
+  public java.time.Instant getMbLastUpdated() {
     return mbLastUpdated;
   }
 
-  public void setMbLastUpdated(@javax.annotation.Nonnull OffsetDateTime mbLastUpdated) {
+  public void setMbLastUpdated(@javax.annotation.Nonnull java.time.Instant mbLastUpdated) {
     this.mbLastUpdated = mbLastUpdated;
   }
 

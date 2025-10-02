@@ -12,7 +12,7 @@
 |**binaryName** | **String** | Binary name |  |
 |**ownerId** | **Integer** | Binary owner |  |
 |**sha256Hash** | **String** | Binary SHA-256 hash |  |
-|**createdAt** | **OffsetDateTime** | Binary creation date |  |
+|**createdAt** | **java.time.Instant** | Binary creation date |  |
 
 
 

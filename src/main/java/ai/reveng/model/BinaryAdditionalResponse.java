@@ -21,7 +21,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
 
@@ -67,7 +66,7 @@ public class BinaryAdditionalResponse {
   public static final String SERIALIZED_NAME_CREATION = "creation";
   @SerializedName(SERIALIZED_NAME_CREATION)
   @javax.annotation.Nullable
-  private OffsetDateTime creation;
+  private java.time.Instant creation;
 
   public BinaryAdditionalResponse() {
   }
@@ -110,7 +109,7 @@ public class BinaryAdditionalResponse {
   }
 
 
-  public BinaryAdditionalResponse creation(@javax.annotation.Nullable OffsetDateTime creation) {
+  public BinaryAdditionalResponse creation(@javax.annotation.Nullable java.time.Instant creation) {
     this.creation = creation;
     return this;
   }
@@ -120,11 +119,11 @@ public class BinaryAdditionalResponse {
    * @return creation
    */
   @javax.annotation.Nullable
-  public OffsetDateTime getCreation() {
+  public java.time.Instant getCreation() {
     return creation;
   }
 
-  public void setCreation(@javax.annotation.Nullable OffsetDateTime creation) {
+  public void setCreation(@javax.annotation.Nullable java.time.Instant creation) {
     this.creation = creation;
   }
 

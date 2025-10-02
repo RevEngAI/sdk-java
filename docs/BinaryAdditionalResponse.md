@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**binaryId** | **Integer** |  |  |
 |**details** | [**BinaryAdditionalDetailsDataResponse**](BinaryAdditionalDetailsDataResponse.md) |  |  |
-|**creation** | **OffsetDateTime** |  |  [optional] |
+|**creation** | **java.time.Instant** |  |  [optional] |
 
 
 

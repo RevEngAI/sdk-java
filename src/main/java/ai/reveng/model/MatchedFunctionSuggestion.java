@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -63,8 +64,13 @@ public class MatchedFunctionSuggestion {
 
   public static final String SERIALIZED_NAME_SUGGESTED_NAME = "suggested_name";
   @SerializedName(SERIALIZED_NAME_SUGGESTED_NAME)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String suggestedName;
+
+  public static final String SERIALIZED_NAME_SUGGESTED_DEMANGLED_NAME = "suggested_demangled_name";
+  @SerializedName(SERIALIZED_NAME_SUGGESTED_DEMANGLED_NAME)
+  @javax.annotation.Nonnull
+  private String suggestedDemangledName;
 
   public MatchedFunctionSuggestion() {
   }
@@ -107,22 +113,41 @@ public class MatchedFunctionSuggestion {
   }
 
 
-  public MatchedFunctionSuggestion suggestedName(@javax.annotation.Nonnull String suggestedName) {
+  public MatchedFunctionSuggestion suggestedName(@javax.annotation.Nullable String suggestedName) {
     this.suggestedName = suggestedName;
     return this;
   }
 
   /**
-   * Name of the function group that contains the matched functions
+   * Get suggestedName
    * @return suggestedName
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getSuggestedName() {
     return suggestedName;
   }
 
-  public void setSuggestedName(@javax.annotation.Nonnull String suggestedName) {
+  public void setSuggestedName(@javax.annotation.Nullable String suggestedName) {
     this.suggestedName = suggestedName;
+  }
+
+
+  public MatchedFunctionSuggestion suggestedDemangledName(@javax.annotation.Nonnull String suggestedDemangledName) {
+    this.suggestedDemangledName = suggestedDemangledName;
+    return this;
+  }
+
+  /**
+   * De-mangled name of the function group that contains the matched functions
+   * @return suggestedDemangledName
+   */
+  @javax.annotation.Nonnull
+  public String getSuggestedDemangledName() {
+    return suggestedDemangledName;
+  }
+
+  public void setSuggestedDemangledName(@javax.annotation.Nonnull String suggestedDemangledName) {
+    this.suggestedDemangledName = suggestedDemangledName;
   }
 
 
@@ -138,12 +163,24 @@ public class MatchedFunctionSuggestion {
     MatchedFunctionSuggestion matchedFunctionSuggestion = (MatchedFunctionSuggestion) o;
     return Objects.equals(this.functionId, matchedFunctionSuggestion.functionId) &&
         Objects.equals(this.functionVaddr, matchedFunctionSuggestion.functionVaddr) &&
-        Objects.equals(this.suggestedName, matchedFunctionSuggestion.suggestedName);
+        Objects.equals(this.suggestedName, matchedFunctionSuggestion.suggestedName) &&
+        Objects.equals(this.suggestedDemangledName, matchedFunctionSuggestion.suggestedDemangledName);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(functionId, functionVaddr, suggestedName);
+    return Objects.hash(functionId, functionVaddr, suggestedName, suggestedDemangledName);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -153,6 +190,7 @@ public class MatchedFunctionSuggestion {
     sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
     sb.append("    functionVaddr: ").append(toIndentedString(functionVaddr)).append("\n");
     sb.append("    suggestedName: ").append(toIndentedString(suggestedName)).append("\n");
+    sb.append("    suggestedDemangledName: ").append(toIndentedString(suggestedDemangledName)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -174,10 +212,10 @@ public class MatchedFunctionSuggestion {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("function_id", "function_vaddr", "suggested_name"));
+    openapiFields = new HashSet<String>(Arrays.asList("function_id", "function_vaddr", "suggested_name", "suggested_demangled_name"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("function_id", "function_vaddr", "suggested_name"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("function_id", "function_vaddr", "suggested_demangled_name"));
   }
 
   /**
@@ -208,8 +246,11 @@ public class MatchedFunctionSuggestion {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("suggested_name").isJsonPrimitive()) {
+      if ((jsonObj.get("suggested_name") != null && !jsonObj.get("suggested_name").isJsonNull()) && !jsonObj.get("suggested_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `suggested_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("suggested_name").toString()));
+      }
+      if (!jsonObj.get("suggested_demangled_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `suggested_demangled_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("suggested_demangled_name").toString()));
       }
   }
 

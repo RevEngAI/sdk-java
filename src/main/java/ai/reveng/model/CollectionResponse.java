@@ -22,7 +22,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -95,12 +94,12 @@ public class CollectionResponse {
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   @javax.annotation.Nonnull
-  private OffsetDateTime createdAt;
+  private java.time.Instant createdAt;
 
   public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
   @SerializedName(SERIALIZED_NAME_UPDATED_AT)
   @javax.annotation.Nonnull
-  private OffsetDateTime updatedAt;
+  private java.time.Instant updatedAt;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -248,7 +247,7 @@ public class CollectionResponse {
   }
 
 
-  public CollectionResponse createdAt(@javax.annotation.Nonnull OffsetDateTime createdAt) {
+  public CollectionResponse createdAt(@javax.annotation.Nonnull java.time.Instant createdAt) {
     this.createdAt = createdAt;
     return this;
   }
@@ -258,16 +257,16 @@ public class CollectionResponse {
    * @return createdAt
    */
   @javax.annotation.Nonnull
-  public OffsetDateTime getCreatedAt() {
+  public java.time.Instant getCreatedAt() {
     return createdAt;
   }
 
-  public void setCreatedAt(@javax.annotation.Nonnull OffsetDateTime createdAt) {
+  public void setCreatedAt(@javax.annotation.Nonnull java.time.Instant createdAt) {
     this.createdAt = createdAt;
   }
 
 
-  public CollectionResponse updatedAt(@javax.annotation.Nonnull OffsetDateTime updatedAt) {
+  public CollectionResponse updatedAt(@javax.annotation.Nonnull java.time.Instant updatedAt) {
     this.updatedAt = updatedAt;
     return this;
   }
@@ -277,11 +276,11 @@ public class CollectionResponse {
    * @return updatedAt
    */
   @javax.annotation.Nonnull
-  public OffsetDateTime getUpdatedAt() {
+  public java.time.Instant getUpdatedAt() {
     return updatedAt;
   }
 
-  public void setUpdatedAt(@javax.annotation.Nonnull OffsetDateTime updatedAt) {
+  public void setUpdatedAt(@javax.annotation.Nonnull java.time.Instant updatedAt) {
     this.updatedAt = updatedAt;
   }
 

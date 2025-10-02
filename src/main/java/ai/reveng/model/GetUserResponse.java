@@ -20,7 +20,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.Arrays;
 
 import com.google.gson.Gson;
@@ -80,7 +79,7 @@ public class GetUserResponse {
   public static final String SERIALIZED_NAME_CREATION = "creation";
   @SerializedName(SERIALIZED_NAME_CREATION)
   @javax.annotation.Nonnull
-  private OffsetDateTime creation;
+  private java.time.Instant creation;
 
   public static final String SERIALIZED_NAME_TUTORIAL_SEEN = "tutorial_seen";
   @SerializedName(SERIALIZED_NAME_TUTORIAL_SEEN)
@@ -185,7 +184,7 @@ public class GetUserResponse {
   }
 
 
-  public GetUserResponse creation(@javax.annotation.Nonnull OffsetDateTime creation) {
+  public GetUserResponse creation(@javax.annotation.Nonnull java.time.Instant creation) {
     this.creation = creation;
     return this;
   }
@@ -195,11 +194,11 @@ public class GetUserResponse {
    * @return creation
    */
   @javax.annotation.Nonnull
-  public OffsetDateTime getCreation() {
+  public java.time.Instant getCreation() {
     return creation;
   }
 
-  public void setCreation(@javax.annotation.Nonnull OffsetDateTime creation) {
+  public void setCreation(@javax.annotation.Nonnull java.time.Instant creation) {
     this.creation = creation;
   }
 
