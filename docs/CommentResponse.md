@@ -13,8 +13,8 @@
 |**resourceType** | **String** |  |  |
 |**resourceId** | **String** |  |  |
 |**context** | [**Context**](Context.md) |  |  [optional] |
-|**createdAt** | **java.time.Instant** |  |  |
-|**updatedAt** | **java.time.Instant** |  |  |
+|**createdAt** | **OffsetDateTime** |  |  |
+|**updatedAt** | **OffsetDateTime** |  |  |
 
 
 

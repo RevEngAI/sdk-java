@@ -26,7 +26,7 @@
 |**tlsh** | **String** |  |  |
 |**type** | **String** |  |  |
 |**debug** | **Boolean** |  |  |
-|**firstSeen** | **java.time.Instant** |  |  |
+|**firstSeen** | **OffsetDateTime** |  |  |
 
 
 

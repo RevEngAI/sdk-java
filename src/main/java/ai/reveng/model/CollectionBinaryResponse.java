@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.Arrays;
 
 import com.google.gson.Gson;
@@ -79,7 +80,7 @@ public class CollectionBinaryResponse {
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   @javax.annotation.Nonnull
-  private java.time.Instant createdAt;
+  private OffsetDateTime createdAt;
 
   public CollectionBinaryResponse() {
   }
@@ -179,7 +180,7 @@ public class CollectionBinaryResponse {
   }
 
 
-  public CollectionBinaryResponse createdAt(@javax.annotation.Nonnull java.time.Instant createdAt) {
+  public CollectionBinaryResponse createdAt(@javax.annotation.Nonnull OffsetDateTime createdAt) {
     this.createdAt = createdAt;
     return this;
   }
@@ -189,11 +190,11 @@ public class CollectionBinaryResponse {
    * @return createdAt
    */
   @javax.annotation.Nonnull
-  public java.time.Instant getCreatedAt() {
+  public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
 
-  public void setCreatedAt(@javax.annotation.Nonnull java.time.Instant createdAt) {
+  public void setCreatedAt(@javax.annotation.Nonnull OffsetDateTime createdAt) {
     this.createdAt = createdAt;
   }
 

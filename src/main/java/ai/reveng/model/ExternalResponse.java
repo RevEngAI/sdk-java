@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -66,7 +67,7 @@ public class ExternalResponse {
   public static final String SERIALIZED_NAME_LAST_UPDATED = "last_updated";
   @SerializedName(SERIALIZED_NAME_LAST_UPDATED)
   @javax.annotation.Nonnull
-  private java.time.Instant lastUpdated;
+  private OffsetDateTime lastUpdated;
 
   public ExternalResponse() {
   }
@@ -117,7 +118,7 @@ public class ExternalResponse {
   }
 
 
-  public ExternalResponse lastUpdated(@javax.annotation.Nonnull java.time.Instant lastUpdated) {
+  public ExternalResponse lastUpdated(@javax.annotation.Nonnull OffsetDateTime lastUpdated) {
     this.lastUpdated = lastUpdated;
     return this;
   }
@@ -127,11 +128,11 @@ public class ExternalResponse {
    * @return lastUpdated
    */
   @javax.annotation.Nonnull
-  public java.time.Instant getLastUpdated() {
+  public OffsetDateTime getLastUpdated() {
     return lastUpdated;
   }
 
-  public void setLastUpdated(@javax.annotation.Nonnull java.time.Instant lastUpdated) {
+  public void setLastUpdated(@javax.annotation.Nonnull OffsetDateTime lastUpdated) {
     this.lastUpdated = lastUpdated;
   }
 
