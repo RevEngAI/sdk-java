@@ -12,7 +12,7 @@
 |**firstName** | **String** |  |  |
 |**lastName** | **String** |  |  |
 |**email** | **String** |  |  |
-|**creation** | **java.time.Instant** |  |  |
+|**creation** | **OffsetDateTime** |  |  |
 |**tutorialSeen** | **Boolean** |  |  |
 
 

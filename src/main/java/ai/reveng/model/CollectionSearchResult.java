@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -72,12 +73,12 @@ public class CollectionSearchResult {
   public static final String SERIALIZED_NAME_LAST_UPDATED_AT = "last_updated_at";
   @SerializedName(SERIALIZED_NAME_LAST_UPDATED_AT)
   @javax.annotation.Nonnull
-  private java.time.Instant lastUpdatedAt;
+  private OffsetDateTime lastUpdatedAt;
 
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   @javax.annotation.Nonnull
-  private java.time.Instant createdAt;
+  private OffsetDateTime createdAt;
 
   public static final String SERIALIZED_NAME_MODEL_ID = "model_id";
   @SerializedName(SERIALIZED_NAME_MODEL_ID)
@@ -174,7 +175,7 @@ public class CollectionSearchResult {
   }
 
 
-  public CollectionSearchResult lastUpdatedAt(@javax.annotation.Nonnull java.time.Instant lastUpdatedAt) {
+  public CollectionSearchResult lastUpdatedAt(@javax.annotation.Nonnull OffsetDateTime lastUpdatedAt) {
     this.lastUpdatedAt = lastUpdatedAt;
     return this;
   }
@@ -184,16 +185,16 @@ public class CollectionSearchResult {
    * @return lastUpdatedAt
    */
   @javax.annotation.Nonnull
-  public java.time.Instant getLastUpdatedAt() {
+  public OffsetDateTime getLastUpdatedAt() {
     return lastUpdatedAt;
   }
 
-  public void setLastUpdatedAt(@javax.annotation.Nonnull java.time.Instant lastUpdatedAt) {
+  public void setLastUpdatedAt(@javax.annotation.Nonnull OffsetDateTime lastUpdatedAt) {
     this.lastUpdatedAt = lastUpdatedAt;
   }
 
 
-  public CollectionSearchResult createdAt(@javax.annotation.Nonnull java.time.Instant createdAt) {
+  public CollectionSearchResult createdAt(@javax.annotation.Nonnull OffsetDateTime createdAt) {
     this.createdAt = createdAt;
     return this;
   }
@@ -203,11 +204,11 @@ public class CollectionSearchResult {
    * @return createdAt
    */
   @javax.annotation.Nonnull
-  public java.time.Instant getCreatedAt() {
+  public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
 
-  public void setCreatedAt(@javax.annotation.Nonnull java.time.Instant createdAt) {
+  public void setCreatedAt(@javax.annotation.Nonnull OffsetDateTime createdAt) {
     this.createdAt = createdAt;
   }
 

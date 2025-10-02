@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.Arrays;
 
 import com.google.gson.Gson;
@@ -64,7 +65,7 @@ public class Basic {
   public static final String SERIALIZED_NAME_CREATION = "creation";
   @SerializedName(SERIALIZED_NAME_CREATION)
   @javax.annotation.Nonnull
-  private java.time.Instant creation;
+  private OffsetDateTime creation;
 
   public static final String SERIALIZED_NAME_SHA256_HASH = "sha_256_hash";
   @SerializedName(SERIALIZED_NAME_SHA256_HASH)
@@ -152,7 +153,7 @@ public class Basic {
   }
 
 
-  public Basic creation(@javax.annotation.Nonnull java.time.Instant creation) {
+  public Basic creation(@javax.annotation.Nonnull OffsetDateTime creation) {
     this.creation = creation;
     return this;
   }
@@ -162,11 +163,11 @@ public class Basic {
    * @return creation
    */
   @javax.annotation.Nonnull
-  public java.time.Instant getCreation() {
+  public OffsetDateTime getCreation() {
     return creation;
   }
 
-  public void setCreation(@javax.annotation.Nonnull java.time.Instant creation) {
+  public void setCreation(@javax.annotation.Nonnull OffsetDateTime creation) {
     this.creation = creation;
   }
 
