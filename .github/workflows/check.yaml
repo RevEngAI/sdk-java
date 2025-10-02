@@ -109,7 +109,10 @@ jobs:
         config-file: config.yml
         template-dir: templates
         # For the artifact version drop the `v` prefix as it's not usually used in Maven versions
+        # Use java.time.Instance for DateTime mappings because FastAPI returns nanosecond precision timestamps
         command-args: |
+          --import-mappings=DateTime=java.time.Instant
+          --type-mappings=DateTime=java.time.Instant
           --additional-properties=artifactVersion=${{ steps.version_check.outputs.openapi_version_maven }}
 
     - name: Check for changes
