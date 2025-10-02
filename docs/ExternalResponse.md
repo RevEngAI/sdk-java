@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**sha256Hash** | **String** |  |  |
 |**data** | **Map&lt;String, Object&gt;** |  |  |
-|**lastUpdated** | **OffsetDateTime** |  |  |
+|**lastUpdated** | **java.time.Instant** |  |  |
 
 
 

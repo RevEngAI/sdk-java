@@ -19,6 +19,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import org.openapitools.jackson.nullable.JsonNullable;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -58,6 +59,14 @@ public class MatchedFunctionSuggestionTest {
     @Test
     public void suggestedNameTest() {
         // TODO: test suggestedName
+    }
+
+    /**
+     * Test the property 'suggestedDemangledName'
+     */
+    @Test
+    public void suggestedDemangledNameTest() {
+        // TODO: test suggestedDemangledName
     }
 
 }

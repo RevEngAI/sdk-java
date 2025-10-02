@@ -20,7 +20,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.Arrays;
 
 import com.google.gson.Gson;
@@ -70,7 +69,7 @@ public class FunctionSearchResult {
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   @javax.annotation.Nonnull
-  private OffsetDateTime createdAt;
+  private java.time.Instant createdAt;
 
   public static final String SERIALIZED_NAME_MODEL_ID = "model_id";
   @SerializedName(SERIALIZED_NAME_MODEL_ID)
@@ -147,7 +146,7 @@ public class FunctionSearchResult {
   }
 
 
-  public FunctionSearchResult createdAt(@javax.annotation.Nonnull OffsetDateTime createdAt) {
+  public FunctionSearchResult createdAt(@javax.annotation.Nonnull java.time.Instant createdAt) {
     this.createdAt = createdAt;
     return this;
   }
@@ -157,11 +156,11 @@ public class FunctionSearchResult {
    * @return createdAt
    */
   @javax.annotation.Nonnull
-  public OffsetDateTime getCreatedAt() {
+  public java.time.Instant getCreatedAt() {
     return createdAt;
   }
 
-  public void setCreatedAt(@javax.annotation.Nonnull OffsetDateTime createdAt) {
+  public void setCreatedAt(@javax.annotation.Nonnull java.time.Instant createdAt) {
     this.createdAt = createdAt;
   }
 

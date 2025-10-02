@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**binaryName** | **String** | The name of the binary uploaded |  |
 |**binarySize** | **Integer** | The size of the binary uploaded (bytes) |  |
-|**creation** | **OffsetDateTime** | When the binary was uploaded |  |
+|**creation** | **java.time.Instant** | When the binary was uploaded |  |
 |**sha256Hash** | **String** | The hash of the binary uploaded |  |
 |**modelName** | **String** | The model name used for analysis |  |
 |**ownerUsername** | **String** | The name of the owner of the binary |  |

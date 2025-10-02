@@ -15,7 +15,7 @@
 |**collectionTags** | **List&lt;String&gt;** | The tags of the collection |  [optional] |
 |**collectionSize** | **Integer** | The size of the collection |  |
 |**collectionId** | **Integer** | The ID of the collection |  |
-|**creation** | **OffsetDateTime** | The current status of analysis |  |
+|**creation** | **java.time.Instant** | The current status of analysis |  |
 |**modelName** | **String** | The model being used for the collection |  |
 |**teamId** | **Integer** |  |  [optional] |
 

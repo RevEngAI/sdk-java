@@ -21,7 +21,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.time.OffsetDateTime;
 import java.util.Arrays;
 
 import com.google.gson.Gson;
@@ -151,7 +150,7 @@ public class BinaryDetailsResponse {
   public static final String SERIALIZED_NAME_FIRST_SEEN = "first_seen";
   @SerializedName(SERIALIZED_NAME_FIRST_SEEN)
   @javax.annotation.Nonnull
-  private OffsetDateTime firstSeen;
+  private java.time.Instant firstSeen;
 
   public BinaryDetailsResponse() {
   }
@@ -517,7 +516,7 @@ public class BinaryDetailsResponse {
   }
 
 
-  public BinaryDetailsResponse firstSeen(@javax.annotation.Nonnull OffsetDateTime firstSeen) {
+  public BinaryDetailsResponse firstSeen(@javax.annotation.Nonnull java.time.Instant firstSeen) {
     this.firstSeen = firstSeen;
     return this;
   }
@@ -527,11 +526,11 @@ public class BinaryDetailsResponse {
    * @return firstSeen
    */
   @javax.annotation.Nonnull
-  public OffsetDateTime getFirstSeen() {
+  public java.time.Instant getFirstSeen() {
     return firstSeen;
   }
 
-  public void setFirstSeen(@javax.annotation.Nonnull OffsetDateTime firstSeen) {
+  public void setFirstSeen(@javax.annotation.Nonnull java.time.Instant firstSeen) {
     this.firstSeen = firstSeen;
   }
 
