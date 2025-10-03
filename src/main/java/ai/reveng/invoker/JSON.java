@@ -343,8 +343,6 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.SBOMPackage.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.SandboxOptions.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.ScrapeThirdPartyConfig.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.SearchBinaryIds.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.SearchFunctionIds.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.SectionModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.SecurityChecksResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.SecurityChecksResult.CustomTypeAdapterFactory());
