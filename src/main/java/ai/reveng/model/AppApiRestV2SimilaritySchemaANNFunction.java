@@ -14,8 +14,6 @@ package ai.reveng.model;
 
 import java.util.Objects;
 import java.util.Locale;
-import ai.reveng.model.SearchBinaryIds;
-import ai.reveng.model.SearchFunctionIds;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -26,6 +24,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -79,12 +78,12 @@ public class AppApiRestV2SimilaritySchemaANNFunction {
   public static final String SERIALIZED_NAME_SEARCH_BINARY_IDS = "search_binary_ids";
   @SerializedName(SERIALIZED_NAME_SEARCH_BINARY_IDS)
   @javax.annotation.Nullable
-  private SearchBinaryIds searchBinaryIds;
+  private List<Integer> searchBinaryIds;
 
   public static final String SERIALIZED_NAME_SEARCH_FUNCTION_IDS = "search_function_ids";
   @SerializedName(SERIALIZED_NAME_SEARCH_FUNCTION_IDS)
   @javax.annotation.Nullable
-  private SearchFunctionIds searchFunctionIds;
+  private List<Integer> searchFunctionIds;
 
   public static final String SERIALIZED_NAME_DEBUG_ONLY = "debug_only";
   @SerializedName(SERIALIZED_NAME_DEBUG_ONLY)
@@ -186,8 +185,16 @@ public class AppApiRestV2SimilaritySchemaANNFunction {
   }
 
 
-  public AppApiRestV2SimilaritySchemaANNFunction searchBinaryIds(@javax.annotation.Nullable SearchBinaryIds searchBinaryIds) {
+  public AppApiRestV2SimilaritySchemaANNFunction searchBinaryIds(@javax.annotation.Nullable List<Integer> searchBinaryIds) {
     this.searchBinaryIds = searchBinaryIds;
+    return this;
+  }
+
+  public AppApiRestV2SimilaritySchemaANNFunction addSearchBinaryIdsItem(Integer searchBinaryIdsItem) {
+    if (this.searchBinaryIds == null) {
+      this.searchBinaryIds = new ArrayList<>();
+    }
+    this.searchBinaryIds.add(searchBinaryIdsItem);
     return this;
   }
 
@@ -196,17 +203,25 @@ public class AppApiRestV2SimilaritySchemaANNFunction {
    * @return searchBinaryIds
    */
   @javax.annotation.Nullable
-  public SearchBinaryIds getSearchBinaryIds() {
+  public List<Integer> getSearchBinaryIds() {
     return searchBinaryIds;
   }
 
-  public void setSearchBinaryIds(@javax.annotation.Nullable SearchBinaryIds searchBinaryIds) {
+  public void setSearchBinaryIds(@javax.annotation.Nullable List<Integer> searchBinaryIds) {
     this.searchBinaryIds = searchBinaryIds;
   }
 
 
-  public AppApiRestV2SimilaritySchemaANNFunction searchFunctionIds(@javax.annotation.Nullable SearchFunctionIds searchFunctionIds) {
+  public AppApiRestV2SimilaritySchemaANNFunction searchFunctionIds(@javax.annotation.Nullable List<Integer> searchFunctionIds) {
     this.searchFunctionIds = searchFunctionIds;
+    return this;
+  }
+
+  public AppApiRestV2SimilaritySchemaANNFunction addSearchFunctionIdsItem(Integer searchFunctionIdsItem) {
+    if (this.searchFunctionIds == null) {
+      this.searchFunctionIds = new ArrayList<>();
+    }
+    this.searchFunctionIds.add(searchFunctionIdsItem);
     return this;
   }
 
@@ -215,11 +230,11 @@ public class AppApiRestV2SimilaritySchemaANNFunction {
    * @return searchFunctionIds
    */
   @javax.annotation.Nullable
-  public SearchFunctionIds getSearchFunctionIds() {
+  public List<Integer> getSearchFunctionIds() {
     return searchFunctionIds;
   }
 
-  public void setSearchFunctionIds(@javax.annotation.Nullable SearchFunctionIds searchFunctionIds) {
+  public void setSearchFunctionIds(@javax.annotation.Nullable List<Integer> searchFunctionIds) {
     this.searchFunctionIds = searchFunctionIds;
   }
 
@@ -307,9 +322,20 @@ public class AppApiRestV2SimilaritySchemaANNFunction {
         Objects.equals(this.additionalProperties, appApiRestV2SimilaritySchemaANNFunction.additionalProperties);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
     return Objects.hash(limit, distance, analysisSearchIds, collectionSearchIds, searchBinaryIds, searchFunctionIds, debugOnly, additionalProperties);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -372,13 +398,13 @@ public class AppApiRestV2SimilaritySchemaANNFunction {
       if (jsonObj.get("collection_search_ids") != null && !jsonObj.get("collection_search_ids").isJsonNull() && !jsonObj.get("collection_search_ids").isJsonArray()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `collection_search_ids` to be an array in the JSON string but got `%s`", jsonObj.get("collection_search_ids").toString()));
       }
-      // validate the optional field `search_binary_ids`
-      if (jsonObj.get("search_binary_ids") != null && !jsonObj.get("search_binary_ids").isJsonNull()) {
-        SearchBinaryIds.validateJsonElement(jsonObj.get("search_binary_ids"));
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("search_binary_ids") != null && !jsonObj.get("search_binary_ids").isJsonNull() && !jsonObj.get("search_binary_ids").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `search_binary_ids` to be an array in the JSON string but got `%s`", jsonObj.get("search_binary_ids").toString()));
       }
-      // validate the optional field `search_function_ids`
-      if (jsonObj.get("search_function_ids") != null && !jsonObj.get("search_function_ids").isJsonNull()) {
-        SearchFunctionIds.validateJsonElement(jsonObj.get("search_function_ids"));
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("search_function_ids") != null && !jsonObj.get("search_function_ids").isJsonNull() && !jsonObj.get("search_function_ids").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `search_function_ids` to be an array in the JSON string but got `%s`", jsonObj.get("search_function_ids").toString()));
       }
   }
 

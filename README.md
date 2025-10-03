@@ -456,8 +456,6 @@ Class | Method | HTTP request | Description
  - [SBOMPackage](docs/SBOMPackage.md)
  - [SandboxOptions](docs/SandboxOptions.md)
  - [ScrapeThirdPartyConfig](docs/ScrapeThirdPartyConfig.md)
- - [SearchBinaryIds](docs/SearchBinaryIds.md)
- - [SearchFunctionIds](docs/SearchFunctionIds.md)
  - [SectionModel](docs/SectionModel.md)
  - [SecurityChecksResponse](docs/SecurityChecksResponse.md)
  - [SecurityChecksResult](docs/SecurityChecksResult.md)

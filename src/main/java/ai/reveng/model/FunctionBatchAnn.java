@@ -55,7 +55,7 @@ public class FunctionBatchAnn {
   public static final String SERIALIZED_NAME_SUCCESS = "success";
   @SerializedName(SERIALIZED_NAME_SUCCESS)
   @javax.annotation.Nullable
-  private Object success = null;
+  private Object success = true;
 
   public static final String SERIALIZED_NAME_SETTINGS = "settings";
   @SerializedName(SERIALIZED_NAME_SETTINGS)
