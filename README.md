@@ -16,7 +16,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>ai.reveng</groupId>
     <artifactId>sdk</artifactId>
-    <version>1.98.1</version>
+    <version>1.99.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -31,7 +31,7 @@ repositories {
 }
 
 dependencies {
-    implementation "ai.reveng:sdk:1.98.1"
+    implementation "ai.reveng:sdk:1.99.0"
 }
 ```
 
@@ -80,7 +80,6 @@ Class | Method | HTTP request | Description
 *AnalysesCommentsApi* | [**deleteAnalysisComment**](docs/AnalysesCommentsApi.md#deleteAnalysisComment) | **DELETE** /v2/analyses/{analysis_id}/comments/{comment_id} | Delete a comment
 *AnalysesCommentsApi* | [**getAnalysisComments**](docs/AnalysesCommentsApi.md#getAnalysisComments) | **GET** /v2/analyses/{analysis_id}/comments | Get comments for this analysis
 *AnalysesCommentsApi* | [**updateAnalysisComment**](docs/AnalysesCommentsApi.md#updateAnalysisComment) | **PATCH** /v2/analyses/{analysis_id}/comments/{comment_id} | Update a comment
-*AnalysesCoreApi* | [**batchSymbolAnn**](docs/AnalysesCoreApi.md#batchSymbolAnn) | **POST** /v1/ann/symbol/batch | Batch Symbol ANN using function IDs
 *AnalysesCoreApi* | [**createAnalysis**](docs/AnalysesCoreApi.md#createAnalysis) | **POST** /v2/analyses | Create Analysis
 *AnalysesCoreApi* | [**deleteAnalysis**](docs/AnalysesCoreApi.md#deleteAnalysis) | **DELETE** /v2/analyses/{analysis_id} | Delete Analysis
 *AnalysesCoreApi* | [**findSimilarFunctionsBatch**](docs/AnalysesCoreApi.md#findSimilarFunctionsBatch) | **POST** /v2/analyses/{analysis_id}/similarity/functions | Batch Symbol ANN using Analysis ID
@@ -194,6 +193,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
+ - [ANNFunction](docs/ANNFunction.md)
  - [Addr](docs/Addr.md)
  - [AiDecompilationRating](docs/AiDecompilationRating.md)
  - [AiUnstripRequest](docs/AiUnstripRequest.md)
@@ -212,14 +212,12 @@ Class | Method | HTTP request | Description
  - [AnalysisUpdateRequest](docs/AnalysisUpdateRequest.md)
  - [AnalysisUpdateTagsRequest](docs/AnalysisUpdateTagsRequest.md)
  - [AnalysisUpdateTagsResponse](docs/AnalysisUpdateTagsResponse.md)
- - [AppApiRestV1AnnSchemaANNFunction](docs/AppApiRestV1AnnSchemaANNFunction.md)
  - [AppApiRestV2AnalysesEnumsDynamicExecutionStatus](docs/AppApiRestV2AnalysesEnumsDynamicExecutionStatus.md)
  - [AppApiRestV2AnalysesEnumsOrderBy](docs/AppApiRestV2AnalysesEnumsOrderBy.md)
  - [AppApiRestV2AnalysesResponsesTagItem](docs/AppApiRestV2AnalysesResponsesTagItem.md)
  - [AppApiRestV2CollectionsEnumsOrderBy](docs/AppApiRestV2CollectionsEnumsOrderBy.md)
  - [AppApiRestV2FunctionsResponsesFunction](docs/AppApiRestV2FunctionsResponsesFunction.md)
  - [AppApiRestV2FunctionsTypesFunction](docs/AppApiRestV2FunctionsTypesFunction.md)
- - [AppApiRestV2SimilaritySchemaANNFunction](docs/AppApiRestV2SimilaritySchemaANNFunction.md)
  - [AppServicesBinaryAnnSchemaTagItem](docs/AppServicesBinaryAnnSchemaTagItem.md)
  - [AppServicesDynamicExecutionSchemasDynamicExecutionStatus](docs/AppServicesDynamicExecutionSchemasDynamicExecutionStatus.md)
  - [Argument](docs/Argument.md)
@@ -365,7 +363,6 @@ Class | Method | HTTP request | Description
  - [FileHashes](docs/FileHashes.md)
  - [FileMetadata](docs/FileMetadata.md)
  - [Filters](docs/Filters.md)
- - [FunctionBatchAnn](docs/FunctionBatchAnn.md)
  - [FunctionBlockDestinationResponse](docs/FunctionBlockDestinationResponse.md)
  - [FunctionBlockResponse](docs/FunctionBlockResponse.md)
  - [FunctionBlocksResponse](docs/FunctionBlocksResponse.md)
