@@ -72,7 +72,7 @@ public class AppApiRestV2FunctionsTypesFunction {
   public static final String SERIALIZED_NAME_FUNCTION_VADDR = "function_vaddr";
   @SerializedName(SERIALIZED_NAME_FUNCTION_VADDR)
   @javax.annotation.Nonnull
-  private Integer functionVaddr;
+  private Long functionVaddr;
 
   public static final String SERIALIZED_NAME_FUNCTION_SIZE = "function_size";
   @SerializedName(SERIALIZED_NAME_FUNCTION_SIZE)
@@ -154,7 +154,7 @@ public class AppApiRestV2FunctionsTypesFunction {
   }
 
 
-  public AppApiRestV2FunctionsTypesFunction functionVaddr(@javax.annotation.Nonnull Integer functionVaddr) {
+  public AppApiRestV2FunctionsTypesFunction functionVaddr(@javax.annotation.Nonnull Long functionVaddr) {
     this.functionVaddr = functionVaddr;
     return this;
   }
@@ -164,11 +164,11 @@ public class AppApiRestV2FunctionsTypesFunction {
    * @return functionVaddr
    */
   @javax.annotation.Nonnull
-  public Integer getFunctionVaddr() {
+  public Long getFunctionVaddr() {
     return functionVaddr;
   }
 
-  public void setFunctionVaddr(@javax.annotation.Nonnull Integer functionVaddr) {
+  public void setFunctionVaddr(@javax.annotation.Nonnull Long functionVaddr) {
     this.functionVaddr = functionVaddr;
   }
 

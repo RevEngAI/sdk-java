@@ -9,7 +9,7 @@ Function schema used in function strings response.
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**functionId** | **Integer** |  |  |
-|**functionVaddr** | **Integer** |  |  |
+|**functionVaddr** | **Long** | Function virtual address |  |
 
 
 

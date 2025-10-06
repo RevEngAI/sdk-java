@@ -10,7 +10,7 @@
 |**functionId** | **Integer** |  |  |
 |**binaryId** | **Integer** |  |  |
 |**functionName** | **String** |  |  |
-|**functionVaddr** | **Integer** |  |  |
+|**functionVaddr** | **Long** |  |  |
 |**mangledName** | **String** |  |  |
 |**debug** | **Boolean** |  |  |
 |**binaryName** | **String** |  |  |

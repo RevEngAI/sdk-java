@@ -59,7 +59,7 @@ public class AppApiRestV2FunctionsResponsesFunction {
   public static final String SERIALIZED_NAME_FUNCTION_VADDR = "function_vaddr";
   @SerializedName(SERIALIZED_NAME_FUNCTION_VADDR)
   @javax.annotation.Nonnull
-  private Integer functionVaddr;
+  private Long functionVaddr;
 
   public AppApiRestV2FunctionsResponsesFunction() {
   }
@@ -83,21 +83,21 @@ public class AppApiRestV2FunctionsResponsesFunction {
   }
 
 
-  public AppApiRestV2FunctionsResponsesFunction functionVaddr(@javax.annotation.Nonnull Integer functionVaddr) {
+  public AppApiRestV2FunctionsResponsesFunction functionVaddr(@javax.annotation.Nonnull Long functionVaddr) {
     this.functionVaddr = functionVaddr;
     return this;
   }
 
   /**
-   * Get functionVaddr
+   * Function virtual address
    * @return functionVaddr
    */
   @javax.annotation.Nonnull
-  public Integer getFunctionVaddr() {
+  public Long getFunctionVaddr() {
     return functionVaddr;
   }
 
-  public void setFunctionVaddr(@javax.annotation.Nonnull Integer functionVaddr) {
+  public void setFunctionVaddr(@javax.annotation.Nonnull Long functionVaddr) {
     this.functionVaddr = functionVaddr;
   }
 

@@ -61,7 +61,7 @@ public class Capability {
   public static final String SERIALIZED_NAME_FUNCTION_VADDR = "function_vaddr";
   @SerializedName(SERIALIZED_NAME_FUNCTION_VADDR)
   @javax.annotation.Nonnull
-  private Integer functionVaddr;
+  private Long functionVaddr;
 
   public static final String SERIALIZED_NAME_CAPABILITIES = "capabilities";
   @SerializedName(SERIALIZED_NAME_CAPABILITIES)
@@ -90,7 +90,7 @@ public class Capability {
   }
 
 
-  public Capability functionVaddr(@javax.annotation.Nonnull Integer functionVaddr) {
+  public Capability functionVaddr(@javax.annotation.Nonnull Long functionVaddr) {
     this.functionVaddr = functionVaddr;
     return this;
   }
@@ -100,11 +100,11 @@ public class Capability {
    * @return functionVaddr
    */
   @javax.annotation.Nonnull
-  public Integer getFunctionVaddr() {
+  public Long getFunctionVaddr() {
     return functionVaddr;
   }
 
-  public void setFunctionVaddr(@javax.annotation.Nonnull Integer functionVaddr) {
+  public void setFunctionVaddr(@javax.annotation.Nonnull Long functionVaddr) {
     this.functionVaddr = functionVaddr;
   }
 
