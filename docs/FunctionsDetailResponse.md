@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**functionId** | **Integer** |  |  |
 |**functionName** | **String** |  |  |
-|**functionVaddr** | **Integer** |  |  |
+|**functionVaddr** | **Long** |  |  |
 |**functionSize** | **Integer** |  |  |
 |**analysisId** | **Integer** |  |  |
 |**binaryId** | **Integer** |  |  |

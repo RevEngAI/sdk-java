@@ -10,7 +10,7 @@
 |**functionId** | **Integer** | Function id |  |
 |**functionName** | **String** | Demangled name of the function |  |
 |**functionMangledName** | **String** | Mangled name of the function |  |
-|**functionVaddr** | **Integer** | Function virtual address |  |
+|**functionVaddr** | **Long** | Function virtual address |  |
 |**functionSize** | **Integer** | Function size |  |
 |**debug** | **Boolean** | Whether the function is debug |  |
 |**embedding3d** | **List&lt;BigDecimal&gt;** |  |  |
