@@ -26,12 +26,11 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import ai.reveng.model.ANNFunction;
 import ai.reveng.model.AnalysisCreateRequest;
 import ai.reveng.model.AnalysisUpdateRequest;
 import ai.reveng.model.AnalysisUpdateTagsRequest;
-import ai.reveng.model.AppApiRestV1AnnSchemaANNFunction;
 import ai.reveng.model.AppApiRestV2AnalysesEnumsOrderBy;
-import ai.reveng.model.AppApiRestV2SimilaritySchemaANNFunction;
 import ai.reveng.model.BaseResponse;
 import ai.reveng.model.BaseResponseAnalysisCreateResponse;
 import ai.reveng.model.BaseResponseAnalysisDetailResponse;
@@ -50,7 +49,6 @@ import ai.reveng.model.BaseResponseUploadResponse;
 import ai.reveng.model.BinaryAnnForm;
 import ai.reveng.model.DynamicExecutionStatusInput;
 import java.io.File;
-import ai.reveng.model.FunctionBatchAnn;
 import ai.reveng.model.ModelName;
 import ai.reveng.model.Order;
 import ai.reveng.model.ReAnalysisForm;
@@ -101,137 +99,6 @@ public class AnalysesCoreApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for batchSymbolAnn
-     * @param appApiRestV1AnnSchemaANNFunction  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call batchSymbolAnnCall(@javax.annotation.Nonnull AppApiRestV1AnnSchemaANNFunction appApiRestV1AnnSchemaANNFunction, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = appApiRestV1AnnSchemaANNFunction;
-
-        // create path and map variables
-        String localVarPath = "/v1/ann/symbol/batch";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "APIKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call batchSymbolAnnValidateBeforeCall(@javax.annotation.Nonnull AppApiRestV1AnnSchemaANNFunction appApiRestV1AnnSchemaANNFunction, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'appApiRestV1AnnSchemaANNFunction' is set
-        if (appApiRestV1AnnSchemaANNFunction == null) {
-            throw new ApiException("Missing the required parameter 'appApiRestV1AnnSchemaANNFunction' when calling batchSymbolAnn(Async)");
-        }
-
-        return batchSymbolAnnCall(appApiRestV1AnnSchemaANNFunction, _callback);
-
-    }
-
-    /**
-     * Batch Symbol ANN using function IDs
-     * Takes in an input of functions ID&#39;s and settings and finds the nearest functions for each function that&#39;s within the database
-     * @param appApiRestV1AnnSchemaANNFunction  (required)
-     * @return FunctionBatchAnn
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-     </table>
-     */
-    public FunctionBatchAnn batchSymbolAnn(@javax.annotation.Nonnull AppApiRestV1AnnSchemaANNFunction appApiRestV1AnnSchemaANNFunction) throws ApiException {
-        ApiResponse<FunctionBatchAnn> localVarResp = batchSymbolAnnWithHttpInfo(appApiRestV1AnnSchemaANNFunction);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Batch Symbol ANN using function IDs
-     * Takes in an input of functions ID&#39;s and settings and finds the nearest functions for each function that&#39;s within the database
-     * @param appApiRestV1AnnSchemaANNFunction  (required)
-     * @return ApiResponse&lt;FunctionBatchAnn&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<FunctionBatchAnn> batchSymbolAnnWithHttpInfo(@javax.annotation.Nonnull AppApiRestV1AnnSchemaANNFunction appApiRestV1AnnSchemaANNFunction) throws ApiException {
-        okhttp3.Call localVarCall = batchSymbolAnnValidateBeforeCall(appApiRestV1AnnSchemaANNFunction, null);
-        Type localVarReturnType = new TypeToken<FunctionBatchAnn>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Batch Symbol ANN using function IDs (asynchronously)
-     * Takes in an input of functions ID&#39;s and settings and finds the nearest functions for each function that&#39;s within the database
-     * @param appApiRestV1AnnSchemaANNFunction  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call batchSymbolAnnAsync(@javax.annotation.Nonnull AppApiRestV1AnnSchemaANNFunction appApiRestV1AnnSchemaANNFunction, final ApiCallback<FunctionBatchAnn> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = batchSymbolAnnValidateBeforeCall(appApiRestV1AnnSchemaANNFunction, _callback);
-        Type localVarReturnType = new TypeToken<FunctionBatchAnn>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
     /**
      * Build call for createAnalysis
      * @param analysisCreateRequest  (required)
@@ -513,7 +380,7 @@ public class AnalysesCoreApi {
     /**
      * Build call for findSimilarFunctionsBatch
      * @param analysisId  (required)
-     * @param appApiRestV2SimilaritySchemaANNFunction  (required)
+     * @param anNFunction  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -525,7 +392,7 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call findSimilarFunctionsBatchCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AppApiRestV2SimilaritySchemaANNFunction appApiRestV2SimilaritySchemaANNFunction, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call findSimilarFunctionsBatchCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull ANNFunction anNFunction, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -539,7 +406,7 @@ public class AnalysesCoreApi {
             basePath = null;
         }
 
-        Object localVarPostBody = appApiRestV2SimilaritySchemaANNFunction;
+        Object localVarPostBody = anNFunction;
 
         // create path and map variables
         String localVarPath = "/v2/analyses/{analysis_id}/similarity/functions"
@@ -572,18 +439,18 @@ public class AnalysesCoreApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call findSimilarFunctionsBatchValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AppApiRestV2SimilaritySchemaANNFunction appApiRestV2SimilaritySchemaANNFunction, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call findSimilarFunctionsBatchValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull ANNFunction anNFunction, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling findSimilarFunctionsBatch(Async)");
         }
 
-        // verify the required parameter 'appApiRestV2SimilaritySchemaANNFunction' is set
-        if (appApiRestV2SimilaritySchemaANNFunction == null) {
-            throw new ApiException("Missing the required parameter 'appApiRestV2SimilaritySchemaANNFunction' when calling findSimilarFunctionsBatch(Async)");
+        // verify the required parameter 'anNFunction' is set
+        if (anNFunction == null) {
+            throw new ApiException("Missing the required parameter 'anNFunction' when calling findSimilarFunctionsBatch(Async)");
         }
 
-        return findSimilarFunctionsBatchCall(analysisId, appApiRestV2SimilaritySchemaANNFunction, _callback);
+        return findSimilarFunctionsBatchCall(analysisId, anNFunction, _callback);
 
     }
 
@@ -591,7 +458,7 @@ public class AnalysesCoreApi {
      * Batch Symbol ANN using Analysis ID
      * Takes a analysis ID and returns the nearest functions within the database that match those functions
      * @param analysisId  (required)
-     * @param appApiRestV2SimilaritySchemaANNFunction  (required)
+     * @param anNFunction  (required)
      * @return BaseResponseNearestNeighborAnalysis
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -602,8 +469,8 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseNearestNeighborAnalysis findSimilarFunctionsBatch(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AppApiRestV2SimilaritySchemaANNFunction appApiRestV2SimilaritySchemaANNFunction) throws ApiException {
-        ApiResponse<BaseResponseNearestNeighborAnalysis> localVarResp = findSimilarFunctionsBatchWithHttpInfo(analysisId, appApiRestV2SimilaritySchemaANNFunction);
+    public BaseResponseNearestNeighborAnalysis findSimilarFunctionsBatch(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull ANNFunction anNFunction) throws ApiException {
+        ApiResponse<BaseResponseNearestNeighborAnalysis> localVarResp = findSimilarFunctionsBatchWithHttpInfo(analysisId, anNFunction);
         return localVarResp.getData();
     }
 
@@ -611,7 +478,7 @@ public class AnalysesCoreApi {
      * Batch Symbol ANN using Analysis ID
      * Takes a analysis ID and returns the nearest functions within the database that match those functions
      * @param analysisId  (required)
-     * @param appApiRestV2SimilaritySchemaANNFunction  (required)
+     * @param anNFunction  (required)
      * @return ApiResponse&lt;BaseResponseNearestNeighborAnalysis&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -622,8 +489,8 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseNearestNeighborAnalysis> findSimilarFunctionsBatchWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AppApiRestV2SimilaritySchemaANNFunction appApiRestV2SimilaritySchemaANNFunction) throws ApiException {
-        okhttp3.Call localVarCall = findSimilarFunctionsBatchValidateBeforeCall(analysisId, appApiRestV2SimilaritySchemaANNFunction, null);
+    public ApiResponse<BaseResponseNearestNeighborAnalysis> findSimilarFunctionsBatchWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull ANNFunction anNFunction) throws ApiException {
+        okhttp3.Call localVarCall = findSimilarFunctionsBatchValidateBeforeCall(analysisId, anNFunction, null);
         Type localVarReturnType = new TypeToken<BaseResponseNearestNeighborAnalysis>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -632,7 +499,7 @@ public class AnalysesCoreApi {
      * Batch Symbol ANN using Analysis ID (asynchronously)
      * Takes a analysis ID and returns the nearest functions within the database that match those functions
      * @param analysisId  (required)
-     * @param appApiRestV2SimilaritySchemaANNFunction  (required)
+     * @param anNFunction  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -644,9 +511,9 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call findSimilarFunctionsBatchAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AppApiRestV2SimilaritySchemaANNFunction appApiRestV2SimilaritySchemaANNFunction, final ApiCallback<BaseResponseNearestNeighborAnalysis> _callback) throws ApiException {
+    public okhttp3.Call findSimilarFunctionsBatchAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull ANNFunction anNFunction, final ApiCallback<BaseResponseNearestNeighborAnalysis> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = findSimilarFunctionsBatchValidateBeforeCall(analysisId, appApiRestV2SimilaritySchemaANNFunction, _callback);
+        okhttp3.Call localVarCall = findSimilarFunctionsBatchValidateBeforeCall(analysisId, anNFunction, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseNearestNeighborAnalysis>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

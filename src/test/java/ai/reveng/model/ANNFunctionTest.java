@@ -27,17 +27,17 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for AppApiRestV2SimilaritySchemaANNFunction
+ * Model tests for ANNFunction
  */
-public class AppApiRestV2SimilaritySchemaANNFunctionTest {
-    private final AppApiRestV2SimilaritySchemaANNFunction model = new AppApiRestV2SimilaritySchemaANNFunction();
+public class ANNFunctionTest {
+    private final ANNFunction model = new ANNFunction();
 
     /**
-     * Model tests for AppApiRestV2SimilaritySchemaANNFunction
+     * Model tests for ANNFunction
      */
     @Test
-    public void testAppApiRestV2SimilaritySchemaANNFunction() {
-        // TODO: test AppApiRestV2SimilaritySchemaANNFunction
+    public void testANNFunction() {
+        // TODO: test ANNFunction
     }
 
     /**

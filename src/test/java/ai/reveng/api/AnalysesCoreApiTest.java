@@ -13,12 +13,11 @@
 package ai.reveng.api;
 
 import ai.reveng.invoker.ApiException;
+import ai.reveng.model.ANNFunction;
 import ai.reveng.model.AnalysisCreateRequest;
 import ai.reveng.model.AnalysisUpdateRequest;
 import ai.reveng.model.AnalysisUpdateTagsRequest;
-import ai.reveng.model.AppApiRestV1AnnSchemaANNFunction;
 import ai.reveng.model.AppApiRestV2AnalysesEnumsOrderBy;
-import ai.reveng.model.AppApiRestV2SimilaritySchemaANNFunction;
 import ai.reveng.model.BaseResponse;
 import ai.reveng.model.BaseResponseAnalysisCreateResponse;
 import ai.reveng.model.BaseResponseAnalysisDetailResponse;
@@ -37,7 +36,6 @@ import ai.reveng.model.BaseResponseUploadResponse;
 import ai.reveng.model.BinaryAnnForm;
 import ai.reveng.model.DynamicExecutionStatusInput;
 import java.io.File;
-import ai.reveng.model.FunctionBatchAnn;
 import ai.reveng.model.ModelName;
 import ai.reveng.model.Order;
 import ai.reveng.model.ReAnalysisForm;
@@ -59,20 +57,6 @@ import java.util.Map;
 public class AnalysesCoreApiTest {
 
     private final AnalysesCoreApi api = new AnalysesCoreApi();
-
-    /**
-     * Batch Symbol ANN using function IDs
-     *
-     * Takes in an input of functions ID&#39;s and settings and finds the nearest functions for each function that&#39;s within the database
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void batchSymbolAnnTest() throws ApiException {
-        AppApiRestV1AnnSchemaANNFunction appApiRestV1AnnSchemaANNFunction = null;
-        FunctionBatchAnn response = api.batchSymbolAnn(appApiRestV1AnnSchemaANNFunction);
-        // TODO: test validations
-    }
 
     /**
      * Create Analysis
@@ -112,8 +96,8 @@ public class AnalysesCoreApiTest {
     @Test
     public void findSimilarFunctionsBatchTest() throws ApiException {
         Integer analysisId = null;
-        AppApiRestV2SimilaritySchemaANNFunction appApiRestV2SimilaritySchemaANNFunction = null;
-        BaseResponseNearestNeighborAnalysis response = api.findSimilarFunctionsBatch(analysisId, appApiRestV2SimilaritySchemaANNFunction);
+        ANNFunction anNFunction = null;
+        BaseResponseNearestNeighborAnalysis response = api.findSimilarFunctionsBatch(analysisId, anNFunction);
         // TODO: test validations
     }
 

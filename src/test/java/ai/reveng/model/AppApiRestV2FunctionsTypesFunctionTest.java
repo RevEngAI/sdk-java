@@ -56,6 +56,14 @@ public class AppApiRestV2FunctionsTypesFunctionTest {
     }
 
     /**
+     * Test the property 'functionMangledName'
+     */
+    @Test
+    public void functionMangledNameTest() {
+        // TODO: test functionMangledName
+    }
+
+    /**
      * Test the property 'functionVaddr'
      */
     @Test

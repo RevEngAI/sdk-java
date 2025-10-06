@@ -51,10 +51,10 @@ import java.util.Locale;
 import ai.reveng.invoker.JSON;
 
 /**
- * AppApiRestV2SimilaritySchemaANNFunction
+ * ANNFunction
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class AppApiRestV2SimilaritySchemaANNFunction {
+public class ANNFunction {
   public static final String SERIALIZED_NAME_LIMIT = "limit";
   @SerializedName(SERIALIZED_NAME_LIMIT)
   @javax.annotation.Nullable
@@ -90,10 +90,10 @@ public class AppApiRestV2SimilaritySchemaANNFunction {
   @javax.annotation.Nullable
   private Boolean debugOnly = false;
 
-  public AppApiRestV2SimilaritySchemaANNFunction() {
+  public ANNFunction() {
   }
 
-  public AppApiRestV2SimilaritySchemaANNFunction limit(@javax.annotation.Nullable Integer limit) {
+  public ANNFunction limit(@javax.annotation.Nullable Integer limit) {
     this.limit = limit;
     return this;
   }
@@ -112,7 +112,7 @@ public class AppApiRestV2SimilaritySchemaANNFunction {
   }
 
 
-  public AppApiRestV2SimilaritySchemaANNFunction distance(@javax.annotation.Nullable BigDecimal distance) {
+  public ANNFunction distance(@javax.annotation.Nullable BigDecimal distance) {
     this.distance = distance;
     return this;
   }
@@ -131,12 +131,12 @@ public class AppApiRestV2SimilaritySchemaANNFunction {
   }
 
 
-  public AppApiRestV2SimilaritySchemaANNFunction analysisSearchIds(@javax.annotation.Nullable List<Integer> analysisSearchIds) {
+  public ANNFunction analysisSearchIds(@javax.annotation.Nullable List<Integer> analysisSearchIds) {
     this.analysisSearchIds = analysisSearchIds;
     return this;
   }
 
-  public AppApiRestV2SimilaritySchemaANNFunction addAnalysisSearchIdsItem(Integer analysisSearchIdsItem) {
+  public ANNFunction addAnalysisSearchIdsItem(Integer analysisSearchIdsItem) {
     if (this.analysisSearchIds == null) {
       this.analysisSearchIds = new ArrayList<>();
     }
@@ -158,12 +158,12 @@ public class AppApiRestV2SimilaritySchemaANNFunction {
   }
 
 
-  public AppApiRestV2SimilaritySchemaANNFunction collectionSearchIds(@javax.annotation.Nullable List<Integer> collectionSearchIds) {
+  public ANNFunction collectionSearchIds(@javax.annotation.Nullable List<Integer> collectionSearchIds) {
     this.collectionSearchIds = collectionSearchIds;
     return this;
   }
 
-  public AppApiRestV2SimilaritySchemaANNFunction addCollectionSearchIdsItem(Integer collectionSearchIdsItem) {
+  public ANNFunction addCollectionSearchIdsItem(Integer collectionSearchIdsItem) {
     if (this.collectionSearchIds == null) {
       this.collectionSearchIds = new ArrayList<>();
     }
@@ -185,12 +185,12 @@ public class AppApiRestV2SimilaritySchemaANNFunction {
   }
 
 
-  public AppApiRestV2SimilaritySchemaANNFunction searchBinaryIds(@javax.annotation.Nullable List<Integer> searchBinaryIds) {
+  public ANNFunction searchBinaryIds(@javax.annotation.Nullable List<Integer> searchBinaryIds) {
     this.searchBinaryIds = searchBinaryIds;
     return this;
   }
 
-  public AppApiRestV2SimilaritySchemaANNFunction addSearchBinaryIdsItem(Integer searchBinaryIdsItem) {
+  public ANNFunction addSearchBinaryIdsItem(Integer searchBinaryIdsItem) {
     if (this.searchBinaryIds == null) {
       this.searchBinaryIds = new ArrayList<>();
     }
@@ -212,12 +212,12 @@ public class AppApiRestV2SimilaritySchemaANNFunction {
   }
 
 
-  public AppApiRestV2SimilaritySchemaANNFunction searchFunctionIds(@javax.annotation.Nullable List<Integer> searchFunctionIds) {
+  public ANNFunction searchFunctionIds(@javax.annotation.Nullable List<Integer> searchFunctionIds) {
     this.searchFunctionIds = searchFunctionIds;
     return this;
   }
 
-  public AppApiRestV2SimilaritySchemaANNFunction addSearchFunctionIdsItem(Integer searchFunctionIdsItem) {
+  public ANNFunction addSearchFunctionIdsItem(Integer searchFunctionIdsItem) {
     if (this.searchFunctionIds == null) {
       this.searchFunctionIds = new ArrayList<>();
     }
@@ -239,7 +239,7 @@ public class AppApiRestV2SimilaritySchemaANNFunction {
   }
 
 
-  public AppApiRestV2SimilaritySchemaANNFunction debugOnly(@javax.annotation.Nullable Boolean debugOnly) {
+  public ANNFunction debugOnly(@javax.annotation.Nullable Boolean debugOnly) {
     this.debugOnly = debugOnly;
     return this;
   }
@@ -270,9 +270,9 @@ public class AppApiRestV2SimilaritySchemaANNFunction {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the AppApiRestV2SimilaritySchemaANNFunction instance itself
+   * @return the ANNFunction instance itself
    */
-  public AppApiRestV2SimilaritySchemaANNFunction putAdditionalProperty(String key, Object value) {
+  public ANNFunction putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -311,15 +311,15 @@ public class AppApiRestV2SimilaritySchemaANNFunction {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AppApiRestV2SimilaritySchemaANNFunction appApiRestV2SimilaritySchemaANNFunction = (AppApiRestV2SimilaritySchemaANNFunction) o;
-    return Objects.equals(this.limit, appApiRestV2SimilaritySchemaANNFunction.limit) &&
-        Objects.equals(this.distance, appApiRestV2SimilaritySchemaANNFunction.distance) &&
-        Objects.equals(this.analysisSearchIds, appApiRestV2SimilaritySchemaANNFunction.analysisSearchIds) &&
-        Objects.equals(this.collectionSearchIds, appApiRestV2SimilaritySchemaANNFunction.collectionSearchIds) &&
-        Objects.equals(this.searchBinaryIds, appApiRestV2SimilaritySchemaANNFunction.searchBinaryIds) &&
-        Objects.equals(this.searchFunctionIds, appApiRestV2SimilaritySchemaANNFunction.searchFunctionIds) &&
-        Objects.equals(this.debugOnly, appApiRestV2SimilaritySchemaANNFunction.debugOnly)&&
-        Objects.equals(this.additionalProperties, appApiRestV2SimilaritySchemaANNFunction.additionalProperties);
+    ANNFunction anNFunction = (ANNFunction) o;
+    return Objects.equals(this.limit, anNFunction.limit) &&
+        Objects.equals(this.distance, anNFunction.distance) &&
+        Objects.equals(this.analysisSearchIds, anNFunction.analysisSearchIds) &&
+        Objects.equals(this.collectionSearchIds, anNFunction.collectionSearchIds) &&
+        Objects.equals(this.searchBinaryIds, anNFunction.searchBinaryIds) &&
+        Objects.equals(this.searchFunctionIds, anNFunction.searchFunctionIds) &&
+        Objects.equals(this.debugOnly, anNFunction.debugOnly)&&
+        Objects.equals(this.additionalProperties, anNFunction.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -341,7 +341,7 @@ public class AppApiRestV2SimilaritySchemaANNFunction {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AppApiRestV2SimilaritySchemaANNFunction {\n");
+    sb.append("class ANNFunction {\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    distance: ").append(toIndentedString(distance)).append("\n");
     sb.append("    analysisSearchIds: ").append(toIndentedString(analysisSearchIds)).append("\n");
@@ -381,12 +381,12 @@ public class AppApiRestV2SimilaritySchemaANNFunction {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to AppApiRestV2SimilaritySchemaANNFunction
+   * @throws IOException if the JSON Element is invalid with respect to ANNFunction
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!AppApiRestV2SimilaritySchemaANNFunction.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in AppApiRestV2SimilaritySchemaANNFunction is not found in the empty JSON string", AppApiRestV2SimilaritySchemaANNFunction.openapiRequiredFields.toString()));
+        if (!ANNFunction.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in ANNFunction is not found in the empty JSON string", ANNFunction.openapiRequiredFields.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -412,16 +412,16 @@ public class AppApiRestV2SimilaritySchemaANNFunction {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!AppApiRestV2SimilaritySchemaANNFunction.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'AppApiRestV2SimilaritySchemaANNFunction' and its subtypes
+       if (!ANNFunction.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ANNFunction' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<AppApiRestV2SimilaritySchemaANNFunction> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(AppApiRestV2SimilaritySchemaANNFunction.class));
+       final TypeAdapter<ANNFunction> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ANNFunction.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<AppApiRestV2SimilaritySchemaANNFunction>() {
+       return (TypeAdapter<T>) new TypeAdapter<ANNFunction>() {
            @Override
-           public void write(JsonWriter out, AppApiRestV2SimilaritySchemaANNFunction value) throws IOException {
+           public void write(JsonWriter out, ANNFunction value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -449,12 +449,12 @@ public class AppApiRestV2SimilaritySchemaANNFunction {
            }
 
            @Override
-           public AppApiRestV2SimilaritySchemaANNFunction read(JsonReader in) throws IOException {
+           public ANNFunction read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             AppApiRestV2SimilaritySchemaANNFunction instance = thisAdapter.fromJsonTree(jsonObj);
+             ANNFunction instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -481,18 +481,18 @@ public class AppApiRestV2SimilaritySchemaANNFunction {
   }
 
   /**
-   * Create an instance of AppApiRestV2SimilaritySchemaANNFunction given an JSON string
+   * Create an instance of ANNFunction given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of AppApiRestV2SimilaritySchemaANNFunction
-   * @throws IOException if the JSON string is invalid with respect to AppApiRestV2SimilaritySchemaANNFunction
+   * @return An instance of ANNFunction
+   * @throws IOException if the JSON string is invalid with respect to ANNFunction
    */
-  public static AppApiRestV2SimilaritySchemaANNFunction fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, AppApiRestV2SimilaritySchemaANNFunction.class);
+  public static ANNFunction fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ANNFunction.class);
   }
 
   /**
-   * Convert an instance of AppApiRestV2SimilaritySchemaANNFunction to an JSON string
+   * Convert an instance of ANNFunction to an JSON string
    *
    * @return JSON string
    */

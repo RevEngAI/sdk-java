@@ -64,6 +64,11 @@ public class AppApiRestV2FunctionsTypesFunction {
   @javax.annotation.Nonnull
   private String functionName;
 
+  public static final String SERIALIZED_NAME_FUNCTION_MANGLED_NAME = "function_mangled_name";
+  @SerializedName(SERIALIZED_NAME_FUNCTION_MANGLED_NAME)
+  @javax.annotation.Nonnull
+  private String functionMangledName;
+
   public static final String SERIALIZED_NAME_FUNCTION_VADDR = "function_vaddr";
   @SerializedName(SERIALIZED_NAME_FUNCTION_VADDR)
   @javax.annotation.Nonnull
@@ -117,7 +122,7 @@ public class AppApiRestV2FunctionsTypesFunction {
   }
 
   /**
-   * Function name
+   * Demangled name of the function
    * @return functionName
    */
   @javax.annotation.Nonnull
@@ -127,6 +132,25 @@ public class AppApiRestV2FunctionsTypesFunction {
 
   public void setFunctionName(@javax.annotation.Nonnull String functionName) {
     this.functionName = functionName;
+  }
+
+
+  public AppApiRestV2FunctionsTypesFunction functionMangledName(@javax.annotation.Nonnull String functionMangledName) {
+    this.functionMangledName = functionMangledName;
+    return this;
+  }
+
+  /**
+   * Mangled name of the function
+   * @return functionMangledName
+   */
+  @javax.annotation.Nonnull
+  public String getFunctionMangledName() {
+    return functionMangledName;
+  }
+
+  public void setFunctionMangledName(@javax.annotation.Nonnull String functionMangledName) {
+    this.functionMangledName = functionMangledName;
   }
 
 
@@ -253,6 +277,7 @@ public class AppApiRestV2FunctionsTypesFunction {
     AppApiRestV2FunctionsTypesFunction appApiRestV2FunctionsTypesFunction = (AppApiRestV2FunctionsTypesFunction) o;
     return Objects.equals(this.functionId, appApiRestV2FunctionsTypesFunction.functionId) &&
         Objects.equals(this.functionName, appApiRestV2FunctionsTypesFunction.functionName) &&
+        Objects.equals(this.functionMangledName, appApiRestV2FunctionsTypesFunction.functionMangledName) &&
         Objects.equals(this.functionVaddr, appApiRestV2FunctionsTypesFunction.functionVaddr) &&
         Objects.equals(this.functionSize, appApiRestV2FunctionsTypesFunction.functionSize) &&
         Objects.equals(this.debug, appApiRestV2FunctionsTypesFunction.debug) &&
@@ -262,7 +287,7 @@ public class AppApiRestV2FunctionsTypesFunction {
 
   @Override
   public int hashCode() {
-    return Objects.hash(functionId, functionName, functionVaddr, functionSize, debug, embedding3d, embedding1d);
+    return Objects.hash(functionId, functionName, functionMangledName, functionVaddr, functionSize, debug, embedding3d, embedding1d);
   }
 
   @Override
@@ -271,6 +296,7 @@ public class AppApiRestV2FunctionsTypesFunction {
     sb.append("class AppApiRestV2FunctionsTypesFunction {\n");
     sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
     sb.append("    functionName: ").append(toIndentedString(functionName)).append("\n");
+    sb.append("    functionMangledName: ").append(toIndentedString(functionMangledName)).append("\n");
     sb.append("    functionVaddr: ").append(toIndentedString(functionVaddr)).append("\n");
     sb.append("    functionSize: ").append(toIndentedString(functionSize)).append("\n");
     sb.append("    debug: ").append(toIndentedString(debug)).append("\n");
@@ -297,10 +323,10 @@ public class AppApiRestV2FunctionsTypesFunction {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("function_id", "function_name", "function_vaddr", "function_size", "debug", "embedding_3d", "embedding_1d"));
+    openapiFields = new HashSet<String>(Arrays.asList("function_id", "function_name", "function_mangled_name", "function_vaddr", "function_size", "debug", "embedding_3d", "embedding_1d"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("function_id", "function_name", "function_vaddr", "function_size", "debug", "embedding_3d", "embedding_1d"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("function_id", "function_name", "function_mangled_name", "function_vaddr", "function_size", "debug", "embedding_3d", "embedding_1d"));
   }
 
   /**
@@ -333,6 +359,9 @@ public class AppApiRestV2FunctionsTypesFunction {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("function_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `function_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("function_name").toString()));
+      }
+      if (!jsonObj.get("function_mangled_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `function_mangled_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("function_mangled_name").toString()));
       }
       // ensure the required json array is present
       if (jsonObj.get("embedding_3d") == null) {

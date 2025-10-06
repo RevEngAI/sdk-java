@@ -1,6 +1,6 @@
 
 
-# AppApiRestV2SimilaritySchemaANNFunction
+# ANNFunction
 
 
 ## Properties

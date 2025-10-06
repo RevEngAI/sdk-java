@@ -8,7 +8,8 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**functionId** | **Integer** | Function id |  |
-|**functionName** | **String** | Function name |  |
+|**functionName** | **String** | Demangled name of the function |  |
+|**functionMangledName** | **String** | Mangled name of the function |  |
 |**functionVaddr** | **Integer** | Function virtual address |  |
 |**functionSize** | **Integer** | Function size |  |
 |**debug** | **Boolean** | Whether the function is debug |  |
