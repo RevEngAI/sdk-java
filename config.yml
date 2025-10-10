@@ -18,4 +18,4 @@ library: okhttp-gson
 # Do not include timestamps in the generated files to avoid unnecessary diffs
 hideGenerationTimestamp: true
 # Allow unknown properties to avoid breaking when the API adds new fields, and we haven't updated the SDK yet
-failOnUnknownProperties: false
+disallowAdditionalPropertiesIfNotPresent: false
