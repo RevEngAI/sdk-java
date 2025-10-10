@@ -8,7 +8,7 @@ Function schema used in function strings response.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**functionId** | **Integer** |  |  |
+|**functionId** | **Integer** |  |  [optional] |
 |**functionVaddr** | **Long** | Function virtual address |  |
 
 

@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -53,7 +54,7 @@ import ai.reveng.invoker.JSON;
 public class AppApiRestV2FunctionsResponsesFunction {
   public static final String SERIALIZED_NAME_FUNCTION_ID = "function_id";
   @SerializedName(SERIALIZED_NAME_FUNCTION_ID)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private Integer functionId;
 
   public static final String SERIALIZED_NAME_FUNCTION_VADDR = "function_vaddr";
@@ -64,7 +65,7 @@ public class AppApiRestV2FunctionsResponsesFunction {
   public AppApiRestV2FunctionsResponsesFunction() {
   }
 
-  public AppApiRestV2FunctionsResponsesFunction functionId(@javax.annotation.Nonnull Integer functionId) {
+  public AppApiRestV2FunctionsResponsesFunction functionId(@javax.annotation.Nullable Integer functionId) {
     this.functionId = functionId;
     return this;
   }
@@ -73,12 +74,12 @@ public class AppApiRestV2FunctionsResponsesFunction {
    * Get functionId
    * @return functionId
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public Integer getFunctionId() {
     return functionId;
   }
 
-  public void setFunctionId(@javax.annotation.Nonnull Integer functionId) {
+  public void setFunctionId(@javax.annotation.Nullable Integer functionId) {
     this.functionId = functionId;
   }
 
@@ -116,9 +117,20 @@ public class AppApiRestV2FunctionsResponsesFunction {
         Objects.equals(this.functionVaddr, appApiRestV2FunctionsResponsesFunction.functionVaddr);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
     return Objects.hash(functionId, functionVaddr);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -151,7 +163,7 @@ public class AppApiRestV2FunctionsResponsesFunction {
     openapiFields = new HashSet<String>(Arrays.asList("function_id", "function_vaddr"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("function_id", "function_vaddr"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("function_vaddr"));
   }
 
   /**
