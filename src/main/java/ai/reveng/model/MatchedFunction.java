@@ -75,7 +75,7 @@ public class MatchedFunction {
 
   public static final String SERIALIZED_NAME_MANGLED_NAME = "mangled_name";
   @SerializedName(SERIALIZED_NAME_MANGLED_NAME)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String mangledName;
 
   public static final String SERIALIZED_NAME_DEBUG = "debug";
@@ -187,7 +187,7 @@ public class MatchedFunction {
   }
 
 
-  public MatchedFunction mangledName(@javax.annotation.Nullable String mangledName) {
+  public MatchedFunction mangledName(@javax.annotation.Nonnull String mangledName) {
     this.mangledName = mangledName;
     return this;
   }
@@ -196,12 +196,12 @@ public class MatchedFunction {
    * Get mangledName
    * @return mangledName
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getMangledName() {
     return mangledName;
   }
 
-  public void setMangledName(@javax.annotation.Nullable String mangledName) {
+  public void setMangledName(@javax.annotation.Nonnull String mangledName) {
     this.mangledName = mangledName;
   }
 
@@ -432,7 +432,7 @@ public class MatchedFunction {
       if (!jsonObj.get("function_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `function_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("function_name").toString()));
       }
-      if ((jsonObj.get("mangled_name") != null && !jsonObj.get("mangled_name").isJsonNull()) && !jsonObj.get("mangled_name").isJsonPrimitive()) {
+      if (!jsonObj.get("mangled_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `mangled_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mangled_name").toString()));
       }
       if (!jsonObj.get("binary_name").isJsonPrimitive()) {

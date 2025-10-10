@@ -104,7 +104,7 @@ public class AnalysesCoreApiTest {
     /**
      * Gets basic analysis information
      *
-     * Just a random placeholder for now
+     * Returns basic analysis information for an analysis
      *
      * @throws ApiException if the Api call fails
      */

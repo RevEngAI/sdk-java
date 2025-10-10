@@ -590,7 +590,7 @@ public class AnalysesCoreApi {
 
     /**
      * Gets basic analysis information
-     * Just a random placeholder for now
+     * Returns basic analysis information for an analysis
      * @param analysisId  (required)
      * @return BaseResponseBasic
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -609,7 +609,7 @@ public class AnalysesCoreApi {
 
     /**
      * Gets basic analysis information
-     * Just a random placeholder for now
+     * Returns basic analysis information for an analysis
      * @param analysisId  (required)
      * @return ApiResponse&lt;BaseResponseBasic&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -629,7 +629,7 @@ public class AnalysesCoreApi {
 
     /**
      * Gets basic analysis information (asynchronously)
-     * Just a random placeholder for now
+     * Returns basic analysis information for an analysis
      * @param analysisId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
