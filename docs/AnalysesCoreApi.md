@@ -243,7 +243,7 @@ public class Example {
 
 Gets basic analysis information
 
-Just a random placeholder for now
+Returns basic analysis information for an analysis
 
 ### Example
 ```java
