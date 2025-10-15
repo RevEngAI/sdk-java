@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**address** | **Integer** |  |  |
-|**type** | **Integer** |  |  |
+|**type** | **String** |  |  |
 |**size** | **Integer** |  |  |
 |**addend** | **Integer** |  |  |
 |**symbolName** | **String** |  |  |

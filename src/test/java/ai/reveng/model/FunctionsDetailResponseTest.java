@@ -113,6 +113,14 @@ public class FunctionsDetailResponseTest {
     }
 
     /**
+     * Test the property 'debug'
+     */
+    @Test
+    public void debugTest() {
+        // TODO: test debug
+    }
+
+    /**
      * Test the property 'embedding3d'
      */
     @Test

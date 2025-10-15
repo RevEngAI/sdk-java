@@ -24,8 +24,6 @@ import ai.reveng.model.BaseResponseFunctionBlocksResponse;
 import ai.reveng.model.BaseResponseFunctionCapabilityResponse;
 import ai.reveng.model.BaseResponseFunctionStringsResponse;
 import ai.reveng.model.BaseResponseFunctionsDetailResponse;
-import ai.reveng.model.BaseResponseListSimilarFunctionsResponse;
-import java.math.BigDecimal;
 import ai.reveng.model.FunctionMatchingBatchResponse;
 import ai.reveng.model.FunctionMatchingRequest;
 import org.junit.jupiter.api.Disabled;
@@ -213,24 +211,6 @@ public class FunctionsCoreApiTest {
         Integer pageSize = null;
         String search = null;
         BaseResponseFunctionStringsResponse response = api.getFunctionStrings(functionId, page, pageSize, search);
-        // TODO: test validations
-    }
-
-    /**
-     * Get list of similar functions
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getSimilarFunctionsTest() throws ApiException {
-        Integer functionId = null;
-        Integer limit = null;
-        BigDecimal distance = null;
-        List<Integer> collectionIds = null;
-        Boolean debug = null;
-        List<String> debugTypes = null;
-        List<Integer> binaryIds = null;
-        BaseResponseListSimilarFunctionsResponse response = api.getSimilarFunctions(functionId, limit, distance, collectionIds, debug, debugTypes, binaryIds);
         // TODO: test validations
     }
 
