@@ -26,7 +26,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import ai.reveng.model.ANNFunction;
 import ai.reveng.model.AnalysisCreateRequest;
 import ai.reveng.model.AnalysisUpdateRequest;
 import ai.reveng.model.AnalysisUpdateTagsRequest;
@@ -41,7 +40,6 @@ import ai.reveng.model.BaseResponseBinaryAnnListResponse;
 import ai.reveng.model.BaseResponseCreated;
 import ai.reveng.model.BaseResponseDict;
 import ai.reveng.model.BaseResponseLogs;
-import ai.reveng.model.BaseResponseNearestNeighborAnalysis;
 import ai.reveng.model.BaseResponseParams;
 import ai.reveng.model.BaseResponseRecent;
 import ai.reveng.model.BaseResponseStatus;
@@ -374,147 +372,6 @@ public class AnalysesCoreApi {
 
         okhttp3.Call localVarCall = deleteAnalysisValidateBeforeCall(analysisId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseDict>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for findSimilarFunctionsBatch
-     * @param analysisId  (required)
-     * @param anNFunction  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call findSimilarFunctionsBatchCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull ANNFunction anNFunction, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = anNFunction;
-
-        // create path and map variables
-        String localVarPath = "/v2/analyses/{analysis_id}/similarity/functions"
-            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "APIKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call findSimilarFunctionsBatchValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull ANNFunction anNFunction, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'analysisId' is set
-        if (analysisId == null) {
-            throw new ApiException("Missing the required parameter 'analysisId' when calling findSimilarFunctionsBatch(Async)");
-        }
-
-        // verify the required parameter 'anNFunction' is set
-        if (anNFunction == null) {
-            throw new ApiException("Missing the required parameter 'anNFunction' when calling findSimilarFunctionsBatch(Async)");
-        }
-
-        return findSimilarFunctionsBatchCall(analysisId, anNFunction, _callback);
-
-    }
-
-    /**
-     * Batch Symbol ANN using Analysis ID
-     * Takes a analysis ID and returns the nearest functions within the database that match those functions
-     * @param analysisId  (required)
-     * @param anNFunction  (required)
-     * @return BaseResponseNearestNeighborAnalysis
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-     </table>
-     */
-    public BaseResponseNearestNeighborAnalysis findSimilarFunctionsBatch(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull ANNFunction anNFunction) throws ApiException {
-        ApiResponse<BaseResponseNearestNeighborAnalysis> localVarResp = findSimilarFunctionsBatchWithHttpInfo(analysisId, anNFunction);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Batch Symbol ANN using Analysis ID
-     * Takes a analysis ID and returns the nearest functions within the database that match those functions
-     * @param analysisId  (required)
-     * @param anNFunction  (required)
-     * @return ApiResponse&lt;BaseResponseNearestNeighborAnalysis&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<BaseResponseNearestNeighborAnalysis> findSimilarFunctionsBatchWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull ANNFunction anNFunction) throws ApiException {
-        okhttp3.Call localVarCall = findSimilarFunctionsBatchValidateBeforeCall(analysisId, anNFunction, null);
-        Type localVarReturnType = new TypeToken<BaseResponseNearestNeighborAnalysis>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Batch Symbol ANN using Analysis ID (asynchronously)
-     * Takes a analysis ID and returns the nearest functions within the database that match those functions
-     * @param analysisId  (required)
-     * @param anNFunction  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call findSimilarFunctionsBatchAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull ANNFunction anNFunction, final ApiCallback<BaseResponseNearestNeighborAnalysis> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = findSimilarFunctionsBatchValidateBeforeCall(analysisId, anNFunction, _callback);
-        Type localVarReturnType = new TypeToken<BaseResponseNearestNeighborAnalysis>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

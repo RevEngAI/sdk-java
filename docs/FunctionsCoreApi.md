@@ -16,7 +16,6 @@ All URIs are relative to *https://api.reveng.ai*
 | [**getFunctionCapabilities**](FunctionsCoreApi.md#getFunctionCapabilities) | **GET** /v2/functions/{function_id}/capabilities | Retrieve a functions capabilities |
 | [**getFunctionDetails**](FunctionsCoreApi.md#getFunctionDetails) | **GET** /v2/functions/{function_id} | Get function details |
 | [**getFunctionStrings**](FunctionsCoreApi.md#getFunctionStrings) | **GET** /v2/functions/{function_id}/strings | Get string information found in the function |
-| [**getSimilarFunctions**](FunctionsCoreApi.md#getSimilarFunctions) | **GET** /v2/functions/{function_id}/similar-functions | Get list of similar functions |
 
 
 <a id="aiUnstrip"></a>
@@ -859,86 +858,6 @@ public class Example {
 ### Return type
 
 [**BaseResponseFunctionStringsResponse**](BaseResponseFunctionStringsResponse.md)
-
-### Authorization
-
-[APIKey](../README.md#APIKey)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successful Response |  -  |
-| **422** | Invalid request parameters |  -  |
-
-<a id="getSimilarFunctions"></a>
-# **getSimilarFunctions**
-> BaseResponseListSimilarFunctionsResponse getSimilarFunctions(functionId, limit, distance, collectionIds, debug, debugTypes, binaryIds)
-
-Get list of similar functions
-
-### Example
-```java
-// Import classes:
-import ai.reveng.invoker.ApiClient;
-import ai.reveng.invoker.ApiException;
-import ai.reveng.invoker.Configuration;
-import ai.reveng.invoker.auth.*;
-import ai.reveng.invoker.models.*;
-import ai.reveng.api.FunctionsCoreApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.reveng.ai");
-    
-    // Configure API key authorization: APIKey
-    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
-    APIKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //APIKey.setApiKeyPrefix("Token");
-
-    FunctionsCoreApi apiInstance = new FunctionsCoreApi(defaultClient);
-    Integer functionId = 56; // Integer | 
-    Integer limit = 20; // Integer | Number of similar functions to return
-    BigDecimal distance = new BigDecimal("1.0"); // BigDecimal | Maximum cosine distance
-    List<Integer> collectionIds = Arrays.asList(); // List<Integer> | Collection filtering by IDs
-    Boolean debug = false; // Boolean | Only return matching debug functions
-    List<String> debugTypes = Arrays.asList(); // List<String> | If limiting results to functions with debug names, which type of debug names to include?
-    List<Integer> binaryIds = Arrays.asList(); // List<Integer> | Limit similar functions to specific binaries
-    try {
-      BaseResponseListSimilarFunctionsResponse result = apiInstance.getSimilarFunctions(functionId, limit, distance, collectionIds, debug, debugTypes, binaryIds);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling FunctionsCoreApi#getSimilarFunctions");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **functionId** | **Integer**|  | |
-| **limit** | **Integer**| Number of similar functions to return | [optional] [default to 20] |
-| **distance** | **BigDecimal**| Maximum cosine distance | [optional] [default to 1.0] |
-| **collectionIds** | [**List&lt;Integer&gt;**](Integer.md)| Collection filtering by IDs | [optional] |
-| **debug** | **Boolean**| Only return matching debug functions | [optional] [default to false] |
-| **debugTypes** | [**List&lt;String&gt;**](String.md)| If limiting results to functions with debug names, which type of debug names to include? | [optional] [enum: USER, SYSTEM, EXTERNAL] |
-| **binaryIds** | [**List&lt;Integer&gt;**](Integer.md)| Limit similar functions to specific binaries | [optional] |
-
-### Return type
-
-[**BaseResponseListSimilarFunctionsResponse**](BaseResponseListSimilarFunctionsResponse.md)
 
 ### Authorization
 

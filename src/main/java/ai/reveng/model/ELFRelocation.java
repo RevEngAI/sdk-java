@@ -59,7 +59,7 @@ public class ELFRelocation {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
   @javax.annotation.Nonnull
-  private Integer type;
+  private String type;
 
   public static final String SERIALIZED_NAME_SIZE = "size";
   @SerializedName(SERIALIZED_NAME_SIZE)
@@ -108,7 +108,7 @@ public class ELFRelocation {
   }
 
 
-  public ELFRelocation type(@javax.annotation.Nonnull Integer type) {
+  public ELFRelocation type(@javax.annotation.Nonnull String type) {
     this.type = type;
     return this;
   }
@@ -118,11 +118,11 @@ public class ELFRelocation {
    * @return type
    */
   @javax.annotation.Nonnull
-  public Integer getType() {
+  public String getType() {
     return type;
   }
 
-  public void setType(@javax.annotation.Nonnull Integer type) {
+  public void setType(@javax.annotation.Nonnull String type) {
     this.type = type;
   }
 
@@ -350,6 +350,9 @@ public class ELFRelocation {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      }
       if (!jsonObj.get("symbol_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `symbol_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("symbol_name").toString()));
       }

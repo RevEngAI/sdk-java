@@ -13,7 +13,6 @@
 package ai.reveng.api;
 
 import ai.reveng.invoker.ApiException;
-import ai.reveng.model.ANNFunction;
 import ai.reveng.model.AnalysisCreateRequest;
 import ai.reveng.model.AnalysisUpdateRequest;
 import ai.reveng.model.AnalysisUpdateTagsRequest;
@@ -28,7 +27,6 @@ import ai.reveng.model.BaseResponseBinaryAnnListResponse;
 import ai.reveng.model.BaseResponseCreated;
 import ai.reveng.model.BaseResponseDict;
 import ai.reveng.model.BaseResponseLogs;
-import ai.reveng.model.BaseResponseNearestNeighborAnalysis;
 import ai.reveng.model.BaseResponseParams;
 import ai.reveng.model.BaseResponseRecent;
 import ai.reveng.model.BaseResponseStatus;
@@ -83,21 +81,6 @@ public class AnalysesCoreApiTest {
     public void deleteAnalysisTest() throws ApiException {
         Integer analysisId = null;
         BaseResponseDict response = api.deleteAnalysis(analysisId);
-        // TODO: test validations
-    }
-
-    /**
-     * Batch Symbol ANN using Analysis ID
-     *
-     * Takes a analysis ID and returns the nearest functions within the database that match those functions
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void findSimilarFunctionsBatchTest() throws ApiException {
-        Integer analysisId = null;
-        ANNFunction anNFunction = null;
-        BaseResponseNearestNeighborAnalysis response = api.findSimilarFunctionsBatch(analysisId, anNFunction);
         // TODO: test validations
     }
 

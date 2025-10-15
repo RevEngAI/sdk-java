@@ -100,6 +100,11 @@ public class FunctionsDetailResponse {
   @javax.annotation.Nullable
   private String debugHash;
 
+  public static final String SERIALIZED_NAME_DEBUG = "debug";
+  @SerializedName(SERIALIZED_NAME_DEBUG)
+  @javax.annotation.Nonnull
+  private Boolean debug;
+
   public static final String SERIALIZED_NAME_EMBEDDING3D = "embedding_3d";
   @SerializedName(SERIALIZED_NAME_EMBEDDING3D)
   @javax.annotation.Nullable
@@ -284,6 +289,25 @@ public class FunctionsDetailResponse {
   }
 
 
+  public FunctionsDetailResponse debug(@javax.annotation.Nonnull Boolean debug) {
+    this.debug = debug;
+    return this;
+  }
+
+  /**
+   * Get debug
+   * @return debug
+   */
+  @javax.annotation.Nonnull
+  public Boolean getDebug() {
+    return debug;
+  }
+
+  public void setDebug(@javax.annotation.Nonnull Boolean debug) {
+    this.debug = debug;
+  }
+
+
   public FunctionsDetailResponse embedding3d(@javax.annotation.Nullable List<BigDecimal> embedding3d) {
     this.embedding3d = embedding3d;
     return this;
@@ -401,6 +425,7 @@ public class FunctionsDetailResponse {
         Objects.equals(this.binaryName, functionsDetailResponse.binaryName) &&
         Objects.equals(this.sha256Hash, functionsDetailResponse.sha256Hash) &&
         Objects.equals(this.debugHash, functionsDetailResponse.debugHash) &&
+        Objects.equals(this.debug, functionsDetailResponse.debug) &&
         Objects.equals(this.embedding3d, functionsDetailResponse.embedding3d) &&
         Objects.equals(this.embedding1d, functionsDetailResponse.embedding1d)&&
         Objects.equals(this.additionalProperties, functionsDetailResponse.additionalProperties);
@@ -412,7 +437,7 @@ public class FunctionsDetailResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(functionId, functionName, functionVaddr, functionSize, analysisId, binaryId, binaryName, sha256Hash, debugHash, embedding3d, embedding1d, additionalProperties);
+    return Objects.hash(functionId, functionName, functionVaddr, functionSize, analysisId, binaryId, binaryName, sha256Hash, debugHash, debug, embedding3d, embedding1d, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -435,6 +460,7 @@ public class FunctionsDetailResponse {
     sb.append("    binaryName: ").append(toIndentedString(binaryName)).append("\n");
     sb.append("    sha256Hash: ").append(toIndentedString(sha256Hash)).append("\n");
     sb.append("    debugHash: ").append(toIndentedString(debugHash)).append("\n");
+    sb.append("    debug: ").append(toIndentedString(debug)).append("\n");
     sb.append("    embedding3d: ").append(toIndentedString(embedding3d)).append("\n");
     sb.append("    embedding1d: ").append(toIndentedString(embedding1d)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -459,10 +485,10 @@ public class FunctionsDetailResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("function_id", "function_name", "function_vaddr", "function_size", "analysis_id", "binary_id", "binary_name", "sha_256_hash", "debug_hash", "embedding_3d", "embedding_1d"));
+    openapiFields = new HashSet<String>(Arrays.asList("function_id", "function_name", "function_vaddr", "function_size", "analysis_id", "binary_id", "binary_name", "sha_256_hash", "debug_hash", "debug", "embedding_3d", "embedding_1d"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("function_id", "function_name", "function_vaddr", "function_size", "analysis_id", "binary_id", "binary_name", "sha_256_hash", "debug_hash"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("function_id", "function_name", "function_vaddr", "function_size", "analysis_id", "binary_id", "binary_name", "sha_256_hash", "debug_hash", "debug"));
   }
 
   /**

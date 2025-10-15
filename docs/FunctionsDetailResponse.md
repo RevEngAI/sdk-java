@@ -16,6 +16,7 @@
 |**binaryName** | **String** |  |  |
 |**sha256Hash** | **String** |  |  |
 |**debugHash** | **String** |  |  |
+|**debug** | **Boolean** |  |  |
 |**embedding3d** | **List&lt;BigDecimal&gt;** |  |  [optional] |
 |**embedding1d** | **List&lt;BigDecimal&gt;** |  |  [optional] |
 
