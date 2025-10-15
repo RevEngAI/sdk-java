@@ -131,6 +131,12 @@ public class ApiClient {
             builder.addInterceptor(interceptor);
         }
 
+        // Default to 30 seconds timeout
+        builder = builder
+            .connectTimeout(30000, TimeUnit.MILLISECONDS)
+            .readTimeout(30000, TimeUnit.MILLISECONDS)
+            .writeTimeout(30000, TimeUnit.MILLISECONDS);
+
         httpClient = builder.build();
     }
 
