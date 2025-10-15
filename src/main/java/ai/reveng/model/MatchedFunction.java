@@ -56,7 +56,7 @@ public class MatchedFunction {
   public static final String SERIALIZED_NAME_FUNCTION_ID = "function_id";
   @SerializedName(SERIALIZED_NAME_FUNCTION_ID)
   @javax.annotation.Nonnull
-  private Integer functionId;
+  private Long functionId;
 
   public static final String SERIALIZED_NAME_BINARY_ID = "binary_id";
   @SerializedName(SERIALIZED_NAME_BINARY_ID)
@@ -111,21 +111,21 @@ public class MatchedFunction {
   public MatchedFunction() {
   }
 
-  public MatchedFunction functionId(@javax.annotation.Nonnull Integer functionId) {
+  public MatchedFunction functionId(@javax.annotation.Nonnull Long functionId) {
     this.functionId = functionId;
     return this;
   }
 
   /**
-   * Get functionId
+   * Unique identifier of the matched function
    * @return functionId
    */
   @javax.annotation.Nonnull
-  public Integer getFunctionId() {
+  public Long getFunctionId() {
     return functionId;
   }
 
-  public void setFunctionId(@javax.annotation.Nonnull Integer functionId) {
+  public void setFunctionId(@javax.annotation.Nonnull Long functionId) {
     this.functionId = functionId;
   }
 

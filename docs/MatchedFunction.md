@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**functionId** | **Integer** |  |  |
+|**functionId** | **Long** | Unique identifier of the matched function |  |
 |**binaryId** | **Integer** |  |  |
 |**functionName** | **String** |  |  |
 |**functionVaddr** | **Long** |  |  |

@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**functionId** | **Integer** | Function id |  |
+|**functionId** | **Long** | Function id |  |
 |**functionName** | **String** | Demangled name of the function |  |
 |**functionMangledName** | **String** | Mangled name of the function |  |
 |**functionVaddr** | **Long** | Function virtual address |  |

@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**functionId** | **Integer** | The function ID |  |
+|**functionId** | **Long** | The function ID |  |
 |**functionName** | **String** | The name of the function |  |
 |**binaryName** | **String** | The name of the binary the function belongs to |  |
 |**createdAt** | **OffsetDateTime** | The creation date of the function |  |

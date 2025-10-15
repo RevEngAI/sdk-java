@@ -57,7 +57,7 @@ public class SecurityChecksResult {
   public static final String SERIALIZED_NAME_FUNCTION_ID = "function_id";
   @SerializedName(SERIALIZED_NAME_FUNCTION_ID)
   @javax.annotation.Nonnull
-  private Integer functionId;
+  private Long functionId;
 
   public static final String SERIALIZED_NAME_FUNCTION_NAME = "function_name";
   @SerializedName(SERIALIZED_NAME_FUNCTION_NAME)
@@ -97,7 +97,7 @@ public class SecurityChecksResult {
   public SecurityChecksResult() {
   }
 
-  public SecurityChecksResult functionId(@javax.annotation.Nonnull Integer functionId) {
+  public SecurityChecksResult functionId(@javax.annotation.Nonnull Long functionId) {
     this.functionId = functionId;
     return this;
   }
@@ -107,11 +107,11 @@ public class SecurityChecksResult {
    * @return functionId
    */
   @javax.annotation.Nonnull
-  public Integer getFunctionId() {
+  public Long getFunctionId() {
     return functionId;
   }
 
-  public void setFunctionId(@javax.annotation.Nonnull Integer functionId) {
+  public void setFunctionId(@javax.annotation.Nonnull Long functionId) {
     this.functionId = functionId;
   }
 

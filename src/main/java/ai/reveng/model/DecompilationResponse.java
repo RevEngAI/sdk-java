@@ -54,7 +54,7 @@ public class DecompilationResponse {
   public static final String SERIALIZED_NAME_FUNCTION_ID = "function_id";
   @SerializedName(SERIALIZED_NAME_FUNCTION_ID)
   @javax.annotation.Nonnull
-  private Integer functionId;
+  private Long functionId;
 
   public static final String SERIALIZED_NAME_DECOMPILATION = "decompilation";
   @SerializedName(SERIALIZED_NAME_DECOMPILATION)
@@ -69,21 +69,21 @@ public class DecompilationResponse {
   public DecompilationResponse() {
   }
 
-  public DecompilationResponse functionId(@javax.annotation.Nonnull Integer functionId) {
+  public DecompilationResponse functionId(@javax.annotation.Nonnull Long functionId) {
     this.functionId = functionId;
     return this;
   }
 
   /**
-   * Get functionId
+   * The ID of the function
    * @return functionId
    */
   @javax.annotation.Nonnull
-  public Integer getFunctionId() {
+  public Long getFunctionId() {
     return functionId;
   }
 
-  public void setFunctionId(@javax.annotation.Nonnull Integer functionId) {
+  public void setFunctionId(@javax.annotation.Nonnull Long functionId) {
     this.functionId = functionId;
   }
 

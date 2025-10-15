@@ -54,7 +54,7 @@ public class FunctionDataTypesStatus {
   public static final String SERIALIZED_NAME_FUNCTION_ID = "function_id";
   @SerializedName(SERIALIZED_NAME_FUNCTION_ID)
   @javax.annotation.Nonnull
-  private Integer functionId;
+  private Long functionId;
 
   public static final String SERIALIZED_NAME_COMPLETED = "completed";
   @SerializedName(SERIALIZED_NAME_COMPLETED)
@@ -69,7 +69,7 @@ public class FunctionDataTypesStatus {
   public FunctionDataTypesStatus() {
   }
 
-  public FunctionDataTypesStatus functionId(@javax.annotation.Nonnull Integer functionId) {
+  public FunctionDataTypesStatus functionId(@javax.annotation.Nonnull Long functionId) {
     this.functionId = functionId;
     return this;
   }
@@ -79,11 +79,11 @@ public class FunctionDataTypesStatus {
    * @return functionId
    */
   @javax.annotation.Nonnull
-  public Integer getFunctionId() {
+  public Long getFunctionId() {
     return functionId;
   }
 
-  public void setFunctionId(@javax.annotation.Nonnull Integer functionId) {
+  public void setFunctionId(@javax.annotation.Nonnull Long functionId) {
     this.functionId = functionId;
   }
 

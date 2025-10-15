@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**functionId** | **Integer** | Function id |  |
+|**functionId** | **Long** | Function id |  |
 |**completed** | **Boolean** | Whether the service has completed data types generation |  |
 |**status** | **String** | The current status of the data types service |  |
 

@@ -11,7 +11,7 @@
 |**status** | **String** | The current status of the data types service |  |
 |**dataTypes** | [**FunctionInfoOutput**](FunctionInfoOutput.md) |  |  [optional] |
 |**dataTypesVersion** | **Integer** |  |  [optional] |
-|**functionId** | **Integer** | Function id |  |
+|**functionId** | **Long** | Function id |  |
 
 
 

@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**functionId** | **Integer** |  |  |
+|**functionId** | **Long** |  |  |
 |**functionName** | **String** |  |  |
 |**name** | **String** |  |  |
 |**vulnClass** | **VulnerabilityType** |  |  |

@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**functionId** | **Integer** |  |  |
+|**functionId** | **Long** | Function id |  |
 |**functionName** | **String** |  |  |
 |**functionVaddr** | **Long** |  |  |
 |**functionSize** | **Integer** |  |  |
