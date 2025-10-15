@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**functionId** | **Integer** |  |  |
+|**functionId** | **Long** | Unique identifier of the function |  |
 |**matchedFunctionId** | **Integer** |  |  |
 |**dashboardUrl** | **String** |  |  |
 |**isExternal** | **Boolean** | Indicates if the function is external |  [optional] |

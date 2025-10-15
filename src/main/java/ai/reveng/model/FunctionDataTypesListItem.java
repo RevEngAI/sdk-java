@@ -76,7 +76,7 @@ public class FunctionDataTypesListItem {
   public static final String SERIALIZED_NAME_FUNCTION_ID = "function_id";
   @SerializedName(SERIALIZED_NAME_FUNCTION_ID)
   @javax.annotation.Nonnull
-  private Integer functionId;
+  private Long functionId;
 
   public FunctionDataTypesListItem() {
   }
@@ -157,7 +157,7 @@ public class FunctionDataTypesListItem {
   }
 
 
-  public FunctionDataTypesListItem functionId(@javax.annotation.Nonnull Integer functionId) {
+  public FunctionDataTypesListItem functionId(@javax.annotation.Nonnull Long functionId) {
     this.functionId = functionId;
     return this;
   }
@@ -167,11 +167,11 @@ public class FunctionDataTypesListItem {
    * @return functionId
    */
   @javax.annotation.Nonnull
-  public Integer getFunctionId() {
+  public Long getFunctionId() {
     return functionId;
   }
 
-  public void setFunctionId(@javax.annotation.Nonnull Integer functionId) {
+  public void setFunctionId(@javax.annotation.Nonnull Long functionId) {
     this.functionId = functionId;
   }
 

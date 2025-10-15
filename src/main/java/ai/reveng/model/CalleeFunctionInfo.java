@@ -54,7 +54,7 @@ public class CalleeFunctionInfo {
   public static final String SERIALIZED_NAME_FUNCTION_ID = "function_id";
   @SerializedName(SERIALIZED_NAME_FUNCTION_ID)
   @javax.annotation.Nonnull
-  private Integer functionId;
+  private Long functionId;
 
   public static final String SERIALIZED_NAME_MATCHED_FUNCTION_ID = "matched_function_id";
   @SerializedName(SERIALIZED_NAME_MATCHED_FUNCTION_ID)
@@ -84,21 +84,21 @@ public class CalleeFunctionInfo {
   public CalleeFunctionInfo() {
   }
 
-  public CalleeFunctionInfo functionId(@javax.annotation.Nonnull Integer functionId) {
+  public CalleeFunctionInfo functionId(@javax.annotation.Nonnull Long functionId) {
     this.functionId = functionId;
     return this;
   }
 
   /**
-   * Get functionId
+   * Unique identifier of the function
    * @return functionId
    */
   @javax.annotation.Nonnull
-  public Integer getFunctionId() {
+  public Long getFunctionId() {
     return functionId;
   }
 
-  public void setFunctionId(@javax.annotation.Nonnull Integer functionId) {
+  public void setFunctionId(@javax.annotation.Nonnull Long functionId) {
     this.functionId = functionId;
   }
 

@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**functionId** | **Integer** |  |  |
+|**functionId** | **Long** | The ID of the function |  |
 |**decompilation** | **String** |  |  |
 |**callingConvention** | **String** |  |  |
 
