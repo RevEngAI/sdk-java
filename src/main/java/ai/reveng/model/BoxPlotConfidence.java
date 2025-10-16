@@ -20,9 +20,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.math.BigDecimal;
 import java.util.Arrays;
-import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -49,42 +48,178 @@ import java.util.Locale;
 import ai.reveng.invoker.JSON;
 
 /**
- * FunctionDataTypesParams
+ * Format for confidence - returned in the box plot format
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class FunctionDataTypesParams {
-  public static final String SERIALIZED_NAME_FUNCTION_IDS = "function_ids";
-  @SerializedName(SERIALIZED_NAME_FUNCTION_IDS)
+public class BoxPlotConfidence {
+  public static final String SERIALIZED_NAME_MIN = "min";
+  @SerializedName(SERIALIZED_NAME_MIN)
   @javax.annotation.Nonnull
-  private List<Long> functionIds = new ArrayList<>();
+  private BigDecimal min;
 
-  public FunctionDataTypesParams() {
+  public static final String SERIALIZED_NAME_MAX = "max";
+  @SerializedName(SERIALIZED_NAME_MAX)
+  @javax.annotation.Nonnull
+  private BigDecimal max;
+
+  public static final String SERIALIZED_NAME_AVERAGE = "average";
+  @SerializedName(SERIALIZED_NAME_AVERAGE)
+  @javax.annotation.Nonnull
+  private BigDecimal average;
+
+  public static final String SERIALIZED_NAME_UPPER_QUARTILE = "upper_quartile";
+  @SerializedName(SERIALIZED_NAME_UPPER_QUARTILE)
+  @javax.annotation.Nonnull
+  private BigDecimal upperQuartile;
+
+  public static final String SERIALIZED_NAME_LOWER_QUARTILE = "lower_quartile";
+  @SerializedName(SERIALIZED_NAME_LOWER_QUARTILE)
+  @javax.annotation.Nonnull
+  private BigDecimal lowerQuartile;
+
+  public static final String SERIALIZED_NAME_POSITIVE_COUNT = "positive_count";
+  @SerializedName(SERIALIZED_NAME_POSITIVE_COUNT)
+  @javax.annotation.Nonnull
+  private Integer positiveCount;
+
+  public static final String SERIALIZED_NAME_NEGATIVE_COUNT = "negative_count";
+  @SerializedName(SERIALIZED_NAME_NEGATIVE_COUNT)
+  @javax.annotation.Nonnull
+  private Integer negativeCount;
+
+  public BoxPlotConfidence() {
   }
 
-  public FunctionDataTypesParams functionIds(@javax.annotation.Nonnull List<Long> functionIds) {
-    this.functionIds = functionIds;
-    return this;
-  }
-
-  public FunctionDataTypesParams addFunctionIdsItem(Long functionIdsItem) {
-    if (this.functionIds == null) {
-      this.functionIds = new ArrayList<>();
-    }
-    this.functionIds.add(functionIdsItem);
+  public BoxPlotConfidence min(@javax.annotation.Nonnull BigDecimal min) {
+    this.min = min;
     return this;
   }
 
   /**
-   * The function ID&#39;s to generate/get data types for
-   * @return functionIds
+   * Get min
+   * @return min
    */
   @javax.annotation.Nonnull
-  public List<Long> getFunctionIds() {
-    return functionIds;
+  public BigDecimal getMin() {
+    return min;
   }
 
-  public void setFunctionIds(@javax.annotation.Nonnull List<Long> functionIds) {
-    this.functionIds = functionIds;
+  public void setMin(@javax.annotation.Nonnull BigDecimal min) {
+    this.min = min;
+  }
+
+
+  public BoxPlotConfidence max(@javax.annotation.Nonnull BigDecimal max) {
+    this.max = max;
+    return this;
+  }
+
+  /**
+   * Get max
+   * @return max
+   */
+  @javax.annotation.Nonnull
+  public BigDecimal getMax() {
+    return max;
+  }
+
+  public void setMax(@javax.annotation.Nonnull BigDecimal max) {
+    this.max = max;
+  }
+
+
+  public BoxPlotConfidence average(@javax.annotation.Nonnull BigDecimal average) {
+    this.average = average;
+    return this;
+  }
+
+  /**
+   * Get average
+   * @return average
+   */
+  @javax.annotation.Nonnull
+  public BigDecimal getAverage() {
+    return average;
+  }
+
+  public void setAverage(@javax.annotation.Nonnull BigDecimal average) {
+    this.average = average;
+  }
+
+
+  public BoxPlotConfidence upperQuartile(@javax.annotation.Nonnull BigDecimal upperQuartile) {
+    this.upperQuartile = upperQuartile;
+    return this;
+  }
+
+  /**
+   * Get upperQuartile
+   * @return upperQuartile
+   */
+  @javax.annotation.Nonnull
+  public BigDecimal getUpperQuartile() {
+    return upperQuartile;
+  }
+
+  public void setUpperQuartile(@javax.annotation.Nonnull BigDecimal upperQuartile) {
+    this.upperQuartile = upperQuartile;
+  }
+
+
+  public BoxPlotConfidence lowerQuartile(@javax.annotation.Nonnull BigDecimal lowerQuartile) {
+    this.lowerQuartile = lowerQuartile;
+    return this;
+  }
+
+  /**
+   * Get lowerQuartile
+   * @return lowerQuartile
+   */
+  @javax.annotation.Nonnull
+  public BigDecimal getLowerQuartile() {
+    return lowerQuartile;
+  }
+
+  public void setLowerQuartile(@javax.annotation.Nonnull BigDecimal lowerQuartile) {
+    this.lowerQuartile = lowerQuartile;
+  }
+
+
+  public BoxPlotConfidence positiveCount(@javax.annotation.Nonnull Integer positiveCount) {
+    this.positiveCount = positiveCount;
+    return this;
+  }
+
+  /**
+   * Get positiveCount
+   * @return positiveCount
+   */
+  @javax.annotation.Nonnull
+  public Integer getPositiveCount() {
+    return positiveCount;
+  }
+
+  public void setPositiveCount(@javax.annotation.Nonnull Integer positiveCount) {
+    this.positiveCount = positiveCount;
+  }
+
+
+  public BoxPlotConfidence negativeCount(@javax.annotation.Nonnull Integer negativeCount) {
+    this.negativeCount = negativeCount;
+    return this;
+  }
+
+  /**
+   * Get negativeCount
+   * @return negativeCount
+   */
+  @javax.annotation.Nonnull
+  public Integer getNegativeCount() {
+    return negativeCount;
+  }
+
+  public void setNegativeCount(@javax.annotation.Nonnull Integer negativeCount) {
+    this.negativeCount = negativeCount;
   }
 
   /**
@@ -100,9 +235,9 @@ public class FunctionDataTypesParams {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the FunctionDataTypesParams instance itself
+   * @return the BoxPlotConfidence instance itself
    */
-  public FunctionDataTypesParams putAdditionalProperty(String key, Object value) {
+  public BoxPlotConfidence putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -141,21 +276,33 @@ public class FunctionDataTypesParams {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FunctionDataTypesParams functionDataTypesParams = (FunctionDataTypesParams) o;
-    return Objects.equals(this.functionIds, functionDataTypesParams.functionIds)&&
-        Objects.equals(this.additionalProperties, functionDataTypesParams.additionalProperties);
+    BoxPlotConfidence boxPlotConfidence = (BoxPlotConfidence) o;
+    return Objects.equals(this.min, boxPlotConfidence.min) &&
+        Objects.equals(this.max, boxPlotConfidence.max) &&
+        Objects.equals(this.average, boxPlotConfidence.average) &&
+        Objects.equals(this.upperQuartile, boxPlotConfidence.upperQuartile) &&
+        Objects.equals(this.lowerQuartile, boxPlotConfidence.lowerQuartile) &&
+        Objects.equals(this.positiveCount, boxPlotConfidence.positiveCount) &&
+        Objects.equals(this.negativeCount, boxPlotConfidence.negativeCount)&&
+        Objects.equals(this.additionalProperties, boxPlotConfidence.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(functionIds, additionalProperties);
+    return Objects.hash(min, max, average, upperQuartile, lowerQuartile, positiveCount, negativeCount, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FunctionDataTypesParams {\n");
-    sb.append("    functionIds: ").append(toIndentedString(functionIds)).append("\n");
+    sb.append("class BoxPlotConfidence {\n");
+    sb.append("    min: ").append(toIndentedString(min)).append("\n");
+    sb.append("    max: ").append(toIndentedString(max)).append("\n");
+    sb.append("    average: ").append(toIndentedString(average)).append("\n");
+    sb.append("    upperQuartile: ").append(toIndentedString(upperQuartile)).append("\n");
+    sb.append("    lowerQuartile: ").append(toIndentedString(lowerQuartile)).append("\n");
+    sb.append("    positiveCount: ").append(toIndentedString(positiveCount)).append("\n");
+    sb.append("    negativeCount: ").append(toIndentedString(negativeCount)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -178,54 +325,48 @@ public class FunctionDataTypesParams {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("function_ids"));
+    openapiFields = new HashSet<String>(Arrays.asList("min", "max", "average", "upper_quartile", "lower_quartile", "positive_count", "negative_count"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("function_ids"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("min", "max", "average", "upper_quartile", "lower_quartile", "positive_count", "negative_count"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to FunctionDataTypesParams
+   * @throws IOException if the JSON Element is invalid with respect to BoxPlotConfidence
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!FunctionDataTypesParams.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in FunctionDataTypesParams is not found in the empty JSON string", FunctionDataTypesParams.openapiRequiredFields.toString()));
+        if (!BoxPlotConfidence.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in BoxPlotConfidence is not found in the empty JSON string", BoxPlotConfidence.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : FunctionDataTypesParams.openapiRequiredFields) {
+      for (String requiredField : BoxPlotConfidence.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the required json array is present
-      if (jsonObj.get("function_ids") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("function_ids").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `function_ids` to be an array in the JSON string but got `%s`", jsonObj.get("function_ids").toString()));
-      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!FunctionDataTypesParams.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'FunctionDataTypesParams' and its subtypes
+       if (!BoxPlotConfidence.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'BoxPlotConfidence' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<FunctionDataTypesParams> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(FunctionDataTypesParams.class));
+       final TypeAdapter<BoxPlotConfidence> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(BoxPlotConfidence.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<FunctionDataTypesParams>() {
+       return (TypeAdapter<T>) new TypeAdapter<BoxPlotConfidence>() {
            @Override
-           public void write(JsonWriter out, FunctionDataTypesParams value) throws IOException {
+           public void write(JsonWriter out, BoxPlotConfidence value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -253,12 +394,12 @@ public class FunctionDataTypesParams {
            }
 
            @Override
-           public FunctionDataTypesParams read(JsonReader in) throws IOException {
+           public BoxPlotConfidence read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             FunctionDataTypesParams instance = thisAdapter.fromJsonTree(jsonObj);
+             BoxPlotConfidence instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -285,18 +426,18 @@ public class FunctionDataTypesParams {
   }
 
   /**
-   * Create an instance of FunctionDataTypesParams given an JSON string
+   * Create an instance of BoxPlotConfidence given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of FunctionDataTypesParams
-   * @throws IOException if the JSON string is invalid with respect to FunctionDataTypesParams
+   * @return An instance of BoxPlotConfidence
+   * @throws IOException if the JSON string is invalid with respect to BoxPlotConfidence
    */
-  public static FunctionDataTypesParams fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, FunctionDataTypesParams.class);
+  public static BoxPlotConfidence fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, BoxPlotConfidence.class);
   }
 
   /**
-   * Convert an instance of FunctionDataTypesParams to an JSON string
+   * Convert an instance of BoxPlotConfidence to an JSON string
    *
    * @return JSON string
    */

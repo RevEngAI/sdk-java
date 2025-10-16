@@ -16,7 +16,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>ai.reveng</groupId>
     <artifactId>sdk</artifactId>
-    <version>2.11.1</version>
+    <version>2.11.7</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -31,7 +31,7 @@ repositories {
 }
 
 dependencies {
-    implementation "ai.reveng:sdk:2.11.1"
+    implementation "ai.reveng:sdk:2.11.7"
 }
 ```
 
@@ -129,6 +129,7 @@ Class | Method | HTTP request | Description
 *CollectionsApi* | [**updateCollection**](docs/CollectionsApi.md#updateCollection) | **PATCH** /v2/collections/{collection_id} | Updates a collection
 *CollectionsApi* | [**updateCollectionBinaries**](docs/CollectionsApi.md#updateCollectionBinaries) | **PATCH** /v2/collections/{collection_id}/binaries | Updates a collection binaries
 *CollectionsApi* | [**updateCollectionTags**](docs/CollectionsApi.md#updateCollectionTags) | **PATCH** /v2/collections/{collection_id}/tags | Updates a collection tags
+*ConfidenceApi* | [**getAnalysisTagScore**](docs/ConfidenceApi.md#getAnalysisTagScore) | **POST** /v2/confidence/analysis/{analysis_id}/tag_score | Calculate Tag Confidence Score for an Analysis
 *ExternalSourcesApi* | [**createExternalTaskMb**](docs/ExternalSourcesApi.md#createExternalTaskMb) | **POST** /v2/analysis/{analysis_id}/external/mb | Pulls data from VirusTotal
 *ExternalSourcesApi* | [**createExternalTaskVt**](docs/ExternalSourcesApi.md#createExternalTaskVt) | **POST** /v2/analysis/{analysis_id}/external/vt | Pulls data from VirusTotal
 *ExternalSourcesApi* | [**getMbData**](docs/ExternalSourcesApi.md#getMbData) | **GET** /v2/analysis/{analysis_id}/external/mb | Get MalwareBazaar data
@@ -267,6 +268,7 @@ Class | Method | HTTP request | Description
  - [BaseResponseListDieMatch](docs/BaseResponseListDieMatch.md)
  - [BaseResponseListFunctionNameHistory](docs/BaseResponseListFunctionNameHistory.md)
  - [BaseResponseListSBOM](docs/BaseResponseListSBOM.md)
+ - [BaseResponseListTagOriginBoxPlotConfidence](docs/BaseResponseListTagOriginBoxPlotConfidence.md)
  - [BaseResponseListUserActivityResponse](docs/BaseResponseListUserActivityResponse.md)
  - [BaseResponseLoginResponse](docs/BaseResponseLoginResponse.md)
  - [BaseResponseLogs](docs/BaseResponseLogs.md)
@@ -299,6 +301,7 @@ Class | Method | HTTP request | Description
  - [BinaryTaskStatus](docs/BinaryTaskStatus.md)
  - [Block](docs/Block.md)
  - [BlockCommentsGenerationForFunctionResponse](docs/BlockCommentsGenerationForFunctionResponse.md)
+ - [BoxPlotConfidence](docs/BoxPlotConfidence.md)
  - [CalleeFunctionInfo](docs/CalleeFunctionInfo.md)
  - [CalleesCallerFunctionsResponse](docs/CalleesCallerFunctionsResponse.md)
  - [CallerFunctionInfo](docs/CallerFunctionInfo.md)
@@ -414,6 +417,7 @@ Class | Method | HTTP request | Description
  - [NetworkOverviewMetadata](docs/NetworkOverviewMetadata.md)
  - [NetworkOverviewResponse](docs/NetworkOverviewResponse.md)
  - [Order](docs/Order.md)
+ - [Origin](docs/Origin.md)
  - [PDBDebugModel](docs/PDBDebugModel.md)
  - [PEModel](docs/PEModel.md)
  - [PaginationModel](docs/PaginationModel.md)
@@ -457,9 +461,12 @@ Class | Method | HTTP request | Description
  - [TTPSElement](docs/TTPSElement.md)
  - [TTPSOccurance](docs/TTPSOccurance.md)
  - [Tag](docs/Tag.md)
+ - [TagConfidenceBody](docs/TagConfidenceBody.md)
+ - [TagOriginBoxPlotConfidence](docs/TagOriginBoxPlotConfidence.md)
  - [TagResponse](docs/TagResponse.md)
  - [TagSearchResponse](docs/TagSearchResponse.md)
  - [TagSearchResult](docs/TagSearchResult.md)
+ - [Tags](docs/Tags.md)
  - [TaskResponse](docs/TaskResponse.md)
  - [TaskStatus](docs/TaskStatus.md)
  - [TimestampModel](docs/TimestampModel.md)

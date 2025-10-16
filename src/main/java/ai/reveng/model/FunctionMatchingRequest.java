@@ -64,7 +64,7 @@ public class FunctionMatchingRequest {
   public static final String SERIALIZED_NAME_FUNCTION_IDS = "function_ids";
   @SerializedName(SERIALIZED_NAME_FUNCTION_IDS)
   @javax.annotation.Nonnull
-  private List<Integer> functionIds = new ArrayList<>();
+  private List<Long> functionIds = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_MIN_SIMILARITY = "min_similarity";
   @SerializedName(SERIALIZED_NAME_MIN_SIMILARITY)
@@ -113,12 +113,12 @@ public class FunctionMatchingRequest {
   }
 
 
-  public FunctionMatchingRequest functionIds(@javax.annotation.Nonnull List<Integer> functionIds) {
+  public FunctionMatchingRequest functionIds(@javax.annotation.Nonnull List<Long> functionIds) {
     this.functionIds = functionIds;
     return this;
   }
 
-  public FunctionMatchingRequest addFunctionIdsItem(Integer functionIdsItem) {
+  public FunctionMatchingRequest addFunctionIdsItem(Long functionIdsItem) {
     if (this.functionIds == null) {
       this.functionIds = new ArrayList<>();
     }
@@ -131,11 +131,11 @@ public class FunctionMatchingRequest {
    * @return functionIds
    */
   @javax.annotation.Nonnull
-  public List<Integer> getFunctionIds() {
+  public List<Long> getFunctionIds() {
     return functionIds;
   }
 
-  public void setFunctionIds(@javax.annotation.Nonnull List<Integer> functionIds) {
+  public void setFunctionIds(@javax.annotation.Nonnull List<Long> functionIds) {
     this.functionIds = functionIds;
   }
 

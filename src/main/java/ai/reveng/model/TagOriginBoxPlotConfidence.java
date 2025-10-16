@@ -14,15 +14,15 @@ package ai.reveng.model;
 
 import java.util.Objects;
 import java.util.Locale;
+import ai.reveng.model.BoxPlotConfidence;
+import ai.reveng.model.Tags;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -49,42 +49,58 @@ import java.util.Locale;
 import ai.reveng.invoker.JSON;
 
 /**
- * FunctionDataTypesParams
+ * TagOriginBoxPlotConfidence
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class FunctionDataTypesParams {
-  public static final String SERIALIZED_NAME_FUNCTION_IDS = "function_ids";
-  @SerializedName(SERIALIZED_NAME_FUNCTION_IDS)
+public class TagOriginBoxPlotConfidence {
+  public static final String SERIALIZED_NAME_TAG = "tag";
+  @SerializedName(SERIALIZED_NAME_TAG)
   @javax.annotation.Nonnull
-  private List<Long> functionIds = new ArrayList<>();
+  private Tags tag;
 
-  public FunctionDataTypesParams() {
+  public static final String SERIALIZED_NAME_BOX_PLOT = "box_plot";
+  @SerializedName(SERIALIZED_NAME_BOX_PLOT)
+  @javax.annotation.Nonnull
+  private BoxPlotConfidence boxPlot;
+
+  public TagOriginBoxPlotConfidence() {
   }
 
-  public FunctionDataTypesParams functionIds(@javax.annotation.Nonnull List<Long> functionIds) {
-    this.functionIds = functionIds;
-    return this;
-  }
-
-  public FunctionDataTypesParams addFunctionIdsItem(Long functionIdsItem) {
-    if (this.functionIds == null) {
-      this.functionIds = new ArrayList<>();
-    }
-    this.functionIds.add(functionIdsItem);
+  public TagOriginBoxPlotConfidence tag(@javax.annotation.Nonnull Tags tag) {
+    this.tag = tag;
     return this;
   }
 
   /**
-   * The function ID&#39;s to generate/get data types for
-   * @return functionIds
+   * Get tag
+   * @return tag
    */
   @javax.annotation.Nonnull
-  public List<Long> getFunctionIds() {
-    return functionIds;
+  public Tags getTag() {
+    return tag;
   }
 
-  public void setFunctionIds(@javax.annotation.Nonnull List<Long> functionIds) {
-    this.functionIds = functionIds;
+  public void setTag(@javax.annotation.Nonnull Tags tag) {
+    this.tag = tag;
+  }
+
+
+  public TagOriginBoxPlotConfidence boxPlot(@javax.annotation.Nonnull BoxPlotConfidence boxPlot) {
+    this.boxPlot = boxPlot;
+    return this;
+  }
+
+  /**
+   * Get boxPlot
+   * @return boxPlot
+   */
+  @javax.annotation.Nonnull
+  public BoxPlotConfidence getBoxPlot() {
+    return boxPlot;
+  }
+
+  public void setBoxPlot(@javax.annotation.Nonnull BoxPlotConfidence boxPlot) {
+    this.boxPlot = boxPlot;
   }
 
   /**
@@ -100,9 +116,9 @@ public class FunctionDataTypesParams {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the FunctionDataTypesParams instance itself
+   * @return the TagOriginBoxPlotConfidence instance itself
    */
-  public FunctionDataTypesParams putAdditionalProperty(String key, Object value) {
+  public TagOriginBoxPlotConfidence putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -141,21 +157,23 @@ public class FunctionDataTypesParams {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FunctionDataTypesParams functionDataTypesParams = (FunctionDataTypesParams) o;
-    return Objects.equals(this.functionIds, functionDataTypesParams.functionIds)&&
-        Objects.equals(this.additionalProperties, functionDataTypesParams.additionalProperties);
+    TagOriginBoxPlotConfidence tagOriginBoxPlotConfidence = (TagOriginBoxPlotConfidence) o;
+    return Objects.equals(this.tag, tagOriginBoxPlotConfidence.tag) &&
+        Objects.equals(this.boxPlot, tagOriginBoxPlotConfidence.boxPlot)&&
+        Objects.equals(this.additionalProperties, tagOriginBoxPlotConfidence.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(functionIds, additionalProperties);
+    return Objects.hash(tag, boxPlot, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FunctionDataTypesParams {\n");
-    sb.append("    functionIds: ").append(toIndentedString(functionIds)).append("\n");
+    sb.append("class TagOriginBoxPlotConfidence {\n");
+    sb.append("    tag: ").append(toIndentedString(tag)).append("\n");
+    sb.append("    boxPlot: ").append(toIndentedString(boxPlot)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -178,54 +196,52 @@ public class FunctionDataTypesParams {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("function_ids"));
+    openapiFields = new HashSet<String>(Arrays.asList("tag", "box_plot"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("function_ids"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("tag", "box_plot"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to FunctionDataTypesParams
+   * @throws IOException if the JSON Element is invalid with respect to TagOriginBoxPlotConfidence
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!FunctionDataTypesParams.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in FunctionDataTypesParams is not found in the empty JSON string", FunctionDataTypesParams.openapiRequiredFields.toString()));
+        if (!TagOriginBoxPlotConfidence.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in TagOriginBoxPlotConfidence is not found in the empty JSON string", TagOriginBoxPlotConfidence.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : FunctionDataTypesParams.openapiRequiredFields) {
+      for (String requiredField : TagOriginBoxPlotConfidence.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the required json array is present
-      if (jsonObj.get("function_ids") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("function_ids").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `function_ids` to be an array in the JSON string but got `%s`", jsonObj.get("function_ids").toString()));
-      }
+      // validate the required field `tag`
+      Tags.validateJsonElement(jsonObj.get("tag"));
+      // validate the required field `box_plot`
+      BoxPlotConfidence.validateJsonElement(jsonObj.get("box_plot"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!FunctionDataTypesParams.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'FunctionDataTypesParams' and its subtypes
+       if (!TagOriginBoxPlotConfidence.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TagOriginBoxPlotConfidence' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<FunctionDataTypesParams> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(FunctionDataTypesParams.class));
+       final TypeAdapter<TagOriginBoxPlotConfidence> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TagOriginBoxPlotConfidence.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<FunctionDataTypesParams>() {
+       return (TypeAdapter<T>) new TypeAdapter<TagOriginBoxPlotConfidence>() {
            @Override
-           public void write(JsonWriter out, FunctionDataTypesParams value) throws IOException {
+           public void write(JsonWriter out, TagOriginBoxPlotConfidence value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -253,12 +269,12 @@ public class FunctionDataTypesParams {
            }
 
            @Override
-           public FunctionDataTypesParams read(JsonReader in) throws IOException {
+           public TagOriginBoxPlotConfidence read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             FunctionDataTypesParams instance = thisAdapter.fromJsonTree(jsonObj);
+             TagOriginBoxPlotConfidence instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -285,18 +301,18 @@ public class FunctionDataTypesParams {
   }
 
   /**
-   * Create an instance of FunctionDataTypesParams given an JSON string
+   * Create an instance of TagOriginBoxPlotConfidence given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of FunctionDataTypesParams
-   * @throws IOException if the JSON string is invalid with respect to FunctionDataTypesParams
+   * @return An instance of TagOriginBoxPlotConfidence
+   * @throws IOException if the JSON string is invalid with respect to TagOriginBoxPlotConfidence
    */
-  public static FunctionDataTypesParams fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, FunctionDataTypesParams.class);
+  public static TagOriginBoxPlotConfidence fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TagOriginBoxPlotConfidence.class);
   }
 
   /**
-   * Convert an instance of FunctionDataTypesParams to an JSON string
+   * Convert an instance of TagOriginBoxPlotConfidence to an JSON string
    *
    * @return JSON string
    */

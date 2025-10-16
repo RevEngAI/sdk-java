@@ -14,6 +14,7 @@ package ai.reveng.model;
 
 import java.util.Objects;
 import java.util.Locale;
+import ai.reveng.model.Tags;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -49,42 +50,42 @@ import java.util.Locale;
 import ai.reveng.invoker.JSON;
 
 /**
- * FunctionDataTypesParams
+ * TagConfidenceBody
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class FunctionDataTypesParams {
-  public static final String SERIALIZED_NAME_FUNCTION_IDS = "function_ids";
-  @SerializedName(SERIALIZED_NAME_FUNCTION_IDS)
+public class TagConfidenceBody {
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
   @javax.annotation.Nonnull
-  private List<Long> functionIds = new ArrayList<>();
+  private List<Tags> tags = new ArrayList<>();
 
-  public FunctionDataTypesParams() {
+  public TagConfidenceBody() {
   }
 
-  public FunctionDataTypesParams functionIds(@javax.annotation.Nonnull List<Long> functionIds) {
-    this.functionIds = functionIds;
+  public TagConfidenceBody tags(@javax.annotation.Nonnull List<Tags> tags) {
+    this.tags = tags;
     return this;
   }
 
-  public FunctionDataTypesParams addFunctionIdsItem(Long functionIdsItem) {
-    if (this.functionIds == null) {
-      this.functionIds = new ArrayList<>();
+  public TagConfidenceBody addTagsItem(Tags tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<>();
     }
-    this.functionIds.add(functionIdsItem);
+    this.tags.add(tagsItem);
     return this;
   }
 
   /**
-   * The function ID&#39;s to generate/get data types for
-   * @return functionIds
+   * Get tags
+   * @return tags
    */
   @javax.annotation.Nonnull
-  public List<Long> getFunctionIds() {
-    return functionIds;
+  public List<Tags> getTags() {
+    return tags;
   }
 
-  public void setFunctionIds(@javax.annotation.Nonnull List<Long> functionIds) {
-    this.functionIds = functionIds;
+  public void setTags(@javax.annotation.Nonnull List<Tags> tags) {
+    this.tags = tags;
   }
 
   /**
@@ -100,9 +101,9 @@ public class FunctionDataTypesParams {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the FunctionDataTypesParams instance itself
+   * @return the TagConfidenceBody instance itself
    */
-  public FunctionDataTypesParams putAdditionalProperty(String key, Object value) {
+  public TagConfidenceBody putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -141,21 +142,21 @@ public class FunctionDataTypesParams {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FunctionDataTypesParams functionDataTypesParams = (FunctionDataTypesParams) o;
-    return Objects.equals(this.functionIds, functionDataTypesParams.functionIds)&&
-        Objects.equals(this.additionalProperties, functionDataTypesParams.additionalProperties);
+    TagConfidenceBody tagConfidenceBody = (TagConfidenceBody) o;
+    return Objects.equals(this.tags, tagConfidenceBody.tags)&&
+        Objects.equals(this.additionalProperties, tagConfidenceBody.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(functionIds, additionalProperties);
+    return Objects.hash(tags, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FunctionDataTypesParams {\n");
-    sb.append("    functionIds: ").append(toIndentedString(functionIds)).append("\n");
+    sb.append("class TagConfidenceBody {\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -178,54 +179,58 @@ public class FunctionDataTypesParams {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("function_ids"));
+    openapiFields = new HashSet<String>(Arrays.asList("tags"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("function_ids"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("tags"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to FunctionDataTypesParams
+   * @throws IOException if the JSON Element is invalid with respect to TagConfidenceBody
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!FunctionDataTypesParams.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in FunctionDataTypesParams is not found in the empty JSON string", FunctionDataTypesParams.openapiRequiredFields.toString()));
+        if (!TagConfidenceBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in TagConfidenceBody is not found in the empty JSON string", TagConfidenceBody.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : FunctionDataTypesParams.openapiRequiredFields) {
+      for (String requiredField : TagConfidenceBody.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the required json array is present
-      if (jsonObj.get("function_ids") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("function_ids").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `function_ids` to be an array in the JSON string but got `%s`", jsonObj.get("function_ids").toString()));
+      // ensure the json data is an array
+      if (!jsonObj.get("tags").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
       }
+
+      JsonArray jsonArraytags = jsonObj.getAsJsonArray("tags");
+      // validate the required field `tags` (array)
+      for (int i = 0; i < jsonArraytags.size(); i++) {
+        Tags.validateJsonElement(jsonArraytags.get(i));
+      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!FunctionDataTypesParams.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'FunctionDataTypesParams' and its subtypes
+       if (!TagConfidenceBody.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TagConfidenceBody' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<FunctionDataTypesParams> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(FunctionDataTypesParams.class));
+       final TypeAdapter<TagConfidenceBody> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TagConfidenceBody.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<FunctionDataTypesParams>() {
+       return (TypeAdapter<T>) new TypeAdapter<TagConfidenceBody>() {
            @Override
-           public void write(JsonWriter out, FunctionDataTypesParams value) throws IOException {
+           public void write(JsonWriter out, TagConfidenceBody value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -253,12 +258,12 @@ public class FunctionDataTypesParams {
            }
 
            @Override
-           public FunctionDataTypesParams read(JsonReader in) throws IOException {
+           public TagConfidenceBody read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             FunctionDataTypesParams instance = thisAdapter.fromJsonTree(jsonObj);
+             TagConfidenceBody instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -285,18 +290,18 @@ public class FunctionDataTypesParams {
   }
 
   /**
-   * Create an instance of FunctionDataTypesParams given an JSON string
+   * Create an instance of TagConfidenceBody given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of FunctionDataTypesParams
-   * @throws IOException if the JSON string is invalid with respect to FunctionDataTypesParams
+   * @return An instance of TagConfidenceBody
+   * @throws IOException if the JSON string is invalid with respect to TagConfidenceBody
    */
-  public static FunctionDataTypesParams fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, FunctionDataTypesParams.class);
+  public static TagConfidenceBody fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TagConfidenceBody.class);
   }
 
   /**
-   * Convert an instance of FunctionDataTypesParams to an JSON string
+   * Convert an instance of TagConfidenceBody to an JSON string
    *
    * @return JSON string
    */

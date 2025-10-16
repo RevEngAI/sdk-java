@@ -14,15 +14,14 @@ package ai.reveng.model;
 
 import java.util.Objects;
 import java.util.Locale;
+import ai.reveng.model.Origin;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -49,42 +48,58 @@ import java.util.Locale;
 import ai.reveng.invoker.JSON;
 
 /**
- * FunctionDataTypesParams
+ * Tags
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class FunctionDataTypesParams {
-  public static final String SERIALIZED_NAME_FUNCTION_IDS = "function_ids";
-  @SerializedName(SERIALIZED_NAME_FUNCTION_IDS)
+public class Tags {
+  public static final String SERIALIZED_NAME_TAG = "tag";
+  @SerializedName(SERIALIZED_NAME_TAG)
   @javax.annotation.Nonnull
-  private List<Long> functionIds = new ArrayList<>();
+  private String tag;
 
-  public FunctionDataTypesParams() {
+  public static final String SERIALIZED_NAME_ORIGIN = "origin";
+  @SerializedName(SERIALIZED_NAME_ORIGIN)
+  @javax.annotation.Nonnull
+  private Origin origin;
+
+  public Tags() {
   }
 
-  public FunctionDataTypesParams functionIds(@javax.annotation.Nonnull List<Long> functionIds) {
-    this.functionIds = functionIds;
-    return this;
-  }
-
-  public FunctionDataTypesParams addFunctionIdsItem(Long functionIdsItem) {
-    if (this.functionIds == null) {
-      this.functionIds = new ArrayList<>();
-    }
-    this.functionIds.add(functionIdsItem);
+  public Tags tag(@javax.annotation.Nonnull String tag) {
+    this.tag = tag;
     return this;
   }
 
   /**
-   * The function ID&#39;s to generate/get data types for
-   * @return functionIds
+   * The tag name
+   * @return tag
    */
   @javax.annotation.Nonnull
-  public List<Long> getFunctionIds() {
-    return functionIds;
+  public String getTag() {
+    return tag;
   }
 
-  public void setFunctionIds(@javax.annotation.Nonnull List<Long> functionIds) {
-    this.functionIds = functionIds;
+  public void setTag(@javax.annotation.Nonnull String tag) {
+    this.tag = tag;
+  }
+
+
+  public Tags origin(@javax.annotation.Nonnull Origin origin) {
+    this.origin = origin;
+    return this;
+  }
+
+  /**
+   * The origin of the tag
+   * @return origin
+   */
+  @javax.annotation.Nonnull
+  public Origin getOrigin() {
+    return origin;
+  }
+
+  public void setOrigin(@javax.annotation.Nonnull Origin origin) {
+    this.origin = origin;
   }
 
   /**
@@ -100,9 +115,9 @@ public class FunctionDataTypesParams {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the FunctionDataTypesParams instance itself
+   * @return the Tags instance itself
    */
-  public FunctionDataTypesParams putAdditionalProperty(String key, Object value) {
+  public Tags putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -141,21 +156,23 @@ public class FunctionDataTypesParams {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FunctionDataTypesParams functionDataTypesParams = (FunctionDataTypesParams) o;
-    return Objects.equals(this.functionIds, functionDataTypesParams.functionIds)&&
-        Objects.equals(this.additionalProperties, functionDataTypesParams.additionalProperties);
+    Tags tags = (Tags) o;
+    return Objects.equals(this.tag, tags.tag) &&
+        Objects.equals(this.origin, tags.origin)&&
+        Objects.equals(this.additionalProperties, tags.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(functionIds, additionalProperties);
+    return Objects.hash(tag, origin, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FunctionDataTypesParams {\n");
-    sb.append("    functionIds: ").append(toIndentedString(functionIds)).append("\n");
+    sb.append("class Tags {\n");
+    sb.append("    tag: ").append(toIndentedString(tag)).append("\n");
+    sb.append("    origin: ").append(toIndentedString(origin)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -178,54 +195,53 @@ public class FunctionDataTypesParams {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("function_ids"));
+    openapiFields = new HashSet<String>(Arrays.asList("tag", "origin"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("function_ids"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("tag", "origin"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to FunctionDataTypesParams
+   * @throws IOException if the JSON Element is invalid with respect to Tags
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!FunctionDataTypesParams.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in FunctionDataTypesParams is not found in the empty JSON string", FunctionDataTypesParams.openapiRequiredFields.toString()));
+        if (!Tags.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in Tags is not found in the empty JSON string", Tags.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : FunctionDataTypesParams.openapiRequiredFields) {
+      for (String requiredField : Tags.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the required json array is present
-      if (jsonObj.get("function_ids") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("function_ids").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `function_ids` to be an array in the JSON string but got `%s`", jsonObj.get("function_ids").toString()));
+      if (!jsonObj.get("tag").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `tag` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tag").toString()));
       }
+      // validate the required field `origin`
+      Origin.validateJsonElement(jsonObj.get("origin"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!FunctionDataTypesParams.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'FunctionDataTypesParams' and its subtypes
+       if (!Tags.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'Tags' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<FunctionDataTypesParams> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(FunctionDataTypesParams.class));
+       final TypeAdapter<Tags> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(Tags.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<FunctionDataTypesParams>() {
+       return (TypeAdapter<T>) new TypeAdapter<Tags>() {
            @Override
-           public void write(JsonWriter out, FunctionDataTypesParams value) throws IOException {
+           public void write(JsonWriter out, Tags value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -253,12 +269,12 @@ public class FunctionDataTypesParams {
            }
 
            @Override
-           public FunctionDataTypesParams read(JsonReader in) throws IOException {
+           public Tags read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             FunctionDataTypesParams instance = thisAdapter.fromJsonTree(jsonObj);
+             Tags instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -285,18 +301,18 @@ public class FunctionDataTypesParams {
   }
 
   /**
-   * Create an instance of FunctionDataTypesParams given an JSON string
+   * Create an instance of Tags given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of FunctionDataTypesParams
-   * @throws IOException if the JSON string is invalid with respect to FunctionDataTypesParams
+   * @return An instance of Tags
+   * @throws IOException if the JSON string is invalid with respect to Tags
    */
-  public static FunctionDataTypesParams fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, FunctionDataTypesParams.class);
+  public static Tags fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, Tags.class);
   }
 
   /**
-   * Convert an instance of FunctionDataTypesParams to an JSON string
+   * Convert an instance of Tags to an JSON string
    *
    * @return JSON string
    */
