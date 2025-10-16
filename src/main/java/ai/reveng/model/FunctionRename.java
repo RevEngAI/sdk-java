@@ -21,7 +21,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -54,18 +53,18 @@ import ai.reveng.invoker.JSON;
 public class FunctionRename {
   public static final String SERIALIZED_NAME_NEW_NAME = "new_name";
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
-  @javax.annotation.Nullable
-  private String newName = "";
+  @javax.annotation.Nonnull
+  private String newName;
 
   public static final String SERIALIZED_NAME_NEW_MANGLED_NAME = "new_mangled_name";
   @SerializedName(SERIALIZED_NAME_NEW_MANGLED_NAME)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String newMangledName;
 
   public FunctionRename() {
   }
 
-  public FunctionRename newName(@javax.annotation.Nullable String newName) {
+  public FunctionRename newName(@javax.annotation.Nonnull String newName) {
     this.newName = newName;
     return this;
   }
@@ -74,31 +73,31 @@ public class FunctionRename {
    * The new name for the function
    * @return newName
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getNewName() {
     return newName;
   }
 
-  public void setNewName(@javax.annotation.Nullable String newName) {
+  public void setNewName(@javax.annotation.Nonnull String newName) {
     this.newName = newName;
   }
 
 
-  public FunctionRename newMangledName(@javax.annotation.Nullable String newMangledName) {
+  public FunctionRename newMangledName(@javax.annotation.Nonnull String newMangledName) {
     this.newMangledName = newMangledName;
     return this;
   }
 
   /**
-   * Get newMangledName
+   * The new mangled name for the function
    * @return newMangledName
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getNewMangledName() {
     return newMangledName;
   }
 
-  public void setNewMangledName(@javax.annotation.Nullable String newMangledName) {
+  public void setNewMangledName(@javax.annotation.Nonnull String newMangledName) {
     this.newMangledName = newMangledName;
   }
 
@@ -162,20 +161,9 @@ public class FunctionRename {
         Objects.equals(this.additionalProperties, functionRename.additionalProperties);
   }
 
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
-  }
-
   @Override
   public int hashCode() {
     return Objects.hash(newName, newMangledName, additionalProperties);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -209,7 +197,7 @@ public class FunctionRename {
     openapiFields = new HashSet<String>(Arrays.asList("new_name", "new_mangled_name"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(0);
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("new_name", "new_mangled_name"));
   }
 
   /**
@@ -224,11 +212,18 @@ public class FunctionRename {
           throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in FunctionRename is not found in the empty JSON string", FunctionRename.openapiRequiredFields.toString()));
         }
       }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : FunctionRename.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        }
+      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("new_name") != null && !jsonObj.get("new_name").isJsonNull()) && !jsonObj.get("new_name").isJsonPrimitive()) {
+      if (!jsonObj.get("new_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `new_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("new_name").toString()));
       }
-      if ((jsonObj.get("new_mangled_name") != null && !jsonObj.get("new_mangled_name").isJsonNull()) && !jsonObj.get("new_mangled_name").isJsonPrimitive()) {
+      if (!jsonObj.get("new_mangled_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `new_mangled_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("new_mangled_name").toString()));
       }
   }

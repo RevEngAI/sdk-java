@@ -7,9 +7,9 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**functionId** | **Integer** | The ID of the function to rename |  |
-|**newName** | **String** | The new name for the function |  [optional] |
-|**newMangledName** | **String** |  |  [optional] |
+|**functionId** | **Long** | The ID of the function to rename |  |
+|**newName** | **String** | The new name for the function |  |
+|**newMangledName** | **String** | The new mangled name for the function |  |
 
 
 
