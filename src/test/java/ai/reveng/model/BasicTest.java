@@ -78,6 +78,14 @@ public class BasicTest {
     }
 
     /**
+     * Test the property 'modelId'
+     */
+    @Test
+    public void modelIdTest() {
+        // TODO: test modelId
+    }
+
+    /**
      * Test the property 'ownerUsername'
      */
     @Test

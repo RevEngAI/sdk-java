@@ -12,6 +12,7 @@
 |**creation** | **OffsetDateTime** | When the binary was uploaded |  |
 |**sha256Hash** | **String** | The hash of the binary uploaded |  |
 |**modelName** | **String** | The model name used for analysis |  |
+|**modelId** | **Integer** | The model ID used for analysis |  |
 |**ownerUsername** | **String** | The name of the owner of the binary |  |
 |**analysisScope** | **String** | The scope of the analysis |  |
 |**isOwner** | **Boolean** | Whether the current user is the owner |  |

@@ -21,7 +21,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -55,22 +54,22 @@ public class FunctionRenameMap {
   public static final String SERIALIZED_NAME_FUNCTION_ID = "function_id";
   @SerializedName(SERIALIZED_NAME_FUNCTION_ID)
   @javax.annotation.Nonnull
-  private Integer functionId;
+  private Long functionId;
 
   public static final String SERIALIZED_NAME_NEW_NAME = "new_name";
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
-  @javax.annotation.Nullable
-  private String newName = "";
+  @javax.annotation.Nonnull
+  private String newName;
 
   public static final String SERIALIZED_NAME_NEW_MANGLED_NAME = "new_mangled_name";
   @SerializedName(SERIALIZED_NAME_NEW_MANGLED_NAME)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String newMangledName;
 
   public FunctionRenameMap() {
   }
 
-  public FunctionRenameMap functionId(@javax.annotation.Nonnull Integer functionId) {
+  public FunctionRenameMap functionId(@javax.annotation.Nonnull Long functionId) {
     this.functionId = functionId;
     return this;
   }
@@ -80,16 +79,16 @@ public class FunctionRenameMap {
    * @return functionId
    */
   @javax.annotation.Nonnull
-  public Integer getFunctionId() {
+  public Long getFunctionId() {
     return functionId;
   }
 
-  public void setFunctionId(@javax.annotation.Nonnull Integer functionId) {
+  public void setFunctionId(@javax.annotation.Nonnull Long functionId) {
     this.functionId = functionId;
   }
 
 
-  public FunctionRenameMap newName(@javax.annotation.Nullable String newName) {
+  public FunctionRenameMap newName(@javax.annotation.Nonnull String newName) {
     this.newName = newName;
     return this;
   }
@@ -98,31 +97,31 @@ public class FunctionRenameMap {
    * The new name for the function
    * @return newName
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getNewName() {
     return newName;
   }
 
-  public void setNewName(@javax.annotation.Nullable String newName) {
+  public void setNewName(@javax.annotation.Nonnull String newName) {
     this.newName = newName;
   }
 
 
-  public FunctionRenameMap newMangledName(@javax.annotation.Nullable String newMangledName) {
+  public FunctionRenameMap newMangledName(@javax.annotation.Nonnull String newMangledName) {
     this.newMangledName = newMangledName;
     return this;
   }
 
   /**
-   * Get newMangledName
+   * The new mangled name for the function
    * @return newMangledName
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getNewMangledName() {
     return newMangledName;
   }
 
-  public void setNewMangledName(@javax.annotation.Nullable String newMangledName) {
+  public void setNewMangledName(@javax.annotation.Nonnull String newMangledName) {
     this.newMangledName = newMangledName;
   }
 
@@ -187,20 +186,9 @@ public class FunctionRenameMap {
         Objects.equals(this.additionalProperties, functionRenameMap.additionalProperties);
   }
 
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
-  }
-
   @Override
   public int hashCode() {
     return Objects.hash(functionId, newName, newMangledName, additionalProperties);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -235,7 +223,7 @@ public class FunctionRenameMap {
     openapiFields = new HashSet<String>(Arrays.asList("function_id", "new_name", "new_mangled_name"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("function_id"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("function_id", "new_name", "new_mangled_name"));
   }
 
   /**
@@ -258,10 +246,10 @@ public class FunctionRenameMap {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("new_name") != null && !jsonObj.get("new_name").isJsonNull()) && !jsonObj.get("new_name").isJsonPrimitive()) {
+      if (!jsonObj.get("new_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `new_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("new_name").toString()));
       }
-      if ((jsonObj.get("new_mangled_name") != null && !jsonObj.get("new_mangled_name").isJsonNull()) && !jsonObj.get("new_mangled_name").isJsonPrimitive()) {
+      if (!jsonObj.get("new_mangled_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `new_mangled_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("new_mangled_name").toString()));
       }
   }
