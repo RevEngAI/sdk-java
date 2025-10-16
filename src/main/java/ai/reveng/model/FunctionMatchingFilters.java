@@ -66,7 +66,7 @@ public class FunctionMatchingFilters {
   public static final String SERIALIZED_NAME_FUNCTION_IDS = "function_ids";
   @SerializedName(SERIALIZED_NAME_FUNCTION_IDS)
   @javax.annotation.Nullable
-  private List<Integer> functionIds = new ArrayList<>();
+  private List<Long> functionIds = new ArrayList<>();
 
   /**
    * Gets or Sets debugTypes
@@ -184,12 +184,12 @@ public class FunctionMatchingFilters {
   }
 
 
-  public FunctionMatchingFilters functionIds(@javax.annotation.Nullable List<Integer> functionIds) {
+  public FunctionMatchingFilters functionIds(@javax.annotation.Nullable List<Long> functionIds) {
     this.functionIds = functionIds;
     return this;
   }
 
-  public FunctionMatchingFilters addFunctionIdsItem(Integer functionIdsItem) {
+  public FunctionMatchingFilters addFunctionIdsItem(Long functionIdsItem) {
     if (this.functionIds == null) {
       this.functionIds = new ArrayList<>();
     }
@@ -202,11 +202,11 @@ public class FunctionMatchingFilters {
    * @return functionIds
    */
   @javax.annotation.Nullable
-  public List<Integer> getFunctionIds() {
+  public List<Long> getFunctionIds() {
     return functionIds;
   }
 
-  public void setFunctionIds(@javax.annotation.Nullable List<Integer> functionIds) {
+  public void setFunctionIds(@javax.annotation.Nullable List<Long> functionIds) {
     this.functionIds = functionIds;
   }
 
