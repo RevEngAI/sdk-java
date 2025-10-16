@@ -118,7 +118,7 @@ public class Example {
     //APIKey.setApiKeyPrefix("Token");
 
     FunctionsAiDecompilationApi apiInstance = new FunctionsAiDecompilationApi(defaultClient);
-    Integer functionId = 56; // Integer | 
+    Long functionId = 56L; // Long | The ID of the function for which we are creating the decompilation task
     try {
       BaseResponse result = apiInstance.createAiDecompilationTask(functionId);
       System.out.println(result);
@@ -137,7 +137,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **functionId** | **Integer**|  | |
+| **functionId** | **Long**| The ID of the function for which we are creating the decompilation task | |
 
 ### Return type
 
@@ -334,7 +334,7 @@ public class Example {
     //APIKey.setApiKeyPrefix("Token");
 
     FunctionsAiDecompilationApi apiInstance = new FunctionsAiDecompilationApi(defaultClient);
-    Integer functionId = 56; // Integer | 
+    Long functionId = 56L; // Long | The ID of the function for which to get the rating
     try {
       BaseResponseGetAiDecompilationRatingResponse result = apiInstance.getAiDecompilationRating(functionId);
       System.out.println(result);
@@ -353,7 +353,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **functionId** | **Integer**|  | |
+| **functionId** | **Long**| The ID of the function for which to get the rating | |
 
 ### Return type
 
@@ -404,7 +404,7 @@ public class Example {
     //APIKey.setApiKeyPrefix("Token");
 
     FunctionsAiDecompilationApi apiInstance = new FunctionsAiDecompilationApi(defaultClient);
-    Integer functionId = 56; // Integer | 
+    Long functionId = 56L; // Long | The ID of the function being decompiled
     Boolean summarise = true; // Boolean | Generate a summary for the decompilation
     Boolean generateInlineComments = true; // Boolean | Generate inline comments for the decompilation (only works if summarise is enabled)
     try {
@@ -425,7 +425,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **functionId** | **Integer**|  | |
+| **functionId** | **Long**| The ID of the function being decompiled | |
 | **summarise** | **Boolean**| Generate a summary for the decompilation | [optional] [default to true] |
 | **generateInlineComments** | **Boolean**| Generate inline comments for the decompilation (only works if summarise is enabled) | [optional] [default to true] |
 
@@ -477,7 +477,7 @@ public class Example {
     //APIKey.setApiKeyPrefix("Token");
 
     FunctionsAiDecompilationApi apiInstance = new FunctionsAiDecompilationApi(defaultClient);
-    Integer functionId = 56; // Integer | 
+    Long functionId = 56L; // Long | The ID of the function being checked
     try {
       BaseResponseFunctionTaskResponse result = apiInstance.getAiDecompilationTaskStatus(functionId);
       System.out.println(result);
@@ -496,7 +496,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **functionId** | **Integer**|  | |
+| **functionId** | **Long**| The ID of the function being checked | |
 
 ### Return type
 
@@ -621,7 +621,7 @@ public class Example {
     //APIKey.setApiKeyPrefix("Token");
 
     FunctionsAiDecompilationApi apiInstance = new FunctionsAiDecompilationApi(defaultClient);
-    Integer functionId = 56; // Integer | 
+    Long functionId = 56L; // Long | The ID of the function being rated
     UpsertAiDecomplationRatingRequest upsertAiDecomplationRatingRequest = new UpsertAiDecomplationRatingRequest(); // UpsertAiDecomplationRatingRequest | 
     try {
       BaseResponse result = apiInstance.upsertAiDecompilationRating(functionId, upsertAiDecomplationRatingRequest);
@@ -641,7 +641,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **functionId** | **Integer**|  | |
+| **functionId** | **Long**| The ID of the function being rated | |
 | **upsertAiDecomplationRatingRequest** | [**UpsertAiDecomplationRatingRequest**](UpsertAiDecomplationRatingRequest.md)|  | |
 
 ### Return type

@@ -227,7 +227,7 @@ public class FunctionsAiDecompilationApi {
     }
     /**
      * Build call for createAiDecompilationTask
-     * @param functionId  (required)
+     * @param functionId The ID of the function for which we are creating the decompilation task (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -243,7 +243,7 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAiDecompilationTaskCall(@javax.annotation.Nonnull Integer functionId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createAiDecompilationTaskCall(@javax.annotation.Nonnull Long functionId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -289,7 +289,7 @@ public class FunctionsAiDecompilationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createAiDecompilationTaskValidateBeforeCall(@javax.annotation.Nonnull Integer functionId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createAiDecompilationTaskValidateBeforeCall(@javax.annotation.Nonnull Long functionId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'functionId' is set
         if (functionId == null) {
             throw new ApiException("Missing the required parameter 'functionId' when calling createAiDecompilationTask(Async)");
@@ -302,7 +302,7 @@ public class FunctionsAiDecompilationApi {
     /**
      * Begins AI Decompilation Process
      * Begins the AI Decompilation Process
-     * @param functionId  (required)
+     * @param functionId The ID of the function for which we are creating the decompilation task (required)
      * @return BaseResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -317,7 +317,7 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponse createAiDecompilationTask(@javax.annotation.Nonnull Integer functionId) throws ApiException {
+    public BaseResponse createAiDecompilationTask(@javax.annotation.Nonnull Long functionId) throws ApiException {
         ApiResponse<BaseResponse> localVarResp = createAiDecompilationTaskWithHttpInfo(functionId);
         return localVarResp.getData();
     }
@@ -325,7 +325,7 @@ public class FunctionsAiDecompilationApi {
     /**
      * Begins AI Decompilation Process
      * Begins the AI Decompilation Process
-     * @param functionId  (required)
+     * @param functionId The ID of the function for which we are creating the decompilation task (required)
      * @return ApiResponse&lt;BaseResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -340,7 +340,7 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponse> createAiDecompilationTaskWithHttpInfo(@javax.annotation.Nonnull Integer functionId) throws ApiException {
+    public ApiResponse<BaseResponse> createAiDecompilationTaskWithHttpInfo(@javax.annotation.Nonnull Long functionId) throws ApiException {
         okhttp3.Call localVarCall = createAiDecompilationTaskValidateBeforeCall(functionId, null);
         Type localVarReturnType = new TypeToken<BaseResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -349,7 +349,7 @@ public class FunctionsAiDecompilationApi {
     /**
      * Begins AI Decompilation Process (asynchronously)
      * Begins the AI Decompilation Process
-     * @param functionId  (required)
+     * @param functionId The ID of the function for which we are creating the decompilation task (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -365,7 +365,7 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAiDecompilationTaskAsync(@javax.annotation.Nonnull Integer functionId, final ApiCallback<BaseResponse> _callback) throws ApiException {
+    public okhttp3.Call createAiDecompilationTaskAsync(@javax.annotation.Nonnull Long functionId, final ApiCallback<BaseResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createAiDecompilationTaskValidateBeforeCall(functionId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponse>(){}.getType();
@@ -654,7 +654,7 @@ public class FunctionsAiDecompilationApi {
     }
     /**
      * Build call for getAiDecompilationRating
-     * @param functionId  (required)
+     * @param functionId The ID of the function for which to get the rating (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -666,7 +666,7 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAiDecompilationRatingCall(@javax.annotation.Nonnull Integer functionId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAiDecompilationRatingCall(@javax.annotation.Nonnull Long functionId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -712,7 +712,7 @@ public class FunctionsAiDecompilationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAiDecompilationRatingValidateBeforeCall(@javax.annotation.Nonnull Integer functionId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAiDecompilationRatingValidateBeforeCall(@javax.annotation.Nonnull Long functionId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'functionId' is set
         if (functionId == null) {
             throw new ApiException("Missing the required parameter 'functionId' when calling getAiDecompilationRating(Async)");
@@ -725,7 +725,7 @@ public class FunctionsAiDecompilationApi {
     /**
      * Get rating for AI decompilation
      * 
-     * @param functionId  (required)
+     * @param functionId The ID of the function for which to get the rating (required)
      * @return BaseResponseGetAiDecompilationRatingResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -736,7 +736,7 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseGetAiDecompilationRatingResponse getAiDecompilationRating(@javax.annotation.Nonnull Integer functionId) throws ApiException {
+    public BaseResponseGetAiDecompilationRatingResponse getAiDecompilationRating(@javax.annotation.Nonnull Long functionId) throws ApiException {
         ApiResponse<BaseResponseGetAiDecompilationRatingResponse> localVarResp = getAiDecompilationRatingWithHttpInfo(functionId);
         return localVarResp.getData();
     }
@@ -744,7 +744,7 @@ public class FunctionsAiDecompilationApi {
     /**
      * Get rating for AI decompilation
      * 
-     * @param functionId  (required)
+     * @param functionId The ID of the function for which to get the rating (required)
      * @return ApiResponse&lt;BaseResponseGetAiDecompilationRatingResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -755,7 +755,7 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseGetAiDecompilationRatingResponse> getAiDecompilationRatingWithHttpInfo(@javax.annotation.Nonnull Integer functionId) throws ApiException {
+    public ApiResponse<BaseResponseGetAiDecompilationRatingResponse> getAiDecompilationRatingWithHttpInfo(@javax.annotation.Nonnull Long functionId) throws ApiException {
         okhttp3.Call localVarCall = getAiDecompilationRatingValidateBeforeCall(functionId, null);
         Type localVarReturnType = new TypeToken<BaseResponseGetAiDecompilationRatingResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -764,7 +764,7 @@ public class FunctionsAiDecompilationApi {
     /**
      * Get rating for AI decompilation (asynchronously)
      * 
-     * @param functionId  (required)
+     * @param functionId The ID of the function for which to get the rating (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -776,7 +776,7 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAiDecompilationRatingAsync(@javax.annotation.Nonnull Integer functionId, final ApiCallback<BaseResponseGetAiDecompilationRatingResponse> _callback) throws ApiException {
+    public okhttp3.Call getAiDecompilationRatingAsync(@javax.annotation.Nonnull Long functionId, final ApiCallback<BaseResponseGetAiDecompilationRatingResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getAiDecompilationRatingValidateBeforeCall(functionId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseGetAiDecompilationRatingResponse>(){}.getType();
@@ -785,7 +785,7 @@ public class FunctionsAiDecompilationApi {
     }
     /**
      * Build call for getAiDecompilationTaskResult
-     * @param functionId  (required)
+     * @param functionId The ID of the function being decompiled (required)
      * @param summarise Generate a summary for the decompilation (optional, default to true)
      * @param generateInlineComments Generate inline comments for the decompilation (only works if summarise is enabled) (optional, default to true)
      * @param _callback Callback for upload/download progress
@@ -800,7 +800,7 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAiDecompilationTaskResultCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable Boolean summarise, @javax.annotation.Nullable Boolean generateInlineComments, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAiDecompilationTaskResultCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Boolean summarise, @javax.annotation.Nullable Boolean generateInlineComments, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -854,7 +854,7 @@ public class FunctionsAiDecompilationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAiDecompilationTaskResultValidateBeforeCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable Boolean summarise, @javax.annotation.Nullable Boolean generateInlineComments, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAiDecompilationTaskResultValidateBeforeCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Boolean summarise, @javax.annotation.Nullable Boolean generateInlineComments, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'functionId' is set
         if (functionId == null) {
             throw new ApiException("Missing the required parameter 'functionId' when calling getAiDecompilationTaskResult(Async)");
@@ -867,7 +867,7 @@ public class FunctionsAiDecompilationApi {
     /**
      * Polls AI Decompilation Process
      * Polls the AI Decompilation Process
-     * @param functionId  (required)
+     * @param functionId The ID of the function being decompiled (required)
      * @param summarise Generate a summary for the decompilation (optional, default to true)
      * @param generateInlineComments Generate inline comments for the decompilation (only works if summarise is enabled) (optional, default to true)
      * @return BaseResponseGetAiDecompilationTask
@@ -881,7 +881,7 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseGetAiDecompilationTask getAiDecompilationTaskResult(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable Boolean summarise, @javax.annotation.Nullable Boolean generateInlineComments) throws ApiException {
+    public BaseResponseGetAiDecompilationTask getAiDecompilationTaskResult(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Boolean summarise, @javax.annotation.Nullable Boolean generateInlineComments) throws ApiException {
         ApiResponse<BaseResponseGetAiDecompilationTask> localVarResp = getAiDecompilationTaskResultWithHttpInfo(functionId, summarise, generateInlineComments);
         return localVarResp.getData();
     }
@@ -889,7 +889,7 @@ public class FunctionsAiDecompilationApi {
     /**
      * Polls AI Decompilation Process
      * Polls the AI Decompilation Process
-     * @param functionId  (required)
+     * @param functionId The ID of the function being decompiled (required)
      * @param summarise Generate a summary for the decompilation (optional, default to true)
      * @param generateInlineComments Generate inline comments for the decompilation (only works if summarise is enabled) (optional, default to true)
      * @return ApiResponse&lt;BaseResponseGetAiDecompilationTask&gt;
@@ -903,7 +903,7 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseGetAiDecompilationTask> getAiDecompilationTaskResultWithHttpInfo(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable Boolean summarise, @javax.annotation.Nullable Boolean generateInlineComments) throws ApiException {
+    public ApiResponse<BaseResponseGetAiDecompilationTask> getAiDecompilationTaskResultWithHttpInfo(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Boolean summarise, @javax.annotation.Nullable Boolean generateInlineComments) throws ApiException {
         okhttp3.Call localVarCall = getAiDecompilationTaskResultValidateBeforeCall(functionId, summarise, generateInlineComments, null);
         Type localVarReturnType = new TypeToken<BaseResponseGetAiDecompilationTask>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -912,7 +912,7 @@ public class FunctionsAiDecompilationApi {
     /**
      * Polls AI Decompilation Process (asynchronously)
      * Polls the AI Decompilation Process
-     * @param functionId  (required)
+     * @param functionId The ID of the function being decompiled (required)
      * @param summarise Generate a summary for the decompilation (optional, default to true)
      * @param generateInlineComments Generate inline comments for the decompilation (only works if summarise is enabled) (optional, default to true)
      * @param _callback The callback to be executed when the API call finishes
@@ -927,7 +927,7 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAiDecompilationTaskResultAsync(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable Boolean summarise, @javax.annotation.Nullable Boolean generateInlineComments, final ApiCallback<BaseResponseGetAiDecompilationTask> _callback) throws ApiException {
+    public okhttp3.Call getAiDecompilationTaskResultAsync(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Boolean summarise, @javax.annotation.Nullable Boolean generateInlineComments, final ApiCallback<BaseResponseGetAiDecompilationTask> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getAiDecompilationTaskResultValidateBeforeCall(functionId, summarise, generateInlineComments, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseGetAiDecompilationTask>(){}.getType();
@@ -936,7 +936,7 @@ public class FunctionsAiDecompilationApi {
     }
     /**
      * Build call for getAiDecompilationTaskStatus
-     * @param functionId  (required)
+     * @param functionId The ID of the function being checked (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -948,7 +948,7 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAiDecompilationTaskStatusCall(@javax.annotation.Nonnull Integer functionId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAiDecompilationTaskStatusCall(@javax.annotation.Nonnull Long functionId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -994,7 +994,7 @@ public class FunctionsAiDecompilationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAiDecompilationTaskStatusValidateBeforeCall(@javax.annotation.Nonnull Integer functionId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAiDecompilationTaskStatusValidateBeforeCall(@javax.annotation.Nonnull Long functionId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'functionId' is set
         if (functionId == null) {
             throw new ApiException("Missing the required parameter 'functionId' when calling getAiDecompilationTaskStatus(Async)");
@@ -1007,7 +1007,7 @@ public class FunctionsAiDecompilationApi {
     /**
      * Check the status of a function ai decompilation
      * 
-     * @param functionId  (required)
+     * @param functionId The ID of the function being checked (required)
      * @return BaseResponseFunctionTaskResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1018,7 +1018,7 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseFunctionTaskResponse getAiDecompilationTaskStatus(@javax.annotation.Nonnull Integer functionId) throws ApiException {
+    public BaseResponseFunctionTaskResponse getAiDecompilationTaskStatus(@javax.annotation.Nonnull Long functionId) throws ApiException {
         ApiResponse<BaseResponseFunctionTaskResponse> localVarResp = getAiDecompilationTaskStatusWithHttpInfo(functionId);
         return localVarResp.getData();
     }
@@ -1026,7 +1026,7 @@ public class FunctionsAiDecompilationApi {
     /**
      * Check the status of a function ai decompilation
      * 
-     * @param functionId  (required)
+     * @param functionId The ID of the function being checked (required)
      * @return ApiResponse&lt;BaseResponseFunctionTaskResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1037,7 +1037,7 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseFunctionTaskResponse> getAiDecompilationTaskStatusWithHttpInfo(@javax.annotation.Nonnull Integer functionId) throws ApiException {
+    public ApiResponse<BaseResponseFunctionTaskResponse> getAiDecompilationTaskStatusWithHttpInfo(@javax.annotation.Nonnull Long functionId) throws ApiException {
         okhttp3.Call localVarCall = getAiDecompilationTaskStatusValidateBeforeCall(functionId, null);
         Type localVarReturnType = new TypeToken<BaseResponseFunctionTaskResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1046,7 +1046,7 @@ public class FunctionsAiDecompilationApi {
     /**
      * Check the status of a function ai decompilation (asynchronously)
      * 
-     * @param functionId  (required)
+     * @param functionId The ID of the function being checked (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1058,7 +1058,7 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAiDecompilationTaskStatusAsync(@javax.annotation.Nonnull Integer functionId, final ApiCallback<BaseResponseFunctionTaskResponse> _callback) throws ApiException {
+    public okhttp3.Call getAiDecompilationTaskStatusAsync(@javax.annotation.Nonnull Long functionId, final ApiCallback<BaseResponseFunctionTaskResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getAiDecompilationTaskStatusValidateBeforeCall(functionId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseFunctionTaskResponse>(){}.getType();
@@ -1226,7 +1226,7 @@ public class FunctionsAiDecompilationApi {
     }
     /**
      * Build call for upsertAiDecompilationRating
-     * @param functionId  (required)
+     * @param functionId The ID of the function being rated (required)
      * @param upsertAiDecomplationRatingRequest  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1239,7 +1239,7 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call upsertAiDecompilationRatingCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull UpsertAiDecomplationRatingRequest upsertAiDecomplationRatingRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call upsertAiDecompilationRatingCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull UpsertAiDecomplationRatingRequest upsertAiDecomplationRatingRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1286,7 +1286,7 @@ public class FunctionsAiDecompilationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call upsertAiDecompilationRatingValidateBeforeCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull UpsertAiDecomplationRatingRequest upsertAiDecomplationRatingRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call upsertAiDecompilationRatingValidateBeforeCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull UpsertAiDecomplationRatingRequest upsertAiDecomplationRatingRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'functionId' is set
         if (functionId == null) {
             throw new ApiException("Missing the required parameter 'functionId' when calling upsertAiDecompilationRating(Async)");
@@ -1304,7 +1304,7 @@ public class FunctionsAiDecompilationApi {
     /**
      * Upsert rating for AI decompilation
      * 
-     * @param functionId  (required)
+     * @param functionId The ID of the function being rated (required)
      * @param upsertAiDecomplationRatingRequest  (required)
      * @return BaseResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1316,7 +1316,7 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponse upsertAiDecompilationRating(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull UpsertAiDecomplationRatingRequest upsertAiDecomplationRatingRequest) throws ApiException {
+    public BaseResponse upsertAiDecompilationRating(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull UpsertAiDecomplationRatingRequest upsertAiDecomplationRatingRequest) throws ApiException {
         ApiResponse<BaseResponse> localVarResp = upsertAiDecompilationRatingWithHttpInfo(functionId, upsertAiDecomplationRatingRequest);
         return localVarResp.getData();
     }
@@ -1324,7 +1324,7 @@ public class FunctionsAiDecompilationApi {
     /**
      * Upsert rating for AI decompilation
      * 
-     * @param functionId  (required)
+     * @param functionId The ID of the function being rated (required)
      * @param upsertAiDecomplationRatingRequest  (required)
      * @return ApiResponse&lt;BaseResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1336,7 +1336,7 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponse> upsertAiDecompilationRatingWithHttpInfo(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull UpsertAiDecomplationRatingRequest upsertAiDecomplationRatingRequest) throws ApiException {
+    public ApiResponse<BaseResponse> upsertAiDecompilationRatingWithHttpInfo(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull UpsertAiDecomplationRatingRequest upsertAiDecomplationRatingRequest) throws ApiException {
         okhttp3.Call localVarCall = upsertAiDecompilationRatingValidateBeforeCall(functionId, upsertAiDecomplationRatingRequest, null);
         Type localVarReturnType = new TypeToken<BaseResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1345,7 +1345,7 @@ public class FunctionsAiDecompilationApi {
     /**
      * Upsert rating for AI decompilation (asynchronously)
      * 
-     * @param functionId  (required)
+     * @param functionId The ID of the function being rated (required)
      * @param upsertAiDecomplationRatingRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1358,7 +1358,7 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call upsertAiDecompilationRatingAsync(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull UpsertAiDecomplationRatingRequest upsertAiDecomplationRatingRequest, final ApiCallback<BaseResponse> _callback) throws ApiException {
+    public okhttp3.Call upsertAiDecompilationRatingAsync(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull UpsertAiDecomplationRatingRequest upsertAiDecomplationRatingRequest, final ApiCallback<BaseResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = upsertAiDecompilationRatingValidateBeforeCall(functionId, upsertAiDecomplationRatingRequest, _callback);
         Type localVarReturnType = new TypeToken<BaseResponse>(){}.getType();

@@ -63,7 +63,7 @@ public class FunctionsAiDecompilationApiTest {
      */
     @Test
     public void createAiDecompilationTaskTest() throws ApiException {
-        Integer functionId = null;
+        Long functionId = null;
         BaseResponse response = api.createAiDecompilationTask(functionId);
         // TODO: test validations
     }
@@ -104,7 +104,7 @@ public class FunctionsAiDecompilationApiTest {
      */
     @Test
     public void getAiDecompilationRatingTest() throws ApiException {
-        Integer functionId = null;
+        Long functionId = null;
         BaseResponseGetAiDecompilationRatingResponse response = api.getAiDecompilationRating(functionId);
         // TODO: test validations
     }
@@ -118,7 +118,7 @@ public class FunctionsAiDecompilationApiTest {
      */
     @Test
     public void getAiDecompilationTaskResultTest() throws ApiException {
-        Integer functionId = null;
+        Long functionId = null;
         Boolean summarise = null;
         Boolean generateInlineComments = null;
         BaseResponseGetAiDecompilationTask response = api.getAiDecompilationTaskResult(functionId, summarise, generateInlineComments);
@@ -132,7 +132,7 @@ public class FunctionsAiDecompilationApiTest {
      */
     @Test
     public void getAiDecompilationTaskStatusTest() throws ApiException {
-        Integer functionId = null;
+        Long functionId = null;
         BaseResponseFunctionTaskResponse response = api.getAiDecompilationTaskStatus(functionId);
         // TODO: test validations
     }
@@ -160,7 +160,7 @@ public class FunctionsAiDecompilationApiTest {
      */
     @Test
     public void upsertAiDecompilationRatingTest() throws ApiException {
-        Integer functionId = null;
+        Long functionId = null;
         UpsertAiDecomplationRatingRequest upsertAiDecomplationRatingRequest = null;
         BaseResponse response = api.upsertAiDecompilationRating(functionId, upsertAiDecomplationRatingRequest);
         // TODO: test validations
