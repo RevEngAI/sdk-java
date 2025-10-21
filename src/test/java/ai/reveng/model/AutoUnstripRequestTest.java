@@ -69,4 +69,12 @@ public class AutoUnstripRequestTest {
         // TODO: test minGroupSize
     }
 
+    /**
+     * Test the property 'noCache'
+     */
+    @Test
+    public void noCacheTest() {
+        // TODO: test noCache
+    }
+
 }

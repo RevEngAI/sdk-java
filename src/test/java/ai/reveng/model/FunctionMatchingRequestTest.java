@@ -97,4 +97,12 @@ public class FunctionMatchingRequestTest {
         // TODO: test pageSize
     }
 
+    /**
+     * Test the property 'noCache'
+     */
+    @Test
+    public void noCacheTest() {
+        // TODO: test noCache
+    }
+
 }

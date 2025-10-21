@@ -12,6 +12,7 @@
 |**resultsPerFunction** | **Integer** | Maximum number of matches to return per function, default is 1, max is 10 |  [optional] |
 |**page** | **Integer** | Page number for paginated results, default is 1 (first page) |  [optional] |
 |**pageSize** | **Integer** | Number of functions to return per page, default is 0 (all functions), max is 1000 |  [optional] |
+|**noCache** | **Boolean** | If set to true, forces the system to bypass any cached results and perform a fresh computation |  [optional] |
 
 
 

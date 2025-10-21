@@ -91,6 +91,11 @@ public class FunctionMatchingRequest {
   @javax.annotation.Nullable
   private Integer pageSize = 0;
 
+  public static final String SERIALIZED_NAME_NO_CACHE = "no_cache";
+  @SerializedName(SERIALIZED_NAME_NO_CACHE)
+  @javax.annotation.Nullable
+  private Boolean noCache = false;
+
   public FunctionMatchingRequest() {
   }
 
@@ -241,6 +246,25 @@ public class FunctionMatchingRequest {
     this.pageSize = pageSize;
   }
 
+
+  public FunctionMatchingRequest noCache(@javax.annotation.Nullable Boolean noCache) {
+    this.noCache = noCache;
+    return this;
+  }
+
+  /**
+   * If set to true, forces the system to bypass any cached results and perform a fresh computation
+   * @return noCache
+   */
+  @javax.annotation.Nullable
+  public Boolean getNoCache() {
+    return noCache;
+  }
+
+  public void setNoCache(@javax.annotation.Nullable Boolean noCache) {
+    this.noCache = noCache;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -302,7 +326,8 @@ public class FunctionMatchingRequest {
         Objects.equals(this.filters, functionMatchingRequest.filters) &&
         Objects.equals(this.resultsPerFunction, functionMatchingRequest.resultsPerFunction) &&
         Objects.equals(this.page, functionMatchingRequest.page) &&
-        Objects.equals(this.pageSize, functionMatchingRequest.pageSize)&&
+        Objects.equals(this.pageSize, functionMatchingRequest.pageSize) &&
+        Objects.equals(this.noCache, functionMatchingRequest.noCache)&&
         Objects.equals(this.additionalProperties, functionMatchingRequest.additionalProperties);
   }
 
@@ -312,7 +337,7 @@ public class FunctionMatchingRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(modelId, functionIds, minSimilarity, filters, resultsPerFunction, page, pageSize, additionalProperties);
+    return Objects.hash(modelId, functionIds, minSimilarity, filters, resultsPerFunction, page, pageSize, noCache, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -333,6 +358,7 @@ public class FunctionMatchingRequest {
     sb.append("    resultsPerFunction: ").append(toIndentedString(resultsPerFunction)).append("\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    noCache: ").append(toIndentedString(noCache)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -355,7 +381,7 @@ public class FunctionMatchingRequest {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("model_id", "function_ids", "min_similarity", "filters", "results_per_function", "page", "page_size"));
+    openapiFields = new HashSet<String>(Arrays.asList("model_id", "function_ids", "min_similarity", "filters", "results_per_function", "page", "page_size", "no_cache"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("model_id", "function_ids"));
