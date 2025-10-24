@@ -12,6 +12,7 @@
 
 package ai.reveng.model;
 
+import ai.reveng.model.FunctionSourceType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -58,6 +59,14 @@ public class FunctionNameHistoryTest {
     @Test
     public void functionNameTest() {
         // TODO: test functionName
+    }
+
+    /**
+     * Test the property 'mangledName'
+     */
+    @Test
+    public void mangledNameTest() {
+        // TODO: test mangledName
     }
 
     /**
