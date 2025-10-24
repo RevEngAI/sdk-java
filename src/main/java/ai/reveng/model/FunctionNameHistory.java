@@ -14,6 +14,7 @@ package ai.reveng.model;
 
 import java.util.Objects;
 import java.util.Locale;
+import ai.reveng.model.FunctionSourceType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -66,6 +67,11 @@ public class FunctionNameHistory {
   @javax.annotation.Nonnull
   private String functionName;
 
+  public static final String SERIALIZED_NAME_MANGLED_NAME = "mangled_name";
+  @SerializedName(SERIALIZED_NAME_MANGLED_NAME)
+  @javax.annotation.Nonnull
+  private String mangledName;
+
   public static final String SERIALIZED_NAME_IS_DEBUG = "is_debug";
   @SerializedName(SERIALIZED_NAME_IS_DEBUG)
   @javax.annotation.Nonnull
@@ -74,7 +80,7 @@ public class FunctionNameHistory {
   public static final String SERIALIZED_NAME_SOURCE_TYPE = "source_type";
   @SerializedName(SERIALIZED_NAME_SOURCE_TYPE)
   @javax.annotation.Nonnull
-  private String sourceType;
+  private FunctionSourceType sourceType;
 
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
@@ -141,6 +147,25 @@ public class FunctionNameHistory {
   }
 
 
+  public FunctionNameHistory mangledName(@javax.annotation.Nonnull String mangledName) {
+    this.mangledName = mangledName;
+    return this;
+  }
+
+  /**
+   * The mangled name of the function
+   * @return mangledName
+   */
+  @javax.annotation.Nonnull
+  public String getMangledName() {
+    return mangledName;
+  }
+
+  public void setMangledName(@javax.annotation.Nonnull String mangledName) {
+    this.mangledName = mangledName;
+  }
+
+
   public FunctionNameHistory isDebug(@javax.annotation.Nonnull Boolean isDebug) {
     this.isDebug = isDebug;
     return this;
@@ -160,7 +185,7 @@ public class FunctionNameHistory {
   }
 
 
-  public FunctionNameHistory sourceType(@javax.annotation.Nonnull String sourceType) {
+  public FunctionNameHistory sourceType(@javax.annotation.Nonnull FunctionSourceType sourceType) {
     this.sourceType = sourceType;
     return this;
   }
@@ -170,11 +195,11 @@ public class FunctionNameHistory {
    * @return sourceType
    */
   @javax.annotation.Nonnull
-  public String getSourceType() {
+  public FunctionSourceType getSourceType() {
     return sourceType;
   }
 
-  public void setSourceType(@javax.annotation.Nonnull String sourceType) {
+  public void setSourceType(@javax.annotation.Nonnull FunctionSourceType sourceType) {
     this.sourceType = sourceType;
   }
 
@@ -255,6 +280,7 @@ public class FunctionNameHistory {
     return Objects.equals(this.historyId, functionNameHistory.historyId) &&
         Objects.equals(this.changeMadeBy, functionNameHistory.changeMadeBy) &&
         Objects.equals(this.functionName, functionNameHistory.functionName) &&
+        Objects.equals(this.mangledName, functionNameHistory.mangledName) &&
         Objects.equals(this.isDebug, functionNameHistory.isDebug) &&
         Objects.equals(this.sourceType, functionNameHistory.sourceType) &&
         Objects.equals(this.createdAt, functionNameHistory.createdAt)&&
@@ -263,7 +289,7 @@ public class FunctionNameHistory {
 
   @Override
   public int hashCode() {
-    return Objects.hash(historyId, changeMadeBy, functionName, isDebug, sourceType, createdAt, additionalProperties);
+    return Objects.hash(historyId, changeMadeBy, functionName, mangledName, isDebug, sourceType, createdAt, additionalProperties);
   }
 
   @Override
@@ -273,6 +299,7 @@ public class FunctionNameHistory {
     sb.append("    historyId: ").append(toIndentedString(historyId)).append("\n");
     sb.append("    changeMadeBy: ").append(toIndentedString(changeMadeBy)).append("\n");
     sb.append("    functionName: ").append(toIndentedString(functionName)).append("\n");
+    sb.append("    mangledName: ").append(toIndentedString(mangledName)).append("\n");
     sb.append("    isDebug: ").append(toIndentedString(isDebug)).append("\n");
     sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
@@ -298,10 +325,10 @@ public class FunctionNameHistory {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("history_id", "change_made_by", "function_name", "is_debug", "source_type", "created_at"));
+    openapiFields = new HashSet<String>(Arrays.asList("history_id", "change_made_by", "function_name", "mangled_name", "is_debug", "source_type", "created_at"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("history_id", "change_made_by", "function_name", "is_debug", "source_type", "created_at"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("history_id", "change_made_by", "function_name", "mangled_name", "is_debug", "source_type", "created_at"));
   }
 
   /**
@@ -330,9 +357,11 @@ public class FunctionNameHistory {
       if (!jsonObj.get("function_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `function_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("function_name").toString()));
       }
-      if (!jsonObj.get("source_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `source_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("source_type").toString()));
+      if (!jsonObj.get("mangled_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `mangled_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mangled_name").toString()));
       }
+      // validate the required field `source_type`
+      FunctionSourceType.validateJsonElement(jsonObj.get("source_type"));
       if (!jsonObj.get("created_at").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `created_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("created_at").toString()));
       }
