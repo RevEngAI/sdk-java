@@ -98,6 +98,14 @@ public class FunctionMatchingRequestTest {
     }
 
     /**
+     * Test the property 'statusOnly'
+     */
+    @Test
+    public void statusOnlyTest() {
+        // TODO: test statusOnly
+    }
+
+    /**
      * Test the property 'noCache'
      */
     @Test

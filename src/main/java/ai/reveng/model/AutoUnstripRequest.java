@@ -72,6 +72,11 @@ public class AutoUnstripRequest {
   @javax.annotation.Nullable
   private Integer minGroupSize = 10;
 
+  public static final String SERIALIZED_NAME_STATUS_ONLY = "status_only";
+  @SerializedName(SERIALIZED_NAME_STATUS_ONLY)
+  @javax.annotation.Nullable
+  private Boolean statusOnly = false;
+
   public static final String SERIALIZED_NAME_NO_CACHE = "no_cache";
   @SerializedName(SERIALIZED_NAME_NO_CACHE)
   @javax.annotation.Nullable
@@ -162,6 +167,25 @@ public class AutoUnstripRequest {
   }
 
 
+  public AutoUnstripRequest statusOnly(@javax.annotation.Nullable Boolean statusOnly) {
+    this.statusOnly = statusOnly;
+    return this;
+  }
+
+  /**
+   * If set to true, only returns the status of the auto-unstrip operation without the actual results
+   * @return statusOnly
+   */
+  @javax.annotation.Nullable
+  public Boolean getStatusOnly() {
+    return statusOnly;
+  }
+
+  public void setStatusOnly(@javax.annotation.Nullable Boolean statusOnly) {
+    this.statusOnly = statusOnly;
+  }
+
+
   public AutoUnstripRequest noCache(@javax.annotation.Nullable Boolean noCache) {
     this.noCache = noCache;
     return this;
@@ -239,13 +263,14 @@ public class AutoUnstripRequest {
         Objects.equals(this.apply, autoUnstripRequest.apply) &&
         Objects.equals(this.confidenceThreshold, autoUnstripRequest.confidenceThreshold) &&
         Objects.equals(this.minGroupSize, autoUnstripRequest.minGroupSize) &&
+        Objects.equals(this.statusOnly, autoUnstripRequest.statusOnly) &&
         Objects.equals(this.noCache, autoUnstripRequest.noCache)&&
         Objects.equals(this.additionalProperties, autoUnstripRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(minSimilarity, apply, confidenceThreshold, minGroupSize, noCache, additionalProperties);
+    return Objects.hash(minSimilarity, apply, confidenceThreshold, minGroupSize, statusOnly, noCache, additionalProperties);
   }
 
   @Override
@@ -256,6 +281,7 @@ public class AutoUnstripRequest {
     sb.append("    apply: ").append(toIndentedString(apply)).append("\n");
     sb.append("    confidenceThreshold: ").append(toIndentedString(confidenceThreshold)).append("\n");
     sb.append("    minGroupSize: ").append(toIndentedString(minGroupSize)).append("\n");
+    sb.append("    statusOnly: ").append(toIndentedString(statusOnly)).append("\n");
     sb.append("    noCache: ").append(toIndentedString(noCache)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -279,7 +305,7 @@ public class AutoUnstripRequest {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("min_similarity", "apply", "confidence_threshold", "min_group_size", "no_cache"));
+    openapiFields = new HashSet<String>(Arrays.asList("min_similarity", "apply", "confidence_threshold", "min_group_size", "status_only", "no_cache"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);

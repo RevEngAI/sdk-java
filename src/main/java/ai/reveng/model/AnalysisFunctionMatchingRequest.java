@@ -79,6 +79,11 @@ public class AnalysisFunctionMatchingRequest {
   @javax.annotation.Nullable
   private Integer pageSize = 0;
 
+  public static final String SERIALIZED_NAME_STATUS_ONLY = "status_only";
+  @SerializedName(SERIALIZED_NAME_STATUS_ONLY)
+  @javax.annotation.Nullable
+  private Boolean statusOnly = false;
+
   public static final String SERIALIZED_NAME_NO_CACHE = "no_cache";
   @SerializedName(SERIALIZED_NAME_NO_CACHE)
   @javax.annotation.Nullable
@@ -189,6 +194,25 @@ public class AnalysisFunctionMatchingRequest {
   }
 
 
+  public AnalysisFunctionMatchingRequest statusOnly(@javax.annotation.Nullable Boolean statusOnly) {
+    this.statusOnly = statusOnly;
+    return this;
+  }
+
+  /**
+   * If set to true, only returns the status of the matching operation without the actual results
+   * @return statusOnly
+   */
+  @javax.annotation.Nullable
+  public Boolean getStatusOnly() {
+    return statusOnly;
+  }
+
+  public void setStatusOnly(@javax.annotation.Nullable Boolean statusOnly) {
+    this.statusOnly = statusOnly;
+  }
+
+
   public AnalysisFunctionMatchingRequest noCache(@javax.annotation.Nullable Boolean noCache) {
     this.noCache = noCache;
     return this;
@@ -267,6 +291,7 @@ public class AnalysisFunctionMatchingRequest {
         Objects.equals(this.resultsPerFunction, analysisFunctionMatchingRequest.resultsPerFunction) &&
         Objects.equals(this.page, analysisFunctionMatchingRequest.page) &&
         Objects.equals(this.pageSize, analysisFunctionMatchingRequest.pageSize) &&
+        Objects.equals(this.statusOnly, analysisFunctionMatchingRequest.statusOnly) &&
         Objects.equals(this.noCache, analysisFunctionMatchingRequest.noCache)&&
         Objects.equals(this.additionalProperties, analysisFunctionMatchingRequest.additionalProperties);
   }
@@ -277,7 +302,7 @@ public class AnalysisFunctionMatchingRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(minSimilarity, filters, resultsPerFunction, page, pageSize, noCache, additionalProperties);
+    return Objects.hash(minSimilarity, filters, resultsPerFunction, page, pageSize, statusOnly, noCache, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -296,6 +321,7 @@ public class AnalysisFunctionMatchingRequest {
     sb.append("    resultsPerFunction: ").append(toIndentedString(resultsPerFunction)).append("\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    statusOnly: ").append(toIndentedString(statusOnly)).append("\n");
     sb.append("    noCache: ").append(toIndentedString(noCache)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -319,7 +345,7 @@ public class AnalysisFunctionMatchingRequest {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("min_similarity", "filters", "results_per_function", "page", "page_size", "no_cache"));
+    openapiFields = new HashSet<String>(Arrays.asList("min_similarity", "filters", "results_per_function", "page", "page_size", "status_only", "no_cache"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);

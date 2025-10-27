@@ -87,8 +87,8 @@ public class FunctionMatchingBatchResponse {
 
   public static final String SERIALIZED_NAME_MATCHES = "matches";
   @SerializedName(SERIALIZED_NAME_MATCHES)
-  @javax.annotation.Nonnull
-  private List<FunctionMatchingResultWithBestMatch> matches = new ArrayList<>();
+  @javax.annotation.Nullable
+  private List<FunctionMatchingResultWithBestMatch> matches;
 
   public FunctionMatchingBatchResponse() {
   }
@@ -207,7 +207,7 @@ public class FunctionMatchingBatchResponse {
   }
 
 
-  public FunctionMatchingBatchResponse matches(@javax.annotation.Nonnull List<FunctionMatchingResultWithBestMatch> matches) {
+  public FunctionMatchingBatchResponse matches(@javax.annotation.Nullable List<FunctionMatchingResultWithBestMatch> matches) {
     this.matches = matches;
     return this;
   }
@@ -224,12 +224,12 @@ public class FunctionMatchingBatchResponse {
    * Get matches
    * @return matches
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public List<FunctionMatchingResultWithBestMatch> getMatches() {
     return matches;
   }
 
-  public void setMatches(@javax.annotation.Nonnull List<FunctionMatchingResultWithBestMatch> matches) {
+  public void setMatches(@javax.annotation.Nullable List<FunctionMatchingResultWithBestMatch> matches) {
     this.matches = matches;
   }
 
@@ -350,7 +350,7 @@ public class FunctionMatchingBatchResponse {
     openapiFields = new HashSet<String>(Arrays.asList("progress", "status", "total_time", "error_message", "current_page", "total_pages", "matches"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("matches"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -365,13 +365,6 @@ public class FunctionMatchingBatchResponse {
           throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in FunctionMatchingBatchResponse is not found in the empty JSON string", FunctionMatchingBatchResponse.openapiRequiredFields.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : FunctionMatchingBatchResponse.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) && !jsonObj.get("status").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
@@ -379,16 +372,20 @@ public class FunctionMatchingBatchResponse {
       if ((jsonObj.get("error_message") != null && !jsonObj.get("error_message").isJsonNull()) && !jsonObj.get("error_message").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `error_message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("error_message").toString()));
       }
-      // ensure the json data is an array
-      if (!jsonObj.get("matches").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `matches` to be an array in the JSON string but got `%s`", jsonObj.get("matches").toString()));
-      }
+      if (jsonObj.get("matches") != null && !jsonObj.get("matches").isJsonNull()) {
+        JsonArray jsonArraymatches = jsonObj.getAsJsonArray("matches");
+        if (jsonArraymatches != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("matches").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `matches` to be an array in the JSON string but got `%s`", jsonObj.get("matches").toString()));
+          }
 
-      JsonArray jsonArraymatches = jsonObj.getAsJsonArray("matches");
-      // validate the required field `matches` (array)
-      for (int i = 0; i < jsonArraymatches.size(); i++) {
-        FunctionMatchingResultWithBestMatch.validateJsonElement(jsonArraymatches.get(i));
-      };
+          // validate the optional field `matches` (array)
+          for (int i = 0; i < jsonArraymatches.size(); i++) {
+            FunctionMatchingResultWithBestMatch.validateJsonElement(jsonArraymatches.get(i));
+          };
+        }
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
