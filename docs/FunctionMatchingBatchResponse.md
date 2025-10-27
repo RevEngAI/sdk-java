@@ -13,7 +13,7 @@
 |**errorMessage** | **String** |  |  [optional] |
 |**currentPage** | **Integer** |  |  [optional] |
 |**totalPages** | **Integer** |  |  [optional] |
-|**matches** | [**List&lt;FunctionMatchingResultWithBestMatch&gt;**](FunctionMatchingResultWithBestMatch.md) |  |  |
+|**matches** | [**List&lt;FunctionMatchingResultWithBestMatch&gt;**](FunctionMatchingResultWithBestMatch.md) |  |  [optional] |
 
 
 
