@@ -16,7 +16,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>ai.reveng</groupId>
     <artifactId>sdk</artifactId>
-    <version>2.16.0</version>
+    <version>2.18.2</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -31,7 +31,7 @@ repositories {
 }
 
 dependencies {
-    implementation "ai.reveng:sdk:2.16.0"
+    implementation "ai.reveng:sdk:2.18.2"
 }
 ```
 
@@ -168,12 +168,9 @@ Class | Method | HTTP request | Description
 *FunctionsDataTypesApi* | [**listFunctionDataTypesForAnalysis**](docs/FunctionsDataTypesApi.md#listFunctionDataTypesForAnalysis) | **GET** /v2/analyses/{analysis_id}/functions/data_types | List Function Data Types
 *FunctionsDataTypesApi* | [**listFunctionDataTypesForFunctions**](docs/FunctionsDataTypesApi.md#listFunctionDataTypesForFunctions) | **GET** /v2/functions/data_types | List Function Data Types
 *FunctionsDataTypesApi* | [**updateFunctionDataTypes**](docs/FunctionsDataTypesApi.md#updateFunctionDataTypes) | **PUT** /v2/analyses/{analysis_id}/functions/{function_id}/data_types | Update Function Data Types
-*FunctionsDecompilationApi* | [**checkFunctionDecompilationTask**](docs/FunctionsDecompilationApi.md#checkFunctionDecompilationTask) | **GET** /v2/functions/{function_id}/decompilation/status | Check the status of a function decompilation
 *FunctionsDecompilationApi* | [**createDecompilationComment**](docs/FunctionsDecompilationApi.md#createDecompilationComment) | **POST** /v2/functions/{function_id}/decompilation/comments | Create a comment for this function
-*FunctionsDecompilationApi* | [**createFunctionDecompilationTask**](docs/FunctionsDecompilationApi.md#createFunctionDecompilationTask) | **POST** /v2/functions/{function_id}/decompilation | Queues a function decompilation
 *FunctionsDecompilationApi* | [**deleteDecompilationComment**](docs/FunctionsDecompilationApi.md#deleteDecompilationComment) | **DELETE** /v2/functions/{function_id}/decompilation/comments/{comment_id} | Delete a comment
 *FunctionsDecompilationApi* | [**getDecompilationComments**](docs/FunctionsDecompilationApi.md#getDecompilationComments) | **GET** /v2/functions/{function_id}/decompilation/comments | Get comments for this function
-*FunctionsDecompilationApi* | [**getFunctionDecompilation**](docs/FunctionsDecompilationApi.md#getFunctionDecompilation) | **GET** /v2/functions/{function_id}/decompilation | Get decompilation result
 *FunctionsDecompilationApi* | [**updateDecompilationComment**](docs/FunctionsDecompilationApi.md#updateDecompilationComment) | **PATCH** /v2/functions/{function_id}/decompilation/comments/{comment_id} | Update a comment
 *FunctionsRenamingHistoryApi* | [**batchRenameFunction**](docs/FunctionsRenamingHistoryApi.md#batchRenameFunction) | **POST** /v2/functions/rename/batch | Batch Rename Functions
 *FunctionsRenamingHistoryApi* | [**getFunctionNameHistory**](docs/FunctionsRenamingHistoryApi.md#getFunctionNameHistory) | **GET** /v2/functions/history/{function_id} | Get Function Name History
@@ -245,7 +242,6 @@ Class | Method | HTTP request | Description
  - [BaseResponseCommentResponse](docs/BaseResponseCommentResponse.md)
  - [BaseResponseCommunities](docs/BaseResponseCommunities.md)
  - [BaseResponseCreated](docs/BaseResponseCreated.md)
- - [BaseResponseDecompilationResponse](docs/BaseResponseDecompilationResponse.md)
  - [BaseResponseDict](docs/BaseResponseDict.md)
  - [BaseResponseDynamicExecutionStatus](docs/BaseResponseDynamicExecutionStatus.md)
  - [BaseResponseExternalResponse](docs/BaseResponseExternalResponse.md)
@@ -332,7 +328,6 @@ Class | Method | HTTP request | Description
  - [Context](docs/Context.md)
  - [Created](docs/Created.md)
  - [DecompilationCommentContext](docs/DecompilationCommentContext.md)
- - [DecompilationResponse](docs/DecompilationResponse.md)
  - [DieMatch](docs/DieMatch.md)
  - [DynamicExecutionStatusInput](docs/DynamicExecutionStatusInput.md)
  - [ELFImportModel](docs/ELFImportModel.md)
