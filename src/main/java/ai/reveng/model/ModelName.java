@@ -30,21 +30,17 @@ import com.google.gson.stream.JsonWriter;
 @JsonAdapter(ModelName.Adapter.class)
 public enum ModelName {
   
-  BINNET_0_5_X86_WINDOWS("binnet-0.5-x86-windows"),
+  BINNET_0_7_X86_64_WINDOWS("binnet-0.7-x86-64-windows"),
   
-  BINNET_0_5_X86_LINUX("binnet-0.5-x86-linux"),
+  BINNET_0_7_X86_64_LINUX("binnet-0.7-x86-64-linux"),
   
-  BINNET_0_5_X86_MACOS("binnet-0.5-x86-macos"),
+  BINNET_0_7_X86_32_WINDOWS("binnet-0.7-x86-32-windows"),
   
-  BINNET_0_5_X86_ANDROID("binnet-0.5-x86-android"),
+  BINNET_0_7_X86_32_LINUX("binnet-0.7-x86-32-linux"),
   
-  BINNET_0_5_X86_32_WINDOWS("binnet-0.5-x86-32-windows"),
+  BINNET_0_7_ARM_64_WINDOWS("binnet-0.7-arm-64-windows"),
   
-  BINNET_0_5_X86_32_LINUX("binnet-0.5-x86-32-linux"),
-  
-  BINNET_0_5_ARM_64_WINDOWS("binnet-0.5-arm-64-windows"),
-  
-  BINNET_0_5_ARM_64_LINUX("binnet-0.5-arm-64-linux");
+  BINNET_0_7_ARM_64_LINUX("binnet-0.7-arm-64-linux");
 
   private String value;
 

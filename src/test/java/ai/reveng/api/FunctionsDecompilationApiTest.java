@@ -16,10 +16,7 @@ import ai.reveng.invoker.ApiException;
 import ai.reveng.model.BaseResponse;
 import ai.reveng.model.BaseResponseBool;
 import ai.reveng.model.BaseResponseCommentResponse;
-import ai.reveng.model.BaseResponseDecompilationResponse;
-import ai.reveng.model.BaseResponseFunctionTaskResponse;
 import ai.reveng.model.BaseResponseListCommentResponse;
-import ai.reveng.model.BaseResponseStr;
 import ai.reveng.model.CommentUpdateRequest;
 import ai.reveng.model.FunctionCommentCreateRequest;
 import org.junit.jupiter.api.Disabled;
@@ -39,18 +36,6 @@ public class FunctionsDecompilationApiTest {
     private final FunctionsDecompilationApi api = new FunctionsDecompilationApi();
 
     /**
-     * Check the status of a function decompilation
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void checkFunctionDecompilationTaskTest() throws ApiException {
-        Integer functionId = null;
-        BaseResponseFunctionTaskResponse response = api.checkFunctionDecompilationTask(functionId);
-        // TODO: test validations
-    }
-
-    /**
      * Create a comment for this function
      *
      * Creates a comment associated with a specified function).
@@ -62,18 +47,6 @@ public class FunctionsDecompilationApiTest {
         Integer functionId = null;
         FunctionCommentCreateRequest functionCommentCreateRequest = null;
         BaseResponseCommentResponse response = api.createDecompilationComment(functionId, functionCommentCreateRequest);
-        // TODO: test validations
-    }
-
-    /**
-     * Queues a function decompilation
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void createFunctionDecompilationTaskTest() throws ApiException {
-        Integer functionId = null;
-        BaseResponseStr response = api.createFunctionDecompilationTask(functionId);
         // TODO: test validations
     }
 
@@ -103,18 +76,6 @@ public class FunctionsDecompilationApiTest {
     public void getDecompilationCommentsTest() throws ApiException {
         Integer functionId = null;
         BaseResponseListCommentResponse response = api.getDecompilationComments(functionId);
-        // TODO: test validations
-    }
-
-    /**
-     * Get decompilation result
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getFunctionDecompilationTest() throws ApiException {
-        Integer functionId = null;
-        BaseResponseDecompilationResponse response = api.getFunctionDecompilation(functionId);
         // TODO: test validations
     }
 
