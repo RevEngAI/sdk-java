@@ -71,11 +71,6 @@ public class FunctionMappingFull {
   @javax.annotation.Nonnull
   private Map<String, InverseValue> unmatchedFunctions = new HashMap<>();
 
-  public static final String SERIALIZED_NAME_UNMATCHED_EXTERNAL_VARS = "unmatched_external_vars";
-  @SerializedName(SERIALIZED_NAME_UNMATCHED_EXTERNAL_VARS)
-  @javax.annotation.Nonnull
-  private Map<String, InverseValue> unmatchedExternalVars = new HashMap<>();
-
   public static final String SERIALIZED_NAME_UNMATCHED_CUSTOM_TYPES = "unmatched_custom_types";
   @SerializedName(SERIALIZED_NAME_UNMATCHED_CUSTOM_TYPES)
   @javax.annotation.Nonnull
@@ -106,10 +101,26 @@ public class FunctionMappingFull {
   @javax.annotation.Nonnull
   private Map<String, InverseValue> unmatchedVariadicLists = new HashMap<>();
 
+  public static final String SERIALIZED_NAME_UNMATCHED_ENUMS = "unmatched_enums";
+  @SerializedName(SERIALIZED_NAME_UNMATCHED_ENUMS)
+  @javax.annotation.Nonnull
+  private Map<String, InverseValue> unmatchedEnums = new HashMap<>();
+
+  public static final String SERIALIZED_NAME_UNMATCHED_GLOBAL_VARS = "unmatched_global_vars";
+  @SerializedName(SERIALIZED_NAME_UNMATCHED_GLOBAL_VARS)
+  @javax.annotation.Nonnull
+  private Map<String, InverseValue> unmatchedGlobalVars = new HashMap<>();
+
   public static final String SERIALIZED_NAME_FIELDS = "fields";
   @SerializedName(SERIALIZED_NAME_FIELDS)
   @javax.annotation.Nonnull
   private Map<String, Map<String, InverseValue>> fields = new HashMap<>();
+
+  public static final String SERIALIZED_NAME_UNMATCHED_EXTERNAL_VARS = "unmatched_external_vars";
+  @Deprecated
+  @SerializedName(SERIALIZED_NAME_UNMATCHED_EXTERNAL_VARS)
+  @javax.annotation.Nullable
+  private Map<String, InverseValue> unmatchedExternalVars = new HashMap<>();
 
   public FunctionMappingFull() {
   }
@@ -192,33 +203,6 @@ public class FunctionMappingFull {
 
   public void setUnmatchedFunctions(@javax.annotation.Nonnull Map<String, InverseValue> unmatchedFunctions) {
     this.unmatchedFunctions = unmatchedFunctions;
-  }
-
-
-  public FunctionMappingFull unmatchedExternalVars(@javax.annotation.Nonnull Map<String, InverseValue> unmatchedExternalVars) {
-    this.unmatchedExternalVars = unmatchedExternalVars;
-    return this;
-  }
-
-  public FunctionMappingFull putUnmatchedExternalVarsItem(String key, InverseValue unmatchedExternalVarsItem) {
-    if (this.unmatchedExternalVars == null) {
-      this.unmatchedExternalVars = new HashMap<>();
-    }
-    this.unmatchedExternalVars.put(key, unmatchedExternalVarsItem);
-    return this;
-  }
-
-  /**
-   * Get unmatchedExternalVars
-   * @return unmatchedExternalVars
-   */
-  @javax.annotation.Nonnull
-  public Map<String, InverseValue> getUnmatchedExternalVars() {
-    return unmatchedExternalVars;
-  }
-
-  public void setUnmatchedExternalVars(@javax.annotation.Nonnull Map<String, InverseValue> unmatchedExternalVars) {
-    this.unmatchedExternalVars = unmatchedExternalVars;
   }
 
 
@@ -384,6 +368,60 @@ public class FunctionMappingFull {
   }
 
 
+  public FunctionMappingFull unmatchedEnums(@javax.annotation.Nonnull Map<String, InverseValue> unmatchedEnums) {
+    this.unmatchedEnums = unmatchedEnums;
+    return this;
+  }
+
+  public FunctionMappingFull putUnmatchedEnumsItem(String key, InverseValue unmatchedEnumsItem) {
+    if (this.unmatchedEnums == null) {
+      this.unmatchedEnums = new HashMap<>();
+    }
+    this.unmatchedEnums.put(key, unmatchedEnumsItem);
+    return this;
+  }
+
+  /**
+   * Get unmatchedEnums
+   * @return unmatchedEnums
+   */
+  @javax.annotation.Nonnull
+  public Map<String, InverseValue> getUnmatchedEnums() {
+    return unmatchedEnums;
+  }
+
+  public void setUnmatchedEnums(@javax.annotation.Nonnull Map<String, InverseValue> unmatchedEnums) {
+    this.unmatchedEnums = unmatchedEnums;
+  }
+
+
+  public FunctionMappingFull unmatchedGlobalVars(@javax.annotation.Nonnull Map<String, InverseValue> unmatchedGlobalVars) {
+    this.unmatchedGlobalVars = unmatchedGlobalVars;
+    return this;
+  }
+
+  public FunctionMappingFull putUnmatchedGlobalVarsItem(String key, InverseValue unmatchedGlobalVarsItem) {
+    if (this.unmatchedGlobalVars == null) {
+      this.unmatchedGlobalVars = new HashMap<>();
+    }
+    this.unmatchedGlobalVars.put(key, unmatchedGlobalVarsItem);
+    return this;
+  }
+
+  /**
+   * Get unmatchedGlobalVars
+   * @return unmatchedGlobalVars
+   */
+  @javax.annotation.Nonnull
+  public Map<String, InverseValue> getUnmatchedGlobalVars() {
+    return unmatchedGlobalVars;
+  }
+
+  public void setUnmatchedGlobalVars(@javax.annotation.Nonnull Map<String, InverseValue> unmatchedGlobalVars) {
+    this.unmatchedGlobalVars = unmatchedGlobalVars;
+  }
+
+
   public FunctionMappingFull fields(@javax.annotation.Nonnull Map<String, Map<String, InverseValue>> fields) {
     this.fields = fields;
     return this;
@@ -408,6 +446,37 @@ public class FunctionMappingFull {
 
   public void setFields(@javax.annotation.Nonnull Map<String, Map<String, InverseValue>> fields) {
     this.fields = fields;
+  }
+
+
+  @Deprecated
+  public FunctionMappingFull unmatchedExternalVars(@javax.annotation.Nullable Map<String, InverseValue> unmatchedExternalVars) {
+    this.unmatchedExternalVars = unmatchedExternalVars;
+    return this;
+  }
+
+  public FunctionMappingFull putUnmatchedExternalVarsItem(String key, InverseValue unmatchedExternalVarsItem) {
+    if (this.unmatchedExternalVars == null) {
+      this.unmatchedExternalVars = new HashMap<>();
+    }
+    this.unmatchedExternalVars.put(key, unmatchedExternalVarsItem);
+    return this;
+  }
+
+  /**
+   * No longer provided.
+   * @return unmatchedExternalVars
+   * @deprecated
+   */
+  @Deprecated
+  @javax.annotation.Nullable
+  public Map<String, InverseValue> getUnmatchedExternalVars() {
+    return unmatchedExternalVars;
+  }
+
+  @Deprecated
+  public void setUnmatchedExternalVars(@javax.annotation.Nullable Map<String, InverseValue> unmatchedExternalVars) {
+    this.unmatchedExternalVars = unmatchedExternalVars;
   }
 
   /**
@@ -468,20 +537,22 @@ public class FunctionMappingFull {
     return Objects.equals(this.inverseStringMap, functionMappingFull.inverseStringMap) &&
         Objects.equals(this.inverseFunctionMap, functionMappingFull.inverseFunctionMap) &&
         Objects.equals(this.unmatchedFunctions, functionMappingFull.unmatchedFunctions) &&
-        Objects.equals(this.unmatchedExternalVars, functionMappingFull.unmatchedExternalVars) &&
         Objects.equals(this.unmatchedCustomTypes, functionMappingFull.unmatchedCustomTypes) &&
         Objects.equals(this.unmatchedStrings, functionMappingFull.unmatchedStrings) &&
         Objects.equals(this.unmatchedVars, functionMappingFull.unmatchedVars) &&
         Objects.equals(this.unmatchedGoToLabels, functionMappingFull.unmatchedGoToLabels) &&
         Objects.equals(this.unmatchedCustomFunctionPointers, functionMappingFull.unmatchedCustomFunctionPointers) &&
         Objects.equals(this.unmatchedVariadicLists, functionMappingFull.unmatchedVariadicLists) &&
-        Objects.equals(this.fields, functionMappingFull.fields)&&
+        Objects.equals(this.unmatchedEnums, functionMappingFull.unmatchedEnums) &&
+        Objects.equals(this.unmatchedGlobalVars, functionMappingFull.unmatchedGlobalVars) &&
+        Objects.equals(this.fields, functionMappingFull.fields) &&
+        Objects.equals(this.unmatchedExternalVars, functionMappingFull.unmatchedExternalVars)&&
         Objects.equals(this.additionalProperties, functionMappingFull.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(inverseStringMap, inverseFunctionMap, unmatchedFunctions, unmatchedExternalVars, unmatchedCustomTypes, unmatchedStrings, unmatchedVars, unmatchedGoToLabels, unmatchedCustomFunctionPointers, unmatchedVariadicLists, fields, additionalProperties);
+    return Objects.hash(inverseStringMap, inverseFunctionMap, unmatchedFunctions, unmatchedCustomTypes, unmatchedStrings, unmatchedVars, unmatchedGoToLabels, unmatchedCustomFunctionPointers, unmatchedVariadicLists, unmatchedEnums, unmatchedGlobalVars, fields, unmatchedExternalVars, additionalProperties);
   }
 
   @Override
@@ -491,14 +562,16 @@ public class FunctionMappingFull {
     sb.append("    inverseStringMap: ").append(toIndentedString(inverseStringMap)).append("\n");
     sb.append("    inverseFunctionMap: ").append(toIndentedString(inverseFunctionMap)).append("\n");
     sb.append("    unmatchedFunctions: ").append(toIndentedString(unmatchedFunctions)).append("\n");
-    sb.append("    unmatchedExternalVars: ").append(toIndentedString(unmatchedExternalVars)).append("\n");
     sb.append("    unmatchedCustomTypes: ").append(toIndentedString(unmatchedCustomTypes)).append("\n");
     sb.append("    unmatchedStrings: ").append(toIndentedString(unmatchedStrings)).append("\n");
     sb.append("    unmatchedVars: ").append(toIndentedString(unmatchedVars)).append("\n");
     sb.append("    unmatchedGoToLabels: ").append(toIndentedString(unmatchedGoToLabels)).append("\n");
     sb.append("    unmatchedCustomFunctionPointers: ").append(toIndentedString(unmatchedCustomFunctionPointers)).append("\n");
     sb.append("    unmatchedVariadicLists: ").append(toIndentedString(unmatchedVariadicLists)).append("\n");
+    sb.append("    unmatchedEnums: ").append(toIndentedString(unmatchedEnums)).append("\n");
+    sb.append("    unmatchedGlobalVars: ").append(toIndentedString(unmatchedGlobalVars)).append("\n");
     sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
+    sb.append("    unmatchedExternalVars: ").append(toIndentedString(unmatchedExternalVars)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -521,10 +594,10 @@ public class FunctionMappingFull {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("inverse_string_map", "inverse_function_map", "unmatched_functions", "unmatched_external_vars", "unmatched_custom_types", "unmatched_strings", "unmatched_vars", "unmatched_go_to_labels", "unmatched_custom_function_pointers", "unmatched_variadic_lists", "fields"));
+    openapiFields = new HashSet<String>(Arrays.asList("inverse_string_map", "inverse_function_map", "unmatched_functions", "unmatched_custom_types", "unmatched_strings", "unmatched_vars", "unmatched_go_to_labels", "unmatched_custom_function_pointers", "unmatched_variadic_lists", "unmatched_enums", "unmatched_global_vars", "fields", "unmatched_external_vars"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("inverse_string_map", "inverse_function_map", "unmatched_functions", "unmatched_external_vars", "unmatched_custom_types", "unmatched_strings", "unmatched_vars", "unmatched_go_to_labels", "unmatched_custom_function_pointers", "unmatched_variadic_lists", "fields"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("inverse_string_map", "inverse_function_map", "unmatched_functions", "unmatched_custom_types", "unmatched_strings", "unmatched_vars", "unmatched_go_to_labels", "unmatched_custom_function_pointers", "unmatched_variadic_lists", "unmatched_enums", "unmatched_global_vars", "fields"));
   }
 
   /**
