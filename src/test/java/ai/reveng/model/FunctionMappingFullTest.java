@@ -66,14 +66,6 @@ public class FunctionMappingFullTest {
     }
 
     /**
-     * Test the property 'unmatchedExternalVars'
-     */
-    @Test
-    public void unmatchedExternalVarsTest() {
-        // TODO: test unmatchedExternalVars
-    }
-
-    /**
      * Test the property 'unmatchedCustomTypes'
      */
     @Test
@@ -122,11 +114,35 @@ public class FunctionMappingFullTest {
     }
 
     /**
+     * Test the property 'unmatchedEnums'
+     */
+    @Test
+    public void unmatchedEnumsTest() {
+        // TODO: test unmatchedEnums
+    }
+
+    /**
+     * Test the property 'unmatchedGlobalVars'
+     */
+    @Test
+    public void unmatchedGlobalVarsTest() {
+        // TODO: test unmatchedGlobalVars
+    }
+
+    /**
      * Test the property 'fields'
      */
     @Test
     public void fieldsTest() {
         // TODO: test fields
+    }
+
+    /**
+     * Test the property 'unmatchedExternalVars'
+     */
+    @Test
+    public void unmatchedExternalVarsTest() {
+        // TODO: test unmatchedExternalVars
     }
 
 }
