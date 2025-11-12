@@ -14,7 +14,7 @@ package ai.reveng.model;
 
 import java.util.Objects;
 import java.util.Locale;
-import ai.reveng.model.AppApiRestV2AnalysesResponsesTagItem;
+import ai.reveng.model.TagItem;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -57,22 +57,17 @@ public class AnalysisTags {
   public static final String SERIALIZED_NAME_ANALYSIS_TAGS = "analysis_tags";
   @SerializedName(SERIALIZED_NAME_ANALYSIS_TAGS)
   @javax.annotation.Nonnull
-  private List<AppApiRestV2AnalysesResponsesTagItem> analysisTags = new ArrayList<>();
-
-  public static final String SERIALIZED_NAME_SUGGESTED_TAGS = "suggested_tags";
-  @SerializedName(SERIALIZED_NAME_SUGGESTED_TAGS)
-  @javax.annotation.Nonnull
-  private List<AppApiRestV2AnalysesResponsesTagItem> suggestedTags = new ArrayList<>();
+  private List<TagItem> analysisTags = new ArrayList<>();
 
   public AnalysisTags() {
   }
 
-  public AnalysisTags analysisTags(@javax.annotation.Nonnull List<AppApiRestV2AnalysesResponsesTagItem> analysisTags) {
+  public AnalysisTags analysisTags(@javax.annotation.Nonnull List<TagItem> analysisTags) {
     this.analysisTags = analysisTags;
     return this;
   }
 
-  public AnalysisTags addAnalysisTagsItem(AppApiRestV2AnalysesResponsesTagItem analysisTagsItem) {
+  public AnalysisTags addAnalysisTagsItem(TagItem analysisTagsItem) {
     if (this.analysisTags == null) {
       this.analysisTags = new ArrayList<>();
     }
@@ -85,39 +80,12 @@ public class AnalysisTags {
    * @return analysisTags
    */
   @javax.annotation.Nonnull
-  public List<AppApiRestV2AnalysesResponsesTagItem> getAnalysisTags() {
+  public List<TagItem> getAnalysisTags() {
     return analysisTags;
   }
 
-  public void setAnalysisTags(@javax.annotation.Nonnull List<AppApiRestV2AnalysesResponsesTagItem> analysisTags) {
+  public void setAnalysisTags(@javax.annotation.Nonnull List<TagItem> analysisTags) {
     this.analysisTags = analysisTags;
-  }
-
-
-  public AnalysisTags suggestedTags(@javax.annotation.Nonnull List<AppApiRestV2AnalysesResponsesTagItem> suggestedTags) {
-    this.suggestedTags = suggestedTags;
-    return this;
-  }
-
-  public AnalysisTags addSuggestedTagsItem(AppApiRestV2AnalysesResponsesTagItem suggestedTagsItem) {
-    if (this.suggestedTags == null) {
-      this.suggestedTags = new ArrayList<>();
-    }
-    this.suggestedTags.add(suggestedTagsItem);
-    return this;
-  }
-
-  /**
-   * Get suggestedTags
-   * @return suggestedTags
-   */
-  @javax.annotation.Nonnull
-  public List<AppApiRestV2AnalysesResponsesTagItem> getSuggestedTags() {
-    return suggestedTags;
-  }
-
-  public void setSuggestedTags(@javax.annotation.Nonnull List<AppApiRestV2AnalysesResponsesTagItem> suggestedTags) {
-    this.suggestedTags = suggestedTags;
   }
 
   /**
@@ -175,14 +143,13 @@ public class AnalysisTags {
       return false;
     }
     AnalysisTags analysisTags = (AnalysisTags) o;
-    return Objects.equals(this.analysisTags, analysisTags.analysisTags) &&
-        Objects.equals(this.suggestedTags, analysisTags.suggestedTags)&&
+    return Objects.equals(this.analysisTags, analysisTags.analysisTags)&&
         Objects.equals(this.additionalProperties, analysisTags.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(analysisTags, suggestedTags, additionalProperties);
+    return Objects.hash(analysisTags, additionalProperties);
   }
 
   @Override
@@ -190,7 +157,6 @@ public class AnalysisTags {
     StringBuilder sb = new StringBuilder();
     sb.append("class AnalysisTags {\n");
     sb.append("    analysisTags: ").append(toIndentedString(analysisTags)).append("\n");
-    sb.append("    suggestedTags: ").append(toIndentedString(suggestedTags)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -213,10 +179,10 @@ public class AnalysisTags {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("analysis_tags", "suggested_tags"));
+    openapiFields = new HashSet<String>(Arrays.asList("analysis_tags"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("analysis_tags", "suggested_tags"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("analysis_tags"));
   }
 
   /**
@@ -247,17 +213,7 @@ public class AnalysisTags {
       JsonArray jsonArrayanalysisTags = jsonObj.getAsJsonArray("analysis_tags");
       // validate the required field `analysis_tags` (array)
       for (int i = 0; i < jsonArrayanalysisTags.size(); i++) {
-        AppApiRestV2AnalysesResponsesTagItem.validateJsonElement(jsonArrayanalysisTags.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("suggested_tags").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `suggested_tags` to be an array in the JSON string but got `%s`", jsonObj.get("suggested_tags").toString()));
-      }
-
-      JsonArray jsonArraysuggestedTags = jsonObj.getAsJsonArray("suggested_tags");
-      // validate the required field `suggested_tags` (array)
-      for (int i = 0; i < jsonArraysuggestedTags.size(); i++) {
-        AppApiRestV2AnalysesResponsesTagItem.validateJsonElement(jsonArraysuggestedTags.get(i));
+        TagItem.validateJsonElement(jsonArrayanalysisTags.get(i));
       };
   }
 

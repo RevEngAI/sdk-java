@@ -36,7 +36,6 @@ import ai.reveng.model.BaseResponseAnalysisDetailResponse;
 import ai.reveng.model.BaseResponseAnalysisFunctionMapping;
 import ai.reveng.model.BaseResponseAnalysisUpdateTagsResponse;
 import ai.reveng.model.BaseResponseBasic;
-import ai.reveng.model.BaseResponseBinaryAnnListResponse;
 import ai.reveng.model.BaseResponseCreated;
 import ai.reveng.model.BaseResponseDict;
 import ai.reveng.model.BaseResponseLogs;
@@ -44,7 +43,6 @@ import ai.reveng.model.BaseResponseParams;
 import ai.reveng.model.BaseResponseRecent;
 import ai.reveng.model.BaseResponseStatus;
 import ai.reveng.model.BaseResponseUploadResponse;
-import ai.reveng.model.BinaryAnnForm;
 import ai.reveng.model.DynamicExecutionStatusInput;
 import java.io.File;
 import ai.reveng.model.ModelName;
@@ -1027,147 +1025,6 @@ public class AnalysesCoreApi {
 
         okhttp3.Call localVarCall = getAnalysisStatusValidateBeforeCall(analysisId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseStatus>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for getBinaryAnn
-     * @param analysisId  (required)
-     * @param binaryAnnForm  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getBinaryAnnCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull BinaryAnnForm binaryAnnForm, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = binaryAnnForm;
-
-        // create path and map variables
-        String localVarPath = "/v2/binary_ann/{analysis_id}"
-            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "APIKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBinaryAnnValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull BinaryAnnForm binaryAnnForm, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'analysisId' is set
-        if (analysisId == null) {
-            throw new ApiException("Missing the required parameter 'analysisId' when calling getBinaryAnn(Async)");
-        }
-
-        // verify the required parameter 'binaryAnnForm' is set
-        if (binaryAnnForm == null) {
-            throw new ApiException("Missing the required parameter 'binaryAnnForm' when calling getBinaryAnn(Async)");
-        }
-
-        return getBinaryAnnCall(analysisId, binaryAnnForm, _callback);
-
-    }
-
-    /**
-     * Binary Ann
-     * Binary Ann
-     * @param analysisId  (required)
-     * @param binaryAnnForm  (required)
-     * @return BaseResponseBinaryAnnListResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-     </table>
-     */
-    public BaseResponseBinaryAnnListResponse getBinaryAnn(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull BinaryAnnForm binaryAnnForm) throws ApiException {
-        ApiResponse<BaseResponseBinaryAnnListResponse> localVarResp = getBinaryAnnWithHttpInfo(analysisId, binaryAnnForm);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Binary Ann
-     * Binary Ann
-     * @param analysisId  (required)
-     * @param binaryAnnForm  (required)
-     * @return ApiResponse&lt;BaseResponseBinaryAnnListResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<BaseResponseBinaryAnnListResponse> getBinaryAnnWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull BinaryAnnForm binaryAnnForm) throws ApiException {
-        okhttp3.Call localVarCall = getBinaryAnnValidateBeforeCall(analysisId, binaryAnnForm, null);
-        Type localVarReturnType = new TypeToken<BaseResponseBinaryAnnListResponse>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Binary Ann (asynchronously)
-     * Binary Ann
-     * @param analysisId  (required)
-     * @param binaryAnnForm  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getBinaryAnnAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull BinaryAnnForm binaryAnnForm, final ApiCallback<BaseResponseBinaryAnnListResponse> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = getBinaryAnnValidateBeforeCall(analysisId, binaryAnnForm, _callback);
-        Type localVarReturnType = new TypeToken<BaseResponseBinaryAnnListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

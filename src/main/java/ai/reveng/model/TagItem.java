@@ -14,8 +14,6 @@ package ai.reveng.model;
 
 import java.util.Objects;
 import java.util.Locale;
-import ai.reveng.model.BoxPlotConfidence;
-import ai.reveng.model.Tags;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -49,58 +48,82 @@ import java.util.Locale;
 import ai.reveng.invoker.JSON;
 
 /**
- * TagOriginBoxPlotConfidence
+ * TagItem
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class TagOriginBoxPlotConfidence {
-  public static final String SERIALIZED_NAME_TAG = "tag";
-  @SerializedName(SERIALIZED_NAME_TAG)
+public class TagItem {
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
   @javax.annotation.Nonnull
-  private Tags tag;
+  private String name;
 
-  public static final String SERIALIZED_NAME_BOX_PLOT = "box_plot";
-  @SerializedName(SERIALIZED_NAME_BOX_PLOT)
+  public static final String SERIALIZED_NAME_ORIGIN = "origin";
+  @SerializedName(SERIALIZED_NAME_ORIGIN)
   @javax.annotation.Nonnull
-  private BoxPlotConfidence boxPlot;
+  private String origin;
 
-  public TagOriginBoxPlotConfidence() {
+  public static final String SERIALIZED_NAME_COLLECTION_ID = "collection_id";
+  @SerializedName(SERIALIZED_NAME_COLLECTION_ID)
+  @javax.annotation.Nullable
+  private Integer collectionId;
+
+  public TagItem() {
   }
 
-  public TagOriginBoxPlotConfidence tag(@javax.annotation.Nonnull Tags tag) {
-    this.tag = tag;
+  public TagItem name(@javax.annotation.Nonnull String name) {
+    this.name = name;
     return this;
   }
 
   /**
-   * Get tag
-   * @return tag
+   * Get name
+   * @return name
    */
   @javax.annotation.Nonnull
-  public Tags getTag() {
-    return tag;
+  public String getName() {
+    return name;
   }
 
-  public void setTag(@javax.annotation.Nonnull Tags tag) {
-    this.tag = tag;
+  public void setName(@javax.annotation.Nonnull String name) {
+    this.name = name;
   }
 
 
-  public TagOriginBoxPlotConfidence boxPlot(@javax.annotation.Nonnull BoxPlotConfidence boxPlot) {
-    this.boxPlot = boxPlot;
+  public TagItem origin(@javax.annotation.Nonnull String origin) {
+    this.origin = origin;
     return this;
   }
 
   /**
-   * Get boxPlot
-   * @return boxPlot
+   * Get origin
+   * @return origin
    */
   @javax.annotation.Nonnull
-  public BoxPlotConfidence getBoxPlot() {
-    return boxPlot;
+  public String getOrigin() {
+    return origin;
   }
 
-  public void setBoxPlot(@javax.annotation.Nonnull BoxPlotConfidence boxPlot) {
-    this.boxPlot = boxPlot;
+  public void setOrigin(@javax.annotation.Nonnull String origin) {
+    this.origin = origin;
+  }
+
+
+  public TagItem collectionId(@javax.annotation.Nullable Integer collectionId) {
+    this.collectionId = collectionId;
+    return this;
+  }
+
+  /**
+   * Get collectionId
+   * @return collectionId
+   */
+  @javax.annotation.Nullable
+  public Integer getCollectionId() {
+    return collectionId;
+  }
+
+  public void setCollectionId(@javax.annotation.Nullable Integer collectionId) {
+    this.collectionId = collectionId;
   }
 
   /**
@@ -116,9 +139,9 @@ public class TagOriginBoxPlotConfidence {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the TagOriginBoxPlotConfidence instance itself
+   * @return the TagItem instance itself
    */
-  public TagOriginBoxPlotConfidence putAdditionalProperty(String key, Object value) {
+  public TagItem putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -157,23 +180,36 @@ public class TagOriginBoxPlotConfidence {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TagOriginBoxPlotConfidence tagOriginBoxPlotConfidence = (TagOriginBoxPlotConfidence) o;
-    return Objects.equals(this.tag, tagOriginBoxPlotConfidence.tag) &&
-        Objects.equals(this.boxPlot, tagOriginBoxPlotConfidence.boxPlot)&&
-        Objects.equals(this.additionalProperties, tagOriginBoxPlotConfidence.additionalProperties);
+    TagItem tagItem = (TagItem) o;
+    return Objects.equals(this.name, tagItem.name) &&
+        Objects.equals(this.origin, tagItem.origin) &&
+        Objects.equals(this.collectionId, tagItem.collectionId)&&
+        Objects.equals(this.additionalProperties, tagItem.additionalProperties);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(tag, boxPlot, additionalProperties);
+    return Objects.hash(name, origin, collectionId, additionalProperties);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TagOriginBoxPlotConfidence {\n");
-    sb.append("    tag: ").append(toIndentedString(tag)).append("\n");
-    sb.append("    boxPlot: ").append(toIndentedString(boxPlot)).append("\n");
+    sb.append("class TagItem {\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    origin: ").append(toIndentedString(origin)).append("\n");
+    sb.append("    collectionId: ").append(toIndentedString(collectionId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -196,52 +232,54 @@ public class TagOriginBoxPlotConfidence {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("tag", "box_plot"));
+    openapiFields = new HashSet<String>(Arrays.asList("name", "origin", "collection_id"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("tag", "box_plot"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "origin"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to TagOriginBoxPlotConfidence
+   * @throws IOException if the JSON Element is invalid with respect to TagItem
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!TagOriginBoxPlotConfidence.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in TagOriginBoxPlotConfidence is not found in the empty JSON string", TagOriginBoxPlotConfidence.openapiRequiredFields.toString()));
+        if (!TagItem.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in TagItem is not found in the empty JSON string", TagItem.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : TagOriginBoxPlotConfidence.openapiRequiredFields) {
+      for (String requiredField : TagItem.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the required field `tag`
-      Tags.validateJsonElement(jsonObj.get("tag"));
-      // validate the required field `box_plot`
-      BoxPlotConfidence.validateJsonElement(jsonObj.get("box_plot"));
+      if (!jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if (!jsonObj.get("origin").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `origin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("origin").toString()));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TagOriginBoxPlotConfidence.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TagOriginBoxPlotConfidence' and its subtypes
+       if (!TagItem.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TagItem' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TagOriginBoxPlotConfidence> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TagOriginBoxPlotConfidence.class));
+       final TypeAdapter<TagItem> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TagItem.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<TagOriginBoxPlotConfidence>() {
+       return (TypeAdapter<T>) new TypeAdapter<TagItem>() {
            @Override
-           public void write(JsonWriter out, TagOriginBoxPlotConfidence value) throws IOException {
+           public void write(JsonWriter out, TagItem value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -269,12 +307,12 @@ public class TagOriginBoxPlotConfidence {
            }
 
            @Override
-           public TagOriginBoxPlotConfidence read(JsonReader in) throws IOException {
+           public TagItem read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             TagOriginBoxPlotConfidence instance = thisAdapter.fromJsonTree(jsonObj);
+             TagItem instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -301,18 +339,18 @@ public class TagOriginBoxPlotConfidence {
   }
 
   /**
-   * Create an instance of TagOriginBoxPlotConfidence given an JSON string
+   * Create an instance of TagItem given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of TagOriginBoxPlotConfidence
-   * @throws IOException if the JSON string is invalid with respect to TagOriginBoxPlotConfidence
+   * @return An instance of TagItem
+   * @throws IOException if the JSON string is invalid with respect to TagItem
    */
-  public static TagOriginBoxPlotConfidence fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TagOriginBoxPlotConfidence.class);
+  public static TagItem fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TagItem.class);
   }
 
   /**
-   * Convert an instance of TagOriginBoxPlotConfidence to an JSON string
+   * Convert an instance of TagItem to an JSON string
    *
    * @return JSON string
    */
