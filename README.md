@@ -16,7 +16,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>ai.reveng</groupId>
     <artifactId>sdk</artifactId>
-    <version>2.32.0</version>
+    <version>2.35.1</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -31,7 +31,7 @@ repositories {
 }
 
 dependencies {
-    implementation "ai.reveng:sdk:2.32.0"
+    implementation "ai.reveng:sdk:2.35.1"
 }
 ```
 
@@ -87,7 +87,6 @@ Class | Method | HTTP request | Description
 *AnalysesCoreApi* | [**getAnalysisLogs**](docs/AnalysesCoreApi.md#getAnalysisLogs) | **GET** /v2/analyses/{analysis_id}/logs | Gets the logs of an analysis
 *AnalysesCoreApi* | [**getAnalysisParams**](docs/AnalysesCoreApi.md#getAnalysisParams) | **GET** /v2/analyses/{analysis_id}/params | Gets analysis param information
 *AnalysesCoreApi* | [**getAnalysisStatus**](docs/AnalysesCoreApi.md#getAnalysisStatus) | **GET** /v2/analyses/{analysis_id}/status | Gets the status of an analysis
-*AnalysesCoreApi* | [**getBinaryAnn**](docs/AnalysesCoreApi.md#getBinaryAnn) | **POST** /v2/binary_ann/{analysis_id} | Binary Ann
 *AnalysesCoreApi* | [**listAnalyses**](docs/AnalysesCoreApi.md#listAnalyses) | **GET** /v2/analyses/list | Gets the most recent analyses
 *AnalysesCoreApi* | [**lookupBinaryId**](docs/AnalysesCoreApi.md#lookupBinaryId) | **GET** /v2/analyses/lookup/{binary_id} | Gets the analysis ID from binary ID
 *AnalysesCoreApi* | [**requeueAnalysis**](docs/AnalysesCoreApi.md#requeueAnalysis) | **POST** /v2/analyses/{analysis_id}/requeue | Requeue Analysis
@@ -129,7 +128,6 @@ Class | Method | HTTP request | Description
 *CollectionsApi* | [**updateCollection**](docs/CollectionsApi.md#updateCollection) | **PATCH** /v2/collections/{collection_id} | Updates a collection
 *CollectionsApi* | [**updateCollectionBinaries**](docs/CollectionsApi.md#updateCollectionBinaries) | **PATCH** /v2/collections/{collection_id}/binaries | Updates a collection binaries
 *CollectionsApi* | [**updateCollectionTags**](docs/CollectionsApi.md#updateCollectionTags) | **PATCH** /v2/collections/{collection_id}/tags | Updates a collection tags
-*ConfidenceApi* | [**getAnalysisTagScore**](docs/ConfidenceApi.md#getAnalysisTagScore) | **POST** /v2/confidence/analysis/{analysis_id}/tag_score | Calculate Tag Confidence Score for an Analysis
 *ExternalSourcesApi* | [**createExternalTaskMb**](docs/ExternalSourcesApi.md#createExternalTaskMb) | **POST** /v2/analysis/{analysis_id}/external/mb | Pulls data from VirusTotal
 *ExternalSourcesApi* | [**createExternalTaskVt**](docs/ExternalSourcesApi.md#createExternalTaskVt) | **POST** /v2/analysis/{analysis_id}/external/vt | Pulls data from VirusTotal
 *ExternalSourcesApi* | [**getMbData**](docs/ExternalSourcesApi.md#getMbData) | **GET** /v2/analysis/{analysis_id}/external/mb | Get MalwareBazaar data
@@ -205,11 +203,9 @@ Class | Method | HTTP request | Description
  - [AnalysisUpdateTagsResponse](docs/AnalysisUpdateTagsResponse.md)
  - [AppApiRestV2AnalysesEnumsDynamicExecutionStatus](docs/AppApiRestV2AnalysesEnumsDynamicExecutionStatus.md)
  - [AppApiRestV2AnalysesEnumsOrderBy](docs/AppApiRestV2AnalysesEnumsOrderBy.md)
- - [AppApiRestV2AnalysesResponsesTagItem](docs/AppApiRestV2AnalysesResponsesTagItem.md)
  - [AppApiRestV2CollectionsEnumsOrderBy](docs/AppApiRestV2CollectionsEnumsOrderBy.md)
  - [AppApiRestV2FunctionsResponsesFunction](docs/AppApiRestV2FunctionsResponsesFunction.md)
  - [AppApiRestV2FunctionsTypesFunction](docs/AppApiRestV2FunctionsTypesFunction.md)
- - [AppServicesBinaryAnnSchemaTagItem](docs/AppServicesBinaryAnnSchemaTagItem.md)
  - [AppServicesDynamicExecutionSchemasDynamicExecutionStatus](docs/AppServicesDynamicExecutionSchemasDynamicExecutionStatus.md)
  - [Argument](docs/Argument.md)
  - [AutoUnstripRequest](docs/AutoUnstripRequest.md)
@@ -224,7 +220,6 @@ Class | Method | HTTP request | Description
  - [BaseResponseAnalysisUpdateTagsResponse](docs/BaseResponseAnalysisUpdateTagsResponse.md)
  - [BaseResponseBasic](docs/BaseResponseBasic.md)
  - [BaseResponseBinaryAdditionalResponse](docs/BaseResponseBinaryAdditionalResponse.md)
- - [BaseResponseBinaryAnnListResponse](docs/BaseResponseBinaryAnnListResponse.md)
  - [BaseResponseBinaryDetailsResponse](docs/BaseResponseBinaryDetailsResponse.md)
  - [BaseResponseBinaryExternalsResponse](docs/BaseResponseBinaryExternalsResponse.md)
  - [BaseResponseBinarySearchResponse](docs/BaseResponseBinarySearchResponse.md)
@@ -264,7 +259,6 @@ Class | Method | HTTP request | Description
  - [BaseResponseListDieMatch](docs/BaseResponseListDieMatch.md)
  - [BaseResponseListFunctionNameHistory](docs/BaseResponseListFunctionNameHistory.md)
  - [BaseResponseListSBOM](docs/BaseResponseListSBOM.md)
- - [BaseResponseListTagOriginBoxPlotConfidence](docs/BaseResponseListTagOriginBoxPlotConfidence.md)
  - [BaseResponseListUserActivityResponse](docs/BaseResponseListUserActivityResponse.md)
  - [BaseResponseLoginResponse](docs/BaseResponseLoginResponse.md)
  - [BaseResponseLogs](docs/BaseResponseLogs.md)
@@ -287,8 +281,6 @@ Class | Method | HTTP request | Description
  - [Basic](docs/Basic.md)
  - [BinaryAdditionalDetailsDataResponse](docs/BinaryAdditionalDetailsDataResponse.md)
  - [BinaryAdditionalResponse](docs/BinaryAdditionalResponse.md)
- - [BinaryAnnForm](docs/BinaryAnnForm.md)
- - [BinaryAnnListResponse](docs/BinaryAnnListResponse.md)
  - [BinaryConfig](docs/BinaryConfig.md)
  - [BinaryDetailsResponse](docs/BinaryDetailsResponse.md)
  - [BinaryExternalsResponse](docs/BinaryExternalsResponse.md)
@@ -297,7 +289,6 @@ Class | Method | HTTP request | Description
  - [BinaryTaskStatus](docs/BinaryTaskStatus.md)
  - [Block](docs/Block.md)
  - [BlockCommentsGenerationForFunctionResponse](docs/BlockCommentsGenerationForFunctionResponse.md)
- - [BoxPlotConfidence](docs/BoxPlotConfidence.md)
  - [CalleeFunctionInfo](docs/CalleeFunctionInfo.md)
  - [CalleesCallerFunctionsResponse](docs/CalleesCallerFunctionsResponse.md)
  - [CallerFunctionInfo](docs/CallerFunctionInfo.md)
@@ -342,7 +333,6 @@ Class | Method | HTTP request | Description
  - [Enumeration](docs/Enumeration.md)
  - [ErrorModel](docs/ErrorModel.md)
  - [ExportModel](docs/ExportModel.md)
- - [ExportedBinaryAnnResult](docs/ExportedBinaryAnnResult.md)
  - [ExternalResponse](docs/ExternalResponse.md)
  - [FileFormat](docs/FileFormat.md)
  - [FileHashes](docs/FileHashes.md)
@@ -413,7 +403,6 @@ Class | Method | HTTP request | Description
  - [NetworkOverviewMetadata](docs/NetworkOverviewMetadata.md)
  - [NetworkOverviewResponse](docs/NetworkOverviewResponse.md)
  - [Order](docs/Order.md)
- - [Origin](docs/Origin.md)
  - [PDBDebugModel](docs/PDBDebugModel.md)
  - [PEModel](docs/PEModel.md)
  - [PaginationModel](docs/PaginationModel.md)
@@ -457,12 +446,10 @@ Class | Method | HTTP request | Description
  - [TTPSElement](docs/TTPSElement.md)
  - [TTPSOccurance](docs/TTPSOccurance.md)
  - [Tag](docs/Tag.md)
- - [TagConfidenceBody](docs/TagConfidenceBody.md)
- - [TagOriginBoxPlotConfidence](docs/TagOriginBoxPlotConfidence.md)
+ - [TagItem](docs/TagItem.md)
  - [TagResponse](docs/TagResponse.md)
  - [TagSearchResponse](docs/TagSearchResponse.md)
  - [TagSearchResult](docs/TagSearchResult.md)
- - [Tags](docs/Tags.md)
  - [TaskResponse](docs/TaskResponse.md)
  - [TaskStatus](docs/TaskStatus.md)
  - [TimestampModel](docs/TimestampModel.md)

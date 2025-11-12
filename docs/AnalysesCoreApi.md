@@ -11,7 +11,6 @@ All URIs are relative to *https://api.reveng.ai*
 | [**getAnalysisLogs**](AnalysesCoreApi.md#getAnalysisLogs) | **GET** /v2/analyses/{analysis_id}/logs | Gets the logs of an analysis |
 | [**getAnalysisParams**](AnalysesCoreApi.md#getAnalysisParams) | **GET** /v2/analyses/{analysis_id}/params | Gets analysis param information |
 | [**getAnalysisStatus**](AnalysesCoreApi.md#getAnalysisStatus) | **GET** /v2/analyses/{analysis_id}/status | Gets the status of an analysis |
-| [**getBinaryAnn**](AnalysesCoreApi.md#getBinaryAnn) | **POST** /v2/binary_ann/{analysis_id} | Binary Ann |
 | [**listAnalyses**](AnalysesCoreApi.md#listAnalyses) | **GET** /v2/analyses/list | Gets the most recent analyses |
 | [**lookupBinaryId**](AnalysesCoreApi.md#lookupBinaryId) | **GET** /v2/analyses/lookup/{binary_id} | Gets the analysis ID from binary ID |
 | [**requeueAnalysis**](AnalysesCoreApi.md#requeueAnalysis) | **POST** /v2/analyses/{analysis_id}/requeue | Requeue Analysis |
@@ -506,78 +505,6 @@ public class Example {
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successful Response |  -  |
-| **422** | Invalid request parameters |  -  |
-
-<a id="getBinaryAnn"></a>
-# **getBinaryAnn**
-> BaseResponseBinaryAnnListResponse getBinaryAnn(analysisId, binaryAnnForm)
-
-Binary Ann
-
-Binary Ann
-
-### Example
-```java
-// Import classes:
-import ai.reveng.invoker.ApiClient;
-import ai.reveng.invoker.ApiException;
-import ai.reveng.invoker.Configuration;
-import ai.reveng.invoker.auth.*;
-import ai.reveng.invoker.models.*;
-import ai.reveng.api.AnalysesCoreApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.reveng.ai");
-    
-    // Configure API key authorization: APIKey
-    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
-    APIKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //APIKey.setApiKeyPrefix("Token");
-
-    AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
-    Integer analysisId = 56; // Integer | 
-    BinaryAnnForm binaryAnnForm = new BinaryAnnForm(); // BinaryAnnForm | 
-    try {
-      BaseResponseBinaryAnnListResponse result = apiInstance.getBinaryAnn(analysisId, binaryAnnForm);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling AnalysesCoreApi#getBinaryAnn");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **analysisId** | **Integer**|  | |
-| **binaryAnnForm** | [**BinaryAnnForm**](BinaryAnnForm.md)|  | |
-
-### Return type
-
-[**BaseResponseBinaryAnnListResponse**](BaseResponseBinaryAnnListResponse.md)
-
-### Authorization
-
-[APIKey](../README.md#APIKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details

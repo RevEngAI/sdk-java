@@ -23,7 +23,6 @@ import ai.reveng.model.BaseResponseAnalysisDetailResponse;
 import ai.reveng.model.BaseResponseAnalysisFunctionMapping;
 import ai.reveng.model.BaseResponseAnalysisUpdateTagsResponse;
 import ai.reveng.model.BaseResponseBasic;
-import ai.reveng.model.BaseResponseBinaryAnnListResponse;
 import ai.reveng.model.BaseResponseCreated;
 import ai.reveng.model.BaseResponseDict;
 import ai.reveng.model.BaseResponseLogs;
@@ -31,7 +30,6 @@ import ai.reveng.model.BaseResponseParams;
 import ai.reveng.model.BaseResponseRecent;
 import ai.reveng.model.BaseResponseStatus;
 import ai.reveng.model.BaseResponseUploadResponse;
-import ai.reveng.model.BinaryAnnForm;
 import ai.reveng.model.DynamicExecutionStatusInput;
 import java.io.File;
 import ai.reveng.model.ModelName;
@@ -151,21 +149,6 @@ public class AnalysesCoreApiTest {
     public void getAnalysisStatusTest() throws ApiException {
         Integer analysisId = null;
         BaseResponseStatus response = api.getAnalysisStatus(analysisId);
-        // TODO: test validations
-    }
-
-    /**
-     * Binary Ann
-     *
-     * Binary Ann
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getBinaryAnnTest() throws ApiException {
-        Integer analysisId = null;
-        BinaryAnnForm binaryAnnForm = null;
-        BaseResponseBinaryAnnListResponse response = api.getBinaryAnn(analysisId, binaryAnnForm);
         // TODO: test validations
     }
 

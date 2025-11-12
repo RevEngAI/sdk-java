@@ -12,7 +12,7 @@
 
 package ai.reveng.model;
 
-import ai.reveng.model.AppApiRestV2AnalysesResponsesTagItem;
+import ai.reveng.model.TagItem;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -45,14 +45,6 @@ public class AnalysisTagsTest {
     @Test
     public void analysisTagsTest() {
         // TODO: test analysisTags
-    }
-
-    /**
-     * Test the property 'suggestedTags'
-     */
-    @Test
-    public void suggestedTagsTest() {
-        // TODO: test suggestedTags
     }
 
 }

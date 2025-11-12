@@ -12,8 +12,6 @@
 
 package ai.reveng.model;
 
-import ai.reveng.model.BoxPlotConfidence;
-import ai.reveng.model.Tags;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -21,37 +19,46 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import org.openapitools.jackson.nullable.JsonNullable;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for TagOriginBoxPlotConfidence
+ * Model tests for TagItem
  */
-public class TagOriginBoxPlotConfidenceTest {
-    private final TagOriginBoxPlotConfidence model = new TagOriginBoxPlotConfidence();
+public class TagItemTest {
+    private final TagItem model = new TagItem();
 
     /**
-     * Model tests for TagOriginBoxPlotConfidence
+     * Model tests for TagItem
      */
     @Test
-    public void testTagOriginBoxPlotConfidence() {
-        // TODO: test TagOriginBoxPlotConfidence
+    public void testTagItem() {
+        // TODO: test TagItem
     }
 
     /**
-     * Test the property 'tag'
+     * Test the property 'name'
      */
     @Test
-    public void tagTest() {
-        // TODO: test tag
+    public void nameTest() {
+        // TODO: test name
     }
 
     /**
-     * Test the property 'boxPlot'
+     * Test the property 'origin'
      */
     @Test
-    public void boxPlotTest() {
-        // TODO: test boxPlot
+    public void originTest() {
+        // TODO: test origin
+    }
+
+    /**
+     * Test the property 'collectionId'
+     */
+    @Test
+    public void collectionIdTest() {
+        // TODO: test collectionId
     }
 
 }

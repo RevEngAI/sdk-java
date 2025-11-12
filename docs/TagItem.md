@@ -1,6 +1,6 @@
 
 
-# AppApiRestV2AnalysesResponsesTagItem
+# TagItem
 
 
 ## Properties
