@@ -22,7 +22,7 @@
 |**username** | **String** | The username of the analysis owner |  |
 |**dynamicExecutionStatus** | **AppApiRestV2AnalysesEnumsDynamicExecutionStatus** |  |  [optional] |
 |**dynamicExecutionTaskId** | **Integer** |  |  [optional] |
-|**baseAddress** | **Long** | The base address of the binary |  |
+|**baseAddress** | **JavaMathBigInteger** | The base address of the binary |  |
 
 
 

@@ -13,6 +13,7 @@
 package ai.reveng.model;
 
 import ai.reveng.model.AppApiRestV2AnalysesEnumsDynamicExecutionStatus;
+import ai.reveng.model.JavaMathBigInteger;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;

@@ -15,6 +15,7 @@ package ai.reveng.model;
 import java.util.Objects;
 import java.util.Locale;
 import ai.reveng.model.FunctionBoundary;
+import ai.reveng.model.JavaMathBigInteger;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -57,7 +58,7 @@ public class Symbols {
   public static final String SERIALIZED_NAME_BASE_ADDRESS = "base_address";
   @SerializedName(SERIALIZED_NAME_BASE_ADDRESS)
   @javax.annotation.Nonnull
-  private Long baseAddress;
+  private JavaMathBigInteger baseAddress;
 
   public static final String SERIALIZED_NAME_FUNCTION_BOUNDARIES = "function_boundaries";
   @SerializedName(SERIALIZED_NAME_FUNCTION_BOUNDARIES)
@@ -67,7 +68,7 @@ public class Symbols {
   public Symbols() {
   }
 
-  public Symbols baseAddress(@javax.annotation.Nonnull Long baseAddress) {
+  public Symbols baseAddress(@javax.annotation.Nonnull JavaMathBigInteger baseAddress) {
     this.baseAddress = baseAddress;
     return this;
   }
@@ -77,11 +78,11 @@ public class Symbols {
    * @return baseAddress
    */
   @javax.annotation.Nonnull
-  public Long getBaseAddress() {
+  public JavaMathBigInteger getBaseAddress() {
     return baseAddress;
   }
 
-  public void setBaseAddress(@javax.annotation.Nonnull Long baseAddress) {
+  public void setBaseAddress(@javax.annotation.Nonnull JavaMathBigInteger baseAddress) {
     this.baseAddress = baseAddress;
   }
 

@@ -14,6 +14,7 @@ package ai.reveng.model;
 
 import ai.reveng.model.CalleeFunctionInfo;
 import ai.reveng.model.CallerFunctionInfo;
+import ai.reveng.model.JavaMathBigInteger;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
