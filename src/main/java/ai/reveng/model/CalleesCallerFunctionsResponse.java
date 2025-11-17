@@ -22,6 +22,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -58,7 +59,7 @@ public class CalleesCallerFunctionsResponse {
   public static final String SERIALIZED_NAME_BASE_ADDRESS = "base_address";
   @SerializedName(SERIALIZED_NAME_BASE_ADDRESS)
   @javax.annotation.Nonnull
-  private Long baseAddress;
+  private BigInteger baseAddress;
 
   public static final String SERIALIZED_NAME_CALLEES = "callees";
   @SerializedName(SERIALIZED_NAME_CALLEES)
@@ -73,7 +74,7 @@ public class CalleesCallerFunctionsResponse {
   public CalleesCallerFunctionsResponse() {
   }
 
-  public CalleesCallerFunctionsResponse baseAddress(@javax.annotation.Nonnull Long baseAddress) {
+  public CalleesCallerFunctionsResponse baseAddress(@javax.annotation.Nonnull BigInteger baseAddress) {
     this.baseAddress = baseAddress;
     return this;
   }
@@ -83,11 +84,11 @@ public class CalleesCallerFunctionsResponse {
    * @return baseAddress
    */
   @javax.annotation.Nonnull
-  public Long getBaseAddress() {
+  public BigInteger getBaseAddress() {
     return baseAddress;
   }
 
-  public void setBaseAddress(@javax.annotation.Nonnull Long baseAddress) {
+  public void setBaseAddress(@javax.annotation.Nonnull BigInteger baseAddress) {
     this.baseAddress = baseAddress;
   }
 

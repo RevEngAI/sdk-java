@@ -21,6 +21,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.math.BigInteger;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -132,7 +133,7 @@ public class AnalysisRecord {
   public static final String SERIALIZED_NAME_BASE_ADDRESS = "base_address";
   @SerializedName(SERIALIZED_NAME_BASE_ADDRESS)
   @javax.annotation.Nonnull
-  private Long baseAddress;
+  private BigInteger baseAddress;
 
   public AnalysisRecord() {
   }
@@ -422,7 +423,7 @@ public class AnalysisRecord {
   }
 
 
-  public AnalysisRecord baseAddress(@javax.annotation.Nonnull Long baseAddress) {
+  public AnalysisRecord baseAddress(@javax.annotation.Nonnull BigInteger baseAddress) {
     this.baseAddress = baseAddress;
     return this;
   }
@@ -432,11 +433,11 @@ public class AnalysisRecord {
    * @return baseAddress
    */
   @javax.annotation.Nonnull
-  public Long getBaseAddress() {
+  public BigInteger getBaseAddress() {
     return baseAddress;
   }
 
-  public void setBaseAddress(@javax.annotation.Nonnull Long baseAddress) {
+  public void setBaseAddress(@javax.annotation.Nonnull BigInteger baseAddress) {
     this.baseAddress = baseAddress;
   }
 
