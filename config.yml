@@ -19,3 +19,7 @@ library: okhttp-gson
 hideGenerationTimestamp: true
 # Allow unknown properties to avoid breaking when the API adds new fields, and we haven't updated the SDK yet
 disallowAdditionalPropertiesIfNotPresent: false
+typeMappings:
+  integer+bigint: java.math.BigInteger
+importMappings:
+  BigInteger: java.math.BigInteger
