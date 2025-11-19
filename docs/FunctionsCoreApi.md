@@ -20,7 +20,7 @@ All URIs are relative to *https://api.reveng.ai*
 
 <a id="aiUnstrip"></a>
 # **aiUnstrip**
-> AutoUnstripResponse aiUnstrip(analysisId, aiUnstripRequest)
+> AutoUnstripResponse aiUnstrip(analysisId, aiUnstripRequest, apiKey)
 
 Performs matching and auto-unstrip for an analysis and its functions
 
@@ -50,8 +50,9 @@ public class Example {
     FunctionsCoreApi apiInstance = new FunctionsCoreApi(defaultClient);
     Integer analysisId = 56; // Integer | 
     AiUnstripRequest aiUnstripRequest = new AiUnstripRequest(); // AiUnstripRequest | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      AutoUnstripResponse result = apiInstance.aiUnstrip(analysisId, aiUnstripRequest);
+      AutoUnstripResponse result = apiInstance.aiUnstrip(analysisId, aiUnstripRequest, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsCoreApi#aiUnstrip");
@@ -70,6 +71,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
 | **aiUnstripRequest** | [**AiUnstripRequest**](AiUnstripRequest.md)|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -92,7 +94,7 @@ public class Example {
 
 <a id="analysisFunctionMatching"></a>
 # **analysisFunctionMatching**
-> FunctionMatchingBatchResponse analysisFunctionMatching(analysisId, analysisFunctionMatchingRequest)
+> FunctionMatchingBatchResponse analysisFunctionMatching(analysisId, analysisFunctionMatchingRequest, apiKey)
 
 Perform matching for the functions of an analysis
 
@@ -122,8 +124,9 @@ public class Example {
     FunctionsCoreApi apiInstance = new FunctionsCoreApi(defaultClient);
     Integer analysisId = 56; // Integer | 
     AnalysisFunctionMatchingRequest analysisFunctionMatchingRequest = new AnalysisFunctionMatchingRequest(); // AnalysisFunctionMatchingRequest | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      FunctionMatchingBatchResponse result = apiInstance.analysisFunctionMatching(analysisId, analysisFunctionMatchingRequest);
+      FunctionMatchingBatchResponse result = apiInstance.analysisFunctionMatching(analysisId, analysisFunctionMatchingRequest, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsCoreApi#analysisFunctionMatching");
@@ -142,6 +145,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
 | **analysisFunctionMatchingRequest** | [**AnalysisFunctionMatchingRequest**](AnalysisFunctionMatchingRequest.md)|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -164,7 +168,7 @@ public class Example {
 
 <a id="autoUnstrip"></a>
 # **autoUnstrip**
-> AutoUnstripResponse autoUnstrip(analysisId, autoUnstripRequest)
+> AutoUnstripResponse autoUnstrip(analysisId, autoUnstripRequest, apiKey)
 
 Performs matching and auto-unstrip for an analysis and its functions
 
@@ -194,8 +198,9 @@ public class Example {
     FunctionsCoreApi apiInstance = new FunctionsCoreApi(defaultClient);
     Integer analysisId = 56; // Integer | 
     AutoUnstripRequest autoUnstripRequest = new AutoUnstripRequest(); // AutoUnstripRequest | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      AutoUnstripResponse result = apiInstance.autoUnstrip(analysisId, autoUnstripRequest);
+      AutoUnstripResponse result = apiInstance.autoUnstrip(analysisId, autoUnstripRequest, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsCoreApi#autoUnstrip");
@@ -214,6 +219,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
 | **autoUnstripRequest** | [**AutoUnstripRequest**](AutoUnstripRequest.md)|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -236,7 +242,7 @@ public class Example {
 
 <a id="batchFunctionMatching"></a>
 # **batchFunctionMatching**
-> FunctionMatchingBatchResponse batchFunctionMatching(functionMatchingRequest)
+> FunctionMatchingBatchResponse batchFunctionMatching(functionMatchingRequest, apiKey)
 
 Perform function matching for an arbitrary batch of functions, binaries or collections
 
@@ -265,8 +271,9 @@ public class Example {
 
     FunctionsCoreApi apiInstance = new FunctionsCoreApi(defaultClient);
     FunctionMatchingRequest functionMatchingRequest = new FunctionMatchingRequest(); // FunctionMatchingRequest | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      FunctionMatchingBatchResponse result = apiInstance.batchFunctionMatching(functionMatchingRequest);
+      FunctionMatchingBatchResponse result = apiInstance.batchFunctionMatching(functionMatchingRequest, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsCoreApi#batchFunctionMatching");
@@ -284,6 +291,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **functionMatchingRequest** | [**FunctionMatchingRequest**](FunctionMatchingRequest.md)|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -306,7 +314,7 @@ public class Example {
 
 <a id="cancelAiUnstrip"></a>
 # **cancelAiUnstrip**
-> AutoUnstripResponse cancelAiUnstrip(analysisId)
+> AutoUnstripResponse cancelAiUnstrip(analysisId, apiKey)
 
 Cancels a running ai-unstrip
 
@@ -335,8 +343,9 @@ public class Example {
 
     FunctionsCoreApi apiInstance = new FunctionsCoreApi(defaultClient);
     Integer analysisId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      AutoUnstripResponse result = apiInstance.cancelAiUnstrip(analysisId);
+      AutoUnstripResponse result = apiInstance.cancelAiUnstrip(analysisId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsCoreApi#cancelAiUnstrip");
@@ -354,6 +363,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -376,7 +386,7 @@ public class Example {
 
 <a id="cancelAutoUnstrip"></a>
 # **cancelAutoUnstrip**
-> AutoUnstripResponse cancelAutoUnstrip(analysisId)
+> AutoUnstripResponse cancelAutoUnstrip(analysisId, apiKey)
 
 Cancels a running auto-unstrip
 
@@ -405,8 +415,9 @@ public class Example {
 
     FunctionsCoreApi apiInstance = new FunctionsCoreApi(defaultClient);
     Integer analysisId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      AutoUnstripResponse result = apiInstance.cancelAutoUnstrip(analysisId);
+      AutoUnstripResponse result = apiInstance.cancelAutoUnstrip(analysisId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsCoreApi#cancelAutoUnstrip");
@@ -424,6 +435,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -446,7 +458,7 @@ public class Example {
 
 <a id="getAnalysisStrings"></a>
 # **getAnalysisStrings**
-> BaseResponseAnalysisStringsResponse getAnalysisStrings(analysisId, page, pageSize, search, functionSearch)
+> BaseResponseAnalysisStringsResponse getAnalysisStrings(analysisId, page, pageSize, search, functionSearch, apiKey)
 
 Get string information found in the Analysis
 
@@ -479,8 +491,9 @@ public class Example {
     Integer pageSize = 100; // Integer | Number of items per page.
     String search = "search_example"; // String | Search is applied to string value
     String functionSearch = "functionSearch_example"; // String | Search is applied to function names
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseAnalysisStringsResponse result = apiInstance.getAnalysisStrings(analysisId, page, pageSize, search, functionSearch);
+      BaseResponseAnalysisStringsResponse result = apiInstance.getAnalysisStrings(analysisId, page, pageSize, search, functionSearch, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsCoreApi#getAnalysisStrings");
@@ -502,6 +515,7 @@ public class Example {
 | **pageSize** | **Integer**| Number of items per page. | [optional] [default to 100] |
 | **search** | **String**| Search is applied to string value | [optional] |
 | **functionSearch** | **String**| Search is applied to function names | [optional] |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -524,7 +538,7 @@ public class Example {
 
 <a id="getFunctionBlocks"></a>
 # **getFunctionBlocks**
-> BaseResponseFunctionBlocksResponse getFunctionBlocks(functionId)
+> BaseResponseFunctionBlocksResponse getFunctionBlocks(functionId, apiKey)
 
 Get disassembly blocks related to the function
 
@@ -553,8 +567,9 @@ public class Example {
 
     FunctionsCoreApi apiInstance = new FunctionsCoreApi(defaultClient);
     Integer functionId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseFunctionBlocksResponse result = apiInstance.getFunctionBlocks(functionId);
+      BaseResponseFunctionBlocksResponse result = apiInstance.getFunctionBlocks(functionId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsCoreApi#getFunctionBlocks");
@@ -572,6 +587,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **functionId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -595,7 +611,7 @@ public class Example {
 
 <a id="getFunctionCalleesCallers"></a>
 # **getFunctionCalleesCallers**
-> BaseResponseCalleesCallerFunctionsResponse getFunctionCalleesCallers(functionId)
+> BaseResponseCalleesCallerFunctionsResponse getFunctionCalleesCallers(functionId, apiKey)
 
 Get list of functions that call or are called by the specified function
 
@@ -622,8 +638,9 @@ public class Example {
 
     FunctionsCoreApi apiInstance = new FunctionsCoreApi(defaultClient);
     Integer functionId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseCalleesCallerFunctionsResponse result = apiInstance.getFunctionCalleesCallers(functionId);
+      BaseResponseCalleesCallerFunctionsResponse result = apiInstance.getFunctionCalleesCallers(functionId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsCoreApi#getFunctionCalleesCallers");
@@ -641,6 +658,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **functionId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -663,7 +681,7 @@ public class Example {
 
 <a id="getFunctionCapabilities"></a>
 # **getFunctionCapabilities**
-> BaseResponseFunctionCapabilityResponse getFunctionCapabilities(functionId)
+> BaseResponseFunctionCapabilityResponse getFunctionCapabilities(functionId, apiKey)
 
 Retrieve a functions capabilities
 
@@ -690,8 +708,9 @@ public class Example {
 
     FunctionsCoreApi apiInstance = new FunctionsCoreApi(defaultClient);
     Integer functionId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseFunctionCapabilityResponse result = apiInstance.getFunctionCapabilities(functionId);
+      BaseResponseFunctionCapabilityResponse result = apiInstance.getFunctionCapabilities(functionId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsCoreApi#getFunctionCapabilities");
@@ -709,6 +728,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **functionId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -732,7 +752,7 @@ public class Example {
 
 <a id="getFunctionDetails"></a>
 # **getFunctionDetails**
-> BaseResponseFunctionsDetailResponse getFunctionDetails(functionId)
+> BaseResponseFunctionsDetailResponse getFunctionDetails(functionId, apiKey)
 
 Get function details
 
@@ -759,8 +779,9 @@ public class Example {
 
     FunctionsCoreApi apiInstance = new FunctionsCoreApi(defaultClient);
     Integer functionId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseFunctionsDetailResponse result = apiInstance.getFunctionDetails(functionId);
+      BaseResponseFunctionsDetailResponse result = apiInstance.getFunctionDetails(functionId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsCoreApi#getFunctionDetails");
@@ -778,6 +799,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **functionId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -800,7 +822,7 @@ public class Example {
 
 <a id="getFunctionStrings"></a>
 # **getFunctionStrings**
-> BaseResponseFunctionStringsResponse getFunctionStrings(functionId, page, pageSize, search)
+> BaseResponseFunctionStringsResponse getFunctionStrings(functionId, page, pageSize, search, apiKey)
 
 Get string information found in the function
 
@@ -832,8 +854,9 @@ public class Example {
     Integer page = 1; // Integer | The page number to retrieve.
     Integer pageSize = 100; // Integer | Number of items per page.
     String search = "search_example"; // String | Search is applied to string value
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseFunctionStringsResponse result = apiInstance.getFunctionStrings(functionId, page, pageSize, search);
+      BaseResponseFunctionStringsResponse result = apiInstance.getFunctionStrings(functionId, page, pageSize, search, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsCoreApi#getFunctionStrings");
@@ -854,6 +877,7 @@ public class Example {
 | **page** | **Integer**| The page number to retrieve. | [optional] [default to 1] |
 | **pageSize** | **Integer**| Number of items per page. | [optional] [default to 100] |
 | **search** | **String**| Search is applied to string value | [optional] |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 

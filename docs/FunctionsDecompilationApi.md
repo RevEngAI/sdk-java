@@ -12,7 +12,7 @@ All URIs are relative to *https://api.reveng.ai*
 
 <a id="createDecompilationComment"></a>
 # **createDecompilationComment**
-> BaseResponseCommentResponse createDecompilationComment(functionId, functionCommentCreateRequest)
+> BaseResponseCommentResponse createDecompilationComment(functionId, functionCommentCreateRequest, apiKey)
 
 Create a comment for this function
 
@@ -42,8 +42,9 @@ public class Example {
     FunctionsDecompilationApi apiInstance = new FunctionsDecompilationApi(defaultClient);
     Integer functionId = 56; // Integer | 
     FunctionCommentCreateRequest functionCommentCreateRequest = new FunctionCommentCreateRequest(); // FunctionCommentCreateRequest | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseCommentResponse result = apiInstance.createDecompilationComment(functionId, functionCommentCreateRequest);
+      BaseResponseCommentResponse result = apiInstance.createDecompilationComment(functionId, functionCommentCreateRequest, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsDecompilationApi#createDecompilationComment");
@@ -62,6 +63,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **functionId** | **Integer**|  | |
 | **functionCommentCreateRequest** | [**FunctionCommentCreateRequest**](FunctionCommentCreateRequest.md)|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -85,7 +87,7 @@ public class Example {
 
 <a id="deleteDecompilationComment"></a>
 # **deleteDecompilationComment**
-> BaseResponseBool deleteDecompilationComment(commentId, functionId)
+> BaseResponseBool deleteDecompilationComment(commentId, functionId, apiKey)
 
 Delete a comment
 
@@ -115,8 +117,9 @@ public class Example {
     FunctionsDecompilationApi apiInstance = new FunctionsDecompilationApi(defaultClient);
     Integer commentId = 56; // Integer | 
     Integer functionId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseBool result = apiInstance.deleteDecompilationComment(commentId, functionId);
+      BaseResponseBool result = apiInstance.deleteDecompilationComment(commentId, functionId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsDecompilationApi#deleteDecompilationComment");
@@ -135,6 +138,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **commentId** | **Integer**|  | |
 | **functionId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -159,7 +163,7 @@ public class Example {
 
 <a id="getDecompilationComments"></a>
 # **getDecompilationComments**
-> BaseResponseListCommentResponse getDecompilationComments(functionId)
+> BaseResponseListCommentResponse getDecompilationComments(functionId, apiKey)
 
 Get comments for this function
 
@@ -188,8 +192,9 @@ public class Example {
 
     FunctionsDecompilationApi apiInstance = new FunctionsDecompilationApi(defaultClient);
     Integer functionId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseListCommentResponse result = apiInstance.getDecompilationComments(functionId);
+      BaseResponseListCommentResponse result = apiInstance.getDecompilationComments(functionId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsDecompilationApi#getDecompilationComments");
@@ -207,6 +212,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **functionId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -229,7 +235,7 @@ public class Example {
 
 <a id="updateDecompilationComment"></a>
 # **updateDecompilationComment**
-> BaseResponseCommentResponse updateDecompilationComment(commentId, functionId, commentUpdateRequest)
+> BaseResponseCommentResponse updateDecompilationComment(commentId, functionId, commentUpdateRequest, apiKey)
 
 Update a comment
 
@@ -260,8 +266,9 @@ public class Example {
     Integer commentId = 56; // Integer | 
     Integer functionId = 56; // Integer | 
     CommentUpdateRequest commentUpdateRequest = new CommentUpdateRequest(); // CommentUpdateRequest | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseCommentResponse result = apiInstance.updateDecompilationComment(commentId, functionId, commentUpdateRequest);
+      BaseResponseCommentResponse result = apiInstance.updateDecompilationComment(commentId, functionId, commentUpdateRequest, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsDecompilationApi#updateDecompilationComment");
@@ -281,6 +288,7 @@ public class Example {
 | **commentId** | **Integer**|  | |
 | **functionId** | **Integer**|  | |
 | **commentUpdateRequest** | [**CommentUpdateRequest**](CommentUpdateRequest.md)|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 

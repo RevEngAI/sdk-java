@@ -11,7 +11,7 @@ All URIs are relative to *https://api.reveng.ai*
 
 <a id="generateBlockCommentsForBlockInFunction"></a>
 # **generateBlockCommentsForBlockInFunction**
-> BaseResponseBlockCommentsGenerationForFunctionResponse generateBlockCommentsForBlockInFunction(functionId, block)
+> BaseResponseBlockCommentsGenerationForFunctionResponse generateBlockCommentsForBlockInFunction(functionId, block, apiKey)
 
 Generate block comments for a specific block in a function
 
@@ -39,8 +39,9 @@ public class Example {
     FunctionsBlockCommentsApi apiInstance = new FunctionsBlockCommentsApi(defaultClient);
     Integer functionId = 56; // Integer | 
     Block block = new Block(); // Block | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseBlockCommentsGenerationForFunctionResponse result = apiInstance.generateBlockCommentsForBlockInFunction(functionId, block);
+      BaseResponseBlockCommentsGenerationForFunctionResponse result = apiInstance.generateBlockCommentsForBlockInFunction(functionId, block, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsBlockCommentsApi#generateBlockCommentsForBlockInFunction");
@@ -59,6 +60,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **functionId** | **Integer**|  | |
 | **block** | [**Block**](Block.md)|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -81,7 +83,7 @@ public class Example {
 
 <a id="generateBlockCommentsForFunction"></a>
 # **generateBlockCommentsForFunction**
-> BaseResponseBlockCommentsGenerationForFunctionResponse generateBlockCommentsForFunction(functionId)
+> BaseResponseBlockCommentsGenerationForFunctionResponse generateBlockCommentsForFunction(functionId, apiKey)
 
 Generate block comments for a function
 
@@ -108,8 +110,9 @@ public class Example {
 
     FunctionsBlockCommentsApi apiInstance = new FunctionsBlockCommentsApi(defaultClient);
     Integer functionId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseBlockCommentsGenerationForFunctionResponse result = apiInstance.generateBlockCommentsForFunction(functionId);
+      BaseResponseBlockCommentsGenerationForFunctionResponse result = apiInstance.generateBlockCommentsForFunction(functionId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsBlockCommentsApi#generateBlockCommentsForFunction");
@@ -127,6 +130,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **functionId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -149,7 +153,7 @@ public class Example {
 
 <a id="generateOverviewCommentForFunction"></a>
 # **generateOverviewCommentForFunction**
-> BaseResponseBlockCommentsOverviewGenerationResponse generateOverviewCommentForFunction(functionId)
+> BaseResponseBlockCommentsOverviewGenerationResponse generateOverviewCommentForFunction(functionId, apiKey)
 
 Generate overview comment for a function
 
@@ -176,8 +180,9 @@ public class Example {
 
     FunctionsBlockCommentsApi apiInstance = new FunctionsBlockCommentsApi(defaultClient);
     Integer functionId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseBlockCommentsOverviewGenerationResponse result = apiInstance.generateOverviewCommentForFunction(functionId);
+      BaseResponseBlockCommentsOverviewGenerationResponse result = apiInstance.generateOverviewCommentForFunction(functionId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsBlockCommentsApi#generateOverviewCommentForFunction");
@@ -195,6 +200,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **functionId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 

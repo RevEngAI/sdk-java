@@ -43,7 +43,8 @@ public class BinariesApiTest {
     @Test
     public void downloadZippedBinaryTest() throws ApiException {
         Integer binaryId = null;
-        Object response = api.downloadZippedBinary(binaryId);
+        String apiKey = null;
+        Object response = api.downloadZippedBinary(binaryId, apiKey);
         // TODO: test validations
     }
 
@@ -55,7 +56,8 @@ public class BinariesApiTest {
     @Test
     public void getBinaryAdditionalDetailsTest() throws ApiException {
         Integer binaryId = null;
-        BaseResponseBinaryAdditionalResponse response = api.getBinaryAdditionalDetails(binaryId);
+        String apiKey = null;
+        BaseResponseBinaryAdditionalResponse response = api.getBinaryAdditionalDetails(binaryId, apiKey);
         // TODO: test validations
     }
 
@@ -67,7 +69,8 @@ public class BinariesApiTest {
     @Test
     public void getBinaryDetailsTest() throws ApiException {
         Integer binaryId = null;
-        BaseResponseBinaryDetailsResponse response = api.getBinaryDetails(binaryId);
+        String apiKey = null;
+        BaseResponseBinaryDetailsResponse response = api.getBinaryDetails(binaryId, apiKey);
         // TODO: test validations
     }
 
@@ -79,7 +82,8 @@ public class BinariesApiTest {
     @Test
     public void getBinaryDieInfoTest() throws ApiException {
         Integer binaryId = null;
-        BaseResponseListDieMatch response = api.getBinaryDieInfo(binaryId);
+        String apiKey = null;
+        BaseResponseListDieMatch response = api.getBinaryDieInfo(binaryId, apiKey);
         // TODO: test validations
     }
 
@@ -91,7 +95,8 @@ public class BinariesApiTest {
     @Test
     public void getBinaryExternalsTest() throws ApiException {
         Integer binaryId = null;
-        BaseResponseBinaryExternalsResponse response = api.getBinaryExternals(binaryId);
+        String apiKey = null;
+        BaseResponseBinaryExternalsResponse response = api.getBinaryExternals(binaryId, apiKey);
         // TODO: test validations
     }
 
@@ -103,7 +108,8 @@ public class BinariesApiTest {
     @Test
     public void getRelatedBinariesTest() throws ApiException {
         Integer binaryId = null;
-        BaseResponseChildBinariesResponse response = api.getRelatedBinaries(binaryId);
+        String apiKey = null;
+        BaseResponseChildBinariesResponse response = api.getRelatedBinaries(binaryId, apiKey);
         // TODO: test validations
     }
 

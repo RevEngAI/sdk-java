@@ -41,7 +41,8 @@ public class ExternalSourcesApiTest {
     @Test
     public void createExternalTaskMbTest() throws ApiException {
         Integer analysisId = null;
-        BaseResponseStr response = api.createExternalTaskMb(analysisId);
+        String apiKey = null;
+        BaseResponseStr response = api.createExternalTaskMb(analysisId, apiKey);
         // TODO: test validations
     }
 
@@ -53,7 +54,8 @@ public class ExternalSourcesApiTest {
     @Test
     public void createExternalTaskVtTest() throws ApiException {
         Integer analysisId = null;
-        BaseResponseStr response = api.createExternalTaskVt(analysisId);
+        String apiKey = null;
+        BaseResponseStr response = api.createExternalTaskVt(analysisId, apiKey);
         // TODO: test validations
     }
 
@@ -65,7 +67,8 @@ public class ExternalSourcesApiTest {
     @Test
     public void getMbDataTest() throws ApiException {
         Integer analysisId = null;
-        BaseResponseExternalResponse response = api.getMbData(analysisId);
+        String apiKey = null;
+        BaseResponseExternalResponse response = api.getMbData(analysisId, apiKey);
         // TODO: test validations
     }
 
@@ -77,7 +80,8 @@ public class ExternalSourcesApiTest {
     @Test
     public void getMbTaskStatusTest() throws ApiException {
         Integer analysisId = null;
-        BaseResponseTaskResponse response = api.getMbTaskStatus(analysisId);
+        String apiKey = null;
+        BaseResponseTaskResponse response = api.getMbTaskStatus(analysisId, apiKey);
         // TODO: test validations
     }
 
@@ -89,7 +93,8 @@ public class ExternalSourcesApiTest {
     @Test
     public void getVtDataTest() throws ApiException {
         Integer analysisId = null;
-        BaseResponseExternalResponse response = api.getVtData(analysisId);
+        String apiKey = null;
+        BaseResponseExternalResponse response = api.getVtData(analysisId, apiKey);
         // TODO: test validations
     }
 
@@ -101,7 +106,8 @@ public class ExternalSourcesApiTest {
     @Test
     public void getVtTaskStatusTest() throws ApiException {
         Integer analysisId = null;
-        BaseResponseTaskResponse response = api.getVtTaskStatus(analysisId);
+        String apiKey = null;
+        BaseResponseTaskResponse response = api.getVtTaskStatus(analysisId, apiKey);
         // TODO: test validations
     }
 

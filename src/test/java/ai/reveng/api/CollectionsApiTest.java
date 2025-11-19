@@ -52,7 +52,8 @@ public class CollectionsApiTest {
     @Test
     public void createCollectionTest() throws ApiException {
         CollectionCreateRequest collectionCreateRequest = null;
-        BaseResponseCollectionResponse response = api.createCollection(collectionCreateRequest);
+        String apiKey = null;
+        BaseResponseCollectionResponse response = api.createCollection(collectionCreateRequest, apiKey);
         // TODO: test validations
     }
 
@@ -66,7 +67,8 @@ public class CollectionsApiTest {
     @Test
     public void deleteCollectionTest() throws ApiException {
         Integer collectionId = null;
-        BaseResponseBool response = api.deleteCollection(collectionId);
+        String apiKey = null;
+        BaseResponseBool response = api.deleteCollection(collectionId, apiKey);
         // TODO: test validations
     }
 
@@ -82,7 +84,8 @@ public class CollectionsApiTest {
         Integer collectionId = null;
         Boolean includeTags = null;
         Boolean includeBinaries = null;
-        BaseResponseCollectionResponse response = api.getCollection(collectionId, includeTags, includeBinaries);
+        String apiKey = null;
+        BaseResponseCollectionResponse response = api.getCollection(collectionId, includeTags, includeBinaries, apiKey);
         // TODO: test validations
     }
 
@@ -101,7 +104,8 @@ public class CollectionsApiTest {
         Integer offset = null;
         AppApiRestV2CollectionsEnumsOrderBy orderBy = null;
         Order order = null;
-        BaseResponseListCollectionResults response = api.listCollections(searchTerm, filters, limit, offset, orderBy, order);
+        String apiKey = null;
+        BaseResponseListCollectionResults response = api.listCollections(searchTerm, filters, limit, offset, orderBy, order, apiKey);
         // TODO: test validations
     }
 
@@ -116,7 +120,8 @@ public class CollectionsApiTest {
     public void updateCollectionTest() throws ApiException {
         Integer collectionId = null;
         CollectionUpdateRequest collectionUpdateRequest = null;
-        BaseResponseCollectionResponse response = api.updateCollection(collectionId, collectionUpdateRequest);
+        String apiKey = null;
+        BaseResponseCollectionResponse response = api.updateCollection(collectionId, collectionUpdateRequest, apiKey);
         // TODO: test validations
     }
 
@@ -131,7 +136,8 @@ public class CollectionsApiTest {
     public void updateCollectionBinariesTest() throws ApiException {
         Integer collectionId = null;
         CollectionBinariesUpdateRequest collectionBinariesUpdateRequest = null;
-        BaseResponseCollectionBinariesUpdateResponse response = api.updateCollectionBinaries(collectionId, collectionBinariesUpdateRequest);
+        String apiKey = null;
+        BaseResponseCollectionBinariesUpdateResponse response = api.updateCollectionBinaries(collectionId, collectionBinariesUpdateRequest, apiKey);
         // TODO: test validations
     }
 
@@ -146,7 +152,8 @@ public class CollectionsApiTest {
     public void updateCollectionTagsTest() throws ApiException {
         Integer collectionId = null;
         CollectionTagsUpdateRequest collectionTagsUpdateRequest = null;
-        BaseResponseCollectionTagsUpdateResponse response = api.updateCollectionTags(collectionId, collectionTagsUpdateRequest);
+        String apiKey = null;
+        BaseResponseCollectionTagsUpdateResponse response = api.updateCollectionTags(collectionId, collectionTagsUpdateRequest, apiKey);
         // TODO: test validations
     }
 

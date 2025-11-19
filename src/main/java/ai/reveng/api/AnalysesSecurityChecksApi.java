@@ -78,6 +78,7 @@ public class AnalysesSecurityChecksApi {
     /**
      * Build call for createScurityChecksTask
      * @param analysisId  (required)
+     * @param apiKey  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -90,7 +91,7 @@ public class AnalysesSecurityChecksApi {
         <tr><td> 409 </td><td> Security checks already extracted or queued </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createScurityChecksTaskCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createScurityChecksTaskCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String apiKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -116,6 +117,10 @@ public class AnalysesSecurityChecksApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (apiKey != null) {
+            localVarCookieParams.put("api_key", localVarApiClient.parameterToString(apiKey));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -136,13 +141,13 @@ public class AnalysesSecurityChecksApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createScurityChecksTaskValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createScurityChecksTaskValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String apiKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling createScurityChecksTask(Async)");
         }
 
-        return createScurityChecksTaskCall(analysisId, _callback);
+        return createScurityChecksTaskCall(analysisId, apiKey, _callback);
 
     }
 
@@ -150,6 +155,7 @@ public class AnalysesSecurityChecksApi {
      * Queues a security check process
      * 
      * @param analysisId  (required)
+     * @param apiKey  (optional)
      * @return QueuedSecurityChecksTaskResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -161,8 +167,8 @@ public class AnalysesSecurityChecksApi {
         <tr><td> 409 </td><td> Security checks already extracted or queued </td><td>  -  </td></tr>
      </table>
      */
-    public QueuedSecurityChecksTaskResponse createScurityChecksTask(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
-        ApiResponse<QueuedSecurityChecksTaskResponse> localVarResp = createScurityChecksTaskWithHttpInfo(analysisId);
+    public QueuedSecurityChecksTaskResponse createScurityChecksTask(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String apiKey) throws ApiException {
+        ApiResponse<QueuedSecurityChecksTaskResponse> localVarResp = createScurityChecksTaskWithHttpInfo(analysisId, apiKey);
         return localVarResp.getData();
     }
 
@@ -170,6 +176,7 @@ public class AnalysesSecurityChecksApi {
      * Queues a security check process
      * 
      * @param analysisId  (required)
+     * @param apiKey  (optional)
      * @return ApiResponse&lt;QueuedSecurityChecksTaskResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -181,8 +188,8 @@ public class AnalysesSecurityChecksApi {
         <tr><td> 409 </td><td> Security checks already extracted or queued </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<QueuedSecurityChecksTaskResponse> createScurityChecksTaskWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
-        okhttp3.Call localVarCall = createScurityChecksTaskValidateBeforeCall(analysisId, null);
+    public ApiResponse<QueuedSecurityChecksTaskResponse> createScurityChecksTaskWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String apiKey) throws ApiException {
+        okhttp3.Call localVarCall = createScurityChecksTaskValidateBeforeCall(analysisId, apiKey, null);
         Type localVarReturnType = new TypeToken<QueuedSecurityChecksTaskResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -191,6 +198,7 @@ public class AnalysesSecurityChecksApi {
      * Queues a security check process (asynchronously)
      * 
      * @param analysisId  (required)
+     * @param apiKey  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -203,9 +211,9 @@ public class AnalysesSecurityChecksApi {
         <tr><td> 409 </td><td> Security checks already extracted or queued </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createScurityChecksTaskAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<QueuedSecurityChecksTaskResponse> _callback) throws ApiException {
+    public okhttp3.Call createScurityChecksTaskAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String apiKey, final ApiCallback<QueuedSecurityChecksTaskResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createScurityChecksTaskValidateBeforeCall(analysisId, _callback);
+        okhttp3.Call localVarCall = createScurityChecksTaskValidateBeforeCall(analysisId, apiKey, _callback);
         Type localVarReturnType = new TypeToken<QueuedSecurityChecksTaskResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -215,6 +223,7 @@ public class AnalysesSecurityChecksApi {
      * @param analysisId  (required)
      * @param page The page number to retrieve. (required)
      * @param pageSize Number of items per page. (required)
+     * @param apiKey  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -226,7 +235,7 @@ public class AnalysesSecurityChecksApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSecurityChecksCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer pageSize, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSecurityChecksCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer pageSize, @javax.annotation.Nullable String apiKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -260,6 +269,10 @@ public class AnalysesSecurityChecksApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("page_size", pageSize));
         }
 
+        if (apiKey != null) {
+            localVarCookieParams.put("api_key", localVarApiClient.parameterToString(apiKey));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -280,7 +293,7 @@ public class AnalysesSecurityChecksApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSecurityChecksValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer pageSize, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSecurityChecksValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer pageSize, @javax.annotation.Nullable String apiKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling getSecurityChecks(Async)");
@@ -296,7 +309,7 @@ public class AnalysesSecurityChecksApi {
             throw new ApiException("Missing the required parameter 'pageSize' when calling getSecurityChecks(Async)");
         }
 
-        return getSecurityChecksCall(analysisId, page, pageSize, _callback);
+        return getSecurityChecksCall(analysisId, page, pageSize, apiKey, _callback);
 
     }
 
@@ -306,6 +319,7 @@ public class AnalysesSecurityChecksApi {
      * @param analysisId  (required)
      * @param page The page number to retrieve. (required)
      * @param pageSize Number of items per page. (required)
+     * @param apiKey  (optional)
      * @return BaseResponseSecurityChecksResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -316,8 +330,8 @@ public class AnalysesSecurityChecksApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseSecurityChecksResponse getSecurityChecks(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer pageSize) throws ApiException {
-        ApiResponse<BaseResponseSecurityChecksResponse> localVarResp = getSecurityChecksWithHttpInfo(analysisId, page, pageSize);
+    public BaseResponseSecurityChecksResponse getSecurityChecks(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer pageSize, @javax.annotation.Nullable String apiKey) throws ApiException {
+        ApiResponse<BaseResponseSecurityChecksResponse> localVarResp = getSecurityChecksWithHttpInfo(analysisId, page, pageSize, apiKey);
         return localVarResp.getData();
     }
 
@@ -327,6 +341,7 @@ public class AnalysesSecurityChecksApi {
      * @param analysisId  (required)
      * @param page The page number to retrieve. (required)
      * @param pageSize Number of items per page. (required)
+     * @param apiKey  (optional)
      * @return ApiResponse&lt;BaseResponseSecurityChecksResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -337,8 +352,8 @@ public class AnalysesSecurityChecksApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseSecurityChecksResponse> getSecurityChecksWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer pageSize) throws ApiException {
-        okhttp3.Call localVarCall = getSecurityChecksValidateBeforeCall(analysisId, page, pageSize, null);
+    public ApiResponse<BaseResponseSecurityChecksResponse> getSecurityChecksWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer pageSize, @javax.annotation.Nullable String apiKey) throws ApiException {
+        okhttp3.Call localVarCall = getSecurityChecksValidateBeforeCall(analysisId, page, pageSize, apiKey, null);
         Type localVarReturnType = new TypeToken<BaseResponseSecurityChecksResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -349,6 +364,7 @@ public class AnalysesSecurityChecksApi {
      * @param analysisId  (required)
      * @param page The page number to retrieve. (required)
      * @param pageSize Number of items per page. (required)
+     * @param apiKey  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -360,9 +376,9 @@ public class AnalysesSecurityChecksApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSecurityChecksAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer pageSize, final ApiCallback<BaseResponseSecurityChecksResponse> _callback) throws ApiException {
+    public okhttp3.Call getSecurityChecksAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer page, @javax.annotation.Nonnull Integer pageSize, @javax.annotation.Nullable String apiKey, final ApiCallback<BaseResponseSecurityChecksResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSecurityChecksValidateBeforeCall(analysisId, page, pageSize, _callback);
+        okhttp3.Call localVarCall = getSecurityChecksValidateBeforeCall(analysisId, page, pageSize, apiKey, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseSecurityChecksResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -370,6 +386,7 @@ public class AnalysesSecurityChecksApi {
     /**
      * Build call for getSecurityChecksTaskStatus
      * @param analysisId  (required)
+     * @param apiKey  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -381,7 +398,7 @@ public class AnalysesSecurityChecksApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSecurityChecksTaskStatusCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSecurityChecksTaskStatusCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String apiKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -407,6 +424,10 @@ public class AnalysesSecurityChecksApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (apiKey != null) {
+            localVarCookieParams.put("api_key", localVarApiClient.parameterToString(apiKey));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -427,13 +448,13 @@ public class AnalysesSecurityChecksApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSecurityChecksTaskStatusValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSecurityChecksTaskStatusValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String apiKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling getSecurityChecksTaskStatus(Async)");
         }
 
-        return getSecurityChecksTaskStatusCall(analysisId, _callback);
+        return getSecurityChecksTaskStatusCall(analysisId, apiKey, _callback);
 
     }
 
@@ -441,6 +462,7 @@ public class AnalysesSecurityChecksApi {
      * Check the status of a security check process
      * 
      * @param analysisId  (required)
+     * @param apiKey  (optional)
      * @return CheckSecurityChecksTaskResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -451,8 +473,8 @@ public class AnalysesSecurityChecksApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public CheckSecurityChecksTaskResponse getSecurityChecksTaskStatus(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
-        ApiResponse<CheckSecurityChecksTaskResponse> localVarResp = getSecurityChecksTaskStatusWithHttpInfo(analysisId);
+    public CheckSecurityChecksTaskResponse getSecurityChecksTaskStatus(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String apiKey) throws ApiException {
+        ApiResponse<CheckSecurityChecksTaskResponse> localVarResp = getSecurityChecksTaskStatusWithHttpInfo(analysisId, apiKey);
         return localVarResp.getData();
     }
 
@@ -460,6 +482,7 @@ public class AnalysesSecurityChecksApi {
      * Check the status of a security check process
      * 
      * @param analysisId  (required)
+     * @param apiKey  (optional)
      * @return ApiResponse&lt;CheckSecurityChecksTaskResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -470,8 +493,8 @@ public class AnalysesSecurityChecksApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CheckSecurityChecksTaskResponse> getSecurityChecksTaskStatusWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
-        okhttp3.Call localVarCall = getSecurityChecksTaskStatusValidateBeforeCall(analysisId, null);
+    public ApiResponse<CheckSecurityChecksTaskResponse> getSecurityChecksTaskStatusWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String apiKey) throws ApiException {
+        okhttp3.Call localVarCall = getSecurityChecksTaskStatusValidateBeforeCall(analysisId, apiKey, null);
         Type localVarReturnType = new TypeToken<CheckSecurityChecksTaskResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -480,6 +503,7 @@ public class AnalysesSecurityChecksApi {
      * Check the status of a security check process (asynchronously)
      * 
      * @param analysisId  (required)
+     * @param apiKey  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -491,9 +515,9 @@ public class AnalysesSecurityChecksApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSecurityChecksTaskStatusAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<CheckSecurityChecksTaskResponse> _callback) throws ApiException {
+    public okhttp3.Call getSecurityChecksTaskStatusAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String apiKey, final ApiCallback<CheckSecurityChecksTaskResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSecurityChecksTaskStatusValidateBeforeCall(analysisId, _callback);
+        okhttp3.Call localVarCall = getSecurityChecksTaskStatusValidateBeforeCall(analysisId, apiKey, _callback);
         Type localVarReturnType = new TypeToken<CheckSecurityChecksTaskResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

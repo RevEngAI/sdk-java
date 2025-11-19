@@ -53,7 +53,8 @@ public class FunctionsCoreApiTest {
     public void aiUnstripTest() throws ApiException {
         Integer analysisId = null;
         AiUnstripRequest aiUnstripRequest = null;
-        AutoUnstripResponse response = api.aiUnstrip(analysisId, aiUnstripRequest);
+        String apiKey = null;
+        AutoUnstripResponse response = api.aiUnstrip(analysisId, aiUnstripRequest, apiKey);
         // TODO: test validations
     }
 
@@ -68,7 +69,8 @@ public class FunctionsCoreApiTest {
     public void analysisFunctionMatchingTest() throws ApiException {
         Integer analysisId = null;
         AnalysisFunctionMatchingRequest analysisFunctionMatchingRequest = null;
-        FunctionMatchingBatchResponse response = api.analysisFunctionMatching(analysisId, analysisFunctionMatchingRequest);
+        String apiKey = null;
+        FunctionMatchingBatchResponse response = api.analysisFunctionMatching(analysisId, analysisFunctionMatchingRequest, apiKey);
         // TODO: test validations
     }
 
@@ -83,7 +85,8 @@ public class FunctionsCoreApiTest {
     public void autoUnstripTest() throws ApiException {
         Integer analysisId = null;
         AutoUnstripRequest autoUnstripRequest = null;
-        AutoUnstripResponse response = api.autoUnstrip(analysisId, autoUnstripRequest);
+        String apiKey = null;
+        AutoUnstripResponse response = api.autoUnstrip(analysisId, autoUnstripRequest, apiKey);
         // TODO: test validations
     }
 
@@ -97,7 +100,8 @@ public class FunctionsCoreApiTest {
     @Test
     public void batchFunctionMatchingTest() throws ApiException {
         FunctionMatchingRequest functionMatchingRequest = null;
-        FunctionMatchingBatchResponse response = api.batchFunctionMatching(functionMatchingRequest);
+        String apiKey = null;
+        FunctionMatchingBatchResponse response = api.batchFunctionMatching(functionMatchingRequest, apiKey);
         // TODO: test validations
     }
 
@@ -111,7 +115,8 @@ public class FunctionsCoreApiTest {
     @Test
     public void cancelAiUnstripTest() throws ApiException {
         Integer analysisId = null;
-        AutoUnstripResponse response = api.cancelAiUnstrip(analysisId);
+        String apiKey = null;
+        AutoUnstripResponse response = api.cancelAiUnstrip(analysisId, apiKey);
         // TODO: test validations
     }
 
@@ -125,7 +130,8 @@ public class FunctionsCoreApiTest {
     @Test
     public void cancelAutoUnstripTest() throws ApiException {
         Integer analysisId = null;
-        AutoUnstripResponse response = api.cancelAutoUnstrip(analysisId);
+        String apiKey = null;
+        AutoUnstripResponse response = api.cancelAutoUnstrip(analysisId, apiKey);
         // TODO: test validations
     }
 
@@ -143,7 +149,8 @@ public class FunctionsCoreApiTest {
         Integer pageSize = null;
         String search = null;
         String functionSearch = null;
-        BaseResponseAnalysisStringsResponse response = api.getAnalysisStrings(analysisId, page, pageSize, search, functionSearch);
+        String apiKey = null;
+        BaseResponseAnalysisStringsResponse response = api.getAnalysisStrings(analysisId, page, pageSize, search, functionSearch, apiKey);
         // TODO: test validations
     }
 
@@ -157,7 +164,8 @@ public class FunctionsCoreApiTest {
     @Test
     public void getFunctionBlocksTest() throws ApiException {
         Integer functionId = null;
-        BaseResponseFunctionBlocksResponse response = api.getFunctionBlocks(functionId);
+        String apiKey = null;
+        BaseResponseFunctionBlocksResponse response = api.getFunctionBlocks(functionId, apiKey);
         // TODO: test validations
     }
 
@@ -169,7 +177,8 @@ public class FunctionsCoreApiTest {
     @Test
     public void getFunctionCalleesCallersTest() throws ApiException {
         Integer functionId = null;
-        BaseResponseCalleesCallerFunctionsResponse response = api.getFunctionCalleesCallers(functionId);
+        String apiKey = null;
+        BaseResponseCalleesCallerFunctionsResponse response = api.getFunctionCalleesCallers(functionId, apiKey);
         // TODO: test validations
     }
 
@@ -181,7 +190,8 @@ public class FunctionsCoreApiTest {
     @Test
     public void getFunctionCapabilitiesTest() throws ApiException {
         Integer functionId = null;
-        BaseResponseFunctionCapabilityResponse response = api.getFunctionCapabilities(functionId);
+        String apiKey = null;
+        BaseResponseFunctionCapabilityResponse response = api.getFunctionCapabilities(functionId, apiKey);
         // TODO: test validations
     }
 
@@ -193,7 +203,8 @@ public class FunctionsCoreApiTest {
     @Test
     public void getFunctionDetailsTest() throws ApiException {
         Integer functionId = null;
-        BaseResponseFunctionsDetailResponse response = api.getFunctionDetails(functionId);
+        String apiKey = null;
+        BaseResponseFunctionsDetailResponse response = api.getFunctionDetails(functionId, apiKey);
         // TODO: test validations
     }
 
@@ -210,7 +221,8 @@ public class FunctionsCoreApiTest {
         Integer page = null;
         Integer pageSize = null;
         String search = null;
-        BaseResponseFunctionStringsResponse response = api.getFunctionStrings(functionId, page, pageSize, search);
+        String apiKey = null;
+        BaseResponseFunctionStringsResponse response = api.getFunctionStrings(functionId, page, pageSize, search, apiKey);
         // TODO: test validations
     }
 

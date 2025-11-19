@@ -80,6 +80,7 @@ public class AnalysesCommentsApi {
      * Build call for createAnalysisComment
      * @param analysisId  (required)
      * @param commentBase  (required)
+     * @param apiKey  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -92,7 +93,7 @@ public class AnalysesCommentsApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAnalysisCommentCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull CommentBase commentBase, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createAnalysisCommentCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull CommentBase commentBase, @javax.annotation.Nullable String apiKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -118,6 +119,10 @@ public class AnalysesCommentsApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (apiKey != null) {
+            localVarCookieParams.put("api_key", localVarApiClient.parameterToString(apiKey));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -139,7 +144,7 @@ public class AnalysesCommentsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createAnalysisCommentValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull CommentBase commentBase, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createAnalysisCommentValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull CommentBase commentBase, @javax.annotation.Nullable String apiKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling createAnalysisComment(Async)");
@@ -150,7 +155,7 @@ public class AnalysesCommentsApi {
             throw new ApiException("Missing the required parameter 'commentBase' when calling createAnalysisComment(Async)");
         }
 
-        return createAnalysisCommentCall(analysisId, commentBase, _callback);
+        return createAnalysisCommentCall(analysisId, commentBase, apiKey, _callback);
 
     }
 
@@ -159,6 +164,7 @@ public class AnalysesCommentsApi {
      * Creates a comment associated with a specified analysis).
      * @param analysisId  (required)
      * @param commentBase  (required)
+     * @param apiKey  (optional)
      * @return BaseResponseCommentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -170,8 +176,8 @@ public class AnalysesCommentsApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseCommentResponse createAnalysisComment(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull CommentBase commentBase) throws ApiException {
-        ApiResponse<BaseResponseCommentResponse> localVarResp = createAnalysisCommentWithHttpInfo(analysisId, commentBase);
+    public BaseResponseCommentResponse createAnalysisComment(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull CommentBase commentBase, @javax.annotation.Nullable String apiKey) throws ApiException {
+        ApiResponse<BaseResponseCommentResponse> localVarResp = createAnalysisCommentWithHttpInfo(analysisId, commentBase, apiKey);
         return localVarResp.getData();
     }
 
@@ -180,6 +186,7 @@ public class AnalysesCommentsApi {
      * Creates a comment associated with a specified analysis).
      * @param analysisId  (required)
      * @param commentBase  (required)
+     * @param apiKey  (optional)
      * @return ApiResponse&lt;BaseResponseCommentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -191,8 +198,8 @@ public class AnalysesCommentsApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseCommentResponse> createAnalysisCommentWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull CommentBase commentBase) throws ApiException {
-        okhttp3.Call localVarCall = createAnalysisCommentValidateBeforeCall(analysisId, commentBase, null);
+    public ApiResponse<BaseResponseCommentResponse> createAnalysisCommentWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull CommentBase commentBase, @javax.annotation.Nullable String apiKey) throws ApiException {
+        okhttp3.Call localVarCall = createAnalysisCommentValidateBeforeCall(analysisId, commentBase, apiKey, null);
         Type localVarReturnType = new TypeToken<BaseResponseCommentResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -202,6 +209,7 @@ public class AnalysesCommentsApi {
      * Creates a comment associated with a specified analysis).
      * @param analysisId  (required)
      * @param commentBase  (required)
+     * @param apiKey  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -214,9 +222,9 @@ public class AnalysesCommentsApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAnalysisCommentAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull CommentBase commentBase, final ApiCallback<BaseResponseCommentResponse> _callback) throws ApiException {
+    public okhttp3.Call createAnalysisCommentAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull CommentBase commentBase, @javax.annotation.Nullable String apiKey, final ApiCallback<BaseResponseCommentResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createAnalysisCommentValidateBeforeCall(analysisId, commentBase, _callback);
+        okhttp3.Call localVarCall = createAnalysisCommentValidateBeforeCall(analysisId, commentBase, apiKey, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseCommentResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -225,6 +233,7 @@ public class AnalysesCommentsApi {
      * Build call for deleteAnalysisComment
      * @param commentId  (required)
      * @param analysisId  (required)
+     * @param apiKey  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -238,7 +247,7 @@ public class AnalysesCommentsApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteAnalysisCommentCall(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteAnalysisCommentCall(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String apiKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -265,6 +274,10 @@ public class AnalysesCommentsApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (apiKey != null) {
+            localVarCookieParams.put("api_key", localVarApiClient.parameterToString(apiKey));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -285,7 +298,7 @@ public class AnalysesCommentsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteAnalysisCommentValidateBeforeCall(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteAnalysisCommentValidateBeforeCall(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String apiKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'commentId' is set
         if (commentId == null) {
             throw new ApiException("Missing the required parameter 'commentId' when calling deleteAnalysisComment(Async)");
@@ -296,7 +309,7 @@ public class AnalysesCommentsApi {
             throw new ApiException("Missing the required parameter 'analysisId' when calling deleteAnalysisComment(Async)");
         }
 
-        return deleteAnalysisCommentCall(commentId, analysisId, _callback);
+        return deleteAnalysisCommentCall(commentId, analysisId, apiKey, _callback);
 
     }
 
@@ -305,6 +318,7 @@ public class AnalysesCommentsApi {
      * Deletes an existing comment. Users can only delete their own comments.
      * @param commentId  (required)
      * @param analysisId  (required)
+     * @param apiKey  (optional)
      * @return BaseResponseBool
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -317,8 +331,8 @@ public class AnalysesCommentsApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseBool deleteAnalysisComment(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer analysisId) throws ApiException {
-        ApiResponse<BaseResponseBool> localVarResp = deleteAnalysisCommentWithHttpInfo(commentId, analysisId);
+    public BaseResponseBool deleteAnalysisComment(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String apiKey) throws ApiException {
+        ApiResponse<BaseResponseBool> localVarResp = deleteAnalysisCommentWithHttpInfo(commentId, analysisId, apiKey);
         return localVarResp.getData();
     }
 
@@ -327,6 +341,7 @@ public class AnalysesCommentsApi {
      * Deletes an existing comment. Users can only delete their own comments.
      * @param commentId  (required)
      * @param analysisId  (required)
+     * @param apiKey  (optional)
      * @return ApiResponse&lt;BaseResponseBool&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -339,8 +354,8 @@ public class AnalysesCommentsApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseBool> deleteAnalysisCommentWithHttpInfo(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer analysisId) throws ApiException {
-        okhttp3.Call localVarCall = deleteAnalysisCommentValidateBeforeCall(commentId, analysisId, null);
+    public ApiResponse<BaseResponseBool> deleteAnalysisCommentWithHttpInfo(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String apiKey) throws ApiException {
+        okhttp3.Call localVarCall = deleteAnalysisCommentValidateBeforeCall(commentId, analysisId, apiKey, null);
         Type localVarReturnType = new TypeToken<BaseResponseBool>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -350,6 +365,7 @@ public class AnalysesCommentsApi {
      * Deletes an existing comment. Users can only delete their own comments.
      * @param commentId  (required)
      * @param analysisId  (required)
+     * @param apiKey  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -363,9 +379,9 @@ public class AnalysesCommentsApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteAnalysisCommentAsync(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer analysisId, final ApiCallback<BaseResponseBool> _callback) throws ApiException {
+    public okhttp3.Call deleteAnalysisCommentAsync(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String apiKey, final ApiCallback<BaseResponseBool> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteAnalysisCommentValidateBeforeCall(commentId, analysisId, _callback);
+        okhttp3.Call localVarCall = deleteAnalysisCommentValidateBeforeCall(commentId, analysisId, apiKey, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseBool>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -373,6 +389,7 @@ public class AnalysesCommentsApi {
     /**
      * Build call for getAnalysisComments
      * @param analysisId  (required)
+     * @param apiKey  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -384,7 +401,7 @@ public class AnalysesCommentsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAnalysisCommentsCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAnalysisCommentsCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String apiKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -410,6 +427,10 @@ public class AnalysesCommentsApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (apiKey != null) {
+            localVarCookieParams.put("api_key", localVarApiClient.parameterToString(apiKey));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -430,13 +451,13 @@ public class AnalysesCommentsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAnalysisCommentsValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAnalysisCommentsValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String apiKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling getAnalysisComments(Async)");
         }
 
-        return getAnalysisCommentsCall(analysisId, _callback);
+        return getAnalysisCommentsCall(analysisId, apiKey, _callback);
 
     }
 
@@ -444,6 +465,7 @@ public class AnalysesCommentsApi {
      * Get comments for this analysis
      * Retrieves all comments created for a specific analysis. Only returns comments for resources the requesting user has access to.
      * @param analysisId  (required)
+     * @param apiKey  (optional)
      * @return BaseResponseListCommentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -454,8 +476,8 @@ public class AnalysesCommentsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseListCommentResponse getAnalysisComments(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
-        ApiResponse<BaseResponseListCommentResponse> localVarResp = getAnalysisCommentsWithHttpInfo(analysisId);
+    public BaseResponseListCommentResponse getAnalysisComments(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String apiKey) throws ApiException {
+        ApiResponse<BaseResponseListCommentResponse> localVarResp = getAnalysisCommentsWithHttpInfo(analysisId, apiKey);
         return localVarResp.getData();
     }
 
@@ -463,6 +485,7 @@ public class AnalysesCommentsApi {
      * Get comments for this analysis
      * Retrieves all comments created for a specific analysis. Only returns comments for resources the requesting user has access to.
      * @param analysisId  (required)
+     * @param apiKey  (optional)
      * @return ApiResponse&lt;BaseResponseListCommentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -473,8 +496,8 @@ public class AnalysesCommentsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseListCommentResponse> getAnalysisCommentsWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
-        okhttp3.Call localVarCall = getAnalysisCommentsValidateBeforeCall(analysisId, null);
+    public ApiResponse<BaseResponseListCommentResponse> getAnalysisCommentsWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String apiKey) throws ApiException {
+        okhttp3.Call localVarCall = getAnalysisCommentsValidateBeforeCall(analysisId, apiKey, null);
         Type localVarReturnType = new TypeToken<BaseResponseListCommentResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -483,6 +506,7 @@ public class AnalysesCommentsApi {
      * Get comments for this analysis (asynchronously)
      * Retrieves all comments created for a specific analysis. Only returns comments for resources the requesting user has access to.
      * @param analysisId  (required)
+     * @param apiKey  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -494,9 +518,9 @@ public class AnalysesCommentsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAnalysisCommentsAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<BaseResponseListCommentResponse> _callback) throws ApiException {
+    public okhttp3.Call getAnalysisCommentsAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String apiKey, final ApiCallback<BaseResponseListCommentResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAnalysisCommentsValidateBeforeCall(analysisId, _callback);
+        okhttp3.Call localVarCall = getAnalysisCommentsValidateBeforeCall(analysisId, apiKey, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseListCommentResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -506,6 +530,7 @@ public class AnalysesCommentsApi {
      * @param commentId  (required)
      * @param analysisId  (required)
      * @param commentUpdateRequest  (required)
+     * @param apiKey  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -519,7 +544,7 @@ public class AnalysesCommentsApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateAnalysisCommentCall(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull CommentUpdateRequest commentUpdateRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateAnalysisCommentCall(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull CommentUpdateRequest commentUpdateRequest, @javax.annotation.Nullable String apiKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -546,6 +571,10 @@ public class AnalysesCommentsApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (apiKey != null) {
+            localVarCookieParams.put("api_key", localVarApiClient.parameterToString(apiKey));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -567,7 +596,7 @@ public class AnalysesCommentsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateAnalysisCommentValidateBeforeCall(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull CommentUpdateRequest commentUpdateRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateAnalysisCommentValidateBeforeCall(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull CommentUpdateRequest commentUpdateRequest, @javax.annotation.Nullable String apiKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'commentId' is set
         if (commentId == null) {
             throw new ApiException("Missing the required parameter 'commentId' when calling updateAnalysisComment(Async)");
@@ -583,7 +612,7 @@ public class AnalysesCommentsApi {
             throw new ApiException("Missing the required parameter 'commentUpdateRequest' when calling updateAnalysisComment(Async)");
         }
 
-        return updateAnalysisCommentCall(commentId, analysisId, commentUpdateRequest, _callback);
+        return updateAnalysisCommentCall(commentId, analysisId, commentUpdateRequest, apiKey, _callback);
 
     }
 
@@ -593,6 +622,7 @@ public class AnalysesCommentsApi {
      * @param commentId  (required)
      * @param analysisId  (required)
      * @param commentUpdateRequest  (required)
+     * @param apiKey  (optional)
      * @return BaseResponseCommentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -605,8 +635,8 @@ public class AnalysesCommentsApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseCommentResponse updateAnalysisComment(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull CommentUpdateRequest commentUpdateRequest) throws ApiException {
-        ApiResponse<BaseResponseCommentResponse> localVarResp = updateAnalysisCommentWithHttpInfo(commentId, analysisId, commentUpdateRequest);
+    public BaseResponseCommentResponse updateAnalysisComment(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull CommentUpdateRequest commentUpdateRequest, @javax.annotation.Nullable String apiKey) throws ApiException {
+        ApiResponse<BaseResponseCommentResponse> localVarResp = updateAnalysisCommentWithHttpInfo(commentId, analysisId, commentUpdateRequest, apiKey);
         return localVarResp.getData();
     }
 
@@ -616,6 +646,7 @@ public class AnalysesCommentsApi {
      * @param commentId  (required)
      * @param analysisId  (required)
      * @param commentUpdateRequest  (required)
+     * @param apiKey  (optional)
      * @return ApiResponse&lt;BaseResponseCommentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -628,8 +659,8 @@ public class AnalysesCommentsApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseCommentResponse> updateAnalysisCommentWithHttpInfo(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull CommentUpdateRequest commentUpdateRequest) throws ApiException {
-        okhttp3.Call localVarCall = updateAnalysisCommentValidateBeforeCall(commentId, analysisId, commentUpdateRequest, null);
+    public ApiResponse<BaseResponseCommentResponse> updateAnalysisCommentWithHttpInfo(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull CommentUpdateRequest commentUpdateRequest, @javax.annotation.Nullable String apiKey) throws ApiException {
+        okhttp3.Call localVarCall = updateAnalysisCommentValidateBeforeCall(commentId, analysisId, commentUpdateRequest, apiKey, null);
         Type localVarReturnType = new TypeToken<BaseResponseCommentResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -640,6 +671,7 @@ public class AnalysesCommentsApi {
      * @param commentId  (required)
      * @param analysisId  (required)
      * @param commentUpdateRequest  (required)
+     * @param apiKey  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -653,9 +685,9 @@ public class AnalysesCommentsApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateAnalysisCommentAsync(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull CommentUpdateRequest commentUpdateRequest, final ApiCallback<BaseResponseCommentResponse> _callback) throws ApiException {
+    public okhttp3.Call updateAnalysisCommentAsync(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull CommentUpdateRequest commentUpdateRequest, @javax.annotation.Nullable String apiKey, final ApiCallback<BaseResponseCommentResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateAnalysisCommentValidateBeforeCall(commentId, analysisId, commentUpdateRequest, _callback);
+        okhttp3.Call localVarCall = updateAnalysisCommentValidateBeforeCall(commentId, analysisId, commentUpdateRequest, apiKey, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseCommentResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

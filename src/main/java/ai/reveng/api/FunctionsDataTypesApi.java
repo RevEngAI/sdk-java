@@ -81,6 +81,7 @@ public class FunctionsDataTypesApi {
      * Build call for generateFunctionDataTypesForAnalysis
      * @param analysisId  (required)
      * @param functionDataTypesParams  (required)
+     * @param apiKey  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -92,7 +93,7 @@ public class FunctionsDataTypesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call generateFunctionDataTypesForAnalysisCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull FunctionDataTypesParams functionDataTypesParams, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call generateFunctionDataTypesForAnalysisCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull FunctionDataTypesParams functionDataTypesParams, @javax.annotation.Nullable String apiKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -118,6 +119,10 @@ public class FunctionsDataTypesApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (apiKey != null) {
+            localVarCookieParams.put("api_key", localVarApiClient.parameterToString(apiKey));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -139,7 +144,7 @@ public class FunctionsDataTypesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call generateFunctionDataTypesForAnalysisValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull FunctionDataTypesParams functionDataTypesParams, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call generateFunctionDataTypesForAnalysisValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull FunctionDataTypesParams functionDataTypesParams, @javax.annotation.Nullable String apiKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling generateFunctionDataTypesForAnalysis(Async)");
@@ -150,7 +155,7 @@ public class FunctionsDataTypesApi {
             throw new ApiException("Missing the required parameter 'functionDataTypesParams' when calling generateFunctionDataTypesForAnalysis(Async)");
         }
 
-        return generateFunctionDataTypesForAnalysisCall(analysisId, functionDataTypesParams, _callback);
+        return generateFunctionDataTypesForAnalysisCall(analysisId, functionDataTypesParams, apiKey, _callback);
 
     }
 
@@ -159,6 +164,7 @@ public class FunctionsDataTypesApi {
      * Submits a request to generate the function data types
      * @param analysisId  (required)
      * @param functionDataTypesParams  (required)
+     * @param apiKey  (optional)
      * @return BaseResponseGenerateFunctionDataTypes
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -169,8 +175,8 @@ public class FunctionsDataTypesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseGenerateFunctionDataTypes generateFunctionDataTypesForAnalysis(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull FunctionDataTypesParams functionDataTypesParams) throws ApiException {
-        ApiResponse<BaseResponseGenerateFunctionDataTypes> localVarResp = generateFunctionDataTypesForAnalysisWithHttpInfo(analysisId, functionDataTypesParams);
+    public BaseResponseGenerateFunctionDataTypes generateFunctionDataTypesForAnalysis(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull FunctionDataTypesParams functionDataTypesParams, @javax.annotation.Nullable String apiKey) throws ApiException {
+        ApiResponse<BaseResponseGenerateFunctionDataTypes> localVarResp = generateFunctionDataTypesForAnalysisWithHttpInfo(analysisId, functionDataTypesParams, apiKey);
         return localVarResp.getData();
     }
 
@@ -179,6 +185,7 @@ public class FunctionsDataTypesApi {
      * Submits a request to generate the function data types
      * @param analysisId  (required)
      * @param functionDataTypesParams  (required)
+     * @param apiKey  (optional)
      * @return ApiResponse&lt;BaseResponseGenerateFunctionDataTypes&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -189,8 +196,8 @@ public class FunctionsDataTypesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseGenerateFunctionDataTypes> generateFunctionDataTypesForAnalysisWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull FunctionDataTypesParams functionDataTypesParams) throws ApiException {
-        okhttp3.Call localVarCall = generateFunctionDataTypesForAnalysisValidateBeforeCall(analysisId, functionDataTypesParams, null);
+    public ApiResponse<BaseResponseGenerateFunctionDataTypes> generateFunctionDataTypesForAnalysisWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull FunctionDataTypesParams functionDataTypesParams, @javax.annotation.Nullable String apiKey) throws ApiException {
+        okhttp3.Call localVarCall = generateFunctionDataTypesForAnalysisValidateBeforeCall(analysisId, functionDataTypesParams, apiKey, null);
         Type localVarReturnType = new TypeToken<BaseResponseGenerateFunctionDataTypes>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -200,6 +207,7 @@ public class FunctionsDataTypesApi {
      * Submits a request to generate the function data types
      * @param analysisId  (required)
      * @param functionDataTypesParams  (required)
+     * @param apiKey  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -211,9 +219,9 @@ public class FunctionsDataTypesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call generateFunctionDataTypesForAnalysisAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull FunctionDataTypesParams functionDataTypesParams, final ApiCallback<BaseResponseGenerateFunctionDataTypes> _callback) throws ApiException {
+    public okhttp3.Call generateFunctionDataTypesForAnalysisAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull FunctionDataTypesParams functionDataTypesParams, @javax.annotation.Nullable String apiKey, final ApiCallback<BaseResponseGenerateFunctionDataTypes> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = generateFunctionDataTypesForAnalysisValidateBeforeCall(analysisId, functionDataTypesParams, _callback);
+        okhttp3.Call localVarCall = generateFunctionDataTypesForAnalysisValidateBeforeCall(analysisId, functionDataTypesParams, apiKey, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseGenerateFunctionDataTypes>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -221,6 +229,7 @@ public class FunctionsDataTypesApi {
     /**
      * Build call for generateFunctionDataTypesForFunctions
      * @param functionDataTypesParams  (required)
+     * @param apiKey  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -232,7 +241,7 @@ public class FunctionsDataTypesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call generateFunctionDataTypesForFunctionsCall(@javax.annotation.Nonnull FunctionDataTypesParams functionDataTypesParams, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call generateFunctionDataTypesForFunctionsCall(@javax.annotation.Nonnull FunctionDataTypesParams functionDataTypesParams, @javax.annotation.Nullable String apiKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -257,6 +266,10 @@ public class FunctionsDataTypesApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (apiKey != null) {
+            localVarCookieParams.put("api_key", localVarApiClient.parameterToString(apiKey));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -278,13 +291,13 @@ public class FunctionsDataTypesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call generateFunctionDataTypesForFunctionsValidateBeforeCall(@javax.annotation.Nonnull FunctionDataTypesParams functionDataTypesParams, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call generateFunctionDataTypesForFunctionsValidateBeforeCall(@javax.annotation.Nonnull FunctionDataTypesParams functionDataTypesParams, @javax.annotation.Nullable String apiKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'functionDataTypesParams' is set
         if (functionDataTypesParams == null) {
             throw new ApiException("Missing the required parameter 'functionDataTypesParams' when calling generateFunctionDataTypesForFunctions(Async)");
         }
 
-        return generateFunctionDataTypesForFunctionsCall(functionDataTypesParams, _callback);
+        return generateFunctionDataTypesForFunctionsCall(functionDataTypesParams, apiKey, _callback);
 
     }
 
@@ -292,6 +305,7 @@ public class FunctionsDataTypesApi {
      * Generate Function Data Types for an arbitrary list of functions
      * Submits a request to generate the function data types
      * @param functionDataTypesParams  (required)
+     * @param apiKey  (optional)
      * @return BaseResponseGenerationStatusList
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -302,8 +316,8 @@ public class FunctionsDataTypesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseGenerationStatusList generateFunctionDataTypesForFunctions(@javax.annotation.Nonnull FunctionDataTypesParams functionDataTypesParams) throws ApiException {
-        ApiResponse<BaseResponseGenerationStatusList> localVarResp = generateFunctionDataTypesForFunctionsWithHttpInfo(functionDataTypesParams);
+    public BaseResponseGenerationStatusList generateFunctionDataTypesForFunctions(@javax.annotation.Nonnull FunctionDataTypesParams functionDataTypesParams, @javax.annotation.Nullable String apiKey) throws ApiException {
+        ApiResponse<BaseResponseGenerationStatusList> localVarResp = generateFunctionDataTypesForFunctionsWithHttpInfo(functionDataTypesParams, apiKey);
         return localVarResp.getData();
     }
 
@@ -311,6 +325,7 @@ public class FunctionsDataTypesApi {
      * Generate Function Data Types for an arbitrary list of functions
      * Submits a request to generate the function data types
      * @param functionDataTypesParams  (required)
+     * @param apiKey  (optional)
      * @return ApiResponse&lt;BaseResponseGenerationStatusList&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -321,8 +336,8 @@ public class FunctionsDataTypesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseGenerationStatusList> generateFunctionDataTypesForFunctionsWithHttpInfo(@javax.annotation.Nonnull FunctionDataTypesParams functionDataTypesParams) throws ApiException {
-        okhttp3.Call localVarCall = generateFunctionDataTypesForFunctionsValidateBeforeCall(functionDataTypesParams, null);
+    public ApiResponse<BaseResponseGenerationStatusList> generateFunctionDataTypesForFunctionsWithHttpInfo(@javax.annotation.Nonnull FunctionDataTypesParams functionDataTypesParams, @javax.annotation.Nullable String apiKey) throws ApiException {
+        okhttp3.Call localVarCall = generateFunctionDataTypesForFunctionsValidateBeforeCall(functionDataTypesParams, apiKey, null);
         Type localVarReturnType = new TypeToken<BaseResponseGenerationStatusList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -331,6 +346,7 @@ public class FunctionsDataTypesApi {
      * Generate Function Data Types for an arbitrary list of functions (asynchronously)
      * Submits a request to generate the function data types
      * @param functionDataTypesParams  (required)
+     * @param apiKey  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -342,9 +358,9 @@ public class FunctionsDataTypesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call generateFunctionDataTypesForFunctionsAsync(@javax.annotation.Nonnull FunctionDataTypesParams functionDataTypesParams, final ApiCallback<BaseResponseGenerationStatusList> _callback) throws ApiException {
+    public okhttp3.Call generateFunctionDataTypesForFunctionsAsync(@javax.annotation.Nonnull FunctionDataTypesParams functionDataTypesParams, @javax.annotation.Nullable String apiKey, final ApiCallback<BaseResponseGenerationStatusList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = generateFunctionDataTypesForFunctionsValidateBeforeCall(functionDataTypesParams, _callback);
+        okhttp3.Call localVarCall = generateFunctionDataTypesForFunctionsValidateBeforeCall(functionDataTypesParams, apiKey, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseGenerationStatusList>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -353,6 +369,7 @@ public class FunctionsDataTypesApi {
      * Build call for getFunctionDataTypes
      * @param analysisId  (required)
      * @param functionId  (required)
+     * @param apiKey  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -364,7 +381,7 @@ public class FunctionsDataTypesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFunctionDataTypesCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer functionId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getFunctionDataTypesCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String apiKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -391,6 +408,10 @@ public class FunctionsDataTypesApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (apiKey != null) {
+            localVarCookieParams.put("api_key", localVarApiClient.parameterToString(apiKey));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -411,7 +432,7 @@ public class FunctionsDataTypesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getFunctionDataTypesValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer functionId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getFunctionDataTypesValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String apiKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling getFunctionDataTypes(Async)");
@@ -422,7 +443,7 @@ public class FunctionsDataTypesApi {
             throw new ApiException("Missing the required parameter 'functionId' when calling getFunctionDataTypes(Async)");
         }
 
-        return getFunctionDataTypesCall(analysisId, functionId, _callback);
+        return getFunctionDataTypesCall(analysisId, functionId, apiKey, _callback);
 
     }
 
@@ -431,6 +452,7 @@ public class FunctionsDataTypesApi {
      * Polling endpoint which returns the current status of function generation and once completed the data type information
      * @param analysisId  (required)
      * @param functionId  (required)
+     * @param apiKey  (optional)
      * @return BaseResponseFunctionDataTypes
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -441,8 +463,8 @@ public class FunctionsDataTypesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseFunctionDataTypes getFunctionDataTypes(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer functionId) throws ApiException {
-        ApiResponse<BaseResponseFunctionDataTypes> localVarResp = getFunctionDataTypesWithHttpInfo(analysisId, functionId);
+    public BaseResponseFunctionDataTypes getFunctionDataTypes(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String apiKey) throws ApiException {
+        ApiResponse<BaseResponseFunctionDataTypes> localVarResp = getFunctionDataTypesWithHttpInfo(analysisId, functionId, apiKey);
         return localVarResp.getData();
     }
 
@@ -451,6 +473,7 @@ public class FunctionsDataTypesApi {
      * Polling endpoint which returns the current status of function generation and once completed the data type information
      * @param analysisId  (required)
      * @param functionId  (required)
+     * @param apiKey  (optional)
      * @return ApiResponse&lt;BaseResponseFunctionDataTypes&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -461,8 +484,8 @@ public class FunctionsDataTypesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseFunctionDataTypes> getFunctionDataTypesWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer functionId) throws ApiException {
-        okhttp3.Call localVarCall = getFunctionDataTypesValidateBeforeCall(analysisId, functionId, null);
+    public ApiResponse<BaseResponseFunctionDataTypes> getFunctionDataTypesWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String apiKey) throws ApiException {
+        okhttp3.Call localVarCall = getFunctionDataTypesValidateBeforeCall(analysisId, functionId, apiKey, null);
         Type localVarReturnType = new TypeToken<BaseResponseFunctionDataTypes>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -472,6 +495,7 @@ public class FunctionsDataTypesApi {
      * Polling endpoint which returns the current status of function generation and once completed the data type information
      * @param analysisId  (required)
      * @param functionId  (required)
+     * @param apiKey  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -483,9 +507,9 @@ public class FunctionsDataTypesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFunctionDataTypesAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer functionId, final ApiCallback<BaseResponseFunctionDataTypes> _callback) throws ApiException {
+    public okhttp3.Call getFunctionDataTypesAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String apiKey, final ApiCallback<BaseResponseFunctionDataTypes> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getFunctionDataTypesValidateBeforeCall(analysisId, functionId, _callback);
+        okhttp3.Call localVarCall = getFunctionDataTypesValidateBeforeCall(analysisId, functionId, apiKey, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseFunctionDataTypes>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -494,6 +518,7 @@ public class FunctionsDataTypesApi {
      * Build call for listFunctionDataTypesForAnalysis
      * @param analysisId  (required)
      * @param functionIds  (optional)
+     * @param apiKey  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -505,7 +530,7 @@ public class FunctionsDataTypesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listFunctionDataTypesForAnalysisCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable List<Integer> functionIds, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listFunctionDataTypesForAnalysisCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable List<Integer> functionIds, @javax.annotation.Nullable String apiKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -535,6 +560,10 @@ public class FunctionsDataTypesApi {
             localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "function_ids", functionIds));
         }
 
+        if (apiKey != null) {
+            localVarCookieParams.put("api_key", localVarApiClient.parameterToString(apiKey));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -555,13 +584,13 @@ public class FunctionsDataTypesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listFunctionDataTypesForAnalysisValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable List<Integer> functionIds, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listFunctionDataTypesForAnalysisValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable List<Integer> functionIds, @javax.annotation.Nullable String apiKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling listFunctionDataTypesForAnalysis(Async)");
         }
 
-        return listFunctionDataTypesForAnalysisCall(analysisId, functionIds, _callback);
+        return listFunctionDataTypesForAnalysisCall(analysisId, functionIds, apiKey, _callback);
 
     }
 
@@ -570,6 +599,7 @@ public class FunctionsDataTypesApi {
      * Returns data types for multiple functions with optional function ID filtering
      * @param analysisId  (required)
      * @param functionIds  (optional)
+     * @param apiKey  (optional)
      * @return BaseResponseFunctionDataTypesList
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -580,8 +610,8 @@ public class FunctionsDataTypesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseFunctionDataTypesList listFunctionDataTypesForAnalysis(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable List<Integer> functionIds) throws ApiException {
-        ApiResponse<BaseResponseFunctionDataTypesList> localVarResp = listFunctionDataTypesForAnalysisWithHttpInfo(analysisId, functionIds);
+    public BaseResponseFunctionDataTypesList listFunctionDataTypesForAnalysis(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable List<Integer> functionIds, @javax.annotation.Nullable String apiKey) throws ApiException {
+        ApiResponse<BaseResponseFunctionDataTypesList> localVarResp = listFunctionDataTypesForAnalysisWithHttpInfo(analysisId, functionIds, apiKey);
         return localVarResp.getData();
     }
 
@@ -590,6 +620,7 @@ public class FunctionsDataTypesApi {
      * Returns data types for multiple functions with optional function ID filtering
      * @param analysisId  (required)
      * @param functionIds  (optional)
+     * @param apiKey  (optional)
      * @return ApiResponse&lt;BaseResponseFunctionDataTypesList&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -600,8 +631,8 @@ public class FunctionsDataTypesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseFunctionDataTypesList> listFunctionDataTypesForAnalysisWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable List<Integer> functionIds) throws ApiException {
-        okhttp3.Call localVarCall = listFunctionDataTypesForAnalysisValidateBeforeCall(analysisId, functionIds, null);
+    public ApiResponse<BaseResponseFunctionDataTypesList> listFunctionDataTypesForAnalysisWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable List<Integer> functionIds, @javax.annotation.Nullable String apiKey) throws ApiException {
+        okhttp3.Call localVarCall = listFunctionDataTypesForAnalysisValidateBeforeCall(analysisId, functionIds, apiKey, null);
         Type localVarReturnType = new TypeToken<BaseResponseFunctionDataTypesList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -611,6 +642,7 @@ public class FunctionsDataTypesApi {
      * Returns data types for multiple functions with optional function ID filtering
      * @param analysisId  (required)
      * @param functionIds  (optional)
+     * @param apiKey  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -622,9 +654,9 @@ public class FunctionsDataTypesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listFunctionDataTypesForAnalysisAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable List<Integer> functionIds, final ApiCallback<BaseResponseFunctionDataTypesList> _callback) throws ApiException {
+    public okhttp3.Call listFunctionDataTypesForAnalysisAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable List<Integer> functionIds, @javax.annotation.Nullable String apiKey, final ApiCallback<BaseResponseFunctionDataTypesList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listFunctionDataTypesForAnalysisValidateBeforeCall(analysisId, functionIds, _callback);
+        okhttp3.Call localVarCall = listFunctionDataTypesForAnalysisValidateBeforeCall(analysisId, functionIds, apiKey, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseFunctionDataTypesList>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -632,6 +664,7 @@ public class FunctionsDataTypesApi {
     /**
      * Build call for listFunctionDataTypesForFunctions
      * @param functionIds  (optional)
+     * @param apiKey  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -643,7 +676,7 @@ public class FunctionsDataTypesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listFunctionDataTypesForFunctionsCall(@javax.annotation.Nullable List<Integer> functionIds, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listFunctionDataTypesForFunctionsCall(@javax.annotation.Nullable List<Integer> functionIds, @javax.annotation.Nullable String apiKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -672,6 +705,10 @@ public class FunctionsDataTypesApi {
             localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "function_ids", functionIds));
         }
 
+        if (apiKey != null) {
+            localVarCookieParams.put("api_key", localVarApiClient.parameterToString(apiKey));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -692,8 +729,8 @@ public class FunctionsDataTypesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listFunctionDataTypesForFunctionsValidateBeforeCall(@javax.annotation.Nullable List<Integer> functionIds, final ApiCallback _callback) throws ApiException {
-        return listFunctionDataTypesForFunctionsCall(functionIds, _callback);
+    private okhttp3.Call listFunctionDataTypesForFunctionsValidateBeforeCall(@javax.annotation.Nullable List<Integer> functionIds, @javax.annotation.Nullable String apiKey, final ApiCallback _callback) throws ApiException {
+        return listFunctionDataTypesForFunctionsCall(functionIds, apiKey, _callback);
 
     }
 
@@ -701,6 +738,7 @@ public class FunctionsDataTypesApi {
      * List Function Data Types
      * Returns data types for multiple function IDs
      * @param functionIds  (optional)
+     * @param apiKey  (optional)
      * @return BaseResponseFunctionDataTypesList
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -711,8 +749,8 @@ public class FunctionsDataTypesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseFunctionDataTypesList listFunctionDataTypesForFunctions(@javax.annotation.Nullable List<Integer> functionIds) throws ApiException {
-        ApiResponse<BaseResponseFunctionDataTypesList> localVarResp = listFunctionDataTypesForFunctionsWithHttpInfo(functionIds);
+    public BaseResponseFunctionDataTypesList listFunctionDataTypesForFunctions(@javax.annotation.Nullable List<Integer> functionIds, @javax.annotation.Nullable String apiKey) throws ApiException {
+        ApiResponse<BaseResponseFunctionDataTypesList> localVarResp = listFunctionDataTypesForFunctionsWithHttpInfo(functionIds, apiKey);
         return localVarResp.getData();
     }
 
@@ -720,6 +758,7 @@ public class FunctionsDataTypesApi {
      * List Function Data Types
      * Returns data types for multiple function IDs
      * @param functionIds  (optional)
+     * @param apiKey  (optional)
      * @return ApiResponse&lt;BaseResponseFunctionDataTypesList&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -730,8 +769,8 @@ public class FunctionsDataTypesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseFunctionDataTypesList> listFunctionDataTypesForFunctionsWithHttpInfo(@javax.annotation.Nullable List<Integer> functionIds) throws ApiException {
-        okhttp3.Call localVarCall = listFunctionDataTypesForFunctionsValidateBeforeCall(functionIds, null);
+    public ApiResponse<BaseResponseFunctionDataTypesList> listFunctionDataTypesForFunctionsWithHttpInfo(@javax.annotation.Nullable List<Integer> functionIds, @javax.annotation.Nullable String apiKey) throws ApiException {
+        okhttp3.Call localVarCall = listFunctionDataTypesForFunctionsValidateBeforeCall(functionIds, apiKey, null);
         Type localVarReturnType = new TypeToken<BaseResponseFunctionDataTypesList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -740,6 +779,7 @@ public class FunctionsDataTypesApi {
      * List Function Data Types (asynchronously)
      * Returns data types for multiple function IDs
      * @param functionIds  (optional)
+     * @param apiKey  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -751,9 +791,9 @@ public class FunctionsDataTypesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listFunctionDataTypesForFunctionsAsync(@javax.annotation.Nullable List<Integer> functionIds, final ApiCallback<BaseResponseFunctionDataTypesList> _callback) throws ApiException {
+    public okhttp3.Call listFunctionDataTypesForFunctionsAsync(@javax.annotation.Nullable List<Integer> functionIds, @javax.annotation.Nullable String apiKey, final ApiCallback<BaseResponseFunctionDataTypesList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listFunctionDataTypesForFunctionsValidateBeforeCall(functionIds, _callback);
+        okhttp3.Call localVarCall = listFunctionDataTypesForFunctionsValidateBeforeCall(functionIds, apiKey, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseFunctionDataTypesList>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -763,6 +803,7 @@ public class FunctionsDataTypesApi {
      * @param analysisId  (required)
      * @param functionId  (required)
      * @param updateFunctionDataTypes  (required)
+     * @param apiKey  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -774,7 +815,7 @@ public class FunctionsDataTypesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateFunctionDataTypesCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull UpdateFunctionDataTypes updateFunctionDataTypes, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateFunctionDataTypesCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull UpdateFunctionDataTypes updateFunctionDataTypes, @javax.annotation.Nullable String apiKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -801,6 +842,10 @@ public class FunctionsDataTypesApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (apiKey != null) {
+            localVarCookieParams.put("api_key", localVarApiClient.parameterToString(apiKey));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -822,7 +867,7 @@ public class FunctionsDataTypesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateFunctionDataTypesValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull UpdateFunctionDataTypes updateFunctionDataTypes, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateFunctionDataTypesValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull UpdateFunctionDataTypes updateFunctionDataTypes, @javax.annotation.Nullable String apiKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling updateFunctionDataTypes(Async)");
@@ -838,7 +883,7 @@ public class FunctionsDataTypesApi {
             throw new ApiException("Missing the required parameter 'updateFunctionDataTypes' when calling updateFunctionDataTypes(Async)");
         }
 
-        return updateFunctionDataTypesCall(analysisId, functionId, updateFunctionDataTypes, _callback);
+        return updateFunctionDataTypesCall(analysisId, functionId, updateFunctionDataTypes, apiKey, _callback);
 
     }
 
@@ -848,6 +893,7 @@ public class FunctionsDataTypesApi {
      * @param analysisId  (required)
      * @param functionId  (required)
      * @param updateFunctionDataTypes  (required)
+     * @param apiKey  (optional)
      * @return BaseResponseFunctionDataTypes
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -858,8 +904,8 @@ public class FunctionsDataTypesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseFunctionDataTypes updateFunctionDataTypes(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull UpdateFunctionDataTypes updateFunctionDataTypes) throws ApiException {
-        ApiResponse<BaseResponseFunctionDataTypes> localVarResp = updateFunctionDataTypesWithHttpInfo(analysisId, functionId, updateFunctionDataTypes);
+    public BaseResponseFunctionDataTypes updateFunctionDataTypes(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull UpdateFunctionDataTypes updateFunctionDataTypes, @javax.annotation.Nullable String apiKey) throws ApiException {
+        ApiResponse<BaseResponseFunctionDataTypes> localVarResp = updateFunctionDataTypesWithHttpInfo(analysisId, functionId, updateFunctionDataTypes, apiKey);
         return localVarResp.getData();
     }
 
@@ -869,6 +915,7 @@ public class FunctionsDataTypesApi {
      * @param analysisId  (required)
      * @param functionId  (required)
      * @param updateFunctionDataTypes  (required)
+     * @param apiKey  (optional)
      * @return ApiResponse&lt;BaseResponseFunctionDataTypes&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -879,8 +926,8 @@ public class FunctionsDataTypesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseFunctionDataTypes> updateFunctionDataTypesWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull UpdateFunctionDataTypes updateFunctionDataTypes) throws ApiException {
-        okhttp3.Call localVarCall = updateFunctionDataTypesValidateBeforeCall(analysisId, functionId, updateFunctionDataTypes, null);
+    public ApiResponse<BaseResponseFunctionDataTypes> updateFunctionDataTypesWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull UpdateFunctionDataTypes updateFunctionDataTypes, @javax.annotation.Nullable String apiKey) throws ApiException {
+        okhttp3.Call localVarCall = updateFunctionDataTypesValidateBeforeCall(analysisId, functionId, updateFunctionDataTypes, apiKey, null);
         Type localVarReturnType = new TypeToken<BaseResponseFunctionDataTypes>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -891,6 +938,7 @@ public class FunctionsDataTypesApi {
      * @param analysisId  (required)
      * @param functionId  (required)
      * @param updateFunctionDataTypes  (required)
+     * @param apiKey  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -902,9 +950,9 @@ public class FunctionsDataTypesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateFunctionDataTypesAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull UpdateFunctionDataTypes updateFunctionDataTypes, final ApiCallback<BaseResponseFunctionDataTypes> _callback) throws ApiException {
+    public okhttp3.Call updateFunctionDataTypesAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull UpdateFunctionDataTypes updateFunctionDataTypes, @javax.annotation.Nullable String apiKey, final ApiCallback<BaseResponseFunctionDataTypes> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateFunctionDataTypesValidateBeforeCall(analysisId, functionId, updateFunctionDataTypes, _callback);
+        okhttp3.Call localVarCall = updateFunctionDataTypesValidateBeforeCall(analysisId, functionId, updateFunctionDataTypes, apiKey, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseFunctionDataTypes>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -78,6 +78,7 @@ public class FunctionsBlockCommentsApi {
      * Build call for generateBlockCommentsForBlockInFunction
      * @param functionId  (required)
      * @param block  (required)
+     * @param apiKey  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -89,7 +90,7 @@ public class FunctionsBlockCommentsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call generateBlockCommentsForBlockInFunctionCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull Block block, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call generateBlockCommentsForBlockInFunctionCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull Block block, @javax.annotation.Nullable String apiKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -115,6 +116,10 @@ public class FunctionsBlockCommentsApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (apiKey != null) {
+            localVarCookieParams.put("api_key", localVarApiClient.parameterToString(apiKey));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -136,7 +141,7 @@ public class FunctionsBlockCommentsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call generateBlockCommentsForBlockInFunctionValidateBeforeCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull Block block, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call generateBlockCommentsForBlockInFunctionValidateBeforeCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull Block block, @javax.annotation.Nullable String apiKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'functionId' is set
         if (functionId == null) {
             throw new ApiException("Missing the required parameter 'functionId' when calling generateBlockCommentsForBlockInFunction(Async)");
@@ -147,7 +152,7 @@ public class FunctionsBlockCommentsApi {
             throw new ApiException("Missing the required parameter 'block' when calling generateBlockCommentsForBlockInFunction(Async)");
         }
 
-        return generateBlockCommentsForBlockInFunctionCall(functionId, block, _callback);
+        return generateBlockCommentsForBlockInFunctionCall(functionId, block, apiKey, _callback);
 
     }
 
@@ -156,6 +161,7 @@ public class FunctionsBlockCommentsApi {
      * 
      * @param functionId  (required)
      * @param block  (required)
+     * @param apiKey  (optional)
      * @return BaseResponseBlockCommentsGenerationForFunctionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -166,8 +172,8 @@ public class FunctionsBlockCommentsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseBlockCommentsGenerationForFunctionResponse generateBlockCommentsForBlockInFunction(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull Block block) throws ApiException {
-        ApiResponse<BaseResponseBlockCommentsGenerationForFunctionResponse> localVarResp = generateBlockCommentsForBlockInFunctionWithHttpInfo(functionId, block);
+    public BaseResponseBlockCommentsGenerationForFunctionResponse generateBlockCommentsForBlockInFunction(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull Block block, @javax.annotation.Nullable String apiKey) throws ApiException {
+        ApiResponse<BaseResponseBlockCommentsGenerationForFunctionResponse> localVarResp = generateBlockCommentsForBlockInFunctionWithHttpInfo(functionId, block, apiKey);
         return localVarResp.getData();
     }
 
@@ -176,6 +182,7 @@ public class FunctionsBlockCommentsApi {
      * 
      * @param functionId  (required)
      * @param block  (required)
+     * @param apiKey  (optional)
      * @return ApiResponse&lt;BaseResponseBlockCommentsGenerationForFunctionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -186,8 +193,8 @@ public class FunctionsBlockCommentsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseBlockCommentsGenerationForFunctionResponse> generateBlockCommentsForBlockInFunctionWithHttpInfo(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull Block block) throws ApiException {
-        okhttp3.Call localVarCall = generateBlockCommentsForBlockInFunctionValidateBeforeCall(functionId, block, null);
+    public ApiResponse<BaseResponseBlockCommentsGenerationForFunctionResponse> generateBlockCommentsForBlockInFunctionWithHttpInfo(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull Block block, @javax.annotation.Nullable String apiKey) throws ApiException {
+        okhttp3.Call localVarCall = generateBlockCommentsForBlockInFunctionValidateBeforeCall(functionId, block, apiKey, null);
         Type localVarReturnType = new TypeToken<BaseResponseBlockCommentsGenerationForFunctionResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -197,6 +204,7 @@ public class FunctionsBlockCommentsApi {
      * 
      * @param functionId  (required)
      * @param block  (required)
+     * @param apiKey  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -208,9 +216,9 @@ public class FunctionsBlockCommentsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call generateBlockCommentsForBlockInFunctionAsync(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull Block block, final ApiCallback<BaseResponseBlockCommentsGenerationForFunctionResponse> _callback) throws ApiException {
+    public okhttp3.Call generateBlockCommentsForBlockInFunctionAsync(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull Block block, @javax.annotation.Nullable String apiKey, final ApiCallback<BaseResponseBlockCommentsGenerationForFunctionResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = generateBlockCommentsForBlockInFunctionValidateBeforeCall(functionId, block, _callback);
+        okhttp3.Call localVarCall = generateBlockCommentsForBlockInFunctionValidateBeforeCall(functionId, block, apiKey, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseBlockCommentsGenerationForFunctionResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -218,6 +226,7 @@ public class FunctionsBlockCommentsApi {
     /**
      * Build call for generateBlockCommentsForFunction
      * @param functionId  (required)
+     * @param apiKey  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -229,7 +238,7 @@ public class FunctionsBlockCommentsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call generateBlockCommentsForFunctionCall(@javax.annotation.Nonnull Integer functionId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call generateBlockCommentsForFunctionCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String apiKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -255,6 +264,10 @@ public class FunctionsBlockCommentsApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (apiKey != null) {
+            localVarCookieParams.put("api_key", localVarApiClient.parameterToString(apiKey));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -275,13 +288,13 @@ public class FunctionsBlockCommentsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call generateBlockCommentsForFunctionValidateBeforeCall(@javax.annotation.Nonnull Integer functionId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call generateBlockCommentsForFunctionValidateBeforeCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String apiKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'functionId' is set
         if (functionId == null) {
             throw new ApiException("Missing the required parameter 'functionId' when calling generateBlockCommentsForFunction(Async)");
         }
 
-        return generateBlockCommentsForFunctionCall(functionId, _callback);
+        return generateBlockCommentsForFunctionCall(functionId, apiKey, _callback);
 
     }
 
@@ -289,6 +302,7 @@ public class FunctionsBlockCommentsApi {
      * Generate block comments for a function
      * 
      * @param functionId  (required)
+     * @param apiKey  (optional)
      * @return BaseResponseBlockCommentsGenerationForFunctionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -299,8 +313,8 @@ public class FunctionsBlockCommentsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseBlockCommentsGenerationForFunctionResponse generateBlockCommentsForFunction(@javax.annotation.Nonnull Integer functionId) throws ApiException {
-        ApiResponse<BaseResponseBlockCommentsGenerationForFunctionResponse> localVarResp = generateBlockCommentsForFunctionWithHttpInfo(functionId);
+    public BaseResponseBlockCommentsGenerationForFunctionResponse generateBlockCommentsForFunction(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String apiKey) throws ApiException {
+        ApiResponse<BaseResponseBlockCommentsGenerationForFunctionResponse> localVarResp = generateBlockCommentsForFunctionWithHttpInfo(functionId, apiKey);
         return localVarResp.getData();
     }
 
@@ -308,6 +322,7 @@ public class FunctionsBlockCommentsApi {
      * Generate block comments for a function
      * 
      * @param functionId  (required)
+     * @param apiKey  (optional)
      * @return ApiResponse&lt;BaseResponseBlockCommentsGenerationForFunctionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -318,8 +333,8 @@ public class FunctionsBlockCommentsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseBlockCommentsGenerationForFunctionResponse> generateBlockCommentsForFunctionWithHttpInfo(@javax.annotation.Nonnull Integer functionId) throws ApiException {
-        okhttp3.Call localVarCall = generateBlockCommentsForFunctionValidateBeforeCall(functionId, null);
+    public ApiResponse<BaseResponseBlockCommentsGenerationForFunctionResponse> generateBlockCommentsForFunctionWithHttpInfo(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String apiKey) throws ApiException {
+        okhttp3.Call localVarCall = generateBlockCommentsForFunctionValidateBeforeCall(functionId, apiKey, null);
         Type localVarReturnType = new TypeToken<BaseResponseBlockCommentsGenerationForFunctionResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -328,6 +343,7 @@ public class FunctionsBlockCommentsApi {
      * Generate block comments for a function (asynchronously)
      * 
      * @param functionId  (required)
+     * @param apiKey  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -339,9 +355,9 @@ public class FunctionsBlockCommentsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call generateBlockCommentsForFunctionAsync(@javax.annotation.Nonnull Integer functionId, final ApiCallback<BaseResponseBlockCommentsGenerationForFunctionResponse> _callback) throws ApiException {
+    public okhttp3.Call generateBlockCommentsForFunctionAsync(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String apiKey, final ApiCallback<BaseResponseBlockCommentsGenerationForFunctionResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = generateBlockCommentsForFunctionValidateBeforeCall(functionId, _callback);
+        okhttp3.Call localVarCall = generateBlockCommentsForFunctionValidateBeforeCall(functionId, apiKey, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseBlockCommentsGenerationForFunctionResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -349,6 +365,7 @@ public class FunctionsBlockCommentsApi {
     /**
      * Build call for generateOverviewCommentForFunction
      * @param functionId  (required)
+     * @param apiKey  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -360,7 +377,7 @@ public class FunctionsBlockCommentsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call generateOverviewCommentForFunctionCall(@javax.annotation.Nonnull Integer functionId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call generateOverviewCommentForFunctionCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String apiKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -386,6 +403,10 @@ public class FunctionsBlockCommentsApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (apiKey != null) {
+            localVarCookieParams.put("api_key", localVarApiClient.parameterToString(apiKey));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -406,13 +427,13 @@ public class FunctionsBlockCommentsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call generateOverviewCommentForFunctionValidateBeforeCall(@javax.annotation.Nonnull Integer functionId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call generateOverviewCommentForFunctionValidateBeforeCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String apiKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'functionId' is set
         if (functionId == null) {
             throw new ApiException("Missing the required parameter 'functionId' when calling generateOverviewCommentForFunction(Async)");
         }
 
-        return generateOverviewCommentForFunctionCall(functionId, _callback);
+        return generateOverviewCommentForFunctionCall(functionId, apiKey, _callback);
 
     }
 
@@ -420,6 +441,7 @@ public class FunctionsBlockCommentsApi {
      * Generate overview comment for a function
      * 
      * @param functionId  (required)
+     * @param apiKey  (optional)
      * @return BaseResponseBlockCommentsOverviewGenerationResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -430,8 +452,8 @@ public class FunctionsBlockCommentsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseBlockCommentsOverviewGenerationResponse generateOverviewCommentForFunction(@javax.annotation.Nonnull Integer functionId) throws ApiException {
-        ApiResponse<BaseResponseBlockCommentsOverviewGenerationResponse> localVarResp = generateOverviewCommentForFunctionWithHttpInfo(functionId);
+    public BaseResponseBlockCommentsOverviewGenerationResponse generateOverviewCommentForFunction(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String apiKey) throws ApiException {
+        ApiResponse<BaseResponseBlockCommentsOverviewGenerationResponse> localVarResp = generateOverviewCommentForFunctionWithHttpInfo(functionId, apiKey);
         return localVarResp.getData();
     }
 
@@ -439,6 +461,7 @@ public class FunctionsBlockCommentsApi {
      * Generate overview comment for a function
      * 
      * @param functionId  (required)
+     * @param apiKey  (optional)
      * @return ApiResponse&lt;BaseResponseBlockCommentsOverviewGenerationResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -449,8 +472,8 @@ public class FunctionsBlockCommentsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseBlockCommentsOverviewGenerationResponse> generateOverviewCommentForFunctionWithHttpInfo(@javax.annotation.Nonnull Integer functionId) throws ApiException {
-        okhttp3.Call localVarCall = generateOverviewCommentForFunctionValidateBeforeCall(functionId, null);
+    public ApiResponse<BaseResponseBlockCommentsOverviewGenerationResponse> generateOverviewCommentForFunctionWithHttpInfo(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String apiKey) throws ApiException {
+        okhttp3.Call localVarCall = generateOverviewCommentForFunctionValidateBeforeCall(functionId, apiKey, null);
         Type localVarReturnType = new TypeToken<BaseResponseBlockCommentsOverviewGenerationResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -459,6 +482,7 @@ public class FunctionsBlockCommentsApi {
      * Generate overview comment for a function (asynchronously)
      * 
      * @param functionId  (required)
+     * @param apiKey  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -470,9 +494,9 @@ public class FunctionsBlockCommentsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call generateOverviewCommentForFunctionAsync(@javax.annotation.Nonnull Integer functionId, final ApiCallback<BaseResponseBlockCommentsOverviewGenerationResponse> _callback) throws ApiException {
+    public okhttp3.Call generateOverviewCommentForFunctionAsync(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String apiKey, final ApiCallback<BaseResponseBlockCommentsOverviewGenerationResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = generateOverviewCommentForFunctionValidateBeforeCall(functionId, _callback);
+        okhttp3.Call localVarCall = generateOverviewCommentForFunctionValidateBeforeCall(functionId, apiKey, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseBlockCommentsOverviewGenerationResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

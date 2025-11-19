@@ -14,7 +14,7 @@ All URIs are relative to *https://api.reveng.ai*
 
 <a id="downloadZippedBinary"></a>
 # **downloadZippedBinary**
-> Object downloadZippedBinary(binaryId)
+> Object downloadZippedBinary(binaryId, apiKey)
 
 Downloads a zipped binary with password protection
 
@@ -41,8 +41,9 @@ public class Example {
 
     BinariesApi apiInstance = new BinariesApi(defaultClient);
     Integer binaryId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      Object result = apiInstance.downloadZippedBinary(binaryId);
+      Object result = apiInstance.downloadZippedBinary(binaryId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BinariesApi#downloadZippedBinary");
@@ -60,6 +61,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **binaryId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -82,7 +84,7 @@ public class Example {
 
 <a id="getBinaryAdditionalDetails"></a>
 # **getBinaryAdditionalDetails**
-> BaseResponseBinaryAdditionalResponse getBinaryAdditionalDetails(binaryId)
+> BaseResponseBinaryAdditionalResponse getBinaryAdditionalDetails(binaryId, apiKey)
 
 Gets the additional details of a binary
 
@@ -109,8 +111,9 @@ public class Example {
 
     BinariesApi apiInstance = new BinariesApi(defaultClient);
     Integer binaryId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseBinaryAdditionalResponse result = apiInstance.getBinaryAdditionalDetails(binaryId);
+      BaseResponseBinaryAdditionalResponse result = apiInstance.getBinaryAdditionalDetails(binaryId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BinariesApi#getBinaryAdditionalDetails");
@@ -128,6 +131,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **binaryId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -150,7 +154,7 @@ public class Example {
 
 <a id="getBinaryDetails"></a>
 # **getBinaryDetails**
-> BaseResponseBinaryDetailsResponse getBinaryDetails(binaryId)
+> BaseResponseBinaryDetailsResponse getBinaryDetails(binaryId, apiKey)
 
 Gets the details of a binary
 
@@ -177,8 +181,9 @@ public class Example {
 
     BinariesApi apiInstance = new BinariesApi(defaultClient);
     Integer binaryId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseBinaryDetailsResponse result = apiInstance.getBinaryDetails(binaryId);
+      BaseResponseBinaryDetailsResponse result = apiInstance.getBinaryDetails(binaryId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BinariesApi#getBinaryDetails");
@@ -196,6 +201,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **binaryId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -218,7 +224,7 @@ public class Example {
 
 <a id="getBinaryDieInfo"></a>
 # **getBinaryDieInfo**
-> BaseResponseListDieMatch getBinaryDieInfo(binaryId)
+> BaseResponseListDieMatch getBinaryDieInfo(binaryId, apiKey)
 
 Gets the die info of a binary
 
@@ -245,8 +251,9 @@ public class Example {
 
     BinariesApi apiInstance = new BinariesApi(defaultClient);
     Integer binaryId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseListDieMatch result = apiInstance.getBinaryDieInfo(binaryId);
+      BaseResponseListDieMatch result = apiInstance.getBinaryDieInfo(binaryId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BinariesApi#getBinaryDieInfo");
@@ -264,6 +271,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **binaryId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -286,7 +294,7 @@ public class Example {
 
 <a id="getBinaryExternals"></a>
 # **getBinaryExternals**
-> BaseResponseBinaryExternalsResponse getBinaryExternals(binaryId)
+> BaseResponseBinaryExternalsResponse getBinaryExternals(binaryId, apiKey)
 
 Gets the external details of a binary
 
@@ -313,8 +321,9 @@ public class Example {
 
     BinariesApi apiInstance = new BinariesApi(defaultClient);
     Integer binaryId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseBinaryExternalsResponse result = apiInstance.getBinaryExternals(binaryId);
+      BaseResponseBinaryExternalsResponse result = apiInstance.getBinaryExternals(binaryId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BinariesApi#getBinaryExternals");
@@ -332,6 +341,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **binaryId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -354,7 +364,7 @@ public class Example {
 
 <a id="getRelatedBinaries"></a>
 # **getRelatedBinaries**
-> BaseResponseChildBinariesResponse getRelatedBinaries(binaryId)
+> BaseResponseChildBinariesResponse getRelatedBinaries(binaryId, apiKey)
 
 Gets the related binaries of a binary.
 
@@ -381,8 +391,9 @@ public class Example {
 
     BinariesApi apiInstance = new BinariesApi(defaultClient);
     Integer binaryId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseChildBinariesResponse result = apiInstance.getRelatedBinaries(binaryId);
+      BaseResponseChildBinariesResponse result = apiInstance.getRelatedBinaries(binaryId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BinariesApi#getRelatedBinaries");
@@ -400,6 +411,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **binaryId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 

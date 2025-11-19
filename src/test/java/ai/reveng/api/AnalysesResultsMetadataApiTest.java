@@ -44,7 +44,8 @@ public class AnalysesResultsMetadataApiTest {
     @Test
     public void getCapabilitiesTest() throws ApiException {
         Integer analysisId = null;
-        BaseResponseCapabilities response = api.getCapabilities(analysisId);
+        String apiKey = null;
+        BaseResponseCapabilities response = api.getCapabilities(analysisId, apiKey);
         // TODO: test validations
     }
 
@@ -57,7 +58,8 @@ public class AnalysesResultsMetadataApiTest {
     public void getCommunitiesTest() throws ApiException {
         Integer analysisId = null;
         String userName = null;
-        BaseResponseCommunities response = api.getCommunities(analysisId, userName);
+        String apiKey = null;
+        BaseResponseCommunities response = api.getCommunities(analysisId, userName, apiKey);
         // TODO: test validations
     }
 
@@ -74,7 +76,8 @@ public class AnalysesResultsMetadataApiTest {
         String searchTerm = null;
         Integer minVAddr = null;
         Integer maxVAddr = null;
-        BaseResponseAnalysisFunctions response = api.getFunctionsList(analysisId, searchTerm, minVAddr, maxVAddr);
+        String apiKey = null;
+        BaseResponseAnalysisFunctions response = api.getFunctionsList(analysisId, searchTerm, minVAddr, maxVAddr, apiKey);
         // TODO: test validations
     }
 
@@ -86,7 +89,8 @@ public class AnalysesResultsMetadataApiTest {
     @Test
     public void getPdfTest() throws ApiException {
         Integer analysisId = null;
-        Object response = api.getPdf(analysisId);
+        String apiKey = null;
+        Object response = api.getPdf(analysisId, apiKey);
         // TODO: test validations
     }
 
@@ -98,7 +102,8 @@ public class AnalysesResultsMetadataApiTest {
     @Test
     public void getSbomTest() throws ApiException {
         Integer analysisId = null;
-        BaseResponseListSBOM response = api.getSbom(analysisId);
+        String apiKey = null;
+        BaseResponseListSBOM response = api.getSbom(analysisId, apiKey);
         // TODO: test validations
     }
 
@@ -110,7 +115,8 @@ public class AnalysesResultsMetadataApiTest {
     @Test
     public void getTagsTest() throws ApiException {
         Integer analysisId = null;
-        BaseResponseAnalysisTags response = api.getTags(analysisId);
+        String apiKey = null;
+        BaseResponseAnalysisTags response = api.getTags(analysisId, apiKey);
         // TODO: test validations
     }
 
@@ -122,7 +128,8 @@ public class AnalysesResultsMetadataApiTest {
     @Test
     public void getVulnerabilitiesTest() throws ApiException {
         Integer analysisId = null;
-        BaseResponseVulnerabilities response = api.getVulnerabilities(analysisId);
+        String apiKey = null;
+        BaseResponseVulnerabilities response = api.getVulnerabilities(analysisId, apiKey);
         // TODO: test validations
     }
 

@@ -15,7 +15,7 @@ All URIs are relative to *https://api.reveng.ai*
 
 <a id="getDynamicExecutionStatus"></a>
 # **getDynamicExecutionStatus**
-> BaseResponseDynamicExecutionStatus getDynamicExecutionStatus(analysisId)
+> BaseResponseDynamicExecutionStatus getDynamicExecutionStatus(analysisId, apiKey)
 
 Get the status of a dynamic execution task
 
@@ -42,8 +42,9 @@ public class Example {
 
     AnalysesDynamicExecutionApi apiInstance = new AnalysesDynamicExecutionApi(defaultClient);
     Integer analysisId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseDynamicExecutionStatus result = apiInstance.getDynamicExecutionStatus(analysisId);
+      BaseResponseDynamicExecutionStatus result = apiInstance.getDynamicExecutionStatus(analysisId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesDynamicExecutionApi#getDynamicExecutionStatus");
@@ -61,6 +62,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -83,7 +85,7 @@ public class Example {
 
 <a id="getNetworkOverview"></a>
 # **getNetworkOverview**
-> BaseResponseNetworkOverviewResponse getNetworkOverview(analysisId)
+> BaseResponseNetworkOverviewResponse getNetworkOverview(analysisId, apiKey)
 
 Get the dynamic execution results for network overview
 
@@ -110,8 +112,9 @@ public class Example {
 
     AnalysesDynamicExecutionApi apiInstance = new AnalysesDynamicExecutionApi(defaultClient);
     Integer analysisId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseNetworkOverviewResponse result = apiInstance.getNetworkOverview(analysisId);
+      BaseResponseNetworkOverviewResponse result = apiInstance.getNetworkOverview(analysisId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesDynamicExecutionApi#getNetworkOverview");
@@ -129,6 +132,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -151,7 +155,7 @@ public class Example {
 
 <a id="getProcessDump"></a>
 # **getProcessDump**
-> Object getProcessDump(analysisId, dumpName)
+> Object getProcessDump(analysisId, dumpName, apiKey)
 
 Get the dynamic execution results for a specific process dump
 
@@ -179,8 +183,9 @@ public class Example {
     AnalysesDynamicExecutionApi apiInstance = new AnalysesDynamicExecutionApi(defaultClient);
     Integer analysisId = 56; // Integer | 
     String dumpName = "dumpName_example"; // String | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      Object result = apiInstance.getProcessDump(analysisId, dumpName);
+      Object result = apiInstance.getProcessDump(analysisId, dumpName, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesDynamicExecutionApi#getProcessDump");
@@ -199,6 +204,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
 | **dumpName** | **String**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -221,7 +227,7 @@ public class Example {
 
 <a id="getProcessDumps"></a>
 # **getProcessDumps**
-> BaseResponseProcessDumps getProcessDumps(analysisId)
+> BaseResponseProcessDumps getProcessDumps(analysisId, apiKey)
 
 Get the dynamic execution results for process dumps
 
@@ -248,8 +254,9 @@ public class Example {
 
     AnalysesDynamicExecutionApi apiInstance = new AnalysesDynamicExecutionApi(defaultClient);
     Integer analysisId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseProcessDumps result = apiInstance.getProcessDumps(analysisId);
+      BaseResponseProcessDumps result = apiInstance.getProcessDumps(analysisId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesDynamicExecutionApi#getProcessDumps");
@@ -267,6 +274,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -289,7 +297,7 @@ public class Example {
 
 <a id="getProcessRegistry"></a>
 # **getProcessRegistry**
-> BaseResponseProcessRegistry getProcessRegistry(analysisId)
+> BaseResponseProcessRegistry getProcessRegistry(analysisId, apiKey)
 
 Get the dynamic execution results for process registry
 
@@ -316,8 +324,9 @@ public class Example {
 
     AnalysesDynamicExecutionApi apiInstance = new AnalysesDynamicExecutionApi(defaultClient);
     Integer analysisId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseProcessRegistry result = apiInstance.getProcessRegistry(analysisId);
+      BaseResponseProcessRegistry result = apiInstance.getProcessRegistry(analysisId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesDynamicExecutionApi#getProcessRegistry");
@@ -335,6 +344,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -357,7 +367,7 @@ public class Example {
 
 <a id="getProcessTree"></a>
 # **getProcessTree**
-> BaseResponseProcessTree getProcessTree(analysisId)
+> BaseResponseProcessTree getProcessTree(analysisId, apiKey)
 
 Get the dynamic execution results for process tree
 
@@ -384,8 +394,9 @@ public class Example {
 
     AnalysesDynamicExecutionApi apiInstance = new AnalysesDynamicExecutionApi(defaultClient);
     Integer analysisId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseProcessTree result = apiInstance.getProcessTree(analysisId);
+      BaseResponseProcessTree result = apiInstance.getProcessTree(analysisId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesDynamicExecutionApi#getProcessTree");
@@ -403,6 +414,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -425,7 +437,7 @@ public class Example {
 
 <a id="getTtps"></a>
 # **getTtps**
-> BaseResponseTTPS getTtps(analysisId)
+> BaseResponseTTPS getTtps(analysisId, apiKey)
 
 Get the dynamic execution results for ttps
 
@@ -452,8 +464,9 @@ public class Example {
 
     AnalysesDynamicExecutionApi apiInstance = new AnalysesDynamicExecutionApi(defaultClient);
     Integer analysisId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseTTPS result = apiInstance.getTtps(analysisId);
+      BaseResponseTTPS result = apiInstance.getTtps(analysisId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesDynamicExecutionApi#getTtps");
@@ -471,6 +484,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 

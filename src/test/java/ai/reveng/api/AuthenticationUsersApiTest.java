@@ -43,7 +43,8 @@ public class AuthenticationUsersApiTest {
      */
     @Test
     public void getRequesterUserInfoTest() throws ApiException {
-        BaseResponseGetUserResponse response = api.getRequesterUserInfo();
+        String apiKey = null;
+        BaseResponseGetUserResponse response = api.getRequesterUserInfo(apiKey);
         // TODO: test validations
     }
 
@@ -55,7 +56,8 @@ public class AuthenticationUsersApiTest {
     @Test
     public void getUserTest() throws ApiException {
         Integer userId = null;
-        BaseResponseGetPublicUserResponse response = api.getUser(userId);
+        String apiKey = null;
+        BaseResponseGetPublicUserResponse response = api.getUser(userId, apiKey);
         // TODO: test validations
     }
 
@@ -66,7 +68,8 @@ public class AuthenticationUsersApiTest {
      */
     @Test
     public void getUserActivityTest() throws ApiException {
-        BaseResponseListUserActivityResponse response = api.getUserActivity();
+        String apiKey = null;
+        BaseResponseListUserActivityResponse response = api.getUserActivity(apiKey);
         // TODO: test validations
     }
 
@@ -79,7 +82,8 @@ public class AuthenticationUsersApiTest {
      */
     @Test
     public void getUserCommentsTest() throws ApiException {
-        BaseResponseListCommentResponse response = api.getUserComments();
+        String apiKey = null;
+        BaseResponseListCommentResponse response = api.getUserComments(apiKey);
         // TODO: test validations
     }
 

@@ -9,7 +9,7 @@ All URIs are relative to *https://api.reveng.ai*
 
 <a id="getModels"></a>
 # **getModels**
-> BaseResponseModelsResponse getModels()
+> BaseResponseModelsResponse getModels(apiKey)
 
 Gets models
 
@@ -37,8 +37,9 @@ public class Example {
     //APIKey.setApiKeyPrefix("Token");
 
     ModelsApi apiInstance = new ModelsApi(defaultClient);
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseModelsResponse result = apiInstance.getModels();
+      BaseResponseModelsResponse result = apiInstance.getModels(apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ModelsApi#getModels");
@@ -52,7 +53,10 @@ public class Example {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 

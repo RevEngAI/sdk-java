@@ -21,7 +21,7 @@ All URIs are relative to *https://api.reveng.ai*
 
 <a id="createAnalysis"></a>
 # **createAnalysis**
-> BaseResponseAnalysisCreateResponse createAnalysis(analysisCreateRequest)
+> BaseResponseAnalysisCreateResponse createAnalysis(analysisCreateRequest, apiKey)
 
 Create Analysis
 
@@ -50,8 +50,9 @@ public class Example {
 
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
     AnalysisCreateRequest analysisCreateRequest = new AnalysisCreateRequest(); // AnalysisCreateRequest | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseAnalysisCreateResponse result = apiInstance.createAnalysis(analysisCreateRequest);
+      BaseResponseAnalysisCreateResponse result = apiInstance.createAnalysis(analysisCreateRequest, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCoreApi#createAnalysis");
@@ -69,6 +70,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisCreateRequest** | [**AnalysisCreateRequest**](AnalysisCreateRequest.md)|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -93,7 +95,7 @@ public class Example {
 
 <a id="deleteAnalysis"></a>
 # **deleteAnalysis**
-> BaseResponseDict deleteAnalysis(analysisId)
+> BaseResponseDict deleteAnalysis(analysisId, apiKey)
 
 Delete Analysis
 
@@ -122,8 +124,9 @@ public class Example {
 
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
     Integer analysisId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseDict result = apiInstance.deleteAnalysis(analysisId);
+      BaseResponseDict result = apiInstance.deleteAnalysis(analysisId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCoreApi#deleteAnalysis");
@@ -141,6 +144,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -165,7 +169,7 @@ public class Example {
 
 <a id="getAnalysisBasicInfo"></a>
 # **getAnalysisBasicInfo**
-> BaseResponseBasic getAnalysisBasicInfo(analysisId)
+> BaseResponseBasic getAnalysisBasicInfo(analysisId, apiKey)
 
 Gets basic analysis information
 
@@ -194,8 +198,9 @@ public class Example {
 
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
     Integer analysisId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseBasic result = apiInstance.getAnalysisBasicInfo(analysisId);
+      BaseResponseBasic result = apiInstance.getAnalysisBasicInfo(analysisId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCoreApi#getAnalysisBasicInfo");
@@ -213,6 +218,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -235,7 +241,7 @@ public class Example {
 
 <a id="getAnalysisFunctionMap"></a>
 # **getAnalysisFunctionMap**
-> BaseResponseAnalysisFunctionMapping getAnalysisFunctionMap(analysisId)
+> BaseResponseAnalysisFunctionMapping getAnalysisFunctionMap(analysisId, apiKey)
 
 Get Analysis Function Map
 
@@ -264,8 +270,9 @@ public class Example {
 
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
     Integer analysisId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseAnalysisFunctionMapping result = apiInstance.getAnalysisFunctionMap(analysisId);
+      BaseResponseAnalysisFunctionMapping result = apiInstance.getAnalysisFunctionMap(analysisId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCoreApi#getAnalysisFunctionMap");
@@ -283,6 +290,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -305,7 +313,7 @@ public class Example {
 
 <a id="getAnalysisLogs"></a>
 # **getAnalysisLogs**
-> BaseResponseLogs getAnalysisLogs(analysisId)
+> BaseResponseLogs getAnalysisLogs(analysisId, apiKey)
 
 Gets the logs of an analysis
 
@@ -334,8 +342,9 @@ public class Example {
 
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
     Integer analysisId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseLogs result = apiInstance.getAnalysisLogs(analysisId);
+      BaseResponseLogs result = apiInstance.getAnalysisLogs(analysisId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCoreApi#getAnalysisLogs");
@@ -353,6 +362,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -375,7 +385,7 @@ public class Example {
 
 <a id="getAnalysisParams"></a>
 # **getAnalysisParams**
-> BaseResponseParams getAnalysisParams(analysisId)
+> BaseResponseParams getAnalysisParams(analysisId, apiKey)
 
 Gets analysis param information
 
@@ -404,8 +414,9 @@ public class Example {
 
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
     Integer analysisId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseParams result = apiInstance.getAnalysisParams(analysisId);
+      BaseResponseParams result = apiInstance.getAnalysisParams(analysisId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCoreApi#getAnalysisParams");
@@ -423,6 +434,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -445,7 +457,7 @@ public class Example {
 
 <a id="getAnalysisStatus"></a>
 # **getAnalysisStatus**
-> BaseResponseStatus getAnalysisStatus(analysisId)
+> BaseResponseStatus getAnalysisStatus(analysisId, apiKey)
 
 Gets the status of an analysis
 
@@ -474,8 +486,9 @@ public class Example {
 
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
     Integer analysisId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseStatus result = apiInstance.getAnalysisStatus(analysisId);
+      BaseResponseStatus result = apiInstance.getAnalysisStatus(analysisId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCoreApi#getAnalysisStatus");
@@ -493,6 +506,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -515,7 +529,7 @@ public class Example {
 
 <a id="listAnalyses"></a>
 # **listAnalyses**
-> BaseResponseRecent listAnalyses(searchTerm, workspace, status, modelName, dynamicExecutionStatus, usernames, sha256Hash, limit, offset, orderBy, order)
+> BaseResponseRecent listAnalyses(searchTerm, workspace, status, modelName, dynamicExecutionStatus, usernames, sha256Hash, limit, offset, orderBy, order, apiKey)
 
 Gets the most recent analyses
 
@@ -554,8 +568,9 @@ public class Example {
     Integer offset = 0; // Integer | 
     AppApiRestV2AnalysesEnumsOrderBy orderBy = AppApiRestV2AnalysesEnumsOrderBy.fromValue("created"); // AppApiRestV2AnalysesEnumsOrderBy | 
     Order order = Order.fromValue("ASC"); // Order | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseRecent result = apiInstance.listAnalyses(searchTerm, workspace, status, modelName, dynamicExecutionStatus, usernames, sha256Hash, limit, offset, orderBy, order);
+      BaseResponseRecent result = apiInstance.listAnalyses(searchTerm, workspace, status, modelName, dynamicExecutionStatus, usernames, sha256Hash, limit, offset, orderBy, order, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCoreApi#listAnalyses");
@@ -583,6 +598,7 @@ public class Example {
 | **offset** | **Integer**|  | [optional] [default to 0] |
 | **orderBy** | [**AppApiRestV2AnalysesEnumsOrderBy**](.md)|  | [optional] [enum: created, name, size] |
 | **order** | [**Order**](.md)|  | [optional] [enum: ASC, DESC] |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -605,7 +621,7 @@ public class Example {
 
 <a id="lookupBinaryId"></a>
 # **lookupBinaryId**
-> Object lookupBinaryId(binaryId)
+> Object lookupBinaryId(binaryId, apiKey)
 
 Gets the analysis ID from binary ID
 
@@ -634,8 +650,9 @@ public class Example {
 
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
     Integer binaryId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      Object result = apiInstance.lookupBinaryId(binaryId);
+      Object result = apiInstance.lookupBinaryId(binaryId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCoreApi#lookupBinaryId");
@@ -653,6 +670,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **binaryId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -675,7 +693,7 @@ public class Example {
 
 <a id="requeueAnalysis"></a>
 # **requeueAnalysis**
-> BaseResponseCreated requeueAnalysis(analysisId, reAnalysisForm)
+> BaseResponseCreated requeueAnalysis(analysisId, reAnalysisForm, apiKey)
 
 Requeue Analysis
 
@@ -705,8 +723,9 @@ public class Example {
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
     Integer analysisId = 56; // Integer | 
     ReAnalysisForm reAnalysisForm = new ReAnalysisForm(); // ReAnalysisForm | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseCreated result = apiInstance.requeueAnalysis(analysisId, reAnalysisForm);
+      BaseResponseCreated result = apiInstance.requeueAnalysis(analysisId, reAnalysisForm, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCoreApi#requeueAnalysis");
@@ -725,6 +744,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
 | **reAnalysisForm** | [**ReAnalysisForm**](ReAnalysisForm.md)|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -749,7 +769,7 @@ public class Example {
 
 <a id="updateAnalysis"></a>
 # **updateAnalysis**
-> BaseResponseAnalysisDetailResponse updateAnalysis(analysisId, analysisUpdateRequest)
+> BaseResponseAnalysisDetailResponse updateAnalysis(analysisId, analysisUpdateRequest, apiKey)
 
 Update Analysis
 
@@ -779,8 +799,9 @@ public class Example {
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
     Integer analysisId = 56; // Integer | 
     AnalysisUpdateRequest analysisUpdateRequest = new AnalysisUpdateRequest(); // AnalysisUpdateRequest | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseAnalysisDetailResponse result = apiInstance.updateAnalysis(analysisId, analysisUpdateRequest);
+      BaseResponseAnalysisDetailResponse result = apiInstance.updateAnalysis(analysisId, analysisUpdateRequest, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCoreApi#updateAnalysis");
@@ -799,6 +820,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
 | **analysisUpdateRequest** | [**AnalysisUpdateRequest**](AnalysisUpdateRequest.md)|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -821,7 +843,7 @@ public class Example {
 
 <a id="updateAnalysisTags"></a>
 # **updateAnalysisTags**
-> BaseResponseAnalysisUpdateTagsResponse updateAnalysisTags(analysisId, analysisUpdateTagsRequest)
+> BaseResponseAnalysisUpdateTagsResponse updateAnalysisTags(analysisId, analysisUpdateTagsRequest, apiKey)
 
 Update Analysis Tags
 
@@ -851,8 +873,9 @@ public class Example {
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
     Integer analysisId = 56; // Integer | 
     AnalysisUpdateTagsRequest analysisUpdateTagsRequest = new AnalysisUpdateTagsRequest(); // AnalysisUpdateTagsRequest | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseAnalysisUpdateTagsResponse result = apiInstance.updateAnalysisTags(analysisId, analysisUpdateTagsRequest);
+      BaseResponseAnalysisUpdateTagsResponse result = apiInstance.updateAnalysisTags(analysisId, analysisUpdateTagsRequest, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCoreApi#updateAnalysisTags");
@@ -871,6 +894,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
 | **analysisUpdateTagsRequest** | [**AnalysisUpdateTagsRequest**](AnalysisUpdateTagsRequest.md)|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -893,7 +917,7 @@ public class Example {
 
 <a id="uploadFile"></a>
 # **uploadFile**
-> BaseResponseUploadResponse uploadFile(uploadFileType, _file, packedPassword, forceOverwrite)
+> BaseResponseUploadResponse uploadFile(uploadFileType, _file, packedPassword, apiKey, forceOverwrite)
 
 Upload File
 
@@ -922,9 +946,10 @@ public class Example {
     UploadFileType uploadFileType = UploadFileType.fromValue("BINARY"); // UploadFileType | 
     File _file = new File("/path/to/file"); // File | 
     String packedPassword = "packedPassword_example"; // String | 
+    String apiKey = "apiKey_example"; // String | 
     Boolean forceOverwrite = false; // Boolean | 
     try {
-      BaseResponseUploadResponse result = apiInstance.uploadFile(uploadFileType, _file, packedPassword, forceOverwrite);
+      BaseResponseUploadResponse result = apiInstance.uploadFile(uploadFileType, _file, packedPassword, apiKey, forceOverwrite);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCoreApi#uploadFile");
@@ -944,6 +969,7 @@ public class Example {
 | **uploadFileType** | [**UploadFileType**](UploadFileType.md)|  | [enum: BINARY, DEBUG, PACKED, FIRMWARE] |
 | **_file** | **File**|  | |
 | **packedPassword** | **String**|  | [optional] |
+| **apiKey** | **String**|  | [optional] |
 | **forceOverwrite** | **Boolean**|  | [optional] [default to false] |
 
 ### Return type

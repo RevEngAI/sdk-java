@@ -79,6 +79,7 @@ public class AuthenticationUsersApi {
 
     /**
      * Build call for getRequesterUserInfo
+     * @param apiKey  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -90,7 +91,7 @@ public class AuthenticationUsersApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRequesterUserInfoCall(final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getRequesterUserInfoCall(@javax.annotation.Nullable String apiKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -115,6 +116,10 @@ public class AuthenticationUsersApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (apiKey != null) {
+            localVarCookieParams.put("api_key", localVarApiClient.parameterToString(apiKey));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -135,14 +140,15 @@ public class AuthenticationUsersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getRequesterUserInfoValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        return getRequesterUserInfoCall(_callback);
+    private okhttp3.Call getRequesterUserInfoValidateBeforeCall(@javax.annotation.Nullable String apiKey, final ApiCallback _callback) throws ApiException {
+        return getRequesterUserInfoCall(apiKey, _callback);
 
     }
 
     /**
      * Get the requesters user information
      * 
+     * @param apiKey  (optional)
      * @return BaseResponseGetUserResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -153,14 +159,15 @@ public class AuthenticationUsersApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseGetUserResponse getRequesterUserInfo() throws ApiException {
-        ApiResponse<BaseResponseGetUserResponse> localVarResp = getRequesterUserInfoWithHttpInfo();
+    public BaseResponseGetUserResponse getRequesterUserInfo(@javax.annotation.Nullable String apiKey) throws ApiException {
+        ApiResponse<BaseResponseGetUserResponse> localVarResp = getRequesterUserInfoWithHttpInfo(apiKey);
         return localVarResp.getData();
     }
 
     /**
      * Get the requesters user information
      * 
+     * @param apiKey  (optional)
      * @return ApiResponse&lt;BaseResponseGetUserResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -171,8 +178,8 @@ public class AuthenticationUsersApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseGetUserResponse> getRequesterUserInfoWithHttpInfo() throws ApiException {
-        okhttp3.Call localVarCall = getRequesterUserInfoValidateBeforeCall(null);
+    public ApiResponse<BaseResponseGetUserResponse> getRequesterUserInfoWithHttpInfo(@javax.annotation.Nullable String apiKey) throws ApiException {
+        okhttp3.Call localVarCall = getRequesterUserInfoValidateBeforeCall(apiKey, null);
         Type localVarReturnType = new TypeToken<BaseResponseGetUserResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -180,6 +187,7 @@ public class AuthenticationUsersApi {
     /**
      * Get the requesters user information (asynchronously)
      * 
+     * @param apiKey  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -191,9 +199,9 @@ public class AuthenticationUsersApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRequesterUserInfoAsync(final ApiCallback<BaseResponseGetUserResponse> _callback) throws ApiException {
+    public okhttp3.Call getRequesterUserInfoAsync(@javax.annotation.Nullable String apiKey, final ApiCallback<BaseResponseGetUserResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getRequesterUserInfoValidateBeforeCall(_callback);
+        okhttp3.Call localVarCall = getRequesterUserInfoValidateBeforeCall(apiKey, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseGetUserResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -201,6 +209,7 @@ public class AuthenticationUsersApi {
     /**
      * Build call for getUser
      * @param userId  (required)
+     * @param apiKey  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -212,7 +221,7 @@ public class AuthenticationUsersApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUserCall(@javax.annotation.Nonnull Integer userId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getUserCall(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nullable String apiKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -238,6 +247,10 @@ public class AuthenticationUsersApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (apiKey != null) {
+            localVarCookieParams.put("api_key", localVarApiClient.parameterToString(apiKey));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -258,13 +271,13 @@ public class AuthenticationUsersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getUserValidateBeforeCall(@javax.annotation.Nonnull Integer userId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getUserValidateBeforeCall(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nullable String apiKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'userId' is set
         if (userId == null) {
             throw new ApiException("Missing the required parameter 'userId' when calling getUser(Async)");
         }
 
-        return getUserCall(userId, _callback);
+        return getUserCall(userId, apiKey, _callback);
 
     }
 
@@ -272,6 +285,7 @@ public class AuthenticationUsersApi {
      * Get a user&#39;s public information
      * 
      * @param userId  (required)
+     * @param apiKey  (optional)
      * @return BaseResponseGetPublicUserResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -282,8 +296,8 @@ public class AuthenticationUsersApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseGetPublicUserResponse getUser(@javax.annotation.Nonnull Integer userId) throws ApiException {
-        ApiResponse<BaseResponseGetPublicUserResponse> localVarResp = getUserWithHttpInfo(userId);
+    public BaseResponseGetPublicUserResponse getUser(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nullable String apiKey) throws ApiException {
+        ApiResponse<BaseResponseGetPublicUserResponse> localVarResp = getUserWithHttpInfo(userId, apiKey);
         return localVarResp.getData();
     }
 
@@ -291,6 +305,7 @@ public class AuthenticationUsersApi {
      * Get a user&#39;s public information
      * 
      * @param userId  (required)
+     * @param apiKey  (optional)
      * @return ApiResponse&lt;BaseResponseGetPublicUserResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -301,8 +316,8 @@ public class AuthenticationUsersApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseGetPublicUserResponse> getUserWithHttpInfo(@javax.annotation.Nonnull Integer userId) throws ApiException {
-        okhttp3.Call localVarCall = getUserValidateBeforeCall(userId, null);
+    public ApiResponse<BaseResponseGetPublicUserResponse> getUserWithHttpInfo(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nullable String apiKey) throws ApiException {
+        okhttp3.Call localVarCall = getUserValidateBeforeCall(userId, apiKey, null);
         Type localVarReturnType = new TypeToken<BaseResponseGetPublicUserResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -311,6 +326,7 @@ public class AuthenticationUsersApi {
      * Get a user&#39;s public information (asynchronously)
      * 
      * @param userId  (required)
+     * @param apiKey  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -322,15 +338,16 @@ public class AuthenticationUsersApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUserAsync(@javax.annotation.Nonnull Integer userId, final ApiCallback<BaseResponseGetPublicUserResponse> _callback) throws ApiException {
+    public okhttp3.Call getUserAsync(@javax.annotation.Nonnull Integer userId, @javax.annotation.Nullable String apiKey, final ApiCallback<BaseResponseGetPublicUserResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getUserValidateBeforeCall(userId, _callback);
+        okhttp3.Call localVarCall = getUserValidateBeforeCall(userId, apiKey, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseGetPublicUserResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getUserActivity
+     * @param apiKey  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -342,7 +359,7 @@ public class AuthenticationUsersApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUserActivityCall(final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getUserActivityCall(@javax.annotation.Nullable String apiKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -367,6 +384,10 @@ public class AuthenticationUsersApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (apiKey != null) {
+            localVarCookieParams.put("api_key", localVarApiClient.parameterToString(apiKey));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -387,14 +408,15 @@ public class AuthenticationUsersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getUserActivityValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        return getUserActivityCall(_callback);
+    private okhttp3.Call getUserActivityValidateBeforeCall(@javax.annotation.Nullable String apiKey, final ApiCallback _callback) throws ApiException {
+        return getUserActivityCall(apiKey, _callback);
 
     }
 
     /**
      * Get auth user activity
      * 
+     * @param apiKey  (optional)
      * @return BaseResponseListUserActivityResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -405,14 +427,15 @@ public class AuthenticationUsersApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseListUserActivityResponse getUserActivity() throws ApiException {
-        ApiResponse<BaseResponseListUserActivityResponse> localVarResp = getUserActivityWithHttpInfo();
+    public BaseResponseListUserActivityResponse getUserActivity(@javax.annotation.Nullable String apiKey) throws ApiException {
+        ApiResponse<BaseResponseListUserActivityResponse> localVarResp = getUserActivityWithHttpInfo(apiKey);
         return localVarResp.getData();
     }
 
     /**
      * Get auth user activity
      * 
+     * @param apiKey  (optional)
      * @return ApiResponse&lt;BaseResponseListUserActivityResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -423,8 +446,8 @@ public class AuthenticationUsersApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseListUserActivityResponse> getUserActivityWithHttpInfo() throws ApiException {
-        okhttp3.Call localVarCall = getUserActivityValidateBeforeCall(null);
+    public ApiResponse<BaseResponseListUserActivityResponse> getUserActivityWithHttpInfo(@javax.annotation.Nullable String apiKey) throws ApiException {
+        okhttp3.Call localVarCall = getUserActivityValidateBeforeCall(apiKey, null);
         Type localVarReturnType = new TypeToken<BaseResponseListUserActivityResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -432,6 +455,7 @@ public class AuthenticationUsersApi {
     /**
      * Get auth user activity (asynchronously)
      * 
+     * @param apiKey  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -443,15 +467,16 @@ public class AuthenticationUsersApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUserActivityAsync(final ApiCallback<BaseResponseListUserActivityResponse> _callback) throws ApiException {
+    public okhttp3.Call getUserActivityAsync(@javax.annotation.Nullable String apiKey, final ApiCallback<BaseResponseListUserActivityResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getUserActivityValidateBeforeCall(_callback);
+        okhttp3.Call localVarCall = getUserActivityValidateBeforeCall(apiKey, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseListUserActivityResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getUserComments
+     * @param apiKey  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -463,7 +488,7 @@ public class AuthenticationUsersApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUserCommentsCall(final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getUserCommentsCall(@javax.annotation.Nullable String apiKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -488,6 +513,10 @@ public class AuthenticationUsersApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (apiKey != null) {
+            localVarCookieParams.put("api_key", localVarApiClient.parameterToString(apiKey));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -508,14 +537,15 @@ public class AuthenticationUsersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getUserCommentsValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        return getUserCommentsCall(_callback);
+    private okhttp3.Call getUserCommentsValidateBeforeCall(@javax.annotation.Nullable String apiKey, final ApiCallback _callback) throws ApiException {
+        return getUserCommentsCall(apiKey, _callback);
 
     }
 
     /**
      * Get comments by user
      * Retrieves all comments created by a specific user. Only returns comments for resources the requesting user has access to.
+     * @param apiKey  (optional)
      * @return BaseResponseListCommentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -526,14 +556,15 @@ public class AuthenticationUsersApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseListCommentResponse getUserComments() throws ApiException {
-        ApiResponse<BaseResponseListCommentResponse> localVarResp = getUserCommentsWithHttpInfo();
+    public BaseResponseListCommentResponse getUserComments(@javax.annotation.Nullable String apiKey) throws ApiException {
+        ApiResponse<BaseResponseListCommentResponse> localVarResp = getUserCommentsWithHttpInfo(apiKey);
         return localVarResp.getData();
     }
 
     /**
      * Get comments by user
      * Retrieves all comments created by a specific user. Only returns comments for resources the requesting user has access to.
+     * @param apiKey  (optional)
      * @return ApiResponse&lt;BaseResponseListCommentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -544,8 +575,8 @@ public class AuthenticationUsersApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseListCommentResponse> getUserCommentsWithHttpInfo() throws ApiException {
-        okhttp3.Call localVarCall = getUserCommentsValidateBeforeCall(null);
+    public ApiResponse<BaseResponseListCommentResponse> getUserCommentsWithHttpInfo(@javax.annotation.Nullable String apiKey) throws ApiException {
+        okhttp3.Call localVarCall = getUserCommentsValidateBeforeCall(apiKey, null);
         Type localVarReturnType = new TypeToken<BaseResponseListCommentResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -553,6 +584,7 @@ public class AuthenticationUsersApi {
     /**
      * Get comments by user (asynchronously)
      * Retrieves all comments created by a specific user. Only returns comments for resources the requesting user has access to.
+     * @param apiKey  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -564,9 +596,9 @@ public class AuthenticationUsersApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUserCommentsAsync(final ApiCallback<BaseResponseListCommentResponse> _callback) throws ApiException {
+    public okhttp3.Call getUserCommentsAsync(@javax.annotation.Nullable String apiKey, final ApiCallback<BaseResponseListCommentResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getUserCommentsValidateBeforeCall(_callback);
+        okhttp3.Call localVarCall = getUserCommentsValidateBeforeCall(apiKey, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseListCommentResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

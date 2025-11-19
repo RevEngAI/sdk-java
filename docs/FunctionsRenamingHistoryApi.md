@@ -12,7 +12,7 @@ All URIs are relative to *https://api.reveng.ai*
 
 <a id="batchRenameFunction"></a>
 # **batchRenameFunction**
-> BaseResponse batchRenameFunction(functionsListRename)
+> BaseResponse batchRenameFunction(functionsListRename, apiKey)
 
 Batch Rename Functions
 
@@ -41,8 +41,9 @@ public class Example {
 
     FunctionsRenamingHistoryApi apiInstance = new FunctionsRenamingHistoryApi(defaultClient);
     FunctionsListRename functionsListRename = new FunctionsListRename(); // FunctionsListRename | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponse result = apiInstance.batchRenameFunction(functionsListRename);
+      BaseResponse result = apiInstance.batchRenameFunction(functionsListRename, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsRenamingHistoryApi#batchRenameFunction");
@@ -60,6 +61,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **functionsListRename** | [**FunctionsListRename**](FunctionsListRename.md)|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -82,7 +84,7 @@ public class Example {
 
 <a id="getFunctionNameHistory"></a>
 # **getFunctionNameHistory**
-> BaseResponseListFunctionNameHistory getFunctionNameHistory(functionId)
+> BaseResponseListFunctionNameHistory getFunctionNameHistory(functionId, apiKey)
 
 Get Function Name History
 
@@ -111,8 +113,9 @@ public class Example {
 
     FunctionsRenamingHistoryApi apiInstance = new FunctionsRenamingHistoryApi(defaultClient);
     Integer functionId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseListFunctionNameHistory result = apiInstance.getFunctionNameHistory(functionId);
+      BaseResponseListFunctionNameHistory result = apiInstance.getFunctionNameHistory(functionId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsRenamingHistoryApi#getFunctionNameHistory");
@@ -130,6 +133,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **functionId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -152,7 +156,7 @@ public class Example {
 
 <a id="renameFunctionId"></a>
 # **renameFunctionId**
-> BaseResponse renameFunctionId(functionId, functionRename)
+> BaseResponse renameFunctionId(functionId, functionRename, apiKey)
 
 Rename Function
 
@@ -182,8 +186,9 @@ public class Example {
     FunctionsRenamingHistoryApi apiInstance = new FunctionsRenamingHistoryApi(defaultClient);
     Integer functionId = 56; // Integer | 
     FunctionRename functionRename = new FunctionRename(); // FunctionRename | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponse result = apiInstance.renameFunctionId(functionId, functionRename);
+      BaseResponse result = apiInstance.renameFunctionId(functionId, functionRename, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsRenamingHistoryApi#renameFunctionId");
@@ -202,6 +207,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **functionId** | **Integer**|  | |
 | **functionRename** | [**FunctionRename**](FunctionRename.md)|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -224,7 +230,7 @@ public class Example {
 
 <a id="revertFunctionName"></a>
 # **revertFunctionName**
-> BaseResponse revertFunctionName(functionId, historyId)
+> BaseResponse revertFunctionName(functionId, historyId, apiKey)
 
 Revert the function name
 
@@ -254,8 +260,9 @@ public class Example {
     FunctionsRenamingHistoryApi apiInstance = new FunctionsRenamingHistoryApi(defaultClient);
     Integer functionId = 56; // Integer | 
     Integer historyId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponse result = apiInstance.revertFunctionName(functionId, historyId);
+      BaseResponse result = apiInstance.revertFunctionName(functionId, historyId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsRenamingHistoryApi#revertFunctionName");
@@ -274,6 +281,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **functionId** | **Integer**|  | |
 | **historyId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 

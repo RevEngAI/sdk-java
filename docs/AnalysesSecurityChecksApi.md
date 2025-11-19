@@ -11,7 +11,7 @@ All URIs are relative to *https://api.reveng.ai*
 
 <a id="createScurityChecksTask"></a>
 # **createScurityChecksTask**
-> QueuedSecurityChecksTaskResponse createScurityChecksTask(analysisId)
+> QueuedSecurityChecksTaskResponse createScurityChecksTask(analysisId, apiKey)
 
 Queues a security check process
 
@@ -38,8 +38,9 @@ public class Example {
 
     AnalysesSecurityChecksApi apiInstance = new AnalysesSecurityChecksApi(defaultClient);
     Integer analysisId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      QueuedSecurityChecksTaskResponse result = apiInstance.createScurityChecksTask(analysisId);
+      QueuedSecurityChecksTaskResponse result = apiInstance.createScurityChecksTask(analysisId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesSecurityChecksApi#createScurityChecksTask");
@@ -57,6 +58,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -80,7 +82,7 @@ public class Example {
 
 <a id="getSecurityChecks"></a>
 # **getSecurityChecks**
-> BaseResponseSecurityChecksResponse getSecurityChecks(analysisId, page, pageSize)
+> BaseResponseSecurityChecksResponse getSecurityChecks(analysisId, page, pageSize, apiKey)
 
 Get Security Checks
 
@@ -111,8 +113,9 @@ public class Example {
     Integer analysisId = 56; // Integer | 
     Integer page = 56; // Integer | The page number to retrieve.
     Integer pageSize = 56; // Integer | Number of items per page.
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseSecurityChecksResponse result = apiInstance.getSecurityChecks(analysisId, page, pageSize);
+      BaseResponseSecurityChecksResponse result = apiInstance.getSecurityChecks(analysisId, page, pageSize, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesSecurityChecksApi#getSecurityChecks");
@@ -132,6 +135,7 @@ public class Example {
 | **analysisId** | **Integer**|  | |
 | **page** | **Integer**| The page number to retrieve. | |
 | **pageSize** | **Integer**| Number of items per page. | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -154,7 +158,7 @@ public class Example {
 
 <a id="getSecurityChecksTaskStatus"></a>
 # **getSecurityChecksTaskStatus**
-> CheckSecurityChecksTaskResponse getSecurityChecksTaskStatus(analysisId)
+> CheckSecurityChecksTaskResponse getSecurityChecksTaskStatus(analysisId, apiKey)
 
 Check the status of a security check process
 
@@ -181,8 +185,9 @@ public class Example {
 
     AnalysesSecurityChecksApi apiInstance = new AnalysesSecurityChecksApi(defaultClient);
     Integer analysisId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      CheckSecurityChecksTaskResponse result = apiInstance.getSecurityChecksTaskStatus(analysisId);
+      CheckSecurityChecksTaskResponse result = apiInstance.getSecurityChecksTaskStatus(analysisId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesSecurityChecksApi#getSecurityChecksTaskStatus");
@@ -200,6 +205,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 

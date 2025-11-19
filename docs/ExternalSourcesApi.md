@@ -14,7 +14,7 @@ All URIs are relative to *https://api.reveng.ai*
 
 <a id="createExternalTaskMb"></a>
 # **createExternalTaskMb**
-> BaseResponseStr createExternalTaskMb(analysisId)
+> BaseResponseStr createExternalTaskMb(analysisId, apiKey)
 
 Pulls data from VirusTotal
 
@@ -41,8 +41,9 @@ public class Example {
 
     ExternalSourcesApi apiInstance = new ExternalSourcesApi(defaultClient);
     Integer analysisId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseStr result = apiInstance.createExternalTaskMb(analysisId);
+      BaseResponseStr result = apiInstance.createExternalTaskMb(analysisId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ExternalSourcesApi#createExternalTaskMb");
@@ -60,6 +61,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -83,7 +85,7 @@ public class Example {
 
 <a id="createExternalTaskVt"></a>
 # **createExternalTaskVt**
-> BaseResponseStr createExternalTaskVt(analysisId)
+> BaseResponseStr createExternalTaskVt(analysisId, apiKey)
 
 Pulls data from VirusTotal
 
@@ -110,8 +112,9 @@ public class Example {
 
     ExternalSourcesApi apiInstance = new ExternalSourcesApi(defaultClient);
     Integer analysisId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseStr result = apiInstance.createExternalTaskVt(analysisId);
+      BaseResponseStr result = apiInstance.createExternalTaskVt(analysisId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ExternalSourcesApi#createExternalTaskVt");
@@ -129,6 +132,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -152,7 +156,7 @@ public class Example {
 
 <a id="getMbData"></a>
 # **getMbData**
-> BaseResponseExternalResponse getMbData(analysisId)
+> BaseResponseExternalResponse getMbData(analysisId, apiKey)
 
 Get MalwareBazaar data
 
@@ -179,8 +183,9 @@ public class Example {
 
     ExternalSourcesApi apiInstance = new ExternalSourcesApi(defaultClient);
     Integer analysisId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseExternalResponse result = apiInstance.getMbData(analysisId);
+      BaseResponseExternalResponse result = apiInstance.getMbData(analysisId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ExternalSourcesApi#getMbData");
@@ -198,6 +203,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -221,7 +227,7 @@ public class Example {
 
 <a id="getMbTaskStatus"></a>
 # **getMbTaskStatus**
-> BaseResponseTaskResponse getMbTaskStatus(analysisId)
+> BaseResponseTaskResponse getMbTaskStatus(analysisId, apiKey)
 
 Check the status of MalwareBazaar data retrieval
 
@@ -248,8 +254,9 @@ public class Example {
 
     ExternalSourcesApi apiInstance = new ExternalSourcesApi(defaultClient);
     Integer analysisId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseTaskResponse result = apiInstance.getMbTaskStatus(analysisId);
+      BaseResponseTaskResponse result = apiInstance.getMbTaskStatus(analysisId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ExternalSourcesApi#getMbTaskStatus");
@@ -267,6 +274,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -289,7 +297,7 @@ public class Example {
 
 <a id="getVtData"></a>
 # **getVtData**
-> BaseResponseExternalResponse getVtData(analysisId)
+> BaseResponseExternalResponse getVtData(analysisId, apiKey)
 
 Get VirusTotal data
 
@@ -316,8 +324,9 @@ public class Example {
 
     ExternalSourcesApi apiInstance = new ExternalSourcesApi(defaultClient);
     Integer analysisId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseExternalResponse result = apiInstance.getVtData(analysisId);
+      BaseResponseExternalResponse result = apiInstance.getVtData(analysisId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ExternalSourcesApi#getVtData");
@@ -335,6 +344,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -358,7 +368,7 @@ public class Example {
 
 <a id="getVtTaskStatus"></a>
 # **getVtTaskStatus**
-> BaseResponseTaskResponse getVtTaskStatus(analysisId)
+> BaseResponseTaskResponse getVtTaskStatus(analysisId, apiKey)
 
 Check the status of VirusTotal data retrieval
 
@@ -385,8 +395,9 @@ public class Example {
 
     ExternalSourcesApi apiInstance = new ExternalSourcesApi(defaultClient);
     Integer analysisId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseTaskResponse result = apiInstance.getVtTaskStatus(analysisId);
+      BaseResponseTaskResponse result = apiInstance.getVtTaskStatus(analysisId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ExternalSourcesApi#getVtTaskStatus");
@@ -404,6 +415,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 

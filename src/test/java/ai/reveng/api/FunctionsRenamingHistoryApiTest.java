@@ -43,7 +43,8 @@ public class FunctionsRenamingHistoryApiTest {
     @Test
     public void batchRenameFunctionTest() throws ApiException {
         FunctionsListRename functionsListRename = null;
-        BaseResponse response = api.batchRenameFunction(functionsListRename);
+        String apiKey = null;
+        BaseResponse response = api.batchRenameFunction(functionsListRename, apiKey);
         // TODO: test validations
     }
 
@@ -57,7 +58,8 @@ public class FunctionsRenamingHistoryApiTest {
     @Test
     public void getFunctionNameHistoryTest() throws ApiException {
         Integer functionId = null;
-        BaseResponseListFunctionNameHistory response = api.getFunctionNameHistory(functionId);
+        String apiKey = null;
+        BaseResponseListFunctionNameHistory response = api.getFunctionNameHistory(functionId, apiKey);
         // TODO: test validations
     }
 
@@ -72,7 +74,8 @@ public class FunctionsRenamingHistoryApiTest {
     public void renameFunctionIdTest() throws ApiException {
         Integer functionId = null;
         FunctionRename functionRename = null;
-        BaseResponse response = api.renameFunctionId(functionId, functionRename);
+        String apiKey = null;
+        BaseResponse response = api.renameFunctionId(functionId, functionRename, apiKey);
         // TODO: test validations
     }
 
@@ -87,7 +90,8 @@ public class FunctionsRenamingHistoryApiTest {
     public void revertFunctionNameTest() throws ApiException {
         Integer functionId = null;
         Integer historyId = null;
-        BaseResponse response = api.revertFunctionName(functionId, historyId);
+        String apiKey = null;
+        BaseResponse response = api.revertFunctionName(functionId, historyId, apiKey);
         // TODO: test validations
     }
 

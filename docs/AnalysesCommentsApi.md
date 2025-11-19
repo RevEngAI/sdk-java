@@ -12,7 +12,7 @@ All URIs are relative to *https://api.reveng.ai*
 
 <a id="createAnalysisComment"></a>
 # **createAnalysisComment**
-> BaseResponseCommentResponse createAnalysisComment(analysisId, commentBase)
+> BaseResponseCommentResponse createAnalysisComment(analysisId, commentBase, apiKey)
 
 Create a comment for this analysis
 
@@ -42,8 +42,9 @@ public class Example {
     AnalysesCommentsApi apiInstance = new AnalysesCommentsApi(defaultClient);
     Integer analysisId = 56; // Integer | 
     CommentBase commentBase = new CommentBase(); // CommentBase | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseCommentResponse result = apiInstance.createAnalysisComment(analysisId, commentBase);
+      BaseResponseCommentResponse result = apiInstance.createAnalysisComment(analysisId, commentBase, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCommentsApi#createAnalysisComment");
@@ -62,6 +63,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
 | **commentBase** | [**CommentBase**](CommentBase.md)|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -85,7 +87,7 @@ public class Example {
 
 <a id="deleteAnalysisComment"></a>
 # **deleteAnalysisComment**
-> BaseResponseBool deleteAnalysisComment(commentId, analysisId)
+> BaseResponseBool deleteAnalysisComment(commentId, analysisId, apiKey)
 
 Delete a comment
 
@@ -115,8 +117,9 @@ public class Example {
     AnalysesCommentsApi apiInstance = new AnalysesCommentsApi(defaultClient);
     Integer commentId = 56; // Integer | 
     Integer analysisId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseBool result = apiInstance.deleteAnalysisComment(commentId, analysisId);
+      BaseResponseBool result = apiInstance.deleteAnalysisComment(commentId, analysisId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCommentsApi#deleteAnalysisComment");
@@ -135,6 +138,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **commentId** | **Integer**|  | |
 | **analysisId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -159,7 +163,7 @@ public class Example {
 
 <a id="getAnalysisComments"></a>
 # **getAnalysisComments**
-> BaseResponseListCommentResponse getAnalysisComments(analysisId)
+> BaseResponseListCommentResponse getAnalysisComments(analysisId, apiKey)
 
 Get comments for this analysis
 
@@ -188,8 +192,9 @@ public class Example {
 
     AnalysesCommentsApi apiInstance = new AnalysesCommentsApi(defaultClient);
     Integer analysisId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseListCommentResponse result = apiInstance.getAnalysisComments(analysisId);
+      BaseResponseListCommentResponse result = apiInstance.getAnalysisComments(analysisId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCommentsApi#getAnalysisComments");
@@ -207,6 +212,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -229,7 +235,7 @@ public class Example {
 
 <a id="updateAnalysisComment"></a>
 # **updateAnalysisComment**
-> BaseResponseCommentResponse updateAnalysisComment(commentId, analysisId, commentUpdateRequest)
+> BaseResponseCommentResponse updateAnalysisComment(commentId, analysisId, commentUpdateRequest, apiKey)
 
 Update a comment
 
@@ -260,8 +266,9 @@ public class Example {
     Integer commentId = 56; // Integer | 
     Integer analysisId = 56; // Integer | 
     CommentUpdateRequest commentUpdateRequest = new CommentUpdateRequest(); // CommentUpdateRequest | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseCommentResponse result = apiInstance.updateAnalysisComment(commentId, analysisId, commentUpdateRequest);
+      BaseResponseCommentResponse result = apiInstance.updateAnalysisComment(commentId, analysisId, commentUpdateRequest, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCommentsApi#updateAnalysisComment");
@@ -281,6 +288,7 @@ public class Example {
 | **commentId** | **Integer**|  | |
 | **analysisId** | **Integer**|  | |
 | **commentUpdateRequest** | [**CommentUpdateRequest**](CommentUpdateRequest.md)|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 

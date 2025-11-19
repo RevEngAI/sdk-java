@@ -46,7 +46,8 @@ public class FunctionsDecompilationApiTest {
     public void createDecompilationCommentTest() throws ApiException {
         Integer functionId = null;
         FunctionCommentCreateRequest functionCommentCreateRequest = null;
-        BaseResponseCommentResponse response = api.createDecompilationComment(functionId, functionCommentCreateRequest);
+        String apiKey = null;
+        BaseResponseCommentResponse response = api.createDecompilationComment(functionId, functionCommentCreateRequest, apiKey);
         // TODO: test validations
     }
 
@@ -61,7 +62,8 @@ public class FunctionsDecompilationApiTest {
     public void deleteDecompilationCommentTest() throws ApiException {
         Integer commentId = null;
         Integer functionId = null;
-        BaseResponseBool response = api.deleteDecompilationComment(commentId, functionId);
+        String apiKey = null;
+        BaseResponseBool response = api.deleteDecompilationComment(commentId, functionId, apiKey);
         // TODO: test validations
     }
 
@@ -75,7 +77,8 @@ public class FunctionsDecompilationApiTest {
     @Test
     public void getDecompilationCommentsTest() throws ApiException {
         Integer functionId = null;
-        BaseResponseListCommentResponse response = api.getDecompilationComments(functionId);
+        String apiKey = null;
+        BaseResponseListCommentResponse response = api.getDecompilationComments(functionId, apiKey);
         // TODO: test validations
     }
 
@@ -91,7 +94,8 @@ public class FunctionsDecompilationApiTest {
         Integer commentId = null;
         Integer functionId = null;
         CommentUpdateRequest commentUpdateRequest = null;
-        BaseResponseCommentResponse response = api.updateDecompilationComment(commentId, functionId, commentUpdateRequest);
+        String apiKey = null;
+        BaseResponseCommentResponse response = api.updateDecompilationComment(commentId, functionId, commentUpdateRequest, apiKey);
         // TODO: test validations
     }
 

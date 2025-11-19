@@ -15,7 +15,7 @@ All URIs are relative to *https://api.reveng.ai*
 
 <a id="getCapabilities"></a>
 # **getCapabilities**
-> BaseResponseCapabilities getCapabilities(analysisId)
+> BaseResponseCapabilities getCapabilities(analysisId, apiKey)
 
 Gets the capabilities from the analysis
 
@@ -42,8 +42,9 @@ public class Example {
 
     AnalysesResultsMetadataApi apiInstance = new AnalysesResultsMetadataApi(defaultClient);
     Integer analysisId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseCapabilities result = apiInstance.getCapabilities(analysisId);
+      BaseResponseCapabilities result = apiInstance.getCapabilities(analysisId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesResultsMetadataApi#getCapabilities");
@@ -61,6 +62,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -83,7 +85,7 @@ public class Example {
 
 <a id="getCommunities"></a>
 # **getCommunities**
-> BaseResponseCommunities getCommunities(analysisId, userName)
+> BaseResponseCommunities getCommunities(analysisId, userName, apiKey)
 
 Gets the communities found in the analysis
 
@@ -111,8 +113,9 @@ public class Example {
     AnalysesResultsMetadataApi apiInstance = new AnalysesResultsMetadataApi(defaultClient);
     Integer analysisId = 56; // Integer | 
     String userName = "userName_example"; // String | The user name to limit communities to
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseCommunities result = apiInstance.getCommunities(analysisId, userName);
+      BaseResponseCommunities result = apiInstance.getCommunities(analysisId, userName, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesResultsMetadataApi#getCommunities");
@@ -131,6 +134,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
 | **userName** | **String**| The user name to limit communities to | [optional] |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -153,7 +157,7 @@ public class Example {
 
 <a id="getFunctionsList"></a>
 # **getFunctionsList**
-> BaseResponseAnalysisFunctions getFunctionsList(analysisId, searchTerm, minVAddr, maxVAddr)
+> BaseResponseAnalysisFunctions getFunctionsList(analysisId, searchTerm, minVAddr, maxVAddr, apiKey)
 
 Gets functions from analysis
 
@@ -185,8 +189,9 @@ public class Example {
     String searchTerm = "searchTerm_example"; // String | 
     Integer minVAddr = 56; // Integer | 
     Integer maxVAddr = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseAnalysisFunctions result = apiInstance.getFunctionsList(analysisId, searchTerm, minVAddr, maxVAddr);
+      BaseResponseAnalysisFunctions result = apiInstance.getFunctionsList(analysisId, searchTerm, minVAddr, maxVAddr, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesResultsMetadataApi#getFunctionsList");
@@ -207,6 +212,7 @@ public class Example {
 | **searchTerm** | **String**|  | [optional] |
 | **minVAddr** | **Integer**|  | [optional] |
 | **maxVAddr** | **Integer**|  | [optional] |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -229,7 +235,7 @@ public class Example {
 
 <a id="getPdf"></a>
 # **getPdf**
-> Object getPdf(analysisId)
+> Object getPdf(analysisId, apiKey)
 
 Gets the PDF found in the analysis
 
@@ -256,8 +262,9 @@ public class Example {
 
     AnalysesResultsMetadataApi apiInstance = new AnalysesResultsMetadataApi(defaultClient);
     Integer analysisId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      Object result = apiInstance.getPdf(analysisId);
+      Object result = apiInstance.getPdf(analysisId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesResultsMetadataApi#getPdf");
@@ -275,6 +282,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -297,7 +305,7 @@ public class Example {
 
 <a id="getSbom"></a>
 # **getSbom**
-> BaseResponseListSBOM getSbom(analysisId)
+> BaseResponseListSBOM getSbom(analysisId, apiKey)
 
 Gets the software-bill-of-materials (SBOM) found in the analysis
 
@@ -324,8 +332,9 @@ public class Example {
 
     AnalysesResultsMetadataApi apiInstance = new AnalysesResultsMetadataApi(defaultClient);
     Integer analysisId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseListSBOM result = apiInstance.getSbom(analysisId);
+      BaseResponseListSBOM result = apiInstance.getSbom(analysisId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesResultsMetadataApi#getSbom");
@@ -343,6 +352,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -365,7 +375,7 @@ public class Example {
 
 <a id="getTags"></a>
 # **getTags**
-> BaseResponseAnalysisTags getTags(analysisId)
+> BaseResponseAnalysisTags getTags(analysisId, apiKey)
 
 Get function tags with maliciousness score
 
@@ -392,8 +402,9 @@ public class Example {
 
     AnalysesResultsMetadataApi apiInstance = new AnalysesResultsMetadataApi(defaultClient);
     Integer analysisId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseAnalysisTags result = apiInstance.getTags(analysisId);
+      BaseResponseAnalysisTags result = apiInstance.getTags(analysisId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesResultsMetadataApi#getTags");
@@ -411,6 +422,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -433,7 +445,7 @@ public class Example {
 
 <a id="getVulnerabilities"></a>
 # **getVulnerabilities**
-> BaseResponseVulnerabilities getVulnerabilities(analysisId)
+> BaseResponseVulnerabilities getVulnerabilities(analysisId, apiKey)
 
 Gets the vulnerabilities found in the analysis
 
@@ -460,8 +472,9 @@ public class Example {
 
     AnalysesResultsMetadataApi apiInstance = new AnalysesResultsMetadataApi(defaultClient);
     Integer analysisId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseVulnerabilities result = apiInstance.getVulnerabilities(analysisId);
+      BaseResponseVulnerabilities result = apiInstance.getVulnerabilities(analysisId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesResultsMetadataApi#getVulnerabilities");
@@ -479,6 +492,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 

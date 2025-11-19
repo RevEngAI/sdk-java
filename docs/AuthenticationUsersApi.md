@@ -13,7 +13,7 @@ All URIs are relative to *https://api.reveng.ai*
 
 <a id="getRequesterUserInfo"></a>
 # **getRequesterUserInfo**
-> BaseResponseGetUserResponse getRequesterUserInfo()
+> BaseResponseGetUserResponse getRequesterUserInfo(apiKey)
 
 Get the requesters user information
 
@@ -39,8 +39,9 @@ public class Example {
     //APIKey.setApiKeyPrefix("Token");
 
     AuthenticationUsersApi apiInstance = new AuthenticationUsersApi(defaultClient);
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseGetUserResponse result = apiInstance.getRequesterUserInfo();
+      BaseResponseGetUserResponse result = apiInstance.getRequesterUserInfo(apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AuthenticationUsersApi#getRequesterUserInfo");
@@ -54,7 +55,10 @@ public class Example {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -77,7 +81,7 @@ This endpoint does not need any parameter.
 
 <a id="getUser"></a>
 # **getUser**
-> BaseResponseGetPublicUserResponse getUser(userId)
+> BaseResponseGetPublicUserResponse getUser(userId, apiKey)
 
 Get a user&#39;s public information
 
@@ -104,8 +108,9 @@ public class Example {
 
     AuthenticationUsersApi apiInstance = new AuthenticationUsersApi(defaultClient);
     Integer userId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseGetPublicUserResponse result = apiInstance.getUser(userId);
+      BaseResponseGetPublicUserResponse result = apiInstance.getUser(userId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AuthenticationUsersApi#getUser");
@@ -123,6 +128,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **userId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -145,7 +151,7 @@ public class Example {
 
 <a id="getUserActivity"></a>
 # **getUserActivity**
-> BaseResponseListUserActivityResponse getUserActivity()
+> BaseResponseListUserActivityResponse getUserActivity(apiKey)
 
 Get auth user activity
 
@@ -171,8 +177,9 @@ public class Example {
     //APIKey.setApiKeyPrefix("Token");
 
     AuthenticationUsersApi apiInstance = new AuthenticationUsersApi(defaultClient);
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseListUserActivityResponse result = apiInstance.getUserActivity();
+      BaseResponseListUserActivityResponse result = apiInstance.getUserActivity(apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AuthenticationUsersApi#getUserActivity");
@@ -186,7 +193,10 @@ public class Example {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -209,7 +219,7 @@ This endpoint does not need any parameter.
 
 <a id="getUserComments"></a>
 # **getUserComments**
-> BaseResponseListCommentResponse getUserComments()
+> BaseResponseListCommentResponse getUserComments(apiKey)
 
 Get comments by user
 
@@ -237,8 +247,9 @@ public class Example {
     //APIKey.setApiKeyPrefix("Token");
 
     AuthenticationUsersApi apiInstance = new AuthenticationUsersApi(defaultClient);
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseListCommentResponse result = apiInstance.getUserComments();
+      BaseResponseListCommentResponse result = apiInstance.getUserComments(apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AuthenticationUsersApi#getUserComments");
@@ -252,7 +263,10 @@ public class Example {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 

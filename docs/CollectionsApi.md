@@ -15,7 +15,7 @@ All URIs are relative to *https://api.reveng.ai*
 
 <a id="createCollection"></a>
 # **createCollection**
-> BaseResponseCollectionResponse createCollection(collectionCreateRequest)
+> BaseResponseCollectionResponse createCollection(collectionCreateRequest, apiKey)
 
 Creates new collection information
 
@@ -44,8 +44,9 @@ public class Example {
 
     CollectionsApi apiInstance = new CollectionsApi(defaultClient);
     CollectionCreateRequest collectionCreateRequest = new CollectionCreateRequest(); // CollectionCreateRequest | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseCollectionResponse result = apiInstance.createCollection(collectionCreateRequest);
+      BaseResponseCollectionResponse result = apiInstance.createCollection(collectionCreateRequest, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CollectionsApi#createCollection");
@@ -63,6 +64,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **collectionCreateRequest** | [**CollectionCreateRequest**](CollectionCreateRequest.md)|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -85,7 +87,7 @@ public class Example {
 
 <a id="deleteCollection"></a>
 # **deleteCollection**
-> BaseResponseBool deleteCollection(collectionId)
+> BaseResponseBool deleteCollection(collectionId, apiKey)
 
 Deletes a collection
 
@@ -114,8 +116,9 @@ public class Example {
 
     CollectionsApi apiInstance = new CollectionsApi(defaultClient);
     Integer collectionId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseBool result = apiInstance.deleteCollection(collectionId);
+      BaseResponseBool result = apiInstance.deleteCollection(collectionId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CollectionsApi#deleteCollection");
@@ -133,6 +136,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **collectionId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -155,7 +159,7 @@ public class Example {
 
 <a id="getCollection"></a>
 # **getCollection**
-> BaseResponseCollectionResponse getCollection(collectionId, includeTags, includeBinaries)
+> BaseResponseCollectionResponse getCollection(collectionId, includeTags, includeBinaries, apiKey)
 
 Returns a collection
 
@@ -186,8 +190,9 @@ public class Example {
     Integer collectionId = 56; // Integer | 
     Boolean includeTags = false; // Boolean | 
     Boolean includeBinaries = false; // Boolean | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseCollectionResponse result = apiInstance.getCollection(collectionId, includeTags, includeBinaries);
+      BaseResponseCollectionResponse result = apiInstance.getCollection(collectionId, includeTags, includeBinaries, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CollectionsApi#getCollection");
@@ -207,6 +212,7 @@ public class Example {
 | **collectionId** | **Integer**|  | |
 | **includeTags** | **Boolean**|  | [optional] [default to false] |
 | **includeBinaries** | **Boolean**|  | [optional] [default to false] |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -229,7 +235,7 @@ public class Example {
 
 <a id="listCollections"></a>
 # **listCollections**
-> BaseResponseListCollectionResults listCollections(searchTerm, filters, limit, offset, orderBy, order)
+> BaseResponseListCollectionResults listCollections(searchTerm, filters, limit, offset, orderBy, order, apiKey)
 
 Gets basic collections information
 
@@ -263,8 +269,9 @@ public class Example {
     Integer offset = 0; // Integer | 
     AppApiRestV2CollectionsEnumsOrderBy orderBy = AppApiRestV2CollectionsEnumsOrderBy.fromValue("created"); // AppApiRestV2CollectionsEnumsOrderBy | 
     Order order = Order.fromValue("ASC"); // Order | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseListCollectionResults result = apiInstance.listCollections(searchTerm, filters, limit, offset, orderBy, order);
+      BaseResponseListCollectionResults result = apiInstance.listCollections(searchTerm, filters, limit, offset, orderBy, order, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CollectionsApi#listCollections");
@@ -287,6 +294,7 @@ public class Example {
 | **offset** | **Integer**|  | [optional] [default to 0] |
 | **orderBy** | [**AppApiRestV2CollectionsEnumsOrderBy**](.md)|  | [optional] [enum: created, collection, model, owner, collection_size, updated] |
 | **order** | [**Order**](.md)|  | [optional] [enum: ASC, DESC] |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -309,7 +317,7 @@ public class Example {
 
 <a id="updateCollection"></a>
 # **updateCollection**
-> BaseResponseCollectionResponse updateCollection(collectionId, collectionUpdateRequest)
+> BaseResponseCollectionResponse updateCollection(collectionId, collectionUpdateRequest, apiKey)
 
 Updates a collection
 
@@ -339,8 +347,9 @@ public class Example {
     CollectionsApi apiInstance = new CollectionsApi(defaultClient);
     Integer collectionId = 56; // Integer | 
     CollectionUpdateRequest collectionUpdateRequest = new CollectionUpdateRequest(); // CollectionUpdateRequest | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseCollectionResponse result = apiInstance.updateCollection(collectionId, collectionUpdateRequest);
+      BaseResponseCollectionResponse result = apiInstance.updateCollection(collectionId, collectionUpdateRequest, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CollectionsApi#updateCollection");
@@ -359,6 +368,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **collectionId** | **Integer**|  | |
 | **collectionUpdateRequest** | [**CollectionUpdateRequest**](CollectionUpdateRequest.md)|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -381,7 +391,7 @@ public class Example {
 
 <a id="updateCollectionBinaries"></a>
 # **updateCollectionBinaries**
-> BaseResponseCollectionBinariesUpdateResponse updateCollectionBinaries(collectionId, collectionBinariesUpdateRequest)
+> BaseResponseCollectionBinariesUpdateResponse updateCollectionBinaries(collectionId, collectionBinariesUpdateRequest, apiKey)
 
 Updates a collection binaries
 
@@ -411,8 +421,9 @@ public class Example {
     CollectionsApi apiInstance = new CollectionsApi(defaultClient);
     Integer collectionId = 56; // Integer | 
     CollectionBinariesUpdateRequest collectionBinariesUpdateRequest = new CollectionBinariesUpdateRequest(); // CollectionBinariesUpdateRequest | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseCollectionBinariesUpdateResponse result = apiInstance.updateCollectionBinaries(collectionId, collectionBinariesUpdateRequest);
+      BaseResponseCollectionBinariesUpdateResponse result = apiInstance.updateCollectionBinaries(collectionId, collectionBinariesUpdateRequest, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CollectionsApi#updateCollectionBinaries");
@@ -431,6 +442,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **collectionId** | **Integer**|  | |
 | **collectionBinariesUpdateRequest** | [**CollectionBinariesUpdateRequest**](CollectionBinariesUpdateRequest.md)|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -453,7 +465,7 @@ public class Example {
 
 <a id="updateCollectionTags"></a>
 # **updateCollectionTags**
-> BaseResponseCollectionTagsUpdateResponse updateCollectionTags(collectionId, collectionTagsUpdateRequest)
+> BaseResponseCollectionTagsUpdateResponse updateCollectionTags(collectionId, collectionTagsUpdateRequest, apiKey)
 
 Updates a collection tags
 
@@ -483,8 +495,9 @@ public class Example {
     CollectionsApi apiInstance = new CollectionsApi(defaultClient);
     Integer collectionId = 56; // Integer | 
     CollectionTagsUpdateRequest collectionTagsUpdateRequest = new CollectionTagsUpdateRequest(); // CollectionTagsUpdateRequest | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseCollectionTagsUpdateResponse result = apiInstance.updateCollectionTags(collectionId, collectionTagsUpdateRequest);
+      BaseResponseCollectionTagsUpdateResponse result = apiInstance.updateCollectionTags(collectionId, collectionTagsUpdateRequest, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CollectionsApi#updateCollectionTags");
@@ -503,6 +516,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **collectionId** | **Integer**|  | |
 | **collectionTagsUpdateRequest** | [**CollectionTagsUpdateRequest**](CollectionTagsUpdateRequest.md)|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 

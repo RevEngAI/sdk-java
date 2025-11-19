@@ -14,7 +14,7 @@ All URIs are relative to *https://api.reveng.ai*
 
 <a id="generateFunctionDataTypesForAnalysis"></a>
 # **generateFunctionDataTypesForAnalysis**
-> BaseResponseGenerateFunctionDataTypes generateFunctionDataTypesForAnalysis(analysisId, functionDataTypesParams)
+> BaseResponseGenerateFunctionDataTypes generateFunctionDataTypesForAnalysis(analysisId, functionDataTypesParams, apiKey)
 
 Generate Function Data Types
 
@@ -44,8 +44,9 @@ public class Example {
     FunctionsDataTypesApi apiInstance = new FunctionsDataTypesApi(defaultClient);
     Integer analysisId = 56; // Integer | 
     FunctionDataTypesParams functionDataTypesParams = new FunctionDataTypesParams(); // FunctionDataTypesParams | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseGenerateFunctionDataTypes result = apiInstance.generateFunctionDataTypesForAnalysis(analysisId, functionDataTypesParams);
+      BaseResponseGenerateFunctionDataTypes result = apiInstance.generateFunctionDataTypesForAnalysis(analysisId, functionDataTypesParams, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsDataTypesApi#generateFunctionDataTypesForAnalysis");
@@ -64,6 +65,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
 | **functionDataTypesParams** | [**FunctionDataTypesParams**](FunctionDataTypesParams.md)|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -86,7 +88,7 @@ public class Example {
 
 <a id="generateFunctionDataTypesForFunctions"></a>
 # **generateFunctionDataTypesForFunctions**
-> BaseResponseGenerationStatusList generateFunctionDataTypesForFunctions(functionDataTypesParams)
+> BaseResponseGenerationStatusList generateFunctionDataTypesForFunctions(functionDataTypesParams, apiKey)
 
 Generate Function Data Types for an arbitrary list of functions
 
@@ -115,8 +117,9 @@ public class Example {
 
     FunctionsDataTypesApi apiInstance = new FunctionsDataTypesApi(defaultClient);
     FunctionDataTypesParams functionDataTypesParams = new FunctionDataTypesParams(); // FunctionDataTypesParams | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseGenerationStatusList result = apiInstance.generateFunctionDataTypesForFunctions(functionDataTypesParams);
+      BaseResponseGenerationStatusList result = apiInstance.generateFunctionDataTypesForFunctions(functionDataTypesParams, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsDataTypesApi#generateFunctionDataTypesForFunctions");
@@ -134,6 +137,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **functionDataTypesParams** | [**FunctionDataTypesParams**](FunctionDataTypesParams.md)|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -156,7 +160,7 @@ public class Example {
 
 <a id="getFunctionDataTypes"></a>
 # **getFunctionDataTypes**
-> BaseResponseFunctionDataTypes getFunctionDataTypes(analysisId, functionId)
+> BaseResponseFunctionDataTypes getFunctionDataTypes(analysisId, functionId, apiKey)
 
 Get Function Data Types
 
@@ -186,8 +190,9 @@ public class Example {
     FunctionsDataTypesApi apiInstance = new FunctionsDataTypesApi(defaultClient);
     Integer analysisId = 56; // Integer | 
     Integer functionId = 56; // Integer | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseFunctionDataTypes result = apiInstance.getFunctionDataTypes(analysisId, functionId);
+      BaseResponseFunctionDataTypes result = apiInstance.getFunctionDataTypes(analysisId, functionId, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsDataTypesApi#getFunctionDataTypes");
@@ -206,6 +211,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
 | **functionId** | **Integer**|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -228,7 +234,7 @@ public class Example {
 
 <a id="listFunctionDataTypesForAnalysis"></a>
 # **listFunctionDataTypesForAnalysis**
-> BaseResponseFunctionDataTypesList listFunctionDataTypesForAnalysis(analysisId, functionIds)
+> BaseResponseFunctionDataTypesList listFunctionDataTypesForAnalysis(analysisId, functionIds, apiKey)
 
 List Function Data Types
 
@@ -258,8 +264,9 @@ public class Example {
     FunctionsDataTypesApi apiInstance = new FunctionsDataTypesApi(defaultClient);
     Integer analysisId = 56; // Integer | 
     List<Integer> functionIds = Arrays.asList(); // List<Integer> | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseFunctionDataTypesList result = apiInstance.listFunctionDataTypesForAnalysis(analysisId, functionIds);
+      BaseResponseFunctionDataTypesList result = apiInstance.listFunctionDataTypesForAnalysis(analysisId, functionIds, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsDataTypesApi#listFunctionDataTypesForAnalysis");
@@ -278,6 +285,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
 | **functionIds** | [**List&lt;Integer&gt;**](Integer.md)|  | [optional] |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -300,7 +308,7 @@ public class Example {
 
 <a id="listFunctionDataTypesForFunctions"></a>
 # **listFunctionDataTypesForFunctions**
-> BaseResponseFunctionDataTypesList listFunctionDataTypesForFunctions(functionIds)
+> BaseResponseFunctionDataTypesList listFunctionDataTypesForFunctions(functionIds, apiKey)
 
 List Function Data Types
 
@@ -329,8 +337,9 @@ public class Example {
 
     FunctionsDataTypesApi apiInstance = new FunctionsDataTypesApi(defaultClient);
     List<Integer> functionIds = Arrays.asList(); // List<Integer> | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseFunctionDataTypesList result = apiInstance.listFunctionDataTypesForFunctions(functionIds);
+      BaseResponseFunctionDataTypesList result = apiInstance.listFunctionDataTypesForFunctions(functionIds, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsDataTypesApi#listFunctionDataTypesForFunctions");
@@ -348,6 +357,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **functionIds** | [**List&lt;Integer&gt;**](Integer.md)|  | [optional] |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
@@ -370,7 +380,7 @@ public class Example {
 
 <a id="updateFunctionDataTypes"></a>
 # **updateFunctionDataTypes**
-> BaseResponseFunctionDataTypes updateFunctionDataTypes(analysisId, functionId, updateFunctionDataTypes)
+> BaseResponseFunctionDataTypes updateFunctionDataTypes(analysisId, functionId, updateFunctionDataTypes, apiKey)
 
 Update Function Data Types
 
@@ -401,8 +411,9 @@ public class Example {
     Integer analysisId = 56; // Integer | 
     Integer functionId = 56; // Integer | 
     UpdateFunctionDataTypes updateFunctionDataTypes = new UpdateFunctionDataTypes(); // UpdateFunctionDataTypes | 
+    String apiKey = "apiKey_example"; // String | 
     try {
-      BaseResponseFunctionDataTypes result = apiInstance.updateFunctionDataTypes(analysisId, functionId, updateFunctionDataTypes);
+      BaseResponseFunctionDataTypes result = apiInstance.updateFunctionDataTypes(analysisId, functionId, updateFunctionDataTypes, apiKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsDataTypesApi#updateFunctionDataTypes");
@@ -422,6 +433,7 @@ public class Example {
 | **analysisId** | **Integer**|  | |
 | **functionId** | **Integer**|  | |
 | **updateFunctionDataTypes** | [**UpdateFunctionDataTypes**](UpdateFunctionDataTypes.md)|  | |
+| **apiKey** | **String**|  | [optional] |
 
 ### Return type
 
