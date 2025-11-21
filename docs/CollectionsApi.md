@@ -285,8 +285,8 @@ public class Example {
 | **filters** | [**List&lt;Filters&gt;**](Filters.md)|  | [optional] |
 | **limit** | **Integer**|  | [optional] [default to 20] |
 | **offset** | **Integer**|  | [optional] [default to 0] |
-| **orderBy** | [**AppApiRestV2CollectionsEnumsOrderBy**](.md)|  | [optional] [enum: created, collection, model, owner, collection_size, updated] |
-| **order** | [**Order**](.md)|  | [optional] [enum: ASC, DESC] |
+| **orderBy** | [**AppApiRestV2CollectionsEnumsOrderBy**](.md)|  | [optional] [default to collection] [enum: created, collection, model, owner, collection_size, updated] |
+| **order** | [**Order**](.md)|  | [optional] [default to ASC] [enum: ASC, DESC] |
 
 ### Return type
 

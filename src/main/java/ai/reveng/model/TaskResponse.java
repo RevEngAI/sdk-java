@@ -56,7 +56,7 @@ public class TaskResponse {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
   @javax.annotation.Nullable
-  private TaskStatus status;
+  private TaskStatus status = TaskStatus.UNINITIALISED;
 
   public static final String SERIALIZED_NAME_ERROR_MESSAGE = "error_message";
   @SerializedName(SERIALIZED_NAME_ERROR_MESSAGE)

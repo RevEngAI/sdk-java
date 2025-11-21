@@ -77,7 +77,7 @@ public class AnalysisCreateRequest {
   public static final String SERIALIZED_NAME_ANALYSIS_SCOPE = "analysis_scope";
   @SerializedName(SERIALIZED_NAME_ANALYSIS_SCOPE)
   @javax.annotation.Nullable
-  private AnalysisScope analysisScope;
+  private AnalysisScope analysisScope = AnalysisScope.PRIVATE;
 
   public static final String SERIALIZED_NAME_SYMBOLS = "symbols";
   @SerializedName(SERIALIZED_NAME_SYMBOLS)
@@ -92,12 +92,12 @@ public class AnalysisCreateRequest {
   public static final String SERIALIZED_NAME_ANALYSIS_CONFIG = "analysis_config";
   @SerializedName(SERIALIZED_NAME_ANALYSIS_CONFIG)
   @javax.annotation.Nullable
-  private AnalysisConfig analysisConfig;
+  private AnalysisConfig analysisConfig = {scrape_third_party_config={enabled=false}, generate_cves=false, generate_sbom=false, generate_capabilities=false, no_cache=false, advanced_analysis=false, sandbox_config={command_line_args=, enabled=false}};
 
   public static final String SERIALIZED_NAME_BINARY_CONFIG = "binary_config";
   @SerializedName(SERIALIZED_NAME_BINARY_CONFIG)
   @javax.annotation.Nullable
-  private BinaryConfig binaryConfig;
+  private BinaryConfig binaryConfig = {};
 
   public AnalysisCreateRequest() {
   }

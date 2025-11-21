@@ -53,31 +53,37 @@ import ai.reveng.invoker.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AutoUnstripRequest {
   public static final String SERIALIZED_NAME_MIN_SIMILARITY = "min_similarity";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_MIN_SIMILARITY)
   @javax.annotation.Nullable
   private BigDecimal minSimilarity = new BigDecimal("90.0");
 
   public static final String SERIALIZED_NAME_APPLY = "apply";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_APPLY)
   @javax.annotation.Nullable
   private Boolean apply = false;
 
   public static final String SERIALIZED_NAME_CONFIDENCE_THRESHOLD = "confidence_threshold";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_CONFIDENCE_THRESHOLD)
   @javax.annotation.Nullable
   private BigDecimal confidenceThreshold = new BigDecimal("90.0");
 
   public static final String SERIALIZED_NAME_MIN_GROUP_SIZE = "min_group_size";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_MIN_GROUP_SIZE)
   @javax.annotation.Nullable
   private Integer minGroupSize = 10;
 
   public static final String SERIALIZED_NAME_STATUS_ONLY = "status_only";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_STATUS_ONLY)
   @javax.annotation.Nullable
   private Boolean statusOnly = false;
 
   public static final String SERIALIZED_NAME_NO_CACHE = "no_cache";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_NO_CACHE)
   @javax.annotation.Nullable
   private Boolean noCache = false;
@@ -85,6 +91,7 @@ public class AutoUnstripRequest {
   public AutoUnstripRequest() {
   }
 
+  @Deprecated
   public AutoUnstripRequest minSimilarity(@javax.annotation.Nullable BigDecimal minSimilarity) {
     this.minSimilarity = minSimilarity;
     return this;
@@ -95,17 +102,21 @@ public class AutoUnstripRequest {
    * minimum: 0.0
    * maximum: 100.0
    * @return minSimilarity
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   public BigDecimal getMinSimilarity() {
     return minSimilarity;
   }
 
+  @Deprecated
   public void setMinSimilarity(@javax.annotation.Nullable BigDecimal minSimilarity) {
     this.minSimilarity = minSimilarity;
   }
 
 
+  @Deprecated
   public AutoUnstripRequest apply(@javax.annotation.Nullable Boolean apply) {
     this.apply = apply;
     return this;
@@ -114,17 +125,21 @@ public class AutoUnstripRequest {
   /**
    * Whether to apply the matched function names to the target binary, default is False
    * @return apply
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   public Boolean getApply() {
     return apply;
   }
 
+  @Deprecated
   public void setApply(@javax.annotation.Nullable Boolean apply) {
     this.apply = apply;
   }
 
 
+  @Deprecated
   public AutoUnstripRequest confidenceThreshold(@javax.annotation.Nullable BigDecimal confidenceThreshold) {
     this.confidenceThreshold = confidenceThreshold;
     return this;
@@ -135,17 +150,21 @@ public class AutoUnstripRequest {
    * minimum: 0.0
    * maximum: 100.0
    * @return confidenceThreshold
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   public BigDecimal getConfidenceThreshold() {
     return confidenceThreshold;
   }
 
+  @Deprecated
   public void setConfidenceThreshold(@javax.annotation.Nullable BigDecimal confidenceThreshold) {
     this.confidenceThreshold = confidenceThreshold;
   }
 
 
+  @Deprecated
   public AutoUnstripRequest minGroupSize(@javax.annotation.Nullable Integer minGroupSize) {
     this.minGroupSize = minGroupSize;
     return this;
@@ -156,17 +175,21 @@ public class AutoUnstripRequest {
    * minimum: 1
    * maximum: 20
    * @return minGroupSize
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   public Integer getMinGroupSize() {
     return minGroupSize;
   }
 
+  @Deprecated
   public void setMinGroupSize(@javax.annotation.Nullable Integer minGroupSize) {
     this.minGroupSize = minGroupSize;
   }
 
 
+  @Deprecated
   public AutoUnstripRequest statusOnly(@javax.annotation.Nullable Boolean statusOnly) {
     this.statusOnly = statusOnly;
     return this;
@@ -175,17 +198,21 @@ public class AutoUnstripRequest {
   /**
    * If set to true, only returns the status of the auto-unstrip operation without the actual results
    * @return statusOnly
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   public Boolean getStatusOnly() {
     return statusOnly;
   }
 
+  @Deprecated
   public void setStatusOnly(@javax.annotation.Nullable Boolean statusOnly) {
     this.statusOnly = statusOnly;
   }
 
 
+  @Deprecated
   public AutoUnstripRequest noCache(@javax.annotation.Nullable Boolean noCache) {
     this.noCache = noCache;
     return this;
@@ -194,12 +221,15 @@ public class AutoUnstripRequest {
   /**
    * If set to true, forces the system to bypass any cached results and perform a fresh computation
    * @return noCache
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   public Boolean getNoCache() {
     return noCache;
   }
 
+  @Deprecated
   public void setNoCache(@javax.annotation.Nullable Boolean noCache) {
     this.noCache = noCache;
   }

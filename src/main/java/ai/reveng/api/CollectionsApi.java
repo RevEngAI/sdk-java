@@ -498,8 +498,8 @@ public class CollectionsApi {
      * @param filters  (optional)
      * @param limit  (optional, default to 20)
      * @param offset  (optional, default to 0)
-     * @param orderBy  (optional)
-     * @param order  (optional)
+     * @param orderBy  (optional, default to collection)
+     * @param order  (optional, default to ASC)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -592,8 +592,8 @@ public class CollectionsApi {
      * @param filters  (optional)
      * @param limit  (optional, default to 20)
      * @param offset  (optional, default to 0)
-     * @param orderBy  (optional)
-     * @param order  (optional)
+     * @param orderBy  (optional, default to collection)
+     * @param order  (optional, default to ASC)
      * @return BaseResponseListCollectionResults
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -616,8 +616,8 @@ public class CollectionsApi {
      * @param filters  (optional)
      * @param limit  (optional, default to 20)
      * @param offset  (optional, default to 0)
-     * @param orderBy  (optional)
-     * @param order  (optional)
+     * @param orderBy  (optional, default to collection)
+     * @param order  (optional, default to ASC)
      * @return ApiResponse&lt;BaseResponseListCollectionResults&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -641,8 +641,8 @@ public class CollectionsApi {
      * @param filters  (optional)
      * @param limit  (optional, default to 20)
      * @param offset  (optional, default to 0)
-     * @param orderBy  (optional)
-     * @param order  (optional)
+     * @param orderBy  (optional, default to collection)
+     * @param order  (optional, default to ASC)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

@@ -1039,8 +1039,8 @@ public class AnalysesCoreApi {
      * @param sha256Hash  (optional)
      * @param limit  (optional, default to 20)
      * @param offset  (optional, default to 0)
-     * @param orderBy  (optional)
-     * @param order  (optional)
+     * @param orderBy  (optional, default to created)
+     * @param order  (optional, default to DESC)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1158,8 +1158,8 @@ public class AnalysesCoreApi {
      * @param sha256Hash  (optional)
      * @param limit  (optional, default to 20)
      * @param offset  (optional, default to 0)
-     * @param orderBy  (optional)
-     * @param order  (optional)
+     * @param orderBy  (optional, default to created)
+     * @param order  (optional, default to DESC)
      * @return BaseResponseRecent
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1187,8 +1187,8 @@ public class AnalysesCoreApi {
      * @param sha256Hash  (optional)
      * @param limit  (optional, default to 20)
      * @param offset  (optional, default to 0)
-     * @param orderBy  (optional)
-     * @param order  (optional)
+     * @param orderBy  (optional, default to created)
+     * @param order  (optional, default to DESC)
      * @return ApiResponse&lt;BaseResponseRecent&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1217,8 +1217,8 @@ public class AnalysesCoreApi {
      * @param sha256Hash  (optional)
      * @param limit  (optional, default to 20)
      * @param offset  (optional, default to 0)
-     * @param orderBy  (optional)
-     * @param order  (optional)
+     * @param orderBy  (optional, default to created)
+     * @param order  (optional, default to DESC)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

@@ -158,8 +158,8 @@ public class Example {
 | **tags** | [**List&lt;String&gt;**](String.md)| The tags to be searched for | [optional] |
 | **modelName** | **String**| The name of the model used to analyze the binary the function belongs to | [optional] |
 | **filters** | [**List&lt;Filters&gt;**](Filters.md)| The filters to be used for the search | [optional] |
-| **orderBy** | [**AppApiRestV2CollectionsEnumsOrderBy**](.md)| The field to sort the order by in the results | [optional] [enum: created, collection, model, owner, collection_size, updated] |
-| **orderByDirection** | [**Order**](.md)| The order direction in which to return results | [optional] [enum: ASC, DESC] |
+| **orderBy** | [**AppApiRestV2CollectionsEnumsOrderBy**](.md)| The field to sort the order by in the results | [optional] [default to created] [enum: created, collection, model, owner, collection_size, updated] |
+| **orderByDirection** | [**Order**](.md)| The order direction in which to return results | [optional] [default to DESC] [enum: ASC, DESC] |
 
 ### Return type
 

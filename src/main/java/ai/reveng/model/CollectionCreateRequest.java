@@ -68,7 +68,7 @@ public class CollectionCreateRequest {
   public static final String SERIALIZED_NAME_COLLECTION_SCOPE = "collection_scope";
   @SerializedName(SERIALIZED_NAME_COLLECTION_SCOPE)
   @javax.annotation.Nullable
-  private CollectionScope collectionScope;
+  private CollectionScope collectionScope = CollectionScope.PRIVATE;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)

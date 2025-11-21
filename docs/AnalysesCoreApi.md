@@ -581,8 +581,8 @@ public class Example {
 | **sha256Hash** | **String**|  | [optional] |
 | **limit** | **Integer**|  | [optional] [default to 20] |
 | **offset** | **Integer**|  | [optional] [default to 0] |
-| **orderBy** | [**AppApiRestV2AnalysesEnumsOrderBy**](.md)|  | [optional] [enum: created, name, size] |
-| **order** | [**Order**](.md)|  | [optional] [enum: ASC, DESC] |
+| **orderBy** | [**AppApiRestV2AnalysesEnumsOrderBy**](.md)|  | [optional] [default to created] [enum: created, name, size] |
+| **order** | [**Order**](.md)|  | [optional] [default to DESC] [enum: ASC, DESC] |
 
 ### Return type
 

@@ -265,8 +265,8 @@ public class SearchApi {
      * @param tags The tags to be searched for (optional)
      * @param modelName The name of the model used to analyze the binary the function belongs to (optional)
      * @param filters The filters to be used for the search (optional)
-     * @param orderBy The field to sort the order by in the results (optional)
-     * @param orderByDirection The order direction in which to return results (optional)
+     * @param orderBy The field to sort the order by in the results (optional, default to created)
+     * @param orderByDirection The order direction in which to return results (optional, default to DESC)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -380,8 +380,8 @@ public class SearchApi {
      * @param tags The tags to be searched for (optional)
      * @param modelName The name of the model used to analyze the binary the function belongs to (optional)
      * @param filters The filters to be used for the search (optional)
-     * @param orderBy The field to sort the order by in the results (optional)
-     * @param orderByDirection The order direction in which to return results (optional)
+     * @param orderBy The field to sort the order by in the results (optional, default to created)
+     * @param orderByDirection The order direction in which to return results (optional, default to DESC)
      * @return BaseResponseCollectionSearchResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -409,8 +409,8 @@ public class SearchApi {
      * @param tags The tags to be searched for (optional)
      * @param modelName The name of the model used to analyze the binary the function belongs to (optional)
      * @param filters The filters to be used for the search (optional)
-     * @param orderBy The field to sort the order by in the results (optional)
-     * @param orderByDirection The order direction in which to return results (optional)
+     * @param orderBy The field to sort the order by in the results (optional, default to created)
+     * @param orderByDirection The order direction in which to return results (optional, default to DESC)
      * @return ApiResponse&lt;BaseResponseCollectionSearchResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -439,8 +439,8 @@ public class SearchApi {
      * @param tags The tags to be searched for (optional)
      * @param modelName The name of the model used to analyze the binary the function belongs to (optional)
      * @param filters The filters to be used for the search (optional)
-     * @param orderBy The field to sort the order by in the results (optional)
-     * @param orderByDirection The order direction in which to return results (optional)
+     * @param orderBy The field to sort the order by in the results (optional, default to created)
+     * @param orderByDirection The order direction in which to return results (optional, default to DESC)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

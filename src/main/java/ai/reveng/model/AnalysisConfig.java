@@ -56,7 +56,7 @@ public class AnalysisConfig {
   public static final String SERIALIZED_NAME_SCRAPE_THIRD_PARTY_CONFIG = "scrape_third_party_config";
   @SerializedName(SERIALIZED_NAME_SCRAPE_THIRD_PARTY_CONFIG)
   @javax.annotation.Nullable
-  private ScrapeThirdPartyConfig scrapeThirdPartyConfig;
+  private ScrapeThirdPartyConfig scrapeThirdPartyConfig = {enabled=false};
 
   public static final String SERIALIZED_NAME_GENERATE_CVES = "generate_cves";
   @SerializedName(SERIALIZED_NAME_GENERATE_CVES)
@@ -86,7 +86,7 @@ public class AnalysisConfig {
   public static final String SERIALIZED_NAME_SANDBOX_CONFIG = "sandbox_config";
   @SerializedName(SERIALIZED_NAME_SANDBOX_CONFIG)
   @javax.annotation.Nullable
-  private SandboxOptions sandboxConfig;
+  private SandboxOptions sandboxConfig = {enabled=false, command_line_args=};
 
   public AnalysisConfig() {
   }
