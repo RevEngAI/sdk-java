@@ -57,6 +57,14 @@ public class FunctionsDetailResponseTest {
     }
 
     /**
+     * Test the property 'functionNameMangled'
+     */
+    @Test
+    public void functionNameMangledTest() {
+        // TODO: test functionNameMangled
+    }
+
+    /**
      * Test the property 'functionVaddr'
      */
     @Test

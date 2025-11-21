@@ -56,6 +56,7 @@ import ai.reveng.invoker.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AutoUnstripResponse {
   public static final String SERIALIZED_NAME_PROGRESS = "progress";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_PROGRESS)
   @javax.annotation.Nullable
   private Integer progress = 0;
@@ -88,6 +89,7 @@ public class AutoUnstripResponse {
   public AutoUnstripResponse() {
   }
 
+  @Deprecated
   public AutoUnstripResponse progress(@javax.annotation.Nullable Integer progress) {
     this.progress = progress;
     return this;
@@ -96,12 +98,15 @@ public class AutoUnstripResponse {
   /**
    * Progress of the auto-unstrip operation, represented as a percentage
    * @return progress
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   public Integer getProgress() {
     return progress;
   }
 
+  @Deprecated
   public void setProgress(@javax.annotation.Nullable Integer progress) {
     this.progress = progress;
   }

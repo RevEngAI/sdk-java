@@ -9,6 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**functionId** | **Long** | Function id |  |
 |**functionName** | **String** |  |  |
+|**functionNameMangled** | **String** |  |  |
 |**functionVaddr** | **Long** |  |  |
 |**functionSize** | **Integer** |  |  |
 |**analysisId** | **Integer** |  |  |
