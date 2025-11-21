@@ -65,6 +65,11 @@ public class FunctionsDetailResponse {
   @javax.annotation.Nonnull
   private String functionName;
 
+  public static final String SERIALIZED_NAME_FUNCTION_NAME_MANGLED = "function_name_mangled";
+  @SerializedName(SERIALIZED_NAME_FUNCTION_NAME_MANGLED)
+  @javax.annotation.Nonnull
+  private String functionNameMangled;
+
   public static final String SERIALIZED_NAME_FUNCTION_VADDR = "function_vaddr";
   @SerializedName(SERIALIZED_NAME_FUNCTION_VADDR)
   @javax.annotation.Nonnull
@@ -153,6 +158,25 @@ public class FunctionsDetailResponse {
 
   public void setFunctionName(@javax.annotation.Nonnull String functionName) {
     this.functionName = functionName;
+  }
+
+
+  public FunctionsDetailResponse functionNameMangled(@javax.annotation.Nonnull String functionNameMangled) {
+    this.functionNameMangled = functionNameMangled;
+    return this;
+  }
+
+  /**
+   * Get functionNameMangled
+   * @return functionNameMangled
+   */
+  @javax.annotation.Nonnull
+  public String getFunctionNameMangled() {
+    return functionNameMangled;
+  }
+
+  public void setFunctionNameMangled(@javax.annotation.Nonnull String functionNameMangled) {
+    this.functionNameMangled = functionNameMangled;
   }
 
 
@@ -418,6 +442,7 @@ public class FunctionsDetailResponse {
     FunctionsDetailResponse functionsDetailResponse = (FunctionsDetailResponse) o;
     return Objects.equals(this.functionId, functionsDetailResponse.functionId) &&
         Objects.equals(this.functionName, functionsDetailResponse.functionName) &&
+        Objects.equals(this.functionNameMangled, functionsDetailResponse.functionNameMangled) &&
         Objects.equals(this.functionVaddr, functionsDetailResponse.functionVaddr) &&
         Objects.equals(this.functionSize, functionsDetailResponse.functionSize) &&
         Objects.equals(this.analysisId, functionsDetailResponse.analysisId) &&
@@ -437,7 +462,7 @@ public class FunctionsDetailResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(functionId, functionName, functionVaddr, functionSize, analysisId, binaryId, binaryName, sha256Hash, debugHash, debug, embedding3d, embedding1d, additionalProperties);
+    return Objects.hash(functionId, functionName, functionNameMangled, functionVaddr, functionSize, analysisId, binaryId, binaryName, sha256Hash, debugHash, debug, embedding3d, embedding1d, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -453,6 +478,7 @@ public class FunctionsDetailResponse {
     sb.append("class FunctionsDetailResponse {\n");
     sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
     sb.append("    functionName: ").append(toIndentedString(functionName)).append("\n");
+    sb.append("    functionNameMangled: ").append(toIndentedString(functionNameMangled)).append("\n");
     sb.append("    functionVaddr: ").append(toIndentedString(functionVaddr)).append("\n");
     sb.append("    functionSize: ").append(toIndentedString(functionSize)).append("\n");
     sb.append("    analysisId: ").append(toIndentedString(analysisId)).append("\n");
@@ -485,10 +511,10 @@ public class FunctionsDetailResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("function_id", "function_name", "function_vaddr", "function_size", "analysis_id", "binary_id", "binary_name", "sha_256_hash", "debug_hash", "debug", "embedding_3d", "embedding_1d"));
+    openapiFields = new HashSet<String>(Arrays.asList("function_id", "function_name", "function_name_mangled", "function_vaddr", "function_size", "analysis_id", "binary_id", "binary_name", "sha_256_hash", "debug_hash", "debug", "embedding_3d", "embedding_1d"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("function_id", "function_name", "function_vaddr", "function_size", "analysis_id", "binary_id", "binary_name", "sha_256_hash", "debug_hash", "debug"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("function_id", "function_name", "function_name_mangled", "function_vaddr", "function_size", "analysis_id", "binary_id", "binary_name", "sha_256_hash", "debug_hash", "debug"));
   }
 
   /**
@@ -513,6 +539,9 @@ public class FunctionsDetailResponse {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("function_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `function_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("function_name").toString()));
+      }
+      if (!jsonObj.get("function_name_mangled").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `function_name_mangled` to be a primitive type in the JSON string but got `%s`", jsonObj.get("function_name_mangled").toString()));
       }
       if (!jsonObj.get("binary_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `binary_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("binary_name").toString()));
