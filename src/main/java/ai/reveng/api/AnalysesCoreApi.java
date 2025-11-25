@@ -98,6 +98,7 @@ public class AnalysesCoreApi {
     /**
      * Build call for createAnalysis
      * @param analysisCreateRequest  (required)
+     * @param xRevEngApplication  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -111,7 +112,7 @@ public class AnalysesCoreApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAnalysisCall(@javax.annotation.Nonnull AnalysisCreateRequest analysisCreateRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createAnalysisCall(@javax.annotation.Nonnull AnalysisCreateRequest analysisCreateRequest, @javax.annotation.Nullable String xRevEngApplication, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -152,18 +153,23 @@ public class AnalysesCoreApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
+        if (xRevEngApplication != null) {
+            localVarHeaderParams.put("X-RevEng-Application", localVarApiClient.parameterToString(xRevEngApplication));
+        }
+
+
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createAnalysisValidateBeforeCall(@javax.annotation.Nonnull AnalysisCreateRequest analysisCreateRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createAnalysisValidateBeforeCall(@javax.annotation.Nonnull AnalysisCreateRequest analysisCreateRequest, @javax.annotation.Nullable String xRevEngApplication, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisCreateRequest' is set
         if (analysisCreateRequest == null) {
             throw new ApiException("Missing the required parameter 'analysisCreateRequest' when calling createAnalysis(Async)");
         }
 
-        return createAnalysisCall(analysisCreateRequest, _callback);
+        return createAnalysisCall(analysisCreateRequest, xRevEngApplication, _callback);
 
     }
 
@@ -171,6 +177,7 @@ public class AnalysesCoreApi {
      * Create Analysis
      * Begins an analysis
      * @param analysisCreateRequest  (required)
+     * @param xRevEngApplication  (optional)
      * @return BaseResponseAnalysisCreateResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -183,8 +190,8 @@ public class AnalysesCoreApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseAnalysisCreateResponse createAnalysis(@javax.annotation.Nonnull AnalysisCreateRequest analysisCreateRequest) throws ApiException {
-        ApiResponse<BaseResponseAnalysisCreateResponse> localVarResp = createAnalysisWithHttpInfo(analysisCreateRequest);
+    public BaseResponseAnalysisCreateResponse createAnalysis(@javax.annotation.Nonnull AnalysisCreateRequest analysisCreateRequest, @javax.annotation.Nullable String xRevEngApplication) throws ApiException {
+        ApiResponse<BaseResponseAnalysisCreateResponse> localVarResp = createAnalysisWithHttpInfo(analysisCreateRequest, xRevEngApplication);
         return localVarResp.getData();
     }
 
@@ -192,6 +199,7 @@ public class AnalysesCoreApi {
      * Create Analysis
      * Begins an analysis
      * @param analysisCreateRequest  (required)
+     * @param xRevEngApplication  (optional)
      * @return ApiResponse&lt;BaseResponseAnalysisCreateResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -204,8 +212,8 @@ public class AnalysesCoreApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseAnalysisCreateResponse> createAnalysisWithHttpInfo(@javax.annotation.Nonnull AnalysisCreateRequest analysisCreateRequest) throws ApiException {
-        okhttp3.Call localVarCall = createAnalysisValidateBeforeCall(analysisCreateRequest, null);
+    public ApiResponse<BaseResponseAnalysisCreateResponse> createAnalysisWithHttpInfo(@javax.annotation.Nonnull AnalysisCreateRequest analysisCreateRequest, @javax.annotation.Nullable String xRevEngApplication) throws ApiException {
+        okhttp3.Call localVarCall = createAnalysisValidateBeforeCall(analysisCreateRequest, xRevEngApplication, null);
         Type localVarReturnType = new TypeToken<BaseResponseAnalysisCreateResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -214,6 +222,7 @@ public class AnalysesCoreApi {
      * Create Analysis (asynchronously)
      * Begins an analysis
      * @param analysisCreateRequest  (required)
+     * @param xRevEngApplication  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -227,9 +236,9 @@ public class AnalysesCoreApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAnalysisAsync(@javax.annotation.Nonnull AnalysisCreateRequest analysisCreateRequest, final ApiCallback<BaseResponseAnalysisCreateResponse> _callback) throws ApiException {
+    public okhttp3.Call createAnalysisAsync(@javax.annotation.Nonnull AnalysisCreateRequest analysisCreateRequest, @javax.annotation.Nullable String xRevEngApplication, final ApiCallback<BaseResponseAnalysisCreateResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createAnalysisValidateBeforeCall(analysisCreateRequest, _callback);
+        okhttp3.Call localVarCall = createAnalysisValidateBeforeCall(analysisCreateRequest, xRevEngApplication, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseAnalysisCreateResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1372,6 +1381,7 @@ public class AnalysesCoreApi {
      * Build call for requeueAnalysis
      * @param analysisId  (required)
      * @param reAnalysisForm  (required)
+     * @param xRevEngApplication  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1385,7 +1395,7 @@ public class AnalysesCoreApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call requeueAnalysisCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull ReAnalysisForm reAnalysisForm, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call requeueAnalysisCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull ReAnalysisForm reAnalysisForm, @javax.annotation.Nullable String xRevEngApplication, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1427,12 +1437,17 @@ public class AnalysesCoreApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
+        if (xRevEngApplication != null) {
+            localVarHeaderParams.put("X-RevEng-Application", localVarApiClient.parameterToString(xRevEngApplication));
+        }
+
+
         String[] localVarAuthNames = new String[] { "APIKey" };
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call requeueAnalysisValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull ReAnalysisForm reAnalysisForm, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call requeueAnalysisValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull ReAnalysisForm reAnalysisForm, @javax.annotation.Nullable String xRevEngApplication, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling requeueAnalysis(Async)");
@@ -1443,7 +1458,7 @@ public class AnalysesCoreApi {
             throw new ApiException("Missing the required parameter 'reAnalysisForm' when calling requeueAnalysis(Async)");
         }
 
-        return requeueAnalysisCall(analysisId, reAnalysisForm, _callback);
+        return requeueAnalysisCall(analysisId, reAnalysisForm, xRevEngApplication, _callback);
 
     }
 
@@ -1452,6 +1467,7 @@ public class AnalysesCoreApi {
      * Re-queues an already uploaded analysis
      * @param analysisId  (required)
      * @param reAnalysisForm  (required)
+     * @param xRevEngApplication  (optional)
      * @return BaseResponseCreated
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1464,8 +1480,8 @@ public class AnalysesCoreApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseCreated requeueAnalysis(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull ReAnalysisForm reAnalysisForm) throws ApiException {
-        ApiResponse<BaseResponseCreated> localVarResp = requeueAnalysisWithHttpInfo(analysisId, reAnalysisForm);
+    public BaseResponseCreated requeueAnalysis(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull ReAnalysisForm reAnalysisForm, @javax.annotation.Nullable String xRevEngApplication) throws ApiException {
+        ApiResponse<BaseResponseCreated> localVarResp = requeueAnalysisWithHttpInfo(analysisId, reAnalysisForm, xRevEngApplication);
         return localVarResp.getData();
     }
 
@@ -1474,6 +1490,7 @@ public class AnalysesCoreApi {
      * Re-queues an already uploaded analysis
      * @param analysisId  (required)
      * @param reAnalysisForm  (required)
+     * @param xRevEngApplication  (optional)
      * @return ApiResponse&lt;BaseResponseCreated&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1486,8 +1503,8 @@ public class AnalysesCoreApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseCreated> requeueAnalysisWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull ReAnalysisForm reAnalysisForm) throws ApiException {
-        okhttp3.Call localVarCall = requeueAnalysisValidateBeforeCall(analysisId, reAnalysisForm, null);
+    public ApiResponse<BaseResponseCreated> requeueAnalysisWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull ReAnalysisForm reAnalysisForm, @javax.annotation.Nullable String xRevEngApplication) throws ApiException {
+        okhttp3.Call localVarCall = requeueAnalysisValidateBeforeCall(analysisId, reAnalysisForm, xRevEngApplication, null);
         Type localVarReturnType = new TypeToken<BaseResponseCreated>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1497,6 +1514,7 @@ public class AnalysesCoreApi {
      * Re-queues an already uploaded analysis
      * @param analysisId  (required)
      * @param reAnalysisForm  (required)
+     * @param xRevEngApplication  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1510,9 +1528,9 @@ public class AnalysesCoreApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call requeueAnalysisAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull ReAnalysisForm reAnalysisForm, final ApiCallback<BaseResponseCreated> _callback) throws ApiException {
+    public okhttp3.Call requeueAnalysisAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull ReAnalysisForm reAnalysisForm, @javax.annotation.Nullable String xRevEngApplication, final ApiCallback<BaseResponseCreated> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = requeueAnalysisValidateBeforeCall(analysisId, reAnalysisForm, _callback);
+        okhttp3.Call localVarCall = requeueAnalysisValidateBeforeCall(analysisId, reAnalysisForm, xRevEngApplication, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseCreated>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
