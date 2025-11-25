@@ -64,7 +64,8 @@ public class AnalysesCoreApiTest {
     @Test
     public void createAnalysisTest() throws ApiException {
         AnalysisCreateRequest analysisCreateRequest = null;
-        BaseResponseAnalysisCreateResponse response = api.createAnalysis(analysisCreateRequest);
+        String xRevEngApplication = null;
+        BaseResponseAnalysisCreateResponse response = api.createAnalysis(analysisCreateRequest, xRevEngApplication);
         // TODO: test validations
     }
 
@@ -201,7 +202,8 @@ public class AnalysesCoreApiTest {
     public void requeueAnalysisTest() throws ApiException {
         Integer analysisId = null;
         ReAnalysisForm reAnalysisForm = null;
-        BaseResponseCreated response = api.requeueAnalysis(analysisId, reAnalysisForm);
+        String xRevEngApplication = null;
+        BaseResponseCreated response = api.requeueAnalysis(analysisId, reAnalysisForm, xRevEngApplication);
         // TODO: test validations
     }
 

@@ -21,7 +21,7 @@ All URIs are relative to *https://api.reveng.ai*
 
 <a id="createAnalysis"></a>
 # **createAnalysis**
-> BaseResponseAnalysisCreateResponse createAnalysis(analysisCreateRequest)
+> BaseResponseAnalysisCreateResponse createAnalysis(analysisCreateRequest, xRevEngApplication)
 
 Create Analysis
 
@@ -50,8 +50,9 @@ public class Example {
 
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
     AnalysisCreateRequest analysisCreateRequest = new AnalysisCreateRequest(); // AnalysisCreateRequest | 
+    String xRevEngApplication = "xRevEngApplication_example"; // String | 
     try {
-      BaseResponseAnalysisCreateResponse result = apiInstance.createAnalysis(analysisCreateRequest);
+      BaseResponseAnalysisCreateResponse result = apiInstance.createAnalysis(analysisCreateRequest, xRevEngApplication);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCoreApi#createAnalysis");
@@ -69,6 +70,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisCreateRequest** | [**AnalysisCreateRequest**](AnalysisCreateRequest.md)|  | |
+| **xRevEngApplication** | **String**|  | [optional] |
 
 ### Return type
 
@@ -675,7 +677,7 @@ public class Example {
 
 <a id="requeueAnalysis"></a>
 # **requeueAnalysis**
-> BaseResponseCreated requeueAnalysis(analysisId, reAnalysisForm)
+> BaseResponseCreated requeueAnalysis(analysisId, reAnalysisForm, xRevEngApplication)
 
 Requeue Analysis
 
@@ -705,8 +707,9 @@ public class Example {
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
     Integer analysisId = 56; // Integer | 
     ReAnalysisForm reAnalysisForm = new ReAnalysisForm(); // ReAnalysisForm | 
+    String xRevEngApplication = "xRevEngApplication_example"; // String | 
     try {
-      BaseResponseCreated result = apiInstance.requeueAnalysis(analysisId, reAnalysisForm);
+      BaseResponseCreated result = apiInstance.requeueAnalysis(analysisId, reAnalysisForm, xRevEngApplication);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCoreApi#requeueAnalysis");
@@ -725,6 +728,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
 | **reAnalysisForm** | [**ReAnalysisForm**](ReAnalysisForm.md)|  | |
+| **xRevEngApplication** | **String**|  | [optional] |
 
 ### Return type
 
