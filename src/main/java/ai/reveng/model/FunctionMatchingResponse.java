@@ -14,7 +14,7 @@ package ai.reveng.model;
 
 import java.util.Objects;
 import java.util.Locale;
-import ai.reveng.model.FunctionMatchingResultWithBestMatch;
+import ai.reveng.model.FunctionMatch;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -51,10 +51,10 @@ import java.util.Locale;
 import ai.reveng.invoker.JSON;
 
 /**
- * FunctionMatchingBatchResponse
+ * FunctionMatchingResponse
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class FunctionMatchingBatchResponse {
+public class FunctionMatchingResponse {
   public static final String SERIALIZED_NAME_PROGRESS = "progress";
   @SerializedName(SERIALIZED_NAME_PROGRESS)
   @javax.annotation.Nullable
@@ -88,12 +88,27 @@ public class FunctionMatchingBatchResponse {
   public static final String SERIALIZED_NAME_MATCHES = "matches";
   @SerializedName(SERIALIZED_NAME_MATCHES)
   @javax.annotation.Nullable
-  private List<FunctionMatchingResultWithBestMatch> matches;
+  private List<FunctionMatch> matches;
 
-  public FunctionMatchingBatchResponse() {
+  public static final String SERIALIZED_NAME_NUM_MATCHES = "num_matches";
+  @SerializedName(SERIALIZED_NAME_NUM_MATCHES)
+  @javax.annotation.Nullable
+  private Integer numMatches;
+
+  public static final String SERIALIZED_NAME_NUM_DEBUG_MATCHES = "num_debug_matches";
+  @SerializedName(SERIALIZED_NAME_NUM_DEBUG_MATCHES)
+  @javax.annotation.Nullable
+  private Integer numDebugMatches;
+
+  public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
+  @SerializedName(SERIALIZED_NAME_UPDATED_AT)
+  @javax.annotation.Nullable
+  private String updatedAt;
+
+  public FunctionMatchingResponse() {
   }
 
-  public FunctionMatchingBatchResponse progress(@javax.annotation.Nullable Integer progress) {
+  public FunctionMatchingResponse progress(@javax.annotation.Nullable Integer progress) {
     this.progress = progress;
     return this;
   }
@@ -112,7 +127,7 @@ public class FunctionMatchingBatchResponse {
   }
 
 
-  public FunctionMatchingBatchResponse status(@javax.annotation.Nullable String status) {
+  public FunctionMatchingResponse status(@javax.annotation.Nullable String status) {
     this.status = status;
     return this;
   }
@@ -131,7 +146,7 @@ public class FunctionMatchingBatchResponse {
   }
 
 
-  public FunctionMatchingBatchResponse totalTime(@javax.annotation.Nullable Integer totalTime) {
+  public FunctionMatchingResponse totalTime(@javax.annotation.Nullable Integer totalTime) {
     this.totalTime = totalTime;
     return this;
   }
@@ -150,7 +165,7 @@ public class FunctionMatchingBatchResponse {
   }
 
 
-  public FunctionMatchingBatchResponse errorMessage(@javax.annotation.Nullable String errorMessage) {
+  public FunctionMatchingResponse errorMessage(@javax.annotation.Nullable String errorMessage) {
     this.errorMessage = errorMessage;
     return this;
   }
@@ -169,7 +184,7 @@ public class FunctionMatchingBatchResponse {
   }
 
 
-  public FunctionMatchingBatchResponse currentPage(@javax.annotation.Nullable Integer currentPage) {
+  public FunctionMatchingResponse currentPage(@javax.annotation.Nullable Integer currentPage) {
     this.currentPage = currentPage;
     return this;
   }
@@ -188,7 +203,7 @@ public class FunctionMatchingBatchResponse {
   }
 
 
-  public FunctionMatchingBatchResponse totalPages(@javax.annotation.Nullable Integer totalPages) {
+  public FunctionMatchingResponse totalPages(@javax.annotation.Nullable Integer totalPages) {
     this.totalPages = totalPages;
     return this;
   }
@@ -207,12 +222,12 @@ public class FunctionMatchingBatchResponse {
   }
 
 
-  public FunctionMatchingBatchResponse matches(@javax.annotation.Nullable List<FunctionMatchingResultWithBestMatch> matches) {
+  public FunctionMatchingResponse matches(@javax.annotation.Nullable List<FunctionMatch> matches) {
     this.matches = matches;
     return this;
   }
 
-  public FunctionMatchingBatchResponse addMatchesItem(FunctionMatchingResultWithBestMatch matchesItem) {
+  public FunctionMatchingResponse addMatchesItem(FunctionMatch matchesItem) {
     if (this.matches == null) {
       this.matches = new ArrayList<>();
     }
@@ -225,12 +240,69 @@ public class FunctionMatchingBatchResponse {
    * @return matches
    */
   @javax.annotation.Nullable
-  public List<FunctionMatchingResultWithBestMatch> getMatches() {
+  public List<FunctionMatch> getMatches() {
     return matches;
   }
 
-  public void setMatches(@javax.annotation.Nullable List<FunctionMatchingResultWithBestMatch> matches) {
+  public void setMatches(@javax.annotation.Nullable List<FunctionMatch> matches) {
     this.matches = matches;
+  }
+
+
+  public FunctionMatchingResponse numMatches(@javax.annotation.Nullable Integer numMatches) {
+    this.numMatches = numMatches;
+    return this;
+  }
+
+  /**
+   * Get numMatches
+   * @return numMatches
+   */
+  @javax.annotation.Nullable
+  public Integer getNumMatches() {
+    return numMatches;
+  }
+
+  public void setNumMatches(@javax.annotation.Nullable Integer numMatches) {
+    this.numMatches = numMatches;
+  }
+
+
+  public FunctionMatchingResponse numDebugMatches(@javax.annotation.Nullable Integer numDebugMatches) {
+    this.numDebugMatches = numDebugMatches;
+    return this;
+  }
+
+  /**
+   * Get numDebugMatches
+   * @return numDebugMatches
+   */
+  @javax.annotation.Nullable
+  public Integer getNumDebugMatches() {
+    return numDebugMatches;
+  }
+
+  public void setNumDebugMatches(@javax.annotation.Nullable Integer numDebugMatches) {
+    this.numDebugMatches = numDebugMatches;
+  }
+
+
+  public FunctionMatchingResponse updatedAt(@javax.annotation.Nullable String updatedAt) {
+    this.updatedAt = updatedAt;
+    return this;
+  }
+
+  /**
+   * Get updatedAt
+   * @return updatedAt
+   */
+  @javax.annotation.Nullable
+  public String getUpdatedAt() {
+    return updatedAt;
+  }
+
+  public void setUpdatedAt(@javax.annotation.Nullable String updatedAt) {
+    this.updatedAt = updatedAt;
   }
 
   /**
@@ -246,9 +318,9 @@ public class FunctionMatchingBatchResponse {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the FunctionMatchingBatchResponse instance itself
+   * @return the FunctionMatchingResponse instance itself
    */
-  public FunctionMatchingBatchResponse putAdditionalProperty(String key, Object value) {
+  public FunctionMatchingResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -287,15 +359,18 @@ public class FunctionMatchingBatchResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FunctionMatchingBatchResponse functionMatchingBatchResponse = (FunctionMatchingBatchResponse) o;
-    return Objects.equals(this.progress, functionMatchingBatchResponse.progress) &&
-        Objects.equals(this.status, functionMatchingBatchResponse.status) &&
-        Objects.equals(this.totalTime, functionMatchingBatchResponse.totalTime) &&
-        Objects.equals(this.errorMessage, functionMatchingBatchResponse.errorMessage) &&
-        Objects.equals(this.currentPage, functionMatchingBatchResponse.currentPage) &&
-        Objects.equals(this.totalPages, functionMatchingBatchResponse.totalPages) &&
-        Objects.equals(this.matches, functionMatchingBatchResponse.matches)&&
-        Objects.equals(this.additionalProperties, functionMatchingBatchResponse.additionalProperties);
+    FunctionMatchingResponse functionMatchingResponse = (FunctionMatchingResponse) o;
+    return Objects.equals(this.progress, functionMatchingResponse.progress) &&
+        Objects.equals(this.status, functionMatchingResponse.status) &&
+        Objects.equals(this.totalTime, functionMatchingResponse.totalTime) &&
+        Objects.equals(this.errorMessage, functionMatchingResponse.errorMessage) &&
+        Objects.equals(this.currentPage, functionMatchingResponse.currentPage) &&
+        Objects.equals(this.totalPages, functionMatchingResponse.totalPages) &&
+        Objects.equals(this.matches, functionMatchingResponse.matches) &&
+        Objects.equals(this.numMatches, functionMatchingResponse.numMatches) &&
+        Objects.equals(this.numDebugMatches, functionMatchingResponse.numDebugMatches) &&
+        Objects.equals(this.updatedAt, functionMatchingResponse.updatedAt)&&
+        Objects.equals(this.additionalProperties, functionMatchingResponse.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -304,7 +379,7 @@ public class FunctionMatchingBatchResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(progress, status, totalTime, errorMessage, currentPage, totalPages, matches, additionalProperties);
+    return Objects.hash(progress, status, totalTime, errorMessage, currentPage, totalPages, matches, numMatches, numDebugMatches, updatedAt, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -317,7 +392,7 @@ public class FunctionMatchingBatchResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FunctionMatchingBatchResponse {\n");
+    sb.append("class FunctionMatchingResponse {\n");
     sb.append("    progress: ").append(toIndentedString(progress)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    totalTime: ").append(toIndentedString(totalTime)).append("\n");
@@ -325,6 +400,9 @@ public class FunctionMatchingBatchResponse {
     sb.append("    currentPage: ").append(toIndentedString(currentPage)).append("\n");
     sb.append("    totalPages: ").append(toIndentedString(totalPages)).append("\n");
     sb.append("    matches: ").append(toIndentedString(matches)).append("\n");
+    sb.append("    numMatches: ").append(toIndentedString(numMatches)).append("\n");
+    sb.append("    numDebugMatches: ").append(toIndentedString(numDebugMatches)).append("\n");
+    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -347,7 +425,7 @@ public class FunctionMatchingBatchResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("progress", "status", "total_time", "error_message", "current_page", "total_pages", "matches"));
+    openapiFields = new HashSet<String>(Arrays.asList("progress", "status", "total_time", "error_message", "current_page", "total_pages", "matches", "num_matches", "num_debug_matches", "updated_at"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -357,12 +435,12 @@ public class FunctionMatchingBatchResponse {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to FunctionMatchingBatchResponse
+   * @throws IOException if the JSON Element is invalid with respect to FunctionMatchingResponse
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!FunctionMatchingBatchResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in FunctionMatchingBatchResponse is not found in the empty JSON string", FunctionMatchingBatchResponse.openapiRequiredFields.toString()));
+        if (!FunctionMatchingResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in FunctionMatchingResponse is not found in the empty JSON string", FunctionMatchingResponse.openapiRequiredFields.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -382,9 +460,12 @@ public class FunctionMatchingBatchResponse {
 
           // validate the optional field `matches` (array)
           for (int i = 0; i < jsonArraymatches.size(); i++) {
-            FunctionMatchingResultWithBestMatch.validateJsonElement(jsonArraymatches.get(i));
+            FunctionMatch.validateJsonElement(jsonArraymatches.get(i));
           };
         }
+      }
+      if ((jsonObj.get("updated_at") != null && !jsonObj.get("updated_at").isJsonNull()) && !jsonObj.get("updated_at").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `updated_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("updated_at").toString()));
       }
   }
 
@@ -392,16 +473,16 @@ public class FunctionMatchingBatchResponse {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!FunctionMatchingBatchResponse.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'FunctionMatchingBatchResponse' and its subtypes
+       if (!FunctionMatchingResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'FunctionMatchingResponse' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<FunctionMatchingBatchResponse> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(FunctionMatchingBatchResponse.class));
+       final TypeAdapter<FunctionMatchingResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(FunctionMatchingResponse.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<FunctionMatchingBatchResponse>() {
+       return (TypeAdapter<T>) new TypeAdapter<FunctionMatchingResponse>() {
            @Override
-           public void write(JsonWriter out, FunctionMatchingBatchResponse value) throws IOException {
+           public void write(JsonWriter out, FunctionMatchingResponse value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -429,12 +510,12 @@ public class FunctionMatchingBatchResponse {
            }
 
            @Override
-           public FunctionMatchingBatchResponse read(JsonReader in) throws IOException {
+           public FunctionMatchingResponse read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             FunctionMatchingBatchResponse instance = thisAdapter.fromJsonTree(jsonObj);
+             FunctionMatchingResponse instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -461,18 +542,18 @@ public class FunctionMatchingBatchResponse {
   }
 
   /**
-   * Create an instance of FunctionMatchingBatchResponse given an JSON string
+   * Create an instance of FunctionMatchingResponse given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of FunctionMatchingBatchResponse
-   * @throws IOException if the JSON string is invalid with respect to FunctionMatchingBatchResponse
+   * @return An instance of FunctionMatchingResponse
+   * @throws IOException if the JSON string is invalid with respect to FunctionMatchingResponse
    */
-  public static FunctionMatchingBatchResponse fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, FunctionMatchingBatchResponse.class);
+  public static FunctionMatchingResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, FunctionMatchingResponse.class);
   }
 
   /**
-   * Convert an instance of FunctionMatchingBatchResponse to an JSON string
+   * Convert an instance of FunctionMatchingResponse to an JSON string
    *
    * @return JSON string
    */

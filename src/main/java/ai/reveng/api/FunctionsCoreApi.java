@@ -37,8 +37,8 @@ import ai.reveng.model.BaseResponseFunctionBlocksResponse;
 import ai.reveng.model.BaseResponseFunctionCapabilityResponse;
 import ai.reveng.model.BaseResponseFunctionStringsResponse;
 import ai.reveng.model.BaseResponseFunctionsDetailResponse;
-import ai.reveng.model.FunctionMatchingBatchResponse;
 import ai.reveng.model.FunctionMatchingRequest;
+import ai.reveng.model.FunctionMatchingResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -306,7 +306,7 @@ public class FunctionsCoreApi {
      * Takes in an analysis id and settings and matches the nearest functions to the ones associated with it. Results can optionally be filtered by collection, binary, debug type or (other) function ids
      * @param analysisId  (required)
      * @param analysisFunctionMatchingRequest  (required)
-     * @return FunctionMatchingBatchResponse
+     * @return FunctionMatchingResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -316,8 +316,8 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public FunctionMatchingBatchResponse analysisFunctionMatching(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisFunctionMatchingRequest analysisFunctionMatchingRequest) throws ApiException {
-        ApiResponse<FunctionMatchingBatchResponse> localVarResp = analysisFunctionMatchingWithHttpInfo(analysisId, analysisFunctionMatchingRequest);
+    public FunctionMatchingResponse analysisFunctionMatching(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisFunctionMatchingRequest analysisFunctionMatchingRequest) throws ApiException {
+        ApiResponse<FunctionMatchingResponse> localVarResp = analysisFunctionMatchingWithHttpInfo(analysisId, analysisFunctionMatchingRequest);
         return localVarResp.getData();
     }
 
@@ -326,7 +326,7 @@ public class FunctionsCoreApi {
      * Takes in an analysis id and settings and matches the nearest functions to the ones associated with it. Results can optionally be filtered by collection, binary, debug type or (other) function ids
      * @param analysisId  (required)
      * @param analysisFunctionMatchingRequest  (required)
-     * @return ApiResponse&lt;FunctionMatchingBatchResponse&gt;
+     * @return ApiResponse&lt;FunctionMatchingResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -336,9 +336,9 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<FunctionMatchingBatchResponse> analysisFunctionMatchingWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisFunctionMatchingRequest analysisFunctionMatchingRequest) throws ApiException {
+    public ApiResponse<FunctionMatchingResponse> analysisFunctionMatchingWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisFunctionMatchingRequest analysisFunctionMatchingRequest) throws ApiException {
         okhttp3.Call localVarCall = analysisFunctionMatchingValidateBeforeCall(analysisId, analysisFunctionMatchingRequest, null);
-        Type localVarReturnType = new TypeToken<FunctionMatchingBatchResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<FunctionMatchingResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -358,10 +358,10 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call analysisFunctionMatchingAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisFunctionMatchingRequest analysisFunctionMatchingRequest, final ApiCallback<FunctionMatchingBatchResponse> _callback) throws ApiException {
+    public okhttp3.Call analysisFunctionMatchingAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisFunctionMatchingRequest analysisFunctionMatchingRequest, final ApiCallback<FunctionMatchingResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = analysisFunctionMatchingValidateBeforeCall(analysisId, analysisFunctionMatchingRequest, _callback);
-        Type localVarReturnType = new TypeToken<FunctionMatchingBatchResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<FunctionMatchingResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -580,7 +580,7 @@ public class FunctionsCoreApi {
      * Perform function matching for an arbitrary batch of functions, binaries or collections
      * Takes in an input of functions ID&#39;s and settings and finds the nearest functions for each function that&#39;s within the system
      * @param functionMatchingRequest  (required)
-     * @return FunctionMatchingBatchResponse
+     * @return FunctionMatchingResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -590,8 +590,8 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public FunctionMatchingBatchResponse batchFunctionMatching(@javax.annotation.Nonnull FunctionMatchingRequest functionMatchingRequest) throws ApiException {
-        ApiResponse<FunctionMatchingBatchResponse> localVarResp = batchFunctionMatchingWithHttpInfo(functionMatchingRequest);
+    public FunctionMatchingResponse batchFunctionMatching(@javax.annotation.Nonnull FunctionMatchingRequest functionMatchingRequest) throws ApiException {
+        ApiResponse<FunctionMatchingResponse> localVarResp = batchFunctionMatchingWithHttpInfo(functionMatchingRequest);
         return localVarResp.getData();
     }
 
@@ -599,7 +599,7 @@ public class FunctionsCoreApi {
      * Perform function matching for an arbitrary batch of functions, binaries or collections
      * Takes in an input of functions ID&#39;s and settings and finds the nearest functions for each function that&#39;s within the system
      * @param functionMatchingRequest  (required)
-     * @return ApiResponse&lt;FunctionMatchingBatchResponse&gt;
+     * @return ApiResponse&lt;FunctionMatchingResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -609,9 +609,9 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<FunctionMatchingBatchResponse> batchFunctionMatchingWithHttpInfo(@javax.annotation.Nonnull FunctionMatchingRequest functionMatchingRequest) throws ApiException {
+    public ApiResponse<FunctionMatchingResponse> batchFunctionMatchingWithHttpInfo(@javax.annotation.Nonnull FunctionMatchingRequest functionMatchingRequest) throws ApiException {
         okhttp3.Call localVarCall = batchFunctionMatchingValidateBeforeCall(functionMatchingRequest, null);
-        Type localVarReturnType = new TypeToken<FunctionMatchingBatchResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<FunctionMatchingResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -630,10 +630,10 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call batchFunctionMatchingAsync(@javax.annotation.Nonnull FunctionMatchingRequest functionMatchingRequest, final ApiCallback<FunctionMatchingBatchResponse> _callback) throws ApiException {
+    public okhttp3.Call batchFunctionMatchingAsync(@javax.annotation.Nonnull FunctionMatchingRequest functionMatchingRequest, final ApiCallback<FunctionMatchingResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = batchFunctionMatchingValidateBeforeCall(functionMatchingRequest, _callback);
-        Type localVarReturnType = new TypeToken<FunctionMatchingBatchResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<FunctionMatchingResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

@@ -1,6 +1,6 @@
 
 
-# FunctionMatchingBatchResponse
+# FunctionMatchingResponse
 
 
 ## Properties
@@ -13,7 +13,10 @@
 |**errorMessage** | **String** |  |  [optional] |
 |**currentPage** | **Integer** |  |  [optional] |
 |**totalPages** | **Integer** |  |  [optional] |
-|**matches** | [**List&lt;FunctionMatchingResultWithBestMatch&gt;**](FunctionMatchingResultWithBestMatch.md) |  |  [optional] |
+|**matches** | [**List&lt;FunctionMatch&gt;**](FunctionMatch.md) |  |  [optional] |
+|**numMatches** | **Integer** |  |  [optional] |
+|**numDebugMatches** | **Integer** |  |  [optional] |
+|**updatedAt** | **String** |  |  [optional] |
 
 
 

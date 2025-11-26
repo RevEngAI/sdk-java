@@ -12,7 +12,7 @@
 
 package ai.reveng.model;
 
-import ai.reveng.model.FunctionMatchingResultWithBestMatch;
+import ai.reveng.model.FunctionMatch;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,17 +27,17 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for FunctionMatchingBatchResponse
+ * Model tests for FunctionMatchingResponse
  */
-public class FunctionMatchingBatchResponseTest {
-    private final FunctionMatchingBatchResponse model = new FunctionMatchingBatchResponse();
+public class FunctionMatchingResponseTest {
+    private final FunctionMatchingResponse model = new FunctionMatchingResponse();
 
     /**
-     * Model tests for FunctionMatchingBatchResponse
+     * Model tests for FunctionMatchingResponse
      */
     @Test
-    public void testFunctionMatchingBatchResponse() {
-        // TODO: test FunctionMatchingBatchResponse
+    public void testFunctionMatchingResponse() {
+        // TODO: test FunctionMatchingResponse
     }
 
     /**
@@ -94,6 +94,30 @@ public class FunctionMatchingBatchResponseTest {
     @Test
     public void matchesTest() {
         // TODO: test matches
+    }
+
+    /**
+     * Test the property 'numMatches'
+     */
+    @Test
+    public void numMatchesTest() {
+        // TODO: test numMatches
+    }
+
+    /**
+     * Test the property 'numDebugMatches'
+     */
+    @Test
+    public void numDebugMatchesTest() {
+        // TODO: test numDebugMatches
+    }
+
+    /**
+     * Test the property 'updatedAt'
+     */
+    @Test
+    public void updatedAtTest() {
+        // TODO: test updatedAt
     }
 
 }

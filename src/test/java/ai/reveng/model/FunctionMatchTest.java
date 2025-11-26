@@ -28,17 +28,17 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for FunctionMatchingResultWithBestMatch
+ * Model tests for FunctionMatch
  */
-public class FunctionMatchingResultWithBestMatchTest {
-    private final FunctionMatchingResultWithBestMatch model = new FunctionMatchingResultWithBestMatch();
+public class FunctionMatchTest {
+    private final FunctionMatch model = new FunctionMatch();
 
     /**
-     * Model tests for FunctionMatchingResultWithBestMatch
+     * Model tests for FunctionMatch
      */
     @Test
-    public void testFunctionMatchingResultWithBestMatch() {
-        // TODO: test FunctionMatchingResultWithBestMatch
+    public void testFunctionMatch() {
+        // TODO: test FunctionMatch
     }
 
     /**

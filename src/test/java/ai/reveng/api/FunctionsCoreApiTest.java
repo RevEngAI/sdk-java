@@ -24,8 +24,8 @@ import ai.reveng.model.BaseResponseFunctionBlocksResponse;
 import ai.reveng.model.BaseResponseFunctionCapabilityResponse;
 import ai.reveng.model.BaseResponseFunctionStringsResponse;
 import ai.reveng.model.BaseResponseFunctionsDetailResponse;
-import ai.reveng.model.FunctionMatchingBatchResponse;
 import ai.reveng.model.FunctionMatchingRequest;
+import ai.reveng.model.FunctionMatchingResponse;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -68,7 +68,7 @@ public class FunctionsCoreApiTest {
     public void analysisFunctionMatchingTest() throws ApiException {
         Integer analysisId = null;
         AnalysisFunctionMatchingRequest analysisFunctionMatchingRequest = null;
-        FunctionMatchingBatchResponse response = api.analysisFunctionMatching(analysisId, analysisFunctionMatchingRequest);
+        FunctionMatchingResponse response = api.analysisFunctionMatching(analysisId, analysisFunctionMatchingRequest);
         // TODO: test validations
     }
 
@@ -97,7 +97,7 @@ public class FunctionsCoreApiTest {
     @Test
     public void batchFunctionMatchingTest() throws ApiException {
         FunctionMatchingRequest functionMatchingRequest = null;
-        FunctionMatchingBatchResponse response = api.batchFunctionMatching(functionMatchingRequest);
+        FunctionMatchingResponse response = api.batchFunctionMatching(functionMatchingRequest);
         // TODO: test validations
     }
 

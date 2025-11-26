@@ -16,7 +16,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>ai.reveng</groupId>
     <artifactId>sdk</artifactId>
-    <version>2.43.0</version>
+    <version>2.46.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -31,7 +31,7 @@ repositories {
 }
 
 dependencies {
-    implementation "ai.reveng:sdk:2.43.0"
+    implementation "ai.reveng:sdk:2.46.0"
 }
 ```
 
@@ -356,10 +356,10 @@ Class | Method | HTTP request | Description
  - [FunctionLocalVariableResponse](docs/FunctionLocalVariableResponse.md)
  - [FunctionMapping](docs/FunctionMapping.md)
  - [FunctionMappingFull](docs/FunctionMappingFull.md)
- - [FunctionMatchingBatchResponse](docs/FunctionMatchingBatchResponse.md)
+ - [FunctionMatch](docs/FunctionMatch.md)
  - [FunctionMatchingFilters](docs/FunctionMatchingFilters.md)
  - [FunctionMatchingRequest](docs/FunctionMatchingRequest.md)
- - [FunctionMatchingResultWithBestMatch](docs/FunctionMatchingResultWithBestMatch.md)
+ - [FunctionMatchingResponse](docs/FunctionMatchingResponse.md)
  - [FunctionNameHistory](docs/FunctionNameHistory.md)
  - [FunctionParamResponse](docs/FunctionParamResponse.md)
  - [FunctionRename](docs/FunctionRename.md)
