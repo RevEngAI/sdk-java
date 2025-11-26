@@ -82,16 +82,19 @@ public class FunctionMatchingRequest {
   private Integer resultsPerFunction = 1;
 
   public static final String SERIALIZED_NAME_PAGE = "page";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_PAGE)
   @javax.annotation.Nullable
   private Integer page = 1;
 
   public static final String SERIALIZED_NAME_PAGE_SIZE = "page_size";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_PAGE_SIZE)
   @javax.annotation.Nullable
   private Integer pageSize = 0;
 
   public static final String SERIALIZED_NAME_STATUS_ONLY = "status_only";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_STATUS_ONLY)
   @javax.annotation.Nullable
   private Boolean statusOnly = false;
@@ -211,6 +214,7 @@ public class FunctionMatchingRequest {
   }
 
 
+  @Deprecated
   public FunctionMatchingRequest page(@javax.annotation.Nullable Integer page) {
     this.page = page;
     return this;
@@ -220,17 +224,21 @@ public class FunctionMatchingRequest {
    * Page number for paginated results, default is 1 (first page)
    * minimum: 1
    * @return page
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   public Integer getPage() {
     return page;
   }
 
+  @Deprecated
   public void setPage(@javax.annotation.Nullable Integer page) {
     this.page = page;
   }
 
 
+  @Deprecated
   public FunctionMatchingRequest pageSize(@javax.annotation.Nullable Integer pageSize) {
     this.pageSize = pageSize;
     return this;
@@ -241,17 +249,21 @@ public class FunctionMatchingRequest {
    * minimum: 0
    * maximum: 1000
    * @return pageSize
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   public Integer getPageSize() {
     return pageSize;
   }
 
+  @Deprecated
   public void setPageSize(@javax.annotation.Nullable Integer pageSize) {
     this.pageSize = pageSize;
   }
 
 
+  @Deprecated
   public FunctionMatchingRequest statusOnly(@javax.annotation.Nullable Boolean statusOnly) {
     this.statusOnly = statusOnly;
     return this;
@@ -260,12 +272,15 @@ public class FunctionMatchingRequest {
   /**
    * If set to true, only returns the status of the matching operation without the actual results
    * @return statusOnly
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   public Boolean getStatusOnly() {
     return statusOnly;
   }
 
+  @Deprecated
   public void setStatusOnly(@javax.annotation.Nullable Boolean statusOnly) {
     this.statusOnly = statusOnly;
   }

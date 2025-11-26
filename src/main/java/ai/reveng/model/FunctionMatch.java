@@ -52,10 +52,10 @@ import java.util.Locale;
 import ai.reveng.invoker.JSON;
 
 /**
- * FunctionMatchingResultWithBestMatch
+ * FunctionMatch
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class FunctionMatchingResultWithBestMatch {
+public class FunctionMatch {
   public static final String SERIALIZED_NAME_FUNCTION_ID = "function_id";
   @SerializedName(SERIALIZED_NAME_FUNCTION_ID)
   @javax.annotation.Nonnull
@@ -71,10 +71,10 @@ public class FunctionMatchingResultWithBestMatch {
   @javax.annotation.Nullable
   private List<NameConfidence> confidences;
 
-  public FunctionMatchingResultWithBestMatch() {
+  public FunctionMatch() {
   }
 
-  public FunctionMatchingResultWithBestMatch functionId(@javax.annotation.Nonnull Long functionId) {
+  public FunctionMatch functionId(@javax.annotation.Nonnull Long functionId) {
     this.functionId = functionId;
     return this;
   }
@@ -93,12 +93,12 @@ public class FunctionMatchingResultWithBestMatch {
   }
 
 
-  public FunctionMatchingResultWithBestMatch matchedFunctions(@javax.annotation.Nonnull List<MatchedFunction> matchedFunctions) {
+  public FunctionMatch matchedFunctions(@javax.annotation.Nonnull List<MatchedFunction> matchedFunctions) {
     this.matchedFunctions = matchedFunctions;
     return this;
   }
 
-  public FunctionMatchingResultWithBestMatch addMatchedFunctionsItem(MatchedFunction matchedFunctionsItem) {
+  public FunctionMatch addMatchedFunctionsItem(MatchedFunction matchedFunctionsItem) {
     if (this.matchedFunctions == null) {
       this.matchedFunctions = new ArrayList<>();
     }
@@ -120,12 +120,12 @@ public class FunctionMatchingResultWithBestMatch {
   }
 
 
-  public FunctionMatchingResultWithBestMatch confidences(@javax.annotation.Nullable List<NameConfidence> confidences) {
+  public FunctionMatch confidences(@javax.annotation.Nullable List<NameConfidence> confidences) {
     this.confidences = confidences;
     return this;
   }
 
-  public FunctionMatchingResultWithBestMatch addConfidencesItem(NameConfidence confidencesItem) {
+  public FunctionMatch addConfidencesItem(NameConfidence confidencesItem) {
     if (this.confidences == null) {
       this.confidences = new ArrayList<>();
     }
@@ -159,9 +159,9 @@ public class FunctionMatchingResultWithBestMatch {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the FunctionMatchingResultWithBestMatch instance itself
+   * @return the FunctionMatch instance itself
    */
-  public FunctionMatchingResultWithBestMatch putAdditionalProperty(String key, Object value) {
+  public FunctionMatch putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -200,11 +200,11 @@ public class FunctionMatchingResultWithBestMatch {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FunctionMatchingResultWithBestMatch functionMatchingResultWithBestMatch = (FunctionMatchingResultWithBestMatch) o;
-    return Objects.equals(this.functionId, functionMatchingResultWithBestMatch.functionId) &&
-        Objects.equals(this.matchedFunctions, functionMatchingResultWithBestMatch.matchedFunctions) &&
-        Objects.equals(this.confidences, functionMatchingResultWithBestMatch.confidences)&&
-        Objects.equals(this.additionalProperties, functionMatchingResultWithBestMatch.additionalProperties);
+    FunctionMatch functionMatch = (FunctionMatch) o;
+    return Objects.equals(this.functionId, functionMatch.functionId) &&
+        Objects.equals(this.matchedFunctions, functionMatch.matchedFunctions) &&
+        Objects.equals(this.confidences, functionMatch.confidences)&&
+        Objects.equals(this.additionalProperties, functionMatch.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -226,7 +226,7 @@ public class FunctionMatchingResultWithBestMatch {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FunctionMatchingResultWithBestMatch {\n");
+    sb.append("class FunctionMatch {\n");
     sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
     sb.append("    matchedFunctions: ").append(toIndentedString(matchedFunctions)).append("\n");
     sb.append("    confidences: ").append(toIndentedString(confidences)).append("\n");
@@ -262,17 +262,17 @@ public class FunctionMatchingResultWithBestMatch {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to FunctionMatchingResultWithBestMatch
+   * @throws IOException if the JSON Element is invalid with respect to FunctionMatch
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!FunctionMatchingResultWithBestMatch.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in FunctionMatchingResultWithBestMatch is not found in the empty JSON string", FunctionMatchingResultWithBestMatch.openapiRequiredFields.toString()));
+        if (!FunctionMatch.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in FunctionMatch is not found in the empty JSON string", FunctionMatch.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : FunctionMatchingResultWithBestMatch.openapiRequiredFields) {
+      for (String requiredField : FunctionMatch.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
@@ -308,16 +308,16 @@ public class FunctionMatchingResultWithBestMatch {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!FunctionMatchingResultWithBestMatch.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'FunctionMatchingResultWithBestMatch' and its subtypes
+       if (!FunctionMatch.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'FunctionMatch' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<FunctionMatchingResultWithBestMatch> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(FunctionMatchingResultWithBestMatch.class));
+       final TypeAdapter<FunctionMatch> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(FunctionMatch.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<FunctionMatchingResultWithBestMatch>() {
+       return (TypeAdapter<T>) new TypeAdapter<FunctionMatch>() {
            @Override
-           public void write(JsonWriter out, FunctionMatchingResultWithBestMatch value) throws IOException {
+           public void write(JsonWriter out, FunctionMatch value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -345,12 +345,12 @@ public class FunctionMatchingResultWithBestMatch {
            }
 
            @Override
-           public FunctionMatchingResultWithBestMatch read(JsonReader in) throws IOException {
+           public FunctionMatch read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             FunctionMatchingResultWithBestMatch instance = thisAdapter.fromJsonTree(jsonObj);
+             FunctionMatch instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -377,18 +377,18 @@ public class FunctionMatchingResultWithBestMatch {
   }
 
   /**
-   * Create an instance of FunctionMatchingResultWithBestMatch given an JSON string
+   * Create an instance of FunctionMatch given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of FunctionMatchingResultWithBestMatch
-   * @throws IOException if the JSON string is invalid with respect to FunctionMatchingResultWithBestMatch
+   * @return An instance of FunctionMatch
+   * @throws IOException if the JSON string is invalid with respect to FunctionMatch
    */
-  public static FunctionMatchingResultWithBestMatch fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, FunctionMatchingResultWithBestMatch.class);
+  public static FunctionMatch fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, FunctionMatch.class);
   }
 
   /**
-   * Convert an instance of FunctionMatchingResultWithBestMatch to an JSON string
+   * Convert an instance of FunctionMatch to an JSON string
    *
    * @return JSON string
    */

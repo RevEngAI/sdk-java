@@ -260,10 +260,10 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.FunctionLocalVariableResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.FunctionMapping.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.FunctionMappingFull.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.FunctionMatchingBatchResponse.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.FunctionMatch.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.FunctionMatchingFilters.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.FunctionMatchingRequest.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.FunctionMatchingResultWithBestMatch.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.FunctionMatchingResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.FunctionNameHistory.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.FunctionParamResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.FunctionRename.CustomTypeAdapterFactory());

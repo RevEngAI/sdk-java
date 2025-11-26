@@ -70,7 +70,7 @@ public class LoginRequest {
   }
 
   /**
-   * User&#39;s username
+   * User&#39;s username or email
    * @return username
    */
   @javax.annotation.Nonnull

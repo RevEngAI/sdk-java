@@ -92,7 +92,7 @@ public class Example {
 
 <a id="analysisFunctionMatching"></a>
 # **analysisFunctionMatching**
-> FunctionMatchingBatchResponse analysisFunctionMatching(analysisId, analysisFunctionMatchingRequest)
+> FunctionMatchingResponse analysisFunctionMatching(analysisId, analysisFunctionMatchingRequest)
 
 Perform matching for the functions of an analysis
 
@@ -123,7 +123,7 @@ public class Example {
     Integer analysisId = 56; // Integer | 
     AnalysisFunctionMatchingRequest analysisFunctionMatchingRequest = new AnalysisFunctionMatchingRequest(); // AnalysisFunctionMatchingRequest | 
     try {
-      FunctionMatchingBatchResponse result = apiInstance.analysisFunctionMatching(analysisId, analysisFunctionMatchingRequest);
+      FunctionMatchingResponse result = apiInstance.analysisFunctionMatching(analysisId, analysisFunctionMatchingRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsCoreApi#analysisFunctionMatching");
@@ -145,7 +145,7 @@ public class Example {
 
 ### Return type
 
-[**FunctionMatchingBatchResponse**](FunctionMatchingBatchResponse.md)
+[**FunctionMatchingResponse**](FunctionMatchingResponse.md)
 
 ### Authorization
 
@@ -236,7 +236,7 @@ public class Example {
 
 <a id="batchFunctionMatching"></a>
 # **batchFunctionMatching**
-> FunctionMatchingBatchResponse batchFunctionMatching(functionMatchingRequest)
+> FunctionMatchingResponse batchFunctionMatching(functionMatchingRequest)
 
 Perform function matching for an arbitrary batch of functions, binaries or collections
 
@@ -266,7 +266,7 @@ public class Example {
     FunctionsCoreApi apiInstance = new FunctionsCoreApi(defaultClient);
     FunctionMatchingRequest functionMatchingRequest = new FunctionMatchingRequest(); // FunctionMatchingRequest | 
     try {
-      FunctionMatchingBatchResponse result = apiInstance.batchFunctionMatching(functionMatchingRequest);
+      FunctionMatchingResponse result = apiInstance.batchFunctionMatching(functionMatchingRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsCoreApi#batchFunctionMatching");
@@ -287,7 +287,7 @@ public class Example {
 
 ### Return type
 
-[**FunctionMatchingBatchResponse**](FunctionMatchingBatchResponse.md)
+[**FunctionMatchingResponse**](FunctionMatchingResponse.md)
 
 ### Authorization
 
