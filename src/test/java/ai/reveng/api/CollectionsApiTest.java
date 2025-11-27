@@ -82,7 +82,10 @@ public class CollectionsApiTest {
         Integer collectionId = null;
         Boolean includeTags = null;
         Boolean includeBinaries = null;
-        BaseResponseCollectionResponse response = api.getCollection(collectionId, includeTags, includeBinaries);
+        Integer pageSize = null;
+        Integer pageNumber = null;
+        String binarySearchStr = null;
+        BaseResponseCollectionResponse response = api.getCollection(collectionId, includeTags, includeBinaries, pageSize, pageNumber, binarySearchStr);
         // TODO: test validations
     }
 

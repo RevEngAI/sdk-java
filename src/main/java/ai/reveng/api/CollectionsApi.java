@@ -350,6 +350,9 @@ public class CollectionsApi {
      * @param collectionId  (required)
      * @param includeTags  (optional, default to false)
      * @param includeBinaries  (optional, default to false)
+     * @param pageSize  (optional, default to 10)
+     * @param pageNumber  (optional, default to 1)
+     * @param binarySearchStr  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -361,7 +364,7 @@ public class CollectionsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCollectionCall(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nullable Boolean includeTags, @javax.annotation.Nullable Boolean includeBinaries, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCollectionCall(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nullable Boolean includeTags, @javax.annotation.Nullable Boolean includeBinaries, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable Integer pageNumber, @javax.annotation.Nullable String binarySearchStr, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -395,6 +398,18 @@ public class CollectionsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("include_binaries", includeBinaries));
         }
 
+        if (pageSize != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page_size", pageSize));
+        }
+
+        if (pageNumber != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page_number", pageNumber));
+        }
+
+        if (binarySearchStr != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("binary_search_str", binarySearchStr));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -415,13 +430,13 @@ public class CollectionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCollectionValidateBeforeCall(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nullable Boolean includeTags, @javax.annotation.Nullable Boolean includeBinaries, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCollectionValidateBeforeCall(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nullable Boolean includeTags, @javax.annotation.Nullable Boolean includeBinaries, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable Integer pageNumber, @javax.annotation.Nullable String binarySearchStr, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
             throw new ApiException("Missing the required parameter 'collectionId' when calling getCollection(Async)");
         }
 
-        return getCollectionCall(collectionId, includeTags, includeBinaries, _callback);
+        return getCollectionCall(collectionId, includeTags, includeBinaries, pageSize, pageNumber, binarySearchStr, _callback);
 
     }
 
@@ -431,6 +446,9 @@ public class CollectionsApi {
      * @param collectionId  (required)
      * @param includeTags  (optional, default to false)
      * @param includeBinaries  (optional, default to false)
+     * @param pageSize  (optional, default to 10)
+     * @param pageNumber  (optional, default to 1)
+     * @param binarySearchStr  (optional)
      * @return BaseResponseCollectionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -441,8 +459,8 @@ public class CollectionsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseCollectionResponse getCollection(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nullable Boolean includeTags, @javax.annotation.Nullable Boolean includeBinaries) throws ApiException {
-        ApiResponse<BaseResponseCollectionResponse> localVarResp = getCollectionWithHttpInfo(collectionId, includeTags, includeBinaries);
+    public BaseResponseCollectionResponse getCollection(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nullable Boolean includeTags, @javax.annotation.Nullable Boolean includeBinaries, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable Integer pageNumber, @javax.annotation.Nullable String binarySearchStr) throws ApiException {
+        ApiResponse<BaseResponseCollectionResponse> localVarResp = getCollectionWithHttpInfo(collectionId, includeTags, includeBinaries, pageSize, pageNumber, binarySearchStr);
         return localVarResp.getData();
     }
 
@@ -452,6 +470,9 @@ public class CollectionsApi {
      * @param collectionId  (required)
      * @param includeTags  (optional, default to false)
      * @param includeBinaries  (optional, default to false)
+     * @param pageSize  (optional, default to 10)
+     * @param pageNumber  (optional, default to 1)
+     * @param binarySearchStr  (optional)
      * @return ApiResponse&lt;BaseResponseCollectionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -462,8 +483,8 @@ public class CollectionsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseCollectionResponse> getCollectionWithHttpInfo(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nullable Boolean includeTags, @javax.annotation.Nullable Boolean includeBinaries) throws ApiException {
-        okhttp3.Call localVarCall = getCollectionValidateBeforeCall(collectionId, includeTags, includeBinaries, null);
+    public ApiResponse<BaseResponseCollectionResponse> getCollectionWithHttpInfo(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nullable Boolean includeTags, @javax.annotation.Nullable Boolean includeBinaries, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable Integer pageNumber, @javax.annotation.Nullable String binarySearchStr) throws ApiException {
+        okhttp3.Call localVarCall = getCollectionValidateBeforeCall(collectionId, includeTags, includeBinaries, pageSize, pageNumber, binarySearchStr, null);
         Type localVarReturnType = new TypeToken<BaseResponseCollectionResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -474,6 +495,9 @@ public class CollectionsApi {
      * @param collectionId  (required)
      * @param includeTags  (optional, default to false)
      * @param includeBinaries  (optional, default to false)
+     * @param pageSize  (optional, default to 10)
+     * @param pageNumber  (optional, default to 1)
+     * @param binarySearchStr  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -485,9 +509,9 @@ public class CollectionsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCollectionAsync(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nullable Boolean includeTags, @javax.annotation.Nullable Boolean includeBinaries, final ApiCallback<BaseResponseCollectionResponse> _callback) throws ApiException {
+    public okhttp3.Call getCollectionAsync(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nullable Boolean includeTags, @javax.annotation.Nullable Boolean includeBinaries, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable Integer pageNumber, @javax.annotation.Nullable String binarySearchStr, final ApiCallback<BaseResponseCollectionResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCollectionValidateBeforeCall(collectionId, includeTags, includeBinaries, _callback);
+        okhttp3.Call localVarCall = getCollectionValidateBeforeCall(collectionId, includeTags, includeBinaries, pageSize, pageNumber, binarySearchStr, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseCollectionResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
