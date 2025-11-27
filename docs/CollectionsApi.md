@@ -155,7 +155,7 @@ public class Example {
 
 <a id="getCollection"></a>
 # **getCollection**
-> BaseResponseCollectionResponse getCollection(collectionId, includeTags, includeBinaries)
+> BaseResponseCollectionResponse getCollection(collectionId, includeTags, includeBinaries, pageSize, pageNumber, binarySearchStr)
 
 Returns a collection
 
@@ -186,8 +186,11 @@ public class Example {
     Integer collectionId = 56; // Integer | 
     Boolean includeTags = false; // Boolean | 
     Boolean includeBinaries = false; // Boolean | 
+    Integer pageSize = 10; // Integer | 
+    Integer pageNumber = 1; // Integer | 
+    String binarySearchStr = "binarySearchStr_example"; // String | 
     try {
-      BaseResponseCollectionResponse result = apiInstance.getCollection(collectionId, includeTags, includeBinaries);
+      BaseResponseCollectionResponse result = apiInstance.getCollection(collectionId, includeTags, includeBinaries, pageSize, pageNumber, binarySearchStr);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CollectionsApi#getCollection");
@@ -207,6 +210,9 @@ public class Example {
 | **collectionId** | **Integer**|  | |
 | **includeTags** | **Boolean**|  | [optional] [default to false] |
 | **includeBinaries** | **Boolean**|  | [optional] [default to false] |
+| **pageSize** | **Integer**|  | [optional] [default to 10] |
+| **pageNumber** | **Integer**|  | [optional] [default to 1] |
+| **binarySearchStr** | **String**|  | [optional] |
 
 ### Return type
 
