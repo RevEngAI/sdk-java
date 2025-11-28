@@ -105,4 +105,12 @@ public class GetAiDecompilationTaskTest {
         // TODO: test rawAiSummary
     }
 
+    /**
+     * Test the property 'predictedFunctionName'
+     */
+    @Test
+    public void predictedFunctionNameTest() {
+        // TODO: test predictedFunctionName
+    }
+
 }

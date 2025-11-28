@@ -96,6 +96,11 @@ public class GetAiDecompilationTask {
   @javax.annotation.Nullable
   private String rawAiSummary;
 
+  public static final String SERIALIZED_NAME_PREDICTED_FUNCTION_NAME = "predicted_function_name";
+  @SerializedName(SERIALIZED_NAME_PREDICTED_FUNCTION_NAME)
+  @javax.annotation.Nullable
+  private String predictedFunctionName;
+
   public GetAiDecompilationTask() {
   }
 
@@ -258,6 +263,25 @@ public class GetAiDecompilationTask {
     this.rawAiSummary = rawAiSummary;
   }
 
+
+  public GetAiDecompilationTask predictedFunctionName(@javax.annotation.Nullable String predictedFunctionName) {
+    this.predictedFunctionName = predictedFunctionName;
+    return this;
+  }
+
+  /**
+   * Get predictedFunctionName
+   * @return predictedFunctionName
+   */
+  @javax.annotation.Nullable
+  public String getPredictedFunctionName() {
+    return predictedFunctionName;
+  }
+
+  public void setPredictedFunctionName(@javax.annotation.Nullable String predictedFunctionName) {
+    this.predictedFunctionName = predictedFunctionName;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -320,7 +344,8 @@ public class GetAiDecompilationTask {
         Objects.equals(this.functionMappingFull, getAiDecompilationTask.functionMappingFull) &&
         Objects.equals(this.summary, getAiDecompilationTask.summary) &&
         Objects.equals(this.aiSummary, getAiDecompilationTask.aiSummary) &&
-        Objects.equals(this.rawAiSummary, getAiDecompilationTask.rawAiSummary)&&
+        Objects.equals(this.rawAiSummary, getAiDecompilationTask.rawAiSummary) &&
+        Objects.equals(this.predictedFunctionName, getAiDecompilationTask.predictedFunctionName)&&
         Objects.equals(this.additionalProperties, getAiDecompilationTask.additionalProperties);
   }
 
@@ -330,7 +355,7 @@ public class GetAiDecompilationTask {
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, decompilation, rawDecompilation, functionMapping, functionMappingFull, summary, aiSummary, rawAiSummary, additionalProperties);
+    return Objects.hash(status, decompilation, rawDecompilation, functionMapping, functionMappingFull, summary, aiSummary, rawAiSummary, predictedFunctionName, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -352,6 +377,7 @@ public class GetAiDecompilationTask {
     sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
     sb.append("    aiSummary: ").append(toIndentedString(aiSummary)).append("\n");
     sb.append("    rawAiSummary: ").append(toIndentedString(rawAiSummary)).append("\n");
+    sb.append("    predictedFunctionName: ").append(toIndentedString(predictedFunctionName)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -374,7 +400,7 @@ public class GetAiDecompilationTask {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("status", "decompilation", "raw_decompilation", "function_mapping", "function_mapping_full", "summary", "ai_summary", "raw_ai_summary"));
+    openapiFields = new HashSet<String>(Arrays.asList("status", "decompilation", "raw_decompilation", "function_mapping", "function_mapping_full", "summary", "ai_summary", "raw_ai_summary", "predicted_function_name"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("status", "decompilation", "raw_decompilation", "function_mapping", "function_mapping_full"));
@@ -419,6 +445,9 @@ public class GetAiDecompilationTask {
       }
       if ((jsonObj.get("raw_ai_summary") != null && !jsonObj.get("raw_ai_summary").isJsonNull()) && !jsonObj.get("raw_ai_summary").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `raw_ai_summary` to be a primitive type in the JSON string but got `%s`", jsonObj.get("raw_ai_summary").toString()));
+      }
+      if ((jsonObj.get("predicted_function_name") != null && !jsonObj.get("predicted_function_name").isJsonNull()) && !jsonObj.get("predicted_function_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `predicted_function_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("predicted_function_name").toString()));
       }
   }
 
