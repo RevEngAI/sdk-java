@@ -15,6 +15,7 @@
 |**summary** | **String** |  |  [optional] |
 |**aiSummary** | **String** |  |  [optional] |
 |**rawAiSummary** | **String** |  |  [optional] |
+|**predictedFunctionName** | **String** |  |  [optional] |
 
 
 
