@@ -13,8 +13,8 @@
 |**functionVaddr** | **Long** | Function virtual address |  |
 |**functionSize** | **Integer** | Function size |  |
 |**debug** | **Boolean** | Whether the function is debug |  |
-|**embedding3d** | **List&lt;BigDecimal&gt;** |  |  |
-|**embedding1d** | **List&lt;BigDecimal&gt;** |  |  |
+|**embedding3d** | **List&lt;BigDecimal&gt;** |  |  [optional] |
+|**embedding1d** | **List&lt;BigDecimal&gt;** |  |  [optional] |
 
 
 

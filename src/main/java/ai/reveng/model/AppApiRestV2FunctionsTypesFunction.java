@@ -24,6 +24,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -330,9 +331,20 @@ public class AppApiRestV2FunctionsTypesFunction {
         Objects.equals(this.additionalProperties, appApiRestV2FunctionsTypesFunction.additionalProperties);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
     return Objects.hash(functionId, functionName, functionMangledName, functionVaddr, functionSize, debug, embedding3d, embedding1d, additionalProperties);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -372,7 +384,7 @@ public class AppApiRestV2FunctionsTypesFunction {
     openapiFields = new HashSet<String>(Arrays.asList("function_id", "function_name", "function_mangled_name", "function_vaddr", "function_size", "debug", "embedding_3d", "embedding_1d"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("function_id", "function_name", "function_mangled_name", "function_vaddr", "function_size", "debug", "embedding_3d", "embedding_1d"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("function_id", "function_name", "function_mangled_name", "function_vaddr", "function_size", "debug"));
   }
 
   /**
@@ -401,16 +413,12 @@ public class AppApiRestV2FunctionsTypesFunction {
       if (!jsonObj.get("function_mangled_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `function_mangled_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("function_mangled_name").toString()));
       }
-      // ensure the required json array is present
-      if (jsonObj.get("embedding_3d") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("embedding_3d").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("embedding_3d") != null && !jsonObj.get("embedding_3d").isJsonNull() && !jsonObj.get("embedding_3d").isJsonArray()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `embedding_3d` to be an array in the JSON string but got `%s`", jsonObj.get("embedding_3d").toString()));
       }
-      // ensure the required json array is present
-      if (jsonObj.get("embedding_1d") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("embedding_1d").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("embedding_1d") != null && !jsonObj.get("embedding_1d").isJsonNull() && !jsonObj.get("embedding_1d").isJsonArray()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `embedding_1d` to be an array in the JSON string but got `%s`", jsonObj.get("embedding_1d").toString()));
       }
   }
