@@ -39,45 +39,9 @@ public class ExternalSourcesApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
-    public void createExternalTaskMbTest() throws ApiException {
-        Integer analysisId = null;
-        BaseResponseStr response = api.createExternalTaskMb(analysisId);
-        // TODO: test validations
-    }
-
-    /**
-     * Pulls data from VirusTotal
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
     public void createExternalTaskVtTest() throws ApiException {
         Integer analysisId = null;
         BaseResponseStr response = api.createExternalTaskVt(analysisId);
-        // TODO: test validations
-    }
-
-    /**
-     * Get MalwareBazaar data
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getMbDataTest() throws ApiException {
-        Integer analysisId = null;
-        BaseResponseExternalResponse response = api.getMbData(analysisId);
-        // TODO: test validations
-    }
-
-    /**
-     * Check the status of MalwareBazaar data retrieval
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getMbTaskStatusTest() throws ApiException {
-        Integer analysisId = null;
-        BaseResponseTaskResponse response = api.getMbTaskStatus(analysisId);
         // TODO: test validations
     }
 

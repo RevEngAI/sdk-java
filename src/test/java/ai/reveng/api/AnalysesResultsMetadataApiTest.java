@@ -15,6 +15,7 @@ package ai.reveng.api;
 import ai.reveng.invoker.ApiException;
 import ai.reveng.model.BaseResponse;
 import ai.reveng.model.BaseResponseAnalysisFunctions;
+import ai.reveng.model.BaseResponseAnalysisFunctionsList;
 import ai.reveng.model.BaseResponseAnalysisTags;
 import ai.reveng.model.BaseResponseCapabilities;
 import ai.reveng.model.BaseResponseCommunities;
@@ -35,6 +36,22 @@ import java.util.Map;
 public class AnalysesResultsMetadataApiTest {
 
     private final AnalysesResultsMetadataApi api = new AnalysesResultsMetadataApi();
+
+    /**
+     * Get functions from analysis
+     *
+     * Returns a paginated list of functions identified during analysis
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getAnalysisFunctionsPaginatedTest() throws ApiException {
+        Integer analysisId = null;
+        Integer page = null;
+        Integer pageSize = null;
+        BaseResponseAnalysisFunctionsList response = api.getAnalysisFunctionsPaginated(analysisId, page, pageSize);
+        // TODO: test validations
+    }
 
     /**
      * Gets the capabilities from the analysis
