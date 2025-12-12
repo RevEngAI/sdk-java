@@ -28,6 +28,7 @@ import java.io.IOException;
 
 import ai.reveng.model.BaseResponse;
 import ai.reveng.model.BaseResponseAnalysisFunctions;
+import ai.reveng.model.BaseResponseAnalysisFunctionsList;
 import ai.reveng.model.BaseResponseAnalysisTags;
 import ai.reveng.model.BaseResponseCapabilities;
 import ai.reveng.model.BaseResponseCommunities;
@@ -77,6 +78,153 @@ public class AnalysesResultsMetadataApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
+    /**
+     * Build call for getAnalysisFunctionsPaginated
+     * @param analysisId  (required)
+     * @param page The page number to retrieve. (optional, default to 1)
+     * @param pageSize Number of items per page. (optional, default to 1000)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getAnalysisFunctionsPaginatedCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v2/analyses/{analysis_id}/functions"
+            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (pageSize != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page_size", pageSize));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getAnalysisFunctionsPaginatedValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'analysisId' is set
+        if (analysisId == null) {
+            throw new ApiException("Missing the required parameter 'analysisId' when calling getAnalysisFunctionsPaginated(Async)");
+        }
+
+        return getAnalysisFunctionsPaginatedCall(analysisId, page, pageSize, _callback);
+
+    }
+
+    /**
+     * Get functions from analysis
+     * Returns a paginated list of functions identified during analysis
+     * @param analysisId  (required)
+     * @param page The page number to retrieve. (optional, default to 1)
+     * @param pageSize Number of items per page. (optional, default to 1000)
+     * @return BaseResponseAnalysisFunctionsList
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+     </table>
+     */
+    public BaseResponseAnalysisFunctionsList getAnalysisFunctionsPaginated(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize) throws ApiException {
+        ApiResponse<BaseResponseAnalysisFunctionsList> localVarResp = getAnalysisFunctionsPaginatedWithHttpInfo(analysisId, page, pageSize);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get functions from analysis
+     * Returns a paginated list of functions identified during analysis
+     * @param analysisId  (required)
+     * @param page The page number to retrieve. (optional, default to 1)
+     * @param pageSize Number of items per page. (optional, default to 1000)
+     * @return ApiResponse&lt;BaseResponseAnalysisFunctionsList&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<BaseResponseAnalysisFunctionsList> getAnalysisFunctionsPaginatedWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize) throws ApiException {
+        okhttp3.Call localVarCall = getAnalysisFunctionsPaginatedValidateBeforeCall(analysisId, page, pageSize, null);
+        Type localVarReturnType = new TypeToken<BaseResponseAnalysisFunctionsList>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get functions from analysis (asynchronously)
+     * Returns a paginated list of functions identified during analysis
+     * @param analysisId  (required)
+     * @param page The page number to retrieve. (optional, default to 1)
+     * @param pageSize Number of items per page. (optional, default to 1000)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getAnalysisFunctionsPaginatedAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, final ApiCallback<BaseResponseAnalysisFunctionsList> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getAnalysisFunctionsPaginatedValidateBeforeCall(analysisId, page, pageSize, _callback);
+        Type localVarReturnType = new TypeToken<BaseResponseAnalysisFunctionsList>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
     /**
      * Build call for getCapabilities
      * @param analysisId  (required)
