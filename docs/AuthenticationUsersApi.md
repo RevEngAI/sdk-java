@@ -13,7 +13,7 @@ All URIs are relative to *https://api.reveng.ai*
 
 <a id="getRequesterUserInfo"></a>
 # **getRequesterUserInfo**
-> BaseResponseGetUserResponse getRequesterUserInfo()
+> BaseResponseGetMeResponse getRequesterUserInfo()
 
 Get the requesters user information
 
@@ -40,7 +40,7 @@ public class Example {
 
     AuthenticationUsersApi apiInstance = new AuthenticationUsersApi(defaultClient);
     try {
-      BaseResponseGetUserResponse result = apiInstance.getRequesterUserInfo();
+      BaseResponseGetMeResponse result = apiInstance.getRequesterUserInfo();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AuthenticationUsersApi#getRequesterUserInfo");
@@ -58,7 +58,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**BaseResponseGetUserResponse**](BaseResponseGetUserResponse.md)
+[**BaseResponseGetMeResponse**](BaseResponseGetMeResponse.md)
 
 ### Authorization
 

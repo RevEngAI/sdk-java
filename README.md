@@ -16,7 +16,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>ai.reveng</groupId>
     <artifactId>sdk</artifactId>
-    <version>2.70.0</version>
+    <version>2.74.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -31,7 +31,7 @@ repositories {
 }
 
 dependencies {
-    implementation "ai.reveng:sdk:2.70.0"
+    implementation "ai.reveng:sdk:2.74.0"
 }
 ```
 
@@ -252,8 +252,8 @@ Class | Method | HTTP request | Description
  - [BaseResponseGenerationStatusList](docs/BaseResponseGenerationStatusList.md)
  - [BaseResponseGetAiDecompilationRatingResponse](docs/BaseResponseGetAiDecompilationRatingResponse.md)
  - [BaseResponseGetAiDecompilationTask](docs/BaseResponseGetAiDecompilationTask.md)
+ - [BaseResponseGetMeResponse](docs/BaseResponseGetMeResponse.md)
  - [BaseResponseGetPublicUserResponse](docs/BaseResponseGetPublicUserResponse.md)
- - [BaseResponseGetUserResponse](docs/BaseResponseGetUserResponse.md)
  - [BaseResponseListCollectionResults](docs/BaseResponseListCollectionResults.md)
  - [BaseResponseListCommentResponse](docs/BaseResponseListCommentResponse.md)
  - [BaseResponseListDieMatch](docs/BaseResponseListDieMatch.md)
@@ -380,8 +380,8 @@ Class | Method | HTTP request | Description
  - [GenerationStatusList](docs/GenerationStatusList.md)
  - [GetAiDecompilationRatingResponse](docs/GetAiDecompilationRatingResponse.md)
  - [GetAiDecompilationTask](docs/GetAiDecompilationTask.md)
+ - [GetMeResponse](docs/GetMeResponse.md)
  - [GetPublicUserResponse](docs/GetPublicUserResponse.md)
- - [GetUserResponse](docs/GetUserResponse.md)
  - [GlobalVariable](docs/GlobalVariable.md)
  - [ISA](docs/ISA.md)
  - [IconModel](docs/IconModel.md)

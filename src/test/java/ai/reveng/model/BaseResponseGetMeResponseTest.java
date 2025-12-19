@@ -13,7 +13,7 @@
 package ai.reveng.model;
 
 import ai.reveng.model.ErrorModel;
-import ai.reveng.model.GetUserResponse;
+import ai.reveng.model.GetMeResponse;
 import ai.reveng.model.MetaModel;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -29,17 +29,17 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for BaseResponseGetUserResponse
+ * Model tests for BaseResponseGetMeResponse
  */
-public class BaseResponseGetUserResponseTest {
-    private final BaseResponseGetUserResponse model = new BaseResponseGetUserResponse();
+public class BaseResponseGetMeResponseTest {
+    private final BaseResponseGetMeResponse model = new BaseResponseGetMeResponse();
 
     /**
-     * Model tests for BaseResponseGetUserResponse
+     * Model tests for BaseResponseGetMeResponse
      */
     @Test
-    public void testBaseResponseGetUserResponse() {
-        // TODO: test BaseResponseGetUserResponse
+    public void testBaseResponseGetMeResponse() {
+        // TODO: test BaseResponseGetMeResponse
     }
 
     /**

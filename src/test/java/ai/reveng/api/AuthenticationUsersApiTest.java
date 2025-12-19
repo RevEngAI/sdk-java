@@ -14,8 +14,8 @@ package ai.reveng.api;
 
 import ai.reveng.invoker.ApiException;
 import ai.reveng.model.BaseResponse;
+import ai.reveng.model.BaseResponseGetMeResponse;
 import ai.reveng.model.BaseResponseGetPublicUserResponse;
-import ai.reveng.model.BaseResponseGetUserResponse;
 import ai.reveng.model.BaseResponseListCommentResponse;
 import ai.reveng.model.BaseResponseListUserActivityResponse;
 import ai.reveng.model.BaseResponseLoginResponse;
@@ -43,7 +43,7 @@ public class AuthenticationUsersApiTest {
      */
     @Test
     public void getRequesterUserInfoTest() throws ApiException {
-        BaseResponseGetUserResponse response = api.getRequesterUserInfo();
+        BaseResponseGetMeResponse response = api.getRequesterUserInfo();
         // TODO: test validations
     }
 

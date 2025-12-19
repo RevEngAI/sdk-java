@@ -27,8 +27,8 @@ import java.io.IOException;
 
 
 import ai.reveng.model.BaseResponse;
+import ai.reveng.model.BaseResponseGetMeResponse;
 import ai.reveng.model.BaseResponseGetPublicUserResponse;
-import ai.reveng.model.BaseResponseGetUserResponse;
 import ai.reveng.model.BaseResponseListCommentResponse;
 import ai.reveng.model.BaseResponseListUserActivityResponse;
 import ai.reveng.model.BaseResponseLoginResponse;
@@ -143,7 +143,7 @@ public class AuthenticationUsersApi {
     /**
      * Get the requesters user information
      * 
-     * @return BaseResponseGetUserResponse
+     * @return BaseResponseGetMeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -153,15 +153,15 @@ public class AuthenticationUsersApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseGetUserResponse getRequesterUserInfo() throws ApiException {
-        ApiResponse<BaseResponseGetUserResponse> localVarResp = getRequesterUserInfoWithHttpInfo();
+    public BaseResponseGetMeResponse getRequesterUserInfo() throws ApiException {
+        ApiResponse<BaseResponseGetMeResponse> localVarResp = getRequesterUserInfoWithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
      * Get the requesters user information
      * 
-     * @return ApiResponse&lt;BaseResponseGetUserResponse&gt;
+     * @return ApiResponse&lt;BaseResponseGetMeResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -171,9 +171,9 @@ public class AuthenticationUsersApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseGetUserResponse> getRequesterUserInfoWithHttpInfo() throws ApiException {
+    public ApiResponse<BaseResponseGetMeResponse> getRequesterUserInfoWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = getRequesterUserInfoValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<BaseResponseGetUserResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<BaseResponseGetMeResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -191,10 +191,10 @@ public class AuthenticationUsersApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRequesterUserInfoAsync(final ApiCallback<BaseResponseGetUserResponse> _callback) throws ApiException {
+    public okhttp3.Call getRequesterUserInfoAsync(final ApiCallback<BaseResponseGetMeResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getRequesterUserInfoValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<BaseResponseGetUserResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<BaseResponseGetMeResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

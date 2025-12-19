@@ -1,6 +1,6 @@
 
 
-# GetUserResponse
+# GetMeResponse
 
 
 ## Properties
@@ -14,6 +14,18 @@
 |**email** | **String** |  |  |
 |**creation** | **OffsetDateTime** |  |  |
 |**tutorialSeen** | **Boolean** |  |  |
+|**role** | [**RoleEnum**](#RoleEnum) |  |  |
+
+
+
+## Enum: RoleEnum
+
+| Name | Value |
+|---- | -----|
+| USER | &quot;USER&quot; |
+| ADMIN | &quot;ADMIN&quot; |
+| SUPERADMIN | &quot;SUPERADMIN&quot; |
+| SYSTEM | &quot;SYSTEM&quot; |
 
 
 
