@@ -88,6 +88,12 @@ public class AutoUnstripRequest {
   @javax.annotation.Nullable
   private Boolean noCache = false;
 
+  public static final String SERIALIZED_NAME_USE_CANONICAL_NAMES = "use_canonical_names";
+  @Deprecated
+  @SerializedName(SERIALIZED_NAME_USE_CANONICAL_NAMES)
+  @javax.annotation.Nullable
+  private Boolean useCanonicalNames = false;
+
   public AutoUnstripRequest() {
   }
 
@@ -234,6 +240,29 @@ public class AutoUnstripRequest {
     this.noCache = noCache;
   }
 
+
+  @Deprecated
+  public AutoUnstripRequest useCanonicalNames(@javax.annotation.Nullable Boolean useCanonicalNames) {
+    this.useCanonicalNames = useCanonicalNames;
+    return this;
+  }
+
+  /**
+   * Whether to use canonical function names during matching for auto-unstrip, default is False
+   * @return useCanonicalNames
+   * @deprecated
+   */
+  @Deprecated
+  @javax.annotation.Nullable
+  public Boolean getUseCanonicalNames() {
+    return useCanonicalNames;
+  }
+
+  @Deprecated
+  public void setUseCanonicalNames(@javax.annotation.Nullable Boolean useCanonicalNames) {
+    this.useCanonicalNames = useCanonicalNames;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -294,13 +323,14 @@ public class AutoUnstripRequest {
         Objects.equals(this.confidenceThreshold, autoUnstripRequest.confidenceThreshold) &&
         Objects.equals(this.minGroupSize, autoUnstripRequest.minGroupSize) &&
         Objects.equals(this.statusOnly, autoUnstripRequest.statusOnly) &&
-        Objects.equals(this.noCache, autoUnstripRequest.noCache)&&
+        Objects.equals(this.noCache, autoUnstripRequest.noCache) &&
+        Objects.equals(this.useCanonicalNames, autoUnstripRequest.useCanonicalNames)&&
         Objects.equals(this.additionalProperties, autoUnstripRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(minSimilarity, apply, confidenceThreshold, minGroupSize, statusOnly, noCache, additionalProperties);
+    return Objects.hash(minSimilarity, apply, confidenceThreshold, minGroupSize, statusOnly, noCache, useCanonicalNames, additionalProperties);
   }
 
   @Override
@@ -313,6 +343,7 @@ public class AutoUnstripRequest {
     sb.append("    minGroupSize: ").append(toIndentedString(minGroupSize)).append("\n");
     sb.append("    statusOnly: ").append(toIndentedString(statusOnly)).append("\n");
     sb.append("    noCache: ").append(toIndentedString(noCache)).append("\n");
+    sb.append("    useCanonicalNames: ").append(toIndentedString(useCanonicalNames)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -335,7 +366,7 @@ public class AutoUnstripRequest {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("min_similarity", "apply", "confidence_threshold", "min_group_size", "status_only", "no_cache"));
+    openapiFields = new HashSet<String>(Arrays.asList("min_similarity", "apply", "confidence_threshold", "min_group_size", "status_only", "no_cache", "use_canonical_names"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);

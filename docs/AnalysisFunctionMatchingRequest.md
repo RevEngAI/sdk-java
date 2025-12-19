@@ -14,6 +14,7 @@
 |**pageSize** | **Integer** | Number of functions to return per page, default is 0 (all functions), max is 1000 |  [optional] |
 |**statusOnly** | **Boolean** | If set to true, only returns the status of the matching operation without the actual results |  [optional] |
 |**noCache** | **Boolean** | If set to true, forces the system to bypass any cached results and perform a fresh computation |  [optional] |
+|**useCanonicalNames** | **Boolean** | Whether to use canonical function names during function matching for confidence results, default is False |  [optional] |
 
 
 

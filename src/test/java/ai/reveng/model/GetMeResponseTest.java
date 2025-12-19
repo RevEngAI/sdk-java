@@ -24,17 +24,17 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for GetUserResponse
+ * Model tests for GetMeResponse
  */
-public class GetUserResponseTest {
-    private final GetUserResponse model = new GetUserResponse();
+public class GetMeResponseTest {
+    private final GetMeResponse model = new GetMeResponse();
 
     /**
-     * Model tests for GetUserResponse
+     * Model tests for GetMeResponse
      */
     @Test
-    public void testGetUserResponse() {
-        // TODO: test GetUserResponse
+    public void testGetMeResponse() {
+        // TODO: test GetMeResponse
     }
 
     /**
@@ -91,6 +91,14 @@ public class GetUserResponseTest {
     @Test
     public void tutorialSeenTest() {
         // TODO: test tutorialSeen
+    }
+
+    /**
+     * Test the property 'role'
+     */
+    @Test
+    public void roleTest() {
+        // TODO: test role
     }
 
 }

@@ -48,10 +48,10 @@ import java.util.Locale;
 import ai.reveng.invoker.JSON;
 
 /**
- * GetUserResponse
+ * GetMeResponse
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class GetUserResponse {
+public class GetMeResponse {
   public static final String SERIALIZED_NAME_USERNAME = "username";
   @SerializedName(SERIALIZED_NAME_USERNAME)
   @javax.annotation.Nonnull
@@ -87,10 +87,71 @@ public class GetUserResponse {
   @javax.annotation.Nonnull
   private Boolean tutorialSeen;
 
-  public GetUserResponse() {
+  /**
+   * Gets or Sets role
+   */
+  @JsonAdapter(RoleEnum.Adapter.class)
+  public enum RoleEnum {
+    USER("USER"),
+    
+    ADMIN("ADMIN"),
+    
+    SUPERADMIN("SUPERADMIN"),
+    
+    SYSTEM("SYSTEM");
+
+    private String value;
+
+    RoleEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static RoleEnum fromValue(String value) {
+      for (RoleEnum b : RoleEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<RoleEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final RoleEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public RoleEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return RoleEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      RoleEnum.fromValue(value);
+    }
   }
 
-  public GetUserResponse username(@javax.annotation.Nonnull String username) {
+  public static final String SERIALIZED_NAME_ROLE = "role";
+  @SerializedName(SERIALIZED_NAME_ROLE)
+  @javax.annotation.Nonnull
+  private RoleEnum role;
+
+  public GetMeResponse() {
+  }
+
+  public GetMeResponse username(@javax.annotation.Nonnull String username) {
     this.username = username;
     return this;
   }
@@ -109,7 +170,7 @@ public class GetUserResponse {
   }
 
 
-  public GetUserResponse userId(@javax.annotation.Nonnull Integer userId) {
+  public GetMeResponse userId(@javax.annotation.Nonnull Integer userId) {
     this.userId = userId;
     return this;
   }
@@ -128,7 +189,7 @@ public class GetUserResponse {
   }
 
 
-  public GetUserResponse firstName(@javax.annotation.Nonnull String firstName) {
+  public GetMeResponse firstName(@javax.annotation.Nonnull String firstName) {
     this.firstName = firstName;
     return this;
   }
@@ -147,7 +208,7 @@ public class GetUserResponse {
   }
 
 
-  public GetUserResponse lastName(@javax.annotation.Nonnull String lastName) {
+  public GetMeResponse lastName(@javax.annotation.Nonnull String lastName) {
     this.lastName = lastName;
     return this;
   }
@@ -166,7 +227,7 @@ public class GetUserResponse {
   }
 
 
-  public GetUserResponse email(@javax.annotation.Nonnull String email) {
+  public GetMeResponse email(@javax.annotation.Nonnull String email) {
     this.email = email;
     return this;
   }
@@ -185,7 +246,7 @@ public class GetUserResponse {
   }
 
 
-  public GetUserResponse creation(@javax.annotation.Nonnull OffsetDateTime creation) {
+  public GetMeResponse creation(@javax.annotation.Nonnull OffsetDateTime creation) {
     this.creation = creation;
     return this;
   }
@@ -204,7 +265,7 @@ public class GetUserResponse {
   }
 
 
-  public GetUserResponse tutorialSeen(@javax.annotation.Nonnull Boolean tutorialSeen) {
+  public GetMeResponse tutorialSeen(@javax.annotation.Nonnull Boolean tutorialSeen) {
     this.tutorialSeen = tutorialSeen;
     return this;
   }
@@ -222,6 +283,25 @@ public class GetUserResponse {
     this.tutorialSeen = tutorialSeen;
   }
 
+
+  public GetMeResponse role(@javax.annotation.Nonnull RoleEnum role) {
+    this.role = role;
+    return this;
+  }
+
+  /**
+   * Get role
+   * @return role
+   */
+  @javax.annotation.Nonnull
+  public RoleEnum getRole() {
+    return role;
+  }
+
+  public void setRole(@javax.annotation.Nonnull RoleEnum role) {
+    this.role = role;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -235,9 +315,9 @@ public class GetUserResponse {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the GetUserResponse instance itself
+   * @return the GetMeResponse instance itself
    */
-  public GetUserResponse putAdditionalProperty(String key, Object value) {
+  public GetMeResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -276,26 +356,27 @@ public class GetUserResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetUserResponse getUserResponse = (GetUserResponse) o;
-    return Objects.equals(this.username, getUserResponse.username) &&
-        Objects.equals(this.userId, getUserResponse.userId) &&
-        Objects.equals(this.firstName, getUserResponse.firstName) &&
-        Objects.equals(this.lastName, getUserResponse.lastName) &&
-        Objects.equals(this.email, getUserResponse.email) &&
-        Objects.equals(this.creation, getUserResponse.creation) &&
-        Objects.equals(this.tutorialSeen, getUserResponse.tutorialSeen)&&
-        Objects.equals(this.additionalProperties, getUserResponse.additionalProperties);
+    GetMeResponse getMeResponse = (GetMeResponse) o;
+    return Objects.equals(this.username, getMeResponse.username) &&
+        Objects.equals(this.userId, getMeResponse.userId) &&
+        Objects.equals(this.firstName, getMeResponse.firstName) &&
+        Objects.equals(this.lastName, getMeResponse.lastName) &&
+        Objects.equals(this.email, getMeResponse.email) &&
+        Objects.equals(this.creation, getMeResponse.creation) &&
+        Objects.equals(this.tutorialSeen, getMeResponse.tutorialSeen) &&
+        Objects.equals(this.role, getMeResponse.role)&&
+        Objects.equals(this.additionalProperties, getMeResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(username, userId, firstName, lastName, email, creation, tutorialSeen, additionalProperties);
+    return Objects.hash(username, userId, firstName, lastName, email, creation, tutorialSeen, role, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetUserResponse {\n");
+    sb.append("class GetMeResponse {\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
@@ -303,6 +384,7 @@ public class GetUserResponse {
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    creation: ").append(toIndentedString(creation)).append("\n");
     sb.append("    tutorialSeen: ").append(toIndentedString(tutorialSeen)).append("\n");
+    sb.append("    role: ").append(toIndentedString(role)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -325,27 +407,27 @@ public class GetUserResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("username", "user_id", "first_name", "last_name", "email", "creation", "tutorial_seen"));
+    openapiFields = new HashSet<String>(Arrays.asList("username", "user_id", "first_name", "last_name", "email", "creation", "tutorial_seen", "role"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("username", "user_id", "first_name", "last_name", "email", "creation", "tutorial_seen"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("username", "user_id", "first_name", "last_name", "email", "creation", "tutorial_seen", "role"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to GetUserResponse
+   * @throws IOException if the JSON Element is invalid with respect to GetMeResponse
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!GetUserResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in GetUserResponse is not found in the empty JSON string", GetUserResponse.openapiRequiredFields.toString()));
+        if (!GetMeResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in GetMeResponse is not found in the empty JSON string", GetMeResponse.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : GetUserResponse.openapiRequiredFields) {
+      for (String requiredField : GetMeResponse.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
@@ -363,22 +445,27 @@ public class GetUserResponse {
       if (!jsonObj.get("email").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
       }
+      if (!jsonObj.get("role").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `role` to be a primitive type in the JSON string but got `%s`", jsonObj.get("role").toString()));
+      }
+      // validate the required field `role`
+      RoleEnum.validateJsonElement(jsonObj.get("role"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!GetUserResponse.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'GetUserResponse' and its subtypes
+       if (!GetMeResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'GetMeResponse' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<GetUserResponse> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(GetUserResponse.class));
+       final TypeAdapter<GetMeResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(GetMeResponse.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<GetUserResponse>() {
+       return (TypeAdapter<T>) new TypeAdapter<GetMeResponse>() {
            @Override
-           public void write(JsonWriter out, GetUserResponse value) throws IOException {
+           public void write(JsonWriter out, GetMeResponse value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -406,12 +493,12 @@ public class GetUserResponse {
            }
 
            @Override
-           public GetUserResponse read(JsonReader in) throws IOException {
+           public GetMeResponse read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             GetUserResponse instance = thisAdapter.fromJsonTree(jsonObj);
+             GetMeResponse instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -438,18 +525,18 @@ public class GetUserResponse {
   }
 
   /**
-   * Create an instance of GetUserResponse given an JSON string
+   * Create an instance of GetMeResponse given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of GetUserResponse
-   * @throws IOException if the JSON string is invalid with respect to GetUserResponse
+   * @return An instance of GetMeResponse
+   * @throws IOException if the JSON string is invalid with respect to GetMeResponse
    */
-  public static GetUserResponse fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, GetUserResponse.class);
+  public static GetMeResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, GetMeResponse.class);
   }
 
   /**
-   * Convert an instance of GetUserResponse to an JSON string
+   * Convert an instance of GetMeResponse to an JSON string
    *
    * @return JSON string
    */

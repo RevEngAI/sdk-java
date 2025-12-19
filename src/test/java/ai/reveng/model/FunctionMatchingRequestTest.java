@@ -113,4 +113,12 @@ public class FunctionMatchingRequestTest {
         // TODO: test noCache
     }
 
+    /**
+     * Test the property 'useCanonicalNames'
+     */
+    @Test
+    public void useCanonicalNamesTest() {
+        // TODO: test useCanonicalNames
+    }
+
 }

@@ -104,6 +104,12 @@ public class FunctionMatchingRequest {
   @javax.annotation.Nullable
   private Boolean noCache = false;
 
+  public static final String SERIALIZED_NAME_USE_CANONICAL_NAMES = "use_canonical_names";
+  @Deprecated
+  @SerializedName(SERIALIZED_NAME_USE_CANONICAL_NAMES)
+  @javax.annotation.Nullable
+  private Boolean useCanonicalNames = false;
+
   public FunctionMatchingRequest() {
   }
 
@@ -304,6 +310,29 @@ public class FunctionMatchingRequest {
     this.noCache = noCache;
   }
 
+
+  @Deprecated
+  public FunctionMatchingRequest useCanonicalNames(@javax.annotation.Nullable Boolean useCanonicalNames) {
+    this.useCanonicalNames = useCanonicalNames;
+    return this;
+  }
+
+  /**
+   * Whether to use canonical function names during function matching for confidence results, default is False
+   * @return useCanonicalNames
+   * @deprecated
+   */
+  @Deprecated
+  @javax.annotation.Nullable
+  public Boolean getUseCanonicalNames() {
+    return useCanonicalNames;
+  }
+
+  @Deprecated
+  public void setUseCanonicalNames(@javax.annotation.Nullable Boolean useCanonicalNames) {
+    this.useCanonicalNames = useCanonicalNames;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -367,7 +396,8 @@ public class FunctionMatchingRequest {
         Objects.equals(this.page, functionMatchingRequest.page) &&
         Objects.equals(this.pageSize, functionMatchingRequest.pageSize) &&
         Objects.equals(this.statusOnly, functionMatchingRequest.statusOnly) &&
-        Objects.equals(this.noCache, functionMatchingRequest.noCache)&&
+        Objects.equals(this.noCache, functionMatchingRequest.noCache) &&
+        Objects.equals(this.useCanonicalNames, functionMatchingRequest.useCanonicalNames)&&
         Objects.equals(this.additionalProperties, functionMatchingRequest.additionalProperties);
   }
 
@@ -377,7 +407,7 @@ public class FunctionMatchingRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(modelId, functionIds, minSimilarity, filters, resultsPerFunction, page, pageSize, statusOnly, noCache, additionalProperties);
+    return Objects.hash(modelId, functionIds, minSimilarity, filters, resultsPerFunction, page, pageSize, statusOnly, noCache, useCanonicalNames, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -400,6 +430,7 @@ public class FunctionMatchingRequest {
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    statusOnly: ").append(toIndentedString(statusOnly)).append("\n");
     sb.append("    noCache: ").append(toIndentedString(noCache)).append("\n");
+    sb.append("    useCanonicalNames: ").append(toIndentedString(useCanonicalNames)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -422,7 +453,7 @@ public class FunctionMatchingRequest {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("model_id", "function_ids", "min_similarity", "filters", "results_per_function", "page", "page_size", "status_only", "no_cache"));
+    openapiFields = new HashSet<String>(Arrays.asList("model_id", "function_ids", "min_similarity", "filters", "results_per_function", "page", "page_size", "status_only", "no_cache", "use_canonical_names"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("model_id", "function_ids"));

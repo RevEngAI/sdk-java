@@ -85,4 +85,12 @@ public class AutoUnstripRequestTest {
         // TODO: test noCache
     }
 
+    /**
+     * Test the property 'useCanonicalNames'
+     */
+    @Test
+    public void useCanonicalNamesTest() {
+        // TODO: test useCanonicalNames
+    }
+
 }

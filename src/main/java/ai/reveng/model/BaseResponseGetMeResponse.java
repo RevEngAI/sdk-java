@@ -15,7 +15,7 @@ package ai.reveng.model;
 import java.util.Objects;
 import java.util.Locale;
 import ai.reveng.model.ErrorModel;
-import ai.reveng.model.GetUserResponse;
+import ai.reveng.model.GetMeResponse;
 import ai.reveng.model.MetaModel;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -53,10 +53,10 @@ import java.util.Locale;
 import ai.reveng.invoker.JSON;
 
 /**
- * BaseResponseGetUserResponse
+ * BaseResponseGetMeResponse
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class BaseResponseGetUserResponse {
+public class BaseResponseGetMeResponse {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
   @javax.annotation.Nullable
@@ -65,7 +65,7 @@ public class BaseResponseGetUserResponse {
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
   @javax.annotation.Nullable
-  private GetUserResponse data;
+  private GetMeResponse data;
 
   public static final String SERIALIZED_NAME_MESSAGE = "message";
   @SerializedName(SERIALIZED_NAME_MESSAGE)
@@ -82,10 +82,10 @@ public class BaseResponseGetUserResponse {
   @javax.annotation.Nullable
   private MetaModel meta;
 
-  public BaseResponseGetUserResponse() {
+  public BaseResponseGetMeResponse() {
   }
 
-  public BaseResponseGetUserResponse status(@javax.annotation.Nullable Boolean status) {
+  public BaseResponseGetMeResponse status(@javax.annotation.Nullable Boolean status) {
     this.status = status;
     return this;
   }
@@ -104,7 +104,7 @@ public class BaseResponseGetUserResponse {
   }
 
 
-  public BaseResponseGetUserResponse data(@javax.annotation.Nullable GetUserResponse data) {
+  public BaseResponseGetMeResponse data(@javax.annotation.Nullable GetMeResponse data) {
     this.data = data;
     return this;
   }
@@ -114,16 +114,16 @@ public class BaseResponseGetUserResponse {
    * @return data
    */
   @javax.annotation.Nullable
-  public GetUserResponse getData() {
+  public GetMeResponse getData() {
     return data;
   }
 
-  public void setData(@javax.annotation.Nullable GetUserResponse data) {
+  public void setData(@javax.annotation.Nullable GetMeResponse data) {
     this.data = data;
   }
 
 
-  public BaseResponseGetUserResponse message(@javax.annotation.Nullable String message) {
+  public BaseResponseGetMeResponse message(@javax.annotation.Nullable String message) {
     this.message = message;
     return this;
   }
@@ -142,12 +142,12 @@ public class BaseResponseGetUserResponse {
   }
 
 
-  public BaseResponseGetUserResponse errors(@javax.annotation.Nullable List<ErrorModel> errors) {
+  public BaseResponseGetMeResponse errors(@javax.annotation.Nullable List<ErrorModel> errors) {
     this.errors = errors;
     return this;
   }
 
-  public BaseResponseGetUserResponse addErrorsItem(ErrorModel errorsItem) {
+  public BaseResponseGetMeResponse addErrorsItem(ErrorModel errorsItem) {
     if (this.errors == null) {
       this.errors = new ArrayList<>();
     }
@@ -169,7 +169,7 @@ public class BaseResponseGetUserResponse {
   }
 
 
-  public BaseResponseGetUserResponse meta(@javax.annotation.Nullable MetaModel meta) {
+  public BaseResponseGetMeResponse meta(@javax.annotation.Nullable MetaModel meta) {
     this.meta = meta;
     return this;
   }
@@ -200,9 +200,9 @@ public class BaseResponseGetUserResponse {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the BaseResponseGetUserResponse instance itself
+   * @return the BaseResponseGetMeResponse instance itself
    */
-  public BaseResponseGetUserResponse putAdditionalProperty(String key, Object value) {
+  public BaseResponseGetMeResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -241,13 +241,13 @@ public class BaseResponseGetUserResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BaseResponseGetUserResponse baseResponseGetUserResponse = (BaseResponseGetUserResponse) o;
-    return Objects.equals(this.status, baseResponseGetUserResponse.status) &&
-        Objects.equals(this.data, baseResponseGetUserResponse.data) &&
-        Objects.equals(this.message, baseResponseGetUserResponse.message) &&
-        Objects.equals(this.errors, baseResponseGetUserResponse.errors) &&
-        Objects.equals(this.meta, baseResponseGetUserResponse.meta)&&
-        Objects.equals(this.additionalProperties, baseResponseGetUserResponse.additionalProperties);
+    BaseResponseGetMeResponse baseResponseGetMeResponse = (BaseResponseGetMeResponse) o;
+    return Objects.equals(this.status, baseResponseGetMeResponse.status) &&
+        Objects.equals(this.data, baseResponseGetMeResponse.data) &&
+        Objects.equals(this.message, baseResponseGetMeResponse.message) &&
+        Objects.equals(this.errors, baseResponseGetMeResponse.errors) &&
+        Objects.equals(this.meta, baseResponseGetMeResponse.meta)&&
+        Objects.equals(this.additionalProperties, baseResponseGetMeResponse.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -269,7 +269,7 @@ public class BaseResponseGetUserResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BaseResponseGetUserResponse {\n");
+    sb.append("class BaseResponseGetMeResponse {\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
@@ -307,18 +307,18 @@ public class BaseResponseGetUserResponse {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to BaseResponseGetUserResponse
+   * @throws IOException if the JSON Element is invalid with respect to BaseResponseGetMeResponse
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!BaseResponseGetUserResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in BaseResponseGetUserResponse is not found in the empty JSON string", BaseResponseGetUserResponse.openapiRequiredFields.toString()));
+        if (!BaseResponseGetMeResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in BaseResponseGetMeResponse is not found in the empty JSON string", BaseResponseGetMeResponse.openapiRequiredFields.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the optional field `data`
       if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
-        GetUserResponse.validateJsonElement(jsonObj.get("data"));
+        GetMeResponse.validateJsonElement(jsonObj.get("data"));
       }
       if ((jsonObj.get("message") != null && !jsonObj.get("message").isJsonNull()) && !jsonObj.get("message").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
@@ -347,16 +347,16 @@ public class BaseResponseGetUserResponse {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!BaseResponseGetUserResponse.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'BaseResponseGetUserResponse' and its subtypes
+       if (!BaseResponseGetMeResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'BaseResponseGetMeResponse' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<BaseResponseGetUserResponse> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(BaseResponseGetUserResponse.class));
+       final TypeAdapter<BaseResponseGetMeResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(BaseResponseGetMeResponse.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<BaseResponseGetUserResponse>() {
+       return (TypeAdapter<T>) new TypeAdapter<BaseResponseGetMeResponse>() {
            @Override
-           public void write(JsonWriter out, BaseResponseGetUserResponse value) throws IOException {
+           public void write(JsonWriter out, BaseResponseGetMeResponse value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -384,12 +384,12 @@ public class BaseResponseGetUserResponse {
            }
 
            @Override
-           public BaseResponseGetUserResponse read(JsonReader in) throws IOException {
+           public BaseResponseGetMeResponse read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             BaseResponseGetUserResponse instance = thisAdapter.fromJsonTree(jsonObj);
+             BaseResponseGetMeResponse instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -416,18 +416,18 @@ public class BaseResponseGetUserResponse {
   }
 
   /**
-   * Create an instance of BaseResponseGetUserResponse given an JSON string
+   * Create an instance of BaseResponseGetMeResponse given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of BaseResponseGetUserResponse
-   * @throws IOException if the JSON string is invalid with respect to BaseResponseGetUserResponse
+   * @return An instance of BaseResponseGetMeResponse
+   * @throws IOException if the JSON string is invalid with respect to BaseResponseGetMeResponse
    */
-  public static BaseResponseGetUserResponse fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, BaseResponseGetUserResponse.class);
+  public static BaseResponseGetMeResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, BaseResponseGetMeResponse.class);
   }
 
   /**
-   * Convert an instance of BaseResponseGetUserResponse to an JSON string
+   * Convert an instance of BaseResponseGetMeResponse to an JSON string
    *
    * @return JSON string
    */
