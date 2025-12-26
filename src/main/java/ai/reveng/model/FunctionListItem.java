@@ -61,6 +61,69 @@ public class FunctionListItem {
   @javax.annotation.Nonnull
   private String name;
 
+  /**
+   * The source (process) the function name came from
+   */
+  @JsonAdapter(NameSourceTypeEnum.Adapter.class)
+  public enum NameSourceTypeEnum {
+    SYSTEM("SYSTEM"),
+    
+    USER("USER"),
+    
+    AUTO_UNSTRIP("AUTO_UNSTRIP"),
+    
+    EXTERNAL("EXTERNAL"),
+    
+    AI_UNSTRIP("AI_UNSTRIP");
+
+    private String value;
+
+    NameSourceTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static NameSourceTypeEnum fromValue(String value) {
+      for (NameSourceTypeEnum b : NameSourceTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<NameSourceTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final NameSourceTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public NameSourceTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return NameSourceTypeEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      NameSourceTypeEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_NAME_SOURCE_TYPE = "name_source_type";
+  @SerializedName(SERIALIZED_NAME_NAME_SOURCE_TYPE)
+  @javax.annotation.Nonnull
+  private NameSourceTypeEnum nameSourceType;
+
   public static final String SERIALIZED_NAME_MANGLED_NAME = "mangled_name";
   @SerializedName(SERIALIZED_NAME_MANGLED_NAME)
   @javax.annotation.Nonnull
@@ -119,6 +182,25 @@ public class FunctionListItem {
 
   public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
+  }
+
+
+  public FunctionListItem nameSourceType(@javax.annotation.Nonnull NameSourceTypeEnum nameSourceType) {
+    this.nameSourceType = nameSourceType;
+    return this;
+  }
+
+  /**
+   * The source (process) the function name came from
+   * @return nameSourceType
+   */
+  @javax.annotation.Nonnull
+  public NameSourceTypeEnum getNameSourceType() {
+    return nameSourceType;
+  }
+
+  public void setNameSourceType(@javax.annotation.Nonnull NameSourceTypeEnum nameSourceType) {
+    this.nameSourceType = nameSourceType;
   }
 
 
@@ -254,6 +336,7 @@ public class FunctionListItem {
     FunctionListItem functionListItem = (FunctionListItem) o;
     return Objects.equals(this.id, functionListItem.id) &&
         Objects.equals(this.name, functionListItem.name) &&
+        Objects.equals(this.nameSourceType, functionListItem.nameSourceType) &&
         Objects.equals(this.mangledName, functionListItem.mangledName) &&
         Objects.equals(this.vaddr, functionListItem.vaddr) &&
         Objects.equals(this.size, functionListItem.size) &&
@@ -263,7 +346,7 @@ public class FunctionListItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, mangledName, vaddr, size, debug, additionalProperties);
+    return Objects.hash(id, name, nameSourceType, mangledName, vaddr, size, debug, additionalProperties);
   }
 
   @Override
@@ -272,6 +355,7 @@ public class FunctionListItem {
     sb.append("class FunctionListItem {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    nameSourceType: ").append(toIndentedString(nameSourceType)).append("\n");
     sb.append("    mangledName: ").append(toIndentedString(mangledName)).append("\n");
     sb.append("    vaddr: ").append(toIndentedString(vaddr)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
@@ -298,10 +382,10 @@ public class FunctionListItem {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "name", "mangled_name", "vaddr", "size", "debug"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "name", "name_source_type", "mangled_name", "vaddr", "size", "debug"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "name", "mangled_name", "vaddr", "size", "debug"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "name", "name_source_type", "mangled_name", "vaddr", "size", "debug"));
   }
 
   /**
@@ -327,6 +411,11 @@ public class FunctionListItem {
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
+      if (!jsonObj.get("name_source_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `name_source_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name_source_type").toString()));
+      }
+      // validate the required field `name_source_type`
+      NameSourceTypeEnum.validateJsonElement(jsonObj.get("name_source_type"));
       if (!jsonObj.get("mangled_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `mangled_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mangled_name").toString()));
       }

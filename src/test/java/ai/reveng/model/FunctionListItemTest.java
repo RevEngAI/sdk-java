@@ -53,6 +53,14 @@ public class FunctionListItemTest {
     }
 
     /**
+     * Test the property 'nameSourceType'
+     */
+    @Test
+    public void nameSourceTypeTest() {
+        // TODO: test nameSourceType
+    }
+
+    /**
      * Test the property 'mangledName'
      */
     @Test
