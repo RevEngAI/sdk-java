@@ -511,7 +511,9 @@ public class AnalysesResultsMetadataApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getFunctionsListCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable Integer minVAddr, @javax.annotation.Nullable Integer maxVAddr, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -569,6 +571,7 @@ public class AnalysesResultsMetadataApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getFunctionsListValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable Integer minVAddr, @javax.annotation.Nullable Integer maxVAddr, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
@@ -596,7 +599,9 @@ public class AnalysesResultsMetadataApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BaseResponseAnalysisFunctions getFunctionsList(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable Integer minVAddr, @javax.annotation.Nullable Integer maxVAddr) throws ApiException {
         ApiResponse<BaseResponseAnalysisFunctions> localVarResp = getFunctionsListWithHttpInfo(analysisId, searchTerm, minVAddr, maxVAddr);
         return localVarResp.getData();
@@ -618,7 +623,9 @@ public class AnalysesResultsMetadataApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BaseResponseAnalysisFunctions> getFunctionsListWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable Integer minVAddr, @javax.annotation.Nullable Integer maxVAddr) throws ApiException {
         okhttp3.Call localVarCall = getFunctionsListValidateBeforeCall(analysisId, searchTerm, minVAddr, maxVAddr, null);
         Type localVarReturnType = new TypeToken<BaseResponseAnalysisFunctions>(){}.getType();
@@ -642,7 +649,9 @@ public class AnalysesResultsMetadataApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getFunctionsListAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable Integer minVAddr, @javax.annotation.Nullable Integer maxVAddr, final ApiCallback<BaseResponseAnalysisFunctions> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getFunctionsListValidateBeforeCall(analysisId, searchTerm, minVAddr, maxVAddr, _callback);
