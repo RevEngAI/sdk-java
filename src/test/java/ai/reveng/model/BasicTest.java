@@ -94,6 +94,14 @@ public class BasicTest {
     }
 
     /**
+     * Test the property 'isSystem'
+     */
+    @Test
+    public void isSystemTest() {
+        // TODO: test isSystem
+    }
+
+    /**
      * Test the property 'analysisScope'
      */
     @Test
