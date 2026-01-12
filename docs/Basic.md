@@ -14,6 +14,7 @@
 |**modelName** | **String** | The model name used for analysis |  |
 |**modelId** | **Integer** | The model ID used for analysis |  |
 |**ownerUsername** | **String** | The name of the owner of the binary |  |
+|**isSystem** | **Boolean** | Whether the analysis is a system analysis |  |
 |**analysisScope** | **String** | The scope of the analysis |  |
 |**isOwner** | **Boolean** | Whether the current user is the owner |  |
 |**debug** | **Boolean** | Whether the current analysis was analysed with debug symbols |  |

@@ -86,4 +86,12 @@ public class CollectionResponseBinariesInnerTest {
         // TODO: test createdAt
     }
 
+    /**
+     * Test the property 'isSystemAnalysis'
+     */
+    @Test
+    public void isSystemAnalysisTest() {
+        // TODO: test isSystemAnalysis
+    }
+
 }

@@ -82,6 +82,11 @@ public class CollectionBinaryResponse {
   @javax.annotation.Nonnull
   private OffsetDateTime createdAt;
 
+  public static final String SERIALIZED_NAME_IS_SYSTEM_ANALYSIS = "is_system_analysis";
+  @SerializedName(SERIALIZED_NAME_IS_SYSTEM_ANALYSIS)
+  @javax.annotation.Nonnull
+  private Boolean isSystemAnalysis;
+
   public CollectionBinaryResponse() {
   }
 
@@ -198,6 +203,25 @@ public class CollectionBinaryResponse {
     this.createdAt = createdAt;
   }
 
+
+  public CollectionBinaryResponse isSystemAnalysis(@javax.annotation.Nonnull Boolean isSystemAnalysis) {
+    this.isSystemAnalysis = isSystemAnalysis;
+    return this;
+  }
+
+  /**
+   * Is the analysis owned by a RevEng.AI account
+   * @return isSystemAnalysis
+   */
+  @javax.annotation.Nonnull
+  public Boolean getIsSystemAnalysis() {
+    return isSystemAnalysis;
+  }
+
+  public void setIsSystemAnalysis(@javax.annotation.Nonnull Boolean isSystemAnalysis) {
+    this.isSystemAnalysis = isSystemAnalysis;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -258,13 +282,14 @@ public class CollectionBinaryResponse {
         Objects.equals(this.binaryName, collectionBinaryResponse.binaryName) &&
         Objects.equals(this.ownerId, collectionBinaryResponse.ownerId) &&
         Objects.equals(this.sha256Hash, collectionBinaryResponse.sha256Hash) &&
-        Objects.equals(this.createdAt, collectionBinaryResponse.createdAt)&&
+        Objects.equals(this.createdAt, collectionBinaryResponse.createdAt) &&
+        Objects.equals(this.isSystemAnalysis, collectionBinaryResponse.isSystemAnalysis)&&
         Objects.equals(this.additionalProperties, collectionBinaryResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(analysisId, binaryId, binaryName, ownerId, sha256Hash, createdAt, additionalProperties);
+    return Objects.hash(analysisId, binaryId, binaryName, ownerId, sha256Hash, createdAt, isSystemAnalysis, additionalProperties);
   }
 
   @Override
@@ -277,6 +302,7 @@ public class CollectionBinaryResponse {
     sb.append("    ownerId: ").append(toIndentedString(ownerId)).append("\n");
     sb.append("    sha256Hash: ").append(toIndentedString(sha256Hash)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    isSystemAnalysis: ").append(toIndentedString(isSystemAnalysis)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -299,10 +325,10 @@ public class CollectionBinaryResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("analysis_id", "binary_id", "binary_name", "owner_id", "sha_256_hash", "created_at"));
+    openapiFields = new HashSet<String>(Arrays.asList("analysis_id", "binary_id", "binary_name", "owner_id", "sha_256_hash", "created_at", "is_system_analysis"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("analysis_id", "binary_id", "binary_name", "owner_id", "sha_256_hash", "created_at"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("analysis_id", "binary_id", "binary_name", "owner_id", "sha_256_hash", "created_at", "is_system_analysis"));
   }
 
   /**

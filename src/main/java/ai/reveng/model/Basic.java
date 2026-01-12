@@ -87,6 +87,11 @@ public class Basic {
   @javax.annotation.Nonnull
   private String ownerUsername;
 
+  public static final String SERIALIZED_NAME_IS_SYSTEM = "is_system";
+  @SerializedName(SERIALIZED_NAME_IS_SYSTEM)
+  @javax.annotation.Nonnull
+  private Boolean isSystem;
+
   public static final String SERIALIZED_NAME_ANALYSIS_SCOPE = "analysis_scope";
   @SerializedName(SERIALIZED_NAME_ANALYSIS_SCOPE)
   @javax.annotation.Nonnull
@@ -250,6 +255,25 @@ public class Basic {
 
   public void setOwnerUsername(@javax.annotation.Nonnull String ownerUsername) {
     this.ownerUsername = ownerUsername;
+  }
+
+
+  public Basic isSystem(@javax.annotation.Nonnull Boolean isSystem) {
+    this.isSystem = isSystem;
+    return this;
+  }
+
+  /**
+   * Whether the analysis is a system analysis
+   * @return isSystem
+   */
+  @javax.annotation.Nonnull
+  public Boolean getIsSystem() {
+    return isSystem;
+  }
+
+  public void setIsSystem(@javax.annotation.Nonnull Boolean isSystem) {
+    this.isSystem = isSystem;
   }
 
 
@@ -428,6 +452,7 @@ public class Basic {
         Objects.equals(this.modelName, basic.modelName) &&
         Objects.equals(this.modelId, basic.modelId) &&
         Objects.equals(this.ownerUsername, basic.ownerUsername) &&
+        Objects.equals(this.isSystem, basic.isSystem) &&
         Objects.equals(this.analysisScope, basic.analysisScope) &&
         Objects.equals(this.isOwner, basic.isOwner) &&
         Objects.equals(this.debug, basic.debug) &&
@@ -439,7 +464,7 @@ public class Basic {
 
   @Override
   public int hashCode() {
-    return Objects.hash(binaryName, binarySize, creation, sha256Hash, modelName, modelId, ownerUsername, analysisScope, isOwner, debug, functionCount, isAdvanced, baseAddress, additionalProperties);
+    return Objects.hash(binaryName, binarySize, creation, sha256Hash, modelName, modelId, ownerUsername, isSystem, analysisScope, isOwner, debug, functionCount, isAdvanced, baseAddress, additionalProperties);
   }
 
   @Override
@@ -453,6 +478,7 @@ public class Basic {
     sb.append("    modelName: ").append(toIndentedString(modelName)).append("\n");
     sb.append("    modelId: ").append(toIndentedString(modelId)).append("\n");
     sb.append("    ownerUsername: ").append(toIndentedString(ownerUsername)).append("\n");
+    sb.append("    isSystem: ").append(toIndentedString(isSystem)).append("\n");
     sb.append("    analysisScope: ").append(toIndentedString(analysisScope)).append("\n");
     sb.append("    isOwner: ").append(toIndentedString(isOwner)).append("\n");
     sb.append("    debug: ").append(toIndentedString(debug)).append("\n");
@@ -481,10 +507,10 @@ public class Basic {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("binary_name", "binary_size", "creation", "sha_256_hash", "model_name", "model_id", "owner_username", "analysis_scope", "is_owner", "debug", "function_count", "is_advanced", "base_address"));
+    openapiFields = new HashSet<String>(Arrays.asList("binary_name", "binary_size", "creation", "sha_256_hash", "model_name", "model_id", "owner_username", "is_system", "analysis_scope", "is_owner", "debug", "function_count", "is_advanced", "base_address"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("binary_name", "binary_size", "creation", "sha_256_hash", "model_name", "model_id", "owner_username", "analysis_scope", "is_owner", "debug", "function_count", "is_advanced", "base_address"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("binary_name", "binary_size", "creation", "sha_256_hash", "model_name", "model_id", "owner_username", "is_system", "analysis_scope", "is_owner", "debug", "function_count", "is_advanced", "base_address"));
   }
 
   /**
