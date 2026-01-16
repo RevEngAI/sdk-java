@@ -19,6 +19,7 @@ import ai.reveng.model.AutoUnstripRequest;
 import ai.reveng.model.AutoUnstripResponse;
 import ai.reveng.model.BaseResponse;
 import ai.reveng.model.BaseResponseAnalysisStringsResponse;
+import ai.reveng.model.BaseResponseAnalysisStringsStatusResponse;
 import ai.reveng.model.BaseResponseCalleesCallerFunctionsResponse;
 import ai.reveng.model.BaseResponseFunctionBlocksResponse;
 import ai.reveng.model.BaseResponseFunctionCapabilityResponse;
@@ -144,6 +145,20 @@ public class FunctionsCoreApiTest {
         String search = null;
         String functionSearch = null;
         BaseResponseAnalysisStringsResponse response = api.getAnalysisStrings(analysisId, page, pageSize, search, functionSearch);
+        // TODO: test validations
+    }
+
+    /**
+     * Get string processing state for the Analysis
+     *
+     * Get string processing state for the Analysis
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getAnalysisStringsStatusTest() throws ApiException {
+        Integer analysisId = null;
+        BaseResponseAnalysisStringsStatusResponse response = api.getAnalysisStringsStatus(analysisId);
         // TODO: test validations
     }
 
