@@ -93,7 +93,6 @@ public class AnalysisFunctionMatchingRequest {
   private Boolean noCache = false;
 
   public static final String SERIALIZED_NAME_USE_CANONICAL_NAMES = "use_canonical_names";
-  @Deprecated
   @SerializedName(SERIALIZED_NAME_USE_CANONICAL_NAMES)
   @javax.annotation.Nullable
   private Boolean useCanonicalNames = false;
@@ -253,7 +252,6 @@ public class AnalysisFunctionMatchingRequest {
   }
 
 
-  @Deprecated
   public AnalysisFunctionMatchingRequest useCanonicalNames(@javax.annotation.Nullable Boolean useCanonicalNames) {
     this.useCanonicalNames = useCanonicalNames;
     return this;
@@ -262,15 +260,12 @@ public class AnalysisFunctionMatchingRequest {
   /**
    * Whether to use canonical function names during function matching for confidence results, default is False
    * @return useCanonicalNames
-   * @deprecated
    */
-  @Deprecated
   @javax.annotation.Nullable
   public Boolean getUseCanonicalNames() {
     return useCanonicalNames;
   }
 
-  @Deprecated
   public void setUseCanonicalNames(@javax.annotation.Nullable Boolean useCanonicalNames) {
     this.useCanonicalNames = useCanonicalNames;
   }
