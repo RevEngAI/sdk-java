@@ -14,6 +14,8 @@ package ai.reveng.api;
 
 import ai.reveng.invoker.ApiException;
 import ai.reveng.model.BaseResponse;
+import ai.reveng.model.BaseResponseAdditionalDetailsStatusResponse;
+import ai.reveng.model.BaseResponseBinariesRelatedStatusResponse;
 import ai.reveng.model.BaseResponseBinaryAdditionalResponse;
 import ai.reveng.model.BaseResponseBinaryDetailsResponse;
 import ai.reveng.model.BaseResponseBinaryExternalsResponse;
@@ -60,6 +62,18 @@ public class BinariesApiTest {
     }
 
     /**
+     * Gets the status of the additional details task for a binary
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getBinaryAdditionalDetailsStatusTest() throws ApiException {
+        Integer binaryId = null;
+        BaseResponseAdditionalDetailsStatusResponse response = api.getBinaryAdditionalDetailsStatus(binaryId);
+        // TODO: test validations
+    }
+
+    /**
      * Gets the details of a binary
      *
      * @throws ApiException if the Api call fails
@@ -92,6 +106,18 @@ public class BinariesApiTest {
     public void getBinaryExternalsTest() throws ApiException {
         Integer binaryId = null;
         BaseResponseBinaryExternalsResponse response = api.getBinaryExternals(binaryId);
+        // TODO: test validations
+    }
+
+    /**
+     * Gets the status of the unpack binary task for a binary
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getBinaryRelatedStatusTest() throws ApiException {
+        Integer binaryId = null;
+        BaseResponseBinariesRelatedStatusResponse response = api.getBinaryRelatedStatus(binaryId);
         // TODO: test validations
     }
 

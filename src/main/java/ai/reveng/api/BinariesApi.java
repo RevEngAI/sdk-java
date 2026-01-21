@@ -27,6 +27,8 @@ import java.io.IOException;
 
 
 import ai.reveng.model.BaseResponse;
+import ai.reveng.model.BaseResponseAdditionalDetailsStatusResponse;
+import ai.reveng.model.BaseResponseBinariesRelatedStatusResponse;
 import ai.reveng.model.BaseResponseBinaryAdditionalResponse;
 import ai.reveng.model.BaseResponseBinaryDetailsResponse;
 import ai.reveng.model.BaseResponseBinaryExternalsResponse;
@@ -335,6 +337,137 @@ public class BinariesApi {
 
         okhttp3.Call localVarCall = getBinaryAdditionalDetailsValidateBeforeCall(binaryId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseBinaryAdditionalResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getBinaryAdditionalDetailsStatus
+     * @param binaryId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getBinaryAdditionalDetailsStatusCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v2/binaries/{binary_id}/additional-details/status"
+            .replace("{" + "binary_id" + "}", localVarApiClient.escapeString(binaryId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getBinaryAdditionalDetailsStatusValidateBeforeCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'binaryId' is set
+        if (binaryId == null) {
+            throw new ApiException("Missing the required parameter 'binaryId' when calling getBinaryAdditionalDetailsStatus(Async)");
+        }
+
+        return getBinaryAdditionalDetailsStatusCall(binaryId, _callback);
+
+    }
+
+    /**
+     * Gets the status of the additional details task for a binary
+     * 
+     * @param binaryId  (required)
+     * @return BaseResponseAdditionalDetailsStatusResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+     </table>
+     */
+    public BaseResponseAdditionalDetailsStatusResponse getBinaryAdditionalDetailsStatus(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
+        ApiResponse<BaseResponseAdditionalDetailsStatusResponse> localVarResp = getBinaryAdditionalDetailsStatusWithHttpInfo(binaryId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Gets the status of the additional details task for a binary
+     * 
+     * @param binaryId  (required)
+     * @return ApiResponse&lt;BaseResponseAdditionalDetailsStatusResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<BaseResponseAdditionalDetailsStatusResponse> getBinaryAdditionalDetailsStatusWithHttpInfo(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
+        okhttp3.Call localVarCall = getBinaryAdditionalDetailsStatusValidateBeforeCall(binaryId, null);
+        Type localVarReturnType = new TypeToken<BaseResponseAdditionalDetailsStatusResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Gets the status of the additional details task for a binary (asynchronously)
+     * 
+     * @param binaryId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getBinaryAdditionalDetailsStatusAsync(@javax.annotation.Nonnull Integer binaryId, final ApiCallback<BaseResponseAdditionalDetailsStatusResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getBinaryAdditionalDetailsStatusValidateBeforeCall(binaryId, _callback);
+        Type localVarReturnType = new TypeToken<BaseResponseAdditionalDetailsStatusResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -728,6 +861,137 @@ public class BinariesApi {
 
         okhttp3.Call localVarCall = getBinaryExternalsValidateBeforeCall(binaryId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseBinaryExternalsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getBinaryRelatedStatus
+     * @param binaryId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getBinaryRelatedStatusCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v2/binaries/{binary_id}/related/status"
+            .replace("{" + "binary_id" + "}", localVarApiClient.escapeString(binaryId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getBinaryRelatedStatusValidateBeforeCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'binaryId' is set
+        if (binaryId == null) {
+            throw new ApiException("Missing the required parameter 'binaryId' when calling getBinaryRelatedStatus(Async)");
+        }
+
+        return getBinaryRelatedStatusCall(binaryId, _callback);
+
+    }
+
+    /**
+     * Gets the status of the unpack binary task for a binary
+     * 
+     * @param binaryId  (required)
+     * @return BaseResponseBinariesRelatedStatusResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+     </table>
+     */
+    public BaseResponseBinariesRelatedStatusResponse getBinaryRelatedStatus(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
+        ApiResponse<BaseResponseBinariesRelatedStatusResponse> localVarResp = getBinaryRelatedStatusWithHttpInfo(binaryId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Gets the status of the unpack binary task for a binary
+     * 
+     * @param binaryId  (required)
+     * @return ApiResponse&lt;BaseResponseBinariesRelatedStatusResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<BaseResponseBinariesRelatedStatusResponse> getBinaryRelatedStatusWithHttpInfo(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
+        okhttp3.Call localVarCall = getBinaryRelatedStatusValidateBeforeCall(binaryId, null);
+        Type localVarReturnType = new TypeToken<BaseResponseBinariesRelatedStatusResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Gets the status of the unpack binary task for a binary (asynchronously)
+     * 
+     * @param binaryId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getBinaryRelatedStatusAsync(@javax.annotation.Nonnull Integer binaryId, final ApiCallback<BaseResponseBinariesRelatedStatusResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getBinaryRelatedStatusValidateBeforeCall(binaryId, _callback);
+        Type localVarReturnType = new TypeToken<BaseResponseBinariesRelatedStatusResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
