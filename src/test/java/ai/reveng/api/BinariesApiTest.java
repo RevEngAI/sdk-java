@@ -21,6 +21,7 @@ import ai.reveng.model.BaseResponseBinaryDetailsResponse;
 import ai.reveng.model.BaseResponseBinaryExternalsResponse;
 import ai.reveng.model.BaseResponseChildBinariesResponse;
 import ai.reveng.model.BaseResponseListDieMatch;
+import java.io.File;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -45,7 +46,7 @@ public class BinariesApiTest {
     @Test
     public void downloadZippedBinaryTest() throws ApiException {
         Integer binaryId = null;
-        Object response = api.downloadZippedBinary(binaryId);
+        File response = api.downloadZippedBinary(binaryId);
         // TODO: test validations
     }
 
