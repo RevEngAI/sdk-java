@@ -34,6 +34,7 @@ import ai.reveng.model.BaseResponseBinaryDetailsResponse;
 import ai.reveng.model.BaseResponseBinaryExternalsResponse;
 import ai.reveng.model.BaseResponseChildBinariesResponse;
 import ai.reveng.model.BaseResponseListDieMatch;
+import java.io.File;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -88,7 +89,7 @@ public class BinariesApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Download file </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
@@ -119,6 +120,7 @@ public class BinariesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
+            "application/zip",
             "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
@@ -152,18 +154,18 @@ public class BinariesApi {
      * Downloads a zipped binary with password protection
      * 
      * @param binaryId  (required)
-     * @return Object
+     * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Download file </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public Object downloadZippedBinary(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
-        ApiResponse<Object> localVarResp = downloadZippedBinaryWithHttpInfo(binaryId);
+    public File downloadZippedBinary(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
+        ApiResponse<File> localVarResp = downloadZippedBinaryWithHttpInfo(binaryId);
         return localVarResp.getData();
     }
 
@@ -171,19 +173,19 @@ public class BinariesApi {
      * Downloads a zipped binary with password protection
      * 
      * @param binaryId  (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Download file </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> downloadZippedBinaryWithHttpInfo(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
+    public ApiResponse<File> downloadZippedBinaryWithHttpInfo(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
         okhttp3.Call localVarCall = downloadZippedBinaryValidateBeforeCall(binaryId, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -198,14 +200,14 @@ public class BinariesApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Download file </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call downloadZippedBinaryAsync(@javax.annotation.Nonnull Integer binaryId, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call downloadZippedBinaryAsync(@javax.annotation.Nonnull Integer binaryId, final ApiCallback<File> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = downloadZippedBinaryValidateBeforeCall(binaryId, _callback);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
