@@ -16,7 +16,7 @@ All URIs are relative to *https://api.reveng.ai*
 
 <a id="downloadZippedBinary"></a>
 # **downloadZippedBinary**
-> Object downloadZippedBinary(binaryId)
+> File downloadZippedBinary(binaryId)
 
 Downloads a zipped binary with password protection
 
@@ -44,7 +44,7 @@ public class Example {
     BinariesApi apiInstance = new BinariesApi(defaultClient);
     Integer binaryId = 56; // Integer | 
     try {
-      Object result = apiInstance.downloadZippedBinary(binaryId);
+      File result = apiInstance.downloadZippedBinary(binaryId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BinariesApi#downloadZippedBinary");
@@ -65,7 +65,7 @@ public class Example {
 
 ### Return type
 
-**Object**
+[**File**](File.md)
 
 ### Authorization
 
@@ -74,12 +74,12 @@ public class Example {
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/zip, application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successful Response |  -  |
+| **200** | Download file |  -  |
 | **422** | Invalid request parameters |  -  |
 
 <a id="getBinaryAdditionalDetails"></a>
