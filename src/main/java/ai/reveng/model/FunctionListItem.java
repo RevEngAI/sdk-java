@@ -14,6 +14,7 @@ package ai.reveng.model;
 
 import java.util.Objects;
 import java.util.Locale;
+import ai.reveng.model.NameSourceType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -124,6 +125,11 @@ public class FunctionListItem {
   @javax.annotation.Nonnull
   private NameSourceTypeEnum nameSourceType;
 
+  public static final String SERIALIZED_NAME_NAME_SOURCE = "name_source";
+  @SerializedName(SERIALIZED_NAME_NAME_SOURCE)
+  @javax.annotation.Nonnull
+  private NameSourceType nameSource;
+
   public static final String SERIALIZED_NAME_MANGLED_NAME = "mangled_name";
   @SerializedName(SERIALIZED_NAME_MANGLED_NAME)
   @javax.annotation.Nonnull
@@ -201,6 +207,25 @@ public class FunctionListItem {
 
   public void setNameSourceType(@javax.annotation.Nonnull NameSourceTypeEnum nameSourceType) {
     this.nameSourceType = nameSourceType;
+  }
+
+
+  public FunctionListItem nameSource(@javax.annotation.Nonnull NameSourceType nameSource) {
+    this.nameSource = nameSource;
+    return this;
+  }
+
+  /**
+   * The source of the current function name.
+   * @return nameSource
+   */
+  @javax.annotation.Nonnull
+  public NameSourceType getNameSource() {
+    return nameSource;
+  }
+
+  public void setNameSource(@javax.annotation.Nonnull NameSourceType nameSource) {
+    this.nameSource = nameSource;
   }
 
 
@@ -337,6 +362,7 @@ public class FunctionListItem {
     return Objects.equals(this.id, functionListItem.id) &&
         Objects.equals(this.name, functionListItem.name) &&
         Objects.equals(this.nameSourceType, functionListItem.nameSourceType) &&
+        Objects.equals(this.nameSource, functionListItem.nameSource) &&
         Objects.equals(this.mangledName, functionListItem.mangledName) &&
         Objects.equals(this.vaddr, functionListItem.vaddr) &&
         Objects.equals(this.size, functionListItem.size) &&
@@ -346,7 +372,7 @@ public class FunctionListItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, nameSourceType, mangledName, vaddr, size, debug, additionalProperties);
+    return Objects.hash(id, name, nameSourceType, nameSource, mangledName, vaddr, size, debug, additionalProperties);
   }
 
   @Override
@@ -356,6 +382,7 @@ public class FunctionListItem {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    nameSourceType: ").append(toIndentedString(nameSourceType)).append("\n");
+    sb.append("    nameSource: ").append(toIndentedString(nameSource)).append("\n");
     sb.append("    mangledName: ").append(toIndentedString(mangledName)).append("\n");
     sb.append("    vaddr: ").append(toIndentedString(vaddr)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
@@ -382,10 +409,10 @@ public class FunctionListItem {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "name", "name_source_type", "mangled_name", "vaddr", "size", "debug"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "name", "name_source_type", "name_source", "mangled_name", "vaddr", "size", "debug"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "name", "name_source_type", "mangled_name", "vaddr", "size", "debug"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "name", "name_source_type", "name_source", "mangled_name", "vaddr", "size", "debug"));
   }
 
   /**
@@ -416,6 +443,8 @@ public class FunctionListItem {
       }
       // validate the required field `name_source_type`
       NameSourceTypeEnum.validateJsonElement(jsonObj.get("name_source_type"));
+      // validate the required field `name_source`
+      NameSourceType.validateJsonElement(jsonObj.get("name_source"));
       if (!jsonObj.get("mangled_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `mangled_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mangled_name").toString()));
       }

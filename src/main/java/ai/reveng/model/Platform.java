@@ -32,7 +32,9 @@ public enum Platform {
   
   LINUX("linux"),
   
-  WINDOWS("windows");
+  WINDOWS("windows"),
+  
+  ANDROID("android");
 
   private String value;
 

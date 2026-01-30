@@ -10,6 +10,7 @@
 |**id** | **Long** | Function id |  |
 |**name** | **String** | Name of the function |  |
 |**nameSourceType** | [**NameSourceTypeEnum**](#NameSourceTypeEnum) | The source (process) the function name came from |  |
+|**nameSource** | [**NameSourceType**](NameSourceType.md) | The source of the current function name. |  |
 |**mangledName** | **String** | Mangled name of the function |  |
 |**vaddr** | **Long** | Function virtual address |  |
 |**size** | **Integer** | Function size in bytes |  |
