@@ -16,7 +16,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>ai.reveng</groupId>
     <artifactId>sdk</artifactId>
-    <version>2.88.6</version>
+    <version>3.0.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -31,7 +31,7 @@ repositories {
 }
 
 dependencies {
-    implementation "ai.reveng:sdk:2.88.6"
+    implementation "ai.reveng:sdk:3.0.0"
 }
 ```
 
@@ -131,6 +131,7 @@ Class | Method | HTTP request | Description
 *CollectionsApi* | [**updateCollection**](docs/CollectionsApi.md#updateCollection) | **PATCH** /v2/collections/{collection_id} | Updates a collection
 *CollectionsApi* | [**updateCollectionBinaries**](docs/CollectionsApi.md#updateCollectionBinaries) | **PATCH** /v2/collections/{collection_id}/binaries | Updates a collection binaries
 *CollectionsApi* | [**updateCollectionTags**](docs/CollectionsApi.md#updateCollectionTags) | **PATCH** /v2/collections/{collection_id}/tags | Updates a collection tags
+*ConfigApi* | [**getConfig**](docs/ConfigApi.md#getConfig) | **GET** /v2/config | Get Config
 *ExternalSourcesApi* | [**createExternalTaskVt**](docs/ExternalSourcesApi.md#createExternalTaskVt) | **POST** /v2/analysis/{analysis_id}/external/vt | Pulls data from VirusTotal
 *ExternalSourcesApi* | [**getVtData**](docs/ExternalSourcesApi.md#getVtData) | **GET** /v2/analysis/{analysis_id}/external/vt | Get VirusTotal data
 *ExternalSourcesApi* | [**getVtTaskStatus**](docs/ExternalSourcesApi.md#getVtTaskStatus) | **GET** /v2/analysis/{analysis_id}/external/vt/status | Check the status of VirusTotal data retrieval
@@ -244,6 +245,7 @@ Class | Method | HTTP request | Description
  - [BaseResponseCollectionTagsUpdateResponse](docs/BaseResponseCollectionTagsUpdateResponse.md)
  - [BaseResponseCommentResponse](docs/BaseResponseCommentResponse.md)
  - [BaseResponseCommunities](docs/BaseResponseCommunities.md)
+ - [BaseResponseConfigResponse](docs/BaseResponseConfigResponse.md)
  - [BaseResponseCreated](docs/BaseResponseCreated.md)
  - [BaseResponseDict](docs/BaseResponseDict.md)
  - [BaseResponseDynamicExecutionStatus](docs/BaseResponseDynamicExecutionStatus.md)
@@ -326,6 +328,7 @@ Class | Method | HTTP request | Description
  - [Communities](docs/Communities.md)
  - [CommunityMatchPercentages](docs/CommunityMatchPercentages.md)
  - [ConfidenceType](docs/ConfidenceType.md)
+ - [ConfigResponse](docs/ConfigResponse.md)
  - [Context](docs/Context.md)
  - [Created](docs/Created.md)
  - [DecompilationCommentContext](docs/DecompilationCommentContext.md)
@@ -409,6 +412,7 @@ Class | Method | HTTP request | Description
  - [ModelName](docs/ModelName.md)
  - [ModelsResponse](docs/ModelsResponse.md)
  - [NameConfidence](docs/NameConfidence.md)
+ - [NameSourceType](docs/NameSourceType.md)
  - [NetworkOverviewDns](docs/NetworkOverviewDns.md)
  - [NetworkOverviewDnsAnswer](docs/NetworkOverviewDnsAnswer.md)
  - [NetworkOverviewMetadata](docs/NetworkOverviewMetadata.md)

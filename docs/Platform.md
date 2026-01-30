@@ -9,5 +9,7 @@
 
 * `WINDOWS` (value: `"windows"`)
 
+* `ANDROID` (value: `"android"`)
+
 
 

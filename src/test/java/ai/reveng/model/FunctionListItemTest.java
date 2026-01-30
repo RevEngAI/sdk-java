@@ -12,6 +12,7 @@
 
 package ai.reveng.model;
 
+import ai.reveng.model.NameSourceType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -58,6 +59,14 @@ public class FunctionListItemTest {
     @Test
     public void nameSourceTypeTest() {
         // TODO: test nameSourceType
+    }
+
+    /**
+     * Test the property 'nameSource'
+     */
+    @Test
+    public void nameSourceTest() {
+        // TODO: test nameSource
     }
 
     /**
