@@ -62,4 +62,12 @@ public class ConfigResponseTest {
         // TODO: test aiDecompilerUnsupportedLanguages
     }
 
+    /**
+     * Test the property 'aiDecompilerSupportedModels'
+     */
+    @Test
+    public void aiDecompilerSupportedModelsTest() {
+        // TODO: test aiDecompilerSupportedModels
+    }
+
 }

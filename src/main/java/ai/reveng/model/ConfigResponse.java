@@ -68,6 +68,11 @@ public class ConfigResponse {
   @javax.annotation.Nonnull
   private List<String> aiDecompilerUnsupportedLanguages = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_AI_DECOMPILER_SUPPORTED_MODELS = "ai_decompiler_supported_models";
+  @SerializedName(SERIALIZED_NAME_AI_DECOMPILER_SUPPORTED_MODELS)
+  @javax.annotation.Nonnull
+  private List<String> aiDecompilerSupportedModels = new ArrayList<>();
+
   public ConfigResponse() {
   }
 
@@ -135,6 +140,33 @@ public class ConfigResponse {
     this.aiDecompilerUnsupportedLanguages = aiDecompilerUnsupportedLanguages;
   }
 
+
+  public ConfigResponse aiDecompilerSupportedModels(@javax.annotation.Nonnull List<String> aiDecompilerSupportedModels) {
+    this.aiDecompilerSupportedModels = aiDecompilerSupportedModels;
+    return this;
+  }
+
+  public ConfigResponse addAiDecompilerSupportedModelsItem(String aiDecompilerSupportedModelsItem) {
+    if (this.aiDecompilerSupportedModels == null) {
+      this.aiDecompilerSupportedModels = new ArrayList<>();
+    }
+    this.aiDecompilerSupportedModels.add(aiDecompilerSupportedModelsItem);
+    return this;
+  }
+
+  /**
+   * List of models that support AI decompilation
+   * @return aiDecompilerSupportedModels
+   */
+  @javax.annotation.Nonnull
+  public List<String> getAiDecompilerSupportedModels() {
+    return aiDecompilerSupportedModels;
+  }
+
+  public void setAiDecompilerSupportedModels(@javax.annotation.Nonnull List<String> aiDecompilerSupportedModels) {
+    this.aiDecompilerSupportedModels = aiDecompilerSupportedModels;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -192,13 +224,14 @@ public class ConfigResponse {
     ConfigResponse configResponse = (ConfigResponse) o;
     return Objects.equals(this.dashboardUrl, configResponse.dashboardUrl) &&
         Objects.equals(this.maxFileSizeBytes, configResponse.maxFileSizeBytes) &&
-        Objects.equals(this.aiDecompilerUnsupportedLanguages, configResponse.aiDecompilerUnsupportedLanguages)&&
+        Objects.equals(this.aiDecompilerUnsupportedLanguages, configResponse.aiDecompilerUnsupportedLanguages) &&
+        Objects.equals(this.aiDecompilerSupportedModels, configResponse.aiDecompilerSupportedModels)&&
         Objects.equals(this.additionalProperties, configResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dashboardUrl, maxFileSizeBytes, aiDecompilerUnsupportedLanguages, additionalProperties);
+    return Objects.hash(dashboardUrl, maxFileSizeBytes, aiDecompilerUnsupportedLanguages, aiDecompilerSupportedModels, additionalProperties);
   }
 
   @Override
@@ -208,6 +241,7 @@ public class ConfigResponse {
     sb.append("    dashboardUrl: ").append(toIndentedString(dashboardUrl)).append("\n");
     sb.append("    maxFileSizeBytes: ").append(toIndentedString(maxFileSizeBytes)).append("\n");
     sb.append("    aiDecompilerUnsupportedLanguages: ").append(toIndentedString(aiDecompilerUnsupportedLanguages)).append("\n");
+    sb.append("    aiDecompilerSupportedModels: ").append(toIndentedString(aiDecompilerSupportedModels)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -230,10 +264,10 @@ public class ConfigResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("dashboard_url", "max_file_size_bytes", "ai_decompiler_unsupported_languages"));
+    openapiFields = new HashSet<String>(Arrays.asList("dashboard_url", "max_file_size_bytes", "ai_decompiler_unsupported_languages", "ai_decompiler_supported_models"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("max_file_size_bytes", "ai_decompiler_unsupported_languages"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("max_file_size_bytes", "ai_decompiler_unsupported_languages", "ai_decompiler_supported_models"));
   }
 
   /**
@@ -264,6 +298,12 @@ public class ConfigResponse {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
       } else if (!jsonObj.get("ai_decompiler_unsupported_languages").isJsonArray()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `ai_decompiler_unsupported_languages` to be an array in the JSON string but got `%s`", jsonObj.get("ai_decompiler_unsupported_languages").toString()));
+      }
+      // ensure the required json array is present
+      if (jsonObj.get("ai_decompiler_supported_models") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("ai_decompiler_supported_models").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `ai_decompiler_supported_models` to be an array in the JSON string but got `%s`", jsonObj.get("ai_decompiler_supported_models").toString()));
       }
   }
 
