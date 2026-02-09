@@ -501,6 +501,9 @@ public class AnalysesResultsMetadataApi {
      * @param searchTerm  (optional)
      * @param minVAddr  (optional)
      * @param maxVAddr  (optional)
+     * @param includeEmbeddings  (optional, default to true)
+     * @param page The page number to retrieve. (optional, default to 1)
+     * @param pageSize Number of items per page. (optional, default to 1000)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -514,7 +517,7 @@ public class AnalysesResultsMetadataApi {
      * @deprecated
      */
     @Deprecated
-    public okhttp3.Call getFunctionsListCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable Integer minVAddr, @javax.annotation.Nullable Integer maxVAddr, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getFunctionsListCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable Integer minVAddr, @javax.annotation.Nullable Integer maxVAddr, @javax.annotation.Nullable Boolean includeEmbeddings, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -552,6 +555,18 @@ public class AnalysesResultsMetadataApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("max_v_addr", maxVAddr));
         }
 
+        if (includeEmbeddings != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("include_embeddings", includeEmbeddings));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (pageSize != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page_size", pageSize));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -573,13 +588,13 @@ public class AnalysesResultsMetadataApi {
 
     @Deprecated
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getFunctionsListValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable Integer minVAddr, @javax.annotation.Nullable Integer maxVAddr, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getFunctionsListValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable Integer minVAddr, @javax.annotation.Nullable Integer maxVAddr, @javax.annotation.Nullable Boolean includeEmbeddings, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling getFunctionsList(Async)");
         }
 
-        return getFunctionsListCall(analysisId, searchTerm, minVAddr, maxVAddr, _callback);
+        return getFunctionsListCall(analysisId, searchTerm, minVAddr, maxVAddr, includeEmbeddings, page, pageSize, _callback);
 
     }
 
@@ -590,6 +605,9 @@ public class AnalysesResultsMetadataApi {
      * @param searchTerm  (optional)
      * @param minVAddr  (optional)
      * @param maxVAddr  (optional)
+     * @param includeEmbeddings  (optional, default to true)
+     * @param page The page number to retrieve. (optional, default to 1)
+     * @param pageSize Number of items per page. (optional, default to 1000)
      * @return BaseResponseAnalysisFunctions
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -602,8 +620,8 @@ public class AnalysesResultsMetadataApi {
      * @deprecated
      */
     @Deprecated
-    public BaseResponseAnalysisFunctions getFunctionsList(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable Integer minVAddr, @javax.annotation.Nullable Integer maxVAddr) throws ApiException {
-        ApiResponse<BaseResponseAnalysisFunctions> localVarResp = getFunctionsListWithHttpInfo(analysisId, searchTerm, minVAddr, maxVAddr);
+    public BaseResponseAnalysisFunctions getFunctionsList(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable Integer minVAddr, @javax.annotation.Nullable Integer maxVAddr, @javax.annotation.Nullable Boolean includeEmbeddings, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize) throws ApiException {
+        ApiResponse<BaseResponseAnalysisFunctions> localVarResp = getFunctionsListWithHttpInfo(analysisId, searchTerm, minVAddr, maxVAddr, includeEmbeddings, page, pageSize);
         return localVarResp.getData();
     }
 
@@ -614,6 +632,9 @@ public class AnalysesResultsMetadataApi {
      * @param searchTerm  (optional)
      * @param minVAddr  (optional)
      * @param maxVAddr  (optional)
+     * @param includeEmbeddings  (optional, default to true)
+     * @param page The page number to retrieve. (optional, default to 1)
+     * @param pageSize Number of items per page. (optional, default to 1000)
      * @return ApiResponse&lt;BaseResponseAnalysisFunctions&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -626,8 +647,8 @@ public class AnalysesResultsMetadataApi {
      * @deprecated
      */
     @Deprecated
-    public ApiResponse<BaseResponseAnalysisFunctions> getFunctionsListWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable Integer minVAddr, @javax.annotation.Nullable Integer maxVAddr) throws ApiException {
-        okhttp3.Call localVarCall = getFunctionsListValidateBeforeCall(analysisId, searchTerm, minVAddr, maxVAddr, null);
+    public ApiResponse<BaseResponseAnalysisFunctions> getFunctionsListWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable Integer minVAddr, @javax.annotation.Nullable Integer maxVAddr, @javax.annotation.Nullable Boolean includeEmbeddings, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize) throws ApiException {
+        okhttp3.Call localVarCall = getFunctionsListValidateBeforeCall(analysisId, searchTerm, minVAddr, maxVAddr, includeEmbeddings, page, pageSize, null);
         Type localVarReturnType = new TypeToken<BaseResponseAnalysisFunctions>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -639,6 +660,9 @@ public class AnalysesResultsMetadataApi {
      * @param searchTerm  (optional)
      * @param minVAddr  (optional)
      * @param maxVAddr  (optional)
+     * @param includeEmbeddings  (optional, default to true)
+     * @param page The page number to retrieve. (optional, default to 1)
+     * @param pageSize Number of items per page. (optional, default to 1000)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -652,9 +676,9 @@ public class AnalysesResultsMetadataApi {
      * @deprecated
      */
     @Deprecated
-    public okhttp3.Call getFunctionsListAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable Integer minVAddr, @javax.annotation.Nullable Integer maxVAddr, final ApiCallback<BaseResponseAnalysisFunctions> _callback) throws ApiException {
+    public okhttp3.Call getFunctionsListAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable Integer minVAddr, @javax.annotation.Nullable Integer maxVAddr, @javax.annotation.Nullable Boolean includeEmbeddings, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, final ApiCallback<BaseResponseAnalysisFunctions> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getFunctionsListValidateBeforeCall(analysisId, searchTerm, minVAddr, maxVAddr, _callback);
+        okhttp3.Call localVarCall = getFunctionsListValidateBeforeCall(analysisId, searchTerm, minVAddr, maxVAddr, includeEmbeddings, page, pageSize, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseAnalysisFunctions>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

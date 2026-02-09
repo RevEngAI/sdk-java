@@ -91,7 +91,10 @@ public class AnalysesResultsMetadataApiTest {
         String searchTerm = null;
         Integer minVAddr = null;
         Integer maxVAddr = null;
-        BaseResponseAnalysisFunctions response = api.getFunctionsList(analysisId, searchTerm, minVAddr, maxVAddr);
+        Boolean includeEmbeddings = null;
+        Integer page = null;
+        Integer pageSize = null;
+        BaseResponseAnalysisFunctions response = api.getFunctionsList(analysisId, searchTerm, minVAddr, maxVAddr, includeEmbeddings, page, pageSize);
         // TODO: test validations
     }
 

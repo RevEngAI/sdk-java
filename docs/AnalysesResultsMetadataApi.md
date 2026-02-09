@@ -228,7 +228,7 @@ public class Example {
 
 <a id="getFunctionsList"></a>
 # **getFunctionsList**
-> BaseResponseAnalysisFunctions getFunctionsList(analysisId, searchTerm, minVAddr, maxVAddr)
+> BaseResponseAnalysisFunctions getFunctionsList(analysisId, searchTerm, minVAddr, maxVAddr, includeEmbeddings, page, pageSize)
 
 Gets functions from analysis
 
@@ -260,8 +260,11 @@ public class Example {
     String searchTerm = "searchTerm_example"; // String | 
     Integer minVAddr = 56; // Integer | 
     Integer maxVAddr = 56; // Integer | 
+    Boolean includeEmbeddings = true; // Boolean | 
+    Integer page = 1; // Integer | The page number to retrieve.
+    Integer pageSize = 1000; // Integer | Number of items per page.
     try {
-      BaseResponseAnalysisFunctions result = apiInstance.getFunctionsList(analysisId, searchTerm, minVAddr, maxVAddr);
+      BaseResponseAnalysisFunctions result = apiInstance.getFunctionsList(analysisId, searchTerm, minVAddr, maxVAddr, includeEmbeddings, page, pageSize);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesResultsMetadataApi#getFunctionsList");
@@ -282,6 +285,9 @@ public class Example {
 | **searchTerm** | **String**|  | [optional] |
 | **minVAddr** | **Integer**|  | [optional] |
 | **maxVAddr** | **Integer**|  | [optional] |
+| **includeEmbeddings** | **Boolean**|  | [optional] [default to true] |
+| **page** | **Integer**| The page number to retrieve. | [optional] [default to 1] |
+| **pageSize** | **Integer**| Number of items per page. | [optional] [default to 1000] |
 
 ### Return type
 
