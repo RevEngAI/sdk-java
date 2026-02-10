@@ -20,6 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
+import org.openapitools.jackson.nullable.JsonNullable;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -147,6 +148,22 @@ public class BasicTest {
     @Test
     public void baseAddressTest() {
         // TODO: test baseAddress
+    }
+
+    /**
+     * Test the property 'binaryUuid'
+     */
+    @Test
+    public void binaryUuidTest() {
+        // TODO: test binaryUuid
+    }
+
+    /**
+     * Test the property 'sequencerVersion'
+     */
+    @Test
+    public void sequencerVersionTest() {
+        // TODO: test sequencerVersion
     }
 
 }
