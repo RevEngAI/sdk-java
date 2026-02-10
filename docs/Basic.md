@@ -21,6 +21,8 @@
 |**functionCount** | **Integer** | The number of functions in the binary |  |
 |**isAdvanced** | **Boolean** | Whether the analysis was advanced |  |
 |**baseAddress** | **Integer** |  |  |
+|**binaryUuid** | **String** |  |  [optional] |
+|**sequencerVersion** | **String** |  |  [optional] |
 
 
 

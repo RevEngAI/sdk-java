@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -121,6 +122,16 @@ public class Basic {
   @SerializedName(SERIALIZED_NAME_BASE_ADDRESS)
   @javax.annotation.Nullable
   private Integer baseAddress;
+
+  public static final String SERIALIZED_NAME_BINARY_UUID = "binary_uuid";
+  @SerializedName(SERIALIZED_NAME_BINARY_UUID)
+  @javax.annotation.Nullable
+  private String binaryUuid;
+
+  public static final String SERIALIZED_NAME_SEQUENCER_VERSION = "sequencer_version";
+  @SerializedName(SERIALIZED_NAME_SEQUENCER_VERSION)
+  @javax.annotation.Nullable
+  private String sequencerVersion;
 
   public Basic() {
   }
@@ -390,6 +401,44 @@ public class Basic {
     this.baseAddress = baseAddress;
   }
 
+
+  public Basic binaryUuid(@javax.annotation.Nullable String binaryUuid) {
+    this.binaryUuid = binaryUuid;
+    return this;
+  }
+
+  /**
+   * Get binaryUuid
+   * @return binaryUuid
+   */
+  @javax.annotation.Nullable
+  public String getBinaryUuid() {
+    return binaryUuid;
+  }
+
+  public void setBinaryUuid(@javax.annotation.Nullable String binaryUuid) {
+    this.binaryUuid = binaryUuid;
+  }
+
+
+  public Basic sequencerVersion(@javax.annotation.Nullable String sequencerVersion) {
+    this.sequencerVersion = sequencerVersion;
+    return this;
+  }
+
+  /**
+   * Get sequencerVersion
+   * @return sequencerVersion
+   */
+  @javax.annotation.Nullable
+  public String getSequencerVersion() {
+    return sequencerVersion;
+  }
+
+  public void setSequencerVersion(@javax.annotation.Nullable String sequencerVersion) {
+    this.sequencerVersion = sequencerVersion;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -458,13 +507,26 @@ public class Basic {
         Objects.equals(this.debug, basic.debug) &&
         Objects.equals(this.functionCount, basic.functionCount) &&
         Objects.equals(this.isAdvanced, basic.isAdvanced) &&
-        Objects.equals(this.baseAddress, basic.baseAddress)&&
+        Objects.equals(this.baseAddress, basic.baseAddress) &&
+        Objects.equals(this.binaryUuid, basic.binaryUuid) &&
+        Objects.equals(this.sequencerVersion, basic.sequencerVersion)&&
         Objects.equals(this.additionalProperties, basic.additionalProperties);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(binaryName, binarySize, creation, sha256Hash, modelName, modelId, ownerUsername, isSystem, analysisScope, isOwner, debug, functionCount, isAdvanced, baseAddress, additionalProperties);
+    return Objects.hash(binaryName, binarySize, creation, sha256Hash, modelName, modelId, ownerUsername, isSystem, analysisScope, isOwner, debug, functionCount, isAdvanced, baseAddress, binaryUuid, sequencerVersion, additionalProperties);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -485,6 +547,8 @@ public class Basic {
     sb.append("    functionCount: ").append(toIndentedString(functionCount)).append("\n");
     sb.append("    isAdvanced: ").append(toIndentedString(isAdvanced)).append("\n");
     sb.append("    baseAddress: ").append(toIndentedString(baseAddress)).append("\n");
+    sb.append("    binaryUuid: ").append(toIndentedString(binaryUuid)).append("\n");
+    sb.append("    sequencerVersion: ").append(toIndentedString(sequencerVersion)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -507,7 +571,7 @@ public class Basic {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("binary_name", "binary_size", "creation", "sha_256_hash", "model_name", "model_id", "owner_username", "is_system", "analysis_scope", "is_owner", "debug", "function_count", "is_advanced", "base_address"));
+    openapiFields = new HashSet<String>(Arrays.asList("binary_name", "binary_size", "creation", "sha_256_hash", "model_name", "model_id", "owner_username", "is_system", "analysis_scope", "is_owner", "debug", "function_count", "is_advanced", "base_address", "binary_uuid", "sequencer_version"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("binary_name", "binary_size", "creation", "sha_256_hash", "model_name", "model_id", "owner_username", "is_system", "analysis_scope", "is_owner", "debug", "function_count", "is_advanced", "base_address"));
@@ -547,6 +611,12 @@ public class Basic {
       }
       if (!jsonObj.get("analysis_scope").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `analysis_scope` to be a primitive type in the JSON string but got `%s`", jsonObj.get("analysis_scope").toString()));
+      }
+      if ((jsonObj.get("binary_uuid") != null && !jsonObj.get("binary_uuid").isJsonNull()) && !jsonObj.get("binary_uuid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `binary_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("binary_uuid").toString()));
+      }
+      if ((jsonObj.get("sequencer_version") != null && !jsonObj.get("sequencer_version").isJsonNull()) && !jsonObj.get("sequencer_version").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `sequencer_version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sequencer_version").toString()));
       }
   }
 
