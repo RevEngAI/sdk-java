@@ -12,7 +12,6 @@
 
 package ai.reveng.model;
 
-import ai.reveng.model.AnyOf;
 import ai.reveng.model.ErrorModel;
 import ai.reveng.model.MetaModel;
 import com.google.gson.TypeAdapter;

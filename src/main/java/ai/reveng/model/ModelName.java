@@ -40,7 +40,13 @@ public enum ModelName {
   
   BINNET_0_7_ARM_64_WINDOWS("binnet-0.7-arm-64-windows"),
   
-  BINNET_0_7_ARM_64_LINUX("binnet-0.7-arm-64-linux");
+  BINNET_0_7_ARM_64_LINUX("binnet-0.7-arm-64-linux"),
+  
+  BINNET_0_7_X86_64_ANDROID("binnet-0.7-x86-64-android"),
+  
+  BINNET_0_7_X86_32_ANDROID("binnet-0.7-x86-32-android"),
+  
+  BINNET_0_7_ARM_64_ANDROID("binnet-0.7-arm-64-android");
 
   private String value;
 

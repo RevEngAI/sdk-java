@@ -14,18 +14,13 @@ package ai.reveng.model;
 
 import java.util.Objects;
 import java.util.Locale;
-import ai.reveng.model.ErrorModel;
-import ai.reveng.model.MetaModel;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -52,138 +47,34 @@ import java.util.Locale;
 import ai.reveng.invoker.JSON;
 
 /**
- * BaseResponse
+ * InsertAnalysisLogRequest
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class BaseResponse {
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
-  @javax.annotation.Nullable
-  private Boolean status = true;
+public class InsertAnalysisLogRequest {
+  public static final String SERIALIZED_NAME_LOG = "log";
+  @SerializedName(SERIALIZED_NAME_LOG)
+  @javax.annotation.Nonnull
+  private String log;
 
-  public static final String SERIALIZED_NAME_DATA = "data";
-  @SerializedName(SERIALIZED_NAME_DATA)
-  @javax.annotation.Nullable
-  private Object data;
-
-  public static final String SERIALIZED_NAME_MESSAGE = "message";
-  @SerializedName(SERIALIZED_NAME_MESSAGE)
-  @javax.annotation.Nullable
-  private String message;
-
-  public static final String SERIALIZED_NAME_ERRORS = "errors";
-  @SerializedName(SERIALIZED_NAME_ERRORS)
-  @javax.annotation.Nullable
-  private List<ErrorModel> errors;
-
-  public static final String SERIALIZED_NAME_META = "meta";
-  @SerializedName(SERIALIZED_NAME_META)
-  @javax.annotation.Nullable
-  private MetaModel meta;
-
-  public BaseResponse() {
+  public InsertAnalysisLogRequest() {
   }
 
-  public BaseResponse status(@javax.annotation.Nullable Boolean status) {
-    this.status = status;
+  public InsertAnalysisLogRequest log(@javax.annotation.Nonnull String log) {
+    this.log = log;
     return this;
   }
 
   /**
-   * Response status on whether the request succeeded
-   * @return status
+   * The log message to insert for the analysis
+   * @return log
    */
-  @javax.annotation.Nullable
-  public Boolean getStatus() {
-    return status;
+  @javax.annotation.Nonnull
+  public String getLog() {
+    return log;
   }
 
-  public void setStatus(@javax.annotation.Nullable Boolean status) {
-    this.status = status;
-  }
-
-
-  public BaseResponse data(@javax.annotation.Nullable Object data) {
-    this.data = data;
-    return this;
-  }
-
-  /**
-   * Get data
-   * @return data
-   */
-  @javax.annotation.Nullable
-  public Object getData() {
-    return data;
-  }
-
-  public void setData(@javax.annotation.Nullable Object data) {
-    this.data = data;
-  }
-
-
-  public BaseResponse message(@javax.annotation.Nullable String message) {
-    this.message = message;
-    return this;
-  }
-
-  /**
-   * Get message
-   * @return message
-   */
-  @javax.annotation.Nullable
-  public String getMessage() {
-    return message;
-  }
-
-  public void setMessage(@javax.annotation.Nullable String message) {
-    this.message = message;
-  }
-
-
-  public BaseResponse errors(@javax.annotation.Nullable List<ErrorModel> errors) {
-    this.errors = errors;
-    return this;
-  }
-
-  public BaseResponse addErrorsItem(ErrorModel errorsItem) {
-    if (this.errors == null) {
-      this.errors = new ArrayList<>();
-    }
-    this.errors.add(errorsItem);
-    return this;
-  }
-
-  /**
-   * Get errors
-   * @return errors
-   */
-  @javax.annotation.Nullable
-  public List<ErrorModel> getErrors() {
-    return errors;
-  }
-
-  public void setErrors(@javax.annotation.Nullable List<ErrorModel> errors) {
-    this.errors = errors;
-  }
-
-
-  public BaseResponse meta(@javax.annotation.Nullable MetaModel meta) {
-    this.meta = meta;
-    return this;
-  }
-
-  /**
-   * Metadata
-   * @return meta
-   */
-  @javax.annotation.Nullable
-  public MetaModel getMeta() {
-    return meta;
-  }
-
-  public void setMeta(@javax.annotation.Nullable MetaModel meta) {
-    this.meta = meta;
+  public void setLog(@javax.annotation.Nonnull String log) {
+    this.log = log;
   }
 
   /**
@@ -199,9 +90,9 @@ public class BaseResponse {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the BaseResponse instance itself
+   * @return the InsertAnalysisLogRequest instance itself
    */
-  public BaseResponse putAdditionalProperty(String key, Object value) {
+  public InsertAnalysisLogRequest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -240,40 +131,21 @@ public class BaseResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BaseResponse baseResponse = (BaseResponse) o;
-    return Objects.equals(this.status, baseResponse.status) &&
-        Objects.equals(this.data, baseResponse.data) &&
-        Objects.equals(this.message, baseResponse.message) &&
-        Objects.equals(this.errors, baseResponse.errors) &&
-        Objects.equals(this.meta, baseResponse.meta)&&
-        Objects.equals(this.additionalProperties, baseResponse.additionalProperties);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+    InsertAnalysisLogRequest insertAnalysisLogRequest = (InsertAnalysisLogRequest) o;
+    return Objects.equals(this.log, insertAnalysisLogRequest.log)&&
+        Objects.equals(this.additionalProperties, insertAnalysisLogRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, data, message, errors, meta, additionalProperties);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(log, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BaseResponse {\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
-    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
-    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
+    sb.append("class InsertAnalysisLogRequest {\n");
+    sb.append("    log: ").append(toIndentedString(log)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -296,45 +168,34 @@ public class BaseResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("status", "data", "message", "errors", "meta"));
+    openapiFields = new HashSet<String>(Arrays.asList("log"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(0);
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("log"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to BaseResponse
+   * @throws IOException if the JSON Element is invalid with respect to InsertAnalysisLogRequest
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!BaseResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in BaseResponse is not found in the empty JSON string", BaseResponse.openapiRequiredFields.toString()));
+        if (!InsertAnalysisLogRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in InsertAnalysisLogRequest is not found in the empty JSON string", InsertAnalysisLogRequest.openapiRequiredFields.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : InsertAnalysisLogRequest.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("message") != null && !jsonObj.get("message").isJsonNull()) && !jsonObj.get("message").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
-      }
-      if (jsonObj.get("errors") != null && !jsonObj.get("errors").isJsonNull()) {
-        JsonArray jsonArrayerrors = jsonObj.getAsJsonArray("errors");
-        if (jsonArrayerrors != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("errors").isJsonArray()) {
-            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `errors` to be an array in the JSON string but got `%s`", jsonObj.get("errors").toString()));
-          }
-
-          // validate the optional field `errors` (array)
-          for (int i = 0; i < jsonArrayerrors.size(); i++) {
-            ErrorModel.validateJsonElement(jsonArrayerrors.get(i));
-          };
-        }
-      }
-      // validate the optional field `meta`
-      if (jsonObj.get("meta") != null && !jsonObj.get("meta").isJsonNull()) {
-        MetaModel.validateJsonElement(jsonObj.get("meta"));
+      if (!jsonObj.get("log").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `log` to be a primitive type in the JSON string but got `%s`", jsonObj.get("log").toString()));
       }
   }
 
@@ -342,16 +203,16 @@ public class BaseResponse {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!BaseResponse.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'BaseResponse' and its subtypes
+       if (!InsertAnalysisLogRequest.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'InsertAnalysisLogRequest' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<BaseResponse> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(BaseResponse.class));
+       final TypeAdapter<InsertAnalysisLogRequest> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(InsertAnalysisLogRequest.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<BaseResponse>() {
+       return (TypeAdapter<T>) new TypeAdapter<InsertAnalysisLogRequest>() {
            @Override
-           public void write(JsonWriter out, BaseResponse value) throws IOException {
+           public void write(JsonWriter out, InsertAnalysisLogRequest value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -379,12 +240,12 @@ public class BaseResponse {
            }
 
            @Override
-           public BaseResponse read(JsonReader in) throws IOException {
+           public InsertAnalysisLogRequest read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             BaseResponse instance = thisAdapter.fromJsonTree(jsonObj);
+             InsertAnalysisLogRequest instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -411,18 +272,18 @@ public class BaseResponse {
   }
 
   /**
-   * Create an instance of BaseResponse given an JSON string
+   * Create an instance of InsertAnalysisLogRequest given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of BaseResponse
-   * @throws IOException if the JSON string is invalid with respect to BaseResponse
+   * @return An instance of InsertAnalysisLogRequest
+   * @throws IOException if the JSON string is invalid with respect to InsertAnalysisLogRequest
    */
-  public static BaseResponse fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, BaseResponse.class);
+  public static InsertAnalysisLogRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, InsertAnalysisLogRequest.class);
   }
 
   /**
-   * Convert an instance of BaseResponse to an JSON string
+   * Convert an instance of InsertAnalysisLogRequest to an JSON string
    *
    * @return JSON string
    */

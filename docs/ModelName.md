@@ -17,5 +17,11 @@
 
 * `BINNET_0_7_ARM_64_LINUX` (value: `"binnet-0.7-arm-64-linux"`)
 
+* `BINNET_0_7_X86_64_ANDROID` (value: `"binnet-0.7-x86-64-android"`)
+
+* `BINNET_0_7_X86_32_ANDROID` (value: `"binnet-0.7-x86-32-android"`)
+
+* `BINNET_0_7_ARM_64_ANDROID` (value: `"binnet-0.7-arm-64-android"`)
+
 
 

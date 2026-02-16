@@ -39,6 +39,14 @@ public class BasicTest {
     }
 
     /**
+     * Test the property 'binaryId'
+     */
+    @Test
+    public void binaryIdTest() {
+        // TODO: test binaryId
+    }
+
+    /**
      * Test the property 'binaryName'
      */
     @Test

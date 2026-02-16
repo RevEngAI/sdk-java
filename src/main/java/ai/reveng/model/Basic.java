@@ -53,6 +53,11 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Basic {
+  public static final String SERIALIZED_NAME_BINARY_ID = "binary_id";
+  @SerializedName(SERIALIZED_NAME_BINARY_ID)
+  @javax.annotation.Nonnull
+  private Integer binaryId;
+
   public static final String SERIALIZED_NAME_BINARY_NAME = "binary_name";
   @SerializedName(SERIALIZED_NAME_BINARY_NAME)
   @javax.annotation.Nonnull
@@ -135,6 +140,25 @@ public class Basic {
 
   public Basic() {
   }
+
+  public Basic binaryId(@javax.annotation.Nonnull Integer binaryId) {
+    this.binaryId = binaryId;
+    return this;
+  }
+
+  /**
+   * The ID of the binary
+   * @return binaryId
+   */
+  @javax.annotation.Nonnull
+  public Integer getBinaryId() {
+    return binaryId;
+  }
+
+  public void setBinaryId(@javax.annotation.Nonnull Integer binaryId) {
+    this.binaryId = binaryId;
+  }
+
 
   public Basic binaryName(@javax.annotation.Nonnull String binaryName) {
     this.binaryName = binaryName;
@@ -494,7 +518,8 @@ public class Basic {
       return false;
     }
     Basic basic = (Basic) o;
-    return Objects.equals(this.binaryName, basic.binaryName) &&
+    return Objects.equals(this.binaryId, basic.binaryId) &&
+        Objects.equals(this.binaryName, basic.binaryName) &&
         Objects.equals(this.binarySize, basic.binarySize) &&
         Objects.equals(this.creation, basic.creation) &&
         Objects.equals(this.sha256Hash, basic.sha256Hash) &&
@@ -519,7 +544,7 @@ public class Basic {
 
   @Override
   public int hashCode() {
-    return Objects.hash(binaryName, binarySize, creation, sha256Hash, modelName, modelId, ownerUsername, isSystem, analysisScope, isOwner, debug, functionCount, isAdvanced, baseAddress, binaryUuid, sequencerVersion, additionalProperties);
+    return Objects.hash(binaryId, binaryName, binarySize, creation, sha256Hash, modelName, modelId, ownerUsername, isSystem, analysisScope, isOwner, debug, functionCount, isAdvanced, baseAddress, binaryUuid, sequencerVersion, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -533,6 +558,7 @@ public class Basic {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Basic {\n");
+    sb.append("    binaryId: ").append(toIndentedString(binaryId)).append("\n");
     sb.append("    binaryName: ").append(toIndentedString(binaryName)).append("\n");
     sb.append("    binarySize: ").append(toIndentedString(binarySize)).append("\n");
     sb.append("    creation: ").append(toIndentedString(creation)).append("\n");
@@ -571,10 +597,10 @@ public class Basic {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("binary_name", "binary_size", "creation", "sha_256_hash", "model_name", "model_id", "owner_username", "is_system", "analysis_scope", "is_owner", "debug", "function_count", "is_advanced", "base_address", "binary_uuid", "sequencer_version"));
+    openapiFields = new HashSet<String>(Arrays.asList("binary_id", "binary_name", "binary_size", "creation", "sha_256_hash", "model_name", "model_id", "owner_username", "is_system", "analysis_scope", "is_owner", "debug", "function_count", "is_advanced", "base_address", "binary_uuid", "sequencer_version"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("binary_name", "binary_size", "creation", "sha_256_hash", "model_name", "model_id", "owner_username", "is_system", "analysis_scope", "is_owner", "debug", "function_count", "is_advanced", "base_address"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("binary_id", "binary_name", "binary_size", "creation", "sha_256_hash", "model_name", "model_id", "owner_username", "is_system", "analysis_scope", "is_owner", "debug", "function_count", "is_advanced", "base_address"));
   }
 
   /**

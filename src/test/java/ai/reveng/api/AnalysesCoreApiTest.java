@@ -32,6 +32,7 @@ import ai.reveng.model.BaseResponseStatus;
 import ai.reveng.model.BaseResponseUploadResponse;
 import ai.reveng.model.DynamicExecutionStatusInput;
 import java.io.File;
+import ai.reveng.model.InsertAnalysisLogRequest;
 import ai.reveng.model.ModelName;
 import ai.reveng.model.Order;
 import ai.reveng.model.ReAnalysisForm;
@@ -150,6 +151,21 @@ public class AnalysesCoreApiTest {
     public void getAnalysisStatusTest() throws ApiException {
         Integer analysisId = null;
         BaseResponseStatus response = api.getAnalysisStatus(analysisId);
+        // TODO: test validations
+    }
+
+    /**
+     * Insert a log entry for an analysis
+     *
+     * Inserts a log record for an analysis. Only the analysis owner can insert logs.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void insertAnalysisLogTest() throws ApiException {
+        Integer analysisId = null;
+        InsertAnalysisLogRequest insertAnalysisLogRequest = null;
+        BaseResponse response = api.insertAnalysisLog(analysisId, insertAnalysisLogRequest);
         // TODO: test validations
     }
 
