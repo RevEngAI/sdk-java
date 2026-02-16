@@ -7,6 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**binaryId** | **Integer** | The ID of the binary |  |
 |**binaryName** | **String** | The name of the binary uploaded |  |
 |**binarySize** | **Integer** | The size of the binary uploaded (bytes) |  |
 |**creation** | **OffsetDateTime** | When the binary was uploaded |  |
