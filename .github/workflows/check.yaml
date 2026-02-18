@@ -102,7 +102,7 @@ jobs:
 
     - name: Generate Java SDK
       if: steps.version_check.outputs.should_generate == 'true'
-      uses: openapi-generators/openapitools-generator-action@b729d184e6b3459572c37c0e37f88a832e69b552 # v1
+      uses: openapi-generators/openapitools-generator-action@b729d184e6b3459572c37c0e37f88a832e69b552 # v1.5.0
       with:
         generator: java
         generator-tag: 'v7.17.0'
