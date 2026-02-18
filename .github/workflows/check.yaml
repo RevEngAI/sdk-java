@@ -15,13 +15,13 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       with:
         fetch-depth: 0 # Fetch all history
         token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
       with:
         python-version: '3.13'
 
@@ -38,7 +38,7 @@ jobs:
         import subprocess
         import sys
         import os
-        
+
         def get_openapi_version():
             """Get version from OpenAPI spec"""
             try:
@@ -49,15 +49,15 @@ jobs:
             except Exception as e:
                 print(f"Error fetching OpenAPI spec: {e}")
                 return None
-        
+
         def check_existing_prs():
             """Check if there are existing open PRs from the bot"""
             try:
                 result = subprocess.run([
-                    'gh', 'pr', 'list', '--state', 'open', 
+                    'gh', 'pr', 'list', '--state', 'open',
                     '--author', 'app/github-actions', '--json', 'title'
                 ], capture_output=True, text=True, check=True)
-                
+
                 prs = json.loads(result.stdout)
                 for pr in prs:
                     if 'SDK update' in pr.get('title', '') or 'OpenAPI' in pr.get('title', ''):
@@ -66,23 +66,23 @@ jobs:
             except Exception as e:
                 print(f"Error checking existing PRs: {e}")
                 return True  # Assume PR exists to be safe
-        
+
         # Main logic
         print("🔍 Getting OpenAPI version and checking for existing PRs...")
-        
+
         # Get OpenAPI version
         openapi_version = get_openapi_version()
-        
+
         if not openapi_version:
             print("❌ Could not retrieve OpenAPI version")
             sys.exit(1)
-        
+
         print(f"📋 OpenAPI version: {openapi_version}")
-        
+
         # Create Maven-compatible version (remove 'v' prefix if it exists)
         openapi_version_maven = openapi_version.lstrip('v')
         print(f"📋 Maven version: {openapi_version_maven}")
-        
+
         # Check for existing PRs
         if check_existing_prs():
             print("📋 Existing PR found, skipping SDK generation")
@@ -94,7 +94,7 @@ jobs:
                 f.write(f"should_generate=true\n")
                 f.write(f"openapi_version={openapi_version}\n")
                 f.write(f"openapi_version_maven={openapi_version_maven}\n")
-        
+
         print("✅ Check completed")
         EOF
       env:
@@ -102,7 +102,7 @@ jobs:
 
     - name: Generate Java SDK
       if: steps.version_check.outputs.should_generate == 'true'
-      uses: openapi-generators/openapitools-generator-action@v1
+      uses: openapi-generators/openapitools-generator-action@b729d184e6b3459572c37c0e37f88a832e69b552 # v1
       with:
         generator: java
         generator-tag: 'v7.17.0'
@@ -116,6 +116,8 @@ jobs:
     - name: Check for changes
       if: steps.version_check.outputs.should_generate == 'true'
       id: check_changes
+      env:
+        OPENAPI_VERSION: ${{ steps.version_check.outputs.openapi_version }}
       run: |
         # Move generated files to the correct locations and clean up
         rm -Rf docs && mv java-client/docs .
@@ -130,20 +132,20 @@ jobs:
         rm -Rf settings.gradle && mv java-client/settings.gradle .
         rm -Rf README.md && mv java-client/README.md .
         rm -Rf java-client
-        
+
         # Ensure gradlew is executable
         chmod +x gradlew
-        
+
         # Move custom models
         cp models/* src/main/java/ai/reveng/model/
 
         # Store the SDK version
-        echo ${{ steps.version_check.outputs.openapi_version }} > .sdk-version
+        echo "$OPENAPI_VERSION" > .sdk-version
 
         # Configure git
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
-        
+
         # Check if there are any changes
         if git diff --quiet && git diff --cached --quiet; then
           echo "No changes detected in generated SDK"
@@ -151,7 +153,7 @@ jobs:
         else
           echo "Changes detected in generated SDK"
           echo "has_changes=true" >> $GITHUB_OUTPUT
-          
+
           # Show what changed
           echo "Files changed:"
           git diff --name-only
@@ -161,8 +163,9 @@ jobs:
         fi
 
     - name: Generate a token
+      if: steps.version_check.outputs.should_generate == 'true' && steps.check_changes.outputs.has_changes == 'true'
       id: generate-token
-      uses: actions/create-github-app-token@v2
+      uses: actions/create-github-app-token@29824e69f54612133e76f7eaac726eef6c875baf # v2.2.1
       with:
         app-id: ${{ vars.REVENG_APP_ID }}
         private-key: ${{ secrets.REVENG_APP_PRIVATE_KEY }}
@@ -172,32 +175,35 @@ jobs:
 
     - name: Create Pull Request
       if: steps.version_check.outputs.should_generate == 'true' && steps.check_changes.outputs.has_changes == 'true'
+      env:
+        GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
+        OPENAPI_VERSION: ${{ steps.version_check.outputs.openapi_version }}
       run: |
         # Create a new branch
-        BRANCH_NAME="sdk-update-${{ steps.version_check.outputs.openapi_version }}"
+        BRANCH_NAME="sdk-update-${OPENAPI_VERSION}"
         git checkout -b "$BRANCH_NAME"
-        
+
         # Stage all changes
         git add .
-        
-        # Commit changes
-        git commit -m "Update SDK to version ${{ steps.version_check.outputs.openapi_version }}
 
-        - Generated from OpenAPI spec version ${{ steps.version_check.outputs.openapi_version }}
+        # Commit changes
+        git commit -m "Update SDK to version ${OPENAPI_VERSION}
+
+        - Generated from OpenAPI spec version ${OPENAPI_VERSION}
         - Auto-generated by GitHub Actions"
-        
+
         # Push the branch
         git push -f origin "$BRANCH_NAME"
-        
+
         # Create PR using GitHub CLI
         gh pr create \
-          --title "🤖 Update SDK to version ${{ steps.version_check.outputs.openapi_version }}" \
+          --title "🤖 Update SDK to version ${OPENAPI_VERSION}" \
           --body "## 🔄 Automated SDK Update
 
         This PR was automatically generated to update the Java SDK to match the latest OpenAPI specification.
 
         ### 📊 Version Information
-        - **OpenAPI Spec Version**: \`${{ steps.version_check.outputs.openapi_version }}\`
+        - **OpenAPI Spec Version**: \`${OPENAPI_VERSION}\`
 
         ### 🔧 Changes
         - Generated fresh SDK from [OpenAPI specification](https://api.reveng.ai/openapi.json)
@@ -213,8 +219,6 @@ jobs:
         🤖 *This PR was created automatically by GitHub Actions*" \
           --head "$BRANCH_NAME" \
           --base main
-        
+
         echo "✅ Pull request created successfully"
-        echo "::notice title=PR Created::Created PR for SDK update to version ${{ steps.version_check.outputs.openapi_version }}"
-      env:
-        GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
+        echo "::notice title=PR Created::Created PR for SDK update to version ${OPENAPI_VERSION}"
