@@ -27,7 +27,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pip install requests
+        pip install requests==2.32.5
 
     - name: Get OpenAPI version and check for existing PRs
       id: version_check
@@ -167,7 +167,7 @@ jobs:
       id: generate-token
       uses: actions/create-github-app-token@29824e69f54612133e76f7eaac726eef6c875baf # v2.2.1
       with:
-        app-id: ${{ vars.REVENG_APP_ID }}
+        app-id: ${{ secrets.REVENG_APP_ID }}
         private-key: ${{ secrets.REVENG_APP_PRIVATE_KEY }}
         owner: ${{ github.repository_owner }}
         repositories: |

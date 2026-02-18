@@ -21,7 +21,7 @@ jobs:
       id: generate-token
       uses: actions/create-github-app-token@29824e69f54612133e76f7eaac726eef6c875baf # v2.2.1
       with:
-        app-id: ${{ vars.REVENG_APP_ID }}
+        app-id: ${{ secrets.REVENG_APP_ID }}
         private-key: ${{ secrets.REVENG_APP_PRIVATE_KEY }}
 
     - name: Read version from file
@@ -100,7 +100,7 @@ jobs:
 
     - name: Notify the releases channel about the release
       if: steps.check-tag.outputs.tag_exists == 'false'
-      uses: slackapi/slack-github-action@91efab103c0de0a537f72a35f6b8cda0ee76bf0a # v2.1.s
+      uses: slackapi/slack-github-action@91efab103c0de0a537f72a35f6b8cda0ee76bf0a # v2.1.1
       env:
         REPO_URL: "${{github.server_url}}/${{github.repository}}"
         RELEASE_URL: "${{github.server_url}}/${{github.repository}}/releases/tag/${{ steps.version.outputs.version }}"
