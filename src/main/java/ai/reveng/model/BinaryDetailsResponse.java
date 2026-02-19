@@ -115,7 +115,7 @@ public class BinaryDetailsResponse {
 
   public static final String SERIALIZED_NAME_SSDEEP = "ssdeep";
   @SerializedName(SERIALIZED_NAME_SSDEEP)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String ssdeep;
 
   public static final String SERIALIZED_NAME_STATIC = "static";
@@ -384,7 +384,7 @@ public class BinaryDetailsResponse {
   }
 
 
-  public BinaryDetailsResponse ssdeep(@javax.annotation.Nonnull String ssdeep) {
+  public BinaryDetailsResponse ssdeep(@javax.annotation.Nullable String ssdeep) {
     this.ssdeep = ssdeep;
     return this;
   }
@@ -393,12 +393,12 @@ public class BinaryDetailsResponse {
    * Get ssdeep
    * @return ssdeep
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getSsdeep() {
     return ssdeep;
   }
 
-  public void setSsdeep(@javax.annotation.Nonnull String ssdeep) {
+  public void setSsdeep(@javax.annotation.Nullable String ssdeep) {
     this.ssdeep = ssdeep;
   }
 
@@ -717,7 +717,7 @@ public class BinaryDetailsResponse {
       if (!jsonObj.get("sha256").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `sha256` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sha256").toString()));
       }
-      if (!jsonObj.get("ssdeep").isJsonPrimitive()) {
+      if ((jsonObj.get("ssdeep") != null && !jsonObj.get("ssdeep").isJsonNull()) && !jsonObj.get("ssdeep").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `ssdeep` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ssdeep").toString()));
       }
       if (!jsonObj.get("sub_sys").isJsonPrimitive()) {
