@@ -121,6 +121,14 @@ public class AnalysisDetailResponseTest {
     }
 
     /**
+     * Test the property 'dashboardUrl'
+     */
+    @Test
+    public void dashboardUrlTest() {
+        // TODO: test dashboardUrl
+    }
+
+    /**
      * Test the property 'debug'
      */
     @Test

@@ -125,6 +125,11 @@ public class NameSourceType {
   @javax.annotation.Nullable
   private Integer binaryId;
 
+  public static final String SERIALIZED_NAME_ANALYSIS_ID = "analysis_id";
+  @SerializedName(SERIALIZED_NAME_ANALYSIS_ID)
+  @javax.annotation.Nullable
+  private Integer analysisId;
+
   public NameSourceType() {
   }
 
@@ -184,6 +189,25 @@ public class NameSourceType {
     this.binaryId = binaryId;
   }
 
+
+  public NameSourceType analysisId(@javax.annotation.Nullable Integer analysisId) {
+    this.analysisId = analysisId;
+    return this;
+  }
+
+  /**
+   * Get analysisId
+   * @return analysisId
+   */
+  @javax.annotation.Nullable
+  public Integer getAnalysisId() {
+    return analysisId;
+  }
+
+  public void setAnalysisId(@javax.annotation.Nullable Integer analysisId) {
+    this.analysisId = analysisId;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -241,7 +265,8 @@ public class NameSourceType {
     NameSourceType nameSourceType = (NameSourceType) o;
     return Objects.equals(this.type, nameSourceType.type) &&
         Objects.equals(this.functionId, nameSourceType.functionId) &&
-        Objects.equals(this.binaryId, nameSourceType.binaryId)&&
+        Objects.equals(this.binaryId, nameSourceType.binaryId) &&
+        Objects.equals(this.analysisId, nameSourceType.analysisId)&&
         Objects.equals(this.additionalProperties, nameSourceType.additionalProperties);
   }
 
@@ -251,7 +276,7 @@ public class NameSourceType {
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, functionId, binaryId, additionalProperties);
+    return Objects.hash(type, functionId, binaryId, analysisId, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -268,6 +293,7 @@ public class NameSourceType {
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
     sb.append("    binaryId: ").append(toIndentedString(binaryId)).append("\n");
+    sb.append("    analysisId: ").append(toIndentedString(analysisId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -290,7 +316,7 @@ public class NameSourceType {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("type", "function_id", "binary_id"));
+    openapiFields = new HashSet<String>(Arrays.asList("type", "function_id", "binary_id", "analysis_id"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("type"));

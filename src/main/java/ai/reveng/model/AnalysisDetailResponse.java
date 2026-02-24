@@ -105,6 +105,11 @@ public class AnalysisDetailResponse {
   @javax.annotation.Nonnull
   private String creation;
 
+  public static final String SERIALIZED_NAME_DASHBOARD_URL = "dashboard_url";
+  @SerializedName(SERIALIZED_NAME_DASHBOARD_URL)
+  @javax.annotation.Nonnull
+  private String dashboardUrl;
+
   public static final String SERIALIZED_NAME_DEBUG = "debug";
   @SerializedName(SERIALIZED_NAME_DEBUG)
   @javax.annotation.Nonnull
@@ -318,6 +323,25 @@ public class AnalysisDetailResponse {
   }
 
 
+  public AnalysisDetailResponse dashboardUrl(@javax.annotation.Nonnull String dashboardUrl) {
+    this.dashboardUrl = dashboardUrl;
+    return this;
+  }
+
+  /**
+   * URL to view this analysis in the dashboard
+   * @return dashboardUrl
+   */
+  @javax.annotation.Nonnull
+  public String getDashboardUrl() {
+    return dashboardUrl;
+  }
+
+  public void setDashboardUrl(@javax.annotation.Nonnull String dashboardUrl) {
+    this.dashboardUrl = dashboardUrl;
+  }
+
+
   public AnalysisDetailResponse debug(@javax.annotation.Nonnull Boolean debug) {
     this.debug = debug;
     return this;
@@ -466,6 +490,7 @@ public class AnalysisDetailResponse {
         Objects.equals(this.binarySize, analysisDetailResponse.binarySize) &&
         Objects.equals(this.binaryType, analysisDetailResponse.binaryType) &&
         Objects.equals(this.creation, analysisDetailResponse.creation) &&
+        Objects.equals(this.dashboardUrl, analysisDetailResponse.dashboardUrl) &&
         Objects.equals(this.debug, analysisDetailResponse.debug) &&
         Objects.equals(this.modelName, analysisDetailResponse.modelName) &&
         Objects.equals(this.sbom, analysisDetailResponse.sbom) &&
@@ -479,7 +504,7 @@ public class AnalysisDetailResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(access, analysisId, analysisScope, architecture, binaryDynamic, binaryFormat, binaryName, binarySize, binaryType, creation, debug, modelName, sbom, sha256Hash, additionalProperties);
+    return Objects.hash(access, analysisId, analysisScope, architecture, binaryDynamic, binaryFormat, binaryName, binarySize, binaryType, creation, dashboardUrl, debug, modelName, sbom, sha256Hash, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -503,6 +528,7 @@ public class AnalysisDetailResponse {
     sb.append("    binarySize: ").append(toIndentedString(binarySize)).append("\n");
     sb.append("    binaryType: ").append(toIndentedString(binaryType)).append("\n");
     sb.append("    creation: ").append(toIndentedString(creation)).append("\n");
+    sb.append("    dashboardUrl: ").append(toIndentedString(dashboardUrl)).append("\n");
     sb.append("    debug: ").append(toIndentedString(debug)).append("\n");
     sb.append("    modelName: ").append(toIndentedString(modelName)).append("\n");
     sb.append("    sbom: ").append(toIndentedString(sbom)).append("\n");
@@ -529,10 +555,10 @@ public class AnalysisDetailResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access", "analysis_id", "analysis_scope", "architecture", "binary_dynamic", "binary_format", "binary_name", "binary_size", "binary_type", "creation", "debug", "model_name", "sbom", "sha_256_hash"));
+    openapiFields = new HashSet<String>(Arrays.asList("access", "analysis_id", "analysis_scope", "architecture", "binary_dynamic", "binary_format", "binary_name", "binary_size", "binary_type", "creation", "dashboard_url", "debug", "model_name", "sbom", "sha_256_hash"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("access", "analysis_id", "analysis_scope", "architecture", "binary_dynamic", "binary_format", "binary_name", "binary_size", "binary_type", "creation", "debug", "model_name", "sha_256_hash"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("access", "analysis_id", "analysis_scope", "architecture", "binary_dynamic", "binary_format", "binary_name", "binary_size", "binary_type", "creation", "dashboard_url", "debug", "model_name", "sha_256_hash"));
   }
 
   /**
@@ -574,6 +600,9 @@ public class AnalysisDetailResponse {
       }
       if (!jsonObj.get("creation").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `creation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("creation").toString()));
+      }
+      if (!jsonObj.get("dashboard_url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `dashboard_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dashboard_url").toString()));
       }
       if (!jsonObj.get("model_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `model_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("model_name").toString()));

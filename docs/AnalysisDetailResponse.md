@@ -17,6 +17,7 @@
 |**binarySize** | **Integer** |  |  |
 |**binaryType** | **String** |  |  |
 |**creation** | **String** |  |  |
+|**dashboardUrl** | **String** | URL to view this analysis in the dashboard |  |
 |**debug** | **Boolean** |  |  |
 |**modelName** | **String** |  |  |
 |**sbom** | **Map&lt;String, Object&gt;** |  |  [optional] |
