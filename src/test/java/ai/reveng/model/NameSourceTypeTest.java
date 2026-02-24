@@ -61,4 +61,12 @@ public class NameSourceTypeTest {
         // TODO: test binaryId
     }
 
+    /**
+     * Test the property 'analysisId'
+     */
+    @Test
+    public void analysisIdTest() {
+        // TODO: test analysisId
+    }
+
 }

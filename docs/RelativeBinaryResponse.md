@@ -8,6 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**binaryId** | **Integer** | ID of the relative binary |  |
+|**analysisId** | **Integer** |  |  [optional] |
 |**name** | **String** | Name of the relative binary |  |
 |**sha256** | **String** | SHA256 hash of the relative binary |  |
 
