@@ -59,7 +59,7 @@ public class InverseStringMapItem {
   public static final String SERIALIZED_NAME_ADDR = "addr";
   @SerializedName(SERIALIZED_NAME_ADDR)
   @javax.annotation.Nullable
-  private Integer addr;
+  private Long addr;
 
   public InverseStringMapItem() {
   }
@@ -83,7 +83,7 @@ public class InverseStringMapItem {
   }
 
 
-  public InverseStringMapItem addr(@javax.annotation.Nullable Integer addr) {
+  public InverseStringMapItem addr(@javax.annotation.Nullable Long addr) {
     this.addr = addr;
     return this;
   }
@@ -93,11 +93,11 @@ public class InverseStringMapItem {
    * @return addr
    */
   @javax.annotation.Nullable
-  public Integer getAddr() {
+  public Long getAddr() {
     return addr;
   }
 
-  public void setAddr(@javax.annotation.Nullable Integer addr) {
+  public void setAddr(@javax.annotation.Nullable Long addr) {
     this.addr = addr;
   }
 

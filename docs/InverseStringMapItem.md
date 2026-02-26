@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**string** | **String** |  |  |
-|**addr** | **Integer** |  |  |
+|**addr** | **Long** |  |  |
 
 
 
