@@ -447,7 +447,7 @@ public class Example {
 
 <a id="getAnalysisStrings"></a>
 # **getAnalysisStrings**
-> BaseResponseAnalysisStringsResponse getAnalysisStrings(analysisId, page, pageSize, search, functionSearch)
+> BaseResponseAnalysisStringsResponse getAnalysisStrings(analysisId, page, pageSize, search, functionSearch, orderBy, sortOrder)
 
 Get string information found in the Analysis
 
@@ -480,8 +480,10 @@ public class Example {
     Integer pageSize = 100; // Integer | Number of items per page.
     String search = "search_example"; // String | Search is applied to string value
     String functionSearch = "functionSearch_example"; // String | Search is applied to function names
+    String orderBy = "length"; // String | Order by field
+    String sortOrder = "ASC"; // String | Sort order for the results
     try {
-      BaseResponseAnalysisStringsResponse result = apiInstance.getAnalysisStrings(analysisId, page, pageSize, search, functionSearch);
+      BaseResponseAnalysisStringsResponse result = apiInstance.getAnalysisStrings(analysisId, page, pageSize, search, functionSearch, orderBy, sortOrder);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsCoreApi#getAnalysisStrings");
@@ -503,6 +505,8 @@ public class Example {
 | **pageSize** | **Integer**| Number of items per page. | [optional] [default to 100] |
 | **search** | **String**| Search is applied to string value | [optional] |
 | **functionSearch** | **String**| Search is applied to function names | [optional] |
+| **orderBy** | **String**| Order by field | [optional] [default to value] [enum: length, value] |
+| **sortOrder** | **String**| Sort order for the results | [optional] [default to ASC] [enum: ASC, DESC] |
 
 ### Return type
 

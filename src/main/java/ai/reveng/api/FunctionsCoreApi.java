@@ -907,6 +907,8 @@ public class FunctionsCoreApi {
      * @param pageSize Number of items per page. (optional, default to 100)
      * @param search Search is applied to string value (optional)
      * @param functionSearch Search is applied to function names (optional)
+     * @param orderBy Order by field (optional, default to value)
+     * @param sortOrder Sort order for the results (optional, default to ASC)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -918,7 +920,7 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAnalysisStringsCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String functionSearch, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAnalysisStringsCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String functionSearch, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String sortOrder, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -960,6 +962,14 @@ public class FunctionsCoreApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("function_search", functionSearch));
         }
 
+        if (orderBy != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("order_by", orderBy));
+        }
+
+        if (sortOrder != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sort_order", sortOrder));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -980,13 +990,13 @@ public class FunctionsCoreApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAnalysisStringsValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String functionSearch, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAnalysisStringsValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String functionSearch, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String sortOrder, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling getAnalysisStrings(Async)");
         }
 
-        return getAnalysisStringsCall(analysisId, page, pageSize, search, functionSearch, _callback);
+        return getAnalysisStringsCall(analysisId, page, pageSize, search, functionSearch, orderBy, sortOrder, _callback);
 
     }
 
@@ -998,6 +1008,8 @@ public class FunctionsCoreApi {
      * @param pageSize Number of items per page. (optional, default to 100)
      * @param search Search is applied to string value (optional)
      * @param functionSearch Search is applied to function names (optional)
+     * @param orderBy Order by field (optional, default to value)
+     * @param sortOrder Sort order for the results (optional, default to ASC)
      * @return BaseResponseAnalysisStringsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1008,8 +1020,8 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseAnalysisStringsResponse getAnalysisStrings(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String functionSearch) throws ApiException {
-        ApiResponse<BaseResponseAnalysisStringsResponse> localVarResp = getAnalysisStringsWithHttpInfo(analysisId, page, pageSize, search, functionSearch);
+    public BaseResponseAnalysisStringsResponse getAnalysisStrings(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String functionSearch, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String sortOrder) throws ApiException {
+        ApiResponse<BaseResponseAnalysisStringsResponse> localVarResp = getAnalysisStringsWithHttpInfo(analysisId, page, pageSize, search, functionSearch, orderBy, sortOrder);
         return localVarResp.getData();
     }
 
@@ -1021,6 +1033,8 @@ public class FunctionsCoreApi {
      * @param pageSize Number of items per page. (optional, default to 100)
      * @param search Search is applied to string value (optional)
      * @param functionSearch Search is applied to function names (optional)
+     * @param orderBy Order by field (optional, default to value)
+     * @param sortOrder Sort order for the results (optional, default to ASC)
      * @return ApiResponse&lt;BaseResponseAnalysisStringsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1031,8 +1045,8 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseAnalysisStringsResponse> getAnalysisStringsWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String functionSearch) throws ApiException {
-        okhttp3.Call localVarCall = getAnalysisStringsValidateBeforeCall(analysisId, page, pageSize, search, functionSearch, null);
+    public ApiResponse<BaseResponseAnalysisStringsResponse> getAnalysisStringsWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String functionSearch, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String sortOrder) throws ApiException {
+        okhttp3.Call localVarCall = getAnalysisStringsValidateBeforeCall(analysisId, page, pageSize, search, functionSearch, orderBy, sortOrder, null);
         Type localVarReturnType = new TypeToken<BaseResponseAnalysisStringsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1045,6 +1059,8 @@ public class FunctionsCoreApi {
      * @param pageSize Number of items per page. (optional, default to 100)
      * @param search Search is applied to string value (optional)
      * @param functionSearch Search is applied to function names (optional)
+     * @param orderBy Order by field (optional, default to value)
+     * @param sortOrder Sort order for the results (optional, default to ASC)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1056,9 +1072,9 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAnalysisStringsAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String functionSearch, final ApiCallback<BaseResponseAnalysisStringsResponse> _callback) throws ApiException {
+    public okhttp3.Call getAnalysisStringsAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String functionSearch, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String sortOrder, final ApiCallback<BaseResponseAnalysisStringsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAnalysisStringsValidateBeforeCall(analysisId, page, pageSize, search, functionSearch, _callback);
+        okhttp3.Call localVarCall = getAnalysisStringsValidateBeforeCall(analysisId, page, pageSize, search, functionSearch, orderBy, sortOrder, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseAnalysisStringsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

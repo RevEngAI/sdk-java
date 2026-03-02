@@ -144,7 +144,9 @@ public class FunctionsCoreApiTest {
         Integer pageSize = null;
         String search = null;
         String functionSearch = null;
-        BaseResponseAnalysisStringsResponse response = api.getAnalysisStrings(analysisId, page, pageSize, search, functionSearch);
+        String orderBy = null;
+        String sortOrder = null;
+        BaseResponseAnalysisStringsResponse response = api.getAnalysisStrings(analysisId, page, pageSize, search, functionSearch, orderBy, sortOrder);
         // TODO: test validations
     }
 
