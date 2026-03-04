@@ -26,11 +26,13 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import ai.reveng.model.AnalysisBulkAddTagsRequest;
 import ai.reveng.model.AnalysisCreateRequest;
 import ai.reveng.model.AnalysisUpdateRequest;
 import ai.reveng.model.AnalysisUpdateTagsRequest;
 import ai.reveng.model.AppApiRestV2AnalysesEnumsOrderBy;
 import ai.reveng.model.BaseResponse;
+import ai.reveng.model.BaseResponseAnalysisBulkAddTagsResponse;
 import ai.reveng.model.BaseResponseAnalysisCreateResponse;
 import ai.reveng.model.BaseResponseAnalysisDetailResponse;
 import ai.reveng.model.BaseResponseAnalysisFunctionMapping;
@@ -96,6 +98,137 @@ public class AnalysesCoreApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
+    /**
+     * Build call for bulkAddAnalysisTags
+     * @param analysisBulkAddTagsRequest  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call bulkAddAnalysisTagsCall(@javax.annotation.Nonnull AnalysisBulkAddTagsRequest analysisBulkAddTagsRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = analysisBulkAddTagsRequest;
+
+        // create path and map variables
+        String localVarPath = "/v2/analyses/tags/add";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call bulkAddAnalysisTagsValidateBeforeCall(@javax.annotation.Nonnull AnalysisBulkAddTagsRequest analysisBulkAddTagsRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'analysisBulkAddTagsRequest' is set
+        if (analysisBulkAddTagsRequest == null) {
+            throw new ApiException("Missing the required parameter 'analysisBulkAddTagsRequest' when calling bulkAddAnalysisTags(Async)");
+        }
+
+        return bulkAddAnalysisTagsCall(analysisBulkAddTagsRequest, _callback);
+
+    }
+
+    /**
+     * Bulk Add Analysis Tags
+     * Updates analysis tags for multiple analyses. User must be the owner.
+     * @param analysisBulkAddTagsRequest  (required)
+     * @return BaseResponseAnalysisBulkAddTagsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+     </table>
+     */
+    public BaseResponseAnalysisBulkAddTagsResponse bulkAddAnalysisTags(@javax.annotation.Nonnull AnalysisBulkAddTagsRequest analysisBulkAddTagsRequest) throws ApiException {
+        ApiResponse<BaseResponseAnalysisBulkAddTagsResponse> localVarResp = bulkAddAnalysisTagsWithHttpInfo(analysisBulkAddTagsRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Bulk Add Analysis Tags
+     * Updates analysis tags for multiple analyses. User must be the owner.
+     * @param analysisBulkAddTagsRequest  (required)
+     * @return ApiResponse&lt;BaseResponseAnalysisBulkAddTagsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<BaseResponseAnalysisBulkAddTagsResponse> bulkAddAnalysisTagsWithHttpInfo(@javax.annotation.Nonnull AnalysisBulkAddTagsRequest analysisBulkAddTagsRequest) throws ApiException {
+        okhttp3.Call localVarCall = bulkAddAnalysisTagsValidateBeforeCall(analysisBulkAddTagsRequest, null);
+        Type localVarReturnType = new TypeToken<BaseResponseAnalysisBulkAddTagsResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Bulk Add Analysis Tags (asynchronously)
+     * Updates analysis tags for multiple analyses. User must be the owner.
+     * @param analysisBulkAddTagsRequest  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call bulkAddAnalysisTagsAsync(@javax.annotation.Nonnull AnalysisBulkAddTagsRequest analysisBulkAddTagsRequest, final ApiCallback<BaseResponseAnalysisBulkAddTagsResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = bulkAddAnalysisTagsValidateBeforeCall(analysisBulkAddTagsRequest, _callback);
+        Type localVarReturnType = new TypeToken<BaseResponseAnalysisBulkAddTagsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
     /**
      * Build call for createAnalysis
      * @param analysisCreateRequest  (required)
