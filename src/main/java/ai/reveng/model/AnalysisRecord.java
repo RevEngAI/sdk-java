@@ -15,6 +15,7 @@ package ai.reveng.model;
 import java.util.Objects;
 import java.util.Locale;
 import ai.reveng.model.AppApiRestV2AnalysesEnumsDynamicExecutionStatus;
+import ai.reveng.model.TagItem;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,7 +24,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -134,6 +137,11 @@ public class AnalysisRecord {
   @SerializedName(SERIALIZED_NAME_BASE_ADDRESS)
   @javax.annotation.Nonnull
   private BigInteger baseAddress;
+
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  @javax.annotation.Nullable
+  private List<TagItem> tags = new ArrayList<>();
 
   public AnalysisRecord() {
   }
@@ -441,6 +449,33 @@ public class AnalysisRecord {
     this.baseAddress = baseAddress;
   }
 
+
+  public AnalysisRecord tags(@javax.annotation.Nullable List<TagItem> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public AnalysisRecord addTagsItem(TagItem tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+  /**
+   * List of tags associated with the analysis
+   * @return tags
+   */
+  @javax.annotation.Nullable
+  public List<TagItem> getTags() {
+    return tags;
+  }
+
+  public void setTags(@javax.annotation.Nullable List<TagItem> tags) {
+    this.tags = tags;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -511,7 +546,8 @@ public class AnalysisRecord {
         Objects.equals(this.username, analysisRecord.username) &&
         Objects.equals(this.dynamicExecutionStatus, analysisRecord.dynamicExecutionStatus) &&
         Objects.equals(this.dynamicExecutionTaskId, analysisRecord.dynamicExecutionTaskId) &&
-        Objects.equals(this.baseAddress, analysisRecord.baseAddress)&&
+        Objects.equals(this.baseAddress, analysisRecord.baseAddress) &&
+        Objects.equals(this.tags, analysisRecord.tags)&&
         Objects.equals(this.additionalProperties, analysisRecord.additionalProperties);
   }
 
@@ -521,7 +557,7 @@ public class AnalysisRecord {
 
   @Override
   public int hashCode() {
-    return Objects.hash(analysisId, analysisScope, binaryId, modelId, modelName, status, creation, isOwner, binaryName, sha256Hash, functionBoundariesHash, binarySize, username, dynamicExecutionStatus, dynamicExecutionTaskId, baseAddress, additionalProperties);
+    return Objects.hash(analysisId, analysisScope, binaryId, modelId, modelName, status, creation, isOwner, binaryName, sha256Hash, functionBoundariesHash, binarySize, username, dynamicExecutionStatus, dynamicExecutionTaskId, baseAddress, tags, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -551,6 +587,7 @@ public class AnalysisRecord {
     sb.append("    dynamicExecutionStatus: ").append(toIndentedString(dynamicExecutionStatus)).append("\n");
     sb.append("    dynamicExecutionTaskId: ").append(toIndentedString(dynamicExecutionTaskId)).append("\n");
     sb.append("    baseAddress: ").append(toIndentedString(baseAddress)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -573,7 +610,7 @@ public class AnalysisRecord {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("analysis_id", "analysis_scope", "binary_id", "model_id", "model_name", "status", "creation", "is_owner", "binary_name", "sha_256_hash", "function_boundaries_hash", "binary_size", "username", "dynamic_execution_status", "dynamic_execution_task_id", "base_address"));
+    openapiFields = new HashSet<String>(Arrays.asList("analysis_id", "analysis_scope", "binary_id", "model_id", "model_name", "status", "creation", "is_owner", "binary_name", "sha_256_hash", "function_boundaries_hash", "binary_size", "username", "dynamic_execution_status", "dynamic_execution_task_id", "base_address", "tags"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("analysis_id", "analysis_scope", "binary_id", "model_id", "model_name", "status", "creation", "is_owner", "binary_name", "sha_256_hash", "function_boundaries_hash", "binary_size", "username", "base_address"));
@@ -623,6 +660,20 @@ public class AnalysisRecord {
       // validate the optional field `dynamic_execution_status`
       if (jsonObj.get("dynamic_execution_status") != null && !jsonObj.get("dynamic_execution_status").isJsonNull()) {
         AppApiRestV2AnalysesEnumsDynamicExecutionStatus.validateJsonElement(jsonObj.get("dynamic_execution_status"));
+      }
+      if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull()) {
+        JsonArray jsonArraytags = jsonObj.getAsJsonArray("tags");
+        if (jsonArraytags != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("tags").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
+          }
+
+          // validate the optional field `tags` (array)
+          for (int i = 0; i < jsonArraytags.size(); i++) {
+            TagItem.validateJsonElement(jsonArraytags.get(i));
+          };
+        }
       }
   }
 

@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**status** | **String** |  |  |
+|**status** | **AiDecompilationTaskStatus** | The status of the AI decompilation task |  |
 |**decompilation** | **String** |  |  |
 |**rawDecompilation** | **String** |  |  |
 |**functionMapping** | [**Map&lt;String, InverseFunctionMapItem&gt;**](InverseFunctionMapItem.md) |  |  |

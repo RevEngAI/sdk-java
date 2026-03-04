@@ -23,6 +23,7 @@
 |**dynamicExecutionStatus** | **AppApiRestV2AnalysesEnumsDynamicExecutionStatus** |  |  [optional] |
 |**dynamicExecutionTaskId** | **Integer** |  |  [optional] |
 |**baseAddress** | **BigInteger** | The base address of the binary |  |
+|**tags** | [**List&lt;TagItem&gt;**](TagItem.md) | List of tags associated with the analysis |  [optional] |
 
 
 

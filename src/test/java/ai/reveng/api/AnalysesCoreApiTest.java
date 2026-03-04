@@ -13,11 +13,13 @@
 package ai.reveng.api;
 
 import ai.reveng.invoker.ApiException;
+import ai.reveng.model.AnalysisBulkAddTagsRequest;
 import ai.reveng.model.AnalysisCreateRequest;
 import ai.reveng.model.AnalysisUpdateRequest;
 import ai.reveng.model.AnalysisUpdateTagsRequest;
 import ai.reveng.model.AppApiRestV2AnalysesEnumsOrderBy;
 import ai.reveng.model.BaseResponse;
+import ai.reveng.model.BaseResponseAnalysisBulkAddTagsResponse;
 import ai.reveng.model.BaseResponseAnalysisCreateResponse;
 import ai.reveng.model.BaseResponseAnalysisDetailResponse;
 import ai.reveng.model.BaseResponseAnalysisFunctionMapping;
@@ -54,6 +56,20 @@ import java.util.Map;
 public class AnalysesCoreApiTest {
 
     private final AnalysesCoreApi api = new AnalysesCoreApi();
+
+    /**
+     * Bulk Add Analysis Tags
+     *
+     * Updates analysis tags for multiple analyses. User must be the owner.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void bulkAddAnalysisTagsTest() throws ApiException {
+        AnalysisBulkAddTagsRequest analysisBulkAddTagsRequest = null;
+        BaseResponseAnalysisBulkAddTagsResponse response = api.bulkAddAnalysisTags(analysisBulkAddTagsRequest);
+        // TODO: test validations
+    }
 
     /**
      * Create Analysis

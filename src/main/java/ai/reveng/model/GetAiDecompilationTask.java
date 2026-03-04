@@ -14,6 +14,7 @@ package ai.reveng.model;
 
 import java.util.Objects;
 import java.util.Locale;
+import ai.reveng.model.AiDecompilationTaskStatus;
 import ai.reveng.model.FunctionMappingFull;
 import ai.reveng.model.InverseFunctionMapItem;
 import com.google.gson.TypeAdapter;
@@ -59,7 +60,7 @@ public class GetAiDecompilationTask {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
   @javax.annotation.Nonnull
-  private String status;
+  private AiDecompilationTaskStatus status;
 
   public static final String SERIALIZED_NAME_DECOMPILATION = "decompilation";
   @SerializedName(SERIALIZED_NAME_DECOMPILATION)
@@ -104,21 +105,21 @@ public class GetAiDecompilationTask {
   public GetAiDecompilationTask() {
   }
 
-  public GetAiDecompilationTask status(@javax.annotation.Nonnull String status) {
+  public GetAiDecompilationTask status(@javax.annotation.Nonnull AiDecompilationTaskStatus status) {
     this.status = status;
     return this;
   }
 
   /**
-   * Get status
+   * The status of the AI decompilation task
    * @return status
    */
   @javax.annotation.Nonnull
-  public String getStatus() {
+  public AiDecompilationTaskStatus getStatus() {
     return status;
   }
 
-  public void setStatus(@javax.annotation.Nonnull String status) {
+  public void setStatus(@javax.annotation.Nonnull AiDecompilationTaskStatus status) {
     this.status = status;
   }
 
@@ -426,9 +427,8 @@ public class GetAiDecompilationTask {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("status").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
-      }
+      // validate the required field `status`
+      AiDecompilationTaskStatus.validateJsonElement(jsonObj.get("status"));
       if ((jsonObj.get("decompilation") != null && !jsonObj.get("decompilation").isJsonNull()) && !jsonObj.get("decompilation").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `decompilation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("decompilation").toString()));
       }

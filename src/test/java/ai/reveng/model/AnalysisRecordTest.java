@@ -13,6 +13,7 @@
 package ai.reveng.model;
 
 import ai.reveng.model.AppApiRestV2AnalysesEnumsDynamicExecutionStatus;
+import ai.reveng.model.TagItem;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -21,7 +22,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -166,6 +169,14 @@ public class AnalysisRecordTest {
     @Test
     public void baseAddressTest() {
         // TODO: test baseAddress
+    }
+
+    /**
+     * Test the property 'tags'
+     */
+    @Test
+    public void tagsTest() {
+        // TODO: test tags
     }
 
 }

@@ -12,6 +12,7 @@
 
 package ai.reveng.model;
 
+import ai.reveng.model.AiDecompilationTaskStatus;
 import ai.reveng.model.FunctionMappingFull;
 import ai.reveng.model.InverseFunctionMapItem;
 import com.google.gson.TypeAdapter;
