@@ -13,6 +13,7 @@
 package ai.reveng.model;
 
 import ai.reveng.model.AnalysisAccessInfo;
+import ai.reveng.model.AutoRunAgents;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -158,6 +159,14 @@ public class AnalysisDetailResponseTest {
     @Test
     public void sha256HashTest() {
         // TODO: test sha256Hash
+    }
+
+    /**
+     * Test the property 'autoRunAgents'
+     */
+    @Test
+    public void autoRunAgentsTest() {
+        // TODO: test autoRunAgents
     }
 
 }

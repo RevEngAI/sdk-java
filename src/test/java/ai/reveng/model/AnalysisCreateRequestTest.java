@@ -14,6 +14,7 @@ package ai.reveng.model;
 
 import ai.reveng.model.AnalysisConfig;
 import ai.reveng.model.AnalysisScope;
+import ai.reveng.model.AutoRunAgents;
 import ai.reveng.model.BinaryConfig;
 import ai.reveng.model.Symbols;
 import ai.reveng.model.Tag;
@@ -106,6 +107,14 @@ public class AnalysisCreateRequestTest {
     @Test
     public void binaryConfigTest() {
         // TODO: test binaryConfig
+    }
+
+    /**
+     * Test the property 'autoRunAgents'
+     */
+    @Test
+    public void autoRunAgentsTest() {
+        // TODO: test autoRunAgents
     }
 
 }
