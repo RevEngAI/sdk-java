@@ -22,6 +22,7 @@
 |**modelName** | **String** |  |  |
 |**sbom** | **Map&lt;String, Object&gt;** |  |  [optional] |
 |**sha256Hash** | **String** |  |  |
+|**autoRunAgents** | [**AutoRunAgents**](AutoRunAgents.md) |  |  |
 
 
 

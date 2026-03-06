@@ -16,6 +16,7 @@ import java.util.Objects;
 import java.util.Locale;
 import ai.reveng.model.AnalysisConfig;
 import ai.reveng.model.AnalysisScope;
+import ai.reveng.model.AutoRunAgents;
 import ai.reveng.model.BinaryConfig;
 import ai.reveng.model.Symbols;
 import ai.reveng.model.Tag;
@@ -98,6 +99,11 @@ public class AnalysisCreateRequest {
   @SerializedName(SERIALIZED_NAME_BINARY_CONFIG)
   @javax.annotation.Nullable
   private BinaryConfig binaryConfig;
+
+  public static final String SERIALIZED_NAME_AUTO_RUN_AGENTS = "auto_run_agents";
+  @SerializedName(SERIALIZED_NAME_AUTO_RUN_AGENTS)
+  @javax.annotation.Nullable
+  private AutoRunAgents autoRunAgents;
 
   public AnalysisCreateRequest() {
   }
@@ -261,6 +267,25 @@ public class AnalysisCreateRequest {
     this.binaryConfig = binaryConfig;
   }
 
+
+  public AnalysisCreateRequest autoRunAgents(@javax.annotation.Nullable AutoRunAgents autoRunAgents) {
+    this.autoRunAgents = autoRunAgents;
+    return this;
+  }
+
+  /**
+   * Get autoRunAgents
+   * @return autoRunAgents
+   */
+  @javax.annotation.Nullable
+  public AutoRunAgents getAutoRunAgents() {
+    return autoRunAgents;
+  }
+
+  public void setAutoRunAgents(@javax.annotation.Nullable AutoRunAgents autoRunAgents) {
+    this.autoRunAgents = autoRunAgents;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -323,7 +348,8 @@ public class AnalysisCreateRequest {
         Objects.equals(this.symbols, analysisCreateRequest.symbols) &&
         Objects.equals(this.debugHash, analysisCreateRequest.debugHash) &&
         Objects.equals(this.analysisConfig, analysisCreateRequest.analysisConfig) &&
-        Objects.equals(this.binaryConfig, analysisCreateRequest.binaryConfig)&&
+        Objects.equals(this.binaryConfig, analysisCreateRequest.binaryConfig) &&
+        Objects.equals(this.autoRunAgents, analysisCreateRequest.autoRunAgents)&&
         Objects.equals(this.additionalProperties, analysisCreateRequest.additionalProperties);
   }
 
@@ -333,7 +359,7 @@ public class AnalysisCreateRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(filename, sha256Hash, tags, analysisScope, symbols, debugHash, analysisConfig, binaryConfig, additionalProperties);
+    return Objects.hash(filename, sha256Hash, tags, analysisScope, symbols, debugHash, analysisConfig, binaryConfig, autoRunAgents, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -355,6 +381,7 @@ public class AnalysisCreateRequest {
     sb.append("    debugHash: ").append(toIndentedString(debugHash)).append("\n");
     sb.append("    analysisConfig: ").append(toIndentedString(analysisConfig)).append("\n");
     sb.append("    binaryConfig: ").append(toIndentedString(binaryConfig)).append("\n");
+    sb.append("    autoRunAgents: ").append(toIndentedString(autoRunAgents)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -377,7 +404,7 @@ public class AnalysisCreateRequest {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("filename", "sha_256_hash", "tags", "analysis_scope", "symbols", "debug_hash", "analysis_config", "binary_config"));
+    openapiFields = new HashSet<String>(Arrays.asList("filename", "sha_256_hash", "tags", "analysis_scope", "symbols", "debug_hash", "analysis_config", "binary_config", "auto_run_agents"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("filename", "sha_256_hash"));
@@ -441,6 +468,10 @@ public class AnalysisCreateRequest {
       // validate the optional field `binary_config`
       if (jsonObj.get("binary_config") != null && !jsonObj.get("binary_config").isJsonNull()) {
         BinaryConfig.validateJsonElement(jsonObj.get("binary_config"));
+      }
+      // validate the optional field `auto_run_agents`
+      if (jsonObj.get("auto_run_agents") != null && !jsonObj.get("auto_run_agents").isJsonNull()) {
+        AutoRunAgents.validateJsonElement(jsonObj.get("auto_run_agents"));
       }
   }
 

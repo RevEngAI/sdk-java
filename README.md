@@ -16,7 +16,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>ai.reveng</groupId>
     <artifactId>sdk</artifactId>
-    <version>3.29.1</version>
+    <version>3.30.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -31,7 +31,7 @@ repositories {
 }
 
 dependencies {
-    implementation "ai.reveng:sdk:3.29.1"
+    implementation "ai.reveng:sdk:3.30.0"
 }
 ```
 
@@ -219,6 +219,7 @@ Class | Method | HTTP request | Description
  - [AppApiRestV2FunctionsTypesFunction](docs/AppApiRestV2FunctionsTypesFunction.md)
  - [AppServicesDynamicExecutionSchemasDynamicExecutionStatus](docs/AppServicesDynamicExecutionSchemasDynamicExecutionStatus.md)
  - [Argument](docs/Argument.md)
+ - [AutoRunAgents](docs/AutoRunAgents.md)
  - [AutoUnstripRequest](docs/AutoUnstripRequest.md)
  - [AutoUnstripResponse](docs/AutoUnstripResponse.md)
  - [BaseResponse](docs/BaseResponse.md)
