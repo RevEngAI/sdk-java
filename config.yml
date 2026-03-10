@@ -23,3 +23,7 @@ typeMappings:
   integer+bigint: BigInteger
 importMappings:
   BigInteger: java.math.BigInteger
+# Do not generate API tests or model tests as they would be empty and cause confusion. We will add our own tests manually.
+globalProperties:
+  apiTests: false
+  modelTests: false
