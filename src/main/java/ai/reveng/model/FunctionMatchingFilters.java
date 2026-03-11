@@ -68,6 +68,11 @@ public class FunctionMatchingFilters {
   @javax.annotation.Nullable
   private List<Long> functionIds = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_USER_IDS = "user_ids";
+  @SerializedName(SERIALIZED_NAME_USER_IDS)
+  @javax.annotation.Nullable
+  private List<Integer> userIds = new ArrayList<>();
+
   /**
    * Gets or Sets debugTypes
    */
@@ -211,6 +216,33 @@ public class FunctionMatchingFilters {
   }
 
 
+  public FunctionMatchingFilters userIds(@javax.annotation.Nullable List<Integer> userIds) {
+    this.userIds = userIds;
+    return this;
+  }
+
+  public FunctionMatchingFilters addUserIdsItem(Integer userIdsItem) {
+    if (this.userIds == null) {
+      this.userIds = new ArrayList<>();
+    }
+    this.userIds.add(userIdsItem);
+    return this;
+  }
+
+  /**
+   * ID&#39;s of users to limit the search to, if empty, search all scoped users
+   * @return userIds
+   */
+  @javax.annotation.Nullable
+  public List<Integer> getUserIds() {
+    return userIds;
+  }
+
+  public void setUserIds(@javax.annotation.Nullable List<Integer> userIds) {
+    this.userIds = userIds;
+  }
+
+
   public FunctionMatchingFilters debugTypes(@javax.annotation.Nullable List<DebugTypesEnum> debugTypes) {
     this.debugTypes = debugTypes;
     return this;
@@ -295,13 +327,14 @@ public class FunctionMatchingFilters {
     return Objects.equals(this.binaryIds, functionMatchingFilters.binaryIds) &&
         Objects.equals(this.collectionIds, functionMatchingFilters.collectionIds) &&
         Objects.equals(this.functionIds, functionMatchingFilters.functionIds) &&
+        Objects.equals(this.userIds, functionMatchingFilters.userIds) &&
         Objects.equals(this.debugTypes, functionMatchingFilters.debugTypes)&&
         Objects.equals(this.additionalProperties, functionMatchingFilters.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(binaryIds, collectionIds, functionIds, debugTypes, additionalProperties);
+    return Objects.hash(binaryIds, collectionIds, functionIds, userIds, debugTypes, additionalProperties);
   }
 
   @Override
@@ -311,6 +344,7 @@ public class FunctionMatchingFilters {
     sb.append("    binaryIds: ").append(toIndentedString(binaryIds)).append("\n");
     sb.append("    collectionIds: ").append(toIndentedString(collectionIds)).append("\n");
     sb.append("    functionIds: ").append(toIndentedString(functionIds)).append("\n");
+    sb.append("    userIds: ").append(toIndentedString(userIds)).append("\n");
     sb.append("    debugTypes: ").append(toIndentedString(debugTypes)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -334,7 +368,7 @@ public class FunctionMatchingFilters {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("binary_ids", "collection_ids", "function_ids", "debug_types"));
+    openapiFields = new HashSet<String>(Arrays.asList("binary_ids", "collection_ids", "function_ids", "user_ids", "debug_types"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -364,6 +398,10 @@ public class FunctionMatchingFilters {
       // ensure the optional json data is an array if present
       if (jsonObj.get("function_ids") != null && !jsonObj.get("function_ids").isJsonNull() && !jsonObj.get("function_ids").isJsonArray()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `function_ids` to be an array in the JSON string but got `%s`", jsonObj.get("function_ids").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("user_ids") != null && !jsonObj.get("user_ids").isJsonNull() && !jsonObj.get("user_ids").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `user_ids` to be an array in the JSON string but got `%s`", jsonObj.get("user_ids").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("debug_types") != null && !jsonObj.get("debug_types").isJsonNull() && !jsonObj.get("debug_types").isJsonArray()) {

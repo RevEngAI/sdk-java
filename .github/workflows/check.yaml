@@ -122,7 +122,7 @@ jobs:
         # Move generated files to the correct locations and clean up
         rm -Rf docs && mv java-client/docs .
         rm -Rf gradle && mv java-client/gradle .
-        rm -Rf src && mv java-client/src .
+        rm -Rf src/main && mv java-client/src/main src/
         rm -Rf build.gradle && mv java-client/build.gradle .
         rm -Rf build.sbt && mv java-client/build.sbt .
         rm -Rf gradle.properties && mv java-client/gradle.properties .
