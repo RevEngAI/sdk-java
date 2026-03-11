@@ -38,6 +38,7 @@ import ai.reveng.model.BaseResponseFunctionBlocksResponse;
 import ai.reveng.model.BaseResponseFunctionCapabilityResponse;
 import ai.reveng.model.BaseResponseFunctionStringsResponse;
 import ai.reveng.model.BaseResponseFunctionsDetailResponse;
+import ai.reveng.model.BaseResponseListCalleesCallerFunctionsResponse;
 import ai.reveng.model.FunctionMatchingRequest;
 import ai.reveng.model.FunctionMatchingResponse;
 
@@ -1473,6 +1474,140 @@ public class FunctionsCoreApi {
 
         okhttp3.Call localVarCall = getFunctionCalleesCallersValidateBeforeCall(functionId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseCalleesCallerFunctionsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getFunctionCalleesCallersBulk
+     * @param functionIds  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getFunctionCalleesCallersBulkCall(@javax.annotation.Nonnull List<Integer> functionIds, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v2/functions/callees_callers";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (functionIds != null) {
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "function_ids", functionIds));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getFunctionCalleesCallersBulkValidateBeforeCall(@javax.annotation.Nonnull List<Integer> functionIds, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'functionIds' is set
+        if (functionIds == null) {
+            throw new ApiException("Missing the required parameter 'functionIds' when calling getFunctionCalleesCallersBulk(Async)");
+        }
+
+        return getFunctionCalleesCallersBulkCall(functionIds, _callback);
+
+    }
+
+    /**
+     * Get list of functions that call or are called for a list of functions
+     * 
+     * @param functionIds  (required)
+     * @return BaseResponseListCalleesCallerFunctionsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+     </table>
+     */
+    public BaseResponseListCalleesCallerFunctionsResponse getFunctionCalleesCallersBulk(@javax.annotation.Nonnull List<Integer> functionIds) throws ApiException {
+        ApiResponse<BaseResponseListCalleesCallerFunctionsResponse> localVarResp = getFunctionCalleesCallersBulkWithHttpInfo(functionIds);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get list of functions that call or are called for a list of functions
+     * 
+     * @param functionIds  (required)
+     * @return ApiResponse&lt;BaseResponseListCalleesCallerFunctionsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<BaseResponseListCalleesCallerFunctionsResponse> getFunctionCalleesCallersBulkWithHttpInfo(@javax.annotation.Nonnull List<Integer> functionIds) throws ApiException {
+        okhttp3.Call localVarCall = getFunctionCalleesCallersBulkValidateBeforeCall(functionIds, null);
+        Type localVarReturnType = new TypeToken<BaseResponseListCalleesCallerFunctionsResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get list of functions that call or are called for a list of functions (asynchronously)
+     * 
+     * @param functionIds  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getFunctionCalleesCallersBulkAsync(@javax.annotation.Nonnull List<Integer> functionIds, final ApiCallback<BaseResponseListCalleesCallerFunctionsResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getFunctionCalleesCallersBulkValidateBeforeCall(functionIds, _callback);
+        Type localVarReturnType = new TypeToken<BaseResponseListCalleesCallerFunctionsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
