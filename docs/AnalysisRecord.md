@@ -13,7 +13,7 @@
 |**modelId** | **Integer** | ID to identify the model used for analysis |  |
 |**modelName** | **String** | Name of the model used for analysis |  |
 |**status** | **String** | The current status of analysis |  |
-|**creation** | **OffsetDateTime** | The current status of analysis |  |
+|**creation** | **OffsetDateTime** | The datetime of when the analysis was created |  |
 |**isOwner** | **Boolean** | Whether the current user is the owner of a binary |  |
 |**binaryName** | **String** | The name of the file uploaded |  |
 |**sha256Hash** | **String** | The hash of the binary |  |
