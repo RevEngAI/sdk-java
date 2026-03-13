@@ -1,6 +1,6 @@
 /*
  * RevEng.AI API
- * RevEng.AI is Similarity Search Engine for executable binaries
+ * RevEng.AI is an AI-powered binary analysis platform for reverse engineering and malware analysis. It provides similarity search across executable binaries and functions, AI-driven decompilation, dynamic execution analysis, firmware unpacking, and integration with external threat intelligence sources like VirusTotal.
  *
  * 
  *
@@ -18,7 +18,7 @@ import java.util.function.Supplier;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Configuration {
-  public static final String VERSION = "3.34.0";
+  public static final String VERSION = "3.39.0";
 
   private static final AtomicReference<ApiClient> defaultApiClient = new AtomicReference<>();
   private static volatile Supplier<ApiClient> apiClientFactory = ApiClient::new;
