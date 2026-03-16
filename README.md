@@ -16,7 +16,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>ai.reveng</groupId>
     <artifactId>sdk</artifactId>
-    <version>3.39.0</version>
+    <version>3.40.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -31,7 +31,7 @@ repositories {
 }
 
 dependencies {
-    implementation "ai.reveng:sdk:3.39.0"
+    implementation "ai.reveng:sdk:3.40.0"
 }
 ```
 
@@ -113,6 +113,7 @@ Class | Method | HTTP request | Description
 *AnalysesSecurityChecksApi* | [**createScurityChecksTask**](docs/AnalysesSecurityChecksApi.md#createScurityChecksTask) | **POST** /v2/analyses/{analysis_id}/security-checks | Queues a security check process
 *AnalysesSecurityChecksApi* | [**getSecurityChecks**](docs/AnalysesSecurityChecksApi.md#getSecurityChecks) | **GET** /v2/analyses/{analysis_id}/security-checks | Get Security Checks
 *AnalysesSecurityChecksApi* | [**getSecurityChecksTaskStatus**](docs/AnalysesSecurityChecksApi.md#getSecurityChecksTaskStatus) | **GET** /v2/analyses/{analysis_id}/security-checks/status | Check the status of a security check process
+*AnalysesXRefsApi* | [**getXrefByVaddr**](docs/AnalysesXRefsApi.md#getXrefByVaddr) | **GET** /v2/analyses/{analysis_id}/xrefs/{vaddr} | [Beta] Look up an xref by virtual address
 *AuthenticationUsersApi* | [**getRequesterUserInfo**](docs/AuthenticationUsersApi.md#getRequesterUserInfo) | **GET** /v2/users/me | Get the requesters user information
 *AuthenticationUsersApi* | [**getUser**](docs/AuthenticationUsersApi.md#getUser) | **GET** /v2/users/{user_id} | Get a user&#39;s public information
 *AuthenticationUsersApi* | [**getUserActivity**](docs/AuthenticationUsersApi.md#getUserActivity) | **GET** /v2/users/activity | Get auth user activity
@@ -298,6 +299,7 @@ Class | Method | HTTP request | Description
  - [BaseResponseTaskResponse](docs/BaseResponseTaskResponse.md)
  - [BaseResponseUploadResponse](docs/BaseResponseUploadResponse.md)
  - [BaseResponseVulnerabilities](docs/BaseResponseVulnerabilities.md)
+ - [BaseResponseXRef](docs/BaseResponseXRef.md)
  - [Basic](docs/Basic.md)
  - [BinariesRelatedStatusResponse](docs/BinariesRelatedStatusResponse.md)
  - [BinariesTaskStatus](docs/BinariesTaskStatus.md)
@@ -454,6 +456,7 @@ Class | Method | HTTP request | Description
  - [SecurityChecksResponse](docs/SecurityChecksResponse.md)
  - [SecurityChecksResult](docs/SecurityChecksResult.md)
  - [SecurityModel](docs/SecurityModel.md)
+ - [SegmentInfo](docs/SegmentInfo.md)
  - [SeverityType](docs/SeverityType.md)
  - [SingleCodeCertificateModel](docs/SingleCodeCertificateModel.md)
  - [SingleCodeSignatureModel](docs/SingleCodeSignatureModel.md)
@@ -489,6 +492,7 @@ Class | Method | HTTP request | Description
  - [Vulnerability](docs/Vulnerability.md)
  - [VulnerabilityType](docs/VulnerabilityType.md)
  - [Workspace](docs/Workspace.md)
+ - [XRef](docs/XRef.md)
 
 
 ## Recommendation
