@@ -4,14 +4,14 @@ All URIs are relative to *https://api.reveng.ai*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**getXrefByVaddr**](AnalysesXRefsApi.md#getXrefByVaddr) | **GET** /v2/analyses/{analysis_id}/xrefs/{vaddr} | [Beta] Look up an xref by virtual address |
+| [**getXrefByVaddr**](AnalysesXRefsApi.md#getXrefByVaddr) | **GET** /v2/analyses/{analysis_id}/xrefs/{vaddr} | [Beta] Look up xrefs by virtual address |
 
 
 <a id="getXrefByVaddr"></a>
 # **getXrefByVaddr**
-> BaseResponseXRef getXrefByVaddr(analysisId, vaddr)
+> BaseResponseXrefResponse getXrefByVaddr(analysisId, vaddr)
 
-[Beta] Look up an xref by virtual address
+[Beta] Look up xrefs by virtual address
 
 **This endpoint is in beta and may change without notice.**
 
@@ -38,9 +38,9 @@ public class Example {
 
     AnalysesXRefsApi apiInstance = new AnalysesXRefsApi(defaultClient);
     Integer analysisId = 56; // Integer | 
-    Integer vaddr = 56; // Integer | Virtual address to match against xref_to
+    Integer vaddr = 56; // Integer | Virtual address to match against xrefs
     try {
-      BaseResponseXRef result = apiInstance.getXrefByVaddr(analysisId, vaddr);
+      BaseResponseXrefResponse result = apiInstance.getXrefByVaddr(analysisId, vaddr);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesXRefsApi#getXrefByVaddr");
@@ -58,11 +58,11 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
-| **vaddr** | **Integer**| Virtual address to match against xref_to | |
+| **vaddr** | **Integer**| Virtual address to match against xrefs | |
 
 ### Return type
 
-[**BaseResponseXRef**](BaseResponseXRef.md)
+[**BaseResponseXrefResponse**](BaseResponseXrefResponse.md)
 
 ### Authorization
 

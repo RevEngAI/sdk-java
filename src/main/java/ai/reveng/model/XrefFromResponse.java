@@ -20,7 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -50,19 +49,14 @@ import java.util.Locale;
 import ai.reveng.invoker.JSON;
 
 /**
- * XRef
+ * XrefFromResponse
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class XRef {
+public class XrefFromResponse {
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
   @javax.annotation.Nullable
   private String value;
-
-  public static final String SERIALIZED_NAME_XREF_TO = "xref_to";
-  @SerializedName(SERIALIZED_NAME_XREF_TO)
-  @javax.annotation.Nullable
-  private String xrefTo;
 
   public static final String SERIALIZED_NAME_IS_SCALAR = "is_scalar";
   @SerializedName(SERIALIZED_NAME_IS_SCALAR)
@@ -87,7 +81,7 @@ public class XRef {
   public static final String SERIALIZED_NAME_RAW_DATA = "raw_data";
   @SerializedName(SERIALIZED_NAME_RAW_DATA)
   @javax.annotation.Nullable
-  private File rawData;
+  private String rawData;
 
   public static final String SERIALIZED_NAME_SEGMENT = "segment";
   @SerializedName(SERIALIZED_NAME_SEGMENT)
@@ -99,10 +93,15 @@ public class XRef {
   @javax.annotation.Nullable
   private String origStrEncoding;
 
-  public XRef() {
+  public static final String SERIALIZED_NAME_XREF_TO = "xref_to";
+  @SerializedName(SERIALIZED_NAME_XREF_TO)
+  @javax.annotation.Nullable
+  private String xrefTo;
+
+  public XrefFromResponse() {
   }
 
-  public XRef value(@javax.annotation.Nullable String value) {
+  public XrefFromResponse value(@javax.annotation.Nullable String value) {
     this.value = value;
     return this;
   }
@@ -121,26 +120,7 @@ public class XRef {
   }
 
 
-  public XRef xrefTo(@javax.annotation.Nullable String xrefTo) {
-    this.xrefTo = xrefTo;
-    return this;
-  }
-
-  /**
-   * Get xrefTo
-   * @return xrefTo
-   */
-  @javax.annotation.Nullable
-  public String getXrefTo() {
-    return xrefTo;
-  }
-
-  public void setXrefTo(@javax.annotation.Nullable String xrefTo) {
-    this.xrefTo = xrefTo;
-  }
-
-
-  public XRef isScalar(@javax.annotation.Nullable Boolean isScalar) {
+  public XrefFromResponse isScalar(@javax.annotation.Nullable Boolean isScalar) {
     this.isScalar = isScalar;
     return this;
   }
@@ -159,7 +139,7 @@ public class XRef {
   }
 
 
-  public XRef isCall(@javax.annotation.Nullable Boolean isCall) {
+  public XrefFromResponse isCall(@javax.annotation.Nullable Boolean isCall) {
     this.isCall = isCall;
     return this;
   }
@@ -178,7 +158,7 @@ public class XRef {
   }
 
 
-  public XRef isData(@javax.annotation.Nullable Boolean isData) {
+  public XrefFromResponse isData(@javax.annotation.Nullable Boolean isData) {
     this.isData = isData;
     return this;
   }
@@ -197,7 +177,7 @@ public class XRef {
   }
 
 
-  public XRef isString(@javax.annotation.Nullable Boolean isString) {
+  public XrefFromResponse isString(@javax.annotation.Nullable Boolean isString) {
     this.isString = isString;
     return this;
   }
@@ -216,7 +196,7 @@ public class XRef {
   }
 
 
-  public XRef rawData(@javax.annotation.Nullable File rawData) {
+  public XrefFromResponse rawData(@javax.annotation.Nullable String rawData) {
     this.rawData = rawData;
     return this;
   }
@@ -226,16 +206,16 @@ public class XRef {
    * @return rawData
    */
   @javax.annotation.Nullable
-  public File getRawData() {
+  public String getRawData() {
     return rawData;
   }
 
-  public void setRawData(@javax.annotation.Nullable File rawData) {
+  public void setRawData(@javax.annotation.Nullable String rawData) {
     this.rawData = rawData;
   }
 
 
-  public XRef segment(@javax.annotation.Nullable SegmentInfo segment) {
+  public XrefFromResponse segment(@javax.annotation.Nullable SegmentInfo segment) {
     this.segment = segment;
     return this;
   }
@@ -254,7 +234,7 @@ public class XRef {
   }
 
 
-  public XRef origStrEncoding(@javax.annotation.Nullable String origStrEncoding) {
+  public XrefFromResponse origStrEncoding(@javax.annotation.Nullable String origStrEncoding) {
     this.origStrEncoding = origStrEncoding;
     return this;
   }
@@ -272,6 +252,25 @@ public class XRef {
     this.origStrEncoding = origStrEncoding;
   }
 
+
+  public XrefFromResponse xrefTo(@javax.annotation.Nullable String xrefTo) {
+    this.xrefTo = xrefTo;
+    return this;
+  }
+
+  /**
+   * Get xrefTo
+   * @return xrefTo
+   */
+  @javax.annotation.Nullable
+  public String getXrefTo() {
+    return xrefTo;
+  }
+
+  public void setXrefTo(@javax.annotation.Nullable String xrefTo) {
+    this.xrefTo = xrefTo;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -285,9 +284,9 @@ public class XRef {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the XRef instance itself
+   * @return the XrefFromResponse instance itself
    */
-  public XRef putAdditionalProperty(String key, Object value) {
+  public XrefFromResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -326,17 +325,17 @@ public class XRef {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    XRef xref = (XRef) o;
-    return Objects.equals(this.value, xref.value) &&
-        Objects.equals(this.xrefTo, xref.xrefTo) &&
-        Objects.equals(this.isScalar, xref.isScalar) &&
-        Objects.equals(this.isCall, xref.isCall) &&
-        Objects.equals(this.isData, xref.isData) &&
-        Objects.equals(this.isString, xref.isString) &&
-        Objects.equals(this.rawData, xref.rawData) &&
-        Objects.equals(this.segment, xref.segment) &&
-        Objects.equals(this.origStrEncoding, xref.origStrEncoding)&&
-        Objects.equals(this.additionalProperties, xref.additionalProperties);
+    XrefFromResponse xrefFromResponse = (XrefFromResponse) o;
+    return Objects.equals(this.value, xrefFromResponse.value) &&
+        Objects.equals(this.isScalar, xrefFromResponse.isScalar) &&
+        Objects.equals(this.isCall, xrefFromResponse.isCall) &&
+        Objects.equals(this.isData, xrefFromResponse.isData) &&
+        Objects.equals(this.isString, xrefFromResponse.isString) &&
+        Objects.equals(this.rawData, xrefFromResponse.rawData) &&
+        Objects.equals(this.segment, xrefFromResponse.segment) &&
+        Objects.equals(this.origStrEncoding, xrefFromResponse.origStrEncoding) &&
+        Objects.equals(this.xrefTo, xrefFromResponse.xrefTo)&&
+        Objects.equals(this.additionalProperties, xrefFromResponse.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -345,7 +344,7 @@ public class XRef {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value, xrefTo, isScalar, isCall, isData, isString, rawData, segment, origStrEncoding, additionalProperties);
+    return Objects.hash(value, isScalar, isCall, isData, isString, rawData, segment, origStrEncoding, xrefTo, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -358,9 +357,8 @@ public class XRef {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class XRef {\n");
+    sb.append("class XrefFromResponse {\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
-    sb.append("    xrefTo: ").append(toIndentedString(xrefTo)).append("\n");
     sb.append("    isScalar: ").append(toIndentedString(isScalar)).append("\n");
     sb.append("    isCall: ").append(toIndentedString(isCall)).append("\n");
     sb.append("    isData: ").append(toIndentedString(isData)).append("\n");
@@ -368,6 +366,7 @@ public class XRef {
     sb.append("    rawData: ").append(toIndentedString(rawData)).append("\n");
     sb.append("    segment: ").append(toIndentedString(segment)).append("\n");
     sb.append("    origStrEncoding: ").append(toIndentedString(origStrEncoding)).append("\n");
+    sb.append("    xrefTo: ").append(toIndentedString(xrefTo)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -390,7 +389,7 @@ public class XRef {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("value", "xref_to", "is_scalar", "is_call", "is_data", "is_string", "raw_data", "segment", "orig_str_encoding"));
+    openapiFields = new HashSet<String>(Arrays.asList("value", "is_scalar", "is_call", "is_data", "is_string", "raw_data", "segment", "orig_str_encoding", "xref_to"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("value", "xref_to"));
@@ -400,17 +399,17 @@ public class XRef {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to XRef
+   * @throws IOException if the JSON Element is invalid with respect to XrefFromResponse
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!XRef.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in XRef is not found in the empty JSON string", XRef.openapiRequiredFields.toString()));
+        if (!XrefFromResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in XrefFromResponse is not found in the empty JSON string", XrefFromResponse.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : XRef.openapiRequiredFields) {
+      for (String requiredField : XrefFromResponse.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
@@ -419,8 +418,8 @@ public class XRef {
       if ((jsonObj.get("value") != null && !jsonObj.get("value").isJsonNull()) && !jsonObj.get("value").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
       }
-      if ((jsonObj.get("xref_to") != null && !jsonObj.get("xref_to").isJsonNull()) && !jsonObj.get("xref_to").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `xref_to` to be a primitive type in the JSON string but got `%s`", jsonObj.get("xref_to").toString()));
+      if ((jsonObj.get("raw_data") != null && !jsonObj.get("raw_data").isJsonNull()) && !jsonObj.get("raw_data").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `raw_data` to be a primitive type in the JSON string but got `%s`", jsonObj.get("raw_data").toString()));
       }
       // validate the optional field `segment`
       if (jsonObj.get("segment") != null && !jsonObj.get("segment").isJsonNull()) {
@@ -429,22 +428,25 @@ public class XRef {
       if ((jsonObj.get("orig_str_encoding") != null && !jsonObj.get("orig_str_encoding").isJsonNull()) && !jsonObj.get("orig_str_encoding").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `orig_str_encoding` to be a primitive type in the JSON string but got `%s`", jsonObj.get("orig_str_encoding").toString()));
       }
+      if ((jsonObj.get("xref_to") != null && !jsonObj.get("xref_to").isJsonNull()) && !jsonObj.get("xref_to").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `xref_to` to be a primitive type in the JSON string but got `%s`", jsonObj.get("xref_to").toString()));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!XRef.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'XRef' and its subtypes
+       if (!XrefFromResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'XrefFromResponse' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<XRef> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(XRef.class));
+       final TypeAdapter<XrefFromResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(XrefFromResponse.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<XRef>() {
+       return (TypeAdapter<T>) new TypeAdapter<XrefFromResponse>() {
            @Override
-           public void write(JsonWriter out, XRef value) throws IOException {
+           public void write(JsonWriter out, XrefFromResponse value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -472,12 +474,12 @@ public class XRef {
            }
 
            @Override
-           public XRef read(JsonReader in) throws IOException {
+           public XrefFromResponse read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             XRef instance = thisAdapter.fromJsonTree(jsonObj);
+             XrefFromResponse instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -504,18 +506,18 @@ public class XRef {
   }
 
   /**
-   * Create an instance of XRef given an JSON string
+   * Create an instance of XrefFromResponse given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of XRef
-   * @throws IOException if the JSON string is invalid with respect to XRef
+   * @return An instance of XrefFromResponse
+   * @throws IOException if the JSON string is invalid with respect to XrefFromResponse
    */
-  public static XRef fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, XRef.class);
+  public static XrefFromResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, XrefFromResponse.class);
   }
 
   /**
-   * Convert an instance of XRef to an JSON string
+   * Convert an instance of XrefFromResponse to an JSON string
    *
    * @return JSON string
    */

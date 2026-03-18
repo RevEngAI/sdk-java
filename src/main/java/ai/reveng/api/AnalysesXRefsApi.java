@@ -27,7 +27,7 @@ import java.io.IOException;
 
 
 import ai.reveng.model.BaseResponse;
-import ai.reveng.model.BaseResponseXRef;
+import ai.reveng.model.BaseResponseXrefResponse;
 import ai.reveng.model.ErrorModel;
 
 import java.lang.reflect.Type;
@@ -76,7 +76,7 @@ public class AnalysesXRefsApi {
     /**
      * Build call for getXrefByVaddr
      * @param analysisId  (required)
-     * @param vaddr Virtual address to match against xref_to (required)
+     * @param vaddr Virtual address to match against xrefs (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -152,11 +152,11 @@ public class AnalysesXRefsApi {
     }
 
     /**
-     * [Beta] Look up an xref by virtual address
+     * [Beta] Look up xrefs by virtual address
      * **This endpoint is in beta and may change without notice.**
      * @param analysisId  (required)
-     * @param vaddr Virtual address to match against xref_to (required)
-     * @return BaseResponseXRef
+     * @param vaddr Virtual address to match against xrefs (required)
+     * @return BaseResponseXrefResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -167,17 +167,17 @@ public class AnalysesXRefsApi {
         <tr><td> 404 </td><td> Xref or analysis cache not found </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseXRef getXrefByVaddr(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer vaddr) throws ApiException {
-        ApiResponse<BaseResponseXRef> localVarResp = getXrefByVaddrWithHttpInfo(analysisId, vaddr);
+    public BaseResponseXrefResponse getXrefByVaddr(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer vaddr) throws ApiException {
+        ApiResponse<BaseResponseXrefResponse> localVarResp = getXrefByVaddrWithHttpInfo(analysisId, vaddr);
         return localVarResp.getData();
     }
 
     /**
-     * [Beta] Look up an xref by virtual address
+     * [Beta] Look up xrefs by virtual address
      * **This endpoint is in beta and may change without notice.**
      * @param analysisId  (required)
-     * @param vaddr Virtual address to match against xref_to (required)
-     * @return ApiResponse&lt;BaseResponseXRef&gt;
+     * @param vaddr Virtual address to match against xrefs (required)
+     * @return ApiResponse&lt;BaseResponseXrefResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -188,17 +188,17 @@ public class AnalysesXRefsApi {
         <tr><td> 404 </td><td> Xref or analysis cache not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseXRef> getXrefByVaddrWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer vaddr) throws ApiException {
+    public ApiResponse<BaseResponseXrefResponse> getXrefByVaddrWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer vaddr) throws ApiException {
         okhttp3.Call localVarCall = getXrefByVaddrValidateBeforeCall(analysisId, vaddr, null);
-        Type localVarReturnType = new TypeToken<BaseResponseXRef>(){}.getType();
+        Type localVarReturnType = new TypeToken<BaseResponseXrefResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * [Beta] Look up an xref by virtual address (asynchronously)
+     * [Beta] Look up xrefs by virtual address (asynchronously)
      * **This endpoint is in beta and may change without notice.**
      * @param analysisId  (required)
-     * @param vaddr Virtual address to match against xref_to (required)
+     * @param vaddr Virtual address to match against xrefs (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -211,10 +211,10 @@ public class AnalysesXRefsApi {
         <tr><td> 404 </td><td> Xref or analysis cache not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getXrefByVaddrAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer vaddr, final ApiCallback<BaseResponseXRef> _callback) throws ApiException {
+    public okhttp3.Call getXrefByVaddrAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer vaddr, final ApiCallback<BaseResponseXrefResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getXrefByVaddrValidateBeforeCall(analysisId, vaddr, _callback);
-        Type localVarReturnType = new TypeToken<BaseResponseXRef>(){}.getType();
+        Type localVarReturnType = new TypeToken<BaseResponseXrefResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
