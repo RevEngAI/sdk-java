@@ -16,7 +16,7 @@ import java.util.Objects;
 import java.util.Locale;
 import ai.reveng.model.ErrorModel;
 import ai.reveng.model.MetaModel;
-import ai.reveng.model.XRef;
+import ai.reveng.model.XrefResponse;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -53,10 +53,10 @@ import java.util.Locale;
 import ai.reveng.invoker.JSON;
 
 /**
- * BaseResponseXRef
+ * BaseResponseXrefResponse
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class BaseResponseXRef {
+public class BaseResponseXrefResponse {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
   @javax.annotation.Nullable
@@ -65,7 +65,7 @@ public class BaseResponseXRef {
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
   @javax.annotation.Nullable
-  private XRef data;
+  private XrefResponse data;
 
   public static final String SERIALIZED_NAME_MESSAGE = "message";
   @SerializedName(SERIALIZED_NAME_MESSAGE)
@@ -82,10 +82,10 @@ public class BaseResponseXRef {
   @javax.annotation.Nullable
   private MetaModel meta;
 
-  public BaseResponseXRef() {
+  public BaseResponseXrefResponse() {
   }
 
-  public BaseResponseXRef status(@javax.annotation.Nullable Boolean status) {
+  public BaseResponseXrefResponse status(@javax.annotation.Nullable Boolean status) {
     this.status = status;
     return this;
   }
@@ -104,7 +104,7 @@ public class BaseResponseXRef {
   }
 
 
-  public BaseResponseXRef data(@javax.annotation.Nullable XRef data) {
+  public BaseResponseXrefResponse data(@javax.annotation.Nullable XrefResponse data) {
     this.data = data;
     return this;
   }
@@ -114,16 +114,16 @@ public class BaseResponseXRef {
    * @return data
    */
   @javax.annotation.Nullable
-  public XRef getData() {
+  public XrefResponse getData() {
     return data;
   }
 
-  public void setData(@javax.annotation.Nullable XRef data) {
+  public void setData(@javax.annotation.Nullable XrefResponse data) {
     this.data = data;
   }
 
 
-  public BaseResponseXRef message(@javax.annotation.Nullable String message) {
+  public BaseResponseXrefResponse message(@javax.annotation.Nullable String message) {
     this.message = message;
     return this;
   }
@@ -142,12 +142,12 @@ public class BaseResponseXRef {
   }
 
 
-  public BaseResponseXRef errors(@javax.annotation.Nullable List<ErrorModel> errors) {
+  public BaseResponseXrefResponse errors(@javax.annotation.Nullable List<ErrorModel> errors) {
     this.errors = errors;
     return this;
   }
 
-  public BaseResponseXRef addErrorsItem(ErrorModel errorsItem) {
+  public BaseResponseXrefResponse addErrorsItem(ErrorModel errorsItem) {
     if (this.errors == null) {
       this.errors = new ArrayList<>();
     }
@@ -169,7 +169,7 @@ public class BaseResponseXRef {
   }
 
 
-  public BaseResponseXRef meta(@javax.annotation.Nullable MetaModel meta) {
+  public BaseResponseXrefResponse meta(@javax.annotation.Nullable MetaModel meta) {
     this.meta = meta;
     return this;
   }
@@ -200,9 +200,9 @@ public class BaseResponseXRef {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the BaseResponseXRef instance itself
+   * @return the BaseResponseXrefResponse instance itself
    */
-  public BaseResponseXRef putAdditionalProperty(String key, Object value) {
+  public BaseResponseXrefResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -241,13 +241,13 @@ public class BaseResponseXRef {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BaseResponseXRef baseResponseXRef = (BaseResponseXRef) o;
-    return Objects.equals(this.status, baseResponseXRef.status) &&
-        Objects.equals(this.data, baseResponseXRef.data) &&
-        Objects.equals(this.message, baseResponseXRef.message) &&
-        Objects.equals(this.errors, baseResponseXRef.errors) &&
-        Objects.equals(this.meta, baseResponseXRef.meta)&&
-        Objects.equals(this.additionalProperties, baseResponseXRef.additionalProperties);
+    BaseResponseXrefResponse baseResponseXrefResponse = (BaseResponseXrefResponse) o;
+    return Objects.equals(this.status, baseResponseXrefResponse.status) &&
+        Objects.equals(this.data, baseResponseXrefResponse.data) &&
+        Objects.equals(this.message, baseResponseXrefResponse.message) &&
+        Objects.equals(this.errors, baseResponseXrefResponse.errors) &&
+        Objects.equals(this.meta, baseResponseXrefResponse.meta)&&
+        Objects.equals(this.additionalProperties, baseResponseXrefResponse.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -269,7 +269,7 @@ public class BaseResponseXRef {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BaseResponseXRef {\n");
+    sb.append("class BaseResponseXrefResponse {\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
@@ -307,18 +307,18 @@ public class BaseResponseXRef {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to BaseResponseXRef
+   * @throws IOException if the JSON Element is invalid with respect to BaseResponseXrefResponse
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!BaseResponseXRef.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in BaseResponseXRef is not found in the empty JSON string", BaseResponseXRef.openapiRequiredFields.toString()));
+        if (!BaseResponseXrefResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in BaseResponseXrefResponse is not found in the empty JSON string", BaseResponseXrefResponse.openapiRequiredFields.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the optional field `data`
       if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
-        XRef.validateJsonElement(jsonObj.get("data"));
+        XrefResponse.validateJsonElement(jsonObj.get("data"));
       }
       if ((jsonObj.get("message") != null && !jsonObj.get("message").isJsonNull()) && !jsonObj.get("message").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
@@ -347,16 +347,16 @@ public class BaseResponseXRef {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!BaseResponseXRef.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'BaseResponseXRef' and its subtypes
+       if (!BaseResponseXrefResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'BaseResponseXrefResponse' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<BaseResponseXRef> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(BaseResponseXRef.class));
+       final TypeAdapter<BaseResponseXrefResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(BaseResponseXrefResponse.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<BaseResponseXRef>() {
+       return (TypeAdapter<T>) new TypeAdapter<BaseResponseXrefResponse>() {
            @Override
-           public void write(JsonWriter out, BaseResponseXRef value) throws IOException {
+           public void write(JsonWriter out, BaseResponseXrefResponse value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -384,12 +384,12 @@ public class BaseResponseXRef {
            }
 
            @Override
-           public BaseResponseXRef read(JsonReader in) throws IOException {
+           public BaseResponseXrefResponse read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             BaseResponseXRef instance = thisAdapter.fromJsonTree(jsonObj);
+             BaseResponseXrefResponse instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -416,18 +416,18 @@ public class BaseResponseXRef {
   }
 
   /**
-   * Create an instance of BaseResponseXRef given an JSON string
+   * Create an instance of BaseResponseXrefResponse given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of BaseResponseXRef
-   * @throws IOException if the JSON string is invalid with respect to BaseResponseXRef
+   * @return An instance of BaseResponseXrefResponse
+   * @throws IOException if the JSON string is invalid with respect to BaseResponseXrefResponse
    */
-  public static BaseResponseXRef fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, BaseResponseXRef.class);
+  public static BaseResponseXrefResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, BaseResponseXrefResponse.class);
   }
 
   /**
-   * Convert an instance of BaseResponseXRef to an JSON string
+   * Convert an instance of BaseResponseXrefResponse to an JSON string
    *
    * @return JSON string
    */
