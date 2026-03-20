@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -65,6 +66,11 @@ public class FunctionBoundary {
   @SerializedName(SERIALIZED_NAME_END_ADDRESS)
   @javax.annotation.Nonnull
   private Long endAddress;
+
+  public static final String SERIALIZED_NAME_INCLUDE_IN_ANALYSIS = "include_in_analysis";
+  @SerializedName(SERIALIZED_NAME_INCLUDE_IN_ANALYSIS)
+  @javax.annotation.Nullable
+  private Boolean includeInAnalysis;
 
   public FunctionBoundary() {
   }
@@ -125,6 +131,25 @@ public class FunctionBoundary {
     this.endAddress = endAddress;
   }
 
+
+  public FunctionBoundary includeInAnalysis(@javax.annotation.Nullable Boolean includeInAnalysis) {
+    this.includeInAnalysis = includeInAnalysis;
+    return this;
+  }
+
+  /**
+   * Get includeInAnalysis
+   * @return includeInAnalysis
+   */
+  @javax.annotation.Nullable
+  public Boolean getIncludeInAnalysis() {
+    return includeInAnalysis;
+  }
+
+  public void setIncludeInAnalysis(@javax.annotation.Nullable Boolean includeInAnalysis) {
+    this.includeInAnalysis = includeInAnalysis;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -182,13 +207,25 @@ public class FunctionBoundary {
     FunctionBoundary functionBoundary = (FunctionBoundary) o;
     return Objects.equals(this.mangledName, functionBoundary.mangledName) &&
         Objects.equals(this.startAddress, functionBoundary.startAddress) &&
-        Objects.equals(this.endAddress, functionBoundary.endAddress)&&
+        Objects.equals(this.endAddress, functionBoundary.endAddress) &&
+        Objects.equals(this.includeInAnalysis, functionBoundary.includeInAnalysis)&&
         Objects.equals(this.additionalProperties, functionBoundary.additionalProperties);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(mangledName, startAddress, endAddress, additionalProperties);
+    return Objects.hash(mangledName, startAddress, endAddress, includeInAnalysis, additionalProperties);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -198,6 +235,7 @@ public class FunctionBoundary {
     sb.append("    mangledName: ").append(toIndentedString(mangledName)).append("\n");
     sb.append("    startAddress: ").append(toIndentedString(startAddress)).append("\n");
     sb.append("    endAddress: ").append(toIndentedString(endAddress)).append("\n");
+    sb.append("    includeInAnalysis: ").append(toIndentedString(includeInAnalysis)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -220,7 +258,7 @@ public class FunctionBoundary {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("mangled_name", "start_address", "end_address"));
+    openapiFields = new HashSet<String>(Arrays.asList("mangled_name", "start_address", "end_address", "include_in_analysis"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("mangled_name", "start_address", "end_address"));

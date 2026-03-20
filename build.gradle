@@ -19,7 +19,7 @@ apply plugin: 'java'
 apply plugin: 'com.diffplug.spotless'
 
 group = 'ai.reveng'
-version = '3.44.0'
+version = '3.45.0'
 
 
 
@@ -171,7 +171,7 @@ mavenPublishing {
     publishToMavenCentral(true)
     signAllPublications()
 
-    coordinates("ai.reveng", "sdk", "3.44.0")
+    coordinates("ai.reveng", "sdk", "3.45.0")
 
     pom {
         name = "sdk"
