@@ -16,7 +16,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>ai.reveng</groupId>
     <artifactId>sdk</artifactId>
-    <version>3.46.0</version>
+    <version>3.51.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -31,7 +31,7 @@ repositories {
 }
 
 dependencies {
-    implementation "ai.reveng:sdk:3.46.0"
+    implementation "ai.reveng:sdk:3.51.0"
 }
 ```
 
@@ -114,6 +114,8 @@ Class | Method | HTTP request | Description
 *AnalysesSecurityChecksApi* | [**getSecurityChecks**](docs/AnalysesSecurityChecksApi.md#getSecurityChecks) | **GET** /v2/analyses/{analysis_id}/security-checks | Get Security Checks
 *AnalysesSecurityChecksApi* | [**getSecurityChecksTaskStatus**](docs/AnalysesSecurityChecksApi.md#getSecurityChecksTaskStatus) | **GET** /v2/analyses/{analysis_id}/security-checks/status | Check the status of a security check process
 *AnalysesXRefsApi* | [**getXrefByVaddr**](docs/AnalysesXRefsApi.md#getXrefByVaddr) | **GET** /v2/analyses/{analysis_id}/xrefs/{vaddr} | [Beta] Look up xrefs by virtual address
+*AnalysisStagesApi* | [**getAnalysisStages**](docs/AnalysisStagesApi.md#getAnalysisStages) | **GET** /v2/analysis-stages/{analysis_id} | Get Analysis Stages
+*AnalysisStagesApi* | [**getPipelineStatus**](docs/AnalysisStagesApi.md#getPipelineStatus) | **GET** /v2/analysis-stages/{analysis_id}/pipeline-status | Get Pipeline Status
 *AuthenticationUsersApi* | [**getRequesterUserInfo**](docs/AuthenticationUsersApi.md#getRequesterUserInfo) | **GET** /v2/users/me | Get the requesters user information
 *AuthenticationUsersApi* | [**getUser**](docs/AuthenticationUsersApi.md#getUser) | **GET** /v2/users/{user_id} | Get a user&#39;s public information
 *AuthenticationUsersApi* | [**getUserActivity**](docs/AuthenticationUsersApi.md#getUserActivity) | **GET** /v2/users/activity | Get auth user activity
@@ -208,6 +210,9 @@ Class | Method | HTTP request | Description
  - [AnalysisFunctionsList](docs/AnalysisFunctionsList.md)
  - [AnalysisRecord](docs/AnalysisRecord.md)
  - [AnalysisScope](docs/AnalysisScope.md)
+ - [AnalysisStage](docs/AnalysisStage.md)
+ - [AnalysisStageStatus](docs/AnalysisStageStatus.md)
+ - [AnalysisStagesResponse](docs/AnalysisStagesResponse.md)
  - [AnalysisStringsResponse](docs/AnalysisStringsResponse.md)
  - [AnalysisStringsStatusResponse](docs/AnalysisStringsStatusResponse.md)
  - [AnalysisTags](docs/AnalysisTags.md)
@@ -232,6 +237,7 @@ Class | Method | HTTP request | Description
  - [BaseResponseAnalysisFunctionMapping](docs/BaseResponseAnalysisFunctionMapping.md)
  - [BaseResponseAnalysisFunctions](docs/BaseResponseAnalysisFunctions.md)
  - [BaseResponseAnalysisFunctionsList](docs/BaseResponseAnalysisFunctionsList.md)
+ - [BaseResponseAnalysisStagesResponse](docs/BaseResponseAnalysisStagesResponse.md)
  - [BaseResponseAnalysisStringsResponse](docs/BaseResponseAnalysisStringsResponse.md)
  - [BaseResponseAnalysisStringsStatusResponse](docs/BaseResponseAnalysisStringsStatusResponse.md)
  - [BaseResponseAnalysisTags](docs/BaseResponseAnalysisTags.md)
@@ -286,6 +292,7 @@ Class | Method | HTTP request | Description
  - [BaseResponseModelsResponse](docs/BaseResponseModelsResponse.md)
  - [BaseResponseNetworkOverviewResponse](docs/BaseResponseNetworkOverviewResponse.md)
  - [BaseResponseParams](docs/BaseResponseParams.md)
+ - [BaseResponsePipelineStatusResponse](docs/BaseResponsePipelineStatusResponse.md)
  - [BaseResponseProcessDumps](docs/BaseResponseProcessDumps.md)
  - [BaseResponseProcessRegistry](docs/BaseResponseProcessRegistry.md)
  - [BaseResponseProcessTree](docs/BaseResponseProcessTree.md)
@@ -435,6 +442,8 @@ Class | Method | HTTP request | Description
  - [PEModel](docs/PEModel.md)
  - [PaginationModel](docs/PaginationModel.md)
  - [Params](docs/Params.md)
+ - [PipelineStageStatus](docs/PipelineStageStatus.md)
+ - [PipelineStatusResponse](docs/PipelineStatusResponse.md)
  - [Platform](docs/Platform.md)
  - [Process](docs/Process.md)
  - [ProcessDump](docs/ProcessDump.md)
@@ -463,6 +472,8 @@ Class | Method | HTTP request | Description
  - [SinglePDBEntryModel](docs/SinglePDBEntryModel.md)
  - [SingleSectionModel](docs/SingleSectionModel.md)
  - [StackVariable](docs/StackVariable.md)
+ - [StageEvent](docs/StageEvent.md)
+ - [StageStatus](docs/StageStatus.md)
  - [StatusInput](docs/StatusInput.md)
  - [StatusOutput](docs/StatusOutput.md)
  - [StringFunctions](docs/StringFunctions.md)
