@@ -91,8 +91,8 @@ public class NameConfidence {
 
   /**
    * Confidence score as a percentage
-   * minimum: 0.0
-   * maximum: 100.0
+   * minimum: 0
+   * maximum: 100
    * @return confidence
    */
   @javax.annotation.Nonnull

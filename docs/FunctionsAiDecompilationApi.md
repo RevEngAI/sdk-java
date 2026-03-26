@@ -406,7 +406,7 @@ public class Example {
     FunctionsAiDecompilationApi apiInstance = new FunctionsAiDecompilationApi(defaultClient);
     Long functionId = 56L; // Long | The ID of the function being decompiled
     Boolean summarise = true; // Boolean | Generate a summary for the decompilation
-    Boolean generateInlineComments = true; // Boolean | Generate inline comments for the decompilation (only works if summarise is enabled)
+    Boolean generateInlineComments = true; // Boolean | Generate inline comments for the decompilation
     try {
       BaseResponseGetAiDecompilationTask result = apiInstance.getAiDecompilationTaskResult(functionId, summarise, generateInlineComments);
       System.out.println(result);
@@ -427,7 +427,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **functionId** | **Long**| The ID of the function being decompiled | |
 | **summarise** | **Boolean**| Generate a summary for the decompilation | [optional] [default to true] |
-| **generateInlineComments** | **Boolean**| Generate inline comments for the decompilation (only works if summarise is enabled) | [optional] [default to true] |
+| **generateInlineComments** | **Boolean**| Generate inline comments for the decompilation | [optional] [default to true] |
 
 ### Return type
 

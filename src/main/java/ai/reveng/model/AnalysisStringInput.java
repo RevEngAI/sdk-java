@@ -48,10 +48,10 @@ import java.util.Locale;
 import ai.reveng.invoker.JSON;
 
 /**
- * FunctionString
+ * Input model for inserting a string into an analysis.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class FunctionString {
+public class AnalysisStringInput {
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
   @javax.annotation.Nonnull
@@ -64,19 +64,19 @@ public class FunctionString {
 
   public static final String SERIALIZED_NAME_SOURCE = "source";
   @SerializedName(SERIALIZED_NAME_SOURCE)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private StringSource source;
 
-  public FunctionString() {
+  public AnalysisStringInput() {
   }
 
-  public FunctionString value(@javax.annotation.Nonnull String value) {
+  public AnalysisStringInput value(@javax.annotation.Nonnull String value) {
     this.value = value;
     return this;
   }
 
   /**
-   * The value of the string literal
+   * The string literal value
    * @return value
    */
   @javax.annotation.Nonnull
@@ -89,13 +89,13 @@ public class FunctionString {
   }
 
 
-  public FunctionString vaddr(@javax.annotation.Nonnull Integer vaddr) {
+  public AnalysisStringInput vaddr(@javax.annotation.Nonnull Integer vaddr) {
     this.vaddr = vaddr;
     return this;
   }
 
   /**
-   * The vaddr of the string value
+   * The virtual address of the string
    * @return vaddr
    */
   @javax.annotation.Nonnull
@@ -108,7 +108,7 @@ public class FunctionString {
   }
 
 
-  public FunctionString source(@javax.annotation.Nullable StringSource source) {
+  public AnalysisStringInput source(@javax.annotation.Nonnull StringSource source) {
     this.source = source;
     return this;
   }
@@ -117,12 +117,12 @@ public class FunctionString {
    * The source of the string
    * @return source
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public StringSource getSource() {
     return source;
   }
 
-  public void setSource(@javax.annotation.Nullable StringSource source) {
+  public void setSource(@javax.annotation.Nonnull StringSource source) {
     this.source = source;
   }
 
@@ -139,9 +139,9 @@ public class FunctionString {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the FunctionString instance itself
+   * @return the AnalysisStringInput instance itself
    */
-  public FunctionString putAdditionalProperty(String key, Object value) {
+  public AnalysisStringInput putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -180,11 +180,11 @@ public class FunctionString {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FunctionString functionString = (FunctionString) o;
-    return Objects.equals(this.value, functionString.value) &&
-        Objects.equals(this.vaddr, functionString.vaddr) &&
-        Objects.equals(this.source, functionString.source)&&
-        Objects.equals(this.additionalProperties, functionString.additionalProperties);
+    AnalysisStringInput analysisStringInput = (AnalysisStringInput) o;
+    return Objects.equals(this.value, analysisStringInput.value) &&
+        Objects.equals(this.vaddr, analysisStringInput.vaddr) &&
+        Objects.equals(this.source, analysisStringInput.source)&&
+        Objects.equals(this.additionalProperties, analysisStringInput.additionalProperties);
   }
 
   @Override
@@ -195,7 +195,7 @@ public class FunctionString {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FunctionString {\n");
+    sb.append("class AnalysisStringInput {\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    vaddr: ").append(toIndentedString(vaddr)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
@@ -224,24 +224,24 @@ public class FunctionString {
     openapiFields = new HashSet<String>(Arrays.asList("value", "vaddr", "source"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("value", "vaddr"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("value", "vaddr", "source"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to FunctionString
+   * @throws IOException if the JSON Element is invalid with respect to AnalysisStringInput
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!FunctionString.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in FunctionString is not found in the empty JSON string", FunctionString.openapiRequiredFields.toString()));
+        if (!AnalysisStringInput.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in AnalysisStringInput is not found in the empty JSON string", AnalysisStringInput.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : FunctionString.openapiRequiredFields) {
+      for (String requiredField : AnalysisStringInput.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
@@ -250,26 +250,24 @@ public class FunctionString {
       if (!jsonObj.get("value").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
       }
-      // validate the optional field `source`
-      if (jsonObj.get("source") != null && !jsonObj.get("source").isJsonNull()) {
-        StringSource.validateJsonElement(jsonObj.get("source"));
-      }
+      // validate the required field `source`
+      StringSource.validateJsonElement(jsonObj.get("source"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!FunctionString.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'FunctionString' and its subtypes
+       if (!AnalysisStringInput.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'AnalysisStringInput' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<FunctionString> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(FunctionString.class));
+       final TypeAdapter<AnalysisStringInput> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(AnalysisStringInput.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<FunctionString>() {
+       return (TypeAdapter<T>) new TypeAdapter<AnalysisStringInput>() {
            @Override
-           public void write(JsonWriter out, FunctionString value) throws IOException {
+           public void write(JsonWriter out, AnalysisStringInput value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -297,12 +295,12 @@ public class FunctionString {
            }
 
            @Override
-           public FunctionString read(JsonReader in) throws IOException {
+           public AnalysisStringInput read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             FunctionString instance = thisAdapter.fromJsonTree(jsonObj);
+             AnalysisStringInput instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -329,18 +327,18 @@ public class FunctionString {
   }
 
   /**
-   * Create an instance of FunctionString given an JSON string
+   * Create an instance of AnalysisStringInput given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of FunctionString
-   * @throws IOException if the JSON string is invalid with respect to FunctionString
+   * @return An instance of AnalysisStringInput
+   * @throws IOException if the JSON string is invalid with respect to AnalysisStringInput
    */
-  public static FunctionString fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, FunctionString.class);
+  public static AnalysisStringInput fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, AnalysisStringInput.class);
   }
 
   /**
-   * Convert an instance of FunctionString to an JSON string
+   * Convert an instance of AnalysisStringInput to an JSON string
    *
    * @return JSON string
    */

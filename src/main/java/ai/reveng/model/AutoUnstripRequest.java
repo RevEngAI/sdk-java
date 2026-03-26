@@ -56,7 +56,7 @@ public class AutoUnstripRequest {
   @Deprecated
   @SerializedName(SERIALIZED_NAME_MIN_SIMILARITY)
   @javax.annotation.Nullable
-  private BigDecimal minSimilarity = new BigDecimal("90.0");
+  private BigDecimal minSimilarity = new BigDecimal("90");
 
   public static final String SERIALIZED_NAME_APPLY = "apply";
   @Deprecated
@@ -68,7 +68,7 @@ public class AutoUnstripRequest {
   @Deprecated
   @SerializedName(SERIALIZED_NAME_CONFIDENCE_THRESHOLD)
   @javax.annotation.Nullable
-  private BigDecimal confidenceThreshold = new BigDecimal("90.0");
+  private BigDecimal confidenceThreshold = new BigDecimal("90");
 
   public static final String SERIALIZED_NAME_MIN_GROUP_SIZE = "min_group_size";
   @Deprecated
@@ -104,8 +104,8 @@ public class AutoUnstripRequest {
 
   /**
    * Minimum similarity expected for a match as a percentage, default is 90
-   * minimum: 0.0
-   * maximum: 100.0
+   * minimum: 0
+   * maximum: 100
    * @return minSimilarity
    * @deprecated
    */
@@ -152,8 +152,8 @@ public class AutoUnstripRequest {
 
   /**
    * Confidence threshold for applying function names as a percentage, default is 90
-   * minimum: 0.0
-   * maximum: 100.0
+   * minimum: 0
+   * maximum: 100
    * @return confidenceThreshold
    * @deprecated
    */
