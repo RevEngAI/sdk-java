@@ -7,17 +7,17 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**functionId** | **Long** | Unique identifier of the matched function |  |
+|**analysisId** | **Integer** |  |  |
 |**binaryId** | **Integer** |  |  |
+|**binaryName** | **String** |  |  |
+|**confidence** | **BigDecimal** |  |  [optional] |
+|**debug** | **Boolean** |  |  |
+|**functionId** | **Long** | Unique identifier of the matched function |  |
 |**functionName** | **String** |  |  |
 |**functionVaddr** | **Long** |  |  |
 |**mangledName** | **String** |  |  |
-|**debug** | **Boolean** |  |  |
-|**binaryName** | **String** |  |  |
 |**sha256Hash** | **String** |  |  |
-|**analysisId** | **Integer** |  |  |
 |**similarity** | **BigDecimal** |  |  [optional] |
-|**confidence** | **BigDecimal** |  |  [optional] |
 
 
 

@@ -66,15 +66,15 @@ public class FunctionBlocksResponse {
   @javax.annotation.Nonnull
   private List<FunctionLocalVariableResponse> localVariables = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_PARAMS = "params";
-  @SerializedName(SERIALIZED_NAME_PARAMS)
-  @javax.annotation.Nonnull
-  private List<FunctionParamResponse> params = new ArrayList<>();
-
   public static final String SERIALIZED_NAME_OVERVIEW_COMMENT = "overview_comment";
   @SerializedName(SERIALIZED_NAME_OVERVIEW_COMMENT)
   @javax.annotation.Nullable
   private String overviewComment;
+
+  public static final String SERIALIZED_NAME_PARAMS = "params";
+  @SerializedName(SERIALIZED_NAME_PARAMS)
+  @javax.annotation.Nonnull
+  private List<FunctionParamResponse> params = new ArrayList<>();
 
   public FunctionBlocksResponse() {
   }
@@ -133,6 +133,25 @@ public class FunctionBlocksResponse {
   }
 
 
+  public FunctionBlocksResponse overviewComment(@javax.annotation.Nullable String overviewComment) {
+    this.overviewComment = overviewComment;
+    return this;
+  }
+
+  /**
+   * Get overviewComment
+   * @return overviewComment
+   */
+  @javax.annotation.Nullable
+  public String getOverviewComment() {
+    return overviewComment;
+  }
+
+  public void setOverviewComment(@javax.annotation.Nullable String overviewComment) {
+    this.overviewComment = overviewComment;
+  }
+
+
   public FunctionBlocksResponse params(@javax.annotation.Nonnull List<FunctionParamResponse> params) {
     this.params = params;
     return this;
@@ -157,25 +176,6 @@ public class FunctionBlocksResponse {
 
   public void setParams(@javax.annotation.Nonnull List<FunctionParamResponse> params) {
     this.params = params;
-  }
-
-
-  public FunctionBlocksResponse overviewComment(@javax.annotation.Nullable String overviewComment) {
-    this.overviewComment = overviewComment;
-    return this;
-  }
-
-  /**
-   * Get overviewComment
-   * @return overviewComment
-   */
-  @javax.annotation.Nullable
-  public String getOverviewComment() {
-    return overviewComment;
-  }
-
-  public void setOverviewComment(@javax.annotation.Nullable String overviewComment) {
-    this.overviewComment = overviewComment;
   }
 
   /**
@@ -235,14 +235,14 @@ public class FunctionBlocksResponse {
     FunctionBlocksResponse functionBlocksResponse = (FunctionBlocksResponse) o;
     return Objects.equals(this.blocks, functionBlocksResponse.blocks) &&
         Objects.equals(this.localVariables, functionBlocksResponse.localVariables) &&
-        Objects.equals(this.params, functionBlocksResponse.params) &&
-        Objects.equals(this.overviewComment, functionBlocksResponse.overviewComment)&&
+        Objects.equals(this.overviewComment, functionBlocksResponse.overviewComment) &&
+        Objects.equals(this.params, functionBlocksResponse.params)&&
         Objects.equals(this.additionalProperties, functionBlocksResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(blocks, localVariables, params, overviewComment, additionalProperties);
+    return Objects.hash(blocks, localVariables, overviewComment, params, additionalProperties);
   }
 
   @Override
@@ -251,8 +251,8 @@ public class FunctionBlocksResponse {
     sb.append("class FunctionBlocksResponse {\n");
     sb.append("    blocks: ").append(toIndentedString(blocks)).append("\n");
     sb.append("    localVariables: ").append(toIndentedString(localVariables)).append("\n");
-    sb.append("    params: ").append(toIndentedString(params)).append("\n");
     sb.append("    overviewComment: ").append(toIndentedString(overviewComment)).append("\n");
+    sb.append("    params: ").append(toIndentedString(params)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -275,10 +275,10 @@ public class FunctionBlocksResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("blocks", "local_variables", "params", "overview_comment"));
+    openapiFields = new HashSet<String>(Arrays.asList("blocks", "local_variables", "overview_comment", "params"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("blocks", "local_variables", "params", "overview_comment"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("blocks", "local_variables", "overview_comment", "params"));
   }
 
   /**
@@ -321,6 +321,9 @@ public class FunctionBlocksResponse {
       for (int i = 0; i < jsonArraylocalVariables.size(); i++) {
         FunctionLocalVariableResponse.validateJsonElement(jsonArraylocalVariables.get(i));
       };
+      if ((jsonObj.get("overview_comment") != null && !jsonObj.get("overview_comment").isJsonNull()) && !jsonObj.get("overview_comment").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `overview_comment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("overview_comment").toString()));
+      }
       // ensure the json data is an array
       if (!jsonObj.get("params").isJsonArray()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `params` to be an array in the JSON string but got `%s`", jsonObj.get("params").toString()));
@@ -331,9 +334,6 @@ public class FunctionBlocksResponse {
       for (int i = 0; i < jsonArrayparams.size(); i++) {
         FunctionParamResponse.validateJsonElement(jsonArrayparams.get(i));
       };
-      if ((jsonObj.get("overview_comment") != null && !jsonObj.get("overview_comment").isJsonNull()) && !jsonObj.get("overview_comment").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `overview_comment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("overview_comment").toString()));
-      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

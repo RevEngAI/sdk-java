@@ -7,10 +7,10 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**baseAddress** | **Integer** |  |  |
 |**actualFilename** | **String** |  |  |
-|**filenameFriendly** | **String** |  |  |
+|**baseAddress** | **Integer** |  |  |
 |**extendedMetadata** | [**ProcessDumpMetadata**](ProcessDumpMetadata.md) |  |  |
+|**filenameFriendly** | **String** |  |  |
 
 
 

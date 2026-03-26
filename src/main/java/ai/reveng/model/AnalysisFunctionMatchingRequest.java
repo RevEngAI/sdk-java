@@ -54,20 +54,20 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AnalysisFunctionMatchingRequest {
-  public static final String SERIALIZED_NAME_MIN_SIMILARITY = "min_similarity";
-  @SerializedName(SERIALIZED_NAME_MIN_SIMILARITY)
-  @javax.annotation.Nullable
-  private BigDecimal minSimilarity = new BigDecimal("90.0");
-
   public static final String SERIALIZED_NAME_FILTERS = "filters";
   @SerializedName(SERIALIZED_NAME_FILTERS)
   @javax.annotation.Nullable
   private FunctionMatchingFilters filters;
 
-  public static final String SERIALIZED_NAME_RESULTS_PER_FUNCTION = "results_per_function";
-  @SerializedName(SERIALIZED_NAME_RESULTS_PER_FUNCTION)
+  public static final String SERIALIZED_NAME_MIN_SIMILARITY = "min_similarity";
+  @SerializedName(SERIALIZED_NAME_MIN_SIMILARITY)
   @javax.annotation.Nullable
-  private Integer resultsPerFunction = 1;
+  private BigDecimal minSimilarity = new BigDecimal("90");
+
+  public static final String SERIALIZED_NAME_NO_CACHE = "no_cache";
+  @SerializedName(SERIALIZED_NAME_NO_CACHE)
+  @javax.annotation.Nullable
+  private Boolean noCache = false;
 
   public static final String SERIALIZED_NAME_PAGE = "page";
   @Deprecated
@@ -81,16 +81,16 @@ public class AnalysisFunctionMatchingRequest {
   @javax.annotation.Nullable
   private Integer pageSize = 0;
 
+  public static final String SERIALIZED_NAME_RESULTS_PER_FUNCTION = "results_per_function";
+  @SerializedName(SERIALIZED_NAME_RESULTS_PER_FUNCTION)
+  @javax.annotation.Nullable
+  private Integer resultsPerFunction = 1;
+
   public static final String SERIALIZED_NAME_STATUS_ONLY = "status_only";
   @Deprecated
   @SerializedName(SERIALIZED_NAME_STATUS_ONLY)
   @javax.annotation.Nullable
   private Boolean statusOnly = false;
-
-  public static final String SERIALIZED_NAME_NO_CACHE = "no_cache";
-  @SerializedName(SERIALIZED_NAME_NO_CACHE)
-  @javax.annotation.Nullable
-  private Boolean noCache = false;
 
   public static final String SERIALIZED_NAME_USE_CANONICAL_NAMES = "use_canonical_names";
   @SerializedName(SERIALIZED_NAME_USE_CANONICAL_NAMES)
@@ -99,27 +99,6 @@ public class AnalysisFunctionMatchingRequest {
 
   public AnalysisFunctionMatchingRequest() {
   }
-
-  public AnalysisFunctionMatchingRequest minSimilarity(@javax.annotation.Nullable BigDecimal minSimilarity) {
-    this.minSimilarity = minSimilarity;
-    return this;
-  }
-
-  /**
-   * Minimum similarity expected for a match as a percentage, default is 90
-   * minimum: 0.0
-   * maximum: 100.0
-   * @return minSimilarity
-   */
-  @javax.annotation.Nullable
-  public BigDecimal getMinSimilarity() {
-    return minSimilarity;
-  }
-
-  public void setMinSimilarity(@javax.annotation.Nullable BigDecimal minSimilarity) {
-    this.minSimilarity = minSimilarity;
-  }
-
 
   public AnalysisFunctionMatchingRequest filters(@javax.annotation.Nullable FunctionMatchingFilters filters) {
     this.filters = filters;
@@ -140,24 +119,43 @@ public class AnalysisFunctionMatchingRequest {
   }
 
 
-  public AnalysisFunctionMatchingRequest resultsPerFunction(@javax.annotation.Nullable Integer resultsPerFunction) {
-    this.resultsPerFunction = resultsPerFunction;
+  public AnalysisFunctionMatchingRequest minSimilarity(@javax.annotation.Nullable BigDecimal minSimilarity) {
+    this.minSimilarity = minSimilarity;
     return this;
   }
 
   /**
-   * Maximum number of matches to return per function, default is 1, max is 10
-   * minimum: 1
-   * maximum: 10
-   * @return resultsPerFunction
+   * Minimum similarity expected for a match as a percentage, default is 90
+   * minimum: 0
+   * maximum: 100
+   * @return minSimilarity
    */
   @javax.annotation.Nullable
-  public Integer getResultsPerFunction() {
-    return resultsPerFunction;
+  public BigDecimal getMinSimilarity() {
+    return minSimilarity;
   }
 
-  public void setResultsPerFunction(@javax.annotation.Nullable Integer resultsPerFunction) {
-    this.resultsPerFunction = resultsPerFunction;
+  public void setMinSimilarity(@javax.annotation.Nullable BigDecimal minSimilarity) {
+    this.minSimilarity = minSimilarity;
+  }
+
+
+  public AnalysisFunctionMatchingRequest noCache(@javax.annotation.Nullable Boolean noCache) {
+    this.noCache = noCache;
+    return this;
+  }
+
+  /**
+   * If set to true, forces the system to bypass any cached results and perform a fresh computation
+   * @return noCache
+   */
+  @javax.annotation.Nullable
+  public Boolean getNoCache() {
+    return noCache;
+  }
+
+  public void setNoCache(@javax.annotation.Nullable Boolean noCache) {
+    this.noCache = noCache;
   }
 
 
@@ -210,6 +208,27 @@ public class AnalysisFunctionMatchingRequest {
   }
 
 
+  public AnalysisFunctionMatchingRequest resultsPerFunction(@javax.annotation.Nullable Integer resultsPerFunction) {
+    this.resultsPerFunction = resultsPerFunction;
+    return this;
+  }
+
+  /**
+   * Maximum number of matches to return per function, default is 1, max is 10
+   * minimum: 1
+   * maximum: 10
+   * @return resultsPerFunction
+   */
+  @javax.annotation.Nullable
+  public Integer getResultsPerFunction() {
+    return resultsPerFunction;
+  }
+
+  public void setResultsPerFunction(@javax.annotation.Nullable Integer resultsPerFunction) {
+    this.resultsPerFunction = resultsPerFunction;
+  }
+
+
   @Deprecated
   public AnalysisFunctionMatchingRequest statusOnly(@javax.annotation.Nullable Boolean statusOnly) {
     this.statusOnly = statusOnly;
@@ -230,25 +249,6 @@ public class AnalysisFunctionMatchingRequest {
   @Deprecated
   public void setStatusOnly(@javax.annotation.Nullable Boolean statusOnly) {
     this.statusOnly = statusOnly;
-  }
-
-
-  public AnalysisFunctionMatchingRequest noCache(@javax.annotation.Nullable Boolean noCache) {
-    this.noCache = noCache;
-    return this;
-  }
-
-  /**
-   * If set to true, forces the system to bypass any cached results and perform a fresh computation
-   * @return noCache
-   */
-  @javax.annotation.Nullable
-  public Boolean getNoCache() {
-    return noCache;
-  }
-
-  public void setNoCache(@javax.annotation.Nullable Boolean noCache) {
-    this.noCache = noCache;
   }
 
 
@@ -325,13 +325,13 @@ public class AnalysisFunctionMatchingRequest {
       return false;
     }
     AnalysisFunctionMatchingRequest analysisFunctionMatchingRequest = (AnalysisFunctionMatchingRequest) o;
-    return Objects.equals(this.minSimilarity, analysisFunctionMatchingRequest.minSimilarity) &&
-        Objects.equals(this.filters, analysisFunctionMatchingRequest.filters) &&
-        Objects.equals(this.resultsPerFunction, analysisFunctionMatchingRequest.resultsPerFunction) &&
+    return Objects.equals(this.filters, analysisFunctionMatchingRequest.filters) &&
+        Objects.equals(this.minSimilarity, analysisFunctionMatchingRequest.minSimilarity) &&
+        Objects.equals(this.noCache, analysisFunctionMatchingRequest.noCache) &&
         Objects.equals(this.page, analysisFunctionMatchingRequest.page) &&
         Objects.equals(this.pageSize, analysisFunctionMatchingRequest.pageSize) &&
+        Objects.equals(this.resultsPerFunction, analysisFunctionMatchingRequest.resultsPerFunction) &&
         Objects.equals(this.statusOnly, analysisFunctionMatchingRequest.statusOnly) &&
-        Objects.equals(this.noCache, analysisFunctionMatchingRequest.noCache) &&
         Objects.equals(this.useCanonicalNames, analysisFunctionMatchingRequest.useCanonicalNames)&&
         Objects.equals(this.additionalProperties, analysisFunctionMatchingRequest.additionalProperties);
   }
@@ -342,7 +342,7 @@ public class AnalysisFunctionMatchingRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(minSimilarity, filters, resultsPerFunction, page, pageSize, statusOnly, noCache, useCanonicalNames, additionalProperties);
+    return Objects.hash(filters, minSimilarity, noCache, page, pageSize, resultsPerFunction, statusOnly, useCanonicalNames, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -356,13 +356,13 @@ public class AnalysisFunctionMatchingRequest {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AnalysisFunctionMatchingRequest {\n");
-    sb.append("    minSimilarity: ").append(toIndentedString(minSimilarity)).append("\n");
     sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
-    sb.append("    resultsPerFunction: ").append(toIndentedString(resultsPerFunction)).append("\n");
+    sb.append("    minSimilarity: ").append(toIndentedString(minSimilarity)).append("\n");
+    sb.append("    noCache: ").append(toIndentedString(noCache)).append("\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    resultsPerFunction: ").append(toIndentedString(resultsPerFunction)).append("\n");
     sb.append("    statusOnly: ").append(toIndentedString(statusOnly)).append("\n");
-    sb.append("    noCache: ").append(toIndentedString(noCache)).append("\n");
     sb.append("    useCanonicalNames: ").append(toIndentedString(useCanonicalNames)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -386,7 +386,7 @@ public class AnalysisFunctionMatchingRequest {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("min_similarity", "filters", "results_per_function", "page", "page_size", "status_only", "no_cache", "use_canonical_names"));
+    openapiFields = new HashSet<String>(Arrays.asList("filters", "min_similarity", "no_cache", "page", "page_size", "results_per_function", "status_only", "use_canonical_names"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);

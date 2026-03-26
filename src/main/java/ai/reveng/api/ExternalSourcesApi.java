@@ -85,8 +85,8 @@ public class ExternalSourcesApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 202 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Request already queued </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createExternalTaskVtCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
@@ -156,8 +156,8 @@ public class ExternalSourcesApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 202 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Request already queued </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public BaseResponseStr createExternalTaskVt(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
@@ -176,8 +176,8 @@ public class ExternalSourcesApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 202 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Request already queued </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<BaseResponseStr> createExternalTaskVtWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
@@ -198,8 +198,8 @@ public class ExternalSourcesApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 202 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Request already queued </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createExternalTaskVtAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<BaseResponseStr> _callback) throws ApiException {
@@ -220,8 +220,8 @@ public class ExternalSourcesApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> No data retrieved from VirusTotal for the given analysis_id </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getVtDataCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
@@ -291,8 +291,8 @@ public class ExternalSourcesApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> No data retrieved from VirusTotal for the given analysis_id </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public BaseResponseExternalResponse getVtData(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
@@ -311,8 +311,8 @@ public class ExternalSourcesApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> No data retrieved from VirusTotal for the given analysis_id </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<BaseResponseExternalResponse> getVtDataWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
@@ -333,8 +333,8 @@ public class ExternalSourcesApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> No data retrieved from VirusTotal for the given analysis_id </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getVtDataAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<BaseResponseExternalResponse> _callback) throws ApiException {

@@ -7,12 +7,12 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**version** | **Integer** |  |  |
-|**issuedOn** | **String** |  |  |
 |**expiresOn** | **String** |  |  |
+|**issuedOn** | **String** |  |  |
 |**issuerName** | **String** |  |  |
 |**serialNumber** | **String** |  |  |
 |**subjectName** | **String** |  |  |
+|**version** | **Integer** |  |  |
 
 
 

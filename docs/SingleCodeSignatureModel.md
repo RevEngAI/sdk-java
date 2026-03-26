@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**certificates** | [**List&lt;SingleCodeCertificateModel&gt;**](SingleCodeCertificateModel.md) |  |  |
 |**authenticodeDigest** | **String** |  |  |
+|**certificates** | [**List&lt;SingleCodeCertificateModel&gt;**](SingleCodeCertificateModel.md) |  |  |
 
 
 

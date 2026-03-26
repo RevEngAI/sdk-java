@@ -51,15 +51,15 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FunctionDataTypesStatus {
-  public static final String SERIALIZED_NAME_FUNCTION_ID = "function_id";
-  @SerializedName(SERIALIZED_NAME_FUNCTION_ID)
-  @javax.annotation.Nonnull
-  private Long functionId;
-
   public static final String SERIALIZED_NAME_COMPLETED = "completed";
   @SerializedName(SERIALIZED_NAME_COMPLETED)
   @javax.annotation.Nonnull
   private Boolean completed;
+
+  public static final String SERIALIZED_NAME_FUNCTION_ID = "function_id";
+  @SerializedName(SERIALIZED_NAME_FUNCTION_ID)
+  @javax.annotation.Nonnull
+  private Long functionId;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -68,25 +68,6 @@ public class FunctionDataTypesStatus {
 
   public FunctionDataTypesStatus() {
   }
-
-  public FunctionDataTypesStatus functionId(@javax.annotation.Nonnull Long functionId) {
-    this.functionId = functionId;
-    return this;
-  }
-
-  /**
-   * Function id
-   * @return functionId
-   */
-  @javax.annotation.Nonnull
-  public Long getFunctionId() {
-    return functionId;
-  }
-
-  public void setFunctionId(@javax.annotation.Nonnull Long functionId) {
-    this.functionId = functionId;
-  }
-
 
   public FunctionDataTypesStatus completed(@javax.annotation.Nonnull Boolean completed) {
     this.completed = completed;
@@ -104,6 +85,25 @@ public class FunctionDataTypesStatus {
 
   public void setCompleted(@javax.annotation.Nonnull Boolean completed) {
     this.completed = completed;
+  }
+
+
+  public FunctionDataTypesStatus functionId(@javax.annotation.Nonnull Long functionId) {
+    this.functionId = functionId;
+    return this;
+  }
+
+  /**
+   * Function id
+   * @return functionId
+   */
+  @javax.annotation.Nonnull
+  public Long getFunctionId() {
+    return functionId;
+  }
+
+  public void setFunctionId(@javax.annotation.Nonnull Long functionId) {
+    this.functionId = functionId;
   }
 
 
@@ -180,23 +180,23 @@ public class FunctionDataTypesStatus {
       return false;
     }
     FunctionDataTypesStatus functionDataTypesStatus = (FunctionDataTypesStatus) o;
-    return Objects.equals(this.functionId, functionDataTypesStatus.functionId) &&
-        Objects.equals(this.completed, functionDataTypesStatus.completed) &&
+    return Objects.equals(this.completed, functionDataTypesStatus.completed) &&
+        Objects.equals(this.functionId, functionDataTypesStatus.functionId) &&
         Objects.equals(this.status, functionDataTypesStatus.status)&&
         Objects.equals(this.additionalProperties, functionDataTypesStatus.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(functionId, completed, status, additionalProperties);
+    return Objects.hash(completed, functionId, status, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FunctionDataTypesStatus {\n");
-    sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
     sb.append("    completed: ").append(toIndentedString(completed)).append("\n");
+    sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -220,10 +220,10 @@ public class FunctionDataTypesStatus {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("function_id", "completed", "status"));
+    openapiFields = new HashSet<String>(Arrays.asList("completed", "function_id", "status"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("function_id", "completed", "status"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("completed", "function_id", "status"));
   }
 
   /**

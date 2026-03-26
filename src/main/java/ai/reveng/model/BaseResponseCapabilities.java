@@ -57,52 +57,33 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class BaseResponseCapabilities {
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
-  @javax.annotation.Nullable
-  private Boolean status = true;
-
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
   @javax.annotation.Nullable
   private Capabilities data;
-
-  public static final String SERIALIZED_NAME_MESSAGE = "message";
-  @SerializedName(SERIALIZED_NAME_MESSAGE)
-  @javax.annotation.Nullable
-  private String message;
 
   public static final String SERIALIZED_NAME_ERRORS = "errors";
   @SerializedName(SERIALIZED_NAME_ERRORS)
   @javax.annotation.Nullable
   private List<ErrorModel> errors;
 
+  public static final String SERIALIZED_NAME_MESSAGE = "message";
+  @SerializedName(SERIALIZED_NAME_MESSAGE)
+  @javax.annotation.Nullable
+  private String message;
+
   public static final String SERIALIZED_NAME_META = "meta";
   @SerializedName(SERIALIZED_NAME_META)
   @javax.annotation.Nullable
   private MetaModel meta;
 
+  public static final String SERIALIZED_NAME_STATUS = "status";
+  @SerializedName(SERIALIZED_NAME_STATUS)
+  @javax.annotation.Nullable
+  private Boolean status = true;
+
   public BaseResponseCapabilities() {
   }
-
-  public BaseResponseCapabilities status(@javax.annotation.Nullable Boolean status) {
-    this.status = status;
-    return this;
-  }
-
-  /**
-   * Response status on whether the request succeeded
-   * @return status
-   */
-  @javax.annotation.Nullable
-  public Boolean getStatus() {
-    return status;
-  }
-
-  public void setStatus(@javax.annotation.Nullable Boolean status) {
-    this.status = status;
-  }
-
 
   public BaseResponseCapabilities data(@javax.annotation.Nullable Capabilities data) {
     this.data = data;
@@ -120,25 +101,6 @@ public class BaseResponseCapabilities {
 
   public void setData(@javax.annotation.Nullable Capabilities data) {
     this.data = data;
-  }
-
-
-  public BaseResponseCapabilities message(@javax.annotation.Nullable String message) {
-    this.message = message;
-    return this;
-  }
-
-  /**
-   * Get message
-   * @return message
-   */
-  @javax.annotation.Nullable
-  public String getMessage() {
-    return message;
-  }
-
-  public void setMessage(@javax.annotation.Nullable String message) {
-    this.message = message;
   }
 
 
@@ -169,6 +131,25 @@ public class BaseResponseCapabilities {
   }
 
 
+  public BaseResponseCapabilities message(@javax.annotation.Nullable String message) {
+    this.message = message;
+    return this;
+  }
+
+  /**
+   * Get message
+   * @return message
+   */
+  @javax.annotation.Nullable
+  public String getMessage() {
+    return message;
+  }
+
+  public void setMessage(@javax.annotation.Nullable String message) {
+    this.message = message;
+  }
+
+
   public BaseResponseCapabilities meta(@javax.annotation.Nullable MetaModel meta) {
     this.meta = meta;
     return this;
@@ -185,6 +166,25 @@ public class BaseResponseCapabilities {
 
   public void setMeta(@javax.annotation.Nullable MetaModel meta) {
     this.meta = meta;
+  }
+
+
+  public BaseResponseCapabilities status(@javax.annotation.Nullable Boolean status) {
+    this.status = status;
+    return this;
+  }
+
+  /**
+   * Response status on whether the request succeeded
+   * @return status
+   */
+  @javax.annotation.Nullable
+  public Boolean getStatus() {
+    return status;
+  }
+
+  public void setStatus(@javax.annotation.Nullable Boolean status) {
+    this.status = status;
   }
 
   /**
@@ -242,11 +242,11 @@ public class BaseResponseCapabilities {
       return false;
     }
     BaseResponseCapabilities baseResponseCapabilities = (BaseResponseCapabilities) o;
-    return Objects.equals(this.status, baseResponseCapabilities.status) &&
-        Objects.equals(this.data, baseResponseCapabilities.data) &&
-        Objects.equals(this.message, baseResponseCapabilities.message) &&
+    return Objects.equals(this.data, baseResponseCapabilities.data) &&
         Objects.equals(this.errors, baseResponseCapabilities.errors) &&
-        Objects.equals(this.meta, baseResponseCapabilities.meta)&&
+        Objects.equals(this.message, baseResponseCapabilities.message) &&
+        Objects.equals(this.meta, baseResponseCapabilities.meta) &&
+        Objects.equals(this.status, baseResponseCapabilities.status)&&
         Objects.equals(this.additionalProperties, baseResponseCapabilities.additionalProperties);
   }
 
@@ -256,7 +256,7 @@ public class BaseResponseCapabilities {
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, data, message, errors, meta, additionalProperties);
+    return Objects.hash(data, errors, message, meta, status, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -270,11 +270,11 @@ public class BaseResponseCapabilities {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class BaseResponseCapabilities {\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -297,7 +297,7 @@ public class BaseResponseCapabilities {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("status", "data", "message", "errors", "meta"));
+    openapiFields = new HashSet<String>(Arrays.asList("data", "errors", "message", "meta", "status"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -320,9 +320,6 @@ public class BaseResponseCapabilities {
       if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
         Capabilities.validateJsonElement(jsonObj.get("data"));
       }
-      if ((jsonObj.get("message") != null && !jsonObj.get("message").isJsonNull()) && !jsonObj.get("message").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
-      }
       if (jsonObj.get("errors") != null && !jsonObj.get("errors").isJsonNull()) {
         JsonArray jsonArrayerrors = jsonObj.getAsJsonArray("errors");
         if (jsonArrayerrors != null) {
@@ -336,6 +333,9 @@ public class BaseResponseCapabilities {
             ErrorModel.validateJsonElement(jsonArrayerrors.get(i));
           };
         }
+      }
+      if ((jsonObj.get("message") != null && !jsonObj.get("message").isJsonNull()) && !jsonObj.get("message").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
       }
       // validate the optional field `meta`
       if (jsonObj.get("meta") != null && !jsonObj.get("meta").isJsonNull()) {

@@ -56,15 +56,15 @@ public class ProcessDumpMetadata {
   @javax.annotation.Nonnull
   private String sha256;
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  @javax.annotation.Nonnull
-  private String type;
-
   public static final String SERIALIZED_NAME_SIZE = "size";
   @SerializedName(SERIALIZED_NAME_SIZE)
   @javax.annotation.Nonnull
   private Integer size;
+
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  @javax.annotation.Nonnull
+  private String type;
 
   public ProcessDumpMetadata() {
   }
@@ -88,25 +88,6 @@ public class ProcessDumpMetadata {
   }
 
 
-  public ProcessDumpMetadata type(@javax.annotation.Nonnull String type) {
-    this.type = type;
-    return this;
-  }
-
-  /**
-   * Get type
-   * @return type
-   */
-  @javax.annotation.Nonnull
-  public String getType() {
-    return type;
-  }
-
-  public void setType(@javax.annotation.Nonnull String type) {
-    this.type = type;
-  }
-
-
   public ProcessDumpMetadata size(@javax.annotation.Nonnull Integer size) {
     this.size = size;
     return this;
@@ -123,6 +104,25 @@ public class ProcessDumpMetadata {
 
   public void setSize(@javax.annotation.Nonnull Integer size) {
     this.size = size;
+  }
+
+
+  public ProcessDumpMetadata type(@javax.annotation.Nonnull String type) {
+    this.type = type;
+    return this;
+  }
+
+  /**
+   * Get type
+   * @return type
+   */
+  @javax.annotation.Nonnull
+  public String getType() {
+    return type;
+  }
+
+  public void setType(@javax.annotation.Nonnull String type) {
+    this.type = type;
   }
 
   /**
@@ -181,14 +181,14 @@ public class ProcessDumpMetadata {
     }
     ProcessDumpMetadata processDumpMetadata = (ProcessDumpMetadata) o;
     return Objects.equals(this.sha256, processDumpMetadata.sha256) &&
-        Objects.equals(this.type, processDumpMetadata.type) &&
-        Objects.equals(this.size, processDumpMetadata.size)&&
+        Objects.equals(this.size, processDumpMetadata.size) &&
+        Objects.equals(this.type, processDumpMetadata.type)&&
         Objects.equals(this.additionalProperties, processDumpMetadata.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sha256, type, size, additionalProperties);
+    return Objects.hash(sha256, size, type, additionalProperties);
   }
 
   @Override
@@ -196,8 +196,8 @@ public class ProcessDumpMetadata {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProcessDumpMetadata {\n");
     sb.append("    sha256: ").append(toIndentedString(sha256)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -220,10 +220,10 @@ public class ProcessDumpMetadata {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("sha256", "type", "size"));
+    openapiFields = new HashSet<String>(Arrays.asList("sha256", "size", "type"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("sha256", "type", "size"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("sha256", "size", "type"));
   }
 
   /**

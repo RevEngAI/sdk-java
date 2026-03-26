@@ -54,45 +54,18 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SBOM {
-  public static final String SERIALIZED_NAME_PACKAGES = "packages";
-  @SerializedName(SERIALIZED_NAME_PACKAGES)
-  @javax.annotation.Nonnull
-  private List<SBOMPackage> packages = new ArrayList<>();
-
   public static final String SERIALIZED_NAME_IMPORTED_LIBS = "imported_libs";
   @SerializedName(SERIALIZED_NAME_IMPORTED_LIBS)
   @javax.annotation.Nonnull
   private List<String> importedLibs = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_PACKAGES = "packages";
+  @SerializedName(SERIALIZED_NAME_PACKAGES)
+  @javax.annotation.Nonnull
+  private List<SBOMPackage> packages = new ArrayList<>();
+
   public SBOM() {
   }
-
-  public SBOM packages(@javax.annotation.Nonnull List<SBOMPackage> packages) {
-    this.packages = packages;
-    return this;
-  }
-
-  public SBOM addPackagesItem(SBOMPackage packagesItem) {
-    if (this.packages == null) {
-      this.packages = new ArrayList<>();
-    }
-    this.packages.add(packagesItem);
-    return this;
-  }
-
-  /**
-   * The packages found
-   * @return packages
-   */
-  @javax.annotation.Nonnull
-  public List<SBOMPackage> getPackages() {
-    return packages;
-  }
-
-  public void setPackages(@javax.annotation.Nonnull List<SBOMPackage> packages) {
-    this.packages = packages;
-  }
-
 
   public SBOM importedLibs(@javax.annotation.Nonnull List<String> importedLibs) {
     this.importedLibs = importedLibs;
@@ -118,6 +91,33 @@ public class SBOM {
 
   public void setImportedLibs(@javax.annotation.Nonnull List<String> importedLibs) {
     this.importedLibs = importedLibs;
+  }
+
+
+  public SBOM packages(@javax.annotation.Nonnull List<SBOMPackage> packages) {
+    this.packages = packages;
+    return this;
+  }
+
+  public SBOM addPackagesItem(SBOMPackage packagesItem) {
+    if (this.packages == null) {
+      this.packages = new ArrayList<>();
+    }
+    this.packages.add(packagesItem);
+    return this;
+  }
+
+  /**
+   * The packages found
+   * @return packages
+   */
+  @javax.annotation.Nonnull
+  public List<SBOMPackage> getPackages() {
+    return packages;
+  }
+
+  public void setPackages(@javax.annotation.Nonnull List<SBOMPackage> packages) {
+    this.packages = packages;
   }
 
   /**
@@ -175,22 +175,22 @@ public class SBOM {
       return false;
     }
     SBOM SBOM = (SBOM) o;
-    return Objects.equals(this.packages, SBOM.packages) &&
-        Objects.equals(this.importedLibs, SBOM.importedLibs)&&
+    return Objects.equals(this.importedLibs, SBOM.importedLibs) &&
+        Objects.equals(this.packages, SBOM.packages)&&
         Objects.equals(this.additionalProperties, SBOM.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(packages, importedLibs, additionalProperties);
+    return Objects.hash(importedLibs, packages, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SBOM {\n");
-    sb.append("    packages: ").append(toIndentedString(packages)).append("\n");
     sb.append("    importedLibs: ").append(toIndentedString(importedLibs)).append("\n");
+    sb.append("    packages: ").append(toIndentedString(packages)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -213,10 +213,10 @@ public class SBOM {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("packages", "imported_libs"));
+    openapiFields = new HashSet<String>(Arrays.asList("imported_libs", "packages"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("packages", "imported_libs"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("imported_libs", "packages"));
   }
 
   /**
@@ -239,6 +239,12 @@ public class SBOM {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // ensure the required json array is present
+      if (jsonObj.get("imported_libs") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("imported_libs").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `imported_libs` to be an array in the JSON string but got `%s`", jsonObj.get("imported_libs").toString()));
+      }
       // ensure the json data is an array
       if (!jsonObj.get("packages").isJsonArray()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `packages` to be an array in the JSON string but got `%s`", jsonObj.get("packages").toString()));
@@ -249,12 +255,6 @@ public class SBOM {
       for (int i = 0; i < jsonArraypackages.size(); i++) {
         SBOMPackage.validateJsonElement(jsonArraypackages.get(i));
       };
-      // ensure the required json array is present
-      if (jsonObj.get("imported_libs") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("imported_libs").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `imported_libs` to be an array in the JSON string but got `%s`", jsonObj.get("imported_libs").toString()));
-      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

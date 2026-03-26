@@ -51,20 +51,20 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class NetworkOverviewMetadata {
-  public static final String SERIALIZED_NAME_HOST = "host";
-  @SerializedName(SERIALIZED_NAME_HOST)
+  public static final String SERIALIZED_NAME_A_S_N = "ASN";
+  @SerializedName(SERIALIZED_NAME_A_S_N)
   @javax.annotation.Nonnull
-  private String host;
+  private String ASN;
 
   public static final String SERIALIZED_NAME_COUNTRY_CODE = "country_code";
   @SerializedName(SERIALIZED_NAME_COUNTRY_CODE)
   @javax.annotation.Nonnull
   private String countryCode;
 
-  public static final String SERIALIZED_NAME_A_S_N = "ASN";
-  @SerializedName(SERIALIZED_NAME_A_S_N)
+  public static final String SERIALIZED_NAME_HOST = "host";
+  @SerializedName(SERIALIZED_NAME_HOST)
   @javax.annotation.Nonnull
-  private String ASN;
+  private String host;
 
   /**
    * Gets or Sets type
@@ -124,22 +124,22 @@ public class NetworkOverviewMetadata {
   public NetworkOverviewMetadata() {
   }
 
-  public NetworkOverviewMetadata host(@javax.annotation.Nonnull String host) {
-    this.host = host;
+  public NetworkOverviewMetadata ASN(@javax.annotation.Nonnull String ASN) {
+    this.ASN = ASN;
     return this;
   }
 
   /**
-   * Get host
-   * @return host
+   * Get ASN
+   * @return ASN
    */
   @javax.annotation.Nonnull
-  public String getHost() {
-    return host;
+  public String getASN() {
+    return ASN;
   }
 
-  public void setHost(@javax.annotation.Nonnull String host) {
-    this.host = host;
+  public void setASN(@javax.annotation.Nonnull String ASN) {
+    this.ASN = ASN;
   }
 
 
@@ -162,22 +162,22 @@ public class NetworkOverviewMetadata {
   }
 
 
-  public NetworkOverviewMetadata ASN(@javax.annotation.Nonnull String ASN) {
-    this.ASN = ASN;
+  public NetworkOverviewMetadata host(@javax.annotation.Nonnull String host) {
+    this.host = host;
     return this;
   }
 
   /**
-   * Get ASN
-   * @return ASN
+   * Get host
+   * @return host
    */
   @javax.annotation.Nonnull
-  public String getASN() {
-    return ASN;
+  public String getHost() {
+    return host;
   }
 
-  public void setASN(@javax.annotation.Nonnull String ASN) {
-    this.ASN = ASN;
+  public void setHost(@javax.annotation.Nonnull String host) {
+    this.host = host;
   }
 
 
@@ -254,25 +254,25 @@ public class NetworkOverviewMetadata {
       return false;
     }
     NetworkOverviewMetadata networkOverviewMetadata = (NetworkOverviewMetadata) o;
-    return Objects.equals(this.host, networkOverviewMetadata.host) &&
+    return Objects.equals(this.ASN, networkOverviewMetadata.ASN) &&
         Objects.equals(this.countryCode, networkOverviewMetadata.countryCode) &&
-        Objects.equals(this.ASN, networkOverviewMetadata.ASN) &&
+        Objects.equals(this.host, networkOverviewMetadata.host) &&
         Objects.equals(this.type, networkOverviewMetadata.type)&&
         Objects.equals(this.additionalProperties, networkOverviewMetadata.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(host, countryCode, ASN, type, additionalProperties);
+    return Objects.hash(ASN, countryCode, host, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class NetworkOverviewMetadata {\n");
-    sb.append("    host: ").append(toIndentedString(host)).append("\n");
-    sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
     sb.append("    ASN: ").append(toIndentedString(ASN)).append("\n");
+    sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
+    sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -296,10 +296,10 @@ public class NetworkOverviewMetadata {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("host", "country_code", "ASN", "type"));
+    openapiFields = new HashSet<String>(Arrays.asList("ASN", "country_code", "host", "type"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("host", "country_code", "ASN", "type"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("ASN", "country_code", "host", "type"));
   }
 
   /**
@@ -322,14 +322,14 @@ public class NetworkOverviewMetadata {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("host").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `host` to be a primitive type in the JSON string but got `%s`", jsonObj.get("host").toString()));
+      if (!jsonObj.get("ASN").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `ASN` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ASN").toString()));
       }
       if (!jsonObj.get("country_code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `country_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("country_code").toString()));
       }
-      if (!jsonObj.get("ASN").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `ASN` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ASN").toString()));
+      if (!jsonObj.get("host").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `host` to be a primitive type in the JSON string but got `%s`", jsonObj.get("host").toString()));
       }
       if (!jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));

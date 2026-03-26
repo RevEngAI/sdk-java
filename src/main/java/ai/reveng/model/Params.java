@@ -51,35 +51,35 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Params {
-  public static final String SERIALIZED_NAME_DEBUG_HASH = "debug_hash";
-  @SerializedName(SERIALIZED_NAME_DEBUG_HASH)
-  @javax.annotation.Nullable
-  private String debugHash;
-
-  public static final String SERIALIZED_NAME_BINARY_SIZE = "binary_size";
-  @SerializedName(SERIALIZED_NAME_BINARY_SIZE)
-  @javax.annotation.Nonnull
-  private Integer binarySize;
-
   public static final String SERIALIZED_NAME_ARCHITECTURE = "architecture";
   @SerializedName(SERIALIZED_NAME_ARCHITECTURE)
   @javax.annotation.Nonnull
   private String architecture;
 
-  public static final String SERIALIZED_NAME_BINARY_TYPE = "binary_type";
-  @SerializedName(SERIALIZED_NAME_BINARY_TYPE)
+  public static final String SERIALIZED_NAME_BINARY_DYNAMIC = "binary_dynamic";
+  @SerializedName(SERIALIZED_NAME_BINARY_DYNAMIC)
   @javax.annotation.Nonnull
-  private String binaryType;
+  private Boolean binaryDynamic;
 
   public static final String SERIALIZED_NAME_BINARY_FORMAT = "binary_format";
   @SerializedName(SERIALIZED_NAME_BINARY_FORMAT)
   @javax.annotation.Nonnull
   private String binaryFormat;
 
-  public static final String SERIALIZED_NAME_BINARY_DYNAMIC = "binary_dynamic";
-  @SerializedName(SERIALIZED_NAME_BINARY_DYNAMIC)
+  public static final String SERIALIZED_NAME_BINARY_SIZE = "binary_size";
+  @SerializedName(SERIALIZED_NAME_BINARY_SIZE)
   @javax.annotation.Nonnull
-  private Boolean binaryDynamic;
+  private Integer binarySize;
+
+  public static final String SERIALIZED_NAME_BINARY_TYPE = "binary_type";
+  @SerializedName(SERIALIZED_NAME_BINARY_TYPE)
+  @javax.annotation.Nonnull
+  private String binaryType;
+
+  public static final String SERIALIZED_NAME_DEBUG_HASH = "debug_hash";
+  @SerializedName(SERIALIZED_NAME_DEBUG_HASH)
+  @javax.annotation.Nullable
+  private String debugHash;
 
   public static final String SERIALIZED_NAME_MODEL_NAME = "model_name";
   @SerializedName(SERIALIZED_NAME_MODEL_NAME)
@@ -88,44 +88,6 @@ public class Params {
 
   public Params() {
   }
-
-  public Params debugHash(@javax.annotation.Nullable String debugHash) {
-    this.debugHash = debugHash;
-    return this;
-  }
-
-  /**
-   * Get debugHash
-   * @return debugHash
-   */
-  @javax.annotation.Nullable
-  public String getDebugHash() {
-    return debugHash;
-  }
-
-  public void setDebugHash(@javax.annotation.Nullable String debugHash) {
-    this.debugHash = debugHash;
-  }
-
-
-  public Params binarySize(@javax.annotation.Nonnull Integer binarySize) {
-    this.binarySize = binarySize;
-    return this;
-  }
-
-  /**
-   * The size of the binary data
-   * @return binarySize
-   */
-  @javax.annotation.Nonnull
-  public Integer getBinarySize() {
-    return binarySize;
-  }
-
-  public void setBinarySize(@javax.annotation.Nonnull Integer binarySize) {
-    this.binarySize = binarySize;
-  }
-
 
   public Params architecture(@javax.annotation.Nonnull String architecture) {
     this.architecture = architecture;
@@ -146,22 +108,22 @@ public class Params {
   }
 
 
-  public Params binaryType(@javax.annotation.Nonnull String binaryType) {
-    this.binaryType = binaryType;
+  public Params binaryDynamic(@javax.annotation.Nonnull Boolean binaryDynamic) {
+    this.binaryDynamic = binaryDynamic;
     return this;
   }
 
   /**
-   * The type of binary data
-   * @return binaryType
+   * Whether the binary data is dynamic
+   * @return binaryDynamic
    */
   @javax.annotation.Nonnull
-  public String getBinaryType() {
-    return binaryType;
+  public Boolean getBinaryDynamic() {
+    return binaryDynamic;
   }
 
-  public void setBinaryType(@javax.annotation.Nonnull String binaryType) {
-    this.binaryType = binaryType;
+  public void setBinaryDynamic(@javax.annotation.Nonnull Boolean binaryDynamic) {
+    this.binaryDynamic = binaryDynamic;
   }
 
 
@@ -184,22 +146,60 @@ public class Params {
   }
 
 
-  public Params binaryDynamic(@javax.annotation.Nonnull Boolean binaryDynamic) {
-    this.binaryDynamic = binaryDynamic;
+  public Params binarySize(@javax.annotation.Nonnull Integer binarySize) {
+    this.binarySize = binarySize;
     return this;
   }
 
   /**
-   * Whether the binary data is dynamic
-   * @return binaryDynamic
+   * The size of the binary data
+   * @return binarySize
    */
   @javax.annotation.Nonnull
-  public Boolean getBinaryDynamic() {
-    return binaryDynamic;
+  public Integer getBinarySize() {
+    return binarySize;
   }
 
-  public void setBinaryDynamic(@javax.annotation.Nonnull Boolean binaryDynamic) {
-    this.binaryDynamic = binaryDynamic;
+  public void setBinarySize(@javax.annotation.Nonnull Integer binarySize) {
+    this.binarySize = binarySize;
+  }
+
+
+  public Params binaryType(@javax.annotation.Nonnull String binaryType) {
+    this.binaryType = binaryType;
+    return this;
+  }
+
+  /**
+   * The type of binary data
+   * @return binaryType
+   */
+  @javax.annotation.Nonnull
+  public String getBinaryType() {
+    return binaryType;
+  }
+
+  public void setBinaryType(@javax.annotation.Nonnull String binaryType) {
+    this.binaryType = binaryType;
+  }
+
+
+  public Params debugHash(@javax.annotation.Nullable String debugHash) {
+    this.debugHash = debugHash;
+    return this;
+  }
+
+  /**
+   * Get debugHash
+   * @return debugHash
+   */
+  @javax.annotation.Nullable
+  public String getDebugHash() {
+    return debugHash;
+  }
+
+  public void setDebugHash(@javax.annotation.Nullable String debugHash) {
+    this.debugHash = debugHash;
   }
 
 
@@ -276,31 +276,31 @@ public class Params {
       return false;
     }
     Params params = (Params) o;
-    return Objects.equals(this.debugHash, params.debugHash) &&
-        Objects.equals(this.binarySize, params.binarySize) &&
-        Objects.equals(this.architecture, params.architecture) &&
-        Objects.equals(this.binaryType, params.binaryType) &&
-        Objects.equals(this.binaryFormat, params.binaryFormat) &&
+    return Objects.equals(this.architecture, params.architecture) &&
         Objects.equals(this.binaryDynamic, params.binaryDynamic) &&
+        Objects.equals(this.binaryFormat, params.binaryFormat) &&
+        Objects.equals(this.binarySize, params.binarySize) &&
+        Objects.equals(this.binaryType, params.binaryType) &&
+        Objects.equals(this.debugHash, params.debugHash) &&
         Objects.equals(this.modelName, params.modelName)&&
         Objects.equals(this.additionalProperties, params.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(debugHash, binarySize, architecture, binaryType, binaryFormat, binaryDynamic, modelName, additionalProperties);
+    return Objects.hash(architecture, binaryDynamic, binaryFormat, binarySize, binaryType, debugHash, modelName, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Params {\n");
-    sb.append("    debugHash: ").append(toIndentedString(debugHash)).append("\n");
-    sb.append("    binarySize: ").append(toIndentedString(binarySize)).append("\n");
     sb.append("    architecture: ").append(toIndentedString(architecture)).append("\n");
-    sb.append("    binaryType: ").append(toIndentedString(binaryType)).append("\n");
-    sb.append("    binaryFormat: ").append(toIndentedString(binaryFormat)).append("\n");
     sb.append("    binaryDynamic: ").append(toIndentedString(binaryDynamic)).append("\n");
+    sb.append("    binaryFormat: ").append(toIndentedString(binaryFormat)).append("\n");
+    sb.append("    binarySize: ").append(toIndentedString(binarySize)).append("\n");
+    sb.append("    binaryType: ").append(toIndentedString(binaryType)).append("\n");
+    sb.append("    debugHash: ").append(toIndentedString(debugHash)).append("\n");
     sb.append("    modelName: ").append(toIndentedString(modelName)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -324,10 +324,10 @@ public class Params {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("debug_hash", "binary_size", "architecture", "binary_type", "binary_format", "binary_dynamic", "model_name"));
+    openapiFields = new HashSet<String>(Arrays.asList("architecture", "binary_dynamic", "binary_format", "binary_size", "binary_type", "debug_hash", "model_name"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("debug_hash", "binary_size", "architecture", "binary_type", "binary_format", "binary_dynamic", "model_name"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("architecture", "binary_dynamic", "binary_format", "binary_size", "binary_type", "debug_hash", "model_name"));
   }
 
   /**
@@ -350,17 +350,17 @@ public class Params {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("debug_hash") != null && !jsonObj.get("debug_hash").isJsonNull()) && !jsonObj.get("debug_hash").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `debug_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("debug_hash").toString()));
-      }
       if (!jsonObj.get("architecture").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `architecture` to be a primitive type in the JSON string but got `%s`", jsonObj.get("architecture").toString()));
+      }
+      if (!jsonObj.get("binary_format").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `binary_format` to be a primitive type in the JSON string but got `%s`", jsonObj.get("binary_format").toString()));
       }
       if (!jsonObj.get("binary_type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `binary_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("binary_type").toString()));
       }
-      if (!jsonObj.get("binary_format").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `binary_format` to be a primitive type in the JSON string but got `%s`", jsonObj.get("binary_format").toString()));
+      if ((jsonObj.get("debug_hash") != null && !jsonObj.get("debug_hash").isJsonNull()) && !jsonObj.get("debug_hash").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `debug_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("debug_hash").toString()));
       }
       if (!jsonObj.get("model_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `model_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("model_name").toString()));

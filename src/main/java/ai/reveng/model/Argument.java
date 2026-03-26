@@ -57,25 +57,25 @@ public class Argument {
   @javax.annotation.Nullable
   private String lastChange;
 
-  public static final String SERIALIZED_NAME_OFFSET = "offset";
-  @SerializedName(SERIALIZED_NAME_OFFSET)
-  @javax.annotation.Nonnull
-  private Integer offset;
-
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   @javax.annotation.Nonnull
   private String name;
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
+  public static final String SERIALIZED_NAME_OFFSET = "offset";
+  @SerializedName(SERIALIZED_NAME_OFFSET)
   @javax.annotation.Nonnull
-  private String type;
+  private Integer offset;
 
   public static final String SERIALIZED_NAME_SIZE = "size";
   @SerializedName(SERIALIZED_NAME_SIZE)
   @javax.annotation.Nonnull
   private Integer size;
+
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  @javax.annotation.Nonnull
+  private String type;
 
   public Argument() {
   }
@@ -99,25 +99,6 @@ public class Argument {
   }
 
 
-  public Argument offset(@javax.annotation.Nonnull Integer offset) {
-    this.offset = offset;
-    return this;
-  }
-
-  /**
-   * Offset of the argument in the function signature
-   * @return offset
-   */
-  @javax.annotation.Nonnull
-  public Integer getOffset() {
-    return offset;
-  }
-
-  public void setOffset(@javax.annotation.Nonnull Integer offset) {
-    this.offset = offset;
-  }
-
-
   public Argument name(@javax.annotation.Nonnull String name) {
     this.name = name;
     return this;
@@ -137,22 +118,22 @@ public class Argument {
   }
 
 
-  public Argument type(@javax.annotation.Nonnull String type) {
-    this.type = type;
+  public Argument offset(@javax.annotation.Nonnull Integer offset) {
+    this.offset = offset;
     return this;
   }
 
   /**
-   * Data type of the argument
-   * @return type
+   * Offset of the argument in the function signature
+   * @return offset
    */
   @javax.annotation.Nonnull
-  public String getType() {
-    return type;
+  public Integer getOffset() {
+    return offset;
   }
 
-  public void setType(@javax.annotation.Nonnull String type) {
-    this.type = type;
+  public void setOffset(@javax.annotation.Nonnull Integer offset) {
+    this.offset = offset;
   }
 
 
@@ -172,6 +153,25 @@ public class Argument {
 
   public void setSize(@javax.annotation.Nonnull Integer size) {
     this.size = size;
+  }
+
+
+  public Argument type(@javax.annotation.Nonnull String type) {
+    this.type = type;
+    return this;
+  }
+
+  /**
+   * Data type of the argument
+   * @return type
+   */
+  @javax.annotation.Nonnull
+  public String getType() {
+    return type;
+  }
+
+  public void setType(@javax.annotation.Nonnull String type) {
+    this.type = type;
   }
 
   /**
@@ -230,10 +230,10 @@ public class Argument {
     }
     Argument argument = (Argument) o;
     return Objects.equals(this.lastChange, argument.lastChange) &&
-        Objects.equals(this.offset, argument.offset) &&
         Objects.equals(this.name, argument.name) &&
-        Objects.equals(this.type, argument.type) &&
-        Objects.equals(this.size, argument.size)&&
+        Objects.equals(this.offset, argument.offset) &&
+        Objects.equals(this.size, argument.size) &&
+        Objects.equals(this.type, argument.type)&&
         Objects.equals(this.additionalProperties, argument.additionalProperties);
   }
 
@@ -243,7 +243,7 @@ public class Argument {
 
   @Override
   public int hashCode() {
-    return Objects.hash(lastChange, offset, name, type, size, additionalProperties);
+    return Objects.hash(lastChange, name, offset, size, type, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -258,10 +258,10 @@ public class Argument {
     StringBuilder sb = new StringBuilder();
     sb.append("class Argument {\n");
     sb.append("    lastChange: ").append(toIndentedString(lastChange)).append("\n");
-    sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -284,10 +284,10 @@ public class Argument {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("last_change", "offset", "name", "type", "size"));
+    openapiFields = new HashSet<String>(Arrays.asList("last_change", "name", "offset", "size", "type"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("offset", "name", "type", "size"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "offset", "size", "type"));
   }
 
   /**

@@ -51,47 +51,28 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Registry {
-  public static final String SERIALIZED_NAME_METHOD = "method";
-  @SerializedName(SERIALIZED_NAME_METHOD)
-  @javax.annotation.Nonnull
-  private String method;
-
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
   @javax.annotation.Nonnull
   private String key;
 
-  public static final String SERIALIZED_NAME_VALUE_NAME = "value_name";
-  @SerializedName(SERIALIZED_NAME_VALUE_NAME)
-  @javax.annotation.Nullable
-  private String valueName;
+  public static final String SERIALIZED_NAME_METHOD = "method";
+  @SerializedName(SERIALIZED_NAME_METHOD)
+  @javax.annotation.Nonnull
+  private String method;
 
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
   @javax.annotation.Nullable
   private String value;
 
+  public static final String SERIALIZED_NAME_VALUE_NAME = "value_name";
+  @SerializedName(SERIALIZED_NAME_VALUE_NAME)
+  @javax.annotation.Nullable
+  private String valueName;
+
   public Registry() {
   }
-
-  public Registry method(@javax.annotation.Nonnull String method) {
-    this.method = method;
-    return this;
-  }
-
-  /**
-   * Get method
-   * @return method
-   */
-  @javax.annotation.Nonnull
-  public String getMethod() {
-    return method;
-  }
-
-  public void setMethod(@javax.annotation.Nonnull String method) {
-    this.method = method;
-  }
-
 
   public Registry key(@javax.annotation.Nonnull String key) {
     this.key = key;
@@ -112,22 +93,22 @@ public class Registry {
   }
 
 
-  public Registry valueName(@javax.annotation.Nullable String valueName) {
-    this.valueName = valueName;
+  public Registry method(@javax.annotation.Nonnull String method) {
+    this.method = method;
     return this;
   }
 
   /**
-   * Get valueName
-   * @return valueName
+   * Get method
+   * @return method
    */
-  @javax.annotation.Nullable
-  public String getValueName() {
-    return valueName;
+  @javax.annotation.Nonnull
+  public String getMethod() {
+    return method;
   }
 
-  public void setValueName(@javax.annotation.Nullable String valueName) {
-    this.valueName = valueName;
+  public void setMethod(@javax.annotation.Nonnull String method) {
+    this.method = method;
   }
 
 
@@ -147,6 +128,25 @@ public class Registry {
 
   public void setValue(@javax.annotation.Nullable String value) {
     this.value = value;
+  }
+
+
+  public Registry valueName(@javax.annotation.Nullable String valueName) {
+    this.valueName = valueName;
+    return this;
+  }
+
+  /**
+   * Get valueName
+   * @return valueName
+   */
+  @javax.annotation.Nullable
+  public String getValueName() {
+    return valueName;
+  }
+
+  public void setValueName(@javax.annotation.Nullable String valueName) {
+    this.valueName = valueName;
   }
 
   /**
@@ -204,26 +204,26 @@ public class Registry {
       return false;
     }
     Registry registry = (Registry) o;
-    return Objects.equals(this.method, registry.method) &&
-        Objects.equals(this.key, registry.key) &&
-        Objects.equals(this.valueName, registry.valueName) &&
-        Objects.equals(this.value, registry.value)&&
+    return Objects.equals(this.key, registry.key) &&
+        Objects.equals(this.method, registry.method) &&
+        Objects.equals(this.value, registry.value) &&
+        Objects.equals(this.valueName, registry.valueName)&&
         Objects.equals(this.additionalProperties, registry.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(method, key, valueName, value, additionalProperties);
+    return Objects.hash(key, method, value, valueName, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Registry {\n");
-    sb.append("    method: ").append(toIndentedString(method)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
-    sb.append("    valueName: ").append(toIndentedString(valueName)).append("\n");
+    sb.append("    method: ").append(toIndentedString(method)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    valueName: ").append(toIndentedString(valueName)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -246,10 +246,10 @@ public class Registry {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("method", "key", "value_name", "value"));
+    openapiFields = new HashSet<String>(Arrays.asList("key", "method", "value", "value_name"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("method", "key", "value_name", "value"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("key", "method", "value", "value_name"));
   }
 
   /**
@@ -272,17 +272,17 @@ public class Registry {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("method").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `method` to be a primitive type in the JSON string but got `%s`", jsonObj.get("method").toString()));
-      }
       if (!jsonObj.get("key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key").toString()));
       }
-      if ((jsonObj.get("value_name") != null && !jsonObj.get("value_name").isJsonNull()) && !jsonObj.get("value_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `value_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value_name").toString()));
+      if (!jsonObj.get("method").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `method` to be a primitive type in the JSON string but got `%s`", jsonObj.get("method").toString()));
       }
       if ((jsonObj.get("value") != null && !jsonObj.get("value").isJsonNull()) && !jsonObj.get("value").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
+      }
+      if ((jsonObj.get("value_name") != null && !jsonObj.get("value_name").isJsonNull()) && !jsonObj.get("value_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `value_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value_name").toString()));
       }
   }
 

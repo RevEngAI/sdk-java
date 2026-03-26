@@ -55,6 +55,21 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AutoUnstripResponse {
+  public static final String SERIALIZED_NAME_APPLIED = "applied";
+  @SerializedName(SERIALIZED_NAME_APPLIED)
+  @javax.annotation.Nullable
+  private Boolean applied;
+
+  public static final String SERIALIZED_NAME_ERROR_MESSAGE = "error_message";
+  @SerializedName(SERIALIZED_NAME_ERROR_MESSAGE)
+  @javax.annotation.Nullable
+  private String errorMessage;
+
+  public static final String SERIALIZED_NAME_MATCHES = "matches";
+  @SerializedName(SERIALIZED_NAME_MATCHES)
+  @javax.annotation.Nullable
+  private List<MatchedFunctionSuggestion> matches;
+
   public static final String SERIALIZED_NAME_PROGRESS = "progress";
   @Deprecated
   @SerializedName(SERIALIZED_NAME_PROGRESS)
@@ -71,23 +86,73 @@ public class AutoUnstripResponse {
   @javax.annotation.Nullable
   private Integer totalTime;
 
-  public static final String SERIALIZED_NAME_MATCHES = "matches";
-  @SerializedName(SERIALIZED_NAME_MATCHES)
-  @javax.annotation.Nullable
-  private List<MatchedFunctionSuggestion> matches;
-
-  public static final String SERIALIZED_NAME_APPLIED = "applied";
-  @SerializedName(SERIALIZED_NAME_APPLIED)
-  @javax.annotation.Nullable
-  private Boolean applied;
-
-  public static final String SERIALIZED_NAME_ERROR_MESSAGE = "error_message";
-  @SerializedName(SERIALIZED_NAME_ERROR_MESSAGE)
-  @javax.annotation.Nullable
-  private String errorMessage;
-
   public AutoUnstripResponse() {
   }
+
+  public AutoUnstripResponse applied(@javax.annotation.Nullable Boolean applied) {
+    this.applied = applied;
+    return this;
+  }
+
+  /**
+   * Get applied
+   * @return applied
+   */
+  @javax.annotation.Nullable
+  public Boolean getApplied() {
+    return applied;
+  }
+
+  public void setApplied(@javax.annotation.Nullable Boolean applied) {
+    this.applied = applied;
+  }
+
+
+  public AutoUnstripResponse errorMessage(@javax.annotation.Nullable String errorMessage) {
+    this.errorMessage = errorMessage;
+    return this;
+  }
+
+  /**
+   * Get errorMessage
+   * @return errorMessage
+   */
+  @javax.annotation.Nullable
+  public String getErrorMessage() {
+    return errorMessage;
+  }
+
+  public void setErrorMessage(@javax.annotation.Nullable String errorMessage) {
+    this.errorMessage = errorMessage;
+  }
+
+
+  public AutoUnstripResponse matches(@javax.annotation.Nullable List<MatchedFunctionSuggestion> matches) {
+    this.matches = matches;
+    return this;
+  }
+
+  public AutoUnstripResponse addMatchesItem(MatchedFunctionSuggestion matchesItem) {
+    if (this.matches == null) {
+      this.matches = new ArrayList<>();
+    }
+    this.matches.add(matchesItem);
+    return this;
+  }
+
+  /**
+   * Get matches
+   * @return matches
+   */
+  @javax.annotation.Nullable
+  public List<MatchedFunctionSuggestion> getMatches() {
+    return matches;
+  }
+
+  public void setMatches(@javax.annotation.Nullable List<MatchedFunctionSuggestion> matches) {
+    this.matches = matches;
+  }
+
 
   @Deprecated
   public AutoUnstripResponse progress(@javax.annotation.Nullable Integer progress) {
@@ -149,71 +214,6 @@ public class AutoUnstripResponse {
     this.totalTime = totalTime;
   }
 
-
-  public AutoUnstripResponse matches(@javax.annotation.Nullable List<MatchedFunctionSuggestion> matches) {
-    this.matches = matches;
-    return this;
-  }
-
-  public AutoUnstripResponse addMatchesItem(MatchedFunctionSuggestion matchesItem) {
-    if (this.matches == null) {
-      this.matches = new ArrayList<>();
-    }
-    this.matches.add(matchesItem);
-    return this;
-  }
-
-  /**
-   * Get matches
-   * @return matches
-   */
-  @javax.annotation.Nullable
-  public List<MatchedFunctionSuggestion> getMatches() {
-    return matches;
-  }
-
-  public void setMatches(@javax.annotation.Nullable List<MatchedFunctionSuggestion> matches) {
-    this.matches = matches;
-  }
-
-
-  public AutoUnstripResponse applied(@javax.annotation.Nullable Boolean applied) {
-    this.applied = applied;
-    return this;
-  }
-
-  /**
-   * Get applied
-   * @return applied
-   */
-  @javax.annotation.Nullable
-  public Boolean getApplied() {
-    return applied;
-  }
-
-  public void setApplied(@javax.annotation.Nullable Boolean applied) {
-    this.applied = applied;
-  }
-
-
-  public AutoUnstripResponse errorMessage(@javax.annotation.Nullable String errorMessage) {
-    this.errorMessage = errorMessage;
-    return this;
-  }
-
-  /**
-   * Get errorMessage
-   * @return errorMessage
-   */
-  @javax.annotation.Nullable
-  public String getErrorMessage() {
-    return errorMessage;
-  }
-
-  public void setErrorMessage(@javax.annotation.Nullable String errorMessage) {
-    this.errorMessage = errorMessage;
-  }
-
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -269,12 +269,12 @@ public class AutoUnstripResponse {
       return false;
     }
     AutoUnstripResponse autoUnstripResponse = (AutoUnstripResponse) o;
-    return Objects.equals(this.progress, autoUnstripResponse.progress) &&
-        Objects.equals(this.status, autoUnstripResponse.status) &&
-        Objects.equals(this.totalTime, autoUnstripResponse.totalTime) &&
+    return Objects.equals(this.applied, autoUnstripResponse.applied) &&
+        Objects.equals(this.errorMessage, autoUnstripResponse.errorMessage) &&
         Objects.equals(this.matches, autoUnstripResponse.matches) &&
-        Objects.equals(this.applied, autoUnstripResponse.applied) &&
-        Objects.equals(this.errorMessage, autoUnstripResponse.errorMessage)&&
+        Objects.equals(this.progress, autoUnstripResponse.progress) &&
+        Objects.equals(this.status, autoUnstripResponse.status) &&
+        Objects.equals(this.totalTime, autoUnstripResponse.totalTime)&&
         Objects.equals(this.additionalProperties, autoUnstripResponse.additionalProperties);
   }
 
@@ -284,7 +284,7 @@ public class AutoUnstripResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(progress, status, totalTime, matches, applied, errorMessage, additionalProperties);
+    return Objects.hash(applied, errorMessage, matches, progress, status, totalTime, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -298,12 +298,12 @@ public class AutoUnstripResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AutoUnstripResponse {\n");
+    sb.append("    applied: ").append(toIndentedString(applied)).append("\n");
+    sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
+    sb.append("    matches: ").append(toIndentedString(matches)).append("\n");
     sb.append("    progress: ").append(toIndentedString(progress)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    totalTime: ").append(toIndentedString(totalTime)).append("\n");
-    sb.append("    matches: ").append(toIndentedString(matches)).append("\n");
-    sb.append("    applied: ").append(toIndentedString(applied)).append("\n");
-    sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -326,7 +326,7 @@ public class AutoUnstripResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("progress", "status", "total_time", "matches", "applied", "error_message"));
+    openapiFields = new HashSet<String>(Arrays.asList("applied", "error_message", "matches", "progress", "status", "total_time"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -345,8 +345,8 @@ public class AutoUnstripResponse {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) && !jsonObj.get("status").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
+      if ((jsonObj.get("error_message") != null && !jsonObj.get("error_message").isJsonNull()) && !jsonObj.get("error_message").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `error_message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("error_message").toString()));
       }
       if (jsonObj.get("matches") != null && !jsonObj.get("matches").isJsonNull()) {
         JsonArray jsonArraymatches = jsonObj.getAsJsonArray("matches");
@@ -362,8 +362,8 @@ public class AutoUnstripResponse {
           };
         }
       }
-      if ((jsonObj.get("error_message") != null && !jsonObj.get("error_message").isJsonNull()) && !jsonObj.get("error_message").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `error_message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("error_message").toString()));
+      if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) && !jsonObj.get("status").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
       }
   }
 

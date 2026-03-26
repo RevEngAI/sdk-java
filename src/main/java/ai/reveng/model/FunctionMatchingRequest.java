@@ -56,10 +56,10 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FunctionMatchingRequest {
-  public static final String SERIALIZED_NAME_MODEL_ID = "model_id";
-  @SerializedName(SERIALIZED_NAME_MODEL_ID)
-  @javax.annotation.Nonnull
-  private Integer modelId;
+  public static final String SERIALIZED_NAME_FILTERS = "filters";
+  @SerializedName(SERIALIZED_NAME_FILTERS)
+  @javax.annotation.Nullable
+  private FunctionMatchingFilters filters;
 
   public static final String SERIALIZED_NAME_FUNCTION_IDS = "function_ids";
   @SerializedName(SERIALIZED_NAME_FUNCTION_IDS)
@@ -69,17 +69,17 @@ public class FunctionMatchingRequest {
   public static final String SERIALIZED_NAME_MIN_SIMILARITY = "min_similarity";
   @SerializedName(SERIALIZED_NAME_MIN_SIMILARITY)
   @javax.annotation.Nullable
-  private BigDecimal minSimilarity = new BigDecimal("90.0");
+  private BigDecimal minSimilarity = new BigDecimal("90");
 
-  public static final String SERIALIZED_NAME_FILTERS = "filters";
-  @SerializedName(SERIALIZED_NAME_FILTERS)
-  @javax.annotation.Nullable
-  private FunctionMatchingFilters filters;
+  public static final String SERIALIZED_NAME_MODEL_ID = "model_id";
+  @SerializedName(SERIALIZED_NAME_MODEL_ID)
+  @javax.annotation.Nonnull
+  private Integer modelId;
 
-  public static final String SERIALIZED_NAME_RESULTS_PER_FUNCTION = "results_per_function";
-  @SerializedName(SERIALIZED_NAME_RESULTS_PER_FUNCTION)
+  public static final String SERIALIZED_NAME_NO_CACHE = "no_cache";
+  @SerializedName(SERIALIZED_NAME_NO_CACHE)
   @javax.annotation.Nullable
-  private Integer resultsPerFunction = 1;
+  private Boolean noCache = false;
 
   public static final String SERIALIZED_NAME_PAGE = "page";
   @Deprecated
@@ -93,16 +93,16 @@ public class FunctionMatchingRequest {
   @javax.annotation.Nullable
   private Integer pageSize = 0;
 
+  public static final String SERIALIZED_NAME_RESULTS_PER_FUNCTION = "results_per_function";
+  @SerializedName(SERIALIZED_NAME_RESULTS_PER_FUNCTION)
+  @javax.annotation.Nullable
+  private Integer resultsPerFunction = 1;
+
   public static final String SERIALIZED_NAME_STATUS_ONLY = "status_only";
   @Deprecated
   @SerializedName(SERIALIZED_NAME_STATUS_ONLY)
   @javax.annotation.Nullable
   private Boolean statusOnly = false;
-
-  public static final String SERIALIZED_NAME_NO_CACHE = "no_cache";
-  @SerializedName(SERIALIZED_NAME_NO_CACHE)
-  @javax.annotation.Nullable
-  private Boolean noCache = false;
 
   public static final String SERIALIZED_NAME_USE_CANONICAL_NAMES = "use_canonical_names";
   @SerializedName(SERIALIZED_NAME_USE_CANONICAL_NAMES)
@@ -112,22 +112,22 @@ public class FunctionMatchingRequest {
   public FunctionMatchingRequest() {
   }
 
-  public FunctionMatchingRequest modelId(@javax.annotation.Nonnull Integer modelId) {
-    this.modelId = modelId;
+  public FunctionMatchingRequest filters(@javax.annotation.Nullable FunctionMatchingFilters filters) {
+    this.filters = filters;
     return this;
   }
 
   /**
-   * ID of the model used for function matching, used to determine the embedding model
-   * @return modelId
+   * Get filters
+   * @return filters
    */
-  @javax.annotation.Nonnull
-  public Integer getModelId() {
-    return modelId;
+  @javax.annotation.Nullable
+  public FunctionMatchingFilters getFilters() {
+    return filters;
   }
 
-  public void setModelId(@javax.annotation.Nonnull Integer modelId) {
-    this.modelId = modelId;
+  public void setFilters(@javax.annotation.Nullable FunctionMatchingFilters filters) {
+    this.filters = filters;
   }
 
 
@@ -165,8 +165,8 @@ public class FunctionMatchingRequest {
 
   /**
    * Minimum similarity expected for a match as a percentage, default is 90
-   * minimum: 0.0
-   * maximum: 100.0
+   * minimum: 0
+   * maximum: 100
    * @return minSimilarity
    */
   @javax.annotation.Nullable
@@ -179,43 +179,41 @@ public class FunctionMatchingRequest {
   }
 
 
-  public FunctionMatchingRequest filters(@javax.annotation.Nullable FunctionMatchingFilters filters) {
-    this.filters = filters;
+  public FunctionMatchingRequest modelId(@javax.annotation.Nonnull Integer modelId) {
+    this.modelId = modelId;
     return this;
   }
 
   /**
-   * Get filters
-   * @return filters
+   * ID of the model used for function matching, used to determine the embedding model
+   * @return modelId
    */
-  @javax.annotation.Nullable
-  public FunctionMatchingFilters getFilters() {
-    return filters;
+  @javax.annotation.Nonnull
+  public Integer getModelId() {
+    return modelId;
   }
 
-  public void setFilters(@javax.annotation.Nullable FunctionMatchingFilters filters) {
-    this.filters = filters;
+  public void setModelId(@javax.annotation.Nonnull Integer modelId) {
+    this.modelId = modelId;
   }
 
 
-  public FunctionMatchingRequest resultsPerFunction(@javax.annotation.Nullable Integer resultsPerFunction) {
-    this.resultsPerFunction = resultsPerFunction;
+  public FunctionMatchingRequest noCache(@javax.annotation.Nullable Boolean noCache) {
+    this.noCache = noCache;
     return this;
   }
 
   /**
-   * Maximum number of matches to return per function, default is 1, max is 50
-   * minimum: 1
-   * maximum: 50
-   * @return resultsPerFunction
+   * If set to true, forces the system to bypass any cached results and perform a fresh computation
+   * @return noCache
    */
   @javax.annotation.Nullable
-  public Integer getResultsPerFunction() {
-    return resultsPerFunction;
+  public Boolean getNoCache() {
+    return noCache;
   }
 
-  public void setResultsPerFunction(@javax.annotation.Nullable Integer resultsPerFunction) {
-    this.resultsPerFunction = resultsPerFunction;
+  public void setNoCache(@javax.annotation.Nullable Boolean noCache) {
+    this.noCache = noCache;
   }
 
 
@@ -268,6 +266,27 @@ public class FunctionMatchingRequest {
   }
 
 
+  public FunctionMatchingRequest resultsPerFunction(@javax.annotation.Nullable Integer resultsPerFunction) {
+    this.resultsPerFunction = resultsPerFunction;
+    return this;
+  }
+
+  /**
+   * Maximum number of matches to return per function, default is 1, max is 50
+   * minimum: 1
+   * maximum: 50
+   * @return resultsPerFunction
+   */
+  @javax.annotation.Nullable
+  public Integer getResultsPerFunction() {
+    return resultsPerFunction;
+  }
+
+  public void setResultsPerFunction(@javax.annotation.Nullable Integer resultsPerFunction) {
+    this.resultsPerFunction = resultsPerFunction;
+  }
+
+
   @Deprecated
   public FunctionMatchingRequest statusOnly(@javax.annotation.Nullable Boolean statusOnly) {
     this.statusOnly = statusOnly;
@@ -288,25 +307,6 @@ public class FunctionMatchingRequest {
   @Deprecated
   public void setStatusOnly(@javax.annotation.Nullable Boolean statusOnly) {
     this.statusOnly = statusOnly;
-  }
-
-
-  public FunctionMatchingRequest noCache(@javax.annotation.Nullable Boolean noCache) {
-    this.noCache = noCache;
-    return this;
-  }
-
-  /**
-   * If set to true, forces the system to bypass any cached results and perform a fresh computation
-   * @return noCache
-   */
-  @javax.annotation.Nullable
-  public Boolean getNoCache() {
-    return noCache;
-  }
-
-  public void setNoCache(@javax.annotation.Nullable Boolean noCache) {
-    this.noCache = noCache;
   }
 
 
@@ -383,15 +383,15 @@ public class FunctionMatchingRequest {
       return false;
     }
     FunctionMatchingRequest functionMatchingRequest = (FunctionMatchingRequest) o;
-    return Objects.equals(this.modelId, functionMatchingRequest.modelId) &&
+    return Objects.equals(this.filters, functionMatchingRequest.filters) &&
         Objects.equals(this.functionIds, functionMatchingRequest.functionIds) &&
         Objects.equals(this.minSimilarity, functionMatchingRequest.minSimilarity) &&
-        Objects.equals(this.filters, functionMatchingRequest.filters) &&
-        Objects.equals(this.resultsPerFunction, functionMatchingRequest.resultsPerFunction) &&
+        Objects.equals(this.modelId, functionMatchingRequest.modelId) &&
+        Objects.equals(this.noCache, functionMatchingRequest.noCache) &&
         Objects.equals(this.page, functionMatchingRequest.page) &&
         Objects.equals(this.pageSize, functionMatchingRequest.pageSize) &&
+        Objects.equals(this.resultsPerFunction, functionMatchingRequest.resultsPerFunction) &&
         Objects.equals(this.statusOnly, functionMatchingRequest.statusOnly) &&
-        Objects.equals(this.noCache, functionMatchingRequest.noCache) &&
         Objects.equals(this.useCanonicalNames, functionMatchingRequest.useCanonicalNames)&&
         Objects.equals(this.additionalProperties, functionMatchingRequest.additionalProperties);
   }
@@ -402,7 +402,7 @@ public class FunctionMatchingRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(modelId, functionIds, minSimilarity, filters, resultsPerFunction, page, pageSize, statusOnly, noCache, useCanonicalNames, additionalProperties);
+    return Objects.hash(filters, functionIds, minSimilarity, modelId, noCache, page, pageSize, resultsPerFunction, statusOnly, useCanonicalNames, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -416,15 +416,15 @@ public class FunctionMatchingRequest {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FunctionMatchingRequest {\n");
-    sb.append("    modelId: ").append(toIndentedString(modelId)).append("\n");
+    sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
     sb.append("    functionIds: ").append(toIndentedString(functionIds)).append("\n");
     sb.append("    minSimilarity: ").append(toIndentedString(minSimilarity)).append("\n");
-    sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
-    sb.append("    resultsPerFunction: ").append(toIndentedString(resultsPerFunction)).append("\n");
+    sb.append("    modelId: ").append(toIndentedString(modelId)).append("\n");
+    sb.append("    noCache: ").append(toIndentedString(noCache)).append("\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    resultsPerFunction: ").append(toIndentedString(resultsPerFunction)).append("\n");
     sb.append("    statusOnly: ").append(toIndentedString(statusOnly)).append("\n");
-    sb.append("    noCache: ").append(toIndentedString(noCache)).append("\n");
     sb.append("    useCanonicalNames: ").append(toIndentedString(useCanonicalNames)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -448,10 +448,10 @@ public class FunctionMatchingRequest {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("model_id", "function_ids", "min_similarity", "filters", "results_per_function", "page", "page_size", "status_only", "no_cache", "use_canonical_names"));
+    openapiFields = new HashSet<String>(Arrays.asList("filters", "function_ids", "min_similarity", "model_id", "no_cache", "page", "page_size", "results_per_function", "status_only", "use_canonical_names"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("model_id", "function_ids"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("function_ids", "model_id"));
   }
 
   /**
@@ -474,15 +474,15 @@ public class FunctionMatchingRequest {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // validate the optional field `filters`
+      if (jsonObj.get("filters") != null && !jsonObj.get("filters").isJsonNull()) {
+        FunctionMatchingFilters.validateJsonElement(jsonObj.get("filters"));
+      }
       // ensure the required json array is present
       if (jsonObj.get("function_ids") == null) {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
       } else if (!jsonObj.get("function_ids").isJsonArray()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `function_ids` to be an array in the JSON string but got `%s`", jsonObj.get("function_ids").toString()));
-      }
-      // validate the optional field `filters`
-      if (jsonObj.get("filters") != null && !jsonObj.get("filters").isJsonNull()) {
-        FunctionMatchingFilters.validateJsonElement(jsonObj.get("filters"));
       }
   }
 

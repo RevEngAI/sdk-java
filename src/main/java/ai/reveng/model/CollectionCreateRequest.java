@@ -55,122 +55,38 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CollectionCreateRequest {
+  public static final String SERIALIZED_NAME_BINARIES = "binaries";
+  @SerializedName(SERIALIZED_NAME_BINARIES)
+  @javax.annotation.Nullable
+  private List<Integer> binaries;
+
   public static final String SERIALIZED_NAME_COLLECTION_NAME = "collection_name";
   @SerializedName(SERIALIZED_NAME_COLLECTION_NAME)
   @javax.annotation.Nonnull
   private String collectionName;
-
-  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nonnull
-  private String description;
 
   public static final String SERIALIZED_NAME_COLLECTION_SCOPE = "collection_scope";
   @SerializedName(SERIALIZED_NAME_COLLECTION_SCOPE)
   @javax.annotation.Nullable
   private CollectionScope collectionScope;
 
-  public static final String SERIALIZED_NAME_TAGS = "tags";
-  @SerializedName(SERIALIZED_NAME_TAGS)
-  @javax.annotation.Nullable
-  private List<String> tags;
-
-  public static final String SERIALIZED_NAME_BINARIES = "binaries";
-  @SerializedName(SERIALIZED_NAME_BINARIES)
-  @javax.annotation.Nullable
-  private List<Integer> binaries;
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  @javax.annotation.Nonnull
+  private String description;
 
   public static final String SERIALIZED_NAME_MODEL_ID = "model_id";
   @SerializedName(SERIALIZED_NAME_MODEL_ID)
   @javax.annotation.Nonnull
   private Integer modelId;
 
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  @javax.annotation.Nullable
+  private List<String> tags;
+
   public CollectionCreateRequest() {
   }
-
-  public CollectionCreateRequest collectionName(@javax.annotation.Nonnull String collectionName) {
-    this.collectionName = collectionName;
-    return this;
-  }
-
-  /**
-   * Get collectionName
-   * @return collectionName
-   */
-  @javax.annotation.Nonnull
-  public String getCollectionName() {
-    return collectionName;
-  }
-
-  public void setCollectionName(@javax.annotation.Nonnull String collectionName) {
-    this.collectionName = collectionName;
-  }
-
-
-  public CollectionCreateRequest description(@javax.annotation.Nonnull String description) {
-    this.description = description;
-    return this;
-  }
-
-  /**
-   * Get description
-   * @return description
-   */
-  @javax.annotation.Nonnull
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(@javax.annotation.Nonnull String description) {
-    this.description = description;
-  }
-
-
-  public CollectionCreateRequest collectionScope(@javax.annotation.Nullable CollectionScope collectionScope) {
-    this.collectionScope = collectionScope;
-    return this;
-  }
-
-  /**
-   * Get collectionScope
-   * @return collectionScope
-   */
-  @javax.annotation.Nullable
-  public CollectionScope getCollectionScope() {
-    return collectionScope;
-  }
-
-  public void setCollectionScope(@javax.annotation.Nullable CollectionScope collectionScope) {
-    this.collectionScope = collectionScope;
-  }
-
-
-  public CollectionCreateRequest tags(@javax.annotation.Nullable List<String> tags) {
-    this.tags = tags;
-    return this;
-  }
-
-  public CollectionCreateRequest addTagsItem(String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new ArrayList<>();
-    }
-    this.tags.add(tagsItem);
-    return this;
-  }
-
-  /**
-   * Get tags
-   * @return tags
-   */
-  @javax.annotation.Nullable
-  public List<String> getTags() {
-    return tags;
-  }
-
-  public void setTags(@javax.annotation.Nullable List<String> tags) {
-    this.tags = tags;
-  }
-
 
   public CollectionCreateRequest binaries(@javax.annotation.Nullable List<Integer> binaries) {
     this.binaries = binaries;
@@ -199,6 +115,63 @@ public class CollectionCreateRequest {
   }
 
 
+  public CollectionCreateRequest collectionName(@javax.annotation.Nonnull String collectionName) {
+    this.collectionName = collectionName;
+    return this;
+  }
+
+  /**
+   * Get collectionName
+   * @return collectionName
+   */
+  @javax.annotation.Nonnull
+  public String getCollectionName() {
+    return collectionName;
+  }
+
+  public void setCollectionName(@javax.annotation.Nonnull String collectionName) {
+    this.collectionName = collectionName;
+  }
+
+
+  public CollectionCreateRequest collectionScope(@javax.annotation.Nullable CollectionScope collectionScope) {
+    this.collectionScope = collectionScope;
+    return this;
+  }
+
+  /**
+   * Get collectionScope
+   * @return collectionScope
+   */
+  @javax.annotation.Nullable
+  public CollectionScope getCollectionScope() {
+    return collectionScope;
+  }
+
+  public void setCollectionScope(@javax.annotation.Nullable CollectionScope collectionScope) {
+    this.collectionScope = collectionScope;
+  }
+
+
+  public CollectionCreateRequest description(@javax.annotation.Nonnull String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * Get description
+   * @return description
+   */
+  @javax.annotation.Nonnull
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(@javax.annotation.Nonnull String description) {
+    this.description = description;
+  }
+
+
   public CollectionCreateRequest modelId(@javax.annotation.Nonnull Integer modelId) {
     this.modelId = modelId;
     return this;
@@ -215,6 +188,33 @@ public class CollectionCreateRequest {
 
   public void setModelId(@javax.annotation.Nonnull Integer modelId) {
     this.modelId = modelId;
+  }
+
+
+  public CollectionCreateRequest tags(@javax.annotation.Nullable List<String> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public CollectionCreateRequest addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+  /**
+   * Get tags
+   * @return tags
+   */
+  @javax.annotation.Nullable
+  public List<String> getTags() {
+    return tags;
+  }
+
+  public void setTags(@javax.annotation.Nullable List<String> tags) {
+    this.tags = tags;
   }
 
   /**
@@ -272,12 +272,12 @@ public class CollectionCreateRequest {
       return false;
     }
     CollectionCreateRequest collectionCreateRequest = (CollectionCreateRequest) o;
-    return Objects.equals(this.collectionName, collectionCreateRequest.collectionName) &&
-        Objects.equals(this.description, collectionCreateRequest.description) &&
+    return Objects.equals(this.binaries, collectionCreateRequest.binaries) &&
+        Objects.equals(this.collectionName, collectionCreateRequest.collectionName) &&
         Objects.equals(this.collectionScope, collectionCreateRequest.collectionScope) &&
-        Objects.equals(this.tags, collectionCreateRequest.tags) &&
-        Objects.equals(this.binaries, collectionCreateRequest.binaries) &&
-        Objects.equals(this.modelId, collectionCreateRequest.modelId)&&
+        Objects.equals(this.description, collectionCreateRequest.description) &&
+        Objects.equals(this.modelId, collectionCreateRequest.modelId) &&
+        Objects.equals(this.tags, collectionCreateRequest.tags)&&
         Objects.equals(this.additionalProperties, collectionCreateRequest.additionalProperties);
   }
 
@@ -287,7 +287,7 @@ public class CollectionCreateRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(collectionName, description, collectionScope, tags, binaries, modelId, additionalProperties);
+    return Objects.hash(binaries, collectionName, collectionScope, description, modelId, tags, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -301,12 +301,12 @@ public class CollectionCreateRequest {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CollectionCreateRequest {\n");
-    sb.append("    collectionName: ").append(toIndentedString(collectionName)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    collectionScope: ").append(toIndentedString(collectionScope)).append("\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    binaries: ").append(toIndentedString(binaries)).append("\n");
+    sb.append("    collectionName: ").append(toIndentedString(collectionName)).append("\n");
+    sb.append("    collectionScope: ").append(toIndentedString(collectionScope)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    modelId: ").append(toIndentedString(modelId)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -329,7 +329,7 @@ public class CollectionCreateRequest {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("collection_name", "description", "collection_scope", "tags", "binaries", "model_id"));
+    openapiFields = new HashSet<String>(Arrays.asList("binaries", "collection_name", "collection_scope", "description", "model_id", "tags"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("collection_name", "description", "model_id"));
@@ -355,23 +355,23 @@ public class CollectionCreateRequest {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("binaries") != null && !jsonObj.get("binaries").isJsonNull() && !jsonObj.get("binaries").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `binaries` to be an array in the JSON string but got `%s`", jsonObj.get("binaries").toString()));
+      }
       if (!jsonObj.get("collection_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `collection_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("collection_name").toString()));
-      }
-      if (!jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
       // validate the optional field `collection_scope`
       if (jsonObj.get("collection_scope") != null && !jsonObj.get("collection_scope").isJsonNull()) {
         CollectionScope.validateJsonElement(jsonObj.get("collection_scope"));
       }
+      if (!jsonObj.get("description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("binaries") != null && !jsonObj.get("binaries").isJsonNull() && !jsonObj.get("binaries").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `binaries` to be an array in the JSON string but got `%s`", jsonObj.get("binaries").toString()));
       }
   }
 

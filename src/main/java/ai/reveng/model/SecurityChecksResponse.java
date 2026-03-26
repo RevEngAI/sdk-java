@@ -59,15 +59,15 @@ public class SecurityChecksResponse {
   @javax.annotation.Nonnull
   private Integer binaryId;
 
-  public static final String SERIALIZED_NAME_TOTAL_RESULTS = "total_results";
-  @SerializedName(SERIALIZED_NAME_TOTAL_RESULTS)
-  @javax.annotation.Nonnull
-  private Integer totalResults;
-
   public static final String SERIALIZED_NAME_RESULTS = "results";
   @SerializedName(SERIALIZED_NAME_RESULTS)
   @javax.annotation.Nonnull
   private List<SecurityChecksResult> results = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_TOTAL_RESULTS = "total_results";
+  @SerializedName(SERIALIZED_NAME_TOTAL_RESULTS)
+  @javax.annotation.Nonnull
+  private Integer totalResults;
 
   public SecurityChecksResponse() {
   }
@@ -88,25 +88,6 @@ public class SecurityChecksResponse {
 
   public void setBinaryId(@javax.annotation.Nonnull Integer binaryId) {
     this.binaryId = binaryId;
-  }
-
-
-  public SecurityChecksResponse totalResults(@javax.annotation.Nonnull Integer totalResults) {
-    this.totalResults = totalResults;
-    return this;
-  }
-
-  /**
-   * Get totalResults
-   * @return totalResults
-   */
-  @javax.annotation.Nonnull
-  public Integer getTotalResults() {
-    return totalResults;
-  }
-
-  public void setTotalResults(@javax.annotation.Nonnull Integer totalResults) {
-    this.totalResults = totalResults;
   }
 
 
@@ -134,6 +115,25 @@ public class SecurityChecksResponse {
 
   public void setResults(@javax.annotation.Nonnull List<SecurityChecksResult> results) {
     this.results = results;
+  }
+
+
+  public SecurityChecksResponse totalResults(@javax.annotation.Nonnull Integer totalResults) {
+    this.totalResults = totalResults;
+    return this;
+  }
+
+  /**
+   * Get totalResults
+   * @return totalResults
+   */
+  @javax.annotation.Nonnull
+  public Integer getTotalResults() {
+    return totalResults;
+  }
+
+  public void setTotalResults(@javax.annotation.Nonnull Integer totalResults) {
+    this.totalResults = totalResults;
   }
 
   /**
@@ -192,14 +192,14 @@ public class SecurityChecksResponse {
     }
     SecurityChecksResponse securityChecksResponse = (SecurityChecksResponse) o;
     return Objects.equals(this.binaryId, securityChecksResponse.binaryId) &&
-        Objects.equals(this.totalResults, securityChecksResponse.totalResults) &&
-        Objects.equals(this.results, securityChecksResponse.results)&&
+        Objects.equals(this.results, securityChecksResponse.results) &&
+        Objects.equals(this.totalResults, securityChecksResponse.totalResults)&&
         Objects.equals(this.additionalProperties, securityChecksResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(binaryId, totalResults, results, additionalProperties);
+    return Objects.hash(binaryId, results, totalResults, additionalProperties);
   }
 
   @Override
@@ -207,8 +207,8 @@ public class SecurityChecksResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class SecurityChecksResponse {\n");
     sb.append("    binaryId: ").append(toIndentedString(binaryId)).append("\n");
-    sb.append("    totalResults: ").append(toIndentedString(totalResults)).append("\n");
     sb.append("    results: ").append(toIndentedString(results)).append("\n");
+    sb.append("    totalResults: ").append(toIndentedString(totalResults)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -231,10 +231,10 @@ public class SecurityChecksResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("binary_id", "total_results", "results"));
+    openapiFields = new HashSet<String>(Arrays.asList("binary_id", "results", "total_results"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("binary_id", "total_results", "results"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("binary_id", "results", "total_results"));
   }
 
   /**

@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**status** | **TaskStatus** |  |  [optional] |
 |**errorMessage** | **String** |  |  [optional] |
+|**status** | **TaskStatus** |  |  [optional] |
 
 
 

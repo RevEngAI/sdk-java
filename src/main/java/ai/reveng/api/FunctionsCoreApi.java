@@ -1222,8 +1222,8 @@ public class FunctionsCoreApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getFunctionBlocksCall(@javax.annotation.Nonnull Integer functionId, final ApiCallback _callback) throws ApiException {
@@ -1293,8 +1293,8 @@ public class FunctionsCoreApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public BaseResponseFunctionBlocksResponse getFunctionBlocks(@javax.annotation.Nonnull Integer functionId) throws ApiException {
@@ -1313,8 +1313,8 @@ public class FunctionsCoreApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<BaseResponseFunctionBlocksResponse> getFunctionBlocksWithHttpInfo(@javax.annotation.Nonnull Integer functionId) throws ApiException {
@@ -1335,8 +1335,8 @@ public class FunctionsCoreApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getFunctionBlocksAsync(@javax.annotation.Nonnull Integer functionId, final ApiCallback<BaseResponseFunctionBlocksResponse> _callback) throws ApiException {
@@ -1622,8 +1622,8 @@ public class FunctionsCoreApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getFunctionCapabilitiesCall(@javax.annotation.Nonnull Integer functionId, final ApiCallback _callback) throws ApiException {
@@ -1693,8 +1693,8 @@ public class FunctionsCoreApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public BaseResponseFunctionCapabilityResponse getFunctionCapabilities(@javax.annotation.Nonnull Integer functionId) throws ApiException {
@@ -1713,8 +1713,8 @@ public class FunctionsCoreApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<BaseResponseFunctionCapabilityResponse> getFunctionCapabilitiesWithHttpInfo(@javax.annotation.Nonnull Integer functionId) throws ApiException {
@@ -1735,8 +1735,8 @@ public class FunctionsCoreApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getFunctionCapabilitiesAsync(@javax.annotation.Nonnull Integer functionId, final ApiCallback<BaseResponseFunctionCapabilityResponse> _callback) throws ApiException {

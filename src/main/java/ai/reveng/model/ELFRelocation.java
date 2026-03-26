@@ -51,30 +51,15 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ELFRelocation {
-  public static final String SERIALIZED_NAME_ADDRESS = "address";
-  @SerializedName(SERIALIZED_NAME_ADDRESS)
-  @javax.annotation.Nonnull
-  private Integer address;
-
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  @javax.annotation.Nonnull
-  private String type;
-
-  public static final String SERIALIZED_NAME_SIZE = "size";
-  @SerializedName(SERIALIZED_NAME_SIZE)
-  @javax.annotation.Nonnull
-  private Integer size;
-
   public static final String SERIALIZED_NAME_ADDEND = "addend";
   @SerializedName(SERIALIZED_NAME_ADDEND)
   @javax.annotation.Nonnull
   private Integer addend;
 
-  public static final String SERIALIZED_NAME_SYMBOL_NAME = "symbol_name";
-  @SerializedName(SERIALIZED_NAME_SYMBOL_NAME)
+  public static final String SERIALIZED_NAME_ADDRESS = "address";
+  @SerializedName(SERIALIZED_NAME_ADDRESS)
   @javax.annotation.Nonnull
-  private String symbolName;
+  private Integer address;
 
   public static final String SERIALIZED_NAME_IS_DYNAMIC = "is_dynamic";
   @SerializedName(SERIALIZED_NAME_IS_DYNAMIC)
@@ -86,65 +71,23 @@ public class ELFRelocation {
   @javax.annotation.Nonnull
   private Boolean isPltgot;
 
+  public static final String SERIALIZED_NAME_SIZE = "size";
+  @SerializedName(SERIALIZED_NAME_SIZE)
+  @javax.annotation.Nonnull
+  private Integer size;
+
+  public static final String SERIALIZED_NAME_SYMBOL_NAME = "symbol_name";
+  @SerializedName(SERIALIZED_NAME_SYMBOL_NAME)
+  @javax.annotation.Nonnull
+  private String symbolName;
+
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  @javax.annotation.Nonnull
+  private String type;
+
   public ELFRelocation() {
   }
-
-  public ELFRelocation address(@javax.annotation.Nonnull Integer address) {
-    this.address = address;
-    return this;
-  }
-
-  /**
-   * Get address
-   * @return address
-   */
-  @javax.annotation.Nonnull
-  public Integer getAddress() {
-    return address;
-  }
-
-  public void setAddress(@javax.annotation.Nonnull Integer address) {
-    this.address = address;
-  }
-
-
-  public ELFRelocation type(@javax.annotation.Nonnull String type) {
-    this.type = type;
-    return this;
-  }
-
-  /**
-   * Get type
-   * @return type
-   */
-  @javax.annotation.Nonnull
-  public String getType() {
-    return type;
-  }
-
-  public void setType(@javax.annotation.Nonnull String type) {
-    this.type = type;
-  }
-
-
-  public ELFRelocation size(@javax.annotation.Nonnull Integer size) {
-    this.size = size;
-    return this;
-  }
-
-  /**
-   * Get size
-   * @return size
-   */
-  @javax.annotation.Nonnull
-  public Integer getSize() {
-    return size;
-  }
-
-  public void setSize(@javax.annotation.Nonnull Integer size) {
-    this.size = size;
-  }
-
 
   public ELFRelocation addend(@javax.annotation.Nonnull Integer addend) {
     this.addend = addend;
@@ -165,22 +108,22 @@ public class ELFRelocation {
   }
 
 
-  public ELFRelocation symbolName(@javax.annotation.Nonnull String symbolName) {
-    this.symbolName = symbolName;
+  public ELFRelocation address(@javax.annotation.Nonnull Integer address) {
+    this.address = address;
     return this;
   }
 
   /**
-   * Get symbolName
-   * @return symbolName
+   * Get address
+   * @return address
    */
   @javax.annotation.Nonnull
-  public String getSymbolName() {
-    return symbolName;
+  public Integer getAddress() {
+    return address;
   }
 
-  public void setSymbolName(@javax.annotation.Nonnull String symbolName) {
-    this.symbolName = symbolName;
+  public void setAddress(@javax.annotation.Nonnull Integer address) {
+    this.address = address;
   }
 
 
@@ -219,6 +162,63 @@ public class ELFRelocation {
 
   public void setIsPltgot(@javax.annotation.Nonnull Boolean isPltgot) {
     this.isPltgot = isPltgot;
+  }
+
+
+  public ELFRelocation size(@javax.annotation.Nonnull Integer size) {
+    this.size = size;
+    return this;
+  }
+
+  /**
+   * Get size
+   * @return size
+   */
+  @javax.annotation.Nonnull
+  public Integer getSize() {
+    return size;
+  }
+
+  public void setSize(@javax.annotation.Nonnull Integer size) {
+    this.size = size;
+  }
+
+
+  public ELFRelocation symbolName(@javax.annotation.Nonnull String symbolName) {
+    this.symbolName = symbolName;
+    return this;
+  }
+
+  /**
+   * Get symbolName
+   * @return symbolName
+   */
+  @javax.annotation.Nonnull
+  public String getSymbolName() {
+    return symbolName;
+  }
+
+  public void setSymbolName(@javax.annotation.Nonnull String symbolName) {
+    this.symbolName = symbolName;
+  }
+
+
+  public ELFRelocation type(@javax.annotation.Nonnull String type) {
+    this.type = type;
+    return this;
+  }
+
+  /**
+   * Get type
+   * @return type
+   */
+  @javax.annotation.Nonnull
+  public String getType() {
+    return type;
+  }
+
+  public void setType(@javax.annotation.Nonnull String type) {
+    this.type = type;
   }
 
   /**
@@ -276,32 +276,32 @@ public class ELFRelocation {
       return false;
     }
     ELFRelocation elFRelocation = (ELFRelocation) o;
-    return Objects.equals(this.address, elFRelocation.address) &&
-        Objects.equals(this.type, elFRelocation.type) &&
-        Objects.equals(this.size, elFRelocation.size) &&
-        Objects.equals(this.addend, elFRelocation.addend) &&
-        Objects.equals(this.symbolName, elFRelocation.symbolName) &&
+    return Objects.equals(this.addend, elFRelocation.addend) &&
+        Objects.equals(this.address, elFRelocation.address) &&
         Objects.equals(this.isDynamic, elFRelocation.isDynamic) &&
-        Objects.equals(this.isPltgot, elFRelocation.isPltgot)&&
+        Objects.equals(this.isPltgot, elFRelocation.isPltgot) &&
+        Objects.equals(this.size, elFRelocation.size) &&
+        Objects.equals(this.symbolName, elFRelocation.symbolName) &&
+        Objects.equals(this.type, elFRelocation.type)&&
         Objects.equals(this.additionalProperties, elFRelocation.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, type, size, addend, symbolName, isDynamic, isPltgot, additionalProperties);
+    return Objects.hash(addend, address, isDynamic, isPltgot, size, symbolName, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ELFRelocation {\n");
-    sb.append("    address: ").append(toIndentedString(address)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    addend: ").append(toIndentedString(addend)).append("\n");
-    sb.append("    symbolName: ").append(toIndentedString(symbolName)).append("\n");
+    sb.append("    address: ").append(toIndentedString(address)).append("\n");
     sb.append("    isDynamic: ").append(toIndentedString(isDynamic)).append("\n");
     sb.append("    isPltgot: ").append(toIndentedString(isPltgot)).append("\n");
+    sb.append("    size: ").append(toIndentedString(size)).append("\n");
+    sb.append("    symbolName: ").append(toIndentedString(symbolName)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -324,10 +324,10 @@ public class ELFRelocation {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("address", "type", "size", "addend", "symbol_name", "is_dynamic", "is_pltgot"));
+    openapiFields = new HashSet<String>(Arrays.asList("addend", "address", "is_dynamic", "is_pltgot", "size", "symbol_name", "type"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("address", "type", "size", "addend", "symbol_name", "is_dynamic", "is_pltgot"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("addend", "address", "is_dynamic", "is_pltgot", "size", "symbol_name", "type"));
   }
 
   /**
@@ -350,11 +350,11 @@ public class ELFRelocation {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-      }
       if (!jsonObj.get("symbol_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `symbol_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("symbol_name").toString()));
+      }
+      if (!jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
   }
 

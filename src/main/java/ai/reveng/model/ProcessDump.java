@@ -52,47 +52,28 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ProcessDump {
-  public static final String SERIALIZED_NAME_BASE_ADDRESS = "base_address";
-  @SerializedName(SERIALIZED_NAME_BASE_ADDRESS)
-  @javax.annotation.Nonnull
-  private Integer baseAddress;
-
   public static final String SERIALIZED_NAME_ACTUAL_FILENAME = "actual_filename";
   @SerializedName(SERIALIZED_NAME_ACTUAL_FILENAME)
   @javax.annotation.Nonnull
   private String actualFilename;
 
-  public static final String SERIALIZED_NAME_FILENAME_FRIENDLY = "filename_friendly";
-  @SerializedName(SERIALIZED_NAME_FILENAME_FRIENDLY)
+  public static final String SERIALIZED_NAME_BASE_ADDRESS = "base_address";
+  @SerializedName(SERIALIZED_NAME_BASE_ADDRESS)
   @javax.annotation.Nonnull
-  private String filenameFriendly;
+  private Integer baseAddress;
 
   public static final String SERIALIZED_NAME_EXTENDED_METADATA = "extended_metadata";
   @SerializedName(SERIALIZED_NAME_EXTENDED_METADATA)
   @javax.annotation.Nonnull
   private ProcessDumpMetadata extendedMetadata;
 
+  public static final String SERIALIZED_NAME_FILENAME_FRIENDLY = "filename_friendly";
+  @SerializedName(SERIALIZED_NAME_FILENAME_FRIENDLY)
+  @javax.annotation.Nonnull
+  private String filenameFriendly;
+
   public ProcessDump() {
   }
-
-  public ProcessDump baseAddress(@javax.annotation.Nonnull Integer baseAddress) {
-    this.baseAddress = baseAddress;
-    return this;
-  }
-
-  /**
-   * Get baseAddress
-   * @return baseAddress
-   */
-  @javax.annotation.Nonnull
-  public Integer getBaseAddress() {
-    return baseAddress;
-  }
-
-  public void setBaseAddress(@javax.annotation.Nonnull Integer baseAddress) {
-    this.baseAddress = baseAddress;
-  }
-
 
   public ProcessDump actualFilename(@javax.annotation.Nonnull String actualFilename) {
     this.actualFilename = actualFilename;
@@ -113,22 +94,22 @@ public class ProcessDump {
   }
 
 
-  public ProcessDump filenameFriendly(@javax.annotation.Nonnull String filenameFriendly) {
-    this.filenameFriendly = filenameFriendly;
+  public ProcessDump baseAddress(@javax.annotation.Nonnull Integer baseAddress) {
+    this.baseAddress = baseAddress;
     return this;
   }
 
   /**
-   * Get filenameFriendly
-   * @return filenameFriendly
+   * Get baseAddress
+   * @return baseAddress
    */
   @javax.annotation.Nonnull
-  public String getFilenameFriendly() {
-    return filenameFriendly;
+  public Integer getBaseAddress() {
+    return baseAddress;
   }
 
-  public void setFilenameFriendly(@javax.annotation.Nonnull String filenameFriendly) {
-    this.filenameFriendly = filenameFriendly;
+  public void setBaseAddress(@javax.annotation.Nonnull Integer baseAddress) {
+    this.baseAddress = baseAddress;
   }
 
 
@@ -148,6 +129,25 @@ public class ProcessDump {
 
   public void setExtendedMetadata(@javax.annotation.Nonnull ProcessDumpMetadata extendedMetadata) {
     this.extendedMetadata = extendedMetadata;
+  }
+
+
+  public ProcessDump filenameFriendly(@javax.annotation.Nonnull String filenameFriendly) {
+    this.filenameFriendly = filenameFriendly;
+    return this;
+  }
+
+  /**
+   * Get filenameFriendly
+   * @return filenameFriendly
+   */
+  @javax.annotation.Nonnull
+  public String getFilenameFriendly() {
+    return filenameFriendly;
+  }
+
+  public void setFilenameFriendly(@javax.annotation.Nonnull String filenameFriendly) {
+    this.filenameFriendly = filenameFriendly;
   }
 
   /**
@@ -205,26 +205,26 @@ public class ProcessDump {
       return false;
     }
     ProcessDump processDump = (ProcessDump) o;
-    return Objects.equals(this.baseAddress, processDump.baseAddress) &&
-        Objects.equals(this.actualFilename, processDump.actualFilename) &&
-        Objects.equals(this.filenameFriendly, processDump.filenameFriendly) &&
-        Objects.equals(this.extendedMetadata, processDump.extendedMetadata)&&
+    return Objects.equals(this.actualFilename, processDump.actualFilename) &&
+        Objects.equals(this.baseAddress, processDump.baseAddress) &&
+        Objects.equals(this.extendedMetadata, processDump.extendedMetadata) &&
+        Objects.equals(this.filenameFriendly, processDump.filenameFriendly)&&
         Objects.equals(this.additionalProperties, processDump.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(baseAddress, actualFilename, filenameFriendly, extendedMetadata, additionalProperties);
+    return Objects.hash(actualFilename, baseAddress, extendedMetadata, filenameFriendly, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProcessDump {\n");
-    sb.append("    baseAddress: ").append(toIndentedString(baseAddress)).append("\n");
     sb.append("    actualFilename: ").append(toIndentedString(actualFilename)).append("\n");
-    sb.append("    filenameFriendly: ").append(toIndentedString(filenameFriendly)).append("\n");
+    sb.append("    baseAddress: ").append(toIndentedString(baseAddress)).append("\n");
     sb.append("    extendedMetadata: ").append(toIndentedString(extendedMetadata)).append("\n");
+    sb.append("    filenameFriendly: ").append(toIndentedString(filenameFriendly)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -247,10 +247,10 @@ public class ProcessDump {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("base_address", "actual_filename", "filename_friendly", "extended_metadata"));
+    openapiFields = new HashSet<String>(Arrays.asList("actual_filename", "base_address", "extended_metadata", "filename_friendly"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("base_address", "actual_filename", "filename_friendly", "extended_metadata"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("actual_filename", "base_address", "extended_metadata", "filename_friendly"));
   }
 
   /**
@@ -276,11 +276,11 @@ public class ProcessDump {
       if (!jsonObj.get("actual_filename").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `actual_filename` to be a primitive type in the JSON string but got `%s`", jsonObj.get("actual_filename").toString()));
       }
+      // validate the required field `extended_metadata`
+      ProcessDumpMetadata.validateJsonElement(jsonObj.get("extended_metadata"));
       if (!jsonObj.get("filename_friendly").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `filename_friendly` to be a primitive type in the JSON string but got `%s`", jsonObj.get("filename_friendly").toString()));
       }
-      // validate the required field `extended_metadata`
-      ProcessDumpMetadata.validateJsonElement(jsonObj.get("extended_metadata"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

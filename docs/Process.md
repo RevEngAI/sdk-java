@@ -7,13 +7,13 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**args** | **List&lt;String&gt;** |  |  |
+|**children** | **List&lt;Object&gt;** |  |  |
+|**executableName** | **String** |  |  |
 |**pid** | **Integer** |  |  |
 |**procname** | **String** |  |  |
-|**executableName** | **String** |  |  |
-|**args** | **List&lt;String&gt;** |  |  |
 |**tsFrom** | **BigDecimal** |  |  |
 |**tsTo** | **BigDecimal** |  |  |
-|**children** | **List&lt;Object&gt;** |  |  |
 
 
 

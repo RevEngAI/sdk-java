@@ -54,37 +54,18 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ProcessTree {
-  public static final String SERIALIZED_NAME_SUCCESS = "success";
-  @SerializedName(SERIALIZED_NAME_SUCCESS)
-  @javax.annotation.Nonnull
-  private Boolean success;
-
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
   @javax.annotation.Nonnull
   private List<Process> data = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_SUCCESS = "success";
+  @SerializedName(SERIALIZED_NAME_SUCCESS)
+  @javax.annotation.Nonnull
+  private Boolean success;
+
   public ProcessTree() {
   }
-
-  public ProcessTree success(@javax.annotation.Nonnull Boolean success) {
-    this.success = success;
-    return this;
-  }
-
-  /**
-   * Get success
-   * @return success
-   */
-  @javax.annotation.Nonnull
-  public Boolean getSuccess() {
-    return success;
-  }
-
-  public void setSuccess(@javax.annotation.Nonnull Boolean success) {
-    this.success = success;
-  }
-
 
   public ProcessTree data(@javax.annotation.Nonnull List<Process> data) {
     this.data = data;
@@ -110,6 +91,25 @@ public class ProcessTree {
 
   public void setData(@javax.annotation.Nonnull List<Process> data) {
     this.data = data;
+  }
+
+
+  public ProcessTree success(@javax.annotation.Nonnull Boolean success) {
+    this.success = success;
+    return this;
+  }
+
+  /**
+   * Get success
+   * @return success
+   */
+  @javax.annotation.Nonnull
+  public Boolean getSuccess() {
+    return success;
+  }
+
+  public void setSuccess(@javax.annotation.Nonnull Boolean success) {
+    this.success = success;
   }
 
   /**
@@ -167,22 +167,22 @@ public class ProcessTree {
       return false;
     }
     ProcessTree processTree = (ProcessTree) o;
-    return Objects.equals(this.success, processTree.success) &&
-        Objects.equals(this.data, processTree.data)&&
+    return Objects.equals(this.data, processTree.data) &&
+        Objects.equals(this.success, processTree.success)&&
         Objects.equals(this.additionalProperties, processTree.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(success, data, additionalProperties);
+    return Objects.hash(data, success, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProcessTree {\n");
-    sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -205,10 +205,10 @@ public class ProcessTree {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("success", "data"));
+    openapiFields = new HashSet<String>(Arrays.asList("data", "success"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("success", "data"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("data", "success"));
   }
 
   /**

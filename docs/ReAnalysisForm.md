@@ -8,12 +8,12 @@ Form Model for receiving the analysis request
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**tags** | **List&lt;String&gt;** | Tags associated with the analysis |  [optional] |
 |**commandLineArgs** | **String** | Command line arguments for dynamic execution |  [optional] |
-|**priority** | **Integer** | Priority of the analysis |  [optional] |
 |**essential** | **Boolean** | Only runs essential parts of the analysis, skips tags/sbom/cves etc. |  [optional] |
 |**modelName** | **String** |  |  [optional] |
 |**noCache** | **Boolean** | When enabled, skips using cached data within the processing. |  [optional] |
+|**priority** | **Integer** | Priority of the analysis |  [optional] |
+|**tags** | **List&lt;String&gt;** | Tags associated with the analysis |  [optional] |
 
 
 

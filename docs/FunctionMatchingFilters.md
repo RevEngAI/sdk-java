@@ -9,9 +9,9 @@
 |------------ | ------------- | ------------- | -------------|
 |**binaryIds** | **List&lt;Integer&gt;** | ID&#39;s of binaries to limit the search to, if empty, search all scoped binaries |  [optional] |
 |**collectionIds** | **List&lt;Integer&gt;** | ID&#39;s of collections to limit the search to, if empty, search all scoped collections |  [optional] |
+|**debugTypes** | [**List&lt;DebugTypesEnum&gt;**](#List&lt;DebugTypesEnum&gt;) | Limit the search to specific debug types, if empty, search all scoped debug &amp; non-debug functions |  [optional] |
 |**functionIds** | **List&lt;Long&gt;** | ID&#39;s of functions to limit the search to, if empty, search all scoped functions |  [optional] |
 |**userIds** | **List&lt;Integer&gt;** | ID&#39;s of users to limit the search to, if empty, search all scoped users |  [optional] |
-|**debugTypes** | [**List&lt;DebugTypesEnum&gt;**](#List&lt;DebugTypesEnum&gt;) | Limit the search to specific debug types, if empty, search all scoped debug &amp; non-debug functions |  [optional] |
 
 
 

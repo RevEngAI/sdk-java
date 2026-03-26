@@ -52,10 +52,30 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SingleSectionModel {
+  public static final String SERIALIZED_NAME_CHARACTERISTICS = "characteristics";
+  @SerializedName(SERIALIZED_NAME_CHARACTERISTICS)
+  @javax.annotation.Nonnull
+  private String characteristics;
+
+  public static final String SERIALIZED_NAME_ENTROPY = "entropy";
+  @SerializedName(SERIALIZED_NAME_ENTROPY)
+  @javax.annotation.Nonnull
+  private BigDecimal entropy;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   @javax.annotation.Nonnull
   private String name;
+
+  public static final String SERIALIZED_NAME_RAW_SIZE = "raw_size";
+  @SerializedName(SERIALIZED_NAME_RAW_SIZE)
+  @javax.annotation.Nonnull
+  private Integer rawSize;
+
+  public static final String SERIALIZED_NAME_SHA3256 = "sha3_256";
+  @SerializedName(SERIALIZED_NAME_SHA3256)
+  @javax.annotation.Nonnull
+  private String sha3256;
 
   public static final String SERIALIZED_NAME_VIRTUAL_ADDRESS = "virtual_address";
   @SerializedName(SERIALIZED_NAME_VIRTUAL_ADDRESS)
@@ -67,28 +87,46 @@ public class SingleSectionModel {
   @javax.annotation.Nonnull
   private Integer virtualSize;
 
-  public static final String SERIALIZED_NAME_CHARACTERISTICS = "characteristics";
-  @SerializedName(SERIALIZED_NAME_CHARACTERISTICS)
-  @javax.annotation.Nonnull
-  private String characteristics;
-
-  public static final String SERIALIZED_NAME_RAW_SIZE = "raw_size";
-  @SerializedName(SERIALIZED_NAME_RAW_SIZE)
-  @javax.annotation.Nonnull
-  private Integer rawSize;
-
-  public static final String SERIALIZED_NAME_ENTROPY = "entropy";
-  @SerializedName(SERIALIZED_NAME_ENTROPY)
-  @javax.annotation.Nonnull
-  private BigDecimal entropy;
-
-  public static final String SERIALIZED_NAME_SHA3256 = "sha3_256";
-  @SerializedName(SERIALIZED_NAME_SHA3256)
-  @javax.annotation.Nonnull
-  private String sha3256;
-
   public SingleSectionModel() {
   }
+
+  public SingleSectionModel characteristics(@javax.annotation.Nonnull String characteristics) {
+    this.characteristics = characteristics;
+    return this;
+  }
+
+  /**
+   * Get characteristics
+   * @return characteristics
+   */
+  @javax.annotation.Nonnull
+  public String getCharacteristics() {
+    return characteristics;
+  }
+
+  public void setCharacteristics(@javax.annotation.Nonnull String characteristics) {
+    this.characteristics = characteristics;
+  }
+
+
+  public SingleSectionModel entropy(@javax.annotation.Nonnull BigDecimal entropy) {
+    this.entropy = entropy;
+    return this;
+  }
+
+  /**
+   * Get entropy
+   * @return entropy
+   */
+  @javax.annotation.Nonnull
+  public BigDecimal getEntropy() {
+    return entropy;
+  }
+
+  public void setEntropy(@javax.annotation.Nonnull BigDecimal entropy) {
+    this.entropy = entropy;
+  }
+
 
   public SingleSectionModel name(@javax.annotation.Nonnull String name) {
     this.name = name;
@@ -106,6 +144,44 @@ public class SingleSectionModel {
 
   public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
+  }
+
+
+  public SingleSectionModel rawSize(@javax.annotation.Nonnull Integer rawSize) {
+    this.rawSize = rawSize;
+    return this;
+  }
+
+  /**
+   * Get rawSize
+   * @return rawSize
+   */
+  @javax.annotation.Nonnull
+  public Integer getRawSize() {
+    return rawSize;
+  }
+
+  public void setRawSize(@javax.annotation.Nonnull Integer rawSize) {
+    this.rawSize = rawSize;
+  }
+
+
+  public SingleSectionModel sha3256(@javax.annotation.Nonnull String sha3256) {
+    this.sha3256 = sha3256;
+    return this;
+  }
+
+  /**
+   * Get sha3256
+   * @return sha3256
+   */
+  @javax.annotation.Nonnull
+  public String getSha3256() {
+    return sha3256;
+  }
+
+  public void setSha3256(@javax.annotation.Nonnull String sha3256) {
+    this.sha3256 = sha3256;
   }
 
 
@@ -144,82 +220,6 @@ public class SingleSectionModel {
 
   public void setVirtualSize(@javax.annotation.Nonnull Integer virtualSize) {
     this.virtualSize = virtualSize;
-  }
-
-
-  public SingleSectionModel characteristics(@javax.annotation.Nonnull String characteristics) {
-    this.characteristics = characteristics;
-    return this;
-  }
-
-  /**
-   * Get characteristics
-   * @return characteristics
-   */
-  @javax.annotation.Nonnull
-  public String getCharacteristics() {
-    return characteristics;
-  }
-
-  public void setCharacteristics(@javax.annotation.Nonnull String characteristics) {
-    this.characteristics = characteristics;
-  }
-
-
-  public SingleSectionModel rawSize(@javax.annotation.Nonnull Integer rawSize) {
-    this.rawSize = rawSize;
-    return this;
-  }
-
-  /**
-   * Get rawSize
-   * @return rawSize
-   */
-  @javax.annotation.Nonnull
-  public Integer getRawSize() {
-    return rawSize;
-  }
-
-  public void setRawSize(@javax.annotation.Nonnull Integer rawSize) {
-    this.rawSize = rawSize;
-  }
-
-
-  public SingleSectionModel entropy(@javax.annotation.Nonnull BigDecimal entropy) {
-    this.entropy = entropy;
-    return this;
-  }
-
-  /**
-   * Get entropy
-   * @return entropy
-   */
-  @javax.annotation.Nonnull
-  public BigDecimal getEntropy() {
-    return entropy;
-  }
-
-  public void setEntropy(@javax.annotation.Nonnull BigDecimal entropy) {
-    this.entropy = entropy;
-  }
-
-
-  public SingleSectionModel sha3256(@javax.annotation.Nonnull String sha3256) {
-    this.sha3256 = sha3256;
-    return this;
-  }
-
-  /**
-   * Get sha3256
-   * @return sha3256
-   */
-  @javax.annotation.Nonnull
-  public String getSha3256() {
-    return sha3256;
-  }
-
-  public void setSha3256(@javax.annotation.Nonnull String sha3256) {
-    this.sha3256 = sha3256;
   }
 
   /**
@@ -277,32 +277,32 @@ public class SingleSectionModel {
       return false;
     }
     SingleSectionModel singleSectionModel = (SingleSectionModel) o;
-    return Objects.equals(this.name, singleSectionModel.name) &&
-        Objects.equals(this.virtualAddress, singleSectionModel.virtualAddress) &&
-        Objects.equals(this.virtualSize, singleSectionModel.virtualSize) &&
-        Objects.equals(this.characteristics, singleSectionModel.characteristics) &&
-        Objects.equals(this.rawSize, singleSectionModel.rawSize) &&
+    return Objects.equals(this.characteristics, singleSectionModel.characteristics) &&
         Objects.equals(this.entropy, singleSectionModel.entropy) &&
-        Objects.equals(this.sha3256, singleSectionModel.sha3256)&&
+        Objects.equals(this.name, singleSectionModel.name) &&
+        Objects.equals(this.rawSize, singleSectionModel.rawSize) &&
+        Objects.equals(this.sha3256, singleSectionModel.sha3256) &&
+        Objects.equals(this.virtualAddress, singleSectionModel.virtualAddress) &&
+        Objects.equals(this.virtualSize, singleSectionModel.virtualSize)&&
         Objects.equals(this.additionalProperties, singleSectionModel.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, virtualAddress, virtualSize, characteristics, rawSize, entropy, sha3256, additionalProperties);
+    return Objects.hash(characteristics, entropy, name, rawSize, sha3256, virtualAddress, virtualSize, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SingleSectionModel {\n");
+    sb.append("    characteristics: ").append(toIndentedString(characteristics)).append("\n");
+    sb.append("    entropy: ").append(toIndentedString(entropy)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    rawSize: ").append(toIndentedString(rawSize)).append("\n");
+    sb.append("    sha3256: ").append(toIndentedString(sha3256)).append("\n");
     sb.append("    virtualAddress: ").append(toIndentedString(virtualAddress)).append("\n");
     sb.append("    virtualSize: ").append(toIndentedString(virtualSize)).append("\n");
-    sb.append("    characteristics: ").append(toIndentedString(characteristics)).append("\n");
-    sb.append("    rawSize: ").append(toIndentedString(rawSize)).append("\n");
-    sb.append("    entropy: ").append(toIndentedString(entropy)).append("\n");
-    sb.append("    sha3256: ").append(toIndentedString(sha3256)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -325,10 +325,10 @@ public class SingleSectionModel {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("name", "virtual_address", "virtual_size", "characteristics", "raw_size", "entropy", "sha3_256"));
+    openapiFields = new HashSet<String>(Arrays.asList("characteristics", "entropy", "name", "raw_size", "sha3_256", "virtual_address", "virtual_size"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "virtual_address", "virtual_size", "characteristics", "raw_size", "entropy", "sha3_256"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("characteristics", "entropy", "name", "raw_size", "sha3_256", "virtual_address", "virtual_size"));
   }
 
   /**
@@ -351,11 +351,11 @@ public class SingleSectionModel {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
       if (!jsonObj.get("characteristics").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `characteristics` to be a primitive type in the JSON string but got `%s`", jsonObj.get("characteristics").toString()));
+      }
+      if (!jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if (!jsonObj.get("sha3_256").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `sha3_256` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sha3_256").toString()));

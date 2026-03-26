@@ -55,6 +55,16 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FunctionHeader {
+  public static final String SERIALIZED_NAME_ADDR = "addr";
+  @SerializedName(SERIALIZED_NAME_ADDR)
+  @javax.annotation.Nonnull
+  private Integer addr;
+
+  public static final String SERIALIZED_NAME_ARGS = "args";
+  @SerializedName(SERIALIZED_NAME_ARGS)
+  @javax.annotation.Nonnull
+  private Map<String, Argument> args = new HashMap<>();
+
   public static final String SERIALIZED_NAME_LAST_CHANGE = "last_change";
   @SerializedName(SERIALIZED_NAME_LAST_CHANGE)
   @javax.annotation.Nullable
@@ -65,23 +75,59 @@ public class FunctionHeader {
   @javax.annotation.Nonnull
   private String name;
 
-  public static final String SERIALIZED_NAME_ADDR = "addr";
-  @SerializedName(SERIALIZED_NAME_ADDR)
-  @javax.annotation.Nonnull
-  private Integer addr;
-
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
   @javax.annotation.Nonnull
   private String type;
 
-  public static final String SERIALIZED_NAME_ARGS = "args";
-  @SerializedName(SERIALIZED_NAME_ARGS)
-  @javax.annotation.Nonnull
-  private Map<String, Argument> args = new HashMap<>();
-
   public FunctionHeader() {
   }
+
+  public FunctionHeader addr(@javax.annotation.Nonnull Integer addr) {
+    this.addr = addr;
+    return this;
+  }
+
+  /**
+   * Memory address of the function
+   * @return addr
+   */
+  @javax.annotation.Nonnull
+  public Integer getAddr() {
+    return addr;
+  }
+
+  public void setAddr(@javax.annotation.Nonnull Integer addr) {
+    this.addr = addr;
+  }
+
+
+  public FunctionHeader args(@javax.annotation.Nonnull Map<String, Argument> args) {
+    this.args = args;
+    return this;
+  }
+
+  public FunctionHeader putArgsItem(String key, Argument argsItem) {
+    if (this.args == null) {
+      this.args = new HashMap<>();
+    }
+    this.args.put(key, argsItem);
+    return this;
+  }
+
+  /**
+   * Dictionary of function arguments
+   * @return args
+   */
+  @javax.annotation.Nonnull
+  public Map<String, Argument> getArgs() {
+    return args;
+  }
+
+  public void setArgs(@javax.annotation.Nonnull Map<String, Argument> args) {
+    this.args = args;
+  }
+
 
   public FunctionHeader lastChange(@javax.annotation.Nullable String lastChange) {
     this.lastChange = lastChange;
@@ -121,25 +167,6 @@ public class FunctionHeader {
   }
 
 
-  public FunctionHeader addr(@javax.annotation.Nonnull Integer addr) {
-    this.addr = addr;
-    return this;
-  }
-
-  /**
-   * Memory address of the function
-   * @return addr
-   */
-  @javax.annotation.Nonnull
-  public Integer getAddr() {
-    return addr;
-  }
-
-  public void setAddr(@javax.annotation.Nonnull Integer addr) {
-    this.addr = addr;
-  }
-
-
   public FunctionHeader type(@javax.annotation.Nonnull String type) {
     this.type = type;
     return this;
@@ -156,33 +183,6 @@ public class FunctionHeader {
 
   public void setType(@javax.annotation.Nonnull String type) {
     this.type = type;
-  }
-
-
-  public FunctionHeader args(@javax.annotation.Nonnull Map<String, Argument> args) {
-    this.args = args;
-    return this;
-  }
-
-  public FunctionHeader putArgsItem(String key, Argument argsItem) {
-    if (this.args == null) {
-      this.args = new HashMap<>();
-    }
-    this.args.put(key, argsItem);
-    return this;
-  }
-
-  /**
-   * Dictionary of function arguments
-   * @return args
-   */
-  @javax.annotation.Nonnull
-  public Map<String, Argument> getArgs() {
-    return args;
-  }
-
-  public void setArgs(@javax.annotation.Nonnull Map<String, Argument> args) {
-    this.args = args;
   }
 
   /**
@@ -240,11 +240,11 @@ public class FunctionHeader {
       return false;
     }
     FunctionHeader functionHeader = (FunctionHeader) o;
-    return Objects.equals(this.lastChange, functionHeader.lastChange) &&
+    return Objects.equals(this.addr, functionHeader.addr) &&
+        Objects.equals(this.args, functionHeader.args) &&
+        Objects.equals(this.lastChange, functionHeader.lastChange) &&
         Objects.equals(this.name, functionHeader.name) &&
-        Objects.equals(this.addr, functionHeader.addr) &&
-        Objects.equals(this.type, functionHeader.type) &&
-        Objects.equals(this.args, functionHeader.args)&&
+        Objects.equals(this.type, functionHeader.type)&&
         Objects.equals(this.additionalProperties, functionHeader.additionalProperties);
   }
 
@@ -254,7 +254,7 @@ public class FunctionHeader {
 
   @Override
   public int hashCode() {
-    return Objects.hash(lastChange, name, addr, type, args, additionalProperties);
+    return Objects.hash(addr, args, lastChange, name, type, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -268,11 +268,11 @@ public class FunctionHeader {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FunctionHeader {\n");
+    sb.append("    addr: ").append(toIndentedString(addr)).append("\n");
+    sb.append("    args: ").append(toIndentedString(args)).append("\n");
     sb.append("    lastChange: ").append(toIndentedString(lastChange)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    addr: ").append(toIndentedString(addr)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    args: ").append(toIndentedString(args)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -295,10 +295,10 @@ public class FunctionHeader {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("last_change", "name", "addr", "type", "args"));
+    openapiFields = new HashSet<String>(Arrays.asList("addr", "args", "last_change", "name", "type"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "addr", "type", "args"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("addr", "args", "name", "type"));
   }
 
   /**

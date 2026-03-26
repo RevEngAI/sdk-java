@@ -59,15 +59,15 @@ public class BinaryAdditionalResponse {
   @javax.annotation.Nonnull
   private Integer binaryId;
 
-  public static final String SERIALIZED_NAME_DETAILS = "details";
-  @SerializedName(SERIALIZED_NAME_DETAILS)
-  @javax.annotation.Nullable
-  private BinaryAdditionalDetailsDataResponse details;
-
   public static final String SERIALIZED_NAME_CREATION = "creation";
   @SerializedName(SERIALIZED_NAME_CREATION)
   @javax.annotation.Nullable
   private OffsetDateTime creation;
+
+  public static final String SERIALIZED_NAME_DETAILS = "details";
+  @SerializedName(SERIALIZED_NAME_DETAILS)
+  @javax.annotation.Nullable
+  private BinaryAdditionalDetailsDataResponse details;
 
   public BinaryAdditionalResponse() {
   }
@@ -91,25 +91,6 @@ public class BinaryAdditionalResponse {
   }
 
 
-  public BinaryAdditionalResponse details(@javax.annotation.Nullable BinaryAdditionalDetailsDataResponse details) {
-    this.details = details;
-    return this;
-  }
-
-  /**
-   * Get details
-   * @return details
-   */
-  @javax.annotation.Nullable
-  public BinaryAdditionalDetailsDataResponse getDetails() {
-    return details;
-  }
-
-  public void setDetails(@javax.annotation.Nullable BinaryAdditionalDetailsDataResponse details) {
-    this.details = details;
-  }
-
-
   public BinaryAdditionalResponse creation(@javax.annotation.Nullable OffsetDateTime creation) {
     this.creation = creation;
     return this;
@@ -126,6 +107,25 @@ public class BinaryAdditionalResponse {
 
   public void setCreation(@javax.annotation.Nullable OffsetDateTime creation) {
     this.creation = creation;
+  }
+
+
+  public BinaryAdditionalResponse details(@javax.annotation.Nullable BinaryAdditionalDetailsDataResponse details) {
+    this.details = details;
+    return this;
+  }
+
+  /**
+   * Get details
+   * @return details
+   */
+  @javax.annotation.Nullable
+  public BinaryAdditionalDetailsDataResponse getDetails() {
+    return details;
+  }
+
+  public void setDetails(@javax.annotation.Nullable BinaryAdditionalDetailsDataResponse details) {
+    this.details = details;
   }
 
   /**
@@ -184,8 +184,8 @@ public class BinaryAdditionalResponse {
     }
     BinaryAdditionalResponse binaryAdditionalResponse = (BinaryAdditionalResponse) o;
     return Objects.equals(this.binaryId, binaryAdditionalResponse.binaryId) &&
-        Objects.equals(this.details, binaryAdditionalResponse.details) &&
-        Objects.equals(this.creation, binaryAdditionalResponse.creation)&&
+        Objects.equals(this.creation, binaryAdditionalResponse.creation) &&
+        Objects.equals(this.details, binaryAdditionalResponse.details)&&
         Objects.equals(this.additionalProperties, binaryAdditionalResponse.additionalProperties);
   }
 
@@ -195,7 +195,7 @@ public class BinaryAdditionalResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(binaryId, details, creation, additionalProperties);
+    return Objects.hash(binaryId, creation, details, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -210,8 +210,8 @@ public class BinaryAdditionalResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class BinaryAdditionalResponse {\n");
     sb.append("    binaryId: ").append(toIndentedString(binaryId)).append("\n");
-    sb.append("    details: ").append(toIndentedString(details)).append("\n");
     sb.append("    creation: ").append(toIndentedString(creation)).append("\n");
+    sb.append("    details: ").append(toIndentedString(details)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -234,7 +234,7 @@ public class BinaryAdditionalResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("binary_id", "details", "creation"));
+    openapiFields = new HashSet<String>(Arrays.asList("binary_id", "creation", "details"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("binary_id", "details"));

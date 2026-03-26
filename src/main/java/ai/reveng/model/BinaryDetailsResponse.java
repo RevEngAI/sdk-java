@@ -53,6 +53,11 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class BinaryDetailsResponse {
+  public static final String SERIALIZED_NAME_PROPERTY_CLASS = "Class";
+  @SerializedName(SERIALIZED_NAME_PROPERTY_CLASS)
+  @javax.annotation.Nonnull
+  private String propertyClass;
+
   public static final String SERIALIZED_NAME_ARCH = "arch";
   @SerializedName(SERIALIZED_NAME_ARCH)
   @javax.annotation.Nonnull
@@ -68,10 +73,10 @@ public class BinaryDetailsResponse {
   @javax.annotation.Nonnull
   private String crc32;
 
-  public static final String SERIALIZED_NAME_PROPERTY_CLASS = "Class";
-  @SerializedName(SERIALIZED_NAME_PROPERTY_CLASS)
+  public static final String SERIALIZED_NAME_DEBUG = "debug";
+  @SerializedName(SERIALIZED_NAME_DEBUG)
   @javax.annotation.Nonnull
-  private String propertyClass;
+  private Boolean debug;
 
   public static final String SERIALIZED_NAME_ENTROPY = "entropy";
   @SerializedName(SERIALIZED_NAME_ENTROPY)
@@ -83,20 +88,25 @@ public class BinaryDetailsResponse {
   @javax.annotation.Nonnull
   private Integer fileSize;
 
+  public static final String SERIALIZED_NAME_FIRST_SEEN = "first_seen";
+  @SerializedName(SERIALIZED_NAME_FIRST_SEEN)
+  @javax.annotation.Nonnull
+  private OffsetDateTime firstSeen;
+
   public static final String SERIALIZED_NAME_LANGUAGE = "language";
   @SerializedName(SERIALIZED_NAME_LANGUAGE)
   @javax.annotation.Nonnull
   private String language;
 
-  public static final String SERIALIZED_NAME_MD5 = "md5";
-  @SerializedName(SERIALIZED_NAME_MD5)
-  @javax.annotation.Nonnull
-  private String md5;
-
   public static final String SERIALIZED_NAME_MACHINE = "machine";
   @SerializedName(SERIALIZED_NAME_MACHINE)
   @javax.annotation.Nonnull
   private String machine;
+
+  public static final String SERIALIZED_NAME_MD5 = "md5";
+  @SerializedName(SERIALIZED_NAME_MD5)
+  @javax.annotation.Nonnull
+  private String md5;
 
   public static final String SERIALIZED_NAME_OS = "os";
   @SerializedName(SERIALIZED_NAME_OS)
@@ -143,18 +153,27 @@ public class BinaryDetailsResponse {
   @javax.annotation.Nonnull
   private String type;
 
-  public static final String SERIALIZED_NAME_DEBUG = "debug";
-  @SerializedName(SERIALIZED_NAME_DEBUG)
-  @javax.annotation.Nonnull
-  private Boolean debug;
-
-  public static final String SERIALIZED_NAME_FIRST_SEEN = "first_seen";
-  @SerializedName(SERIALIZED_NAME_FIRST_SEEN)
-  @javax.annotation.Nonnull
-  private OffsetDateTime firstSeen;
-
   public BinaryDetailsResponse() {
   }
+
+  public BinaryDetailsResponse propertyClass(@javax.annotation.Nonnull String propertyClass) {
+    this.propertyClass = propertyClass;
+    return this;
+  }
+
+  /**
+   * Get propertyClass
+   * @return propertyClass
+   */
+  @javax.annotation.Nonnull
+  public String getPropertyClass() {
+    return propertyClass;
+  }
+
+  public void setPropertyClass(@javax.annotation.Nonnull String propertyClass) {
+    this.propertyClass = propertyClass;
+  }
+
 
   public BinaryDetailsResponse arch(@javax.annotation.Nonnull String arch) {
     this.arch = arch;
@@ -213,22 +232,22 @@ public class BinaryDetailsResponse {
   }
 
 
-  public BinaryDetailsResponse propertyClass(@javax.annotation.Nonnull String propertyClass) {
-    this.propertyClass = propertyClass;
+  public BinaryDetailsResponse debug(@javax.annotation.Nonnull Boolean debug) {
+    this.debug = debug;
     return this;
   }
 
   /**
-   * Get propertyClass
-   * @return propertyClass
+   * Get debug
+   * @return debug
    */
   @javax.annotation.Nonnull
-  public String getPropertyClass() {
-    return propertyClass;
+  public Boolean getDebug() {
+    return debug;
   }
 
-  public void setPropertyClass(@javax.annotation.Nonnull String propertyClass) {
-    this.propertyClass = propertyClass;
+  public void setDebug(@javax.annotation.Nonnull Boolean debug) {
+    this.debug = debug;
   }
 
 
@@ -270,6 +289,25 @@ public class BinaryDetailsResponse {
   }
 
 
+  public BinaryDetailsResponse firstSeen(@javax.annotation.Nonnull OffsetDateTime firstSeen) {
+    this.firstSeen = firstSeen;
+    return this;
+  }
+
+  /**
+   * Get firstSeen
+   * @return firstSeen
+   */
+  @javax.annotation.Nonnull
+  public OffsetDateTime getFirstSeen() {
+    return firstSeen;
+  }
+
+  public void setFirstSeen(@javax.annotation.Nonnull OffsetDateTime firstSeen) {
+    this.firstSeen = firstSeen;
+  }
+
+
   public BinaryDetailsResponse language(@javax.annotation.Nonnull String language) {
     this.language = language;
     return this;
@@ -289,25 +327,6 @@ public class BinaryDetailsResponse {
   }
 
 
-  public BinaryDetailsResponse md5(@javax.annotation.Nonnull String md5) {
-    this.md5 = md5;
-    return this;
-  }
-
-  /**
-   * Get md5
-   * @return md5
-   */
-  @javax.annotation.Nonnull
-  public String getMd5() {
-    return md5;
-  }
-
-  public void setMd5(@javax.annotation.Nonnull String md5) {
-    this.md5 = md5;
-  }
-
-
   public BinaryDetailsResponse machine(@javax.annotation.Nonnull String machine) {
     this.machine = machine;
     return this;
@@ -324,6 +343,25 @@ public class BinaryDetailsResponse {
 
   public void setMachine(@javax.annotation.Nonnull String machine) {
     this.machine = machine;
+  }
+
+
+  public BinaryDetailsResponse md5(@javax.annotation.Nonnull String md5) {
+    this.md5 = md5;
+    return this;
+  }
+
+  /**
+   * Get md5
+   * @return md5
+   */
+  @javax.annotation.Nonnull
+  public String getMd5() {
+    return md5;
+  }
+
+  public void setMd5(@javax.annotation.Nonnull String md5) {
+    this.md5 = md5;
   }
 
 
@@ -497,44 +535,6 @@ public class BinaryDetailsResponse {
     this.type = type;
   }
 
-
-  public BinaryDetailsResponse debug(@javax.annotation.Nonnull Boolean debug) {
-    this.debug = debug;
-    return this;
-  }
-
-  /**
-   * Get debug
-   * @return debug
-   */
-  @javax.annotation.Nonnull
-  public Boolean getDebug() {
-    return debug;
-  }
-
-  public void setDebug(@javax.annotation.Nonnull Boolean debug) {
-    this.debug = debug;
-  }
-
-
-  public BinaryDetailsResponse firstSeen(@javax.annotation.Nonnull OffsetDateTime firstSeen) {
-    this.firstSeen = firstSeen;
-    return this;
-  }
-
-  /**
-   * Get firstSeen
-   * @return firstSeen
-   */
-  @javax.annotation.Nonnull
-  public OffsetDateTime getFirstSeen() {
-    return firstSeen;
-  }
-
-  public void setFirstSeen(@javax.annotation.Nonnull OffsetDateTime firstSeen) {
-    this.firstSeen = firstSeen;
-  }
-
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -590,15 +590,17 @@ public class BinaryDetailsResponse {
       return false;
     }
     BinaryDetailsResponse binaryDetailsResponse = (BinaryDetailsResponse) o;
-    return Objects.equals(this.arch, binaryDetailsResponse.arch) &&
+    return Objects.equals(this.propertyClass, binaryDetailsResponse.propertyClass) &&
+        Objects.equals(this.arch, binaryDetailsResponse.arch) &&
         Objects.equals(this.bits, binaryDetailsResponse.bits) &&
         Objects.equals(this.crc32, binaryDetailsResponse.crc32) &&
-        Objects.equals(this.propertyClass, binaryDetailsResponse.propertyClass) &&
+        Objects.equals(this.debug, binaryDetailsResponse.debug) &&
         Objects.equals(this.entropy, binaryDetailsResponse.entropy) &&
         Objects.equals(this.fileSize, binaryDetailsResponse.fileSize) &&
+        Objects.equals(this.firstSeen, binaryDetailsResponse.firstSeen) &&
         Objects.equals(this.language, binaryDetailsResponse.language) &&
-        Objects.equals(this.md5, binaryDetailsResponse.md5) &&
         Objects.equals(this.machine, binaryDetailsResponse.machine) &&
+        Objects.equals(this.md5, binaryDetailsResponse.md5) &&
         Objects.equals(this.os, binaryDetailsResponse.os) &&
         Objects.equals(this.sha1, binaryDetailsResponse.sha1) &&
         Objects.equals(this.sha256, binaryDetailsResponse.sha256) &&
@@ -607,30 +609,30 @@ public class BinaryDetailsResponse {
         Objects.equals(this.stripped, binaryDetailsResponse.stripped) &&
         Objects.equals(this.subSys, binaryDetailsResponse.subSys) &&
         Objects.equals(this.tlsh, binaryDetailsResponse.tlsh) &&
-        Objects.equals(this.type, binaryDetailsResponse.type) &&
-        Objects.equals(this.debug, binaryDetailsResponse.debug) &&
-        Objects.equals(this.firstSeen, binaryDetailsResponse.firstSeen)&&
+        Objects.equals(this.type, binaryDetailsResponse.type)&&
         Objects.equals(this.additionalProperties, binaryDetailsResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(arch, bits, crc32, propertyClass, entropy, fileSize, language, md5, machine, os, sha1, sha256, ssdeep, _static, stripped, subSys, tlsh, type, debug, firstSeen, additionalProperties);
+    return Objects.hash(propertyClass, arch, bits, crc32, debug, entropy, fileSize, firstSeen, language, machine, md5, os, sha1, sha256, ssdeep, _static, stripped, subSys, tlsh, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class BinaryDetailsResponse {\n");
+    sb.append("    propertyClass: ").append(toIndentedString(propertyClass)).append("\n");
     sb.append("    arch: ").append(toIndentedString(arch)).append("\n");
     sb.append("    bits: ").append(toIndentedString(bits)).append("\n");
     sb.append("    crc32: ").append(toIndentedString(crc32)).append("\n");
-    sb.append("    propertyClass: ").append(toIndentedString(propertyClass)).append("\n");
+    sb.append("    debug: ").append(toIndentedString(debug)).append("\n");
     sb.append("    entropy: ").append(toIndentedString(entropy)).append("\n");
     sb.append("    fileSize: ").append(toIndentedString(fileSize)).append("\n");
+    sb.append("    firstSeen: ").append(toIndentedString(firstSeen)).append("\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
-    sb.append("    md5: ").append(toIndentedString(md5)).append("\n");
     sb.append("    machine: ").append(toIndentedString(machine)).append("\n");
+    sb.append("    md5: ").append(toIndentedString(md5)).append("\n");
     sb.append("    os: ").append(toIndentedString(os)).append("\n");
     sb.append("    sha1: ").append(toIndentedString(sha1)).append("\n");
     sb.append("    sha256: ").append(toIndentedString(sha256)).append("\n");
@@ -640,8 +642,6 @@ public class BinaryDetailsResponse {
     sb.append("    subSys: ").append(toIndentedString(subSys)).append("\n");
     sb.append("    tlsh: ").append(toIndentedString(tlsh)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    debug: ").append(toIndentedString(debug)).append("\n");
-    sb.append("    firstSeen: ").append(toIndentedString(firstSeen)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -664,10 +664,10 @@ public class BinaryDetailsResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("arch", "bits", "crc32", "Class", "entropy", "file_size", "language", "md5", "machine", "os", "sha1", "sha256", "ssdeep", "static", "stripped", "sub_sys", "tlsh", "type", "debug", "first_seen"));
+    openapiFields = new HashSet<String>(Arrays.asList("Class", "arch", "bits", "crc32", "debug", "entropy", "file_size", "first_seen", "language", "machine", "md5", "os", "sha1", "sha256", "ssdeep", "static", "stripped", "sub_sys", "tlsh", "type"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("arch", "bits", "crc32", "Class", "entropy", "file_size", "language", "md5", "machine", "os", "sha1", "sha256", "ssdeep", "static", "stripped", "sub_sys", "tlsh", "type", "debug", "first_seen"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("Class", "arch", "bits", "crc32", "debug", "entropy", "file_size", "first_seen", "language", "machine", "md5", "os", "sha1", "sha256", "ssdeep", "static", "stripped", "sub_sys", "tlsh", "type"));
   }
 
   /**
@@ -690,23 +690,23 @@ public class BinaryDetailsResponse {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("Class").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `Class` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Class").toString()));
+      }
       if (!jsonObj.get("arch").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `arch` to be a primitive type in the JSON string but got `%s`", jsonObj.get("arch").toString()));
       }
       if (!jsonObj.get("crc32").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `crc32` to be a primitive type in the JSON string but got `%s`", jsonObj.get("crc32").toString()));
       }
-      if (!jsonObj.get("Class").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `Class` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Class").toString()));
-      }
       if (!jsonObj.get("language").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `language` to be a primitive type in the JSON string but got `%s`", jsonObj.get("language").toString()));
       }
-      if (!jsonObj.get("md5").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `md5` to be a primitive type in the JSON string but got `%s`", jsonObj.get("md5").toString()));
-      }
       if (!jsonObj.get("machine").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `machine` to be a primitive type in the JSON string but got `%s`", jsonObj.get("machine").toString()));
+      }
+      if (!jsonObj.get("md5").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `md5` to be a primitive type in the JSON string but got `%s`", jsonObj.get("md5").toString()));
       }
       if (!jsonObj.get("os").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `os` to be a primitive type in the JSON string but got `%s`", jsonObj.get("os").toString()));

@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**guid** | **String** |  |  |
 |**age** | **Integer** |  |  |
+|**guid** | **String** |  |  |
 |**path** | **String** |  |  |
 
 

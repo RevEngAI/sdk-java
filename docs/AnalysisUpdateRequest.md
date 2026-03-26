@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**binaryName** | **String** |  |  [optional] |
 |**analysisScope** | [**AnalysisScopeEnum**](#AnalysisScopeEnum) |  |  [optional] |
+|**binaryName** | **String** |  |  [optional] |
 
 
 

@@ -52,11 +52,6 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InverseFunctionMapItem {
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
-  private String name;
-
   public static final String SERIALIZED_NAME_ADDR = "addr";
   @SerializedName(SERIALIZED_NAME_ADDR)
   @javax.annotation.Nullable
@@ -67,27 +62,13 @@ public class InverseFunctionMapItem {
   @javax.annotation.Nullable
   private Boolean isExternal = false;
 
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  @javax.annotation.Nonnull
+  private String name;
+
   public InverseFunctionMapItem() {
   }
-
-  public InverseFunctionMapItem name(@javax.annotation.Nonnull String name) {
-    this.name = name;
-    return this;
-  }
-
-  /**
-   * Get name
-   * @return name
-   */
-  @javax.annotation.Nonnull
-  public String getName() {
-    return name;
-  }
-
-  public void setName(@javax.annotation.Nonnull String name) {
-    this.name = name;
-  }
-
 
   public InverseFunctionMapItem addr(@javax.annotation.Nullable Addr addr) {
     this.addr = addr;
@@ -124,6 +105,25 @@ public class InverseFunctionMapItem {
 
   public void setIsExternal(@javax.annotation.Nullable Boolean isExternal) {
     this.isExternal = isExternal;
+  }
+
+
+  public InverseFunctionMapItem name(@javax.annotation.Nonnull String name) {
+    this.name = name;
+    return this;
+  }
+
+  /**
+   * Get name
+   * @return name
+   */
+  @javax.annotation.Nonnull
+  public String getName() {
+    return name;
+  }
+
+  public void setName(@javax.annotation.Nonnull String name) {
+    this.name = name;
   }
 
   /**
@@ -181,24 +181,24 @@ public class InverseFunctionMapItem {
       return false;
     }
     InverseFunctionMapItem inverseFunctionMapItem = (InverseFunctionMapItem) o;
-    return Objects.equals(this.name, inverseFunctionMapItem.name) &&
-        Objects.equals(this.addr, inverseFunctionMapItem.addr) &&
-        Objects.equals(this.isExternal, inverseFunctionMapItem.isExternal)&&
+    return Objects.equals(this.addr, inverseFunctionMapItem.addr) &&
+        Objects.equals(this.isExternal, inverseFunctionMapItem.isExternal) &&
+        Objects.equals(this.name, inverseFunctionMapItem.name)&&
         Objects.equals(this.additionalProperties, inverseFunctionMapItem.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, addr, isExternal, additionalProperties);
+    return Objects.hash(addr, isExternal, name, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InverseFunctionMapItem {\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    addr: ").append(toIndentedString(addr)).append("\n");
     sb.append("    isExternal: ").append(toIndentedString(isExternal)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -221,10 +221,10 @@ public class InverseFunctionMapItem {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("name", "addr", "is_external"));
+    openapiFields = new HashSet<String>(Arrays.asList("addr", "is_external", "name"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "addr"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("addr", "name"));
   }
 
   /**
@@ -247,11 +247,11 @@ public class InverseFunctionMapItem {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // validate the required field `addr`
+      Addr.validateJsonElement(jsonObj.get("addr"));
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      // validate the required field `addr`
-      Addr.validateJsonElement(jsonObj.get("addr"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

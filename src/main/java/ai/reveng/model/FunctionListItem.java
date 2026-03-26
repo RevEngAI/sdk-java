@@ -52,15 +52,30 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FunctionListItem {
+  public static final String SERIALIZED_NAME_DEBUG = "debug";
+  @SerializedName(SERIALIZED_NAME_DEBUG)
+  @javax.annotation.Nonnull
+  private Boolean debug;
+
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   @javax.annotation.Nonnull
   private Long id;
 
+  public static final String SERIALIZED_NAME_MANGLED_NAME = "mangled_name";
+  @SerializedName(SERIALIZED_NAME_MANGLED_NAME)
+  @javax.annotation.Nonnull
+  private String mangledName;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   @javax.annotation.Nonnull
   private String name;
+
+  public static final String SERIALIZED_NAME_NAME_SOURCE = "name_source";
+  @SerializedName(SERIALIZED_NAME_NAME_SOURCE)
+  @javax.annotation.Nonnull
+  private NameSourceType nameSource;
 
   /**
    * The source (process) the function name came from
@@ -125,33 +140,37 @@ public class FunctionListItem {
   @javax.annotation.Nonnull
   private NameSourceTypeEnum nameSourceType;
 
-  public static final String SERIALIZED_NAME_NAME_SOURCE = "name_source";
-  @SerializedName(SERIALIZED_NAME_NAME_SOURCE)
+  public static final String SERIALIZED_NAME_SIZE = "size";
+  @SerializedName(SERIALIZED_NAME_SIZE)
   @javax.annotation.Nonnull
-  private NameSourceType nameSource;
-
-  public static final String SERIALIZED_NAME_MANGLED_NAME = "mangled_name";
-  @SerializedName(SERIALIZED_NAME_MANGLED_NAME)
-  @javax.annotation.Nonnull
-  private String mangledName;
+  private Integer size;
 
   public static final String SERIALIZED_NAME_VADDR = "vaddr";
   @SerializedName(SERIALIZED_NAME_VADDR)
   @javax.annotation.Nonnull
   private Long vaddr;
 
-  public static final String SERIALIZED_NAME_SIZE = "size";
-  @SerializedName(SERIALIZED_NAME_SIZE)
-  @javax.annotation.Nonnull
-  private Integer size;
-
-  public static final String SERIALIZED_NAME_DEBUG = "debug";
-  @SerializedName(SERIALIZED_NAME_DEBUG)
-  @javax.annotation.Nonnull
-  private Boolean debug;
-
   public FunctionListItem() {
   }
+
+  public FunctionListItem debug(@javax.annotation.Nonnull Boolean debug) {
+    this.debug = debug;
+    return this;
+  }
+
+  /**
+   * Whether the function has debug information
+   * @return debug
+   */
+  @javax.annotation.Nonnull
+  public Boolean getDebug() {
+    return debug;
+  }
+
+  public void setDebug(@javax.annotation.Nonnull Boolean debug) {
+    this.debug = debug;
+  }
+
 
   public FunctionListItem id(@javax.annotation.Nonnull Long id) {
     this.id = id;
@@ -169,63 +188,6 @@ public class FunctionListItem {
 
   public void setId(@javax.annotation.Nonnull Long id) {
     this.id = id;
-  }
-
-
-  public FunctionListItem name(@javax.annotation.Nonnull String name) {
-    this.name = name;
-    return this;
-  }
-
-  /**
-   * Name of the function
-   * @return name
-   */
-  @javax.annotation.Nonnull
-  public String getName() {
-    return name;
-  }
-
-  public void setName(@javax.annotation.Nonnull String name) {
-    this.name = name;
-  }
-
-
-  public FunctionListItem nameSourceType(@javax.annotation.Nonnull NameSourceTypeEnum nameSourceType) {
-    this.nameSourceType = nameSourceType;
-    return this;
-  }
-
-  /**
-   * The source (process) the function name came from
-   * @return nameSourceType
-   */
-  @javax.annotation.Nonnull
-  public NameSourceTypeEnum getNameSourceType() {
-    return nameSourceType;
-  }
-
-  public void setNameSourceType(@javax.annotation.Nonnull NameSourceTypeEnum nameSourceType) {
-    this.nameSourceType = nameSourceType;
-  }
-
-
-  public FunctionListItem nameSource(@javax.annotation.Nonnull NameSourceType nameSource) {
-    this.nameSource = nameSource;
-    return this;
-  }
-
-  /**
-   * The source of the current function name.
-   * @return nameSource
-   */
-  @javax.annotation.Nonnull
-  public NameSourceType getNameSource() {
-    return nameSource;
-  }
-
-  public void setNameSource(@javax.annotation.Nonnull NameSourceType nameSource) {
-    this.nameSource = nameSource;
   }
 
 
@@ -248,22 +210,60 @@ public class FunctionListItem {
   }
 
 
-  public FunctionListItem vaddr(@javax.annotation.Nonnull Long vaddr) {
-    this.vaddr = vaddr;
+  public FunctionListItem name(@javax.annotation.Nonnull String name) {
+    this.name = name;
     return this;
   }
 
   /**
-   * Function virtual address
-   * @return vaddr
+   * Name of the function
+   * @return name
    */
   @javax.annotation.Nonnull
-  public Long getVaddr() {
-    return vaddr;
+  public String getName() {
+    return name;
   }
 
-  public void setVaddr(@javax.annotation.Nonnull Long vaddr) {
-    this.vaddr = vaddr;
+  public void setName(@javax.annotation.Nonnull String name) {
+    this.name = name;
+  }
+
+
+  public FunctionListItem nameSource(@javax.annotation.Nonnull NameSourceType nameSource) {
+    this.nameSource = nameSource;
+    return this;
+  }
+
+  /**
+   * The source of the current function name.
+   * @return nameSource
+   */
+  @javax.annotation.Nonnull
+  public NameSourceType getNameSource() {
+    return nameSource;
+  }
+
+  public void setNameSource(@javax.annotation.Nonnull NameSourceType nameSource) {
+    this.nameSource = nameSource;
+  }
+
+
+  public FunctionListItem nameSourceType(@javax.annotation.Nonnull NameSourceTypeEnum nameSourceType) {
+    this.nameSourceType = nameSourceType;
+    return this;
+  }
+
+  /**
+   * The source (process) the function name came from
+   * @return nameSourceType
+   */
+  @javax.annotation.Nonnull
+  public NameSourceTypeEnum getNameSourceType() {
+    return nameSourceType;
+  }
+
+  public void setNameSourceType(@javax.annotation.Nonnull NameSourceTypeEnum nameSourceType) {
+    this.nameSourceType = nameSourceType;
   }
 
 
@@ -286,22 +286,22 @@ public class FunctionListItem {
   }
 
 
-  public FunctionListItem debug(@javax.annotation.Nonnull Boolean debug) {
-    this.debug = debug;
+  public FunctionListItem vaddr(@javax.annotation.Nonnull Long vaddr) {
+    this.vaddr = vaddr;
     return this;
   }
 
   /**
-   * Whether the function has debug information
-   * @return debug
+   * Function virtual address
+   * @return vaddr
    */
   @javax.annotation.Nonnull
-  public Boolean getDebug() {
-    return debug;
+  public Long getVaddr() {
+    return vaddr;
   }
 
-  public void setDebug(@javax.annotation.Nonnull Boolean debug) {
-    this.debug = debug;
+  public void setVaddr(@javax.annotation.Nonnull Long vaddr) {
+    this.vaddr = vaddr;
   }
 
   /**
@@ -359,34 +359,34 @@ public class FunctionListItem {
       return false;
     }
     FunctionListItem functionListItem = (FunctionListItem) o;
-    return Objects.equals(this.id, functionListItem.id) &&
-        Objects.equals(this.name, functionListItem.name) &&
-        Objects.equals(this.nameSourceType, functionListItem.nameSourceType) &&
-        Objects.equals(this.nameSource, functionListItem.nameSource) &&
+    return Objects.equals(this.debug, functionListItem.debug) &&
+        Objects.equals(this.id, functionListItem.id) &&
         Objects.equals(this.mangledName, functionListItem.mangledName) &&
-        Objects.equals(this.vaddr, functionListItem.vaddr) &&
+        Objects.equals(this.name, functionListItem.name) &&
+        Objects.equals(this.nameSource, functionListItem.nameSource) &&
+        Objects.equals(this.nameSourceType, functionListItem.nameSourceType) &&
         Objects.equals(this.size, functionListItem.size) &&
-        Objects.equals(this.debug, functionListItem.debug)&&
+        Objects.equals(this.vaddr, functionListItem.vaddr)&&
         Objects.equals(this.additionalProperties, functionListItem.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, nameSourceType, nameSource, mangledName, vaddr, size, debug, additionalProperties);
+    return Objects.hash(debug, id, mangledName, name, nameSource, nameSourceType, size, vaddr, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FunctionListItem {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    nameSourceType: ").append(toIndentedString(nameSourceType)).append("\n");
-    sb.append("    nameSource: ").append(toIndentedString(nameSource)).append("\n");
-    sb.append("    mangledName: ").append(toIndentedString(mangledName)).append("\n");
-    sb.append("    vaddr: ").append(toIndentedString(vaddr)).append("\n");
-    sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    debug: ").append(toIndentedString(debug)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    mangledName: ").append(toIndentedString(mangledName)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    nameSource: ").append(toIndentedString(nameSource)).append("\n");
+    sb.append("    nameSourceType: ").append(toIndentedString(nameSourceType)).append("\n");
+    sb.append("    size: ").append(toIndentedString(size)).append("\n");
+    sb.append("    vaddr: ").append(toIndentedString(vaddr)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -409,10 +409,10 @@ public class FunctionListItem {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "name", "name_source_type", "name_source", "mangled_name", "vaddr", "size", "debug"));
+    openapiFields = new HashSet<String>(Arrays.asList("debug", "id", "mangled_name", "name", "name_source", "name_source_type", "size", "vaddr"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "name", "name_source_type", "name_source", "mangled_name", "vaddr", "size", "debug"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("debug", "id", "mangled_name", "name", "name_source", "name_source_type", "size", "vaddr"));
   }
 
   /**
@@ -435,19 +435,19 @@ public class FunctionListItem {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("mangled_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `mangled_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mangled_name").toString()));
+      }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
+      // validate the required field `name_source`
+      NameSourceType.validateJsonElement(jsonObj.get("name_source"));
       if (!jsonObj.get("name_source_type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `name_source_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name_source_type").toString()));
       }
       // validate the required field `name_source_type`
       NameSourceTypeEnum.validateJsonElement(jsonObj.get("name_source_type"));
-      // validate the required field `name_source`
-      NameSourceType.validateJsonElement(jsonObj.get("name_source"));
-      if (!jsonObj.get("mangled_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `mangled_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mangled_name").toString()));
-      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

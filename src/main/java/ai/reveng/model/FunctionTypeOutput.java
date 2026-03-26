@@ -56,67 +56,48 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FunctionTypeOutput {
-  public static final String SERIALIZED_NAME_LAST_CHANGE = "last_change";
-  @SerializedName(SERIALIZED_NAME_LAST_CHANGE)
-  @javax.annotation.Nullable
-  private String lastChange;
-
   public static final String SERIALIZED_NAME_ADDR = "addr";
   @SerializedName(SERIALIZED_NAME_ADDR)
   @javax.annotation.Nonnull
   private Integer addr;
-
-  public static final String SERIALIZED_NAME_SIZE = "size";
-  @SerializedName(SERIALIZED_NAME_SIZE)
-  @javax.annotation.Nonnull
-  private Integer size;
-
-  public static final String SERIALIZED_NAME_HEADER = "header";
-  @SerializedName(SERIALIZED_NAME_HEADER)
-  @javax.annotation.Nonnull
-  private FunctionHeader header;
-
-  public static final String SERIALIZED_NAME_STACK_VARS = "stack_vars";
-  @SerializedName(SERIALIZED_NAME_STACK_VARS)
-  @javax.annotation.Nullable
-  private Map<String, StackVariable> stackVars;
-
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
-  private String name;
-
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  @javax.annotation.Nonnull
-  private String type;
 
   public static final String SERIALIZED_NAME_ARTIFACT_TYPE = "artifact_type";
   @SerializedName(SERIALIZED_NAME_ARTIFACT_TYPE)
   @javax.annotation.Nullable
   private String artifactType = "Function";
 
+  public static final String SERIALIZED_NAME_HEADER = "header";
+  @SerializedName(SERIALIZED_NAME_HEADER)
+  @javax.annotation.Nonnull
+  private FunctionHeader header;
+
+  public static final String SERIALIZED_NAME_LAST_CHANGE = "last_change";
+  @SerializedName(SERIALIZED_NAME_LAST_CHANGE)
+  @javax.annotation.Nullable
+  private String lastChange;
+
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  @javax.annotation.Nonnull
+  private String name;
+
+  public static final String SERIALIZED_NAME_SIZE = "size";
+  @SerializedName(SERIALIZED_NAME_SIZE)
+  @javax.annotation.Nonnull
+  private Integer size;
+
+  public static final String SERIALIZED_NAME_STACK_VARS = "stack_vars";
+  @SerializedName(SERIALIZED_NAME_STACK_VARS)
+  @javax.annotation.Nullable
+  private Map<String, StackVariable> stackVars;
+
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  @javax.annotation.Nonnull
+  private String type;
+
   public FunctionTypeOutput() {
   }
-
-  public FunctionTypeOutput lastChange(@javax.annotation.Nullable String lastChange) {
-    this.lastChange = lastChange;
-    return this;
-  }
-
-  /**
-   * Get lastChange
-   * @return lastChange
-   */
-  @javax.annotation.Nullable
-  public String getLastChange() {
-    return lastChange;
-  }
-
-  public void setLastChange(@javax.annotation.Nullable String lastChange) {
-    this.lastChange = lastChange;
-  }
-
 
   public FunctionTypeOutput addr(@javax.annotation.Nonnull Integer addr) {
     this.addr = addr;
@@ -137,22 +118,22 @@ public class FunctionTypeOutput {
   }
 
 
-  public FunctionTypeOutput size(@javax.annotation.Nonnull Integer size) {
-    this.size = size;
+  public FunctionTypeOutput artifactType(@javax.annotation.Nullable String artifactType) {
+    this.artifactType = artifactType;
     return this;
   }
 
   /**
-   * Size of the function in bytes
-   * @return size
+   * Type of artifact that the structure is associated with
+   * @return artifactType
    */
-  @javax.annotation.Nonnull
-  public Integer getSize() {
-    return size;
+  @javax.annotation.Nullable
+  public String getArtifactType() {
+    return artifactType;
   }
 
-  public void setSize(@javax.annotation.Nonnull Integer size) {
-    this.size = size;
+  public void setArtifactType(@javax.annotation.Nullable String artifactType) {
+    this.artifactType = artifactType;
   }
 
 
@@ -172,6 +153,63 @@ public class FunctionTypeOutput {
 
   public void setHeader(@javax.annotation.Nonnull FunctionHeader header) {
     this.header = header;
+  }
+
+
+  public FunctionTypeOutput lastChange(@javax.annotation.Nullable String lastChange) {
+    this.lastChange = lastChange;
+    return this;
+  }
+
+  /**
+   * Get lastChange
+   * @return lastChange
+   */
+  @javax.annotation.Nullable
+  public String getLastChange() {
+    return lastChange;
+  }
+
+  public void setLastChange(@javax.annotation.Nullable String lastChange) {
+    this.lastChange = lastChange;
+  }
+
+
+  public FunctionTypeOutput name(@javax.annotation.Nonnull String name) {
+    this.name = name;
+    return this;
+  }
+
+  /**
+   * Name of the function
+   * @return name
+   */
+  @javax.annotation.Nonnull
+  public String getName() {
+    return name;
+  }
+
+  public void setName(@javax.annotation.Nonnull String name) {
+    this.name = name;
+  }
+
+
+  public FunctionTypeOutput size(@javax.annotation.Nonnull Integer size) {
+    this.size = size;
+    return this;
+  }
+
+  /**
+   * Size of the function in bytes
+   * @return size
+   */
+  @javax.annotation.Nonnull
+  public Integer getSize() {
+    return size;
+  }
+
+  public void setSize(@javax.annotation.Nonnull Integer size) {
+    this.size = size;
   }
 
 
@@ -202,25 +240,6 @@ public class FunctionTypeOutput {
   }
 
 
-  public FunctionTypeOutput name(@javax.annotation.Nonnull String name) {
-    this.name = name;
-    return this;
-  }
-
-  /**
-   * Name of the function
-   * @return name
-   */
-  @javax.annotation.Nonnull
-  public String getName() {
-    return name;
-  }
-
-  public void setName(@javax.annotation.Nonnull String name) {
-    this.name = name;
-  }
-
-
   public FunctionTypeOutput type(@javax.annotation.Nonnull String type) {
     this.type = type;
     return this;
@@ -237,25 +256,6 @@ public class FunctionTypeOutput {
 
   public void setType(@javax.annotation.Nonnull String type) {
     this.type = type;
-  }
-
-
-  public FunctionTypeOutput artifactType(@javax.annotation.Nullable String artifactType) {
-    this.artifactType = artifactType;
-    return this;
-  }
-
-  /**
-   * Type of artifact that the structure is associated with
-   * @return artifactType
-   */
-  @javax.annotation.Nullable
-  public String getArtifactType() {
-    return artifactType;
-  }
-
-  public void setArtifactType(@javax.annotation.Nullable String artifactType) {
-    this.artifactType = artifactType;
   }
 
   /**
@@ -313,14 +313,14 @@ public class FunctionTypeOutput {
       return false;
     }
     FunctionTypeOutput functionTypeOutput = (FunctionTypeOutput) o;
-    return Objects.equals(this.lastChange, functionTypeOutput.lastChange) &&
-        Objects.equals(this.addr, functionTypeOutput.addr) &&
-        Objects.equals(this.size, functionTypeOutput.size) &&
+    return Objects.equals(this.addr, functionTypeOutput.addr) &&
+        Objects.equals(this.artifactType, functionTypeOutput.artifactType) &&
         Objects.equals(this.header, functionTypeOutput.header) &&
-        Objects.equals(this.stackVars, functionTypeOutput.stackVars) &&
+        Objects.equals(this.lastChange, functionTypeOutput.lastChange) &&
         Objects.equals(this.name, functionTypeOutput.name) &&
-        Objects.equals(this.type, functionTypeOutput.type) &&
-        Objects.equals(this.artifactType, functionTypeOutput.artifactType)&&
+        Objects.equals(this.size, functionTypeOutput.size) &&
+        Objects.equals(this.stackVars, functionTypeOutput.stackVars) &&
+        Objects.equals(this.type, functionTypeOutput.type)&&
         Objects.equals(this.additionalProperties, functionTypeOutput.additionalProperties);
   }
 
@@ -330,7 +330,7 @@ public class FunctionTypeOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(lastChange, addr, size, header, stackVars, name, type, artifactType, additionalProperties);
+    return Objects.hash(addr, artifactType, header, lastChange, name, size, stackVars, type, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -344,14 +344,14 @@ public class FunctionTypeOutput {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FunctionTypeOutput {\n");
-    sb.append("    lastChange: ").append(toIndentedString(lastChange)).append("\n");
     sb.append("    addr: ").append(toIndentedString(addr)).append("\n");
-    sb.append("    size: ").append(toIndentedString(size)).append("\n");
-    sb.append("    header: ").append(toIndentedString(header)).append("\n");
-    sb.append("    stackVars: ").append(toIndentedString(stackVars)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    artifactType: ").append(toIndentedString(artifactType)).append("\n");
+    sb.append("    header: ").append(toIndentedString(header)).append("\n");
+    sb.append("    lastChange: ").append(toIndentedString(lastChange)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    size: ").append(toIndentedString(size)).append("\n");
+    sb.append("    stackVars: ").append(toIndentedString(stackVars)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -374,10 +374,10 @@ public class FunctionTypeOutput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("last_change", "addr", "size", "header", "stack_vars", "name", "type", "artifact_type"));
+    openapiFields = new HashSet<String>(Arrays.asList("addr", "artifact_type", "header", "last_change", "name", "size", "stack_vars", "type"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("addr", "size", "header", "name", "type"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("addr", "header", "name", "size", "type"));
   }
 
   /**
@@ -400,19 +400,19 @@ public class FunctionTypeOutput {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("last_change") != null && !jsonObj.get("last_change").isJsonNull()) && !jsonObj.get("last_change").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `last_change` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_change").toString()));
+      if ((jsonObj.get("artifact_type") != null && !jsonObj.get("artifact_type").isJsonNull()) && !jsonObj.get("artifact_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `artifact_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("artifact_type").toString()));
       }
       // validate the required field `header`
       FunctionHeader.validateJsonElement(jsonObj.get("header"));
+      if ((jsonObj.get("last_change") != null && !jsonObj.get("last_change").isJsonNull()) && !jsonObj.get("last_change").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `last_change` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_change").toString()));
+      }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if (!jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-      }
-      if ((jsonObj.get("artifact_type") != null && !jsonObj.get("artifact_type").isJsonNull()) && !jsonObj.get("artifact_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `artifact_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("artifact_type").toString()));
       }
   }
 

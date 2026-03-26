@@ -62,16 +62,6 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class PEModel {
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  @javax.annotation.Nonnull
-  private String type;
-
-  public static final String SERIALIZED_NAME_TIMESTAMPS = "timestamps";
-  @SerializedName(SERIALIZED_NAME_TIMESTAMPS)
-  @javax.annotation.Nullable
-  private TimestampModel timestamps;
-
   public static final String SERIALIZED_NAME_ARCHITECTURE = "architecture";
   @SerializedName(SERIALIZED_NAME_ARCHITECTURE)
   @javax.annotation.Nonnull
@@ -82,75 +72,30 @@ public class PEModel {
   @javax.annotation.Nonnull
   private Integer checksum;
 
-  public static final String SERIALIZED_NAME_IMAGE_BASE = "image_base";
-  @SerializedName(SERIALIZED_NAME_IMAGE_BASE)
-  @javax.annotation.Nonnull
-  private Integer imageBase;
-
-  public static final String SERIALIZED_NAME_SECURITY = "security";
-  @SerializedName(SERIALIZED_NAME_SECURITY)
-  @javax.annotation.Nullable
-  private SecurityModel security;
-
-  public static final String SERIALIZED_NAME_VERSION_INFO = "version_info";
-  @SerializedName(SERIALIZED_NAME_VERSION_INFO)
-  @javax.annotation.Nullable
-  private Map<String, Object> versionInfo;
-
   public static final String SERIALIZED_NAME_DEBUG_INFO = "debug_info";
   @SerializedName(SERIALIZED_NAME_DEBUG_INFO)
   @javax.annotation.Nullable
   private PDBDebugModel debugInfo;
-
-  public static final String SERIALIZED_NAME_NUMBER_OF_RESOURCES = "number_of_resources";
-  @SerializedName(SERIALIZED_NAME_NUMBER_OF_RESOURCES)
-  @javax.annotation.Nullable
-  private Integer numberOfResources;
-
-  public static final String SERIALIZED_NAME_ENTRY_POINT = "entry_point";
-  @SerializedName(SERIALIZED_NAME_ENTRY_POINT)
-  @javax.annotation.Nullable
-  private EntrypointModel entryPoint;
-
-  public static final String SERIALIZED_NAME_SIGNATURE = "signature";
-  @SerializedName(SERIALIZED_NAME_SIGNATURE)
-  @javax.annotation.Nullable
-  private CodeSignatureModel signature;
-
-  public static final String SERIALIZED_NAME_DOTNET = "dotnet";
-  @SerializedName(SERIALIZED_NAME_DOTNET)
-  @javax.annotation.Nonnull
-  private Boolean dotnet;
 
   public static final String SERIALIZED_NAME_DEBUG_STRIPPED = "debug_stripped";
   @SerializedName(SERIALIZED_NAME_DEBUG_STRIPPED)
   @javax.annotation.Nonnull
   private Boolean debugStripped;
 
-  public static final String SERIALIZED_NAME_IMPORT_HASH = "import_hash";
-  @SerializedName(SERIALIZED_NAME_IMPORT_HASH)
+  public static final String SERIALIZED_NAME_DOTNET = "dotnet";
+  @SerializedName(SERIALIZED_NAME_DOTNET)
   @javax.annotation.Nonnull
-  private String importHash;
+  private Boolean dotnet;
+
+  public static final String SERIALIZED_NAME_ENTRY_POINT = "entry_point";
+  @SerializedName(SERIALIZED_NAME_ENTRY_POINT)
+  @javax.annotation.Nullable
+  private EntrypointModel entryPoint;
 
   public static final String SERIALIZED_NAME_EXPORT_HASH = "export_hash";
   @SerializedName(SERIALIZED_NAME_EXPORT_HASH)
   @javax.annotation.Nonnull
   private String exportHash;
-
-  public static final String SERIALIZED_NAME_RICH_HEADER_HASH = "rich_header_hash";
-  @SerializedName(SERIALIZED_NAME_RICH_HEADER_HASH)
-  @javax.annotation.Nonnull
-  private String richHeaderHash;
-
-  public static final String SERIALIZED_NAME_SECTIONS = "sections";
-  @SerializedName(SERIALIZED_NAME_SECTIONS)
-  @javax.annotation.Nullable
-  private SectionModel sections;
-
-  public static final String SERIALIZED_NAME_IMPORTS = "imports";
-  @SerializedName(SERIALIZED_NAME_IMPORTS)
-  @javax.annotation.Nullable
-  private ImportModel imports;
 
   public static final String SERIALIZED_NAME_EXPORTS = "exports";
   @SerializedName(SERIALIZED_NAME_EXPORTS)
@@ -162,46 +107,63 @@ public class PEModel {
   @javax.annotation.Nullable
   private IconModel iconData;
 
+  public static final String SERIALIZED_NAME_IMAGE_BASE = "image_base";
+  @SerializedName(SERIALIZED_NAME_IMAGE_BASE)
+  @javax.annotation.Nonnull
+  private Integer imageBase;
+
+  public static final String SERIALIZED_NAME_IMPORT_HASH = "import_hash";
+  @SerializedName(SERIALIZED_NAME_IMPORT_HASH)
+  @javax.annotation.Nonnull
+  private String importHash;
+
+  public static final String SERIALIZED_NAME_IMPORTS = "imports";
+  @SerializedName(SERIALIZED_NAME_IMPORTS)
+  @javax.annotation.Nullable
+  private ImportModel imports;
+
+  public static final String SERIALIZED_NAME_NUMBER_OF_RESOURCES = "number_of_resources";
+  @SerializedName(SERIALIZED_NAME_NUMBER_OF_RESOURCES)
+  @javax.annotation.Nullable
+  private Integer numberOfResources;
+
+  public static final String SERIALIZED_NAME_RICH_HEADER_HASH = "rich_header_hash";
+  @SerializedName(SERIALIZED_NAME_RICH_HEADER_HASH)
+  @javax.annotation.Nonnull
+  private String richHeaderHash;
+
+  public static final String SERIALIZED_NAME_SECTIONS = "sections";
+  @SerializedName(SERIALIZED_NAME_SECTIONS)
+  @javax.annotation.Nullable
+  private SectionModel sections;
+
+  public static final String SERIALIZED_NAME_SECURITY = "security";
+  @SerializedName(SERIALIZED_NAME_SECURITY)
+  @javax.annotation.Nullable
+  private SecurityModel security;
+
+  public static final String SERIALIZED_NAME_SIGNATURE = "signature";
+  @SerializedName(SERIALIZED_NAME_SIGNATURE)
+  @javax.annotation.Nullable
+  private CodeSignatureModel signature;
+
+  public static final String SERIALIZED_NAME_TIMESTAMPS = "timestamps";
+  @SerializedName(SERIALIZED_NAME_TIMESTAMPS)
+  @javax.annotation.Nullable
+  private TimestampModel timestamps;
+
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  @javax.annotation.Nonnull
+  private String type;
+
+  public static final String SERIALIZED_NAME_VERSION_INFO = "version_info";
+  @SerializedName(SERIALIZED_NAME_VERSION_INFO)
+  @javax.annotation.Nullable
+  private Map<String, Object> versionInfo;
+
   public PEModel() {
   }
-
-  public PEModel type(@javax.annotation.Nonnull String type) {
-    this.type = type;
-    return this;
-  }
-
-  /**
-   * Get type
-   * @return type
-   */
-  @javax.annotation.Nonnull
-  public String getType() {
-    return type;
-  }
-
-  public void setType(@javax.annotation.Nonnull String type) {
-    this.type = type;
-  }
-
-
-  public PEModel timestamps(@javax.annotation.Nullable TimestampModel timestamps) {
-    this.timestamps = timestamps;
-    return this;
-  }
-
-  /**
-   * Get timestamps
-   * @return timestamps
-   */
-  @javax.annotation.Nullable
-  public TimestampModel getTimestamps() {
-    return timestamps;
-  }
-
-  public void setTimestamps(@javax.annotation.Nullable TimestampModel timestamps) {
-    this.timestamps = timestamps;
-  }
-
 
   public PEModel architecture(@javax.annotation.Nonnull String architecture) {
     this.architecture = architecture;
@@ -241,71 +203,6 @@ public class PEModel {
   }
 
 
-  public PEModel imageBase(@javax.annotation.Nonnull Integer imageBase) {
-    this.imageBase = imageBase;
-    return this;
-  }
-
-  /**
-   * Get imageBase
-   * @return imageBase
-   */
-  @javax.annotation.Nonnull
-  public Integer getImageBase() {
-    return imageBase;
-  }
-
-  public void setImageBase(@javax.annotation.Nonnull Integer imageBase) {
-    this.imageBase = imageBase;
-  }
-
-
-  public PEModel security(@javax.annotation.Nullable SecurityModel security) {
-    this.security = security;
-    return this;
-  }
-
-  /**
-   * Get security
-   * @return security
-   */
-  @javax.annotation.Nullable
-  public SecurityModel getSecurity() {
-    return security;
-  }
-
-  public void setSecurity(@javax.annotation.Nullable SecurityModel security) {
-    this.security = security;
-  }
-
-
-  public PEModel versionInfo(@javax.annotation.Nullable Map<String, Object> versionInfo) {
-    this.versionInfo = versionInfo;
-    return this;
-  }
-
-  public PEModel putVersionInfoItem(String key, Object versionInfoItem) {
-    if (this.versionInfo == null) {
-      this.versionInfo = new HashMap<>();
-    }
-    this.versionInfo.put(key, versionInfoItem);
-    return this;
-  }
-
-  /**
-   * Get versionInfo
-   * @return versionInfo
-   */
-  @javax.annotation.Nullable
-  public Map<String, Object> getVersionInfo() {
-    return versionInfo;
-  }
-
-  public void setVersionInfo(@javax.annotation.Nullable Map<String, Object> versionInfo) {
-    this.versionInfo = versionInfo;
-  }
-
-
   public PEModel debugInfo(@javax.annotation.Nullable PDBDebugModel debugInfo) {
     this.debugInfo = debugInfo;
     return this;
@@ -322,82 +219,6 @@ public class PEModel {
 
   public void setDebugInfo(@javax.annotation.Nullable PDBDebugModel debugInfo) {
     this.debugInfo = debugInfo;
-  }
-
-
-  public PEModel numberOfResources(@javax.annotation.Nullable Integer numberOfResources) {
-    this.numberOfResources = numberOfResources;
-    return this;
-  }
-
-  /**
-   * Get numberOfResources
-   * @return numberOfResources
-   */
-  @javax.annotation.Nullable
-  public Integer getNumberOfResources() {
-    return numberOfResources;
-  }
-
-  public void setNumberOfResources(@javax.annotation.Nullable Integer numberOfResources) {
-    this.numberOfResources = numberOfResources;
-  }
-
-
-  public PEModel entryPoint(@javax.annotation.Nullable EntrypointModel entryPoint) {
-    this.entryPoint = entryPoint;
-    return this;
-  }
-
-  /**
-   * Get entryPoint
-   * @return entryPoint
-   */
-  @javax.annotation.Nullable
-  public EntrypointModel getEntryPoint() {
-    return entryPoint;
-  }
-
-  public void setEntryPoint(@javax.annotation.Nullable EntrypointModel entryPoint) {
-    this.entryPoint = entryPoint;
-  }
-
-
-  public PEModel signature(@javax.annotation.Nullable CodeSignatureModel signature) {
-    this.signature = signature;
-    return this;
-  }
-
-  /**
-   * Get signature
-   * @return signature
-   */
-  @javax.annotation.Nullable
-  public CodeSignatureModel getSignature() {
-    return signature;
-  }
-
-  public void setSignature(@javax.annotation.Nullable CodeSignatureModel signature) {
-    this.signature = signature;
-  }
-
-
-  public PEModel dotnet(@javax.annotation.Nonnull Boolean dotnet) {
-    this.dotnet = dotnet;
-    return this;
-  }
-
-  /**
-   * Get dotnet
-   * @return dotnet
-   */
-  @javax.annotation.Nonnull
-  public Boolean getDotnet() {
-    return dotnet;
-  }
-
-  public void setDotnet(@javax.annotation.Nonnull Boolean dotnet) {
-    this.dotnet = dotnet;
   }
 
 
@@ -420,22 +241,41 @@ public class PEModel {
   }
 
 
-  public PEModel importHash(@javax.annotation.Nonnull String importHash) {
-    this.importHash = importHash;
+  public PEModel dotnet(@javax.annotation.Nonnull Boolean dotnet) {
+    this.dotnet = dotnet;
     return this;
   }
 
   /**
-   * Get importHash
-   * @return importHash
+   * Get dotnet
+   * @return dotnet
    */
   @javax.annotation.Nonnull
-  public String getImportHash() {
-    return importHash;
+  public Boolean getDotnet() {
+    return dotnet;
   }
 
-  public void setImportHash(@javax.annotation.Nonnull String importHash) {
-    this.importHash = importHash;
+  public void setDotnet(@javax.annotation.Nonnull Boolean dotnet) {
+    this.dotnet = dotnet;
+  }
+
+
+  public PEModel entryPoint(@javax.annotation.Nullable EntrypointModel entryPoint) {
+    this.entryPoint = entryPoint;
+    return this;
+  }
+
+  /**
+   * Get entryPoint
+   * @return entryPoint
+   */
+  @javax.annotation.Nullable
+  public EntrypointModel getEntryPoint() {
+    return entryPoint;
+  }
+
+  public void setEntryPoint(@javax.annotation.Nullable EntrypointModel entryPoint) {
+    this.entryPoint = entryPoint;
   }
 
 
@@ -455,6 +295,120 @@ public class PEModel {
 
   public void setExportHash(@javax.annotation.Nonnull String exportHash) {
     this.exportHash = exportHash;
+  }
+
+
+  public PEModel exports(@javax.annotation.Nullable ExportModel exports) {
+    this.exports = exports;
+    return this;
+  }
+
+  /**
+   * Get exports
+   * @return exports
+   */
+  @javax.annotation.Nullable
+  public ExportModel getExports() {
+    return exports;
+  }
+
+  public void setExports(@javax.annotation.Nullable ExportModel exports) {
+    this.exports = exports;
+  }
+
+
+  public PEModel iconData(@javax.annotation.Nullable IconModel iconData) {
+    this.iconData = iconData;
+    return this;
+  }
+
+  /**
+   * Get iconData
+   * @return iconData
+   */
+  @javax.annotation.Nullable
+  public IconModel getIconData() {
+    return iconData;
+  }
+
+  public void setIconData(@javax.annotation.Nullable IconModel iconData) {
+    this.iconData = iconData;
+  }
+
+
+  public PEModel imageBase(@javax.annotation.Nonnull Integer imageBase) {
+    this.imageBase = imageBase;
+    return this;
+  }
+
+  /**
+   * Get imageBase
+   * @return imageBase
+   */
+  @javax.annotation.Nonnull
+  public Integer getImageBase() {
+    return imageBase;
+  }
+
+  public void setImageBase(@javax.annotation.Nonnull Integer imageBase) {
+    this.imageBase = imageBase;
+  }
+
+
+  public PEModel importHash(@javax.annotation.Nonnull String importHash) {
+    this.importHash = importHash;
+    return this;
+  }
+
+  /**
+   * Get importHash
+   * @return importHash
+   */
+  @javax.annotation.Nonnull
+  public String getImportHash() {
+    return importHash;
+  }
+
+  public void setImportHash(@javax.annotation.Nonnull String importHash) {
+    this.importHash = importHash;
+  }
+
+
+  public PEModel imports(@javax.annotation.Nullable ImportModel imports) {
+    this.imports = imports;
+    return this;
+  }
+
+  /**
+   * Get imports
+   * @return imports
+   */
+  @javax.annotation.Nullable
+  public ImportModel getImports() {
+    return imports;
+  }
+
+  public void setImports(@javax.annotation.Nullable ImportModel imports) {
+    this.imports = imports;
+  }
+
+
+  public PEModel numberOfResources(@javax.annotation.Nullable Integer numberOfResources) {
+    this.numberOfResources = numberOfResources;
+    return this;
+  }
+
+  /**
+   * Get numberOfResources
+   * @return numberOfResources
+   */
+  @javax.annotation.Nullable
+  public Integer getNumberOfResources() {
+    return numberOfResources;
+  }
+
+  public void setNumberOfResources(@javax.annotation.Nullable Integer numberOfResources) {
+    this.numberOfResources = numberOfResources;
   }
 
 
@@ -496,60 +450,106 @@ public class PEModel {
   }
 
 
-  public PEModel imports(@javax.annotation.Nullable ImportModel imports) {
-    this.imports = imports;
+  public PEModel security(@javax.annotation.Nullable SecurityModel security) {
+    this.security = security;
     return this;
   }
 
   /**
-   * Get imports
-   * @return imports
+   * Get security
+   * @return security
    */
   @javax.annotation.Nullable
-  public ImportModel getImports() {
-    return imports;
+  public SecurityModel getSecurity() {
+    return security;
   }
 
-  public void setImports(@javax.annotation.Nullable ImportModel imports) {
-    this.imports = imports;
+  public void setSecurity(@javax.annotation.Nullable SecurityModel security) {
+    this.security = security;
   }
 
 
-  public PEModel exports(@javax.annotation.Nullable ExportModel exports) {
-    this.exports = exports;
+  public PEModel signature(@javax.annotation.Nullable CodeSignatureModel signature) {
+    this.signature = signature;
     return this;
   }
 
   /**
-   * Get exports
-   * @return exports
+   * Get signature
+   * @return signature
    */
   @javax.annotation.Nullable
-  public ExportModel getExports() {
-    return exports;
+  public CodeSignatureModel getSignature() {
+    return signature;
   }
 
-  public void setExports(@javax.annotation.Nullable ExportModel exports) {
-    this.exports = exports;
+  public void setSignature(@javax.annotation.Nullable CodeSignatureModel signature) {
+    this.signature = signature;
   }
 
 
-  public PEModel iconData(@javax.annotation.Nullable IconModel iconData) {
-    this.iconData = iconData;
+  public PEModel timestamps(@javax.annotation.Nullable TimestampModel timestamps) {
+    this.timestamps = timestamps;
     return this;
   }
 
   /**
-   * Get iconData
-   * @return iconData
+   * Get timestamps
+   * @return timestamps
    */
   @javax.annotation.Nullable
-  public IconModel getIconData() {
-    return iconData;
+  public TimestampModel getTimestamps() {
+    return timestamps;
   }
 
-  public void setIconData(@javax.annotation.Nullable IconModel iconData) {
-    this.iconData = iconData;
+  public void setTimestamps(@javax.annotation.Nullable TimestampModel timestamps) {
+    this.timestamps = timestamps;
+  }
+
+
+  public PEModel type(@javax.annotation.Nonnull String type) {
+    this.type = type;
+    return this;
+  }
+
+  /**
+   * Get type
+   * @return type
+   */
+  @javax.annotation.Nonnull
+  public String getType() {
+    return type;
+  }
+
+  public void setType(@javax.annotation.Nonnull String type) {
+    this.type = type;
+  }
+
+
+  public PEModel versionInfo(@javax.annotation.Nullable Map<String, Object> versionInfo) {
+    this.versionInfo = versionInfo;
+    return this;
+  }
+
+  public PEModel putVersionInfoItem(String key, Object versionInfoItem) {
+    if (this.versionInfo == null) {
+      this.versionInfo = new HashMap<>();
+    }
+    this.versionInfo.put(key, versionInfoItem);
+    return this;
+  }
+
+  /**
+   * Get versionInfo
+   * @return versionInfo
+   */
+  @javax.annotation.Nullable
+  public Map<String, Object> getVersionInfo() {
+    return versionInfo;
+  }
+
+  public void setVersionInfo(@javax.annotation.Nullable Map<String, Object> versionInfo) {
+    this.versionInfo = versionInfo;
   }
 
   /**
@@ -607,58 +607,58 @@ public class PEModel {
       return false;
     }
     PEModel peModel = (PEModel) o;
-    return Objects.equals(this.type, peModel.type) &&
-        Objects.equals(this.timestamps, peModel.timestamps) &&
-        Objects.equals(this.architecture, peModel.architecture) &&
+    return Objects.equals(this.architecture, peModel.architecture) &&
         Objects.equals(this.checksum, peModel.checksum) &&
-        Objects.equals(this.imageBase, peModel.imageBase) &&
-        Objects.equals(this.security, peModel.security) &&
-        Objects.equals(this.versionInfo, peModel.versionInfo) &&
         Objects.equals(this.debugInfo, peModel.debugInfo) &&
-        Objects.equals(this.numberOfResources, peModel.numberOfResources) &&
-        Objects.equals(this.entryPoint, peModel.entryPoint) &&
-        Objects.equals(this.signature, peModel.signature) &&
-        Objects.equals(this.dotnet, peModel.dotnet) &&
         Objects.equals(this.debugStripped, peModel.debugStripped) &&
-        Objects.equals(this.importHash, peModel.importHash) &&
+        Objects.equals(this.dotnet, peModel.dotnet) &&
+        Objects.equals(this.entryPoint, peModel.entryPoint) &&
         Objects.equals(this.exportHash, peModel.exportHash) &&
+        Objects.equals(this.exports, peModel.exports) &&
+        Objects.equals(this.iconData, peModel.iconData) &&
+        Objects.equals(this.imageBase, peModel.imageBase) &&
+        Objects.equals(this.importHash, peModel.importHash) &&
+        Objects.equals(this.imports, peModel.imports) &&
+        Objects.equals(this.numberOfResources, peModel.numberOfResources) &&
         Objects.equals(this.richHeaderHash, peModel.richHeaderHash) &&
         Objects.equals(this.sections, peModel.sections) &&
-        Objects.equals(this.imports, peModel.imports) &&
-        Objects.equals(this.exports, peModel.exports) &&
-        Objects.equals(this.iconData, peModel.iconData)&&
+        Objects.equals(this.security, peModel.security) &&
+        Objects.equals(this.signature, peModel.signature) &&
+        Objects.equals(this.timestamps, peModel.timestamps) &&
+        Objects.equals(this.type, peModel.type) &&
+        Objects.equals(this.versionInfo, peModel.versionInfo)&&
         Objects.equals(this.additionalProperties, peModel.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, timestamps, architecture, checksum, imageBase, security, versionInfo, debugInfo, numberOfResources, entryPoint, signature, dotnet, debugStripped, importHash, exportHash, richHeaderHash, sections, imports, exports, iconData, additionalProperties);
+    return Objects.hash(architecture, checksum, debugInfo, debugStripped, dotnet, entryPoint, exportHash, exports, iconData, imageBase, importHash, imports, numberOfResources, richHeaderHash, sections, security, signature, timestamps, type, versionInfo, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PEModel {\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    timestamps: ").append(toIndentedString(timestamps)).append("\n");
     sb.append("    architecture: ").append(toIndentedString(architecture)).append("\n");
     sb.append("    checksum: ").append(toIndentedString(checksum)).append("\n");
-    sb.append("    imageBase: ").append(toIndentedString(imageBase)).append("\n");
-    sb.append("    security: ").append(toIndentedString(security)).append("\n");
-    sb.append("    versionInfo: ").append(toIndentedString(versionInfo)).append("\n");
     sb.append("    debugInfo: ").append(toIndentedString(debugInfo)).append("\n");
-    sb.append("    numberOfResources: ").append(toIndentedString(numberOfResources)).append("\n");
-    sb.append("    entryPoint: ").append(toIndentedString(entryPoint)).append("\n");
-    sb.append("    signature: ").append(toIndentedString(signature)).append("\n");
-    sb.append("    dotnet: ").append(toIndentedString(dotnet)).append("\n");
     sb.append("    debugStripped: ").append(toIndentedString(debugStripped)).append("\n");
-    sb.append("    importHash: ").append(toIndentedString(importHash)).append("\n");
+    sb.append("    dotnet: ").append(toIndentedString(dotnet)).append("\n");
+    sb.append("    entryPoint: ").append(toIndentedString(entryPoint)).append("\n");
     sb.append("    exportHash: ").append(toIndentedString(exportHash)).append("\n");
-    sb.append("    richHeaderHash: ").append(toIndentedString(richHeaderHash)).append("\n");
-    sb.append("    sections: ").append(toIndentedString(sections)).append("\n");
-    sb.append("    imports: ").append(toIndentedString(imports)).append("\n");
     sb.append("    exports: ").append(toIndentedString(exports)).append("\n");
     sb.append("    iconData: ").append(toIndentedString(iconData)).append("\n");
+    sb.append("    imageBase: ").append(toIndentedString(imageBase)).append("\n");
+    sb.append("    importHash: ").append(toIndentedString(importHash)).append("\n");
+    sb.append("    imports: ").append(toIndentedString(imports)).append("\n");
+    sb.append("    numberOfResources: ").append(toIndentedString(numberOfResources)).append("\n");
+    sb.append("    richHeaderHash: ").append(toIndentedString(richHeaderHash)).append("\n");
+    sb.append("    sections: ").append(toIndentedString(sections)).append("\n");
+    sb.append("    security: ").append(toIndentedString(security)).append("\n");
+    sb.append("    signature: ").append(toIndentedString(signature)).append("\n");
+    sb.append("    timestamps: ").append(toIndentedString(timestamps)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    versionInfo: ").append(toIndentedString(versionInfo)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -681,10 +681,10 @@ public class PEModel {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("type", "timestamps", "architecture", "checksum", "image_base", "security", "version_info", "debug_info", "number_of_resources", "entry_point", "signature", "dotnet", "debug_stripped", "import_hash", "export_hash", "rich_header_hash", "sections", "imports", "exports", "icon_data"));
+    openapiFields = new HashSet<String>(Arrays.asList("architecture", "checksum", "debug_info", "debug_stripped", "dotnet", "entry_point", "export_hash", "exports", "icon_data", "image_base", "import_hash", "imports", "number_of_resources", "rich_header_hash", "sections", "security", "signature", "timestamps", "type", "version_info"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("type", "timestamps", "architecture", "checksum", "image_base", "security", "version_info", "debug_info", "number_of_resources", "entry_point", "signature", "dotnet", "debug_stripped", "import_hash", "export_hash", "rich_header_hash", "sections", "imports", "exports", "icon_data"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("architecture", "checksum", "debug_info", "debug_stripped", "dotnet", "entry_point", "export_hash", "exports", "icon_data", "image_base", "import_hash", "imports", "number_of_resources", "rich_header_hash", "sections", "security", "signature", "timestamps", "type", "version_info"));
   }
 
   /**
@@ -707,39 +707,39 @@ public class PEModel {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-      }
-      // validate the required field `timestamps`
-      TimestampModel.validateJsonElement(jsonObj.get("timestamps"));
       if (!jsonObj.get("architecture").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `architecture` to be a primitive type in the JSON string but got `%s`", jsonObj.get("architecture").toString()));
       }
-      // validate the required field `security`
-      SecurityModel.validateJsonElement(jsonObj.get("security"));
       // validate the required field `debug_info`
       PDBDebugModel.validateJsonElement(jsonObj.get("debug_info"));
       // validate the required field `entry_point`
       EntrypointModel.validateJsonElement(jsonObj.get("entry_point"));
-      // validate the required field `signature`
-      CodeSignatureModel.validateJsonElement(jsonObj.get("signature"));
-      if (!jsonObj.get("import_hash").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `import_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("import_hash").toString()));
-      }
       if (!jsonObj.get("export_hash").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `export_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("export_hash").toString()));
       }
+      // validate the required field `exports`
+      ExportModel.validateJsonElement(jsonObj.get("exports"));
+      // validate the required field `icon_data`
+      IconModel.validateJsonElement(jsonObj.get("icon_data"));
+      if (!jsonObj.get("import_hash").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `import_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("import_hash").toString()));
+      }
+      // validate the required field `imports`
+      ImportModel.validateJsonElement(jsonObj.get("imports"));
       if (!jsonObj.get("rich_header_hash").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `rich_header_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rich_header_hash").toString()));
       }
       // validate the required field `sections`
       SectionModel.validateJsonElement(jsonObj.get("sections"));
-      // validate the required field `imports`
-      ImportModel.validateJsonElement(jsonObj.get("imports"));
-      // validate the required field `exports`
-      ExportModel.validateJsonElement(jsonObj.get("exports"));
-      // validate the required field `icon_data`
-      IconModel.validateJsonElement(jsonObj.get("icon_data"));
+      // validate the required field `security`
+      SecurityModel.validateJsonElement(jsonObj.get("security"));
+      // validate the required field `signature`
+      CodeSignatureModel.validateJsonElement(jsonObj.get("signature"));
+      // validate the required field `timestamps`
+      TimestampModel.validateJsonElement(jsonObj.get("timestamps"));
+      if (!jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

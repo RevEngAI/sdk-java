@@ -582,8 +582,8 @@ public class AuthenticationUsersApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Invalid credentials </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call loginUserCall(@javax.annotation.Nonnull LoginRequest loginRequest, final ApiCallback _callback) throws ApiException {
@@ -653,8 +653,8 @@ public class AuthenticationUsersApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Invalid credentials </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public BaseResponseLoginResponse loginUser(@javax.annotation.Nonnull LoginRequest loginRequest) throws ApiException {
@@ -673,8 +673,8 @@ public class AuthenticationUsersApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Invalid credentials </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<BaseResponseLoginResponse> loginUserWithHttpInfo(@javax.annotation.Nonnull LoginRequest loginRequest) throws ApiException {
@@ -695,8 +695,8 @@ public class AuthenticationUsersApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Invalid credentials </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call loginUserAsync(@javax.annotation.Nonnull LoginRequest loginRequest, final ApiCallback<BaseResponseLoginResponse> _callback) throws ApiException {

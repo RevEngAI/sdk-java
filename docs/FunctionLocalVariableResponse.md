@@ -9,9 +9,9 @@
 |------------ | ------------- | ------------- | -------------|
 |**address** | **String** |  |  |
 |**dType** | **String** |  |  |
-|**size** | **Integer** |  |  |
 |**loc** | **String** |  |  |
 |**name** | **String** |  |  |
+|**size** | **Integer** |  |  |
 
 
 

@@ -7,9 +7,9 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**peTimestamp** | **Integer** |  |  |
-|**exportTimestamp** | **Integer** |  |  |
 |**debugTimestamp** | **Integer** |  |  |
+|**exportTimestamp** | **Integer** |  |  |
+|**peTimestamp** | **Integer** |  |  |
 
 
 

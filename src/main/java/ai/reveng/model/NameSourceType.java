@@ -52,6 +52,21 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class NameSourceType {
+  public static final String SERIALIZED_NAME_ANALYSIS_ID = "analysis_id";
+  @SerializedName(SERIALIZED_NAME_ANALYSIS_ID)
+  @javax.annotation.Nullable
+  private Integer analysisId;
+
+  public static final String SERIALIZED_NAME_BINARY_ID = "binary_id";
+  @SerializedName(SERIALIZED_NAME_BINARY_ID)
+  @javax.annotation.Nullable
+  private Integer binaryId;
+
+  public static final String SERIALIZED_NAME_FUNCTION_ID = "function_id";
+  @SerializedName(SERIALIZED_NAME_FUNCTION_ID)
+  @javax.annotation.Nullable
+  private Integer functionId;
+
   /**
    * The source (process) the function name came from
    */
@@ -115,59 +130,25 @@ public class NameSourceType {
   @javax.annotation.Nonnull
   private TypeEnum type;
 
-  public static final String SERIALIZED_NAME_FUNCTION_ID = "function_id";
-  @SerializedName(SERIALIZED_NAME_FUNCTION_ID)
-  @javax.annotation.Nullable
-  private Integer functionId;
-
-  public static final String SERIALIZED_NAME_BINARY_ID = "binary_id";
-  @SerializedName(SERIALIZED_NAME_BINARY_ID)
-  @javax.annotation.Nullable
-  private Integer binaryId;
-
-  public static final String SERIALIZED_NAME_ANALYSIS_ID = "analysis_id";
-  @SerializedName(SERIALIZED_NAME_ANALYSIS_ID)
-  @javax.annotation.Nullable
-  private Integer analysisId;
-
   public NameSourceType() {
   }
 
-  public NameSourceType type(@javax.annotation.Nonnull TypeEnum type) {
-    this.type = type;
+  public NameSourceType analysisId(@javax.annotation.Nullable Integer analysisId) {
+    this.analysisId = analysisId;
     return this;
   }
 
   /**
-   * The source (process) the function name came from
-   * @return type
-   */
-  @javax.annotation.Nonnull
-  public TypeEnum getType() {
-    return type;
-  }
-
-  public void setType(@javax.annotation.Nonnull TypeEnum type) {
-    this.type = type;
-  }
-
-
-  public NameSourceType functionId(@javax.annotation.Nullable Integer functionId) {
-    this.functionId = functionId;
-    return this;
-  }
-
-  /**
-   * Get functionId
-   * @return functionId
+   * Get analysisId
+   * @return analysisId
    */
   @javax.annotation.Nullable
-  public Integer getFunctionId() {
-    return functionId;
+  public Integer getAnalysisId() {
+    return analysisId;
   }
 
-  public void setFunctionId(@javax.annotation.Nullable Integer functionId) {
-    this.functionId = functionId;
+  public void setAnalysisId(@javax.annotation.Nullable Integer analysisId) {
+    this.analysisId = analysisId;
   }
 
 
@@ -190,22 +171,41 @@ public class NameSourceType {
   }
 
 
-  public NameSourceType analysisId(@javax.annotation.Nullable Integer analysisId) {
-    this.analysisId = analysisId;
+  public NameSourceType functionId(@javax.annotation.Nullable Integer functionId) {
+    this.functionId = functionId;
     return this;
   }
 
   /**
-   * Get analysisId
-   * @return analysisId
+   * Get functionId
+   * @return functionId
    */
   @javax.annotation.Nullable
-  public Integer getAnalysisId() {
-    return analysisId;
+  public Integer getFunctionId() {
+    return functionId;
   }
 
-  public void setAnalysisId(@javax.annotation.Nullable Integer analysisId) {
-    this.analysisId = analysisId;
+  public void setFunctionId(@javax.annotation.Nullable Integer functionId) {
+    this.functionId = functionId;
+  }
+
+
+  public NameSourceType type(@javax.annotation.Nonnull TypeEnum type) {
+    this.type = type;
+    return this;
+  }
+
+  /**
+   * The source (process) the function name came from
+   * @return type
+   */
+  @javax.annotation.Nonnull
+  public TypeEnum getType() {
+    return type;
+  }
+
+  public void setType(@javax.annotation.Nonnull TypeEnum type) {
+    this.type = type;
   }
 
   /**
@@ -263,10 +263,10 @@ public class NameSourceType {
       return false;
     }
     NameSourceType nameSourceType = (NameSourceType) o;
-    return Objects.equals(this.type, nameSourceType.type) &&
-        Objects.equals(this.functionId, nameSourceType.functionId) &&
+    return Objects.equals(this.analysisId, nameSourceType.analysisId) &&
         Objects.equals(this.binaryId, nameSourceType.binaryId) &&
-        Objects.equals(this.analysisId, nameSourceType.analysisId)&&
+        Objects.equals(this.functionId, nameSourceType.functionId) &&
+        Objects.equals(this.type, nameSourceType.type)&&
         Objects.equals(this.additionalProperties, nameSourceType.additionalProperties);
   }
 
@@ -276,7 +276,7 @@ public class NameSourceType {
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, functionId, binaryId, analysisId, additionalProperties);
+    return Objects.hash(analysisId, binaryId, functionId, type, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -290,10 +290,10 @@ public class NameSourceType {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class NameSourceType {\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
-    sb.append("    binaryId: ").append(toIndentedString(binaryId)).append("\n");
     sb.append("    analysisId: ").append(toIndentedString(analysisId)).append("\n");
+    sb.append("    binaryId: ").append(toIndentedString(binaryId)).append("\n");
+    sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -316,7 +316,7 @@ public class NameSourceType {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("type", "function_id", "binary_id", "analysis_id"));
+    openapiFields = new HashSet<String>(Arrays.asList("analysis_id", "binary_id", "function_id", "type"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("type"));

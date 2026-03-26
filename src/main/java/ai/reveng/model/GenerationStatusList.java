@@ -54,6 +54,11 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GenerationStatusList {
+  public static final String SERIALIZED_NAME_ITEMS = "items";
+  @SerializedName(SERIALIZED_NAME_ITEMS)
+  @javax.annotation.Nonnull
+  private List<FunctionDataTypesStatus> items = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_TOTAL_COUNT = "total_count";
   @SerializedName(SERIALIZED_NAME_TOTAL_COUNT)
   @javax.annotation.Nullable
@@ -64,13 +69,35 @@ public class GenerationStatusList {
   @javax.annotation.Nullable
   private Integer totalDataTypesCount = 0;
 
-  public static final String SERIALIZED_NAME_ITEMS = "items";
-  @SerializedName(SERIALIZED_NAME_ITEMS)
-  @javax.annotation.Nonnull
-  private List<FunctionDataTypesStatus> items = new ArrayList<>();
-
   public GenerationStatusList() {
   }
+
+  public GenerationStatusList items(@javax.annotation.Nonnull List<FunctionDataTypesStatus> items) {
+    this.items = items;
+    return this;
+  }
+
+  public GenerationStatusList addItemsItem(FunctionDataTypesStatus itemsItem) {
+    if (this.items == null) {
+      this.items = new ArrayList<>();
+    }
+    this.items.add(itemsItem);
+    return this;
+  }
+
+  /**
+   * List of function data types information
+   * @return items
+   */
+  @javax.annotation.Nonnull
+  public List<FunctionDataTypesStatus> getItems() {
+    return items;
+  }
+
+  public void setItems(@javax.annotation.Nonnull List<FunctionDataTypesStatus> items) {
+    this.items = items;
+  }
+
 
   public GenerationStatusList totalCount(@javax.annotation.Nullable Integer totalCount) {
     this.totalCount = totalCount;
@@ -107,33 +134,6 @@ public class GenerationStatusList {
 
   public void setTotalDataTypesCount(@javax.annotation.Nullable Integer totalDataTypesCount) {
     this.totalDataTypesCount = totalDataTypesCount;
-  }
-
-
-  public GenerationStatusList items(@javax.annotation.Nonnull List<FunctionDataTypesStatus> items) {
-    this.items = items;
-    return this;
-  }
-
-  public GenerationStatusList addItemsItem(FunctionDataTypesStatus itemsItem) {
-    if (this.items == null) {
-      this.items = new ArrayList<>();
-    }
-    this.items.add(itemsItem);
-    return this;
-  }
-
-  /**
-   * List of function data types information
-   * @return items
-   */
-  @javax.annotation.Nonnull
-  public List<FunctionDataTypesStatus> getItems() {
-    return items;
-  }
-
-  public void setItems(@javax.annotation.Nonnull List<FunctionDataTypesStatus> items) {
-    this.items = items;
   }
 
   /**
@@ -191,24 +191,24 @@ public class GenerationStatusList {
       return false;
     }
     GenerationStatusList generationStatusList = (GenerationStatusList) o;
-    return Objects.equals(this.totalCount, generationStatusList.totalCount) &&
-        Objects.equals(this.totalDataTypesCount, generationStatusList.totalDataTypesCount) &&
-        Objects.equals(this.items, generationStatusList.items)&&
+    return Objects.equals(this.items, generationStatusList.items) &&
+        Objects.equals(this.totalCount, generationStatusList.totalCount) &&
+        Objects.equals(this.totalDataTypesCount, generationStatusList.totalDataTypesCount)&&
         Objects.equals(this.additionalProperties, generationStatusList.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(totalCount, totalDataTypesCount, items, additionalProperties);
+    return Objects.hash(items, totalCount, totalDataTypesCount, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GenerationStatusList {\n");
+    sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("    totalDataTypesCount: ").append(toIndentedString(totalDataTypesCount)).append("\n");
-    sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -231,7 +231,7 @@ public class GenerationStatusList {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("total_count", "total_data_types_count", "items"));
+    openapiFields = new HashSet<String>(Arrays.asList("items", "total_count", "total_data_types_count"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("items"));

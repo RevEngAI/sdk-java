@@ -57,52 +57,33 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class BaseResponseListDieMatch {
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
-  @javax.annotation.Nullable
-  private Boolean status = true;
-
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
   @javax.annotation.Nullable
   private List<DieMatch> data;
-
-  public static final String SERIALIZED_NAME_MESSAGE = "message";
-  @SerializedName(SERIALIZED_NAME_MESSAGE)
-  @javax.annotation.Nullable
-  private String message;
 
   public static final String SERIALIZED_NAME_ERRORS = "errors";
   @SerializedName(SERIALIZED_NAME_ERRORS)
   @javax.annotation.Nullable
   private List<ErrorModel> errors;
 
+  public static final String SERIALIZED_NAME_MESSAGE = "message";
+  @SerializedName(SERIALIZED_NAME_MESSAGE)
+  @javax.annotation.Nullable
+  private String message;
+
   public static final String SERIALIZED_NAME_META = "meta";
   @SerializedName(SERIALIZED_NAME_META)
   @javax.annotation.Nullable
   private MetaModel meta;
 
+  public static final String SERIALIZED_NAME_STATUS = "status";
+  @SerializedName(SERIALIZED_NAME_STATUS)
+  @javax.annotation.Nullable
+  private Boolean status = true;
+
   public BaseResponseListDieMatch() {
   }
-
-  public BaseResponseListDieMatch status(@javax.annotation.Nullable Boolean status) {
-    this.status = status;
-    return this;
-  }
-
-  /**
-   * Response status on whether the request succeeded
-   * @return status
-   */
-  @javax.annotation.Nullable
-  public Boolean getStatus() {
-    return status;
-  }
-
-  public void setStatus(@javax.annotation.Nullable Boolean status) {
-    this.status = status;
-  }
-
 
   public BaseResponseListDieMatch data(@javax.annotation.Nullable List<DieMatch> data) {
     this.data = data;
@@ -128,25 +109,6 @@ public class BaseResponseListDieMatch {
 
   public void setData(@javax.annotation.Nullable List<DieMatch> data) {
     this.data = data;
-  }
-
-
-  public BaseResponseListDieMatch message(@javax.annotation.Nullable String message) {
-    this.message = message;
-    return this;
-  }
-
-  /**
-   * Get message
-   * @return message
-   */
-  @javax.annotation.Nullable
-  public String getMessage() {
-    return message;
-  }
-
-  public void setMessage(@javax.annotation.Nullable String message) {
-    this.message = message;
   }
 
 
@@ -177,6 +139,25 @@ public class BaseResponseListDieMatch {
   }
 
 
+  public BaseResponseListDieMatch message(@javax.annotation.Nullable String message) {
+    this.message = message;
+    return this;
+  }
+
+  /**
+   * Get message
+   * @return message
+   */
+  @javax.annotation.Nullable
+  public String getMessage() {
+    return message;
+  }
+
+  public void setMessage(@javax.annotation.Nullable String message) {
+    this.message = message;
+  }
+
+
   public BaseResponseListDieMatch meta(@javax.annotation.Nullable MetaModel meta) {
     this.meta = meta;
     return this;
@@ -193,6 +174,25 @@ public class BaseResponseListDieMatch {
 
   public void setMeta(@javax.annotation.Nullable MetaModel meta) {
     this.meta = meta;
+  }
+
+
+  public BaseResponseListDieMatch status(@javax.annotation.Nullable Boolean status) {
+    this.status = status;
+    return this;
+  }
+
+  /**
+   * Response status on whether the request succeeded
+   * @return status
+   */
+  @javax.annotation.Nullable
+  public Boolean getStatus() {
+    return status;
+  }
+
+  public void setStatus(@javax.annotation.Nullable Boolean status) {
+    this.status = status;
   }
 
   /**
@@ -250,11 +250,11 @@ public class BaseResponseListDieMatch {
       return false;
     }
     BaseResponseListDieMatch baseResponseListDieMatch = (BaseResponseListDieMatch) o;
-    return Objects.equals(this.status, baseResponseListDieMatch.status) &&
-        Objects.equals(this.data, baseResponseListDieMatch.data) &&
-        Objects.equals(this.message, baseResponseListDieMatch.message) &&
+    return Objects.equals(this.data, baseResponseListDieMatch.data) &&
         Objects.equals(this.errors, baseResponseListDieMatch.errors) &&
-        Objects.equals(this.meta, baseResponseListDieMatch.meta)&&
+        Objects.equals(this.message, baseResponseListDieMatch.message) &&
+        Objects.equals(this.meta, baseResponseListDieMatch.meta) &&
+        Objects.equals(this.status, baseResponseListDieMatch.status)&&
         Objects.equals(this.additionalProperties, baseResponseListDieMatch.additionalProperties);
   }
 
@@ -264,7 +264,7 @@ public class BaseResponseListDieMatch {
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, data, message, errors, meta, additionalProperties);
+    return Objects.hash(data, errors, message, meta, status, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -278,11 +278,11 @@ public class BaseResponseListDieMatch {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class BaseResponseListDieMatch {\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -305,7 +305,7 @@ public class BaseResponseListDieMatch {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("status", "data", "message", "errors", "meta"));
+    openapiFields = new HashSet<String>(Arrays.asList("data", "errors", "message", "meta", "status"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -338,9 +338,6 @@ public class BaseResponseListDieMatch {
           };
         }
       }
-      if ((jsonObj.get("message") != null && !jsonObj.get("message").isJsonNull()) && !jsonObj.get("message").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
-      }
       if (jsonObj.get("errors") != null && !jsonObj.get("errors").isJsonNull()) {
         JsonArray jsonArrayerrors = jsonObj.getAsJsonArray("errors");
         if (jsonArrayerrors != null) {
@@ -354,6 +351,9 @@ public class BaseResponseListDieMatch {
             ErrorModel.validateJsonElement(jsonArrayerrors.get(i));
           };
         }
+      }
+      if ((jsonObj.get("message") != null && !jsonObj.get("message").isJsonNull()) && !jsonObj.get("message").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
       }
       // validate the optional field `meta`
       if (jsonObj.get("meta") != null && !jsonObj.get("meta").isJsonNull()) {

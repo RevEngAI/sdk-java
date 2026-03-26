@@ -51,37 +51,18 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class NetworkOverviewDnsAnswer {
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  @javax.annotation.Nonnull
-  private String type;
-
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
   @javax.annotation.Nonnull
   private String data;
 
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  @javax.annotation.Nonnull
+  private String type;
+
   public NetworkOverviewDnsAnswer() {
   }
-
-  public NetworkOverviewDnsAnswer type(@javax.annotation.Nonnull String type) {
-    this.type = type;
-    return this;
-  }
-
-  /**
-   * Get type
-   * @return type
-   */
-  @javax.annotation.Nonnull
-  public String getType() {
-    return type;
-  }
-
-  public void setType(@javax.annotation.Nonnull String type) {
-    this.type = type;
-  }
-
 
   public NetworkOverviewDnsAnswer data(@javax.annotation.Nonnull String data) {
     this.data = data;
@@ -99,6 +80,25 @@ public class NetworkOverviewDnsAnswer {
 
   public void setData(@javax.annotation.Nonnull String data) {
     this.data = data;
+  }
+
+
+  public NetworkOverviewDnsAnswer type(@javax.annotation.Nonnull String type) {
+    this.type = type;
+    return this;
+  }
+
+  /**
+   * Get type
+   * @return type
+   */
+  @javax.annotation.Nonnull
+  public String getType() {
+    return type;
+  }
+
+  public void setType(@javax.annotation.Nonnull String type) {
+    this.type = type;
   }
 
   /**
@@ -156,22 +156,22 @@ public class NetworkOverviewDnsAnswer {
       return false;
     }
     NetworkOverviewDnsAnswer networkOverviewDnsAnswer = (NetworkOverviewDnsAnswer) o;
-    return Objects.equals(this.type, networkOverviewDnsAnswer.type) &&
-        Objects.equals(this.data, networkOverviewDnsAnswer.data)&&
+    return Objects.equals(this.data, networkOverviewDnsAnswer.data) &&
+        Objects.equals(this.type, networkOverviewDnsAnswer.type)&&
         Objects.equals(this.additionalProperties, networkOverviewDnsAnswer.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, data, additionalProperties);
+    return Objects.hash(data, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class NetworkOverviewDnsAnswer {\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -194,10 +194,10 @@ public class NetworkOverviewDnsAnswer {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("type", "data"));
+    openapiFields = new HashSet<String>(Arrays.asList("data", "type"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("type", "data"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("data", "type"));
   }
 
   /**
@@ -220,11 +220,11 @@ public class NetworkOverviewDnsAnswer {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-      }
       if (!jsonObj.get("data").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `data` to be a primitive type in the JSON string but got `%s`", jsonObj.get("data").toString()));
+      }
+      if (!jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
   }
 

@@ -58,15 +58,15 @@ public class CollectionUpdateRequest {
   @javax.annotation.Nullable
   private String collectionName;
 
-  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nullable
-  private String description;
-
   public static final String SERIALIZED_NAME_COLLECTION_SCOPE = "collection_scope";
   @SerializedName(SERIALIZED_NAME_COLLECTION_SCOPE)
   @javax.annotation.Nullable
   private CollectionScope collectionScope;
+
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  @javax.annotation.Nullable
+  private String description;
 
   public CollectionUpdateRequest() {
   }
@@ -90,25 +90,6 @@ public class CollectionUpdateRequest {
   }
 
 
-  public CollectionUpdateRequest description(@javax.annotation.Nullable String description) {
-    this.description = description;
-    return this;
-  }
-
-  /**
-   * Get description
-   * @return description
-   */
-  @javax.annotation.Nullable
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(@javax.annotation.Nullable String description) {
-    this.description = description;
-  }
-
-
   public CollectionUpdateRequest collectionScope(@javax.annotation.Nullable CollectionScope collectionScope) {
     this.collectionScope = collectionScope;
     return this;
@@ -125,6 +106,25 @@ public class CollectionUpdateRequest {
 
   public void setCollectionScope(@javax.annotation.Nullable CollectionScope collectionScope) {
     this.collectionScope = collectionScope;
+  }
+
+
+  public CollectionUpdateRequest description(@javax.annotation.Nullable String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * Get description
+   * @return description
+   */
+  @javax.annotation.Nullable
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(@javax.annotation.Nullable String description) {
+    this.description = description;
   }
 
   /**
@@ -183,8 +183,8 @@ public class CollectionUpdateRequest {
     }
     CollectionUpdateRequest collectionUpdateRequest = (CollectionUpdateRequest) o;
     return Objects.equals(this.collectionName, collectionUpdateRequest.collectionName) &&
-        Objects.equals(this.description, collectionUpdateRequest.description) &&
-        Objects.equals(this.collectionScope, collectionUpdateRequest.collectionScope)&&
+        Objects.equals(this.collectionScope, collectionUpdateRequest.collectionScope) &&
+        Objects.equals(this.description, collectionUpdateRequest.description)&&
         Objects.equals(this.additionalProperties, collectionUpdateRequest.additionalProperties);
   }
 
@@ -194,7 +194,7 @@ public class CollectionUpdateRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(collectionName, description, collectionScope, additionalProperties);
+    return Objects.hash(collectionName, collectionScope, description, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -209,8 +209,8 @@ public class CollectionUpdateRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CollectionUpdateRequest {\n");
     sb.append("    collectionName: ").append(toIndentedString(collectionName)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    collectionScope: ").append(toIndentedString(collectionScope)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -233,7 +233,7 @@ public class CollectionUpdateRequest {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("collection_name", "description", "collection_scope"));
+    openapiFields = new HashSet<String>(Arrays.asList("collection_name", "collection_scope", "description"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -255,12 +255,12 @@ public class CollectionUpdateRequest {
       if ((jsonObj.get("collection_name") != null && !jsonObj.get("collection_name").isJsonNull()) && !jsonObj.get("collection_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `collection_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("collection_name").toString()));
       }
-      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
       // validate the optional field `collection_scope`
       if (jsonObj.get("collection_scope") != null && !jsonObj.get("collection_scope").isJsonNull()) {
         CollectionScope.validateJsonElement(jsonObj.get("collection_scope"));
+      }
+      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
   }
 

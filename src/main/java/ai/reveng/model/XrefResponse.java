@@ -55,45 +55,18 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class XrefResponse {
-  public static final String SERIALIZED_NAME_XREF_TO_LIST = "xref_to_list";
-  @SerializedName(SERIALIZED_NAME_XREF_TO_LIST)
-  @javax.annotation.Nonnull
-  private List<XrefToResponse> xrefToList = new ArrayList<>();
-
   public static final String SERIALIZED_NAME_XREF_FROM_LIST = "xref_from_list";
   @SerializedName(SERIALIZED_NAME_XREF_FROM_LIST)
   @javax.annotation.Nonnull
   private List<XrefFromResponse> xrefFromList = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_XREF_TO_LIST = "xref_to_list";
+  @SerializedName(SERIALIZED_NAME_XREF_TO_LIST)
+  @javax.annotation.Nonnull
+  private List<XrefToResponse> xrefToList = new ArrayList<>();
+
   public XrefResponse() {
   }
-
-  public XrefResponse xrefToList(@javax.annotation.Nonnull List<XrefToResponse> xrefToList) {
-    this.xrefToList = xrefToList;
-    return this;
-  }
-
-  public XrefResponse addXrefToListItem(XrefToResponse xrefToListItem) {
-    if (this.xrefToList == null) {
-      this.xrefToList = new ArrayList<>();
-    }
-    this.xrefToList.add(xrefToListItem);
-    return this;
-  }
-
-  /**
-   * Get xrefToList
-   * @return xrefToList
-   */
-  @javax.annotation.Nonnull
-  public List<XrefToResponse> getXrefToList() {
-    return xrefToList;
-  }
-
-  public void setXrefToList(@javax.annotation.Nonnull List<XrefToResponse> xrefToList) {
-    this.xrefToList = xrefToList;
-  }
-
 
   public XrefResponse xrefFromList(@javax.annotation.Nonnull List<XrefFromResponse> xrefFromList) {
     this.xrefFromList = xrefFromList;
@@ -119,6 +92,33 @@ public class XrefResponse {
 
   public void setXrefFromList(@javax.annotation.Nonnull List<XrefFromResponse> xrefFromList) {
     this.xrefFromList = xrefFromList;
+  }
+
+
+  public XrefResponse xrefToList(@javax.annotation.Nonnull List<XrefToResponse> xrefToList) {
+    this.xrefToList = xrefToList;
+    return this;
+  }
+
+  public XrefResponse addXrefToListItem(XrefToResponse xrefToListItem) {
+    if (this.xrefToList == null) {
+      this.xrefToList = new ArrayList<>();
+    }
+    this.xrefToList.add(xrefToListItem);
+    return this;
+  }
+
+  /**
+   * Get xrefToList
+   * @return xrefToList
+   */
+  @javax.annotation.Nonnull
+  public List<XrefToResponse> getXrefToList() {
+    return xrefToList;
+  }
+
+  public void setXrefToList(@javax.annotation.Nonnull List<XrefToResponse> xrefToList) {
+    this.xrefToList = xrefToList;
   }
 
   /**
@@ -176,22 +176,22 @@ public class XrefResponse {
       return false;
     }
     XrefResponse xrefResponse = (XrefResponse) o;
-    return Objects.equals(this.xrefToList, xrefResponse.xrefToList) &&
-        Objects.equals(this.xrefFromList, xrefResponse.xrefFromList)&&
+    return Objects.equals(this.xrefFromList, xrefResponse.xrefFromList) &&
+        Objects.equals(this.xrefToList, xrefResponse.xrefToList)&&
         Objects.equals(this.additionalProperties, xrefResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(xrefToList, xrefFromList, additionalProperties);
+    return Objects.hash(xrefFromList, xrefToList, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class XrefResponse {\n");
-    sb.append("    xrefToList: ").append(toIndentedString(xrefToList)).append("\n");
     sb.append("    xrefFromList: ").append(toIndentedString(xrefFromList)).append("\n");
+    sb.append("    xrefToList: ").append(toIndentedString(xrefToList)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -214,10 +214,10 @@ public class XrefResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("xref_to_list", "xref_from_list"));
+    openapiFields = new HashSet<String>(Arrays.asList("xref_from_list", "xref_to_list"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("xref_to_list", "xref_from_list"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("xref_from_list", "xref_to_list"));
   }
 
   /**
@@ -241,16 +241,6 @@ public class XrefResponse {
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the json data is an array
-      if (!jsonObj.get("xref_to_list").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `xref_to_list` to be an array in the JSON string but got `%s`", jsonObj.get("xref_to_list").toString()));
-      }
-
-      JsonArray jsonArrayxrefToList = jsonObj.getAsJsonArray("xref_to_list");
-      // validate the required field `xref_to_list` (array)
-      for (int i = 0; i < jsonArrayxrefToList.size(); i++) {
-        XrefToResponse.validateJsonElement(jsonArrayxrefToList.get(i));
-      };
-      // ensure the json data is an array
       if (!jsonObj.get("xref_from_list").isJsonArray()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `xref_from_list` to be an array in the JSON string but got `%s`", jsonObj.get("xref_from_list").toString()));
       }
@@ -259,6 +249,16 @@ public class XrefResponse {
       // validate the required field `xref_from_list` (array)
       for (int i = 0; i < jsonArrayxrefFromList.size(); i++) {
         XrefFromResponse.validateJsonElement(jsonArrayxrefFromList.get(i));
+      };
+      // ensure the json data is an array
+      if (!jsonObj.get("xref_to_list").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `xref_to_list` to be an array in the JSON string but got `%s`", jsonObj.get("xref_to_list").toString()));
+      }
+
+      JsonArray jsonArrayxrefToList = jsonObj.getAsJsonArray("xref_to_list");
+      // validate the required field `xref_to_list` (array)
+      for (int i = 0; i < jsonArrayxrefToList.size(); i++) {
+        XrefToResponse.validateJsonElement(jsonArrayxrefToList.get(i));
       };
   }
 

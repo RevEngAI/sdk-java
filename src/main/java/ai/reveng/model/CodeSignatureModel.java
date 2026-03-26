@@ -54,6 +54,11 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CodeSignatureModel {
+  public static final String SERIALIZED_NAME_SIGNATURES = "signatures";
+  @SerializedName(SERIALIZED_NAME_SIGNATURES)
+  @javax.annotation.Nonnull
+  private List<SingleCodeSignatureModel> signatures = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_SIGNED = "signed";
   @SerializedName(SERIALIZED_NAME_SIGNED)
   @javax.annotation.Nonnull
@@ -64,13 +69,35 @@ public class CodeSignatureModel {
   @javax.annotation.Nonnull
   private Boolean validSignature;
 
-  public static final String SERIALIZED_NAME_SIGNATURES = "signatures";
-  @SerializedName(SERIALIZED_NAME_SIGNATURES)
-  @javax.annotation.Nonnull
-  private List<SingleCodeSignatureModel> signatures = new ArrayList<>();
-
   public CodeSignatureModel() {
   }
+
+  public CodeSignatureModel signatures(@javax.annotation.Nonnull List<SingleCodeSignatureModel> signatures) {
+    this.signatures = signatures;
+    return this;
+  }
+
+  public CodeSignatureModel addSignaturesItem(SingleCodeSignatureModel signaturesItem) {
+    if (this.signatures == null) {
+      this.signatures = new ArrayList<>();
+    }
+    this.signatures.add(signaturesItem);
+    return this;
+  }
+
+  /**
+   * Get signatures
+   * @return signatures
+   */
+  @javax.annotation.Nonnull
+  public List<SingleCodeSignatureModel> getSignatures() {
+    return signatures;
+  }
+
+  public void setSignatures(@javax.annotation.Nonnull List<SingleCodeSignatureModel> signatures) {
+    this.signatures = signatures;
+  }
+
 
   public CodeSignatureModel signed(@javax.annotation.Nonnull Boolean signed) {
     this.signed = signed;
@@ -107,33 +134,6 @@ public class CodeSignatureModel {
 
   public void setValidSignature(@javax.annotation.Nonnull Boolean validSignature) {
     this.validSignature = validSignature;
-  }
-
-
-  public CodeSignatureModel signatures(@javax.annotation.Nonnull List<SingleCodeSignatureModel> signatures) {
-    this.signatures = signatures;
-    return this;
-  }
-
-  public CodeSignatureModel addSignaturesItem(SingleCodeSignatureModel signaturesItem) {
-    if (this.signatures == null) {
-      this.signatures = new ArrayList<>();
-    }
-    this.signatures.add(signaturesItem);
-    return this;
-  }
-
-  /**
-   * Get signatures
-   * @return signatures
-   */
-  @javax.annotation.Nonnull
-  public List<SingleCodeSignatureModel> getSignatures() {
-    return signatures;
-  }
-
-  public void setSignatures(@javax.annotation.Nonnull List<SingleCodeSignatureModel> signatures) {
-    this.signatures = signatures;
   }
 
   /**
@@ -191,24 +191,24 @@ public class CodeSignatureModel {
       return false;
     }
     CodeSignatureModel codeSignatureModel = (CodeSignatureModel) o;
-    return Objects.equals(this.signed, codeSignatureModel.signed) &&
-        Objects.equals(this.validSignature, codeSignatureModel.validSignature) &&
-        Objects.equals(this.signatures, codeSignatureModel.signatures)&&
+    return Objects.equals(this.signatures, codeSignatureModel.signatures) &&
+        Objects.equals(this.signed, codeSignatureModel.signed) &&
+        Objects.equals(this.validSignature, codeSignatureModel.validSignature)&&
         Objects.equals(this.additionalProperties, codeSignatureModel.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(signed, validSignature, signatures, additionalProperties);
+    return Objects.hash(signatures, signed, validSignature, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CodeSignatureModel {\n");
+    sb.append("    signatures: ").append(toIndentedString(signatures)).append("\n");
     sb.append("    signed: ").append(toIndentedString(signed)).append("\n");
     sb.append("    validSignature: ").append(toIndentedString(validSignature)).append("\n");
-    sb.append("    signatures: ").append(toIndentedString(signatures)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -231,10 +231,10 @@ public class CodeSignatureModel {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("signed", "valid_signature", "signatures"));
+    openapiFields = new HashSet<String>(Arrays.asList("signatures", "signed", "valid_signature"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("signed", "valid_signature", "signatures"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("signatures", "signed", "valid_signature"));
   }
 
   /**

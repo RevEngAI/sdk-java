@@ -7,25 +7,25 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**fileType** | **String** |  |  |
 |**architecture** | **String** |  |  |
+|**buildId** | **String** |  |  |
+|**debugInfo** | **Map&lt;String, Object&gt;** |  |  |
+|**dynamicEntries** | [**List&lt;ElfDynamicEntry&gt;**](ElfDynamicEntry.md) |  |  |
+|**dynamicSymbols** | [**List&lt;ELFSymbol&gt;**](ELFSymbol.md) |  |  |
 |**endianness** | **String** |  |  |
 |**entryPoint** | **Integer** |  |  |
 |**entryPointBytes** | **String** |  |  |
-|**importHash** | **String** |  |  |
 |**exportHash** | **String** |  |  |
-|**buildId** | **String** |  |  |
-|**security** | [**ELFSecurity**](ELFSecurity.md) |  |  |
+|**exportedFunctions** | **List&lt;String&gt;** |  |  |
+|**fileType** | **String** |  |  |
+|**importHash** | **String** |  |  |
+|**imports** | [**ELFImportModel**](ELFImportModel.md) |  |  |
+|**notes** | **List&lt;Map&lt;String, Object&gt;&gt;** |  |  |
+|**relocations** | [**List&lt;ELFRelocation&gt;**](ELFRelocation.md) |  |  |
 |**sections** | [**List&lt;ELFSection&gt;**](ELFSection.md) |  |  |
+|**security** | [**ELFSecurity**](ELFSecurity.md) |  |  |
 |**segments** | [**List&lt;ELFSegment&gt;**](ELFSegment.md) |  |  |
 |**symbols** | [**List&lt;ELFSymbol&gt;**](ELFSymbol.md) |  |  |
-|**dynamicSymbols** | [**List&lt;ELFSymbol&gt;**](ELFSymbol.md) |  |  |
-|**relocations** | [**List&lt;ELFRelocation&gt;**](ELFRelocation.md) |  |  |
-|**imports** | [**ELFImportModel**](ELFImportModel.md) |  |  |
-|**exportedFunctions** | **List&lt;String&gt;** |  |  |
-|**dynamicEntries** | [**List&lt;ElfDynamicEntry&gt;**](ElfDynamicEntry.md) |  |  |
-|**notes** | **List&lt;Map&lt;String, Object&gt;&gt;** |  |  |
-|**debugInfo** | **Map&lt;String, Object&gt;** |  |  |
 |**versionInfo** | **Map&lt;String, Object&gt;** |  |  |
 
 

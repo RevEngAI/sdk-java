@@ -76,6 +76,11 @@ public class AnalysisDetailResponse {
   @javax.annotation.Nonnull
   private String architecture;
 
+  public static final String SERIALIZED_NAME_AUTO_RUN_AGENTS = "auto_run_agents";
+  @SerializedName(SERIALIZED_NAME_AUTO_RUN_AGENTS)
+  @javax.annotation.Nonnull
+  private AutoRunAgents autoRunAgents;
+
   public static final String SERIALIZED_NAME_BINARY_DYNAMIC = "binary_dynamic";
   @SerializedName(SERIALIZED_NAME_BINARY_DYNAMIC)
   @javax.annotation.Nonnull
@@ -130,11 +135,6 @@ public class AnalysisDetailResponse {
   @SerializedName(SERIALIZED_NAME_SHA256_HASH)
   @javax.annotation.Nonnull
   private String sha256Hash;
-
-  public static final String SERIALIZED_NAME_AUTO_RUN_AGENTS = "auto_run_agents";
-  @SerializedName(SERIALIZED_NAME_AUTO_RUN_AGENTS)
-  @javax.annotation.Nonnull
-  private AutoRunAgents autoRunAgents;
 
   public AnalysisDetailResponse() {
   }
@@ -212,6 +212,25 @@ public class AnalysisDetailResponse {
 
   public void setArchitecture(@javax.annotation.Nonnull String architecture) {
     this.architecture = architecture;
+  }
+
+
+  public AnalysisDetailResponse autoRunAgents(@javax.annotation.Nonnull AutoRunAgents autoRunAgents) {
+    this.autoRunAgents = autoRunAgents;
+    return this;
+  }
+
+  /**
+   * Get autoRunAgents
+   * @return autoRunAgents
+   */
+  @javax.annotation.Nonnull
+  public AutoRunAgents getAutoRunAgents() {
+    return autoRunAgents;
+  }
+
+  public void setAutoRunAgents(@javax.annotation.Nonnull AutoRunAgents autoRunAgents) {
+    this.autoRunAgents = autoRunAgents;
   }
 
 
@@ -431,25 +450,6 @@ public class AnalysisDetailResponse {
     this.sha256Hash = sha256Hash;
   }
 
-
-  public AnalysisDetailResponse autoRunAgents(@javax.annotation.Nonnull AutoRunAgents autoRunAgents) {
-    this.autoRunAgents = autoRunAgents;
-    return this;
-  }
-
-  /**
-   * Get autoRunAgents
-   * @return autoRunAgents
-   */
-  @javax.annotation.Nonnull
-  public AutoRunAgents getAutoRunAgents() {
-    return autoRunAgents;
-  }
-
-  public void setAutoRunAgents(@javax.annotation.Nonnull AutoRunAgents autoRunAgents) {
-    this.autoRunAgents = autoRunAgents;
-  }
-
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -509,6 +509,7 @@ public class AnalysisDetailResponse {
         Objects.equals(this.analysisId, analysisDetailResponse.analysisId) &&
         Objects.equals(this.analysisScope, analysisDetailResponse.analysisScope) &&
         Objects.equals(this.architecture, analysisDetailResponse.architecture) &&
+        Objects.equals(this.autoRunAgents, analysisDetailResponse.autoRunAgents) &&
         Objects.equals(this.binaryDynamic, analysisDetailResponse.binaryDynamic) &&
         Objects.equals(this.binaryFormat, analysisDetailResponse.binaryFormat) &&
         Objects.equals(this.binaryName, analysisDetailResponse.binaryName) &&
@@ -519,8 +520,7 @@ public class AnalysisDetailResponse {
         Objects.equals(this.debug, analysisDetailResponse.debug) &&
         Objects.equals(this.modelName, analysisDetailResponse.modelName) &&
         Objects.equals(this.sbom, analysisDetailResponse.sbom) &&
-        Objects.equals(this.sha256Hash, analysisDetailResponse.sha256Hash) &&
-        Objects.equals(this.autoRunAgents, analysisDetailResponse.autoRunAgents)&&
+        Objects.equals(this.sha256Hash, analysisDetailResponse.sha256Hash)&&
         Objects.equals(this.additionalProperties, analysisDetailResponse.additionalProperties);
   }
 
@@ -530,7 +530,7 @@ public class AnalysisDetailResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(access, analysisId, analysisScope, architecture, binaryDynamic, binaryFormat, binaryName, binarySize, binaryType, creation, dashboardUrl, debug, modelName, sbom, sha256Hash, autoRunAgents, additionalProperties);
+    return Objects.hash(access, analysisId, analysisScope, architecture, autoRunAgents, binaryDynamic, binaryFormat, binaryName, binarySize, binaryType, creation, dashboardUrl, debug, modelName, sbom, sha256Hash, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -548,6 +548,7 @@ public class AnalysisDetailResponse {
     sb.append("    analysisId: ").append(toIndentedString(analysisId)).append("\n");
     sb.append("    analysisScope: ").append(toIndentedString(analysisScope)).append("\n");
     sb.append("    architecture: ").append(toIndentedString(architecture)).append("\n");
+    sb.append("    autoRunAgents: ").append(toIndentedString(autoRunAgents)).append("\n");
     sb.append("    binaryDynamic: ").append(toIndentedString(binaryDynamic)).append("\n");
     sb.append("    binaryFormat: ").append(toIndentedString(binaryFormat)).append("\n");
     sb.append("    binaryName: ").append(toIndentedString(binaryName)).append("\n");
@@ -559,7 +560,6 @@ public class AnalysisDetailResponse {
     sb.append("    modelName: ").append(toIndentedString(modelName)).append("\n");
     sb.append("    sbom: ").append(toIndentedString(sbom)).append("\n");
     sb.append("    sha256Hash: ").append(toIndentedString(sha256Hash)).append("\n");
-    sb.append("    autoRunAgents: ").append(toIndentedString(autoRunAgents)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -582,10 +582,10 @@ public class AnalysisDetailResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access", "analysis_id", "analysis_scope", "architecture", "binary_dynamic", "binary_format", "binary_name", "binary_size", "binary_type", "creation", "dashboard_url", "debug", "model_name", "sbom", "sha_256_hash", "auto_run_agents"));
+    openapiFields = new HashSet<String>(Arrays.asList("access", "analysis_id", "analysis_scope", "architecture", "auto_run_agents", "binary_dynamic", "binary_format", "binary_name", "binary_size", "binary_type", "creation", "dashboard_url", "debug", "model_name", "sbom", "sha_256_hash"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("access", "analysis_id", "analysis_scope", "architecture", "binary_dynamic", "binary_format", "binary_name", "binary_size", "binary_type", "creation", "dashboard_url", "debug", "model_name", "sha_256_hash", "auto_run_agents"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("access", "analysis_id", "analysis_scope", "architecture", "auto_run_agents", "binary_dynamic", "binary_format", "binary_name", "binary_size", "binary_type", "creation", "dashboard_url", "debug", "model_name", "sha_256_hash"));
   }
 
   /**
@@ -616,6 +616,8 @@ public class AnalysisDetailResponse {
       if (!jsonObj.get("architecture").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `architecture` to be a primitive type in the JSON string but got `%s`", jsonObj.get("architecture").toString()));
       }
+      // validate the required field `auto_run_agents`
+      AutoRunAgents.validateJsonElement(jsonObj.get("auto_run_agents"));
       if (!jsonObj.get("binary_format").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `binary_format` to be a primitive type in the JSON string but got `%s`", jsonObj.get("binary_format").toString()));
       }
@@ -637,8 +639,6 @@ public class AnalysisDetailResponse {
       if (!jsonObj.get("sha_256_hash").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `sha_256_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sha_256_hash").toString()));
       }
-      // validate the required field `auto_run_agents`
-      AutoRunAgents.validateJsonElement(jsonObj.get("auto_run_agents"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

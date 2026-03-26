@@ -52,30 +52,15 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ELFSection {
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
+  public static final String SERIALIZED_NAME_ALIGNMENT = "alignment";
+  @SerializedName(SERIALIZED_NAME_ALIGNMENT)
   @javax.annotation.Nonnull
-  private String name;
+  private Integer alignment;
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
+  public static final String SERIALIZED_NAME_ENTROPY = "entropy";
+  @SerializedName(SERIALIZED_NAME_ENTROPY)
   @javax.annotation.Nonnull
-  private String type;
-
-  public static final String SERIALIZED_NAME_VIRTUAL_ADDRESS = "virtual_address";
-  @SerializedName(SERIALIZED_NAME_VIRTUAL_ADDRESS)
-  @javax.annotation.Nonnull
-  private Integer virtualAddress;
-
-  public static final String SERIALIZED_NAME_VIRTUAL_SIZE = "virtual_size";
-  @SerializedName(SERIALIZED_NAME_VIRTUAL_SIZE)
-  @javax.annotation.Nonnull
-  private Integer virtualSize;
-
-  public static final String SERIALIZED_NAME_RAW_SIZE = "raw_size";
-  @SerializedName(SERIALIZED_NAME_RAW_SIZE)
-  @javax.annotation.Nonnull
-  private Integer rawSize;
+  private BigDecimal entropy;
 
   public static final String SERIALIZED_NAME_FILE_OFFSET = "file_offset";
   @SerializedName(SERIALIZED_NAME_FILE_OFFSET)
@@ -92,111 +77,69 @@ public class ELFSection {
   @javax.annotation.Nonnull
   private Integer flagsRaw;
 
-  public static final String SERIALIZED_NAME_ENTROPY = "entropy";
-  @SerializedName(SERIALIZED_NAME_ENTROPY)
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
   @javax.annotation.Nonnull
-  private BigDecimal entropy;
+  private String name;
 
-  public static final String SERIALIZED_NAME_ALIGNMENT = "alignment";
-  @SerializedName(SERIALIZED_NAME_ALIGNMENT)
+  public static final String SERIALIZED_NAME_RAW_SIZE = "raw_size";
+  @SerializedName(SERIALIZED_NAME_RAW_SIZE)
   @javax.annotation.Nonnull
-  private Integer alignment;
+  private Integer rawSize;
+
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  @javax.annotation.Nonnull
+  private String type;
+
+  public static final String SERIALIZED_NAME_VIRTUAL_ADDRESS = "virtual_address";
+  @SerializedName(SERIALIZED_NAME_VIRTUAL_ADDRESS)
+  @javax.annotation.Nonnull
+  private Integer virtualAddress;
+
+  public static final String SERIALIZED_NAME_VIRTUAL_SIZE = "virtual_size";
+  @SerializedName(SERIALIZED_NAME_VIRTUAL_SIZE)
+  @javax.annotation.Nonnull
+  private Integer virtualSize;
 
   public ELFSection() {
   }
 
-  public ELFSection name(@javax.annotation.Nonnull String name) {
-    this.name = name;
+  public ELFSection alignment(@javax.annotation.Nonnull Integer alignment) {
+    this.alignment = alignment;
     return this;
   }
 
   /**
-   * Get name
-   * @return name
+   * Get alignment
+   * @return alignment
    */
   @javax.annotation.Nonnull
-  public String getName() {
-    return name;
+  public Integer getAlignment() {
+    return alignment;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
-    this.name = name;
+  public void setAlignment(@javax.annotation.Nonnull Integer alignment) {
+    this.alignment = alignment;
   }
 
 
-  public ELFSection type(@javax.annotation.Nonnull String type) {
-    this.type = type;
+  public ELFSection entropy(@javax.annotation.Nonnull BigDecimal entropy) {
+    this.entropy = entropy;
     return this;
   }
 
   /**
-   * Get type
-   * @return type
+   * Get entropy
+   * @return entropy
    */
   @javax.annotation.Nonnull
-  public String getType() {
-    return type;
+  public BigDecimal getEntropy() {
+    return entropy;
   }
 
-  public void setType(@javax.annotation.Nonnull String type) {
-    this.type = type;
-  }
-
-
-  public ELFSection virtualAddress(@javax.annotation.Nonnull Integer virtualAddress) {
-    this.virtualAddress = virtualAddress;
-    return this;
-  }
-
-  /**
-   * Get virtualAddress
-   * @return virtualAddress
-   */
-  @javax.annotation.Nonnull
-  public Integer getVirtualAddress() {
-    return virtualAddress;
-  }
-
-  public void setVirtualAddress(@javax.annotation.Nonnull Integer virtualAddress) {
-    this.virtualAddress = virtualAddress;
-  }
-
-
-  public ELFSection virtualSize(@javax.annotation.Nonnull Integer virtualSize) {
-    this.virtualSize = virtualSize;
-    return this;
-  }
-
-  /**
-   * Get virtualSize
-   * @return virtualSize
-   */
-  @javax.annotation.Nonnull
-  public Integer getVirtualSize() {
-    return virtualSize;
-  }
-
-  public void setVirtualSize(@javax.annotation.Nonnull Integer virtualSize) {
-    this.virtualSize = virtualSize;
-  }
-
-
-  public ELFSection rawSize(@javax.annotation.Nonnull Integer rawSize) {
-    this.rawSize = rawSize;
-    return this;
-  }
-
-  /**
-   * Get rawSize
-   * @return rawSize
-   */
-  @javax.annotation.Nonnull
-  public Integer getRawSize() {
-    return rawSize;
-  }
-
-  public void setRawSize(@javax.annotation.Nonnull Integer rawSize) {
-    this.rawSize = rawSize;
+  public void setEntropy(@javax.annotation.Nonnull BigDecimal entropy) {
+    this.entropy = entropy;
   }
 
 
@@ -257,41 +200,98 @@ public class ELFSection {
   }
 
 
-  public ELFSection entropy(@javax.annotation.Nonnull BigDecimal entropy) {
-    this.entropy = entropy;
+  public ELFSection name(@javax.annotation.Nonnull String name) {
+    this.name = name;
     return this;
   }
 
   /**
-   * Get entropy
-   * @return entropy
+   * Get name
+   * @return name
    */
   @javax.annotation.Nonnull
-  public BigDecimal getEntropy() {
-    return entropy;
+  public String getName() {
+    return name;
   }
 
-  public void setEntropy(@javax.annotation.Nonnull BigDecimal entropy) {
-    this.entropy = entropy;
+  public void setName(@javax.annotation.Nonnull String name) {
+    this.name = name;
   }
 
 
-  public ELFSection alignment(@javax.annotation.Nonnull Integer alignment) {
-    this.alignment = alignment;
+  public ELFSection rawSize(@javax.annotation.Nonnull Integer rawSize) {
+    this.rawSize = rawSize;
     return this;
   }
 
   /**
-   * Get alignment
-   * @return alignment
+   * Get rawSize
+   * @return rawSize
    */
   @javax.annotation.Nonnull
-  public Integer getAlignment() {
-    return alignment;
+  public Integer getRawSize() {
+    return rawSize;
   }
 
-  public void setAlignment(@javax.annotation.Nonnull Integer alignment) {
-    this.alignment = alignment;
+  public void setRawSize(@javax.annotation.Nonnull Integer rawSize) {
+    this.rawSize = rawSize;
+  }
+
+
+  public ELFSection type(@javax.annotation.Nonnull String type) {
+    this.type = type;
+    return this;
+  }
+
+  /**
+   * Get type
+   * @return type
+   */
+  @javax.annotation.Nonnull
+  public String getType() {
+    return type;
+  }
+
+  public void setType(@javax.annotation.Nonnull String type) {
+    this.type = type;
+  }
+
+
+  public ELFSection virtualAddress(@javax.annotation.Nonnull Integer virtualAddress) {
+    this.virtualAddress = virtualAddress;
+    return this;
+  }
+
+  /**
+   * Get virtualAddress
+   * @return virtualAddress
+   */
+  @javax.annotation.Nonnull
+  public Integer getVirtualAddress() {
+    return virtualAddress;
+  }
+
+  public void setVirtualAddress(@javax.annotation.Nonnull Integer virtualAddress) {
+    this.virtualAddress = virtualAddress;
+  }
+
+
+  public ELFSection virtualSize(@javax.annotation.Nonnull Integer virtualSize) {
+    this.virtualSize = virtualSize;
+    return this;
+  }
+
+  /**
+   * Get virtualSize
+   * @return virtualSize
+   */
+  @javax.annotation.Nonnull
+  public Integer getVirtualSize() {
+    return virtualSize;
+  }
+
+  public void setVirtualSize(@javax.annotation.Nonnull Integer virtualSize) {
+    this.virtualSize = virtualSize;
   }
 
   /**
@@ -349,38 +349,38 @@ public class ELFSection {
       return false;
     }
     ELFSection elFSection = (ELFSection) o;
-    return Objects.equals(this.name, elFSection.name) &&
-        Objects.equals(this.type, elFSection.type) &&
-        Objects.equals(this.virtualAddress, elFSection.virtualAddress) &&
-        Objects.equals(this.virtualSize, elFSection.virtualSize) &&
-        Objects.equals(this.rawSize, elFSection.rawSize) &&
+    return Objects.equals(this.alignment, elFSection.alignment) &&
+        Objects.equals(this.entropy, elFSection.entropy) &&
         Objects.equals(this.fileOffset, elFSection.fileOffset) &&
         Objects.equals(this.flags, elFSection.flags) &&
         Objects.equals(this.flagsRaw, elFSection.flagsRaw) &&
-        Objects.equals(this.entropy, elFSection.entropy) &&
-        Objects.equals(this.alignment, elFSection.alignment)&&
+        Objects.equals(this.name, elFSection.name) &&
+        Objects.equals(this.rawSize, elFSection.rawSize) &&
+        Objects.equals(this.type, elFSection.type) &&
+        Objects.equals(this.virtualAddress, elFSection.virtualAddress) &&
+        Objects.equals(this.virtualSize, elFSection.virtualSize)&&
         Objects.equals(this.additionalProperties, elFSection.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, type, virtualAddress, virtualSize, rawSize, fileOffset, flags, flagsRaw, entropy, alignment, additionalProperties);
+    return Objects.hash(alignment, entropy, fileOffset, flags, flagsRaw, name, rawSize, type, virtualAddress, virtualSize, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ELFSection {\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    virtualAddress: ").append(toIndentedString(virtualAddress)).append("\n");
-    sb.append("    virtualSize: ").append(toIndentedString(virtualSize)).append("\n");
-    sb.append("    rawSize: ").append(toIndentedString(rawSize)).append("\n");
+    sb.append("    alignment: ").append(toIndentedString(alignment)).append("\n");
+    sb.append("    entropy: ").append(toIndentedString(entropy)).append("\n");
     sb.append("    fileOffset: ").append(toIndentedString(fileOffset)).append("\n");
     sb.append("    flags: ").append(toIndentedString(flags)).append("\n");
     sb.append("    flagsRaw: ").append(toIndentedString(flagsRaw)).append("\n");
-    sb.append("    entropy: ").append(toIndentedString(entropy)).append("\n");
-    sb.append("    alignment: ").append(toIndentedString(alignment)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    rawSize: ").append(toIndentedString(rawSize)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    virtualAddress: ").append(toIndentedString(virtualAddress)).append("\n");
+    sb.append("    virtualSize: ").append(toIndentedString(virtualSize)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -403,10 +403,10 @@ public class ELFSection {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("name", "type", "virtual_address", "virtual_size", "raw_size", "file_offset", "flags", "flags_raw", "entropy", "alignment"));
+    openapiFields = new HashSet<String>(Arrays.asList("alignment", "entropy", "file_offset", "flags", "flags_raw", "name", "raw_size", "type", "virtual_address", "virtual_size"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "type", "virtual_address", "virtual_size", "raw_size", "file_offset", "flags", "flags_raw", "entropy", "alignment"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("alignment", "entropy", "file_offset", "flags", "flags_raw", "name", "raw_size", "type", "virtual_address", "virtual_size"));
   }
 
   /**
@@ -429,14 +429,14 @@ public class ELFSection {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("flags").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `flags` to be a primitive type in the JSON string but got `%s`", jsonObj.get("flags").toString()));
+      }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if (!jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-      }
-      if (!jsonObj.get("flags").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `flags` to be a primitive type in the JSON string but got `%s`", jsonObj.get("flags").toString()));
       }
   }
 

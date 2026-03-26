@@ -52,38 +52,57 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class StackVariable {
+  public static final String SERIALIZED_NAME_ADDR = "addr";
+  @SerializedName(SERIALIZED_NAME_ADDR)
+  @javax.annotation.Nonnull
+  private Integer addr;
+
   public static final String SERIALIZED_NAME_LAST_CHANGE = "last_change";
   @SerializedName(SERIALIZED_NAME_LAST_CHANGE)
   @javax.annotation.Nullable
   private String lastChange;
-
-  public static final String SERIALIZED_NAME_OFFSET = "offset";
-  @SerializedName(SERIALIZED_NAME_OFFSET)
-  @javax.annotation.Nonnull
-  private Integer offset;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   @javax.annotation.Nonnull
   private String name;
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
+  public static final String SERIALIZED_NAME_OFFSET = "offset";
+  @SerializedName(SERIALIZED_NAME_OFFSET)
   @javax.annotation.Nonnull
-  private String type;
+  private Integer offset;
 
   public static final String SERIALIZED_NAME_SIZE = "size";
   @SerializedName(SERIALIZED_NAME_SIZE)
   @javax.annotation.Nonnull
   private Integer size;
 
-  public static final String SERIALIZED_NAME_ADDR = "addr";
-  @SerializedName(SERIALIZED_NAME_ADDR)
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
   @javax.annotation.Nonnull
-  private Integer addr;
+  private String type;
 
   public StackVariable() {
   }
+
+  public StackVariable addr(@javax.annotation.Nonnull Integer addr) {
+    this.addr = addr;
+    return this;
+  }
+
+  /**
+   * Memory address of the stack variable
+   * @return addr
+   */
+  @javax.annotation.Nonnull
+  public Integer getAddr() {
+    return addr;
+  }
+
+  public void setAddr(@javax.annotation.Nonnull Integer addr) {
+    this.addr = addr;
+  }
+
 
   public StackVariable lastChange(@javax.annotation.Nullable String lastChange) {
     this.lastChange = lastChange;
@@ -101,25 +120,6 @@ public class StackVariable {
 
   public void setLastChange(@javax.annotation.Nullable String lastChange) {
     this.lastChange = lastChange;
-  }
-
-
-  public StackVariable offset(@javax.annotation.Nonnull Integer offset) {
-    this.offset = offset;
-    return this;
-  }
-
-  /**
-   * Offset of the stack variable
-   * @return offset
-   */
-  @javax.annotation.Nonnull
-  public Integer getOffset() {
-    return offset;
-  }
-
-  public void setOffset(@javax.annotation.Nonnull Integer offset) {
-    this.offset = offset;
   }
 
 
@@ -142,22 +142,22 @@ public class StackVariable {
   }
 
 
-  public StackVariable type(@javax.annotation.Nonnull String type) {
-    this.type = type;
+  public StackVariable offset(@javax.annotation.Nonnull Integer offset) {
+    this.offset = offset;
     return this;
   }
 
   /**
-   * Data type of the stack variable
-   * @return type
+   * Offset of the stack variable
+   * @return offset
    */
   @javax.annotation.Nonnull
-  public String getType() {
-    return type;
+  public Integer getOffset() {
+    return offset;
   }
 
-  public void setType(@javax.annotation.Nonnull String type) {
-    this.type = type;
+  public void setOffset(@javax.annotation.Nonnull Integer offset) {
+    this.offset = offset;
   }
 
 
@@ -180,22 +180,22 @@ public class StackVariable {
   }
 
 
-  public StackVariable addr(@javax.annotation.Nonnull Integer addr) {
-    this.addr = addr;
+  public StackVariable type(@javax.annotation.Nonnull String type) {
+    this.type = type;
     return this;
   }
 
   /**
-   * Memory address of the stack variable
-   * @return addr
+   * Data type of the stack variable
+   * @return type
    */
   @javax.annotation.Nonnull
-  public Integer getAddr() {
-    return addr;
+  public String getType() {
+    return type;
   }
 
-  public void setAddr(@javax.annotation.Nonnull Integer addr) {
-    this.addr = addr;
+  public void setType(@javax.annotation.Nonnull String type) {
+    this.type = type;
   }
 
   /**
@@ -253,12 +253,12 @@ public class StackVariable {
       return false;
     }
     StackVariable stackVariable = (StackVariable) o;
-    return Objects.equals(this.lastChange, stackVariable.lastChange) &&
-        Objects.equals(this.offset, stackVariable.offset) &&
+    return Objects.equals(this.addr, stackVariable.addr) &&
+        Objects.equals(this.lastChange, stackVariable.lastChange) &&
         Objects.equals(this.name, stackVariable.name) &&
-        Objects.equals(this.type, stackVariable.type) &&
+        Objects.equals(this.offset, stackVariable.offset) &&
         Objects.equals(this.size, stackVariable.size) &&
-        Objects.equals(this.addr, stackVariable.addr)&&
+        Objects.equals(this.type, stackVariable.type)&&
         Objects.equals(this.additionalProperties, stackVariable.additionalProperties);
   }
 
@@ -268,7 +268,7 @@ public class StackVariable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(lastChange, offset, name, type, size, addr, additionalProperties);
+    return Objects.hash(addr, lastChange, name, offset, size, type, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -282,12 +282,12 @@ public class StackVariable {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class StackVariable {\n");
-    sb.append("    lastChange: ").append(toIndentedString(lastChange)).append("\n");
-    sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    addr: ").append(toIndentedString(addr)).append("\n");
+    sb.append("    lastChange: ").append(toIndentedString(lastChange)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
+    sb.append("    size: ").append(toIndentedString(size)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -310,10 +310,10 @@ public class StackVariable {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("last_change", "offset", "name", "type", "size", "addr"));
+    openapiFields = new HashSet<String>(Arrays.asList("addr", "last_change", "name", "offset", "size", "type"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("offset", "name", "type", "size", "addr"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("addr", "name", "offset", "size", "type"));
   }
 
   /**

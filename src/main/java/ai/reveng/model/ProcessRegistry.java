@@ -55,37 +55,18 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ProcessRegistry {
-  public static final String SERIALIZED_NAME_SUCCESS = "success";
-  @SerializedName(SERIALIZED_NAME_SUCCESS)
-  @javax.annotation.Nonnull
-  private Boolean success;
-
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
   @javax.annotation.Nonnull
   private Map<String, List<Registry>> data = new HashMap<>();
 
+  public static final String SERIALIZED_NAME_SUCCESS = "success";
+  @SerializedName(SERIALIZED_NAME_SUCCESS)
+  @javax.annotation.Nonnull
+  private Boolean success;
+
   public ProcessRegistry() {
   }
-
-  public ProcessRegistry success(@javax.annotation.Nonnull Boolean success) {
-    this.success = success;
-    return this;
-  }
-
-  /**
-   * Get success
-   * @return success
-   */
-  @javax.annotation.Nonnull
-  public Boolean getSuccess() {
-    return success;
-  }
-
-  public void setSuccess(@javax.annotation.Nonnull Boolean success) {
-    this.success = success;
-  }
-
 
   public ProcessRegistry data(@javax.annotation.Nonnull Map<String, List<Registry>> data) {
     this.data = data;
@@ -111,6 +92,25 @@ public class ProcessRegistry {
 
   public void setData(@javax.annotation.Nonnull Map<String, List<Registry>> data) {
     this.data = data;
+  }
+
+
+  public ProcessRegistry success(@javax.annotation.Nonnull Boolean success) {
+    this.success = success;
+    return this;
+  }
+
+  /**
+   * Get success
+   * @return success
+   */
+  @javax.annotation.Nonnull
+  public Boolean getSuccess() {
+    return success;
+  }
+
+  public void setSuccess(@javax.annotation.Nonnull Boolean success) {
+    this.success = success;
   }
 
   /**
@@ -168,22 +168,22 @@ public class ProcessRegistry {
       return false;
     }
     ProcessRegistry processRegistry = (ProcessRegistry) o;
-    return Objects.equals(this.success, processRegistry.success) &&
-        Objects.equals(this.data, processRegistry.data)&&
+    return Objects.equals(this.data, processRegistry.data) &&
+        Objects.equals(this.success, processRegistry.success)&&
         Objects.equals(this.additionalProperties, processRegistry.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(success, data, additionalProperties);
+    return Objects.hash(data, success, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProcessRegistry {\n");
-    sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -206,10 +206,10 @@ public class ProcessRegistry {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("success", "data"));
+    openapiFields = new HashSet<String>(Arrays.asList("data", "success"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("success", "data"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("data", "success"));
   }
 
   /**

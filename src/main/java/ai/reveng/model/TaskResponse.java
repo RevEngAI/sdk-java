@@ -53,37 +53,18 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TaskResponse {
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
-  @javax.annotation.Nullable
-  private TaskStatus status;
-
   public static final String SERIALIZED_NAME_ERROR_MESSAGE = "error_message";
   @SerializedName(SERIALIZED_NAME_ERROR_MESSAGE)
   @javax.annotation.Nullable
   private String errorMessage;
 
+  public static final String SERIALIZED_NAME_STATUS = "status";
+  @SerializedName(SERIALIZED_NAME_STATUS)
+  @javax.annotation.Nullable
+  private TaskStatus status;
+
   public TaskResponse() {
   }
-
-  public TaskResponse status(@javax.annotation.Nullable TaskStatus status) {
-    this.status = status;
-    return this;
-  }
-
-  /**
-   * Get status
-   * @return status
-   */
-  @javax.annotation.Nullable
-  public TaskStatus getStatus() {
-    return status;
-  }
-
-  public void setStatus(@javax.annotation.Nullable TaskStatus status) {
-    this.status = status;
-  }
-
 
   public TaskResponse errorMessage(@javax.annotation.Nullable String errorMessage) {
     this.errorMessage = errorMessage;
@@ -101,6 +82,25 @@ public class TaskResponse {
 
   public void setErrorMessage(@javax.annotation.Nullable String errorMessage) {
     this.errorMessage = errorMessage;
+  }
+
+
+  public TaskResponse status(@javax.annotation.Nullable TaskStatus status) {
+    this.status = status;
+    return this;
+  }
+
+  /**
+   * Get status
+   * @return status
+   */
+  @javax.annotation.Nullable
+  public TaskStatus getStatus() {
+    return status;
+  }
+
+  public void setStatus(@javax.annotation.Nullable TaskStatus status) {
+    this.status = status;
   }
 
   /**
@@ -158,8 +158,8 @@ public class TaskResponse {
       return false;
     }
     TaskResponse taskResponse = (TaskResponse) o;
-    return Objects.equals(this.status, taskResponse.status) &&
-        Objects.equals(this.errorMessage, taskResponse.errorMessage)&&
+    return Objects.equals(this.errorMessage, taskResponse.errorMessage) &&
+        Objects.equals(this.status, taskResponse.status)&&
         Objects.equals(this.additionalProperties, taskResponse.additionalProperties);
   }
 
@@ -169,7 +169,7 @@ public class TaskResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, errorMessage, additionalProperties);
+    return Objects.hash(errorMessage, status, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -183,8 +183,8 @@ public class TaskResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TaskResponse {\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -207,7 +207,7 @@ public class TaskResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("status", "error_message"));
+    openapiFields = new HashSet<String>(Arrays.asList("error_message", "status"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -226,12 +226,12 @@ public class TaskResponse {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("error_message") != null && !jsonObj.get("error_message").isJsonNull()) && !jsonObj.get("error_message").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `error_message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("error_message").toString()));
+      }
       // validate the optional field `status`
       if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) {
         TaskStatus.validateJsonElement(jsonObj.get("status"));
-      }
-      if ((jsonObj.get("error_message") != null && !jsonObj.get("error_message").isJsonNull()) && !jsonObj.get("error_message").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `error_message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("error_message").toString()));
       }
   }
 

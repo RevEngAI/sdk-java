@@ -57,6 +57,11 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CollectionResponse {
+  public static final String SERIALIZED_NAME_BINARIES = "binaries";
+  @SerializedName(SERIALIZED_NAME_BINARIES)
+  @javax.annotation.Nullable
+  private List<CollectionResponseBinariesInner> binaries;
+
   public static final String SERIALIZED_NAME_COLLECTION_ID = "collection_id";
   @SerializedName(SERIALIZED_NAME_COLLECTION_ID)
   @javax.annotation.Nonnull
@@ -66,26 +71,6 @@ public class CollectionResponse {
   @SerializedName(SERIALIZED_NAME_COLLECTION_NAME)
   @javax.annotation.Nonnull
   private String collectionName;
-
-  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nonnull
-  private String description;
-
-  public static final String SERIALIZED_NAME_MODEL_ID = "model_id";
-  @SerializedName(SERIALIZED_NAME_MODEL_ID)
-  @javax.annotation.Nonnull
-  private Integer modelId;
-
-  public static final String SERIALIZED_NAME_USER_ID = "user_id";
-  @SerializedName(SERIALIZED_NAME_USER_ID)
-  @javax.annotation.Nonnull
-  private Integer userId;
-
-  public static final String SERIALIZED_NAME_TEAM_ID = "team_id";
-  @SerializedName(SERIALIZED_NAME_TEAM_ID)
-  @javax.annotation.Nullable
-  private Integer teamId;
 
   public static final String SERIALIZED_NAME_COLLECTION_SCOPE = "collection_scope";
   @SerializedName(SERIALIZED_NAME_COLLECTION_SCOPE)
@@ -97,23 +82,65 @@ public class CollectionResponse {
   @javax.annotation.Nonnull
   private OffsetDateTime createdAt;
 
-  public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
-  @SerializedName(SERIALIZED_NAME_UPDATED_AT)
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   @javax.annotation.Nonnull
-  private OffsetDateTime updatedAt;
+  private String description;
+
+  public static final String SERIALIZED_NAME_MODEL_ID = "model_id";
+  @SerializedName(SERIALIZED_NAME_MODEL_ID)
+  @javax.annotation.Nonnull
+  private Integer modelId;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   @javax.annotation.Nullable
   private List<String> tags;
 
-  public static final String SERIALIZED_NAME_BINARIES = "binaries";
-  @SerializedName(SERIALIZED_NAME_BINARIES)
+  public static final String SERIALIZED_NAME_TEAM_ID = "team_id";
+  @SerializedName(SERIALIZED_NAME_TEAM_ID)
   @javax.annotation.Nullable
-  private List<CollectionResponseBinariesInner> binaries;
+  private Integer teamId;
+
+  public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
+  @SerializedName(SERIALIZED_NAME_UPDATED_AT)
+  @javax.annotation.Nonnull
+  private OffsetDateTime updatedAt;
+
+  public static final String SERIALIZED_NAME_USER_ID = "user_id";
+  @SerializedName(SERIALIZED_NAME_USER_ID)
+  @javax.annotation.Nonnull
+  private Integer userId;
 
   public CollectionResponse() {
   }
+
+  public CollectionResponse binaries(@javax.annotation.Nullable List<CollectionResponseBinariesInner> binaries) {
+    this.binaries = binaries;
+    return this;
+  }
+
+  public CollectionResponse addBinariesItem(CollectionResponseBinariesInner binariesItem) {
+    if (this.binaries == null) {
+      this.binaries = new ArrayList<>();
+    }
+    this.binaries.add(binariesItem);
+    return this;
+  }
+
+  /**
+   * Get binaries
+   * @return binaries
+   */
+  @javax.annotation.Nullable
+  public List<CollectionResponseBinariesInner> getBinaries() {
+    return binaries;
+  }
+
+  public void setBinaries(@javax.annotation.Nullable List<CollectionResponseBinariesInner> binaries) {
+    this.binaries = binaries;
+  }
+
 
   public CollectionResponse collectionId(@javax.annotation.Nonnull Integer collectionId) {
     this.collectionId = collectionId;
@@ -150,82 +177,6 @@ public class CollectionResponse {
 
   public void setCollectionName(@javax.annotation.Nonnull String collectionName) {
     this.collectionName = collectionName;
-  }
-
-
-  public CollectionResponse description(@javax.annotation.Nonnull String description) {
-    this.description = description;
-    return this;
-  }
-
-  /**
-   * Collection description
-   * @return description
-   */
-  @javax.annotation.Nonnull
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(@javax.annotation.Nonnull String description) {
-    this.description = description;
-  }
-
-
-  public CollectionResponse modelId(@javax.annotation.Nonnull Integer modelId) {
-    this.modelId = modelId;
-    return this;
-  }
-
-  /**
-   * Collection model ID
-   * @return modelId
-   */
-  @javax.annotation.Nonnull
-  public Integer getModelId() {
-    return modelId;
-  }
-
-  public void setModelId(@javax.annotation.Nonnull Integer modelId) {
-    this.modelId = modelId;
-  }
-
-
-  public CollectionResponse userId(@javax.annotation.Nonnull Integer userId) {
-    this.userId = userId;
-    return this;
-  }
-
-  /**
-   * Collection user ID
-   * @return userId
-   */
-  @javax.annotation.Nonnull
-  public Integer getUserId() {
-    return userId;
-  }
-
-  public void setUserId(@javax.annotation.Nonnull Integer userId) {
-    this.userId = userId;
-  }
-
-
-  public CollectionResponse teamId(@javax.annotation.Nullable Integer teamId) {
-    this.teamId = teamId;
-    return this;
-  }
-
-  /**
-   * Get teamId
-   * @return teamId
-   */
-  @javax.annotation.Nullable
-  public Integer getTeamId() {
-    return teamId;
-  }
-
-  public void setTeamId(@javax.annotation.Nullable Integer teamId) {
-    this.teamId = teamId;
   }
 
 
@@ -267,22 +218,41 @@ public class CollectionResponse {
   }
 
 
-  public CollectionResponse updatedAt(@javax.annotation.Nonnull OffsetDateTime updatedAt) {
-    this.updatedAt = updatedAt;
+  public CollectionResponse description(@javax.annotation.Nonnull String description) {
+    this.description = description;
     return this;
   }
 
   /**
-   * Collection last update date
-   * @return updatedAt
+   * Collection description
+   * @return description
    */
   @javax.annotation.Nonnull
-  public OffsetDateTime getUpdatedAt() {
-    return updatedAt;
+  public String getDescription() {
+    return description;
   }
 
-  public void setUpdatedAt(@javax.annotation.Nonnull OffsetDateTime updatedAt) {
-    this.updatedAt = updatedAt;
+  public void setDescription(@javax.annotation.Nonnull String description) {
+    this.description = description;
+  }
+
+
+  public CollectionResponse modelId(@javax.annotation.Nonnull Integer modelId) {
+    this.modelId = modelId;
+    return this;
+  }
+
+  /**
+   * Collection model ID
+   * @return modelId
+   */
+  @javax.annotation.Nonnull
+  public Integer getModelId() {
+    return modelId;
+  }
+
+  public void setModelId(@javax.annotation.Nonnull Integer modelId) {
+    this.modelId = modelId;
   }
 
 
@@ -313,30 +283,60 @@ public class CollectionResponse {
   }
 
 
-  public CollectionResponse binaries(@javax.annotation.Nullable List<CollectionResponseBinariesInner> binaries) {
-    this.binaries = binaries;
-    return this;
-  }
-
-  public CollectionResponse addBinariesItem(CollectionResponseBinariesInner binariesItem) {
-    if (this.binaries == null) {
-      this.binaries = new ArrayList<>();
-    }
-    this.binaries.add(binariesItem);
+  public CollectionResponse teamId(@javax.annotation.Nullable Integer teamId) {
+    this.teamId = teamId;
     return this;
   }
 
   /**
-   * Get binaries
-   * @return binaries
+   * Get teamId
+   * @return teamId
    */
   @javax.annotation.Nullable
-  public List<CollectionResponseBinariesInner> getBinaries() {
-    return binaries;
+  public Integer getTeamId() {
+    return teamId;
   }
 
-  public void setBinaries(@javax.annotation.Nullable List<CollectionResponseBinariesInner> binaries) {
-    this.binaries = binaries;
+  public void setTeamId(@javax.annotation.Nullable Integer teamId) {
+    this.teamId = teamId;
+  }
+
+
+  public CollectionResponse updatedAt(@javax.annotation.Nonnull OffsetDateTime updatedAt) {
+    this.updatedAt = updatedAt;
+    return this;
+  }
+
+  /**
+   * Collection last update date
+   * @return updatedAt
+   */
+  @javax.annotation.Nonnull
+  public OffsetDateTime getUpdatedAt() {
+    return updatedAt;
+  }
+
+  public void setUpdatedAt(@javax.annotation.Nonnull OffsetDateTime updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
+
+  public CollectionResponse userId(@javax.annotation.Nonnull Integer userId) {
+    this.userId = userId;
+    return this;
+  }
+
+  /**
+   * Collection user ID
+   * @return userId
+   */
+  @javax.annotation.Nonnull
+  public Integer getUserId() {
+    return userId;
+  }
+
+  public void setUserId(@javax.annotation.Nonnull Integer userId) {
+    this.userId = userId;
   }
 
   /**
@@ -394,17 +394,17 @@ public class CollectionResponse {
       return false;
     }
     CollectionResponse collectionResponse = (CollectionResponse) o;
-    return Objects.equals(this.collectionId, collectionResponse.collectionId) &&
+    return Objects.equals(this.binaries, collectionResponse.binaries) &&
+        Objects.equals(this.collectionId, collectionResponse.collectionId) &&
         Objects.equals(this.collectionName, collectionResponse.collectionName) &&
-        Objects.equals(this.description, collectionResponse.description) &&
-        Objects.equals(this.modelId, collectionResponse.modelId) &&
-        Objects.equals(this.userId, collectionResponse.userId) &&
-        Objects.equals(this.teamId, collectionResponse.teamId) &&
         Objects.equals(this.collectionScope, collectionResponse.collectionScope) &&
         Objects.equals(this.createdAt, collectionResponse.createdAt) &&
-        Objects.equals(this.updatedAt, collectionResponse.updatedAt) &&
+        Objects.equals(this.description, collectionResponse.description) &&
+        Objects.equals(this.modelId, collectionResponse.modelId) &&
         Objects.equals(this.tags, collectionResponse.tags) &&
-        Objects.equals(this.binaries, collectionResponse.binaries)&&
+        Objects.equals(this.teamId, collectionResponse.teamId) &&
+        Objects.equals(this.updatedAt, collectionResponse.updatedAt) &&
+        Objects.equals(this.userId, collectionResponse.userId)&&
         Objects.equals(this.additionalProperties, collectionResponse.additionalProperties);
   }
 
@@ -414,7 +414,7 @@ public class CollectionResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(collectionId, collectionName, description, modelId, userId, teamId, collectionScope, createdAt, updatedAt, tags, binaries, additionalProperties);
+    return Objects.hash(binaries, collectionId, collectionName, collectionScope, createdAt, description, modelId, tags, teamId, updatedAt, userId, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -428,17 +428,17 @@ public class CollectionResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CollectionResponse {\n");
+    sb.append("    binaries: ").append(toIndentedString(binaries)).append("\n");
     sb.append("    collectionId: ").append(toIndentedString(collectionId)).append("\n");
     sb.append("    collectionName: ").append(toIndentedString(collectionName)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    modelId: ").append(toIndentedString(modelId)).append("\n");
-    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
-    sb.append("    teamId: ").append(toIndentedString(teamId)).append("\n");
     sb.append("    collectionScope: ").append(toIndentedString(collectionScope)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    modelId: ").append(toIndentedString(modelId)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
-    sb.append("    binaries: ").append(toIndentedString(binaries)).append("\n");
+    sb.append("    teamId: ").append(toIndentedString(teamId)).append("\n");
+    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
+    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -461,10 +461,10 @@ public class CollectionResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("collection_id", "collection_name", "description", "model_id", "user_id", "team_id", "collection_scope", "created_at", "updated_at", "tags", "binaries"));
+    openapiFields = new HashSet<String>(Arrays.asList("binaries", "collection_id", "collection_name", "collection_scope", "created_at", "description", "model_id", "tags", "team_id", "updated_at", "user_id"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("collection_id", "collection_name", "description", "model_id", "user_id", "collection_scope", "created_at", "updated_at"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("collection_id", "collection_name", "collection_scope", "created_at", "description", "model_id", "updated_at", "user_id"));
   }
 
   /**
@@ -487,18 +487,6 @@ public class CollectionResponse {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("collection_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `collection_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("collection_name").toString()));
-      }
-      if (!jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
-      // validate the required field `collection_scope`
-      CollectionScope.validateJsonElement(jsonObj.get("collection_scope"));
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
-      }
       if (jsonObj.get("binaries") != null && !jsonObj.get("binaries").isJsonNull()) {
         JsonArray jsonArraybinaries = jsonObj.getAsJsonArray("binaries");
         if (jsonArraybinaries != null) {
@@ -512,6 +500,18 @@ public class CollectionResponse {
             CollectionResponseBinariesInner.validateJsonElement(jsonArraybinaries.get(i));
           };
         }
+      }
+      if (!jsonObj.get("collection_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `collection_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("collection_name").toString()));
+      }
+      // validate the required field `collection_scope`
+      CollectionScope.validateJsonElement(jsonObj.get("collection_scope"));
+      if (!jsonObj.get("description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
       }
   }
 

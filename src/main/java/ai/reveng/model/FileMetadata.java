@@ -53,45 +53,45 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FileMetadata {
-  public static final String SERIALIZED_NAME_SIZE = "size";
-  @SerializedName(SERIALIZED_NAME_SIZE)
+  public static final String SERIALIZED_NAME_ENTROPY = "entropy";
+  @SerializedName(SERIALIZED_NAME_ENTROPY)
   @javax.annotation.Nonnull
-  private Integer size;
+  private BigDecimal entropy;
 
   public static final String SERIALIZED_NAME_FRIENDLY_SIZE = "friendly_size";
   @SerializedName(SERIALIZED_NAME_FRIENDLY_SIZE)
   @javax.annotation.Nonnull
   private String friendlySize;
 
-  public static final String SERIALIZED_NAME_ENTROPY = "entropy";
-  @SerializedName(SERIALIZED_NAME_ENTROPY)
-  @javax.annotation.Nonnull
-  private BigDecimal entropy;
-
   public static final String SERIALIZED_NAME_HASHES = "hashes";
   @SerializedName(SERIALIZED_NAME_HASHES)
   @javax.annotation.Nonnull
   private FileHashes hashes;
 
+  public static final String SERIALIZED_NAME_SIZE = "size";
+  @SerializedName(SERIALIZED_NAME_SIZE)
+  @javax.annotation.Nonnull
+  private Integer size;
+
   public FileMetadata() {
   }
 
-  public FileMetadata size(@javax.annotation.Nonnull Integer size) {
-    this.size = size;
+  public FileMetadata entropy(@javax.annotation.Nonnull BigDecimal entropy) {
+    this.entropy = entropy;
     return this;
   }
 
   /**
-   * Get size
-   * @return size
+   * Get entropy
+   * @return entropy
    */
   @javax.annotation.Nonnull
-  public Integer getSize() {
-    return size;
+  public BigDecimal getEntropy() {
+    return entropy;
   }
 
-  public void setSize(@javax.annotation.Nonnull Integer size) {
-    this.size = size;
+  public void setEntropy(@javax.annotation.Nonnull BigDecimal entropy) {
+    this.entropy = entropy;
   }
 
 
@@ -114,25 +114,6 @@ public class FileMetadata {
   }
 
 
-  public FileMetadata entropy(@javax.annotation.Nonnull BigDecimal entropy) {
-    this.entropy = entropy;
-    return this;
-  }
-
-  /**
-   * Get entropy
-   * @return entropy
-   */
-  @javax.annotation.Nonnull
-  public BigDecimal getEntropy() {
-    return entropy;
-  }
-
-  public void setEntropy(@javax.annotation.Nonnull BigDecimal entropy) {
-    this.entropy = entropy;
-  }
-
-
   public FileMetadata hashes(@javax.annotation.Nonnull FileHashes hashes) {
     this.hashes = hashes;
     return this;
@@ -149,6 +130,25 @@ public class FileMetadata {
 
   public void setHashes(@javax.annotation.Nonnull FileHashes hashes) {
     this.hashes = hashes;
+  }
+
+
+  public FileMetadata size(@javax.annotation.Nonnull Integer size) {
+    this.size = size;
+    return this;
+  }
+
+  /**
+   * Get size
+   * @return size
+   */
+  @javax.annotation.Nonnull
+  public Integer getSize() {
+    return size;
+  }
+
+  public void setSize(@javax.annotation.Nonnull Integer size) {
+    this.size = size;
   }
 
   /**
@@ -206,26 +206,26 @@ public class FileMetadata {
       return false;
     }
     FileMetadata fileMetadata = (FileMetadata) o;
-    return Objects.equals(this.size, fileMetadata.size) &&
+    return Objects.equals(this.entropy, fileMetadata.entropy) &&
         Objects.equals(this.friendlySize, fileMetadata.friendlySize) &&
-        Objects.equals(this.entropy, fileMetadata.entropy) &&
-        Objects.equals(this.hashes, fileMetadata.hashes)&&
+        Objects.equals(this.hashes, fileMetadata.hashes) &&
+        Objects.equals(this.size, fileMetadata.size)&&
         Objects.equals(this.additionalProperties, fileMetadata.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(size, friendlySize, entropy, hashes, additionalProperties);
+    return Objects.hash(entropy, friendlySize, hashes, size, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FileMetadata {\n");
-    sb.append("    size: ").append(toIndentedString(size)).append("\n");
-    sb.append("    friendlySize: ").append(toIndentedString(friendlySize)).append("\n");
     sb.append("    entropy: ").append(toIndentedString(entropy)).append("\n");
+    sb.append("    friendlySize: ").append(toIndentedString(friendlySize)).append("\n");
     sb.append("    hashes: ").append(toIndentedString(hashes)).append("\n");
+    sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -248,10 +248,10 @@ public class FileMetadata {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("size", "friendly_size", "entropy", "hashes"));
+    openapiFields = new HashSet<String>(Arrays.asList("entropy", "friendly_size", "hashes", "size"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("size", "friendly_size", "entropy", "hashes"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("entropy", "friendly_size", "hashes", "size"));
   }
 
   /**

@@ -68,60 +68,30 @@ public class AnalysisRecord {
   @javax.annotation.Nonnull
   private String analysisScope;
 
+  public static final String SERIALIZED_NAME_BASE_ADDRESS = "base_address";
+  @SerializedName(SERIALIZED_NAME_BASE_ADDRESS)
+  @javax.annotation.Nonnull
+  private BigInteger baseAddress;
+
   public static final String SERIALIZED_NAME_BINARY_ID = "binary_id";
   @SerializedName(SERIALIZED_NAME_BINARY_ID)
   @javax.annotation.Nonnull
   private Integer binaryId;
-
-  public static final String SERIALIZED_NAME_MODEL_ID = "model_id";
-  @SerializedName(SERIALIZED_NAME_MODEL_ID)
-  @javax.annotation.Nonnull
-  private Integer modelId;
-
-  public static final String SERIALIZED_NAME_MODEL_NAME = "model_name";
-  @SerializedName(SERIALIZED_NAME_MODEL_NAME)
-  @javax.annotation.Nonnull
-  private String modelName;
-
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
-  @javax.annotation.Nonnull
-  private String status;
-
-  public static final String SERIALIZED_NAME_CREATION = "creation";
-  @SerializedName(SERIALIZED_NAME_CREATION)
-  @javax.annotation.Nonnull
-  private OffsetDateTime creation;
-
-  public static final String SERIALIZED_NAME_IS_OWNER = "is_owner";
-  @SerializedName(SERIALIZED_NAME_IS_OWNER)
-  @javax.annotation.Nonnull
-  private Boolean isOwner;
 
   public static final String SERIALIZED_NAME_BINARY_NAME = "binary_name";
   @SerializedName(SERIALIZED_NAME_BINARY_NAME)
   @javax.annotation.Nonnull
   private String binaryName;
 
-  public static final String SERIALIZED_NAME_SHA256_HASH = "sha_256_hash";
-  @SerializedName(SERIALIZED_NAME_SHA256_HASH)
-  @javax.annotation.Nonnull
-  private String sha256Hash;
-
-  public static final String SERIALIZED_NAME_FUNCTION_BOUNDARIES_HASH = "function_boundaries_hash";
-  @SerializedName(SERIALIZED_NAME_FUNCTION_BOUNDARIES_HASH)
-  @javax.annotation.Nonnull
-  private String functionBoundariesHash;
-
   public static final String SERIALIZED_NAME_BINARY_SIZE = "binary_size";
   @SerializedName(SERIALIZED_NAME_BINARY_SIZE)
   @javax.annotation.Nonnull
   private Integer binarySize;
 
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
+  public static final String SERIALIZED_NAME_CREATION = "creation";
+  @SerializedName(SERIALIZED_NAME_CREATION)
   @javax.annotation.Nonnull
-  private String username;
+  private OffsetDateTime creation;
 
   public static final String SERIALIZED_NAME_DYNAMIC_EXECUTION_STATUS = "dynamic_execution_status";
   @SerializedName(SERIALIZED_NAME_DYNAMIC_EXECUTION_STATUS)
@@ -133,15 +103,45 @@ public class AnalysisRecord {
   @javax.annotation.Nullable
   private Integer dynamicExecutionTaskId;
 
-  public static final String SERIALIZED_NAME_BASE_ADDRESS = "base_address";
-  @SerializedName(SERIALIZED_NAME_BASE_ADDRESS)
+  public static final String SERIALIZED_NAME_FUNCTION_BOUNDARIES_HASH = "function_boundaries_hash";
+  @SerializedName(SERIALIZED_NAME_FUNCTION_BOUNDARIES_HASH)
   @javax.annotation.Nonnull
-  private BigInteger baseAddress;
+  private String functionBoundariesHash;
+
+  public static final String SERIALIZED_NAME_IS_OWNER = "is_owner";
+  @SerializedName(SERIALIZED_NAME_IS_OWNER)
+  @javax.annotation.Nonnull
+  private Boolean isOwner;
+
+  public static final String SERIALIZED_NAME_MODEL_ID = "model_id";
+  @SerializedName(SERIALIZED_NAME_MODEL_ID)
+  @javax.annotation.Nonnull
+  private Integer modelId;
+
+  public static final String SERIALIZED_NAME_MODEL_NAME = "model_name";
+  @SerializedName(SERIALIZED_NAME_MODEL_NAME)
+  @javax.annotation.Nonnull
+  private String modelName;
+
+  public static final String SERIALIZED_NAME_SHA256_HASH = "sha_256_hash";
+  @SerializedName(SERIALIZED_NAME_SHA256_HASH)
+  @javax.annotation.Nonnull
+  private String sha256Hash;
+
+  public static final String SERIALIZED_NAME_STATUS = "status";
+  @SerializedName(SERIALIZED_NAME_STATUS)
+  @javax.annotation.Nonnull
+  private String status;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   @javax.annotation.Nullable
   private List<TagItem> tags = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_USERNAME = "username";
+  @SerializedName(SERIALIZED_NAME_USERNAME)
+  @javax.annotation.Nonnull
+  private String username;
 
   public AnalysisRecord() {
   }
@@ -184,6 +184,25 @@ public class AnalysisRecord {
   }
 
 
+  public AnalysisRecord baseAddress(@javax.annotation.Nonnull BigInteger baseAddress) {
+    this.baseAddress = baseAddress;
+    return this;
+  }
+
+  /**
+   * The base address of the binary
+   * @return baseAddress
+   */
+  @javax.annotation.Nonnull
+  public BigInteger getBaseAddress() {
+    return baseAddress;
+  }
+
+  public void setBaseAddress(@javax.annotation.Nonnull BigInteger baseAddress) {
+    this.baseAddress = baseAddress;
+  }
+
+
   public AnalysisRecord binaryId(@javax.annotation.Nonnull Integer binaryId) {
     this.binaryId = binaryId;
     return this;
@@ -200,101 +219,6 @@ public class AnalysisRecord {
 
   public void setBinaryId(@javax.annotation.Nonnull Integer binaryId) {
     this.binaryId = binaryId;
-  }
-
-
-  public AnalysisRecord modelId(@javax.annotation.Nonnull Integer modelId) {
-    this.modelId = modelId;
-    return this;
-  }
-
-  /**
-   * ID to identify the model used for analysis
-   * @return modelId
-   */
-  @javax.annotation.Nonnull
-  public Integer getModelId() {
-    return modelId;
-  }
-
-  public void setModelId(@javax.annotation.Nonnull Integer modelId) {
-    this.modelId = modelId;
-  }
-
-
-  public AnalysisRecord modelName(@javax.annotation.Nonnull String modelName) {
-    this.modelName = modelName;
-    return this;
-  }
-
-  /**
-   * Name of the model used for analysis
-   * @return modelName
-   */
-  @javax.annotation.Nonnull
-  public String getModelName() {
-    return modelName;
-  }
-
-  public void setModelName(@javax.annotation.Nonnull String modelName) {
-    this.modelName = modelName;
-  }
-
-
-  public AnalysisRecord status(@javax.annotation.Nonnull String status) {
-    this.status = status;
-    return this;
-  }
-
-  /**
-   * The current status of analysis
-   * @return status
-   */
-  @javax.annotation.Nonnull
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(@javax.annotation.Nonnull String status) {
-    this.status = status;
-  }
-
-
-  public AnalysisRecord creation(@javax.annotation.Nonnull OffsetDateTime creation) {
-    this.creation = creation;
-    return this;
-  }
-
-  /**
-   * The datetime of when the analysis was created
-   * @return creation
-   */
-  @javax.annotation.Nonnull
-  public OffsetDateTime getCreation() {
-    return creation;
-  }
-
-  public void setCreation(@javax.annotation.Nonnull OffsetDateTime creation) {
-    this.creation = creation;
-  }
-
-
-  public AnalysisRecord isOwner(@javax.annotation.Nonnull Boolean isOwner) {
-    this.isOwner = isOwner;
-    return this;
-  }
-
-  /**
-   * Whether the current user is the owner of a binary
-   * @return isOwner
-   */
-  @javax.annotation.Nonnull
-  public Boolean getIsOwner() {
-    return isOwner;
-  }
-
-  public void setIsOwner(@javax.annotation.Nonnull Boolean isOwner) {
-    this.isOwner = isOwner;
   }
 
 
@@ -317,44 +241,6 @@ public class AnalysisRecord {
   }
 
 
-  public AnalysisRecord sha256Hash(@javax.annotation.Nonnull String sha256Hash) {
-    this.sha256Hash = sha256Hash;
-    return this;
-  }
-
-  /**
-   * The hash of the binary
-   * @return sha256Hash
-   */
-  @javax.annotation.Nonnull
-  public String getSha256Hash() {
-    return sha256Hash;
-  }
-
-  public void setSha256Hash(@javax.annotation.Nonnull String sha256Hash) {
-    this.sha256Hash = sha256Hash;
-  }
-
-
-  public AnalysisRecord functionBoundariesHash(@javax.annotation.Nonnull String functionBoundariesHash) {
-    this.functionBoundariesHash = functionBoundariesHash;
-    return this;
-  }
-
-  /**
-   * The hash of the function boundaries
-   * @return functionBoundariesHash
-   */
-  @javax.annotation.Nonnull
-  public String getFunctionBoundariesHash() {
-    return functionBoundariesHash;
-  }
-
-  public void setFunctionBoundariesHash(@javax.annotation.Nonnull String functionBoundariesHash) {
-    this.functionBoundariesHash = functionBoundariesHash;
-  }
-
-
   public AnalysisRecord binarySize(@javax.annotation.Nonnull Integer binarySize) {
     this.binarySize = binarySize;
     return this;
@@ -374,22 +260,22 @@ public class AnalysisRecord {
   }
 
 
-  public AnalysisRecord username(@javax.annotation.Nonnull String username) {
-    this.username = username;
+  public AnalysisRecord creation(@javax.annotation.Nonnull OffsetDateTime creation) {
+    this.creation = creation;
     return this;
   }
 
   /**
-   * The username of the analysis owner
-   * @return username
+   * The datetime of when the analysis was created
+   * @return creation
    */
   @javax.annotation.Nonnull
-  public String getUsername() {
-    return username;
+  public OffsetDateTime getCreation() {
+    return creation;
   }
 
-  public void setUsername(@javax.annotation.Nonnull String username) {
-    this.username = username;
+  public void setCreation(@javax.annotation.Nonnull OffsetDateTime creation) {
+    this.creation = creation;
   }
 
 
@@ -431,22 +317,117 @@ public class AnalysisRecord {
   }
 
 
-  public AnalysisRecord baseAddress(@javax.annotation.Nonnull BigInteger baseAddress) {
-    this.baseAddress = baseAddress;
+  public AnalysisRecord functionBoundariesHash(@javax.annotation.Nonnull String functionBoundariesHash) {
+    this.functionBoundariesHash = functionBoundariesHash;
     return this;
   }
 
   /**
-   * The base address of the binary
-   * @return baseAddress
+   * The hash of the function boundaries
+   * @return functionBoundariesHash
    */
   @javax.annotation.Nonnull
-  public BigInteger getBaseAddress() {
-    return baseAddress;
+  public String getFunctionBoundariesHash() {
+    return functionBoundariesHash;
   }
 
-  public void setBaseAddress(@javax.annotation.Nonnull BigInteger baseAddress) {
-    this.baseAddress = baseAddress;
+  public void setFunctionBoundariesHash(@javax.annotation.Nonnull String functionBoundariesHash) {
+    this.functionBoundariesHash = functionBoundariesHash;
+  }
+
+
+  public AnalysisRecord isOwner(@javax.annotation.Nonnull Boolean isOwner) {
+    this.isOwner = isOwner;
+    return this;
+  }
+
+  /**
+   * Whether the current user is the owner of a binary
+   * @return isOwner
+   */
+  @javax.annotation.Nonnull
+  public Boolean getIsOwner() {
+    return isOwner;
+  }
+
+  public void setIsOwner(@javax.annotation.Nonnull Boolean isOwner) {
+    this.isOwner = isOwner;
+  }
+
+
+  public AnalysisRecord modelId(@javax.annotation.Nonnull Integer modelId) {
+    this.modelId = modelId;
+    return this;
+  }
+
+  /**
+   * ID to identify the model used for analysis
+   * @return modelId
+   */
+  @javax.annotation.Nonnull
+  public Integer getModelId() {
+    return modelId;
+  }
+
+  public void setModelId(@javax.annotation.Nonnull Integer modelId) {
+    this.modelId = modelId;
+  }
+
+
+  public AnalysisRecord modelName(@javax.annotation.Nonnull String modelName) {
+    this.modelName = modelName;
+    return this;
+  }
+
+  /**
+   * Name of the model used for analysis
+   * @return modelName
+   */
+  @javax.annotation.Nonnull
+  public String getModelName() {
+    return modelName;
+  }
+
+  public void setModelName(@javax.annotation.Nonnull String modelName) {
+    this.modelName = modelName;
+  }
+
+
+  public AnalysisRecord sha256Hash(@javax.annotation.Nonnull String sha256Hash) {
+    this.sha256Hash = sha256Hash;
+    return this;
+  }
+
+  /**
+   * The hash of the binary
+   * @return sha256Hash
+   */
+  @javax.annotation.Nonnull
+  public String getSha256Hash() {
+    return sha256Hash;
+  }
+
+  public void setSha256Hash(@javax.annotation.Nonnull String sha256Hash) {
+    this.sha256Hash = sha256Hash;
+  }
+
+
+  public AnalysisRecord status(@javax.annotation.Nonnull String status) {
+    this.status = status;
+    return this;
+  }
+
+  /**
+   * The current status of analysis
+   * @return status
+   */
+  @javax.annotation.Nonnull
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(@javax.annotation.Nonnull String status) {
+    this.status = status;
   }
 
 
@@ -474,6 +455,25 @@ public class AnalysisRecord {
 
   public void setTags(@javax.annotation.Nullable List<TagItem> tags) {
     this.tags = tags;
+  }
+
+
+  public AnalysisRecord username(@javax.annotation.Nonnull String username) {
+    this.username = username;
+    return this;
+  }
+
+  /**
+   * The username of the analysis owner
+   * @return username
+   */
+  @javax.annotation.Nonnull
+  public String getUsername() {
+    return username;
+  }
+
+  public void setUsername(@javax.annotation.Nonnull String username) {
+    this.username = username;
   }
 
   /**
@@ -533,21 +533,21 @@ public class AnalysisRecord {
     AnalysisRecord analysisRecord = (AnalysisRecord) o;
     return Objects.equals(this.analysisId, analysisRecord.analysisId) &&
         Objects.equals(this.analysisScope, analysisRecord.analysisScope) &&
+        Objects.equals(this.baseAddress, analysisRecord.baseAddress) &&
         Objects.equals(this.binaryId, analysisRecord.binaryId) &&
-        Objects.equals(this.modelId, analysisRecord.modelId) &&
-        Objects.equals(this.modelName, analysisRecord.modelName) &&
-        Objects.equals(this.status, analysisRecord.status) &&
-        Objects.equals(this.creation, analysisRecord.creation) &&
-        Objects.equals(this.isOwner, analysisRecord.isOwner) &&
         Objects.equals(this.binaryName, analysisRecord.binaryName) &&
-        Objects.equals(this.sha256Hash, analysisRecord.sha256Hash) &&
-        Objects.equals(this.functionBoundariesHash, analysisRecord.functionBoundariesHash) &&
         Objects.equals(this.binarySize, analysisRecord.binarySize) &&
-        Objects.equals(this.username, analysisRecord.username) &&
+        Objects.equals(this.creation, analysisRecord.creation) &&
         Objects.equals(this.dynamicExecutionStatus, analysisRecord.dynamicExecutionStatus) &&
         Objects.equals(this.dynamicExecutionTaskId, analysisRecord.dynamicExecutionTaskId) &&
-        Objects.equals(this.baseAddress, analysisRecord.baseAddress) &&
-        Objects.equals(this.tags, analysisRecord.tags)&&
+        Objects.equals(this.functionBoundariesHash, analysisRecord.functionBoundariesHash) &&
+        Objects.equals(this.isOwner, analysisRecord.isOwner) &&
+        Objects.equals(this.modelId, analysisRecord.modelId) &&
+        Objects.equals(this.modelName, analysisRecord.modelName) &&
+        Objects.equals(this.sha256Hash, analysisRecord.sha256Hash) &&
+        Objects.equals(this.status, analysisRecord.status) &&
+        Objects.equals(this.tags, analysisRecord.tags) &&
+        Objects.equals(this.username, analysisRecord.username)&&
         Objects.equals(this.additionalProperties, analysisRecord.additionalProperties);
   }
 
@@ -557,7 +557,7 @@ public class AnalysisRecord {
 
   @Override
   public int hashCode() {
-    return Objects.hash(analysisId, analysisScope, binaryId, modelId, modelName, status, creation, isOwner, binaryName, sha256Hash, functionBoundariesHash, binarySize, username, dynamicExecutionStatus, dynamicExecutionTaskId, baseAddress, tags, additionalProperties);
+    return Objects.hash(analysisId, analysisScope, baseAddress, binaryId, binaryName, binarySize, creation, dynamicExecutionStatus, dynamicExecutionTaskId, functionBoundariesHash, isOwner, modelId, modelName, sha256Hash, status, tags, username, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -573,21 +573,21 @@ public class AnalysisRecord {
     sb.append("class AnalysisRecord {\n");
     sb.append("    analysisId: ").append(toIndentedString(analysisId)).append("\n");
     sb.append("    analysisScope: ").append(toIndentedString(analysisScope)).append("\n");
+    sb.append("    baseAddress: ").append(toIndentedString(baseAddress)).append("\n");
     sb.append("    binaryId: ").append(toIndentedString(binaryId)).append("\n");
-    sb.append("    modelId: ").append(toIndentedString(modelId)).append("\n");
-    sb.append("    modelName: ").append(toIndentedString(modelName)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    creation: ").append(toIndentedString(creation)).append("\n");
-    sb.append("    isOwner: ").append(toIndentedString(isOwner)).append("\n");
     sb.append("    binaryName: ").append(toIndentedString(binaryName)).append("\n");
-    sb.append("    sha256Hash: ").append(toIndentedString(sha256Hash)).append("\n");
-    sb.append("    functionBoundariesHash: ").append(toIndentedString(functionBoundariesHash)).append("\n");
     sb.append("    binarySize: ").append(toIndentedString(binarySize)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
+    sb.append("    creation: ").append(toIndentedString(creation)).append("\n");
     sb.append("    dynamicExecutionStatus: ").append(toIndentedString(dynamicExecutionStatus)).append("\n");
     sb.append("    dynamicExecutionTaskId: ").append(toIndentedString(dynamicExecutionTaskId)).append("\n");
-    sb.append("    baseAddress: ").append(toIndentedString(baseAddress)).append("\n");
+    sb.append("    functionBoundariesHash: ").append(toIndentedString(functionBoundariesHash)).append("\n");
+    sb.append("    isOwner: ").append(toIndentedString(isOwner)).append("\n");
+    sb.append("    modelId: ").append(toIndentedString(modelId)).append("\n");
+    sb.append("    modelName: ").append(toIndentedString(modelName)).append("\n");
+    sb.append("    sha256Hash: ").append(toIndentedString(sha256Hash)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -610,10 +610,10 @@ public class AnalysisRecord {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("analysis_id", "analysis_scope", "binary_id", "model_id", "model_name", "status", "creation", "is_owner", "binary_name", "sha_256_hash", "function_boundaries_hash", "binary_size", "username", "dynamic_execution_status", "dynamic_execution_task_id", "base_address", "tags"));
+    openapiFields = new HashSet<String>(Arrays.asList("analysis_id", "analysis_scope", "base_address", "binary_id", "binary_name", "binary_size", "creation", "dynamic_execution_status", "dynamic_execution_task_id", "function_boundaries_hash", "is_owner", "model_id", "model_name", "sha_256_hash", "status", "tags", "username"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("analysis_id", "analysis_scope", "binary_id", "model_id", "model_name", "status", "creation", "is_owner", "binary_name", "sha_256_hash", "function_boundaries_hash", "binary_size", "username", "base_address"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("analysis_id", "analysis_scope", "base_address", "binary_id", "binary_name", "binary_size", "creation", "function_boundaries_hash", "is_owner", "model_id", "model_name", "sha_256_hash", "status", "username"));
   }
 
   /**
@@ -639,27 +639,24 @@ public class AnalysisRecord {
       if (!jsonObj.get("analysis_scope").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `analysis_scope` to be a primitive type in the JSON string but got `%s`", jsonObj.get("analysis_scope").toString()));
       }
-      if (!jsonObj.get("model_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `model_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("model_name").toString()));
-      }
-      if (!jsonObj.get("status").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
-      }
       if (!jsonObj.get("binary_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `binary_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("binary_name").toString()));
-      }
-      if (!jsonObj.get("sha_256_hash").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `sha_256_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sha_256_hash").toString()));
-      }
-      if (!jsonObj.get("function_boundaries_hash").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `function_boundaries_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("function_boundaries_hash").toString()));
-      }
-      if (!jsonObj.get("username").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("username").toString()));
       }
       // validate the optional field `dynamic_execution_status`
       if (jsonObj.get("dynamic_execution_status") != null && !jsonObj.get("dynamic_execution_status").isJsonNull()) {
         AppApiRestV2AnalysesEnumsDynamicExecutionStatus.validateJsonElement(jsonObj.get("dynamic_execution_status"));
+      }
+      if (!jsonObj.get("function_boundaries_hash").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `function_boundaries_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("function_boundaries_hash").toString()));
+      }
+      if (!jsonObj.get("model_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `model_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("model_name").toString()));
+      }
+      if (!jsonObj.get("sha_256_hash").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `sha_256_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sha_256_hash").toString()));
+      }
+      if (!jsonObj.get("status").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
       }
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull()) {
         JsonArray jsonArraytags = jsonObj.getAsJsonArray("tags");
@@ -674,6 +671,9 @@ public class AnalysisRecord {
             TagItem.validateJsonElement(jsonArraytags.get(i));
           };
         }
+      }
+      if (!jsonObj.get("username").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("username").toString()));
       }
   }
 

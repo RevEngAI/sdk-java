@@ -54,37 +54,18 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ExportModel {
-  public static final String SERIALIZED_NAME_NUMBER_OF_EXPORTS = "number_of_exports";
-  @SerializedName(SERIALIZED_NAME_NUMBER_OF_EXPORTS)
-  @javax.annotation.Nonnull
-  private Integer numberOfExports;
-
   public static final String SERIALIZED_NAME_EXPORTS = "exports";
   @SerializedName(SERIALIZED_NAME_EXPORTS)
   @javax.annotation.Nonnull
   private List<Map<String, Integer>> exports = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_NUMBER_OF_EXPORTS = "number_of_exports";
+  @SerializedName(SERIALIZED_NAME_NUMBER_OF_EXPORTS)
+  @javax.annotation.Nonnull
+  private Integer numberOfExports;
+
   public ExportModel() {
   }
-
-  public ExportModel numberOfExports(@javax.annotation.Nonnull Integer numberOfExports) {
-    this.numberOfExports = numberOfExports;
-    return this;
-  }
-
-  /**
-   * Get numberOfExports
-   * @return numberOfExports
-   */
-  @javax.annotation.Nonnull
-  public Integer getNumberOfExports() {
-    return numberOfExports;
-  }
-
-  public void setNumberOfExports(@javax.annotation.Nonnull Integer numberOfExports) {
-    this.numberOfExports = numberOfExports;
-  }
-
 
   public ExportModel exports(@javax.annotation.Nonnull List<Map<String, Integer>> exports) {
     this.exports = exports;
@@ -110,6 +91,25 @@ public class ExportModel {
 
   public void setExports(@javax.annotation.Nonnull List<Map<String, Integer>> exports) {
     this.exports = exports;
+  }
+
+
+  public ExportModel numberOfExports(@javax.annotation.Nonnull Integer numberOfExports) {
+    this.numberOfExports = numberOfExports;
+    return this;
+  }
+
+  /**
+   * Get numberOfExports
+   * @return numberOfExports
+   */
+  @javax.annotation.Nonnull
+  public Integer getNumberOfExports() {
+    return numberOfExports;
+  }
+
+  public void setNumberOfExports(@javax.annotation.Nonnull Integer numberOfExports) {
+    this.numberOfExports = numberOfExports;
   }
 
   /**
@@ -167,22 +167,22 @@ public class ExportModel {
       return false;
     }
     ExportModel exportModel = (ExportModel) o;
-    return Objects.equals(this.numberOfExports, exportModel.numberOfExports) &&
-        Objects.equals(this.exports, exportModel.exports)&&
+    return Objects.equals(this.exports, exportModel.exports) &&
+        Objects.equals(this.numberOfExports, exportModel.numberOfExports)&&
         Objects.equals(this.additionalProperties, exportModel.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(numberOfExports, exports, additionalProperties);
+    return Objects.hash(exports, numberOfExports, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ExportModel {\n");
-    sb.append("    numberOfExports: ").append(toIndentedString(numberOfExports)).append("\n");
     sb.append("    exports: ").append(toIndentedString(exports)).append("\n");
+    sb.append("    numberOfExports: ").append(toIndentedString(numberOfExports)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -205,10 +205,10 @@ public class ExportModel {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("number_of_exports", "exports"));
+    openapiFields = new HashSet<String>(Arrays.asList("exports", "number_of_exports"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("number_of_exports", "exports"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("exports", "number_of_exports"));
   }
 
   /**

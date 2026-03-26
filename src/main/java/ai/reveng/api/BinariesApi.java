@@ -1008,8 +1008,8 @@ public class BinariesApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getRelatedBinariesCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
@@ -1079,8 +1079,8 @@ public class BinariesApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public BaseResponseChildBinariesResponse getRelatedBinaries(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
@@ -1099,8 +1099,8 @@ public class BinariesApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<BaseResponseChildBinariesResponse> getRelatedBinariesWithHttpInfo(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
@@ -1121,8 +1121,8 @@ public class BinariesApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getRelatedBinariesAsync(@javax.annotation.Nonnull Integer binaryId, final ApiCallback<BaseResponseChildBinariesResponse> _callback) throws ApiException {

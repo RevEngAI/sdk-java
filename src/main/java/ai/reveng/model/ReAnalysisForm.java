@@ -54,21 +54,10 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ReAnalysisForm {
-  public static final String SERIALIZED_NAME_TAGS = "tags";
-  @SerializedName(SERIALIZED_NAME_TAGS)
-  @javax.annotation.Nullable
-  private List<String> tags = new ArrayList<>();
-
   public static final String SERIALIZED_NAME_COMMAND_LINE_ARGS = "command_line_args";
   @SerializedName(SERIALIZED_NAME_COMMAND_LINE_ARGS)
   @javax.annotation.Nullable
   private String commandLineArgs = "";
-
-  public static final String SERIALIZED_NAME_PRIORITY = "priority";
-  @Deprecated
-  @SerializedName(SERIALIZED_NAME_PRIORITY)
-  @javax.annotation.Nullable
-  private Integer priority = 0;
 
   public static final String SERIALIZED_NAME_ESSENTIAL = "essential";
   @SerializedName(SERIALIZED_NAME_ESSENTIAL)
@@ -85,35 +74,19 @@ public class ReAnalysisForm {
   @javax.annotation.Nullable
   private Boolean noCache = false;
 
+  public static final String SERIALIZED_NAME_PRIORITY = "priority";
+  @Deprecated
+  @SerializedName(SERIALIZED_NAME_PRIORITY)
+  @javax.annotation.Nullable
+  private Integer priority = 0;
+
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  @javax.annotation.Nullable
+  private List<String> tags = new ArrayList<>();
+
   public ReAnalysisForm() {
   }
-
-  public ReAnalysisForm tags(@javax.annotation.Nullable List<String> tags) {
-    this.tags = tags;
-    return this;
-  }
-
-  public ReAnalysisForm addTagsItem(String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new ArrayList<>();
-    }
-    this.tags.add(tagsItem);
-    return this;
-  }
-
-  /**
-   * Tags associated with the analysis
-   * @return tags
-   */
-  @javax.annotation.Nullable
-  public List<String> getTags() {
-    return tags;
-  }
-
-  public void setTags(@javax.annotation.Nullable List<String> tags) {
-    this.tags = tags;
-  }
-
 
   public ReAnalysisForm commandLineArgs(@javax.annotation.Nullable String commandLineArgs) {
     this.commandLineArgs = commandLineArgs;
@@ -131,29 +104,6 @@ public class ReAnalysisForm {
 
   public void setCommandLineArgs(@javax.annotation.Nullable String commandLineArgs) {
     this.commandLineArgs = commandLineArgs;
-  }
-
-
-  @Deprecated
-  public ReAnalysisForm priority(@javax.annotation.Nullable Integer priority) {
-    this.priority = priority;
-    return this;
-  }
-
-  /**
-   * Priority of the analysis
-   * @return priority
-   * @deprecated
-   */
-  @Deprecated
-  @javax.annotation.Nullable
-  public Integer getPriority() {
-    return priority;
-  }
-
-  @Deprecated
-  public void setPriority(@javax.annotation.Nullable Integer priority) {
-    this.priority = priority;
   }
 
 
@@ -213,6 +163,56 @@ public class ReAnalysisForm {
     this.noCache = noCache;
   }
 
+
+  @Deprecated
+  public ReAnalysisForm priority(@javax.annotation.Nullable Integer priority) {
+    this.priority = priority;
+    return this;
+  }
+
+  /**
+   * Priority of the analysis
+   * @return priority
+   * @deprecated
+   */
+  @Deprecated
+  @javax.annotation.Nullable
+  public Integer getPriority() {
+    return priority;
+  }
+
+  @Deprecated
+  public void setPriority(@javax.annotation.Nullable Integer priority) {
+    this.priority = priority;
+  }
+
+
+  public ReAnalysisForm tags(@javax.annotation.Nullable List<String> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public ReAnalysisForm addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+  /**
+   * Tags associated with the analysis
+   * @return tags
+   */
+  @javax.annotation.Nullable
+  public List<String> getTags() {
+    return tags;
+  }
+
+  public void setTags(@javax.annotation.Nullable List<String> tags) {
+    this.tags = tags;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -268,12 +268,12 @@ public class ReAnalysisForm {
       return false;
     }
     ReAnalysisForm reAnalysisForm = (ReAnalysisForm) o;
-    return Objects.equals(this.tags, reAnalysisForm.tags) &&
-        Objects.equals(this.commandLineArgs, reAnalysisForm.commandLineArgs) &&
-        Objects.equals(this.priority, reAnalysisForm.priority) &&
+    return Objects.equals(this.commandLineArgs, reAnalysisForm.commandLineArgs) &&
         Objects.equals(this.essential, reAnalysisForm.essential) &&
         Objects.equals(this.modelName, reAnalysisForm.modelName) &&
-        Objects.equals(this.noCache, reAnalysisForm.noCache)&&
+        Objects.equals(this.noCache, reAnalysisForm.noCache) &&
+        Objects.equals(this.priority, reAnalysisForm.priority) &&
+        Objects.equals(this.tags, reAnalysisForm.tags)&&
         Objects.equals(this.additionalProperties, reAnalysisForm.additionalProperties);
   }
 
@@ -283,7 +283,7 @@ public class ReAnalysisForm {
 
   @Override
   public int hashCode() {
-    return Objects.hash(tags, commandLineArgs, priority, essential, modelName, noCache, additionalProperties);
+    return Objects.hash(commandLineArgs, essential, modelName, noCache, priority, tags, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -297,12 +297,12 @@ public class ReAnalysisForm {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReAnalysisForm {\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    commandLineArgs: ").append(toIndentedString(commandLineArgs)).append("\n");
-    sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    essential: ").append(toIndentedString(essential)).append("\n");
     sb.append("    modelName: ").append(toIndentedString(modelName)).append("\n");
     sb.append("    noCache: ").append(toIndentedString(noCache)).append("\n");
+    sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -325,7 +325,7 @@ public class ReAnalysisForm {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("tags", "command_line_args", "priority", "essential", "model_name", "no_cache"));
+    openapiFields = new HashSet<String>(Arrays.asList("command_line_args", "essential", "model_name", "no_cache", "priority", "tags"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -344,15 +344,15 @@ public class ReAnalysisForm {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
-      }
       if ((jsonObj.get("command_line_args") != null && !jsonObj.get("command_line_args").isJsonNull()) && !jsonObj.get("command_line_args").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `command_line_args` to be a primitive type in the JSON string but got `%s`", jsonObj.get("command_line_args").toString()));
       }
       if ((jsonObj.get("model_name") != null && !jsonObj.get("model_name").isJsonNull()) && !jsonObj.get("model_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `model_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("model_name").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
       }
   }
 

@@ -75,8 +75,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **202** | Successful Response |  -  |
-| **422** | Invalid request parameters |  -  |
 | **409** | Security checks already extracted or queued |  -  |
+| **422** | Invalid request parameters |  -  |
 
 <a id="getSecurityChecks"></a>
 # **getSecurityChecks**

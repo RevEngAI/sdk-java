@@ -52,6 +52,11 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TagItem {
+  public static final String SERIALIZED_NAME_COLLECTION_ID = "collection_id";
+  @SerializedName(SERIALIZED_NAME_COLLECTION_ID)
+  @javax.annotation.Nullable
+  private Integer collectionId;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   @javax.annotation.Nonnull
@@ -62,13 +67,27 @@ public class TagItem {
   @javax.annotation.Nonnull
   private String origin;
 
-  public static final String SERIALIZED_NAME_COLLECTION_ID = "collection_id";
-  @SerializedName(SERIALIZED_NAME_COLLECTION_ID)
-  @javax.annotation.Nullable
-  private Integer collectionId;
-
   public TagItem() {
   }
+
+  public TagItem collectionId(@javax.annotation.Nullable Integer collectionId) {
+    this.collectionId = collectionId;
+    return this;
+  }
+
+  /**
+   * Get collectionId
+   * @return collectionId
+   */
+  @javax.annotation.Nullable
+  public Integer getCollectionId() {
+    return collectionId;
+  }
+
+  public void setCollectionId(@javax.annotation.Nullable Integer collectionId) {
+    this.collectionId = collectionId;
+  }
+
 
   public TagItem name(@javax.annotation.Nonnull String name) {
     this.name = name;
@@ -105,25 +124,6 @@ public class TagItem {
 
   public void setOrigin(@javax.annotation.Nonnull String origin) {
     this.origin = origin;
-  }
-
-
-  public TagItem collectionId(@javax.annotation.Nullable Integer collectionId) {
-    this.collectionId = collectionId;
-    return this;
-  }
-
-  /**
-   * Get collectionId
-   * @return collectionId
-   */
-  @javax.annotation.Nullable
-  public Integer getCollectionId() {
-    return collectionId;
-  }
-
-  public void setCollectionId(@javax.annotation.Nullable Integer collectionId) {
-    this.collectionId = collectionId;
   }
 
   /**
@@ -181,9 +181,9 @@ public class TagItem {
       return false;
     }
     TagItem tagItem = (TagItem) o;
-    return Objects.equals(this.name, tagItem.name) &&
-        Objects.equals(this.origin, tagItem.origin) &&
-        Objects.equals(this.collectionId, tagItem.collectionId)&&
+    return Objects.equals(this.collectionId, tagItem.collectionId) &&
+        Objects.equals(this.name, tagItem.name) &&
+        Objects.equals(this.origin, tagItem.origin)&&
         Objects.equals(this.additionalProperties, tagItem.additionalProperties);
   }
 
@@ -193,7 +193,7 @@ public class TagItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, origin, collectionId, additionalProperties);
+    return Objects.hash(collectionId, name, origin, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -207,9 +207,9 @@ public class TagItem {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TagItem {\n");
+    sb.append("    collectionId: ").append(toIndentedString(collectionId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    origin: ").append(toIndentedString(origin)).append("\n");
-    sb.append("    collectionId: ").append(toIndentedString(collectionId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -232,7 +232,7 @@ public class TagItem {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("name", "origin", "collection_id"));
+    openapiFields = new HashSet<String>(Arrays.asList("collection_id", "name", "origin"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "origin"));

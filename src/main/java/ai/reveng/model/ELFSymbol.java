@@ -51,15 +51,20 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ELFSymbol {
+  public static final String SERIALIZED_NAME_BINDING = "binding";
+  @SerializedName(SERIALIZED_NAME_BINDING)
+  @javax.annotation.Nonnull
+  private String binding;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   @javax.annotation.Nonnull
   private String name;
 
-  public static final String SERIALIZED_NAME_VALUE = "value";
-  @SerializedName(SERIALIZED_NAME_VALUE)
+  public static final String SERIALIZED_NAME_SECTION_INDEX = "section_index";
+  @SerializedName(SERIALIZED_NAME_SECTION_INDEX)
   @javax.annotation.Nonnull
-  private Integer value;
+  private Integer sectionIndex;
 
   public static final String SERIALIZED_NAME_SIZE = "size";
   @SerializedName(SERIALIZED_NAME_SIZE)
@@ -71,23 +76,37 @@ public class ELFSymbol {
   @javax.annotation.Nonnull
   private String type;
 
-  public static final String SERIALIZED_NAME_BINDING = "binding";
-  @SerializedName(SERIALIZED_NAME_BINDING)
+  public static final String SERIALIZED_NAME_VALUE = "value";
+  @SerializedName(SERIALIZED_NAME_VALUE)
   @javax.annotation.Nonnull
-  private String binding;
+  private Integer value;
 
   public static final String SERIALIZED_NAME_VISIBILITY = "visibility";
   @SerializedName(SERIALIZED_NAME_VISIBILITY)
   @javax.annotation.Nonnull
   private String visibility;
 
-  public static final String SERIALIZED_NAME_SECTION_INDEX = "section_index";
-  @SerializedName(SERIALIZED_NAME_SECTION_INDEX)
-  @javax.annotation.Nonnull
-  private Integer sectionIndex;
-
   public ELFSymbol() {
   }
+
+  public ELFSymbol binding(@javax.annotation.Nonnull String binding) {
+    this.binding = binding;
+    return this;
+  }
+
+  /**
+   * Get binding
+   * @return binding
+   */
+  @javax.annotation.Nonnull
+  public String getBinding() {
+    return binding;
+  }
+
+  public void setBinding(@javax.annotation.Nonnull String binding) {
+    this.binding = binding;
+  }
+
 
   public ELFSymbol name(@javax.annotation.Nonnull String name) {
     this.name = name;
@@ -108,22 +127,22 @@ public class ELFSymbol {
   }
 
 
-  public ELFSymbol value(@javax.annotation.Nonnull Integer value) {
-    this.value = value;
+  public ELFSymbol sectionIndex(@javax.annotation.Nonnull Integer sectionIndex) {
+    this.sectionIndex = sectionIndex;
     return this;
   }
 
   /**
-   * Get value
-   * @return value
+   * Get sectionIndex
+   * @return sectionIndex
    */
   @javax.annotation.Nonnull
-  public Integer getValue() {
-    return value;
+  public Integer getSectionIndex() {
+    return sectionIndex;
   }
 
-  public void setValue(@javax.annotation.Nonnull Integer value) {
-    this.value = value;
+  public void setSectionIndex(@javax.annotation.Nonnull Integer sectionIndex) {
+    this.sectionIndex = sectionIndex;
   }
 
 
@@ -165,22 +184,22 @@ public class ELFSymbol {
   }
 
 
-  public ELFSymbol binding(@javax.annotation.Nonnull String binding) {
-    this.binding = binding;
+  public ELFSymbol value(@javax.annotation.Nonnull Integer value) {
+    this.value = value;
     return this;
   }
 
   /**
-   * Get binding
-   * @return binding
+   * Get value
+   * @return value
    */
   @javax.annotation.Nonnull
-  public String getBinding() {
-    return binding;
+  public Integer getValue() {
+    return value;
   }
 
-  public void setBinding(@javax.annotation.Nonnull String binding) {
-    this.binding = binding;
+  public void setValue(@javax.annotation.Nonnull Integer value) {
+    this.value = value;
   }
 
 
@@ -200,25 +219,6 @@ public class ELFSymbol {
 
   public void setVisibility(@javax.annotation.Nonnull String visibility) {
     this.visibility = visibility;
-  }
-
-
-  public ELFSymbol sectionIndex(@javax.annotation.Nonnull Integer sectionIndex) {
-    this.sectionIndex = sectionIndex;
-    return this;
-  }
-
-  /**
-   * Get sectionIndex
-   * @return sectionIndex
-   */
-  @javax.annotation.Nonnull
-  public Integer getSectionIndex() {
-    return sectionIndex;
-  }
-
-  public void setSectionIndex(@javax.annotation.Nonnull Integer sectionIndex) {
-    this.sectionIndex = sectionIndex;
   }
 
   /**
@@ -276,32 +276,32 @@ public class ELFSymbol {
       return false;
     }
     ELFSymbol elFSymbol = (ELFSymbol) o;
-    return Objects.equals(this.name, elFSymbol.name) &&
-        Objects.equals(this.value, elFSymbol.value) &&
+    return Objects.equals(this.binding, elFSymbol.binding) &&
+        Objects.equals(this.name, elFSymbol.name) &&
+        Objects.equals(this.sectionIndex, elFSymbol.sectionIndex) &&
         Objects.equals(this.size, elFSymbol.size) &&
         Objects.equals(this.type, elFSymbol.type) &&
-        Objects.equals(this.binding, elFSymbol.binding) &&
-        Objects.equals(this.visibility, elFSymbol.visibility) &&
-        Objects.equals(this.sectionIndex, elFSymbol.sectionIndex)&&
+        Objects.equals(this.value, elFSymbol.value) &&
+        Objects.equals(this.visibility, elFSymbol.visibility)&&
         Objects.equals(this.additionalProperties, elFSymbol.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, value, size, type, binding, visibility, sectionIndex, additionalProperties);
+    return Objects.hash(binding, name, sectionIndex, size, type, value, visibility, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ELFSymbol {\n");
+    sb.append("    binding: ").append(toIndentedString(binding)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    sectionIndex: ").append(toIndentedString(sectionIndex)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    binding: ").append(toIndentedString(binding)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    visibility: ").append(toIndentedString(visibility)).append("\n");
-    sb.append("    sectionIndex: ").append(toIndentedString(sectionIndex)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -324,10 +324,10 @@ public class ELFSymbol {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("name", "value", "size", "type", "binding", "visibility", "section_index"));
+    openapiFields = new HashSet<String>(Arrays.asList("binding", "name", "section_index", "size", "type", "value", "visibility"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "value", "size", "type", "binding", "visibility", "section_index"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("binding", "name", "section_index", "size", "type", "value", "visibility"));
   }
 
   /**
@@ -350,14 +350,14 @@ public class ELFSymbol {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("binding").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `binding` to be a primitive type in the JSON string but got `%s`", jsonObj.get("binding").toString()));
+      }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if (!jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-      }
-      if (!jsonObj.get("binding").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `binding` to be a primitive type in the JSON string but got `%s`", jsonObj.get("binding").toString()));
       }
       if (!jsonObj.get("visibility").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `visibility` to be a primitive type in the JSON string but got `%s`", jsonObj.get("visibility").toString()));

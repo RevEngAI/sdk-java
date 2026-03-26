@@ -67,15 +67,15 @@ public class StructureMember {
   @javax.annotation.Nonnull
   private Integer offset;
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  @javax.annotation.Nonnull
-  private String type;
-
   public static final String SERIALIZED_NAME_SIZE = "size";
   @SerializedName(SERIALIZED_NAME_SIZE)
   @javax.annotation.Nonnull
   private Integer size;
+
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  @javax.annotation.Nonnull
+  private String type;
 
   public StructureMember() {
   }
@@ -137,25 +137,6 @@ public class StructureMember {
   }
 
 
-  public StructureMember type(@javax.annotation.Nonnull String type) {
-    this.type = type;
-    return this;
-  }
-
-  /**
-   * Data type of the structure member
-   * @return type
-   */
-  @javax.annotation.Nonnull
-  public String getType() {
-    return type;
-  }
-
-  public void setType(@javax.annotation.Nonnull String type) {
-    this.type = type;
-  }
-
-
   public StructureMember size(@javax.annotation.Nonnull Integer size) {
     this.size = size;
     return this;
@@ -172,6 +153,25 @@ public class StructureMember {
 
   public void setSize(@javax.annotation.Nonnull Integer size) {
     this.size = size;
+  }
+
+
+  public StructureMember type(@javax.annotation.Nonnull String type) {
+    this.type = type;
+    return this;
+  }
+
+  /**
+   * Data type of the structure member
+   * @return type
+   */
+  @javax.annotation.Nonnull
+  public String getType() {
+    return type;
+  }
+
+  public void setType(@javax.annotation.Nonnull String type) {
+    this.type = type;
   }
 
   /**
@@ -232,8 +232,8 @@ public class StructureMember {
     return Objects.equals(this.lastChange, structureMember.lastChange) &&
         Objects.equals(this.name, structureMember.name) &&
         Objects.equals(this.offset, structureMember.offset) &&
-        Objects.equals(this.type, structureMember.type) &&
-        Objects.equals(this.size, structureMember.size)&&
+        Objects.equals(this.size, structureMember.size) &&
+        Objects.equals(this.type, structureMember.type)&&
         Objects.equals(this.additionalProperties, structureMember.additionalProperties);
   }
 
@@ -243,7 +243,7 @@ public class StructureMember {
 
   @Override
   public int hashCode() {
-    return Objects.hash(lastChange, name, offset, type, size, additionalProperties);
+    return Objects.hash(lastChange, name, offset, size, type, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -260,8 +260,8 @@ public class StructureMember {
     sb.append("    lastChange: ").append(toIndentedString(lastChange)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -284,10 +284,10 @@ public class StructureMember {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("last_change", "name", "offset", "type", "size"));
+    openapiFields = new HashSet<String>(Arrays.asList("last_change", "name", "offset", "size", "type"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "offset", "type", "size"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "offset", "size", "type"));
   }
 
   /**

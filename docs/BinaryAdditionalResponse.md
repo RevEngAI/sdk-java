@@ -8,8 +8,8 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**binaryId** | **Integer** |  |  |
-|**details** | [**BinaryAdditionalDetailsDataResponse**](BinaryAdditionalDetailsDataResponse.md) |  |  |
 |**creation** | **OffsetDateTime** |  |  [optional] |
+|**details** | [**BinaryAdditionalDetailsDataResponse**](BinaryAdditionalDetailsDataResponse.md) |  |  |
 
 
 

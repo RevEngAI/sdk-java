@@ -56,6 +56,11 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FunctionMatch {
+  public static final String SERIALIZED_NAME_CONFIDENCES = "confidences";
+  @SerializedName(SERIALIZED_NAME_CONFIDENCES)
+  @javax.annotation.Nullable
+  private List<NameConfidence> confidences;
+
   public static final String SERIALIZED_NAME_FUNCTION_ID = "function_id";
   @SerializedName(SERIALIZED_NAME_FUNCTION_ID)
   @javax.annotation.Nonnull
@@ -66,13 +71,35 @@ public class FunctionMatch {
   @javax.annotation.Nonnull
   private List<MatchedFunction> matchedFunctions = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_CONFIDENCES = "confidences";
-  @SerializedName(SERIALIZED_NAME_CONFIDENCES)
-  @javax.annotation.Nullable
-  private List<NameConfidence> confidences;
-
   public FunctionMatch() {
   }
+
+  public FunctionMatch confidences(@javax.annotation.Nullable List<NameConfidence> confidences) {
+    this.confidences = confidences;
+    return this;
+  }
+
+  public FunctionMatch addConfidencesItem(NameConfidence confidencesItem) {
+    if (this.confidences == null) {
+      this.confidences = new ArrayList<>();
+    }
+    this.confidences.add(confidencesItem);
+    return this;
+  }
+
+  /**
+   * Get confidences
+   * @return confidences
+   */
+  @javax.annotation.Nullable
+  public List<NameConfidence> getConfidences() {
+    return confidences;
+  }
+
+  public void setConfidences(@javax.annotation.Nullable List<NameConfidence> confidences) {
+    this.confidences = confidences;
+  }
+
 
   public FunctionMatch functionId(@javax.annotation.Nonnull Long functionId) {
     this.functionId = functionId;
@@ -117,33 +144,6 @@ public class FunctionMatch {
 
   public void setMatchedFunctions(@javax.annotation.Nonnull List<MatchedFunction> matchedFunctions) {
     this.matchedFunctions = matchedFunctions;
-  }
-
-
-  public FunctionMatch confidences(@javax.annotation.Nullable List<NameConfidence> confidences) {
-    this.confidences = confidences;
-    return this;
-  }
-
-  public FunctionMatch addConfidencesItem(NameConfidence confidencesItem) {
-    if (this.confidences == null) {
-      this.confidences = new ArrayList<>();
-    }
-    this.confidences.add(confidencesItem);
-    return this;
-  }
-
-  /**
-   * Get confidences
-   * @return confidences
-   */
-  @javax.annotation.Nullable
-  public List<NameConfidence> getConfidences() {
-    return confidences;
-  }
-
-  public void setConfidences(@javax.annotation.Nullable List<NameConfidence> confidences) {
-    this.confidences = confidences;
   }
 
   /**
@@ -201,9 +201,9 @@ public class FunctionMatch {
       return false;
     }
     FunctionMatch functionMatch = (FunctionMatch) o;
-    return Objects.equals(this.functionId, functionMatch.functionId) &&
-        Objects.equals(this.matchedFunctions, functionMatch.matchedFunctions) &&
-        Objects.equals(this.confidences, functionMatch.confidences)&&
+    return Objects.equals(this.confidences, functionMatch.confidences) &&
+        Objects.equals(this.functionId, functionMatch.functionId) &&
+        Objects.equals(this.matchedFunctions, functionMatch.matchedFunctions)&&
         Objects.equals(this.additionalProperties, functionMatch.additionalProperties);
   }
 
@@ -213,7 +213,7 @@ public class FunctionMatch {
 
   @Override
   public int hashCode() {
-    return Objects.hash(functionId, matchedFunctions, confidences, additionalProperties);
+    return Objects.hash(confidences, functionId, matchedFunctions, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -227,9 +227,9 @@ public class FunctionMatch {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FunctionMatch {\n");
+    sb.append("    confidences: ").append(toIndentedString(confidences)).append("\n");
     sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
     sb.append("    matchedFunctions: ").append(toIndentedString(matchedFunctions)).append("\n");
-    sb.append("    confidences: ").append(toIndentedString(confidences)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -252,7 +252,7 @@ public class FunctionMatch {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("function_id", "matched_functions", "confidences"));
+    openapiFields = new HashSet<String>(Arrays.asList("confidences", "function_id", "matched_functions"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("function_id", "matched_functions"));
@@ -278,16 +278,6 @@ public class FunctionMatch {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the json data is an array
-      if (!jsonObj.get("matched_functions").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `matched_functions` to be an array in the JSON string but got `%s`", jsonObj.get("matched_functions").toString()));
-      }
-
-      JsonArray jsonArraymatchedFunctions = jsonObj.getAsJsonArray("matched_functions");
-      // validate the required field `matched_functions` (array)
-      for (int i = 0; i < jsonArraymatchedFunctions.size(); i++) {
-        MatchedFunction.validateJsonElement(jsonArraymatchedFunctions.get(i));
-      };
       if (jsonObj.get("confidences") != null && !jsonObj.get("confidences").isJsonNull()) {
         JsonArray jsonArrayconfidences = jsonObj.getAsJsonArray("confidences");
         if (jsonArrayconfidences != null) {
@@ -302,6 +292,16 @@ public class FunctionMatch {
           };
         }
       }
+      // ensure the json data is an array
+      if (!jsonObj.get("matched_functions").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `matched_functions` to be an array in the JSON string but got `%s`", jsonObj.get("matched_functions").toString()));
+      }
+
+      JsonArray jsonArraymatchedFunctions = jsonObj.getAsJsonArray("matched_functions");
+      // validate the required field `matched_functions` (array)
+      for (int i = 0; i < jsonArraymatchedFunctions.size(); i++) {
+        MatchedFunction.validateJsonElement(jsonArraymatchedFunctions.get(i));
+      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

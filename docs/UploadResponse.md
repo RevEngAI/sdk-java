@@ -7,9 +7,9 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**sha256Hash** | **String** |  |  |
 |**fileType** | **UploadFileType** |  |  |
 |**filename** | **String** |  |  |
+|**sha256Hash** | **String** |  |  |
 
 
 

@@ -51,20 +51,15 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SingleCodeCertificateModel {
-  public static final String SERIALIZED_NAME_VERSION = "version";
-  @SerializedName(SERIALIZED_NAME_VERSION)
+  public static final String SERIALIZED_NAME_EXPIRES_ON = "expires_on";
+  @SerializedName(SERIALIZED_NAME_EXPIRES_ON)
   @javax.annotation.Nonnull
-  private Integer version;
+  private String expiresOn;
 
   public static final String SERIALIZED_NAME_ISSUED_ON = "issued_on";
   @SerializedName(SERIALIZED_NAME_ISSUED_ON)
   @javax.annotation.Nonnull
   private String issuedOn;
-
-  public static final String SERIALIZED_NAME_EXPIRES_ON = "expires_on";
-  @SerializedName(SERIALIZED_NAME_EXPIRES_ON)
-  @javax.annotation.Nonnull
-  private String expiresOn;
 
   public static final String SERIALIZED_NAME_ISSUER_NAME = "issuer_name";
   @SerializedName(SERIALIZED_NAME_ISSUER_NAME)
@@ -81,25 +76,30 @@ public class SingleCodeCertificateModel {
   @javax.annotation.Nonnull
   private String subjectName;
 
+  public static final String SERIALIZED_NAME_VERSION = "version";
+  @SerializedName(SERIALIZED_NAME_VERSION)
+  @javax.annotation.Nonnull
+  private Integer version;
+
   public SingleCodeCertificateModel() {
   }
 
-  public SingleCodeCertificateModel version(@javax.annotation.Nonnull Integer version) {
-    this.version = version;
+  public SingleCodeCertificateModel expiresOn(@javax.annotation.Nonnull String expiresOn) {
+    this.expiresOn = expiresOn;
     return this;
   }
 
   /**
-   * Get version
-   * @return version
+   * Get expiresOn
+   * @return expiresOn
    */
   @javax.annotation.Nonnull
-  public Integer getVersion() {
-    return version;
+  public String getExpiresOn() {
+    return expiresOn;
   }
 
-  public void setVersion(@javax.annotation.Nonnull Integer version) {
-    this.version = version;
+  public void setExpiresOn(@javax.annotation.Nonnull String expiresOn) {
+    this.expiresOn = expiresOn;
   }
 
 
@@ -119,25 +119,6 @@ public class SingleCodeCertificateModel {
 
   public void setIssuedOn(@javax.annotation.Nonnull String issuedOn) {
     this.issuedOn = issuedOn;
-  }
-
-
-  public SingleCodeCertificateModel expiresOn(@javax.annotation.Nonnull String expiresOn) {
-    this.expiresOn = expiresOn;
-    return this;
-  }
-
-  /**
-   * Get expiresOn
-   * @return expiresOn
-   */
-  @javax.annotation.Nonnull
-  public String getExpiresOn() {
-    return expiresOn;
-  }
-
-  public void setExpiresOn(@javax.annotation.Nonnull String expiresOn) {
-    this.expiresOn = expiresOn;
   }
 
 
@@ -197,6 +178,25 @@ public class SingleCodeCertificateModel {
     this.subjectName = subjectName;
   }
 
+
+  public SingleCodeCertificateModel version(@javax.annotation.Nonnull Integer version) {
+    this.version = version;
+    return this;
+  }
+
+  /**
+   * Get version
+   * @return version
+   */
+  @javax.annotation.Nonnull
+  public Integer getVersion() {
+    return version;
+  }
+
+  public void setVersion(@javax.annotation.Nonnull Integer version) {
+    this.version = version;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -252,30 +252,30 @@ public class SingleCodeCertificateModel {
       return false;
     }
     SingleCodeCertificateModel singleCodeCertificateModel = (SingleCodeCertificateModel) o;
-    return Objects.equals(this.version, singleCodeCertificateModel.version) &&
+    return Objects.equals(this.expiresOn, singleCodeCertificateModel.expiresOn) &&
         Objects.equals(this.issuedOn, singleCodeCertificateModel.issuedOn) &&
-        Objects.equals(this.expiresOn, singleCodeCertificateModel.expiresOn) &&
         Objects.equals(this.issuerName, singleCodeCertificateModel.issuerName) &&
         Objects.equals(this.serialNumber, singleCodeCertificateModel.serialNumber) &&
-        Objects.equals(this.subjectName, singleCodeCertificateModel.subjectName)&&
+        Objects.equals(this.subjectName, singleCodeCertificateModel.subjectName) &&
+        Objects.equals(this.version, singleCodeCertificateModel.version)&&
         Objects.equals(this.additionalProperties, singleCodeCertificateModel.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(version, issuedOn, expiresOn, issuerName, serialNumber, subjectName, additionalProperties);
+    return Objects.hash(expiresOn, issuedOn, issuerName, serialNumber, subjectName, version, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SingleCodeCertificateModel {\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
-    sb.append("    issuedOn: ").append(toIndentedString(issuedOn)).append("\n");
     sb.append("    expiresOn: ").append(toIndentedString(expiresOn)).append("\n");
+    sb.append("    issuedOn: ").append(toIndentedString(issuedOn)).append("\n");
     sb.append("    issuerName: ").append(toIndentedString(issuerName)).append("\n");
     sb.append("    serialNumber: ").append(toIndentedString(serialNumber)).append("\n");
     sb.append("    subjectName: ").append(toIndentedString(subjectName)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -298,10 +298,10 @@ public class SingleCodeCertificateModel {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("version", "issued_on", "expires_on", "issuer_name", "serial_number", "subject_name"));
+    openapiFields = new HashSet<String>(Arrays.asList("expires_on", "issued_on", "issuer_name", "serial_number", "subject_name", "version"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("version", "issued_on", "expires_on", "issuer_name", "serial_number", "subject_name"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("expires_on", "issued_on", "issuer_name", "serial_number", "subject_name", "version"));
   }
 
   /**
@@ -324,11 +324,11 @@ public class SingleCodeCertificateModel {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("issued_on").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `issued_on` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issued_on").toString()));
-      }
       if (!jsonObj.get("expires_on").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `expires_on` to be a primitive type in the JSON string but got `%s`", jsonObj.get("expires_on").toString()));
+      }
+      if (!jsonObj.get("issued_on").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `issued_on` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issued_on").toString()));
       }
       if (!jsonObj.get("issuer_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `issuer_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuer_name").toString()));

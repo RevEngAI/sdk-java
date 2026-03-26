@@ -7,9 +7,9 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**collectionId** | **Integer** |  |  [optional] |
 |**name** | **String** |  |  |
 |**origin** | **String** |  |  |
-|**collectionId** | **Integer** |  |  [optional] |
 
 
 

@@ -51,37 +51,18 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GetPublicUserResponse {
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  @javax.annotation.Nonnull
-  private String username;
-
   public static final String SERIALIZED_NAME_USER_ID = "user_id";
   @SerializedName(SERIALIZED_NAME_USER_ID)
   @javax.annotation.Nonnull
   private Integer userId;
 
+  public static final String SERIALIZED_NAME_USERNAME = "username";
+  @SerializedName(SERIALIZED_NAME_USERNAME)
+  @javax.annotation.Nonnull
+  private String username;
+
   public GetPublicUserResponse() {
   }
-
-  public GetPublicUserResponse username(@javax.annotation.Nonnull String username) {
-    this.username = username;
-    return this;
-  }
-
-  /**
-   * Get username
-   * @return username
-   */
-  @javax.annotation.Nonnull
-  public String getUsername() {
-    return username;
-  }
-
-  public void setUsername(@javax.annotation.Nonnull String username) {
-    this.username = username;
-  }
-
 
   public GetPublicUserResponse userId(@javax.annotation.Nonnull Integer userId) {
     this.userId = userId;
@@ -99,6 +80,25 @@ public class GetPublicUserResponse {
 
   public void setUserId(@javax.annotation.Nonnull Integer userId) {
     this.userId = userId;
+  }
+
+
+  public GetPublicUserResponse username(@javax.annotation.Nonnull String username) {
+    this.username = username;
+    return this;
+  }
+
+  /**
+   * Get username
+   * @return username
+   */
+  @javax.annotation.Nonnull
+  public String getUsername() {
+    return username;
+  }
+
+  public void setUsername(@javax.annotation.Nonnull String username) {
+    this.username = username;
   }
 
   /**
@@ -156,22 +156,22 @@ public class GetPublicUserResponse {
       return false;
     }
     GetPublicUserResponse getPublicUserResponse = (GetPublicUserResponse) o;
-    return Objects.equals(this.username, getPublicUserResponse.username) &&
-        Objects.equals(this.userId, getPublicUserResponse.userId)&&
+    return Objects.equals(this.userId, getPublicUserResponse.userId) &&
+        Objects.equals(this.username, getPublicUserResponse.username)&&
         Objects.equals(this.additionalProperties, getPublicUserResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(username, userId, additionalProperties);
+    return Objects.hash(userId, username, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetPublicUserResponse {\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -194,10 +194,10 @@ public class GetPublicUserResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("username", "user_id"));
+    openapiFields = new HashSet<String>(Arrays.asList("user_id", "username"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("username", "user_id"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("user_id", "username"));
   }
 
   /**

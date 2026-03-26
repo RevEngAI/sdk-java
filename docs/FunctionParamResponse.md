@@ -7,10 +7,10 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**dType** | **String** |  |  |
-|**loc** | **String** |  |  |
 |**addr** | **String** |  |  |
+|**dType** | **String** |  |  |
 |**length** | **Integer** |  |  |
+|**loc** | **String** |  |  |
 |**name** | **String** |  |  |
 
 

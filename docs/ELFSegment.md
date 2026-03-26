@@ -7,15 +7,15 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**type** | **String** |  |  |
-|**virtualAddress** | **Integer** |  |  |
-|**virtualSize** | **Integer** |  |  |
-|**physicalAddress** | **Integer** |  |  |
-|**physicalSize** | **Integer** |  |  |
+|**alignment** | **Integer** |  |  |
 |**fileOffset** | **Integer** |  |  |
 |**flags** | **String** |  |  |
 |**flagsRaw** | **Integer** |  |  |
-|**alignment** | **Integer** |  |  |
+|**physicalAddress** | **Integer** |  |  |
+|**physicalSize** | **Integer** |  |  |
+|**type** | **String** |  |  |
+|**virtualAddress** | **Integer** |  |  |
+|**virtualSize** | **Integer** |  |  |
 
 
 

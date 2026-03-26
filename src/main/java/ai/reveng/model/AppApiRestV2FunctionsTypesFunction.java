@@ -55,143 +55,48 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AppApiRestV2FunctionsTypesFunction {
-  public static final String SERIALIZED_NAME_FUNCTION_ID = "function_id";
-  @SerializedName(SERIALIZED_NAME_FUNCTION_ID)
-  @javax.annotation.Nonnull
-  private Long functionId;
-
-  public static final String SERIALIZED_NAME_FUNCTION_NAME = "function_name";
-  @SerializedName(SERIALIZED_NAME_FUNCTION_NAME)
-  @javax.annotation.Nonnull
-  private String functionName;
-
-  public static final String SERIALIZED_NAME_FUNCTION_MANGLED_NAME = "function_mangled_name";
-  @SerializedName(SERIALIZED_NAME_FUNCTION_MANGLED_NAME)
-  @javax.annotation.Nonnull
-  private String functionMangledName;
-
-  public static final String SERIALIZED_NAME_FUNCTION_VADDR = "function_vaddr";
-  @SerializedName(SERIALIZED_NAME_FUNCTION_VADDR)
-  @javax.annotation.Nonnull
-  private Long functionVaddr;
-
-  public static final String SERIALIZED_NAME_FUNCTION_SIZE = "function_size";
-  @SerializedName(SERIALIZED_NAME_FUNCTION_SIZE)
-  @javax.annotation.Nonnull
-  private Integer functionSize;
-
   public static final String SERIALIZED_NAME_DEBUG = "debug";
   @SerializedName(SERIALIZED_NAME_DEBUG)
   @javax.annotation.Nonnull
   private Boolean debug;
-
-  public static final String SERIALIZED_NAME_EMBEDDING3D = "embedding_3d";
-  @SerializedName(SERIALIZED_NAME_EMBEDDING3D)
-  @javax.annotation.Nullable
-  private List<BigDecimal> embedding3d;
 
   public static final String SERIALIZED_NAME_EMBEDDING1D = "embedding_1d";
   @SerializedName(SERIALIZED_NAME_EMBEDDING1D)
   @javax.annotation.Nullable
   private List<BigDecimal> embedding1d;
 
+  public static final String SERIALIZED_NAME_EMBEDDING3D = "embedding_3d";
+  @SerializedName(SERIALIZED_NAME_EMBEDDING3D)
+  @javax.annotation.Nullable
+  private List<BigDecimal> embedding3d;
+
+  public static final String SERIALIZED_NAME_FUNCTION_ID = "function_id";
+  @SerializedName(SERIALIZED_NAME_FUNCTION_ID)
+  @javax.annotation.Nonnull
+  private Long functionId;
+
+  public static final String SERIALIZED_NAME_FUNCTION_MANGLED_NAME = "function_mangled_name";
+  @SerializedName(SERIALIZED_NAME_FUNCTION_MANGLED_NAME)
+  @javax.annotation.Nonnull
+  private String functionMangledName;
+
+  public static final String SERIALIZED_NAME_FUNCTION_NAME = "function_name";
+  @SerializedName(SERIALIZED_NAME_FUNCTION_NAME)
+  @javax.annotation.Nonnull
+  private String functionName;
+
+  public static final String SERIALIZED_NAME_FUNCTION_SIZE = "function_size";
+  @SerializedName(SERIALIZED_NAME_FUNCTION_SIZE)
+  @javax.annotation.Nonnull
+  private Integer functionSize;
+
+  public static final String SERIALIZED_NAME_FUNCTION_VADDR = "function_vaddr";
+  @SerializedName(SERIALIZED_NAME_FUNCTION_VADDR)
+  @javax.annotation.Nonnull
+  private Long functionVaddr;
+
   public AppApiRestV2FunctionsTypesFunction() {
   }
-
-  public AppApiRestV2FunctionsTypesFunction functionId(@javax.annotation.Nonnull Long functionId) {
-    this.functionId = functionId;
-    return this;
-  }
-
-  /**
-   * Function id
-   * @return functionId
-   */
-  @javax.annotation.Nonnull
-  public Long getFunctionId() {
-    return functionId;
-  }
-
-  public void setFunctionId(@javax.annotation.Nonnull Long functionId) {
-    this.functionId = functionId;
-  }
-
-
-  public AppApiRestV2FunctionsTypesFunction functionName(@javax.annotation.Nonnull String functionName) {
-    this.functionName = functionName;
-    return this;
-  }
-
-  /**
-   * Demangled name of the function
-   * @return functionName
-   */
-  @javax.annotation.Nonnull
-  public String getFunctionName() {
-    return functionName;
-  }
-
-  public void setFunctionName(@javax.annotation.Nonnull String functionName) {
-    this.functionName = functionName;
-  }
-
-
-  public AppApiRestV2FunctionsTypesFunction functionMangledName(@javax.annotation.Nonnull String functionMangledName) {
-    this.functionMangledName = functionMangledName;
-    return this;
-  }
-
-  /**
-   * Mangled name of the function
-   * @return functionMangledName
-   */
-  @javax.annotation.Nonnull
-  public String getFunctionMangledName() {
-    return functionMangledName;
-  }
-
-  public void setFunctionMangledName(@javax.annotation.Nonnull String functionMangledName) {
-    this.functionMangledName = functionMangledName;
-  }
-
-
-  public AppApiRestV2FunctionsTypesFunction functionVaddr(@javax.annotation.Nonnull Long functionVaddr) {
-    this.functionVaddr = functionVaddr;
-    return this;
-  }
-
-  /**
-   * Function virtual address
-   * @return functionVaddr
-   */
-  @javax.annotation.Nonnull
-  public Long getFunctionVaddr() {
-    return functionVaddr;
-  }
-
-  public void setFunctionVaddr(@javax.annotation.Nonnull Long functionVaddr) {
-    this.functionVaddr = functionVaddr;
-  }
-
-
-  public AppApiRestV2FunctionsTypesFunction functionSize(@javax.annotation.Nonnull Integer functionSize) {
-    this.functionSize = functionSize;
-    return this;
-  }
-
-  /**
-   * Function size
-   * @return functionSize
-   */
-  @javax.annotation.Nonnull
-  public Integer getFunctionSize() {
-    return functionSize;
-  }
-
-  public void setFunctionSize(@javax.annotation.Nonnull Integer functionSize) {
-    this.functionSize = functionSize;
-  }
-
 
   public AppApiRestV2FunctionsTypesFunction debug(@javax.annotation.Nonnull Boolean debug) {
     this.debug = debug;
@@ -209,6 +114,33 @@ public class AppApiRestV2FunctionsTypesFunction {
 
   public void setDebug(@javax.annotation.Nonnull Boolean debug) {
     this.debug = debug;
+  }
+
+
+  public AppApiRestV2FunctionsTypesFunction embedding1d(@javax.annotation.Nullable List<BigDecimal> embedding1d) {
+    this.embedding1d = embedding1d;
+    return this;
+  }
+
+  public AppApiRestV2FunctionsTypesFunction addEmbedding1dItem(BigDecimal embedding1dItem) {
+    if (this.embedding1d == null) {
+      this.embedding1d = new ArrayList<>();
+    }
+    this.embedding1d.add(embedding1dItem);
+    return this;
+  }
+
+  /**
+   * Get embedding1d
+   * @return embedding1d
+   */
+  @javax.annotation.Nullable
+  public List<BigDecimal> getEmbedding1d() {
+    return embedding1d;
+  }
+
+  public void setEmbedding1d(@javax.annotation.Nullable List<BigDecimal> embedding1d) {
+    this.embedding1d = embedding1d;
   }
 
 
@@ -239,30 +171,98 @@ public class AppApiRestV2FunctionsTypesFunction {
   }
 
 
-  public AppApiRestV2FunctionsTypesFunction embedding1d(@javax.annotation.Nullable List<BigDecimal> embedding1d) {
-    this.embedding1d = embedding1d;
-    return this;
-  }
-
-  public AppApiRestV2FunctionsTypesFunction addEmbedding1dItem(BigDecimal embedding1dItem) {
-    if (this.embedding1d == null) {
-      this.embedding1d = new ArrayList<>();
-    }
-    this.embedding1d.add(embedding1dItem);
+  public AppApiRestV2FunctionsTypesFunction functionId(@javax.annotation.Nonnull Long functionId) {
+    this.functionId = functionId;
     return this;
   }
 
   /**
-   * Get embedding1d
-   * @return embedding1d
+   * Function id
+   * @return functionId
    */
-  @javax.annotation.Nullable
-  public List<BigDecimal> getEmbedding1d() {
-    return embedding1d;
+  @javax.annotation.Nonnull
+  public Long getFunctionId() {
+    return functionId;
   }
 
-  public void setEmbedding1d(@javax.annotation.Nullable List<BigDecimal> embedding1d) {
-    this.embedding1d = embedding1d;
+  public void setFunctionId(@javax.annotation.Nonnull Long functionId) {
+    this.functionId = functionId;
+  }
+
+
+  public AppApiRestV2FunctionsTypesFunction functionMangledName(@javax.annotation.Nonnull String functionMangledName) {
+    this.functionMangledName = functionMangledName;
+    return this;
+  }
+
+  /**
+   * Mangled name of the function
+   * @return functionMangledName
+   */
+  @javax.annotation.Nonnull
+  public String getFunctionMangledName() {
+    return functionMangledName;
+  }
+
+  public void setFunctionMangledName(@javax.annotation.Nonnull String functionMangledName) {
+    this.functionMangledName = functionMangledName;
+  }
+
+
+  public AppApiRestV2FunctionsTypesFunction functionName(@javax.annotation.Nonnull String functionName) {
+    this.functionName = functionName;
+    return this;
+  }
+
+  /**
+   * Demangled name of the function
+   * @return functionName
+   */
+  @javax.annotation.Nonnull
+  public String getFunctionName() {
+    return functionName;
+  }
+
+  public void setFunctionName(@javax.annotation.Nonnull String functionName) {
+    this.functionName = functionName;
+  }
+
+
+  public AppApiRestV2FunctionsTypesFunction functionSize(@javax.annotation.Nonnull Integer functionSize) {
+    this.functionSize = functionSize;
+    return this;
+  }
+
+  /**
+   * Function size
+   * @return functionSize
+   */
+  @javax.annotation.Nonnull
+  public Integer getFunctionSize() {
+    return functionSize;
+  }
+
+  public void setFunctionSize(@javax.annotation.Nonnull Integer functionSize) {
+    this.functionSize = functionSize;
+  }
+
+
+  public AppApiRestV2FunctionsTypesFunction functionVaddr(@javax.annotation.Nonnull Long functionVaddr) {
+    this.functionVaddr = functionVaddr;
+    return this;
+  }
+
+  /**
+   * Function virtual address
+   * @return functionVaddr
+   */
+  @javax.annotation.Nonnull
+  public Long getFunctionVaddr() {
+    return functionVaddr;
+  }
+
+  public void setFunctionVaddr(@javax.annotation.Nonnull Long functionVaddr) {
+    this.functionVaddr = functionVaddr;
   }
 
   /**
@@ -320,14 +320,14 @@ public class AppApiRestV2FunctionsTypesFunction {
       return false;
     }
     AppApiRestV2FunctionsTypesFunction appApiRestV2FunctionsTypesFunction = (AppApiRestV2FunctionsTypesFunction) o;
-    return Objects.equals(this.functionId, appApiRestV2FunctionsTypesFunction.functionId) &&
-        Objects.equals(this.functionName, appApiRestV2FunctionsTypesFunction.functionName) &&
-        Objects.equals(this.functionMangledName, appApiRestV2FunctionsTypesFunction.functionMangledName) &&
-        Objects.equals(this.functionVaddr, appApiRestV2FunctionsTypesFunction.functionVaddr) &&
-        Objects.equals(this.functionSize, appApiRestV2FunctionsTypesFunction.functionSize) &&
-        Objects.equals(this.debug, appApiRestV2FunctionsTypesFunction.debug) &&
+    return Objects.equals(this.debug, appApiRestV2FunctionsTypesFunction.debug) &&
+        Objects.equals(this.embedding1d, appApiRestV2FunctionsTypesFunction.embedding1d) &&
         Objects.equals(this.embedding3d, appApiRestV2FunctionsTypesFunction.embedding3d) &&
-        Objects.equals(this.embedding1d, appApiRestV2FunctionsTypesFunction.embedding1d)&&
+        Objects.equals(this.functionId, appApiRestV2FunctionsTypesFunction.functionId) &&
+        Objects.equals(this.functionMangledName, appApiRestV2FunctionsTypesFunction.functionMangledName) &&
+        Objects.equals(this.functionName, appApiRestV2FunctionsTypesFunction.functionName) &&
+        Objects.equals(this.functionSize, appApiRestV2FunctionsTypesFunction.functionSize) &&
+        Objects.equals(this.functionVaddr, appApiRestV2FunctionsTypesFunction.functionVaddr)&&
         Objects.equals(this.additionalProperties, appApiRestV2FunctionsTypesFunction.additionalProperties);
   }
 
@@ -337,7 +337,7 @@ public class AppApiRestV2FunctionsTypesFunction {
 
   @Override
   public int hashCode() {
-    return Objects.hash(functionId, functionName, functionMangledName, functionVaddr, functionSize, debug, embedding3d, embedding1d, additionalProperties);
+    return Objects.hash(debug, embedding1d, embedding3d, functionId, functionMangledName, functionName, functionSize, functionVaddr, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -351,14 +351,14 @@ public class AppApiRestV2FunctionsTypesFunction {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AppApiRestV2FunctionsTypesFunction {\n");
-    sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
-    sb.append("    functionName: ").append(toIndentedString(functionName)).append("\n");
-    sb.append("    functionMangledName: ").append(toIndentedString(functionMangledName)).append("\n");
-    sb.append("    functionVaddr: ").append(toIndentedString(functionVaddr)).append("\n");
-    sb.append("    functionSize: ").append(toIndentedString(functionSize)).append("\n");
     sb.append("    debug: ").append(toIndentedString(debug)).append("\n");
-    sb.append("    embedding3d: ").append(toIndentedString(embedding3d)).append("\n");
     sb.append("    embedding1d: ").append(toIndentedString(embedding1d)).append("\n");
+    sb.append("    embedding3d: ").append(toIndentedString(embedding3d)).append("\n");
+    sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
+    sb.append("    functionMangledName: ").append(toIndentedString(functionMangledName)).append("\n");
+    sb.append("    functionName: ").append(toIndentedString(functionName)).append("\n");
+    sb.append("    functionSize: ").append(toIndentedString(functionSize)).append("\n");
+    sb.append("    functionVaddr: ").append(toIndentedString(functionVaddr)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -381,10 +381,10 @@ public class AppApiRestV2FunctionsTypesFunction {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("function_id", "function_name", "function_mangled_name", "function_vaddr", "function_size", "debug", "embedding_3d", "embedding_1d"));
+    openapiFields = new HashSet<String>(Arrays.asList("debug", "embedding_1d", "embedding_3d", "function_id", "function_mangled_name", "function_name", "function_size", "function_vaddr"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("function_id", "function_name", "function_mangled_name", "function_vaddr", "function_size", "debug"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("debug", "function_id", "function_mangled_name", "function_name", "function_size", "function_vaddr"));
   }
 
   /**
@@ -407,19 +407,19 @@ public class AppApiRestV2FunctionsTypesFunction {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("function_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `function_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("function_name").toString()));
-      }
-      if (!jsonObj.get("function_mangled_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `function_mangled_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("function_mangled_name").toString()));
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("embedding_1d") != null && !jsonObj.get("embedding_1d").isJsonNull() && !jsonObj.get("embedding_1d").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `embedding_1d` to be an array in the JSON string but got `%s`", jsonObj.get("embedding_1d").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("embedding_3d") != null && !jsonObj.get("embedding_3d").isJsonNull() && !jsonObj.get("embedding_3d").isJsonArray()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `embedding_3d` to be an array in the JSON string but got `%s`", jsonObj.get("embedding_3d").toString()));
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("embedding_1d") != null && !jsonObj.get("embedding_1d").isJsonNull() && !jsonObj.get("embedding_1d").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `embedding_1d` to be an array in the JSON string but got `%s`", jsonObj.get("embedding_1d").toString()));
+      if (!jsonObj.get("function_mangled_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `function_mangled_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("function_mangled_name").toString()));
+      }
+      if (!jsonObj.get("function_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `function_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("function_name").toString()));
       }
   }
 

@@ -51,40 +51,40 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class PaginationModel {
-  public static final String SERIALIZED_NAME_PAGE_SIZE = "page_size";
-  @SerializedName(SERIALIZED_NAME_PAGE_SIZE)
+  public static final String SERIALIZED_NAME_HAS_NEXT_PAGE = "has_next_page";
+  @SerializedName(SERIALIZED_NAME_HAS_NEXT_PAGE)
   @javax.annotation.Nonnull
-  private Integer pageSize;
+  private Boolean hasNextPage;
 
   public static final String SERIALIZED_NAME_PAGE_NUMBER = "page_number";
   @SerializedName(SERIALIZED_NAME_PAGE_NUMBER)
   @javax.annotation.Nonnull
   private Integer pageNumber;
 
-  public static final String SERIALIZED_NAME_HAS_NEXT_PAGE = "has_next_page";
-  @SerializedName(SERIALIZED_NAME_HAS_NEXT_PAGE)
+  public static final String SERIALIZED_NAME_PAGE_SIZE = "page_size";
+  @SerializedName(SERIALIZED_NAME_PAGE_SIZE)
   @javax.annotation.Nonnull
-  private Boolean hasNextPage;
+  private Integer pageSize;
 
   public PaginationModel() {
   }
 
-  public PaginationModel pageSize(@javax.annotation.Nonnull Integer pageSize) {
-    this.pageSize = pageSize;
+  public PaginationModel hasNextPage(@javax.annotation.Nonnull Boolean hasNextPage) {
+    this.hasNextPage = hasNextPage;
     return this;
   }
 
   /**
-   * Get pageSize
-   * @return pageSize
+   * Get hasNextPage
+   * @return hasNextPage
    */
   @javax.annotation.Nonnull
-  public Integer getPageSize() {
-    return pageSize;
+  public Boolean getHasNextPage() {
+    return hasNextPage;
   }
 
-  public void setPageSize(@javax.annotation.Nonnull Integer pageSize) {
-    this.pageSize = pageSize;
+  public void setHasNextPage(@javax.annotation.Nonnull Boolean hasNextPage) {
+    this.hasNextPage = hasNextPage;
   }
 
 
@@ -107,22 +107,22 @@ public class PaginationModel {
   }
 
 
-  public PaginationModel hasNextPage(@javax.annotation.Nonnull Boolean hasNextPage) {
-    this.hasNextPage = hasNextPage;
+  public PaginationModel pageSize(@javax.annotation.Nonnull Integer pageSize) {
+    this.pageSize = pageSize;
     return this;
   }
 
   /**
-   * Get hasNextPage
-   * @return hasNextPage
+   * Get pageSize
+   * @return pageSize
    */
   @javax.annotation.Nonnull
-  public Boolean getHasNextPage() {
-    return hasNextPage;
+  public Integer getPageSize() {
+    return pageSize;
   }
 
-  public void setHasNextPage(@javax.annotation.Nonnull Boolean hasNextPage) {
-    this.hasNextPage = hasNextPage;
+  public void setPageSize(@javax.annotation.Nonnull Integer pageSize) {
+    this.pageSize = pageSize;
   }
 
   /**
@@ -180,24 +180,24 @@ public class PaginationModel {
       return false;
     }
     PaginationModel paginationModel = (PaginationModel) o;
-    return Objects.equals(this.pageSize, paginationModel.pageSize) &&
+    return Objects.equals(this.hasNextPage, paginationModel.hasNextPage) &&
         Objects.equals(this.pageNumber, paginationModel.pageNumber) &&
-        Objects.equals(this.hasNextPage, paginationModel.hasNextPage)&&
+        Objects.equals(this.pageSize, paginationModel.pageSize)&&
         Objects.equals(this.additionalProperties, paginationModel.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageSize, pageNumber, hasNextPage, additionalProperties);
+    return Objects.hash(hasNextPage, pageNumber, pageSize, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PaginationModel {\n");
-    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
-    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    hasNextPage: ").append(toIndentedString(hasNextPage)).append("\n");
+    sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
+    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -220,10 +220,10 @@ public class PaginationModel {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("page_size", "page_number", "has_next_page"));
+    openapiFields = new HashSet<String>(Arrays.asList("has_next_page", "page_number", "page_size"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("page_size", "page_number", "has_next_page"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("has_next_page", "page_number", "page_size"));
   }
 
   /**

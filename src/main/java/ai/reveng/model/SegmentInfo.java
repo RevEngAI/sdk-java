@@ -52,6 +52,11 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SegmentInfo {
+  public static final String SERIALIZED_NAME_END = "end";
+  @SerializedName(SERIALIZED_NAME_END)
+  @javax.annotation.Nullable
+  private Integer end = 0;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   @javax.annotation.Nullable
@@ -61,6 +66,11 @@ public class SegmentInfo {
   @SerializedName(SERIALIZED_NAME_R)
   @javax.annotation.Nullable
   private Boolean r;
+
+  public static final String SERIALIZED_NAME_START = "start";
+  @SerializedName(SERIALIZED_NAME_START)
+  @javax.annotation.Nullable
+  private Integer start = 0;
 
   public static final String SERIALIZED_NAME_W = "w";
   @SerializedName(SERIALIZED_NAME_W)
@@ -72,18 +82,27 @@ public class SegmentInfo {
   @javax.annotation.Nullable
   private Boolean x;
 
-  public static final String SERIALIZED_NAME_START = "start";
-  @SerializedName(SERIALIZED_NAME_START)
-  @javax.annotation.Nullable
-  private Integer start = 0;
-
-  public static final String SERIALIZED_NAME_END = "end";
-  @SerializedName(SERIALIZED_NAME_END)
-  @javax.annotation.Nullable
-  private Integer end = 0;
-
   public SegmentInfo() {
   }
+
+  public SegmentInfo end(@javax.annotation.Nullable Integer end) {
+    this.end = end;
+    return this;
+  }
+
+  /**
+   * Get end
+   * @return end
+   */
+  @javax.annotation.Nullable
+  public Integer getEnd() {
+    return end;
+  }
+
+  public void setEnd(@javax.annotation.Nullable Integer end) {
+    this.end = end;
+  }
+
 
   public SegmentInfo name(@javax.annotation.Nullable String name) {
     this.name = name;
@@ -123,6 +142,25 @@ public class SegmentInfo {
   }
 
 
+  public SegmentInfo start(@javax.annotation.Nullable Integer start) {
+    this.start = start;
+    return this;
+  }
+
+  /**
+   * Get start
+   * @return start
+   */
+  @javax.annotation.Nullable
+  public Integer getStart() {
+    return start;
+  }
+
+  public void setStart(@javax.annotation.Nullable Integer start) {
+    this.start = start;
+  }
+
+
   public SegmentInfo w(@javax.annotation.Nullable Boolean w) {
     this.w = w;
     return this;
@@ -158,44 +196,6 @@ public class SegmentInfo {
 
   public void setX(@javax.annotation.Nullable Boolean x) {
     this.x = x;
-  }
-
-
-  public SegmentInfo start(@javax.annotation.Nullable Integer start) {
-    this.start = start;
-    return this;
-  }
-
-  /**
-   * Get start
-   * @return start
-   */
-  @javax.annotation.Nullable
-  public Integer getStart() {
-    return start;
-  }
-
-  public void setStart(@javax.annotation.Nullable Integer start) {
-    this.start = start;
-  }
-
-
-  public SegmentInfo end(@javax.annotation.Nullable Integer end) {
-    this.end = end;
-    return this;
-  }
-
-  /**
-   * Get end
-   * @return end
-   */
-  @javax.annotation.Nullable
-  public Integer getEnd() {
-    return end;
-  }
-
-  public void setEnd(@javax.annotation.Nullable Integer end) {
-    this.end = end;
   }
 
   /**
@@ -253,12 +253,12 @@ public class SegmentInfo {
       return false;
     }
     SegmentInfo segmentInfo = (SegmentInfo) o;
-    return Objects.equals(this.name, segmentInfo.name) &&
+    return Objects.equals(this.end, segmentInfo.end) &&
+        Objects.equals(this.name, segmentInfo.name) &&
         Objects.equals(this.r, segmentInfo.r) &&
-        Objects.equals(this.w, segmentInfo.w) &&
-        Objects.equals(this.x, segmentInfo.x) &&
         Objects.equals(this.start, segmentInfo.start) &&
-        Objects.equals(this.end, segmentInfo.end)&&
+        Objects.equals(this.w, segmentInfo.w) &&
+        Objects.equals(this.x, segmentInfo.x)&&
         Objects.equals(this.additionalProperties, segmentInfo.additionalProperties);
   }
 
@@ -268,7 +268,7 @@ public class SegmentInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, r, w, x, start, end, additionalProperties);
+    return Objects.hash(end, name, r, start, w, x, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -282,12 +282,12 @@ public class SegmentInfo {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SegmentInfo {\n");
+    sb.append("    end: ").append(toIndentedString(end)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    r: ").append(toIndentedString(r)).append("\n");
+    sb.append("    start: ").append(toIndentedString(start)).append("\n");
     sb.append("    w: ").append(toIndentedString(w)).append("\n");
     sb.append("    x: ").append(toIndentedString(x)).append("\n");
-    sb.append("    start: ").append(toIndentedString(start)).append("\n");
-    sb.append("    end: ").append(toIndentedString(end)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -310,7 +310,7 @@ public class SegmentInfo {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("name", "r", "w", "x", "start", "end"));
+    openapiFields = new HashSet<String>(Arrays.asList("end", "name", "r", "start", "w", "x"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);

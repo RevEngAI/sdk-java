@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**binaryName** | **String** |  |  |
 |**binaryId** | **Integer** |  |  |
+|**binaryName** | **String** |  |  |
 |**matchedCommunitiesPercent** | **BigDecimal** |  |  |
 |**unmatchedCommunitiesPercent** | **BigDecimal** |  |  |
 

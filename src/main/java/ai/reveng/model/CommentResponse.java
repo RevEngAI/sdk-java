@@ -59,26 +59,6 @@ public class CommentResponse {
   @javax.annotation.Nonnull
   private String content;
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
-  private Integer id;
-
-  public static final String SERIALIZED_NAME_USER_ID = "user_id";
-  @SerializedName(SERIALIZED_NAME_USER_ID)
-  @javax.annotation.Nonnull
-  private Integer userId;
-
-  public static final String SERIALIZED_NAME_RESOURCE_TYPE = "resource_type";
-  @SerializedName(SERIALIZED_NAME_RESOURCE_TYPE)
-  @javax.annotation.Nonnull
-  private String resourceType;
-
-  public static final String SERIALIZED_NAME_RESOURCE_ID = "resource_id";
-  @SerializedName(SERIALIZED_NAME_RESOURCE_ID)
-  @javax.annotation.Nonnull
-  private String resourceId;
-
   public static final String SERIALIZED_NAME_CONTEXT = "context";
   @SerializedName(SERIALIZED_NAME_CONTEXT)
   @javax.annotation.Nullable
@@ -89,10 +69,30 @@ public class CommentResponse {
   @javax.annotation.Nonnull
   private OffsetDateTime createdAt;
 
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  @javax.annotation.Nonnull
+  private Integer id;
+
+  public static final String SERIALIZED_NAME_RESOURCE_ID = "resource_id";
+  @SerializedName(SERIALIZED_NAME_RESOURCE_ID)
+  @javax.annotation.Nonnull
+  private String resourceId;
+
+  public static final String SERIALIZED_NAME_RESOURCE_TYPE = "resource_type";
+  @SerializedName(SERIALIZED_NAME_RESOURCE_TYPE)
+  @javax.annotation.Nonnull
+  private String resourceType;
+
   public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
   @SerializedName(SERIALIZED_NAME_UPDATED_AT)
   @javax.annotation.Nonnull
   private OffsetDateTime updatedAt;
+
+  public static final String SERIALIZED_NAME_USER_ID = "user_id";
+  @SerializedName(SERIALIZED_NAME_USER_ID)
+  @javax.annotation.Nonnull
+  private Integer userId;
 
   public CommentResponse() {
   }
@@ -113,82 +113,6 @@ public class CommentResponse {
 
   public void setContent(@javax.annotation.Nonnull String content) {
     this.content = content;
-  }
-
-
-  public CommentResponse id(@javax.annotation.Nonnull Integer id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * Get id
-   * @return id
-   */
-  @javax.annotation.Nonnull
-  public Integer getId() {
-    return id;
-  }
-
-  public void setId(@javax.annotation.Nonnull Integer id) {
-    this.id = id;
-  }
-
-
-  public CommentResponse userId(@javax.annotation.Nonnull Integer userId) {
-    this.userId = userId;
-    return this;
-  }
-
-  /**
-   * Get userId
-   * @return userId
-   */
-  @javax.annotation.Nonnull
-  public Integer getUserId() {
-    return userId;
-  }
-
-  public void setUserId(@javax.annotation.Nonnull Integer userId) {
-    this.userId = userId;
-  }
-
-
-  public CommentResponse resourceType(@javax.annotation.Nonnull String resourceType) {
-    this.resourceType = resourceType;
-    return this;
-  }
-
-  /**
-   * Get resourceType
-   * @return resourceType
-   */
-  @javax.annotation.Nonnull
-  public String getResourceType() {
-    return resourceType;
-  }
-
-  public void setResourceType(@javax.annotation.Nonnull String resourceType) {
-    this.resourceType = resourceType;
-  }
-
-
-  public CommentResponse resourceId(@javax.annotation.Nonnull String resourceId) {
-    this.resourceId = resourceId;
-    return this;
-  }
-
-  /**
-   * Get resourceId
-   * @return resourceId
-   */
-  @javax.annotation.Nonnull
-  public String getResourceId() {
-    return resourceId;
-  }
-
-  public void setResourceId(@javax.annotation.Nonnull String resourceId) {
-    this.resourceId = resourceId;
   }
 
 
@@ -230,6 +154,63 @@ public class CommentResponse {
   }
 
 
+  public CommentResponse id(@javax.annotation.Nonnull Integer id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+   */
+  @javax.annotation.Nonnull
+  public Integer getId() {
+    return id;
+  }
+
+  public void setId(@javax.annotation.Nonnull Integer id) {
+    this.id = id;
+  }
+
+
+  public CommentResponse resourceId(@javax.annotation.Nonnull String resourceId) {
+    this.resourceId = resourceId;
+    return this;
+  }
+
+  /**
+   * Get resourceId
+   * @return resourceId
+   */
+  @javax.annotation.Nonnull
+  public String getResourceId() {
+    return resourceId;
+  }
+
+  public void setResourceId(@javax.annotation.Nonnull String resourceId) {
+    this.resourceId = resourceId;
+  }
+
+
+  public CommentResponse resourceType(@javax.annotation.Nonnull String resourceType) {
+    this.resourceType = resourceType;
+    return this;
+  }
+
+  /**
+   * Get resourceType
+   * @return resourceType
+   */
+  @javax.annotation.Nonnull
+  public String getResourceType() {
+    return resourceType;
+  }
+
+  public void setResourceType(@javax.annotation.Nonnull String resourceType) {
+    this.resourceType = resourceType;
+  }
+
+
   public CommentResponse updatedAt(@javax.annotation.Nonnull OffsetDateTime updatedAt) {
     this.updatedAt = updatedAt;
     return this;
@@ -246,6 +227,25 @@ public class CommentResponse {
 
   public void setUpdatedAt(@javax.annotation.Nonnull OffsetDateTime updatedAt) {
     this.updatedAt = updatedAt;
+  }
+
+
+  public CommentResponse userId(@javax.annotation.Nonnull Integer userId) {
+    this.userId = userId;
+    return this;
+  }
+
+  /**
+   * Get userId
+   * @return userId
+   */
+  @javax.annotation.Nonnull
+  public Integer getUserId() {
+    return userId;
+  }
+
+  public void setUserId(@javax.annotation.Nonnull Integer userId) {
+    this.userId = userId;
   }
 
   /**
@@ -304,13 +304,13 @@ public class CommentResponse {
     }
     CommentResponse commentResponse = (CommentResponse) o;
     return Objects.equals(this.content, commentResponse.content) &&
-        Objects.equals(this.id, commentResponse.id) &&
-        Objects.equals(this.userId, commentResponse.userId) &&
-        Objects.equals(this.resourceType, commentResponse.resourceType) &&
-        Objects.equals(this.resourceId, commentResponse.resourceId) &&
         Objects.equals(this.context, commentResponse.context) &&
         Objects.equals(this.createdAt, commentResponse.createdAt) &&
-        Objects.equals(this.updatedAt, commentResponse.updatedAt)&&
+        Objects.equals(this.id, commentResponse.id) &&
+        Objects.equals(this.resourceId, commentResponse.resourceId) &&
+        Objects.equals(this.resourceType, commentResponse.resourceType) &&
+        Objects.equals(this.updatedAt, commentResponse.updatedAt) &&
+        Objects.equals(this.userId, commentResponse.userId)&&
         Objects.equals(this.additionalProperties, commentResponse.additionalProperties);
   }
 
@@ -320,7 +320,7 @@ public class CommentResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(content, id, userId, resourceType, resourceId, context, createdAt, updatedAt, additionalProperties);
+    return Objects.hash(content, context, createdAt, id, resourceId, resourceType, updatedAt, userId, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -335,13 +335,13 @@ public class CommentResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class CommentResponse {\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
-    sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
-    sb.append("    resourceId: ").append(toIndentedString(resourceId)).append("\n");
     sb.append("    context: ").append(toIndentedString(context)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    resourceId: ").append(toIndentedString(resourceId)).append("\n");
+    sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
+    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -364,10 +364,10 @@ public class CommentResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("content", "id", "user_id", "resource_type", "resource_id", "context", "created_at", "updated_at"));
+    openapiFields = new HashSet<String>(Arrays.asList("content", "context", "created_at", "id", "resource_id", "resource_type", "updated_at", "user_id"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("content", "id", "user_id", "resource_type", "resource_id", "created_at", "updated_at"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("content", "created_at", "id", "resource_id", "resource_type", "updated_at", "user_id"));
   }
 
   /**
@@ -393,15 +393,15 @@ public class CommentResponse {
       if (!jsonObj.get("content").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `content` to be a primitive type in the JSON string but got `%s`", jsonObj.get("content").toString()));
       }
-      if (!jsonObj.get("resource_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `resource_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resource_type").toString()));
+      // validate the optional field `context`
+      if (jsonObj.get("context") != null && !jsonObj.get("context").isJsonNull()) {
+        Context.validateJsonElement(jsonObj.get("context"));
       }
       if (!jsonObj.get("resource_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `resource_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resource_id").toString()));
       }
-      // validate the optional field `context`
-      if (jsonObj.get("context") != null && !jsonObj.get("context").isJsonNull()) {
-        Context.validateJsonElement(jsonObj.get("context"));
+      if (!jsonObj.get("resource_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `resource_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resource_type").toString()));
       }
   }
 

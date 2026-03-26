@@ -62,15 +62,30 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ELFModel {
-  public static final String SERIALIZED_NAME_FILE_TYPE = "file_type";
-  @SerializedName(SERIALIZED_NAME_FILE_TYPE)
-  @javax.annotation.Nonnull
-  private String fileType;
-
   public static final String SERIALIZED_NAME_ARCHITECTURE = "architecture";
   @SerializedName(SERIALIZED_NAME_ARCHITECTURE)
   @javax.annotation.Nonnull
   private String architecture;
+
+  public static final String SERIALIZED_NAME_BUILD_ID = "build_id";
+  @SerializedName(SERIALIZED_NAME_BUILD_ID)
+  @javax.annotation.Nonnull
+  private String buildId;
+
+  public static final String SERIALIZED_NAME_DEBUG_INFO = "debug_info";
+  @SerializedName(SERIALIZED_NAME_DEBUG_INFO)
+  @javax.annotation.Nonnull
+  private Map<String, Object> debugInfo = new HashMap<>();
+
+  public static final String SERIALIZED_NAME_DYNAMIC_ENTRIES = "dynamic_entries";
+  @SerializedName(SERIALIZED_NAME_DYNAMIC_ENTRIES)
+  @javax.annotation.Nonnull
+  private List<ElfDynamicEntry> dynamicEntries = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_DYNAMIC_SYMBOLS = "dynamic_symbols";
+  @SerializedName(SERIALIZED_NAME_DYNAMIC_SYMBOLS)
+  @javax.annotation.Nonnull
+  private List<ELFSymbol> dynamicSymbols = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_ENDIANNESS = "endianness";
   @SerializedName(SERIALIZED_NAME_ENDIANNESS)
@@ -87,30 +102,50 @@ public class ELFModel {
   @javax.annotation.Nonnull
   private String entryPointBytes;
 
-  public static final String SERIALIZED_NAME_IMPORT_HASH = "import_hash";
-  @SerializedName(SERIALIZED_NAME_IMPORT_HASH)
-  @javax.annotation.Nonnull
-  private String importHash;
-
   public static final String SERIALIZED_NAME_EXPORT_HASH = "export_hash";
   @SerializedName(SERIALIZED_NAME_EXPORT_HASH)
   @javax.annotation.Nonnull
   private String exportHash;
 
-  public static final String SERIALIZED_NAME_BUILD_ID = "build_id";
-  @SerializedName(SERIALIZED_NAME_BUILD_ID)
+  public static final String SERIALIZED_NAME_EXPORTED_FUNCTIONS = "exported_functions";
+  @SerializedName(SERIALIZED_NAME_EXPORTED_FUNCTIONS)
   @javax.annotation.Nonnull
-  private String buildId;
+  private List<String> exportedFunctions = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_SECURITY = "security";
-  @SerializedName(SERIALIZED_NAME_SECURITY)
+  public static final String SERIALIZED_NAME_FILE_TYPE = "file_type";
+  @SerializedName(SERIALIZED_NAME_FILE_TYPE)
   @javax.annotation.Nonnull
-  private ELFSecurity security;
+  private String fileType;
+
+  public static final String SERIALIZED_NAME_IMPORT_HASH = "import_hash";
+  @SerializedName(SERIALIZED_NAME_IMPORT_HASH)
+  @javax.annotation.Nonnull
+  private String importHash;
+
+  public static final String SERIALIZED_NAME_IMPORTS = "imports";
+  @SerializedName(SERIALIZED_NAME_IMPORTS)
+  @javax.annotation.Nonnull
+  private ELFImportModel imports;
+
+  public static final String SERIALIZED_NAME_NOTES = "notes";
+  @SerializedName(SERIALIZED_NAME_NOTES)
+  @javax.annotation.Nonnull
+  private List<Map<String, Object>> notes = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_RELOCATIONS = "relocations";
+  @SerializedName(SERIALIZED_NAME_RELOCATIONS)
+  @javax.annotation.Nonnull
+  private List<ELFRelocation> relocations = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_SECTIONS = "sections";
   @SerializedName(SERIALIZED_NAME_SECTIONS)
   @javax.annotation.Nonnull
   private List<ELFSection> sections = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_SECURITY = "security";
+  @SerializedName(SERIALIZED_NAME_SECURITY)
+  @javax.annotation.Nonnull
+  private ELFSecurity security;
 
   public static final String SERIALIZED_NAME_SEGMENTS = "segments";
   @SerializedName(SERIALIZED_NAME_SEGMENTS)
@@ -122,41 +157,6 @@ public class ELFModel {
   @javax.annotation.Nonnull
   private List<ELFSymbol> symbols = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_DYNAMIC_SYMBOLS = "dynamic_symbols";
-  @SerializedName(SERIALIZED_NAME_DYNAMIC_SYMBOLS)
-  @javax.annotation.Nonnull
-  private List<ELFSymbol> dynamicSymbols = new ArrayList<>();
-
-  public static final String SERIALIZED_NAME_RELOCATIONS = "relocations";
-  @SerializedName(SERIALIZED_NAME_RELOCATIONS)
-  @javax.annotation.Nonnull
-  private List<ELFRelocation> relocations = new ArrayList<>();
-
-  public static final String SERIALIZED_NAME_IMPORTS = "imports";
-  @SerializedName(SERIALIZED_NAME_IMPORTS)
-  @javax.annotation.Nonnull
-  private ELFImportModel imports;
-
-  public static final String SERIALIZED_NAME_EXPORTED_FUNCTIONS = "exported_functions";
-  @SerializedName(SERIALIZED_NAME_EXPORTED_FUNCTIONS)
-  @javax.annotation.Nonnull
-  private List<String> exportedFunctions = new ArrayList<>();
-
-  public static final String SERIALIZED_NAME_DYNAMIC_ENTRIES = "dynamic_entries";
-  @SerializedName(SERIALIZED_NAME_DYNAMIC_ENTRIES)
-  @javax.annotation.Nonnull
-  private List<ElfDynamicEntry> dynamicEntries = new ArrayList<>();
-
-  public static final String SERIALIZED_NAME_NOTES = "notes";
-  @SerializedName(SERIALIZED_NAME_NOTES)
-  @javax.annotation.Nonnull
-  private List<Map<String, Object>> notes = new ArrayList<>();
-
-  public static final String SERIALIZED_NAME_DEBUG_INFO = "debug_info";
-  @SerializedName(SERIALIZED_NAME_DEBUG_INFO)
-  @javax.annotation.Nonnull
-  private Map<String, Object> debugInfo = new HashMap<>();
-
   public static final String SERIALIZED_NAME_VERSION_INFO = "version_info";
   @SerializedName(SERIALIZED_NAME_VERSION_INFO)
   @javax.annotation.Nonnull
@@ -164,25 +164,6 @@ public class ELFModel {
 
   public ELFModel() {
   }
-
-  public ELFModel fileType(@javax.annotation.Nonnull String fileType) {
-    this.fileType = fileType;
-    return this;
-  }
-
-  /**
-   * Get fileType
-   * @return fileType
-   */
-  @javax.annotation.Nonnull
-  public String getFileType() {
-    return fileType;
-  }
-
-  public void setFileType(@javax.annotation.Nonnull String fileType) {
-    this.fileType = fileType;
-  }
-
 
   public ELFModel architecture(@javax.annotation.Nonnull String architecture) {
     this.architecture = architecture;
@@ -200,6 +181,106 @@ public class ELFModel {
 
   public void setArchitecture(@javax.annotation.Nonnull String architecture) {
     this.architecture = architecture;
+  }
+
+
+  public ELFModel buildId(@javax.annotation.Nonnull String buildId) {
+    this.buildId = buildId;
+    return this;
+  }
+
+  /**
+   * Get buildId
+   * @return buildId
+   */
+  @javax.annotation.Nonnull
+  public String getBuildId() {
+    return buildId;
+  }
+
+  public void setBuildId(@javax.annotation.Nonnull String buildId) {
+    this.buildId = buildId;
+  }
+
+
+  public ELFModel debugInfo(@javax.annotation.Nonnull Map<String, Object> debugInfo) {
+    this.debugInfo = debugInfo;
+    return this;
+  }
+
+  public ELFModel putDebugInfoItem(String key, Object debugInfoItem) {
+    if (this.debugInfo == null) {
+      this.debugInfo = new HashMap<>();
+    }
+    this.debugInfo.put(key, debugInfoItem);
+    return this;
+  }
+
+  /**
+   * Get debugInfo
+   * @return debugInfo
+   */
+  @javax.annotation.Nonnull
+  public Map<String, Object> getDebugInfo() {
+    return debugInfo;
+  }
+
+  public void setDebugInfo(@javax.annotation.Nonnull Map<String, Object> debugInfo) {
+    this.debugInfo = debugInfo;
+  }
+
+
+  public ELFModel dynamicEntries(@javax.annotation.Nonnull List<ElfDynamicEntry> dynamicEntries) {
+    this.dynamicEntries = dynamicEntries;
+    return this;
+  }
+
+  public ELFModel addDynamicEntriesItem(ElfDynamicEntry dynamicEntriesItem) {
+    if (this.dynamicEntries == null) {
+      this.dynamicEntries = new ArrayList<>();
+    }
+    this.dynamicEntries.add(dynamicEntriesItem);
+    return this;
+  }
+
+  /**
+   * Get dynamicEntries
+   * @return dynamicEntries
+   */
+  @javax.annotation.Nonnull
+  public List<ElfDynamicEntry> getDynamicEntries() {
+    return dynamicEntries;
+  }
+
+  public void setDynamicEntries(@javax.annotation.Nonnull List<ElfDynamicEntry> dynamicEntries) {
+    this.dynamicEntries = dynamicEntries;
+  }
+
+
+  public ELFModel dynamicSymbols(@javax.annotation.Nonnull List<ELFSymbol> dynamicSymbols) {
+    this.dynamicSymbols = dynamicSymbols;
+    return this;
+  }
+
+  public ELFModel addDynamicSymbolsItem(ELFSymbol dynamicSymbolsItem) {
+    if (this.dynamicSymbols == null) {
+      this.dynamicSymbols = new ArrayList<>();
+    }
+    this.dynamicSymbols.add(dynamicSymbolsItem);
+    return this;
+  }
+
+  /**
+   * Get dynamicSymbols
+   * @return dynamicSymbols
+   */
+  @javax.annotation.Nonnull
+  public List<ELFSymbol> getDynamicSymbols() {
+    return dynamicSymbols;
+  }
+
+  public void setDynamicSymbols(@javax.annotation.Nonnull List<ELFSymbol> dynamicSymbols) {
+    this.dynamicSymbols = dynamicSymbols;
   }
 
 
@@ -260,25 +341,6 @@ public class ELFModel {
   }
 
 
-  public ELFModel importHash(@javax.annotation.Nonnull String importHash) {
-    this.importHash = importHash;
-    return this;
-  }
-
-  /**
-   * Get importHash
-   * @return importHash
-   */
-  @javax.annotation.Nonnull
-  public String getImportHash() {
-    return importHash;
-  }
-
-  public void setImportHash(@javax.annotation.Nonnull String importHash) {
-    this.importHash = importHash;
-  }
-
-
   public ELFModel exportHash(@javax.annotation.Nonnull String exportHash) {
     this.exportHash = exportHash;
     return this;
@@ -298,41 +360,141 @@ public class ELFModel {
   }
 
 
-  public ELFModel buildId(@javax.annotation.Nonnull String buildId) {
-    this.buildId = buildId;
+  public ELFModel exportedFunctions(@javax.annotation.Nonnull List<String> exportedFunctions) {
+    this.exportedFunctions = exportedFunctions;
+    return this;
+  }
+
+  public ELFModel addExportedFunctionsItem(String exportedFunctionsItem) {
+    if (this.exportedFunctions == null) {
+      this.exportedFunctions = new ArrayList<>();
+    }
+    this.exportedFunctions.add(exportedFunctionsItem);
     return this;
   }
 
   /**
-   * Get buildId
-   * @return buildId
+   * Get exportedFunctions
+   * @return exportedFunctions
    */
   @javax.annotation.Nonnull
-  public String getBuildId() {
-    return buildId;
+  public List<String> getExportedFunctions() {
+    return exportedFunctions;
   }
 
-  public void setBuildId(@javax.annotation.Nonnull String buildId) {
-    this.buildId = buildId;
+  public void setExportedFunctions(@javax.annotation.Nonnull List<String> exportedFunctions) {
+    this.exportedFunctions = exportedFunctions;
   }
 
 
-  public ELFModel security(@javax.annotation.Nonnull ELFSecurity security) {
-    this.security = security;
+  public ELFModel fileType(@javax.annotation.Nonnull String fileType) {
+    this.fileType = fileType;
     return this;
   }
 
   /**
-   * Get security
-   * @return security
+   * Get fileType
+   * @return fileType
    */
   @javax.annotation.Nonnull
-  public ELFSecurity getSecurity() {
-    return security;
+  public String getFileType() {
+    return fileType;
   }
 
-  public void setSecurity(@javax.annotation.Nonnull ELFSecurity security) {
-    this.security = security;
+  public void setFileType(@javax.annotation.Nonnull String fileType) {
+    this.fileType = fileType;
+  }
+
+
+  public ELFModel importHash(@javax.annotation.Nonnull String importHash) {
+    this.importHash = importHash;
+    return this;
+  }
+
+  /**
+   * Get importHash
+   * @return importHash
+   */
+  @javax.annotation.Nonnull
+  public String getImportHash() {
+    return importHash;
+  }
+
+  public void setImportHash(@javax.annotation.Nonnull String importHash) {
+    this.importHash = importHash;
+  }
+
+
+  public ELFModel imports(@javax.annotation.Nonnull ELFImportModel imports) {
+    this.imports = imports;
+    return this;
+  }
+
+  /**
+   * Get imports
+   * @return imports
+   */
+  @javax.annotation.Nonnull
+  public ELFImportModel getImports() {
+    return imports;
+  }
+
+  public void setImports(@javax.annotation.Nonnull ELFImportModel imports) {
+    this.imports = imports;
+  }
+
+
+  public ELFModel notes(@javax.annotation.Nonnull List<Map<String, Object>> notes) {
+    this.notes = notes;
+    return this;
+  }
+
+  public ELFModel addNotesItem(Map<String, Object> notesItem) {
+    if (this.notes == null) {
+      this.notes = new ArrayList<>();
+    }
+    this.notes.add(notesItem);
+    return this;
+  }
+
+  /**
+   * Get notes
+   * @return notes
+   */
+  @javax.annotation.Nonnull
+  public List<Map<String, Object>> getNotes() {
+    return notes;
+  }
+
+  public void setNotes(@javax.annotation.Nonnull List<Map<String, Object>> notes) {
+    this.notes = notes;
+  }
+
+
+  public ELFModel relocations(@javax.annotation.Nonnull List<ELFRelocation> relocations) {
+    this.relocations = relocations;
+    return this;
+  }
+
+  public ELFModel addRelocationsItem(ELFRelocation relocationsItem) {
+    if (this.relocations == null) {
+      this.relocations = new ArrayList<>();
+    }
+    this.relocations.add(relocationsItem);
+    return this;
+  }
+
+  /**
+   * Get relocations
+   * @return relocations
+   */
+  @javax.annotation.Nonnull
+  public List<ELFRelocation> getRelocations() {
+    return relocations;
+  }
+
+  public void setRelocations(@javax.annotation.Nonnull List<ELFRelocation> relocations) {
+    this.relocations = relocations;
   }
 
 
@@ -360,6 +522,25 @@ public class ELFModel {
 
   public void setSections(@javax.annotation.Nonnull List<ELFSection> sections) {
     this.sections = sections;
+  }
+
+
+  public ELFModel security(@javax.annotation.Nonnull ELFSecurity security) {
+    this.security = security;
+    return this;
+  }
+
+  /**
+   * Get security
+   * @return security
+   */
+  @javax.annotation.Nonnull
+  public ELFSecurity getSecurity() {
+    return security;
+  }
+
+  public void setSecurity(@javax.annotation.Nonnull ELFSecurity security) {
+    this.security = security;
   }
 
 
@@ -414,187 +595,6 @@ public class ELFModel {
 
   public void setSymbols(@javax.annotation.Nonnull List<ELFSymbol> symbols) {
     this.symbols = symbols;
-  }
-
-
-  public ELFModel dynamicSymbols(@javax.annotation.Nonnull List<ELFSymbol> dynamicSymbols) {
-    this.dynamicSymbols = dynamicSymbols;
-    return this;
-  }
-
-  public ELFModel addDynamicSymbolsItem(ELFSymbol dynamicSymbolsItem) {
-    if (this.dynamicSymbols == null) {
-      this.dynamicSymbols = new ArrayList<>();
-    }
-    this.dynamicSymbols.add(dynamicSymbolsItem);
-    return this;
-  }
-
-  /**
-   * Get dynamicSymbols
-   * @return dynamicSymbols
-   */
-  @javax.annotation.Nonnull
-  public List<ELFSymbol> getDynamicSymbols() {
-    return dynamicSymbols;
-  }
-
-  public void setDynamicSymbols(@javax.annotation.Nonnull List<ELFSymbol> dynamicSymbols) {
-    this.dynamicSymbols = dynamicSymbols;
-  }
-
-
-  public ELFModel relocations(@javax.annotation.Nonnull List<ELFRelocation> relocations) {
-    this.relocations = relocations;
-    return this;
-  }
-
-  public ELFModel addRelocationsItem(ELFRelocation relocationsItem) {
-    if (this.relocations == null) {
-      this.relocations = new ArrayList<>();
-    }
-    this.relocations.add(relocationsItem);
-    return this;
-  }
-
-  /**
-   * Get relocations
-   * @return relocations
-   */
-  @javax.annotation.Nonnull
-  public List<ELFRelocation> getRelocations() {
-    return relocations;
-  }
-
-  public void setRelocations(@javax.annotation.Nonnull List<ELFRelocation> relocations) {
-    this.relocations = relocations;
-  }
-
-
-  public ELFModel imports(@javax.annotation.Nonnull ELFImportModel imports) {
-    this.imports = imports;
-    return this;
-  }
-
-  /**
-   * Get imports
-   * @return imports
-   */
-  @javax.annotation.Nonnull
-  public ELFImportModel getImports() {
-    return imports;
-  }
-
-  public void setImports(@javax.annotation.Nonnull ELFImportModel imports) {
-    this.imports = imports;
-  }
-
-
-  public ELFModel exportedFunctions(@javax.annotation.Nonnull List<String> exportedFunctions) {
-    this.exportedFunctions = exportedFunctions;
-    return this;
-  }
-
-  public ELFModel addExportedFunctionsItem(String exportedFunctionsItem) {
-    if (this.exportedFunctions == null) {
-      this.exportedFunctions = new ArrayList<>();
-    }
-    this.exportedFunctions.add(exportedFunctionsItem);
-    return this;
-  }
-
-  /**
-   * Get exportedFunctions
-   * @return exportedFunctions
-   */
-  @javax.annotation.Nonnull
-  public List<String> getExportedFunctions() {
-    return exportedFunctions;
-  }
-
-  public void setExportedFunctions(@javax.annotation.Nonnull List<String> exportedFunctions) {
-    this.exportedFunctions = exportedFunctions;
-  }
-
-
-  public ELFModel dynamicEntries(@javax.annotation.Nonnull List<ElfDynamicEntry> dynamicEntries) {
-    this.dynamicEntries = dynamicEntries;
-    return this;
-  }
-
-  public ELFModel addDynamicEntriesItem(ElfDynamicEntry dynamicEntriesItem) {
-    if (this.dynamicEntries == null) {
-      this.dynamicEntries = new ArrayList<>();
-    }
-    this.dynamicEntries.add(dynamicEntriesItem);
-    return this;
-  }
-
-  /**
-   * Get dynamicEntries
-   * @return dynamicEntries
-   */
-  @javax.annotation.Nonnull
-  public List<ElfDynamicEntry> getDynamicEntries() {
-    return dynamicEntries;
-  }
-
-  public void setDynamicEntries(@javax.annotation.Nonnull List<ElfDynamicEntry> dynamicEntries) {
-    this.dynamicEntries = dynamicEntries;
-  }
-
-
-  public ELFModel notes(@javax.annotation.Nonnull List<Map<String, Object>> notes) {
-    this.notes = notes;
-    return this;
-  }
-
-  public ELFModel addNotesItem(Map<String, Object> notesItem) {
-    if (this.notes == null) {
-      this.notes = new ArrayList<>();
-    }
-    this.notes.add(notesItem);
-    return this;
-  }
-
-  /**
-   * Get notes
-   * @return notes
-   */
-  @javax.annotation.Nonnull
-  public List<Map<String, Object>> getNotes() {
-    return notes;
-  }
-
-  public void setNotes(@javax.annotation.Nonnull List<Map<String, Object>> notes) {
-    this.notes = notes;
-  }
-
-
-  public ELFModel debugInfo(@javax.annotation.Nonnull Map<String, Object> debugInfo) {
-    this.debugInfo = debugInfo;
-    return this;
-  }
-
-  public ELFModel putDebugInfoItem(String key, Object debugInfoItem) {
-    if (this.debugInfo == null) {
-      this.debugInfo = new HashMap<>();
-    }
-    this.debugInfo.put(key, debugInfoItem);
-    return this;
-  }
-
-  /**
-   * Get debugInfo
-   * @return debugInfo
-   */
-  @javax.annotation.Nonnull
-  public Map<String, Object> getDebugInfo() {
-    return debugInfo;
-  }
-
-  public void setDebugInfo(@javax.annotation.Nonnull Map<String, Object> debugInfo) {
-    this.debugInfo = debugInfo;
   }
 
 
@@ -679,57 +679,57 @@ public class ELFModel {
       return false;
     }
     ELFModel elFModel = (ELFModel) o;
-    return Objects.equals(this.fileType, elFModel.fileType) &&
-        Objects.equals(this.architecture, elFModel.architecture) &&
+    return Objects.equals(this.architecture, elFModel.architecture) &&
+        Objects.equals(this.buildId, elFModel.buildId) &&
+        Objects.equals(this.debugInfo, elFModel.debugInfo) &&
+        Objects.equals(this.dynamicEntries, elFModel.dynamicEntries) &&
+        Objects.equals(this.dynamicSymbols, elFModel.dynamicSymbols) &&
         Objects.equals(this.endianness, elFModel.endianness) &&
         Objects.equals(this.entryPoint, elFModel.entryPoint) &&
         Objects.equals(this.entryPointBytes, elFModel.entryPointBytes) &&
-        Objects.equals(this.importHash, elFModel.importHash) &&
         Objects.equals(this.exportHash, elFModel.exportHash) &&
-        Objects.equals(this.buildId, elFModel.buildId) &&
-        Objects.equals(this.security, elFModel.security) &&
+        Objects.equals(this.exportedFunctions, elFModel.exportedFunctions) &&
+        Objects.equals(this.fileType, elFModel.fileType) &&
+        Objects.equals(this.importHash, elFModel.importHash) &&
+        Objects.equals(this.imports, elFModel.imports) &&
+        Objects.equals(this.notes, elFModel.notes) &&
+        Objects.equals(this.relocations, elFModel.relocations) &&
         Objects.equals(this.sections, elFModel.sections) &&
+        Objects.equals(this.security, elFModel.security) &&
         Objects.equals(this.segments, elFModel.segments) &&
         Objects.equals(this.symbols, elFModel.symbols) &&
-        Objects.equals(this.dynamicSymbols, elFModel.dynamicSymbols) &&
-        Objects.equals(this.relocations, elFModel.relocations) &&
-        Objects.equals(this.imports, elFModel.imports) &&
-        Objects.equals(this.exportedFunctions, elFModel.exportedFunctions) &&
-        Objects.equals(this.dynamicEntries, elFModel.dynamicEntries) &&
-        Objects.equals(this.notes, elFModel.notes) &&
-        Objects.equals(this.debugInfo, elFModel.debugInfo) &&
         Objects.equals(this.versionInfo, elFModel.versionInfo)&&
         Objects.equals(this.additionalProperties, elFModel.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fileType, architecture, endianness, entryPoint, entryPointBytes, importHash, exportHash, buildId, security, sections, segments, symbols, dynamicSymbols, relocations, imports, exportedFunctions, dynamicEntries, notes, debugInfo, versionInfo, additionalProperties);
+    return Objects.hash(architecture, buildId, debugInfo, dynamicEntries, dynamicSymbols, endianness, entryPoint, entryPointBytes, exportHash, exportedFunctions, fileType, importHash, imports, notes, relocations, sections, security, segments, symbols, versionInfo, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ELFModel {\n");
-    sb.append("    fileType: ").append(toIndentedString(fileType)).append("\n");
     sb.append("    architecture: ").append(toIndentedString(architecture)).append("\n");
+    sb.append("    buildId: ").append(toIndentedString(buildId)).append("\n");
+    sb.append("    debugInfo: ").append(toIndentedString(debugInfo)).append("\n");
+    sb.append("    dynamicEntries: ").append(toIndentedString(dynamicEntries)).append("\n");
+    sb.append("    dynamicSymbols: ").append(toIndentedString(dynamicSymbols)).append("\n");
     sb.append("    endianness: ").append(toIndentedString(endianness)).append("\n");
     sb.append("    entryPoint: ").append(toIndentedString(entryPoint)).append("\n");
     sb.append("    entryPointBytes: ").append(toIndentedString(entryPointBytes)).append("\n");
-    sb.append("    importHash: ").append(toIndentedString(importHash)).append("\n");
     sb.append("    exportHash: ").append(toIndentedString(exportHash)).append("\n");
-    sb.append("    buildId: ").append(toIndentedString(buildId)).append("\n");
-    sb.append("    security: ").append(toIndentedString(security)).append("\n");
+    sb.append("    exportedFunctions: ").append(toIndentedString(exportedFunctions)).append("\n");
+    sb.append("    fileType: ").append(toIndentedString(fileType)).append("\n");
+    sb.append("    importHash: ").append(toIndentedString(importHash)).append("\n");
+    sb.append("    imports: ").append(toIndentedString(imports)).append("\n");
+    sb.append("    notes: ").append(toIndentedString(notes)).append("\n");
+    sb.append("    relocations: ").append(toIndentedString(relocations)).append("\n");
     sb.append("    sections: ").append(toIndentedString(sections)).append("\n");
+    sb.append("    security: ").append(toIndentedString(security)).append("\n");
     sb.append("    segments: ").append(toIndentedString(segments)).append("\n");
     sb.append("    symbols: ").append(toIndentedString(symbols)).append("\n");
-    sb.append("    dynamicSymbols: ").append(toIndentedString(dynamicSymbols)).append("\n");
-    sb.append("    relocations: ").append(toIndentedString(relocations)).append("\n");
-    sb.append("    imports: ").append(toIndentedString(imports)).append("\n");
-    sb.append("    exportedFunctions: ").append(toIndentedString(exportedFunctions)).append("\n");
-    sb.append("    dynamicEntries: ").append(toIndentedString(dynamicEntries)).append("\n");
-    sb.append("    notes: ").append(toIndentedString(notes)).append("\n");
-    sb.append("    debugInfo: ").append(toIndentedString(debugInfo)).append("\n");
     sb.append("    versionInfo: ").append(toIndentedString(versionInfo)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -753,10 +753,10 @@ public class ELFModel {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("file_type", "architecture", "endianness", "entry_point", "entry_point_bytes", "import_hash", "export_hash", "build_id", "security", "sections", "segments", "symbols", "dynamic_symbols", "relocations", "imports", "exported_functions", "dynamic_entries", "notes", "debug_info", "version_info"));
+    openapiFields = new HashSet<String>(Arrays.asList("architecture", "build_id", "debug_info", "dynamic_entries", "dynamic_symbols", "endianness", "entry_point", "entry_point_bytes", "export_hash", "exported_functions", "file_type", "import_hash", "imports", "notes", "relocations", "sections", "security", "segments", "symbols", "version_info"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("file_type", "architecture", "endianness", "entry_point", "entry_point_bytes", "import_hash", "export_hash", "build_id", "security", "sections", "segments", "symbols", "dynamic_symbols", "relocations", "imports", "exported_functions", "dynamic_entries", "notes", "debug_info", "version_info"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("architecture", "build_id", "debug_info", "dynamic_entries", "dynamic_symbols", "endianness", "entry_point", "entry_point_bytes", "export_hash", "exported_functions", "file_type", "import_hash", "imports", "notes", "relocations", "sections", "security", "segments", "symbols", "version_info"));
   }
 
   /**
@@ -779,29 +779,71 @@ public class ELFModel {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("file_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `file_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("file_type").toString()));
-      }
       if (!jsonObj.get("architecture").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `architecture` to be a primitive type in the JSON string but got `%s`", jsonObj.get("architecture").toString()));
       }
+      if (!jsonObj.get("build_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `build_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("build_id").toString()));
+      }
+      // ensure the json data is an array
+      if (!jsonObj.get("dynamic_entries").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `dynamic_entries` to be an array in the JSON string but got `%s`", jsonObj.get("dynamic_entries").toString()));
+      }
+
+      JsonArray jsonArraydynamicEntries = jsonObj.getAsJsonArray("dynamic_entries");
+      // validate the required field `dynamic_entries` (array)
+      for (int i = 0; i < jsonArraydynamicEntries.size(); i++) {
+        ElfDynamicEntry.validateJsonElement(jsonArraydynamicEntries.get(i));
+      };
+      // ensure the json data is an array
+      if (!jsonObj.get("dynamic_symbols").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `dynamic_symbols` to be an array in the JSON string but got `%s`", jsonObj.get("dynamic_symbols").toString()));
+      }
+
+      JsonArray jsonArraydynamicSymbols = jsonObj.getAsJsonArray("dynamic_symbols");
+      // validate the required field `dynamic_symbols` (array)
+      for (int i = 0; i < jsonArraydynamicSymbols.size(); i++) {
+        ELFSymbol.validateJsonElement(jsonArraydynamicSymbols.get(i));
+      };
       if (!jsonObj.get("endianness").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `endianness` to be a primitive type in the JSON string but got `%s`", jsonObj.get("endianness").toString()));
       }
       if (!jsonObj.get("entry_point_bytes").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `entry_point_bytes` to be a primitive type in the JSON string but got `%s`", jsonObj.get("entry_point_bytes").toString()));
       }
-      if (!jsonObj.get("import_hash").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `import_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("import_hash").toString()));
-      }
       if (!jsonObj.get("export_hash").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `export_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("export_hash").toString()));
       }
-      if (!jsonObj.get("build_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `build_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("build_id").toString()));
+      // ensure the required json array is present
+      if (jsonObj.get("exported_functions") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("exported_functions").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `exported_functions` to be an array in the JSON string but got `%s`", jsonObj.get("exported_functions").toString()));
       }
-      // validate the required field `security`
-      ELFSecurity.validateJsonElement(jsonObj.get("security"));
+      if (!jsonObj.get("file_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `file_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("file_type").toString()));
+      }
+      if (!jsonObj.get("import_hash").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `import_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("import_hash").toString()));
+      }
+      // validate the required field `imports`
+      ELFImportModel.validateJsonElement(jsonObj.get("imports"));
+      // ensure the required json array is present
+      if (jsonObj.get("notes") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("notes").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `notes` to be an array in the JSON string but got `%s`", jsonObj.get("notes").toString()));
+      }
+      // ensure the json data is an array
+      if (!jsonObj.get("relocations").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `relocations` to be an array in the JSON string but got `%s`", jsonObj.get("relocations").toString()));
+      }
+
+      JsonArray jsonArrayrelocations = jsonObj.getAsJsonArray("relocations");
+      // validate the required field `relocations` (array)
+      for (int i = 0; i < jsonArrayrelocations.size(); i++) {
+        ELFRelocation.validateJsonElement(jsonArrayrelocations.get(i));
+      };
       // ensure the json data is an array
       if (!jsonObj.get("sections").isJsonArray()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `sections` to be an array in the JSON string but got `%s`", jsonObj.get("sections").toString()));
@@ -812,6 +854,8 @@ public class ELFModel {
       for (int i = 0; i < jsonArraysections.size(); i++) {
         ELFSection.validateJsonElement(jsonArraysections.get(i));
       };
+      // validate the required field `security`
+      ELFSecurity.validateJsonElement(jsonObj.get("security"));
       // ensure the json data is an array
       if (!jsonObj.get("segments").isJsonArray()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `segments` to be an array in the JSON string but got `%s`", jsonObj.get("segments").toString()));
@@ -832,50 +876,6 @@ public class ELFModel {
       for (int i = 0; i < jsonArraysymbols.size(); i++) {
         ELFSymbol.validateJsonElement(jsonArraysymbols.get(i));
       };
-      // ensure the json data is an array
-      if (!jsonObj.get("dynamic_symbols").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `dynamic_symbols` to be an array in the JSON string but got `%s`", jsonObj.get("dynamic_symbols").toString()));
-      }
-
-      JsonArray jsonArraydynamicSymbols = jsonObj.getAsJsonArray("dynamic_symbols");
-      // validate the required field `dynamic_symbols` (array)
-      for (int i = 0; i < jsonArraydynamicSymbols.size(); i++) {
-        ELFSymbol.validateJsonElement(jsonArraydynamicSymbols.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("relocations").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `relocations` to be an array in the JSON string but got `%s`", jsonObj.get("relocations").toString()));
-      }
-
-      JsonArray jsonArrayrelocations = jsonObj.getAsJsonArray("relocations");
-      // validate the required field `relocations` (array)
-      for (int i = 0; i < jsonArrayrelocations.size(); i++) {
-        ELFRelocation.validateJsonElement(jsonArrayrelocations.get(i));
-      };
-      // validate the required field `imports`
-      ELFImportModel.validateJsonElement(jsonObj.get("imports"));
-      // ensure the required json array is present
-      if (jsonObj.get("exported_functions") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("exported_functions").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `exported_functions` to be an array in the JSON string but got `%s`", jsonObj.get("exported_functions").toString()));
-      }
-      // ensure the json data is an array
-      if (!jsonObj.get("dynamic_entries").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `dynamic_entries` to be an array in the JSON string but got `%s`", jsonObj.get("dynamic_entries").toString()));
-      }
-
-      JsonArray jsonArraydynamicEntries = jsonObj.getAsJsonArray("dynamic_entries");
-      // validate the required field `dynamic_entries` (array)
-      for (int i = 0; i < jsonArraydynamicEntries.size(); i++) {
-        ElfDynamicEntry.validateJsonElement(jsonArraydynamicEntries.get(i));
-      };
-      // ensure the required json array is present
-      if (jsonObj.get("notes") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("notes").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `notes` to be an array in the JSON string but got `%s`", jsonObj.get("notes").toString()));
-      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

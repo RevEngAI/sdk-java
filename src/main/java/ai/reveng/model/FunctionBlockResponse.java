@@ -60,30 +60,30 @@ public class FunctionBlockResponse {
   @javax.annotation.Nonnull
   private List<String> asm = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
-  private Integer id;
-
-  public static final String SERIALIZED_NAME_MIN_ADDR = "min_addr";
-  @SerializedName(SERIALIZED_NAME_MIN_ADDR)
-  @javax.annotation.Nonnull
-  private Integer minAddr;
-
-  public static final String SERIALIZED_NAME_MAX_ADDR = "max_addr";
-  @SerializedName(SERIALIZED_NAME_MAX_ADDR)
-  @javax.annotation.Nonnull
-  private Integer maxAddr;
+  public static final String SERIALIZED_NAME_COMMENT = "comment";
+  @SerializedName(SERIALIZED_NAME_COMMENT)
+  @javax.annotation.Nullable
+  private String comment;
 
   public static final String SERIALIZED_NAME_DESTINATIONS = "destinations";
   @SerializedName(SERIALIZED_NAME_DESTINATIONS)
   @javax.annotation.Nonnull
   private List<FunctionBlockDestinationResponse> destinations = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_COMMENT = "comment";
-  @SerializedName(SERIALIZED_NAME_COMMENT)
-  @javax.annotation.Nullable
-  private String comment;
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  @javax.annotation.Nonnull
+  private Integer id;
+
+  public static final String SERIALIZED_NAME_MAX_ADDR = "max_addr";
+  @SerializedName(SERIALIZED_NAME_MAX_ADDR)
+  @javax.annotation.Nonnull
+  private Integer maxAddr;
+
+  public static final String SERIALIZED_NAME_MIN_ADDR = "min_addr";
+  @SerializedName(SERIALIZED_NAME_MIN_ADDR)
+  @javax.annotation.Nonnull
+  private Integer minAddr;
 
   public FunctionBlockResponse() {
   }
@@ -115,60 +115,22 @@ public class FunctionBlockResponse {
   }
 
 
-  public FunctionBlockResponse id(@javax.annotation.Nonnull Integer id) {
-    this.id = id;
+  public FunctionBlockResponse comment(@javax.annotation.Nullable String comment) {
+    this.comment = comment;
     return this;
   }
 
   /**
-   * ID of the block
-   * @return id
+   * Get comment
+   * @return comment
    */
-  @javax.annotation.Nonnull
-  public Integer getId() {
-    return id;
+  @javax.annotation.Nullable
+  public String getComment() {
+    return comment;
   }
 
-  public void setId(@javax.annotation.Nonnull Integer id) {
-    this.id = id;
-  }
-
-
-  public FunctionBlockResponse minAddr(@javax.annotation.Nonnull Integer minAddr) {
-    this.minAddr = minAddr;
-    return this;
-  }
-
-  /**
-   * The minimum vaddr of the block
-   * @return minAddr
-   */
-  @javax.annotation.Nonnull
-  public Integer getMinAddr() {
-    return minAddr;
-  }
-
-  public void setMinAddr(@javax.annotation.Nonnull Integer minAddr) {
-    this.minAddr = minAddr;
-  }
-
-
-  public FunctionBlockResponse maxAddr(@javax.annotation.Nonnull Integer maxAddr) {
-    this.maxAddr = maxAddr;
-    return this;
-  }
-
-  /**
-   * The maximum vaddr of the block
-   * @return maxAddr
-   */
-  @javax.annotation.Nonnull
-  public Integer getMaxAddr() {
-    return maxAddr;
-  }
-
-  public void setMaxAddr(@javax.annotation.Nonnull Integer maxAddr) {
-    this.maxAddr = maxAddr;
+  public void setComment(@javax.annotation.Nullable String comment) {
+    this.comment = comment;
   }
 
 
@@ -199,22 +161,60 @@ public class FunctionBlockResponse {
   }
 
 
-  public FunctionBlockResponse comment(@javax.annotation.Nullable String comment) {
-    this.comment = comment;
+  public FunctionBlockResponse id(@javax.annotation.Nonnull Integer id) {
+    this.id = id;
     return this;
   }
 
   /**
-   * Get comment
-   * @return comment
+   * ID of the block
+   * @return id
    */
-  @javax.annotation.Nullable
-  public String getComment() {
-    return comment;
+  @javax.annotation.Nonnull
+  public Integer getId() {
+    return id;
   }
 
-  public void setComment(@javax.annotation.Nullable String comment) {
-    this.comment = comment;
+  public void setId(@javax.annotation.Nonnull Integer id) {
+    this.id = id;
+  }
+
+
+  public FunctionBlockResponse maxAddr(@javax.annotation.Nonnull Integer maxAddr) {
+    this.maxAddr = maxAddr;
+    return this;
+  }
+
+  /**
+   * The maximum vaddr of the block
+   * @return maxAddr
+   */
+  @javax.annotation.Nonnull
+  public Integer getMaxAddr() {
+    return maxAddr;
+  }
+
+  public void setMaxAddr(@javax.annotation.Nonnull Integer maxAddr) {
+    this.maxAddr = maxAddr;
+  }
+
+
+  public FunctionBlockResponse minAddr(@javax.annotation.Nonnull Integer minAddr) {
+    this.minAddr = minAddr;
+    return this;
+  }
+
+  /**
+   * The minimum vaddr of the block
+   * @return minAddr
+   */
+  @javax.annotation.Nonnull
+  public Integer getMinAddr() {
+    return minAddr;
+  }
+
+  public void setMinAddr(@javax.annotation.Nonnull Integer minAddr) {
+    this.minAddr = minAddr;
   }
 
   /**
@@ -273,11 +273,11 @@ public class FunctionBlockResponse {
     }
     FunctionBlockResponse functionBlockResponse = (FunctionBlockResponse) o;
     return Objects.equals(this.asm, functionBlockResponse.asm) &&
-        Objects.equals(this.id, functionBlockResponse.id) &&
-        Objects.equals(this.minAddr, functionBlockResponse.minAddr) &&
-        Objects.equals(this.maxAddr, functionBlockResponse.maxAddr) &&
+        Objects.equals(this.comment, functionBlockResponse.comment) &&
         Objects.equals(this.destinations, functionBlockResponse.destinations) &&
-        Objects.equals(this.comment, functionBlockResponse.comment)&&
+        Objects.equals(this.id, functionBlockResponse.id) &&
+        Objects.equals(this.maxAddr, functionBlockResponse.maxAddr) &&
+        Objects.equals(this.minAddr, functionBlockResponse.minAddr)&&
         Objects.equals(this.additionalProperties, functionBlockResponse.additionalProperties);
   }
 
@@ -287,7 +287,7 @@ public class FunctionBlockResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(asm, id, minAddr, maxAddr, destinations, comment, additionalProperties);
+    return Objects.hash(asm, comment, destinations, id, maxAddr, minAddr, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -302,11 +302,11 @@ public class FunctionBlockResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class FunctionBlockResponse {\n");
     sb.append("    asm: ").append(toIndentedString(asm)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    minAddr: ").append(toIndentedString(minAddr)).append("\n");
-    sb.append("    maxAddr: ").append(toIndentedString(maxAddr)).append("\n");
-    sb.append("    destinations: ").append(toIndentedString(destinations)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    destinations: ").append(toIndentedString(destinations)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    maxAddr: ").append(toIndentedString(maxAddr)).append("\n");
+    sb.append("    minAddr: ").append(toIndentedString(minAddr)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -329,10 +329,10 @@ public class FunctionBlockResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("asm", "id", "min_addr", "max_addr", "destinations", "comment"));
+    openapiFields = new HashSet<String>(Arrays.asList("asm", "comment", "destinations", "id", "max_addr", "min_addr"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("asm", "id", "min_addr", "max_addr", "destinations"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("asm", "destinations", "id", "max_addr", "min_addr"));
   }
 
   /**
@@ -361,6 +361,9 @@ public class FunctionBlockResponse {
       } else if (!jsonObj.get("asm").isJsonArray()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `asm` to be an array in the JSON string but got `%s`", jsonObj.get("asm").toString()));
       }
+      if ((jsonObj.get("comment") != null && !jsonObj.get("comment").isJsonNull()) && !jsonObj.get("comment").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `comment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("comment").toString()));
+      }
       // ensure the json data is an array
       if (!jsonObj.get("destinations").isJsonArray()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `destinations` to be an array in the JSON string but got `%s`", jsonObj.get("destinations").toString()));
@@ -371,9 +374,6 @@ public class FunctionBlockResponse {
       for (int i = 0; i < jsonArraydestinations.size(); i++) {
         FunctionBlockDestinationResponse.validateJsonElement(jsonArraydestinations.get(i));
       };
-      if ((jsonObj.get("comment") != null && !jsonObj.get("comment").isJsonNull()) && !jsonObj.get("comment").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `comment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("comment").toString()));
-      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

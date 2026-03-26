@@ -7,9 +7,9 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**fileFormat** | **FileFormat** |  |  [optional] |
 |**isa** | **ISA** |  |  [optional] |
 |**platform** | **Platform** |  |  [optional] |
-|**fileFormat** | **FileFormat** |  |  [optional] |
 
 
 

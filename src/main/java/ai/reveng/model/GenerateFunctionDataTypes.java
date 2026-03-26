@@ -52,6 +52,11 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GenerateFunctionDataTypes {
+  public static final String SERIALIZED_NAME_DATA_TYPES_LIST = "data_types_list";
+  @SerializedName(SERIALIZED_NAME_DATA_TYPES_LIST)
+  @javax.annotation.Nonnull
+  private GenerationStatusList dataTypesList;
+
   public static final String SERIALIZED_NAME_QUEUED = "queued";
   @Deprecated
   @SerializedName(SERIALIZED_NAME_QUEUED)
@@ -64,13 +69,27 @@ public class GenerateFunctionDataTypes {
   @javax.annotation.Nonnull
   private String reference;
 
-  public static final String SERIALIZED_NAME_DATA_TYPES_LIST = "data_types_list";
-  @SerializedName(SERIALIZED_NAME_DATA_TYPES_LIST)
-  @javax.annotation.Nonnull
-  private GenerationStatusList dataTypesList;
-
   public GenerateFunctionDataTypes() {
   }
+
+  public GenerateFunctionDataTypes dataTypesList(@javax.annotation.Nonnull GenerationStatusList dataTypesList) {
+    this.dataTypesList = dataTypesList;
+    return this;
+  }
+
+  /**
+   * List of function data types information that are either already generated, or now queued for generation
+   * @return dataTypesList
+   */
+  @javax.annotation.Nonnull
+  public GenerationStatusList getDataTypesList() {
+    return dataTypesList;
+  }
+
+  public void setDataTypesList(@javax.annotation.Nonnull GenerationStatusList dataTypesList) {
+    this.dataTypesList = dataTypesList;
+  }
+
 
   @Deprecated
   public GenerateFunctionDataTypes queued(@javax.annotation.Nonnull Boolean queued) {
@@ -115,25 +134,6 @@ public class GenerateFunctionDataTypes {
   @Deprecated
   public void setReference(@javax.annotation.Nonnull String reference) {
     this.reference = reference;
-  }
-
-
-  public GenerateFunctionDataTypes dataTypesList(@javax.annotation.Nonnull GenerationStatusList dataTypesList) {
-    this.dataTypesList = dataTypesList;
-    return this;
-  }
-
-  /**
-   * List of function data types information that are either already generated, or now queued for generation
-   * @return dataTypesList
-   */
-  @javax.annotation.Nonnull
-  public GenerationStatusList getDataTypesList() {
-    return dataTypesList;
-  }
-
-  public void setDataTypesList(@javax.annotation.Nonnull GenerationStatusList dataTypesList) {
-    this.dataTypesList = dataTypesList;
   }
 
   /**
@@ -191,24 +191,24 @@ public class GenerateFunctionDataTypes {
       return false;
     }
     GenerateFunctionDataTypes generateFunctionDataTypes = (GenerateFunctionDataTypes) o;
-    return Objects.equals(this.queued, generateFunctionDataTypes.queued) &&
-        Objects.equals(this.reference, generateFunctionDataTypes.reference) &&
-        Objects.equals(this.dataTypesList, generateFunctionDataTypes.dataTypesList)&&
+    return Objects.equals(this.dataTypesList, generateFunctionDataTypes.dataTypesList) &&
+        Objects.equals(this.queued, generateFunctionDataTypes.queued) &&
+        Objects.equals(this.reference, generateFunctionDataTypes.reference)&&
         Objects.equals(this.additionalProperties, generateFunctionDataTypes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(queued, reference, dataTypesList, additionalProperties);
+    return Objects.hash(dataTypesList, queued, reference, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GenerateFunctionDataTypes {\n");
+    sb.append("    dataTypesList: ").append(toIndentedString(dataTypesList)).append("\n");
     sb.append("    queued: ").append(toIndentedString(queued)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
-    sb.append("    dataTypesList: ").append(toIndentedString(dataTypesList)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -231,10 +231,10 @@ public class GenerateFunctionDataTypes {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("queued", "reference", "data_types_list"));
+    openapiFields = new HashSet<String>(Arrays.asList("data_types_list", "queued", "reference"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("queued", "reference", "data_types_list"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("data_types_list", "queued", "reference"));
   }
 
   /**
@@ -257,11 +257,11 @@ public class GenerateFunctionDataTypes {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // validate the required field `data_types_list`
+      GenerationStatusList.validateJsonElement(jsonObj.get("data_types_list"));
       if (!jsonObj.get("reference").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reference").toString()));
       }
-      // validate the required field `data_types_list`
-      GenerationStatusList.validateJsonElement(jsonObj.get("data_types_list"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

@@ -52,16 +52,6 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FunctionBoundary {
-  public static final String SERIALIZED_NAME_MANGLED_NAME = "mangled_name";
-  @SerializedName(SERIALIZED_NAME_MANGLED_NAME)
-  @javax.annotation.Nonnull
-  private String mangledName;
-
-  public static final String SERIALIZED_NAME_START_ADDRESS = "start_address";
-  @SerializedName(SERIALIZED_NAME_START_ADDRESS)
-  @javax.annotation.Nonnull
-  private Long startAddress;
-
   public static final String SERIALIZED_NAME_END_ADDRESS = "end_address";
   @SerializedName(SERIALIZED_NAME_END_ADDRESS)
   @javax.annotation.Nonnull
@@ -72,46 +62,18 @@ public class FunctionBoundary {
   @javax.annotation.Nullable
   private Boolean includeInAnalysis;
 
+  public static final String SERIALIZED_NAME_MANGLED_NAME = "mangled_name";
+  @SerializedName(SERIALIZED_NAME_MANGLED_NAME)
+  @javax.annotation.Nonnull
+  private String mangledName;
+
+  public static final String SERIALIZED_NAME_START_ADDRESS = "start_address";
+  @SerializedName(SERIALIZED_NAME_START_ADDRESS)
+  @javax.annotation.Nonnull
+  private Long startAddress;
+
   public FunctionBoundary() {
   }
-
-  public FunctionBoundary mangledName(@javax.annotation.Nonnull String mangledName) {
-    this.mangledName = mangledName;
-    return this;
-  }
-
-  /**
-   * Get mangledName
-   * @return mangledName
-   */
-  @javax.annotation.Nonnull
-  public String getMangledName() {
-    return mangledName;
-  }
-
-  public void setMangledName(@javax.annotation.Nonnull String mangledName) {
-    this.mangledName = mangledName;
-  }
-
-
-  public FunctionBoundary startAddress(@javax.annotation.Nonnull Long startAddress) {
-    this.startAddress = startAddress;
-    return this;
-  }
-
-  /**
-   * Get startAddress
-   * @return startAddress
-   */
-  @javax.annotation.Nonnull
-  public Long getStartAddress() {
-    return startAddress;
-  }
-
-  public void setStartAddress(@javax.annotation.Nonnull Long startAddress) {
-    this.startAddress = startAddress;
-  }
-
 
   public FunctionBoundary endAddress(@javax.annotation.Nonnull Long endAddress) {
     this.endAddress = endAddress;
@@ -148,6 +110,44 @@ public class FunctionBoundary {
 
   public void setIncludeInAnalysis(@javax.annotation.Nullable Boolean includeInAnalysis) {
     this.includeInAnalysis = includeInAnalysis;
+  }
+
+
+  public FunctionBoundary mangledName(@javax.annotation.Nonnull String mangledName) {
+    this.mangledName = mangledName;
+    return this;
+  }
+
+  /**
+   * Get mangledName
+   * @return mangledName
+   */
+  @javax.annotation.Nonnull
+  public String getMangledName() {
+    return mangledName;
+  }
+
+  public void setMangledName(@javax.annotation.Nonnull String mangledName) {
+    this.mangledName = mangledName;
+  }
+
+
+  public FunctionBoundary startAddress(@javax.annotation.Nonnull Long startAddress) {
+    this.startAddress = startAddress;
+    return this;
+  }
+
+  /**
+   * Get startAddress
+   * @return startAddress
+   */
+  @javax.annotation.Nonnull
+  public Long getStartAddress() {
+    return startAddress;
+  }
+
+  public void setStartAddress(@javax.annotation.Nonnull Long startAddress) {
+    this.startAddress = startAddress;
   }
 
   /**
@@ -205,10 +205,10 @@ public class FunctionBoundary {
       return false;
     }
     FunctionBoundary functionBoundary = (FunctionBoundary) o;
-    return Objects.equals(this.mangledName, functionBoundary.mangledName) &&
-        Objects.equals(this.startAddress, functionBoundary.startAddress) &&
-        Objects.equals(this.endAddress, functionBoundary.endAddress) &&
-        Objects.equals(this.includeInAnalysis, functionBoundary.includeInAnalysis)&&
+    return Objects.equals(this.endAddress, functionBoundary.endAddress) &&
+        Objects.equals(this.includeInAnalysis, functionBoundary.includeInAnalysis) &&
+        Objects.equals(this.mangledName, functionBoundary.mangledName) &&
+        Objects.equals(this.startAddress, functionBoundary.startAddress)&&
         Objects.equals(this.additionalProperties, functionBoundary.additionalProperties);
   }
 
@@ -218,7 +218,7 @@ public class FunctionBoundary {
 
   @Override
   public int hashCode() {
-    return Objects.hash(mangledName, startAddress, endAddress, includeInAnalysis, additionalProperties);
+    return Objects.hash(endAddress, includeInAnalysis, mangledName, startAddress, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -232,10 +232,10 @@ public class FunctionBoundary {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FunctionBoundary {\n");
-    sb.append("    mangledName: ").append(toIndentedString(mangledName)).append("\n");
-    sb.append("    startAddress: ").append(toIndentedString(startAddress)).append("\n");
     sb.append("    endAddress: ").append(toIndentedString(endAddress)).append("\n");
     sb.append("    includeInAnalysis: ").append(toIndentedString(includeInAnalysis)).append("\n");
+    sb.append("    mangledName: ").append(toIndentedString(mangledName)).append("\n");
+    sb.append("    startAddress: ").append(toIndentedString(startAddress)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -258,10 +258,10 @@ public class FunctionBoundary {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("mangled_name", "start_address", "end_address", "include_in_analysis"));
+    openapiFields = new HashSet<String>(Arrays.asList("end_address", "include_in_analysis", "mangled_name", "start_address"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("mangled_name", "start_address", "end_address"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("end_address", "mangled_name", "start_address"));
   }
 
   /**

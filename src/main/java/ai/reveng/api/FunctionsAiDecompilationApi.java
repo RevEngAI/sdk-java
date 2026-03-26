@@ -92,8 +92,8 @@ public class FunctionsAiDecompilationApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createAiDecompilationCommentCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull FunctionCommentCreateRequest functionCommentCreateRequest, final ApiCallback _callback) throws ApiException {
@@ -170,8 +170,8 @@ public class FunctionsAiDecompilationApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public BaseResponseCommentResponse createAiDecompilationComment(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull FunctionCommentCreateRequest functionCommentCreateRequest) throws ApiException {
@@ -191,8 +191,8 @@ public class FunctionsAiDecompilationApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<BaseResponseCommentResponse> createAiDecompilationCommentWithHttpInfo(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull FunctionCommentCreateRequest functionCommentCreateRequest) throws ApiException {
@@ -214,8 +214,8 @@ public class FunctionsAiDecompilationApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createAiDecompilationCommentAsync(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull FunctionCommentCreateRequest functionCommentCreateRequest, final ApiCallback<BaseResponseCommentResponse> _callback) throws ApiException {
@@ -236,11 +236,11 @@ public class FunctionsAiDecompilationApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 402 </td><td> Payment Required </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 402 </td><td> Payment Required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createAiDecompilationTaskCall(@javax.annotation.Nonnull Long functionId, final ApiCallback _callback) throws ApiException {
@@ -310,11 +310,11 @@ public class FunctionsAiDecompilationApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 402 </td><td> Payment Required </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 402 </td><td> Payment Required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public BaseResponse createAiDecompilationTask(@javax.annotation.Nonnull Long functionId) throws ApiException {
@@ -333,11 +333,11 @@ public class FunctionsAiDecompilationApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 402 </td><td> Payment Required </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 402 </td><td> Payment Required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<BaseResponse> createAiDecompilationTaskWithHttpInfo(@javax.annotation.Nonnull Long functionId) throws ApiException {
@@ -358,11 +358,11 @@ public class FunctionsAiDecompilationApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 402 </td><td> Payment Required </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 402 </td><td> Payment Required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createAiDecompilationTaskAsync(@javax.annotation.Nonnull Long functionId, final ApiCallback<BaseResponse> _callback) throws ApiException {
@@ -384,9 +384,9 @@ public class FunctionsAiDecompilationApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> You can only delete your own comments </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You can only delete your own comments </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteAiDecompilationCommentCall(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId, final ApiCallback _callback) throws ApiException {
@@ -463,9 +463,9 @@ public class FunctionsAiDecompilationApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> You can only delete your own comments </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You can only delete your own comments </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public BaseResponseBool deleteAiDecompilationComment(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId) throws ApiException {
@@ -485,9 +485,9 @@ public class FunctionsAiDecompilationApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> You can only delete your own comments </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You can only delete your own comments </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<BaseResponseBool> deleteAiDecompilationCommentWithHttpInfo(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId) throws ApiException {
@@ -509,9 +509,9 @@ public class FunctionsAiDecompilationApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> You can only delete your own comments </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You can only delete your own comments </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteAiDecompilationCommentAsync(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId, final ApiCallback<BaseResponseBool> _callback) throws ApiException {
@@ -787,7 +787,7 @@ public class FunctionsAiDecompilationApi {
      * Build call for getAiDecompilationTaskResult
      * @param functionId The ID of the function being decompiled (required)
      * @param summarise Generate a summary for the decompilation (optional, default to true)
-     * @param generateInlineComments Generate inline comments for the decompilation (only works if summarise is enabled) (optional, default to true)
+     * @param generateInlineComments Generate inline comments for the decompilation (optional, default to true)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -796,8 +796,8 @@ public class FunctionsAiDecompilationApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getAiDecompilationTaskResultCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Boolean summarise, @javax.annotation.Nullable Boolean generateInlineComments, final ApiCallback _callback) throws ApiException {
@@ -869,7 +869,7 @@ public class FunctionsAiDecompilationApi {
      * Polls the AI Decompilation Process
      * @param functionId The ID of the function being decompiled (required)
      * @param summarise Generate a summary for the decompilation (optional, default to true)
-     * @param generateInlineComments Generate inline comments for the decompilation (only works if summarise is enabled) (optional, default to true)
+     * @param generateInlineComments Generate inline comments for the decompilation (optional, default to true)
      * @return BaseResponseGetAiDecompilationTask
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -877,8 +877,8 @@ public class FunctionsAiDecompilationApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public BaseResponseGetAiDecompilationTask getAiDecompilationTaskResult(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Boolean summarise, @javax.annotation.Nullable Boolean generateInlineComments) throws ApiException {
@@ -891,7 +891,7 @@ public class FunctionsAiDecompilationApi {
      * Polls the AI Decompilation Process
      * @param functionId The ID of the function being decompiled (required)
      * @param summarise Generate a summary for the decompilation (optional, default to true)
-     * @param generateInlineComments Generate inline comments for the decompilation (only works if summarise is enabled) (optional, default to true)
+     * @param generateInlineComments Generate inline comments for the decompilation (optional, default to true)
      * @return ApiResponse&lt;BaseResponseGetAiDecompilationTask&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -899,8 +899,8 @@ public class FunctionsAiDecompilationApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<BaseResponseGetAiDecompilationTask> getAiDecompilationTaskResultWithHttpInfo(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Boolean summarise, @javax.annotation.Nullable Boolean generateInlineComments) throws ApiException {
@@ -914,7 +914,7 @@ public class FunctionsAiDecompilationApi {
      * Polls the AI Decompilation Process
      * @param functionId The ID of the function being decompiled (required)
      * @param summarise Generate a summary for the decompilation (optional, default to true)
-     * @param generateInlineComments Generate inline comments for the decompilation (only works if summarise is enabled) (optional, default to true)
+     * @param generateInlineComments Generate inline comments for the decompilation (optional, default to true)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -923,8 +923,8 @@ public class FunctionsAiDecompilationApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getAiDecompilationTaskResultAsync(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Boolean summarise, @javax.annotation.Nullable Boolean generateInlineComments, final ApiCallback<BaseResponseGetAiDecompilationTask> _callback) throws ApiException {
@@ -1078,9 +1078,9 @@ public class FunctionsAiDecompilationApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> You can only update your own comments </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You can only update your own comments </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateAiDecompilationCommentCall(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull CommentUpdateRequest commentUpdateRequest, final ApiCallback _callback) throws ApiException {
@@ -1164,9 +1164,9 @@ public class FunctionsAiDecompilationApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> You can only update your own comments </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You can only update your own comments </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public BaseResponseCommentResponse updateAiDecompilationComment(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull CommentUpdateRequest commentUpdateRequest) throws ApiException {
@@ -1187,9 +1187,9 @@ public class FunctionsAiDecompilationApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> You can only update your own comments </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You can only update your own comments </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<BaseResponseCommentResponse> updateAiDecompilationCommentWithHttpInfo(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull CommentUpdateRequest commentUpdateRequest) throws ApiException {
@@ -1212,9 +1212,9 @@ public class FunctionsAiDecompilationApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> You can only update your own comments </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You can only update your own comments </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateAiDecompilationCommentAsync(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull CommentUpdateRequest commentUpdateRequest, final ApiCallback<BaseResponseCommentResponse> _callback) throws ApiException {

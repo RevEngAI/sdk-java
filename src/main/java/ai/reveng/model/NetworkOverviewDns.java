@@ -54,6 +54,11 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class NetworkOverviewDns {
+  public static final String SERIALIZED_NAME_ANSWERS = "answers";
+  @SerializedName(SERIALIZED_NAME_ANSWERS)
+  @javax.annotation.Nonnull
+  private List<NetworkOverviewDnsAnswer> answers = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_HOST = "host";
   @SerializedName(SERIALIZED_NAME_HOST)
   @javax.annotation.Nonnull
@@ -64,13 +69,35 @@ public class NetworkOverviewDns {
   @javax.annotation.Nonnull
   private String type;
 
-  public static final String SERIALIZED_NAME_ANSWERS = "answers";
-  @SerializedName(SERIALIZED_NAME_ANSWERS)
-  @javax.annotation.Nonnull
-  private List<NetworkOverviewDnsAnswer> answers = new ArrayList<>();
-
   public NetworkOverviewDns() {
   }
+
+  public NetworkOverviewDns answers(@javax.annotation.Nonnull List<NetworkOverviewDnsAnswer> answers) {
+    this.answers = answers;
+    return this;
+  }
+
+  public NetworkOverviewDns addAnswersItem(NetworkOverviewDnsAnswer answersItem) {
+    if (this.answers == null) {
+      this.answers = new ArrayList<>();
+    }
+    this.answers.add(answersItem);
+    return this;
+  }
+
+  /**
+   * Get answers
+   * @return answers
+   */
+  @javax.annotation.Nonnull
+  public List<NetworkOverviewDnsAnswer> getAnswers() {
+    return answers;
+  }
+
+  public void setAnswers(@javax.annotation.Nonnull List<NetworkOverviewDnsAnswer> answers) {
+    this.answers = answers;
+  }
+
 
   public NetworkOverviewDns host(@javax.annotation.Nonnull String host) {
     this.host = host;
@@ -107,33 +134,6 @@ public class NetworkOverviewDns {
 
   public void setType(@javax.annotation.Nonnull String type) {
     this.type = type;
-  }
-
-
-  public NetworkOverviewDns answers(@javax.annotation.Nonnull List<NetworkOverviewDnsAnswer> answers) {
-    this.answers = answers;
-    return this;
-  }
-
-  public NetworkOverviewDns addAnswersItem(NetworkOverviewDnsAnswer answersItem) {
-    if (this.answers == null) {
-      this.answers = new ArrayList<>();
-    }
-    this.answers.add(answersItem);
-    return this;
-  }
-
-  /**
-   * Get answers
-   * @return answers
-   */
-  @javax.annotation.Nonnull
-  public List<NetworkOverviewDnsAnswer> getAnswers() {
-    return answers;
-  }
-
-  public void setAnswers(@javax.annotation.Nonnull List<NetworkOverviewDnsAnswer> answers) {
-    this.answers = answers;
   }
 
   /**
@@ -191,24 +191,24 @@ public class NetworkOverviewDns {
       return false;
     }
     NetworkOverviewDns networkOverviewDns = (NetworkOverviewDns) o;
-    return Objects.equals(this.host, networkOverviewDns.host) &&
-        Objects.equals(this.type, networkOverviewDns.type) &&
-        Objects.equals(this.answers, networkOverviewDns.answers)&&
+    return Objects.equals(this.answers, networkOverviewDns.answers) &&
+        Objects.equals(this.host, networkOverviewDns.host) &&
+        Objects.equals(this.type, networkOverviewDns.type)&&
         Objects.equals(this.additionalProperties, networkOverviewDns.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(host, type, answers, additionalProperties);
+    return Objects.hash(answers, host, type, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class NetworkOverviewDns {\n");
+    sb.append("    answers: ").append(toIndentedString(answers)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    answers: ").append(toIndentedString(answers)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -231,10 +231,10 @@ public class NetworkOverviewDns {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("host", "type", "answers"));
+    openapiFields = new HashSet<String>(Arrays.asList("answers", "host", "type"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("host", "type", "answers"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("answers", "host", "type"));
   }
 
   /**
@@ -257,12 +257,6 @@ public class NetworkOverviewDns {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("host").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `host` to be a primitive type in the JSON string but got `%s`", jsonObj.get("host").toString()));
-      }
-      if (!jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-      }
       // ensure the json data is an array
       if (!jsonObj.get("answers").isJsonArray()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `answers` to be an array in the JSON string but got `%s`", jsonObj.get("answers").toString()));
@@ -273,6 +267,12 @@ public class NetworkOverviewDns {
       for (int i = 0; i < jsonArrayanswers.size(); i++) {
         NetworkOverviewDnsAnswer.validateJsonElement(jsonArrayanswers.get(i));
       };
+      if (!jsonObj.get("host").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `host` to be a primitive type in the JSON string but got `%s`", jsonObj.get("host").toString()));
+      }
+      if (!jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

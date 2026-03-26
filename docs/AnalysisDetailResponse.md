@@ -11,6 +11,7 @@
 |**analysisId** | **Integer** |  |  |
 |**analysisScope** | **String** |  |  |
 |**architecture** | **String** |  |  |
+|**autoRunAgents** | [**AutoRunAgents**](AutoRunAgents.md) |  |  |
 |**binaryDynamic** | **Boolean** |  |  |
 |**binaryFormat** | **String** |  |  |
 |**binaryName** | **String** |  |  |
@@ -22,7 +23,6 @@
 |**modelName** | **String** |  |  |
 |**sbom** | **Map&lt;String, Object&gt;** |  |  [optional] |
 |**sha256Hash** | **String** |  |  |
-|**autoRunAgents** | [**AutoRunAgents**](AutoRunAgents.md) |  |  |
 
 
 

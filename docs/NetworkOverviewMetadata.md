@@ -7,9 +7,9 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**host** | **String** |  |  |
-|**countryCode** | **String** |  |  |
 |**ASN** | **String** |  |  |
+|**countryCode** | **String** |  |  |
+|**host** | **String** |  |  |
 |**type** | [**TypeEnum**](#TypeEnum) |  |  |
 
 

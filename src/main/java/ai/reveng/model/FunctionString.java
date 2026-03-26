@@ -14,6 +14,7 @@ package ai.reveng.model;
 
 import java.util.Objects;
 import java.util.Locale;
+import ai.reveng.model.StringSource;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -51,35 +52,40 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FunctionString {
-  public static final String SERIALIZED_NAME_VALUE = "value";
-  @SerializedName(SERIALIZED_NAME_VALUE)
-  @javax.annotation.Nonnull
-  private String value;
+  public static final String SERIALIZED_NAME_SOURCE = "source";
+  @SerializedName(SERIALIZED_NAME_SOURCE)
+  @javax.annotation.Nullable
+  private StringSource source;
 
   public static final String SERIALIZED_NAME_VADDR = "vaddr";
   @SerializedName(SERIALIZED_NAME_VADDR)
   @javax.annotation.Nonnull
   private Integer vaddr;
 
+  public static final String SERIALIZED_NAME_VALUE = "value";
+  @SerializedName(SERIALIZED_NAME_VALUE)
+  @javax.annotation.Nonnull
+  private String value;
+
   public FunctionString() {
   }
 
-  public FunctionString value(@javax.annotation.Nonnull String value) {
-    this.value = value;
+  public FunctionString source(@javax.annotation.Nullable StringSource source) {
+    this.source = source;
     return this;
   }
 
   /**
-   * The value of the string literal
-   * @return value
+   * The source of the string
+   * @return source
    */
-  @javax.annotation.Nonnull
-  public String getValue() {
-    return value;
+  @javax.annotation.Nullable
+  public StringSource getSource() {
+    return source;
   }
 
-  public void setValue(@javax.annotation.Nonnull String value) {
-    this.value = value;
+  public void setSource(@javax.annotation.Nullable StringSource source) {
+    this.source = source;
   }
 
 
@@ -99,6 +105,25 @@ public class FunctionString {
 
   public void setVaddr(@javax.annotation.Nonnull Integer vaddr) {
     this.vaddr = vaddr;
+  }
+
+
+  public FunctionString value(@javax.annotation.Nonnull String value) {
+    this.value = value;
+    return this;
+  }
+
+  /**
+   * The value of the string literal
+   * @return value
+   */
+  @javax.annotation.Nonnull
+  public String getValue() {
+    return value;
+  }
+
+  public void setValue(@javax.annotation.Nonnull String value) {
+    this.value = value;
   }
 
   /**
@@ -156,22 +181,24 @@ public class FunctionString {
       return false;
     }
     FunctionString functionString = (FunctionString) o;
-    return Objects.equals(this.value, functionString.value) &&
-        Objects.equals(this.vaddr, functionString.vaddr)&&
+    return Objects.equals(this.source, functionString.source) &&
+        Objects.equals(this.vaddr, functionString.vaddr) &&
+        Objects.equals(this.value, functionString.value)&&
         Objects.equals(this.additionalProperties, functionString.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(value, vaddr, additionalProperties);
+    return Objects.hash(source, vaddr, value, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FunctionString {\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    vaddr: ").append(toIndentedString(vaddr)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -194,10 +221,10 @@ public class FunctionString {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("value", "vaddr"));
+    openapiFields = new HashSet<String>(Arrays.asList("source", "vaddr", "value"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("value", "vaddr"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("vaddr", "value"));
   }
 
   /**
@@ -220,6 +247,10 @@ public class FunctionString {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // validate the optional field `source`
+      if (jsonObj.get("source") != null && !jsonObj.get("source").isJsonNull()) {
+        StringSource.validateJsonElement(jsonObj.get("source"));
+      }
       if (!jsonObj.get("value").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
       }

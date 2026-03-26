@@ -54,28 +54,47 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Enumeration {
+  public static final String SERIALIZED_NAME_ARTIFACT_TYPE = "artifact_type";
+  @SerializedName(SERIALIZED_NAME_ARTIFACT_TYPE)
+  @javax.annotation.Nullable
+  private String artifactType;
+
   public static final String SERIALIZED_NAME_LAST_CHANGE = "last_change";
   @SerializedName(SERIALIZED_NAME_LAST_CHANGE)
   @javax.annotation.Nullable
   private String lastChange;
-
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
-  private String name;
 
   public static final String SERIALIZED_NAME_MEMBERS = "members";
   @SerializedName(SERIALIZED_NAME_MEMBERS)
   @javax.annotation.Nonnull
   private Map<String, Integer> members = new HashMap<>();
 
-  public static final String SERIALIZED_NAME_ARTIFACT_TYPE = "artifact_type";
-  @SerializedName(SERIALIZED_NAME_ARTIFACT_TYPE)
-  @javax.annotation.Nullable
-  private String artifactType;
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  @javax.annotation.Nonnull
+  private String name;
 
   public Enumeration() {
   }
+
+  public Enumeration artifactType(@javax.annotation.Nullable String artifactType) {
+    this.artifactType = artifactType;
+    return this;
+  }
+
+  /**
+   * Type of artifact that the enumeration is associated with
+   * @return artifactType
+   */
+  @javax.annotation.Nullable
+  public String getArtifactType() {
+    return artifactType;
+  }
+
+  public void setArtifactType(@javax.annotation.Nullable String artifactType) {
+    this.artifactType = artifactType;
+  }
+
 
   public Enumeration lastChange(@javax.annotation.Nullable String lastChange) {
     this.lastChange = lastChange;
@@ -93,25 +112,6 @@ public class Enumeration {
 
   public void setLastChange(@javax.annotation.Nullable String lastChange) {
     this.lastChange = lastChange;
-  }
-
-
-  public Enumeration name(@javax.annotation.Nonnull String name) {
-    this.name = name;
-    return this;
-  }
-
-  /**
-   * Name of the enumeration
-   * @return name
-   */
-  @javax.annotation.Nonnull
-  public String getName() {
-    return name;
-  }
-
-  public void setName(@javax.annotation.Nonnull String name) {
-    this.name = name;
   }
 
 
@@ -142,22 +142,22 @@ public class Enumeration {
   }
 
 
-  public Enumeration artifactType(@javax.annotation.Nullable String artifactType) {
-    this.artifactType = artifactType;
+  public Enumeration name(@javax.annotation.Nonnull String name) {
+    this.name = name;
     return this;
   }
 
   /**
-   * Type of artifact that the enumeration is associated with
-   * @return artifactType
+   * Name of the enumeration
+   * @return name
    */
-  @javax.annotation.Nullable
-  public String getArtifactType() {
-    return artifactType;
+  @javax.annotation.Nonnull
+  public String getName() {
+    return name;
   }
 
-  public void setArtifactType(@javax.annotation.Nullable String artifactType) {
-    this.artifactType = artifactType;
+  public void setName(@javax.annotation.Nonnull String name) {
+    this.name = name;
   }
 
   /**
@@ -215,10 +215,10 @@ public class Enumeration {
       return false;
     }
     Enumeration enumeration = (Enumeration) o;
-    return Objects.equals(this.lastChange, enumeration.lastChange) &&
-        Objects.equals(this.name, enumeration.name) &&
+    return Objects.equals(this.artifactType, enumeration.artifactType) &&
+        Objects.equals(this.lastChange, enumeration.lastChange) &&
         Objects.equals(this.members, enumeration.members) &&
-        Objects.equals(this.artifactType, enumeration.artifactType)&&
+        Objects.equals(this.name, enumeration.name)&&
         Objects.equals(this.additionalProperties, enumeration.additionalProperties);
   }
 
@@ -228,7 +228,7 @@ public class Enumeration {
 
   @Override
   public int hashCode() {
-    return Objects.hash(lastChange, name, members, artifactType, additionalProperties);
+    return Objects.hash(artifactType, lastChange, members, name, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -242,10 +242,10 @@ public class Enumeration {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Enumeration {\n");
-    sb.append("    lastChange: ").append(toIndentedString(lastChange)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    members: ").append(toIndentedString(members)).append("\n");
     sb.append("    artifactType: ").append(toIndentedString(artifactType)).append("\n");
+    sb.append("    lastChange: ").append(toIndentedString(lastChange)).append("\n");
+    sb.append("    members: ").append(toIndentedString(members)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -268,10 +268,10 @@ public class Enumeration {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("last_change", "name", "members", "artifact_type"));
+    openapiFields = new HashSet<String>(Arrays.asList("artifact_type", "last_change", "members", "name"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "members"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("members", "name"));
   }
 
   /**
@@ -294,14 +294,14 @@ public class Enumeration {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("artifact_type") != null && !jsonObj.get("artifact_type").isJsonNull()) && !jsonObj.get("artifact_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `artifact_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("artifact_type").toString()));
+      }
       if ((jsonObj.get("last_change") != null && !jsonObj.get("last_change").isJsonNull()) && !jsonObj.get("last_change").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `last_change` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_change").toString()));
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      if ((jsonObj.get("artifact_type") != null && !jsonObj.get("artifact_type").isJsonNull()) && !jsonObj.get("artifact_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `artifact_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("artifact_type").toString()));
       }
   }
 

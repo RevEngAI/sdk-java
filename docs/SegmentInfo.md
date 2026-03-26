@@ -8,12 +8,12 @@ Represents the information about a segment.  Attributes:     name: The name of t
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**end** | **Integer** |  |  [optional] |
 |**name** | **String** |  |  [optional] |
 |**r** | **Boolean** |  |  [optional] |
+|**start** | **Integer** |  |  [optional] |
 |**w** | **Boolean** |  |  [optional] |
 |**x** | **Boolean** |  |  [optional] |
-|**start** | **Integer** |  |  [optional] |
-|**end** | **Integer** |  |  [optional] |
 
 
 

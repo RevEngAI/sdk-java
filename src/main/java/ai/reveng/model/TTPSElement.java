@@ -55,15 +55,15 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TTPSElement {
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
-  private String name;
-
   public static final String SERIALIZED_NAME_ATTACK = "attack";
   @SerializedName(SERIALIZED_NAME_ATTACK)
   @javax.annotation.Nonnull
   private List<TTPSAttack> attack = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  @javax.annotation.Nonnull
+  private String name;
 
   public static final String SERIALIZED_NAME_OCCURRENCES = "occurrences";
   @SerializedName(SERIALIZED_NAME_OCCURRENCES)
@@ -77,25 +77,6 @@ public class TTPSElement {
 
   public TTPSElement() {
   }
-
-  public TTPSElement name(@javax.annotation.Nonnull String name) {
-    this.name = name;
-    return this;
-  }
-
-  /**
-   * Get name
-   * @return name
-   */
-  @javax.annotation.Nonnull
-  public String getName() {
-    return name;
-  }
-
-  public void setName(@javax.annotation.Nonnull String name) {
-    this.name = name;
-  }
-
 
   public TTPSElement attack(@javax.annotation.Nonnull List<TTPSAttack> attack) {
     this.attack = attack;
@@ -121,6 +102,25 @@ public class TTPSElement {
 
   public void setAttack(@javax.annotation.Nonnull List<TTPSAttack> attack) {
     this.attack = attack;
+  }
+
+
+  public TTPSElement name(@javax.annotation.Nonnull String name) {
+    this.name = name;
+    return this;
+  }
+
+  /**
+   * Get name
+   * @return name
+   */
+  @javax.annotation.Nonnull
+  public String getName() {
+    return name;
+  }
+
+  public void setName(@javax.annotation.Nonnull String name) {
+    this.name = name;
   }
 
 
@@ -224,8 +224,8 @@ public class TTPSElement {
       return false;
     }
     TTPSElement ttPSElement = (TTPSElement) o;
-    return Objects.equals(this.name, ttPSElement.name) &&
-        Objects.equals(this.attack, ttPSElement.attack) &&
+    return Objects.equals(this.attack, ttPSElement.attack) &&
+        Objects.equals(this.name, ttPSElement.name) &&
         Objects.equals(this.occurrences, ttPSElement.occurrences) &&
         Objects.equals(this.score, ttPSElement.score)&&
         Objects.equals(this.additionalProperties, ttPSElement.additionalProperties);
@@ -233,15 +233,15 @@ public class TTPSElement {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, attack, occurrences, score, additionalProperties);
+    return Objects.hash(attack, name, occurrences, score, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TTPSElement {\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    attack: ").append(toIndentedString(attack)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    occurrences: ").append(toIndentedString(occurrences)).append("\n");
     sb.append("    score: ").append(toIndentedString(score)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -266,10 +266,10 @@ public class TTPSElement {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("name", "attack", "occurrences", "score"));
+    openapiFields = new HashSet<String>(Arrays.asList("attack", "name", "occurrences", "score"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "attack", "occurrences", "score"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("attack", "name", "occurrences", "score"));
   }
 
   /**
@@ -292,9 +292,6 @@ public class TTPSElement {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
       // ensure the json data is an array
       if (!jsonObj.get("attack").isJsonArray()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `attack` to be an array in the JSON string but got `%s`", jsonObj.get("attack").toString()));
@@ -305,6 +302,9 @@ public class TTPSElement {
       for (int i = 0; i < jsonArrayattack.size(); i++) {
         TTPSAttack.validateJsonElement(jsonArrayattack.get(i));
       };
+      if (!jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
       // ensure the json data is an array
       if (!jsonObj.get("occurrences").isJsonArray()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `occurrences` to be an array in the JSON string but got `%s`", jsonObj.get("occurrences").toString()));

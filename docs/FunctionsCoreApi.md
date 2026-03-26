@@ -666,8 +666,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful Response |  -  |
-| **422** | Invalid request parameters |  -  |
 | **404** | Not Found |  -  |
+| **422** | Invalid request parameters |  -  |
 
 <a id="getFunctionCalleesCallers"></a>
 # **getFunctionCalleesCallers**
@@ -871,8 +871,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful Response |  -  |
-| **422** | Invalid request parameters |  -  |
 | **404** | Not Found |  -  |
+| **422** | Invalid request parameters |  -  |
 
 <a id="getFunctionDetails"></a>
 # **getFunctionDetails**

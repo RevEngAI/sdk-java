@@ -52,15 +52,15 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CommunityMatchPercentages {
-  public static final String SERIALIZED_NAME_BINARY_NAME = "binary_name";
-  @SerializedName(SERIALIZED_NAME_BINARY_NAME)
-  @javax.annotation.Nonnull
-  private String binaryName;
-
   public static final String SERIALIZED_NAME_BINARY_ID = "binary_id";
   @SerializedName(SERIALIZED_NAME_BINARY_ID)
   @javax.annotation.Nonnull
   private Integer binaryId;
+
+  public static final String SERIALIZED_NAME_BINARY_NAME = "binary_name";
+  @SerializedName(SERIALIZED_NAME_BINARY_NAME)
+  @javax.annotation.Nonnull
+  private String binaryName;
 
   public static final String SERIALIZED_NAME_MATCHED_COMMUNITIES_PERCENT = "matched_communities_percent";
   @SerializedName(SERIALIZED_NAME_MATCHED_COMMUNITIES_PERCENT)
@@ -74,25 +74,6 @@ public class CommunityMatchPercentages {
 
   public CommunityMatchPercentages() {
   }
-
-  public CommunityMatchPercentages binaryName(@javax.annotation.Nonnull String binaryName) {
-    this.binaryName = binaryName;
-    return this;
-  }
-
-  /**
-   * Get binaryName
-   * @return binaryName
-   */
-  @javax.annotation.Nonnull
-  public String getBinaryName() {
-    return binaryName;
-  }
-
-  public void setBinaryName(@javax.annotation.Nonnull String binaryName) {
-    this.binaryName = binaryName;
-  }
-
 
   public CommunityMatchPercentages binaryId(@javax.annotation.Nonnull Integer binaryId) {
     this.binaryId = binaryId;
@@ -110,6 +91,25 @@ public class CommunityMatchPercentages {
 
   public void setBinaryId(@javax.annotation.Nonnull Integer binaryId) {
     this.binaryId = binaryId;
+  }
+
+
+  public CommunityMatchPercentages binaryName(@javax.annotation.Nonnull String binaryName) {
+    this.binaryName = binaryName;
+    return this;
+  }
+
+  /**
+   * Get binaryName
+   * @return binaryName
+   */
+  @javax.annotation.Nonnull
+  public String getBinaryName() {
+    return binaryName;
+  }
+
+  public void setBinaryName(@javax.annotation.Nonnull String binaryName) {
+    this.binaryName = binaryName;
   }
 
 
@@ -205,8 +205,8 @@ public class CommunityMatchPercentages {
       return false;
     }
     CommunityMatchPercentages communityMatchPercentages = (CommunityMatchPercentages) o;
-    return Objects.equals(this.binaryName, communityMatchPercentages.binaryName) &&
-        Objects.equals(this.binaryId, communityMatchPercentages.binaryId) &&
+    return Objects.equals(this.binaryId, communityMatchPercentages.binaryId) &&
+        Objects.equals(this.binaryName, communityMatchPercentages.binaryName) &&
         Objects.equals(this.matchedCommunitiesPercent, communityMatchPercentages.matchedCommunitiesPercent) &&
         Objects.equals(this.unmatchedCommunitiesPercent, communityMatchPercentages.unmatchedCommunitiesPercent)&&
         Objects.equals(this.additionalProperties, communityMatchPercentages.additionalProperties);
@@ -214,15 +214,15 @@ public class CommunityMatchPercentages {
 
   @Override
   public int hashCode() {
-    return Objects.hash(binaryName, binaryId, matchedCommunitiesPercent, unmatchedCommunitiesPercent, additionalProperties);
+    return Objects.hash(binaryId, binaryName, matchedCommunitiesPercent, unmatchedCommunitiesPercent, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CommunityMatchPercentages {\n");
-    sb.append("    binaryName: ").append(toIndentedString(binaryName)).append("\n");
     sb.append("    binaryId: ").append(toIndentedString(binaryId)).append("\n");
+    sb.append("    binaryName: ").append(toIndentedString(binaryName)).append("\n");
     sb.append("    matchedCommunitiesPercent: ").append(toIndentedString(matchedCommunitiesPercent)).append("\n");
     sb.append("    unmatchedCommunitiesPercent: ").append(toIndentedString(unmatchedCommunitiesPercent)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -247,10 +247,10 @@ public class CommunityMatchPercentages {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("binary_name", "binary_id", "matched_communities_percent", "unmatched_communities_percent"));
+    openapiFields = new HashSet<String>(Arrays.asList("binary_id", "binary_name", "matched_communities_percent", "unmatched_communities_percent"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("binary_name", "binary_id", "matched_communities_percent", "unmatched_communities_percent"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("binary_id", "binary_name", "matched_communities_percent", "unmatched_communities_percent"));
   }
 
   /**

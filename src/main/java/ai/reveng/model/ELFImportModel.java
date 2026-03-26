@@ -53,37 +53,18 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ELFImportModel {
-  public static final String SERIALIZED_NAME_NUMBER_OF_IMPORTS = "number_of_imports";
-  @SerializedName(SERIALIZED_NAME_NUMBER_OF_IMPORTS)
-  @javax.annotation.Nonnull
-  private Integer numberOfImports;
-
   public static final String SERIALIZED_NAME_IMPORTS = "imports";
   @SerializedName(SERIALIZED_NAME_IMPORTS)
   @javax.annotation.Nonnull
   private List<String> imports = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_NUMBER_OF_IMPORTS = "number_of_imports";
+  @SerializedName(SERIALIZED_NAME_NUMBER_OF_IMPORTS)
+  @javax.annotation.Nonnull
+  private Integer numberOfImports;
+
   public ELFImportModel() {
   }
-
-  public ELFImportModel numberOfImports(@javax.annotation.Nonnull Integer numberOfImports) {
-    this.numberOfImports = numberOfImports;
-    return this;
-  }
-
-  /**
-   * Get numberOfImports
-   * @return numberOfImports
-   */
-  @javax.annotation.Nonnull
-  public Integer getNumberOfImports() {
-    return numberOfImports;
-  }
-
-  public void setNumberOfImports(@javax.annotation.Nonnull Integer numberOfImports) {
-    this.numberOfImports = numberOfImports;
-  }
-
 
   public ELFImportModel imports(@javax.annotation.Nonnull List<String> imports) {
     this.imports = imports;
@@ -109,6 +90,25 @@ public class ELFImportModel {
 
   public void setImports(@javax.annotation.Nonnull List<String> imports) {
     this.imports = imports;
+  }
+
+
+  public ELFImportModel numberOfImports(@javax.annotation.Nonnull Integer numberOfImports) {
+    this.numberOfImports = numberOfImports;
+    return this;
+  }
+
+  /**
+   * Get numberOfImports
+   * @return numberOfImports
+   */
+  @javax.annotation.Nonnull
+  public Integer getNumberOfImports() {
+    return numberOfImports;
+  }
+
+  public void setNumberOfImports(@javax.annotation.Nonnull Integer numberOfImports) {
+    this.numberOfImports = numberOfImports;
   }
 
   /**
@@ -166,22 +166,22 @@ public class ELFImportModel {
       return false;
     }
     ELFImportModel elFImportModel = (ELFImportModel) o;
-    return Objects.equals(this.numberOfImports, elFImportModel.numberOfImports) &&
-        Objects.equals(this.imports, elFImportModel.imports)&&
+    return Objects.equals(this.imports, elFImportModel.imports) &&
+        Objects.equals(this.numberOfImports, elFImportModel.numberOfImports)&&
         Objects.equals(this.additionalProperties, elFImportModel.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(numberOfImports, imports, additionalProperties);
+    return Objects.hash(imports, numberOfImports, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ELFImportModel {\n");
-    sb.append("    numberOfImports: ").append(toIndentedString(numberOfImports)).append("\n");
     sb.append("    imports: ").append(toIndentedString(imports)).append("\n");
+    sb.append("    numberOfImports: ").append(toIndentedString(numberOfImports)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -204,10 +204,10 @@ public class ELFImportModel {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("number_of_imports", "imports"));
+    openapiFields = new HashSet<String>(Arrays.asList("imports", "number_of_imports"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("number_of_imports", "imports"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("imports", "number_of_imports"));
   }
 
   /**

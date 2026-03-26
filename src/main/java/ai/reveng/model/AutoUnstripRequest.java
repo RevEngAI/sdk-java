@@ -52,12 +52,6 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AutoUnstripRequest {
-  public static final String SERIALIZED_NAME_MIN_SIMILARITY = "min_similarity";
-  @Deprecated
-  @SerializedName(SERIALIZED_NAME_MIN_SIMILARITY)
-  @javax.annotation.Nullable
-  private BigDecimal minSimilarity = new BigDecimal("90.0");
-
   public static final String SERIALIZED_NAME_APPLY = "apply";
   @Deprecated
   @SerializedName(SERIALIZED_NAME_APPLY)
@@ -68,7 +62,7 @@ public class AutoUnstripRequest {
   @Deprecated
   @SerializedName(SERIALIZED_NAME_CONFIDENCE_THRESHOLD)
   @javax.annotation.Nullable
-  private BigDecimal confidenceThreshold = new BigDecimal("90.0");
+  private BigDecimal confidenceThreshold = new BigDecimal("90");
 
   public static final String SERIALIZED_NAME_MIN_GROUP_SIZE = "min_group_size";
   @Deprecated
@@ -76,17 +70,23 @@ public class AutoUnstripRequest {
   @javax.annotation.Nullable
   private Integer minGroupSize = 10;
 
-  public static final String SERIALIZED_NAME_STATUS_ONLY = "status_only";
+  public static final String SERIALIZED_NAME_MIN_SIMILARITY = "min_similarity";
   @Deprecated
-  @SerializedName(SERIALIZED_NAME_STATUS_ONLY)
+  @SerializedName(SERIALIZED_NAME_MIN_SIMILARITY)
   @javax.annotation.Nullable
-  private Boolean statusOnly = false;
+  private BigDecimal minSimilarity = new BigDecimal("90");
 
   public static final String SERIALIZED_NAME_NO_CACHE = "no_cache";
   @Deprecated
   @SerializedName(SERIALIZED_NAME_NO_CACHE)
   @javax.annotation.Nullable
   private Boolean noCache = false;
+
+  public static final String SERIALIZED_NAME_STATUS_ONLY = "status_only";
+  @Deprecated
+  @SerializedName(SERIALIZED_NAME_STATUS_ONLY)
+  @javax.annotation.Nullable
+  private Boolean statusOnly = false;
 
   public static final String SERIALIZED_NAME_USE_CANONICAL_NAMES = "use_canonical_names";
   @SerializedName(SERIALIZED_NAME_USE_CANONICAL_NAMES)
@@ -95,31 +95,6 @@ public class AutoUnstripRequest {
 
   public AutoUnstripRequest() {
   }
-
-  @Deprecated
-  public AutoUnstripRequest minSimilarity(@javax.annotation.Nullable BigDecimal minSimilarity) {
-    this.minSimilarity = minSimilarity;
-    return this;
-  }
-
-  /**
-   * Minimum similarity expected for a match as a percentage, default is 90
-   * minimum: 0.0
-   * maximum: 100.0
-   * @return minSimilarity
-   * @deprecated
-   */
-  @Deprecated
-  @javax.annotation.Nullable
-  public BigDecimal getMinSimilarity() {
-    return minSimilarity;
-  }
-
-  @Deprecated
-  public void setMinSimilarity(@javax.annotation.Nullable BigDecimal minSimilarity) {
-    this.minSimilarity = minSimilarity;
-  }
-
 
   @Deprecated
   public AutoUnstripRequest apply(@javax.annotation.Nullable Boolean apply) {
@@ -152,8 +127,8 @@ public class AutoUnstripRequest {
 
   /**
    * Confidence threshold for applying function names as a percentage, default is 90
-   * minimum: 0.0
-   * maximum: 100.0
+   * minimum: 0
+   * maximum: 100
    * @return confidenceThreshold
    * @deprecated
    */
@@ -195,25 +170,27 @@ public class AutoUnstripRequest {
 
 
   @Deprecated
-  public AutoUnstripRequest statusOnly(@javax.annotation.Nullable Boolean statusOnly) {
-    this.statusOnly = statusOnly;
+  public AutoUnstripRequest minSimilarity(@javax.annotation.Nullable BigDecimal minSimilarity) {
+    this.minSimilarity = minSimilarity;
     return this;
   }
 
   /**
-   * If set to true, only returns the status of the auto-unstrip operation without the actual results
-   * @return statusOnly
+   * Minimum similarity expected for a match as a percentage, default is 90
+   * minimum: 0
+   * maximum: 100
+   * @return minSimilarity
    * @deprecated
    */
   @Deprecated
   @javax.annotation.Nullable
-  public Boolean getStatusOnly() {
-    return statusOnly;
+  public BigDecimal getMinSimilarity() {
+    return minSimilarity;
   }
 
   @Deprecated
-  public void setStatusOnly(@javax.annotation.Nullable Boolean statusOnly) {
-    this.statusOnly = statusOnly;
+  public void setMinSimilarity(@javax.annotation.Nullable BigDecimal minSimilarity) {
+    this.minSimilarity = minSimilarity;
   }
 
 
@@ -237,6 +214,29 @@ public class AutoUnstripRequest {
   @Deprecated
   public void setNoCache(@javax.annotation.Nullable Boolean noCache) {
     this.noCache = noCache;
+  }
+
+
+  @Deprecated
+  public AutoUnstripRequest statusOnly(@javax.annotation.Nullable Boolean statusOnly) {
+    this.statusOnly = statusOnly;
+    return this;
+  }
+
+  /**
+   * If set to true, only returns the status of the auto-unstrip operation without the actual results
+   * @return statusOnly
+   * @deprecated
+   */
+  @Deprecated
+  @javax.annotation.Nullable
+  public Boolean getStatusOnly() {
+    return statusOnly;
+  }
+
+  @Deprecated
+  public void setStatusOnly(@javax.annotation.Nullable Boolean statusOnly) {
+    this.statusOnly = statusOnly;
   }
 
 
@@ -313,31 +313,31 @@ public class AutoUnstripRequest {
       return false;
     }
     AutoUnstripRequest autoUnstripRequest = (AutoUnstripRequest) o;
-    return Objects.equals(this.minSimilarity, autoUnstripRequest.minSimilarity) &&
-        Objects.equals(this.apply, autoUnstripRequest.apply) &&
+    return Objects.equals(this.apply, autoUnstripRequest.apply) &&
         Objects.equals(this.confidenceThreshold, autoUnstripRequest.confidenceThreshold) &&
         Objects.equals(this.minGroupSize, autoUnstripRequest.minGroupSize) &&
-        Objects.equals(this.statusOnly, autoUnstripRequest.statusOnly) &&
+        Objects.equals(this.minSimilarity, autoUnstripRequest.minSimilarity) &&
         Objects.equals(this.noCache, autoUnstripRequest.noCache) &&
+        Objects.equals(this.statusOnly, autoUnstripRequest.statusOnly) &&
         Objects.equals(this.useCanonicalNames, autoUnstripRequest.useCanonicalNames)&&
         Objects.equals(this.additionalProperties, autoUnstripRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(minSimilarity, apply, confidenceThreshold, minGroupSize, statusOnly, noCache, useCanonicalNames, additionalProperties);
+    return Objects.hash(apply, confidenceThreshold, minGroupSize, minSimilarity, noCache, statusOnly, useCanonicalNames, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AutoUnstripRequest {\n");
-    sb.append("    minSimilarity: ").append(toIndentedString(minSimilarity)).append("\n");
     sb.append("    apply: ").append(toIndentedString(apply)).append("\n");
     sb.append("    confidenceThreshold: ").append(toIndentedString(confidenceThreshold)).append("\n");
     sb.append("    minGroupSize: ").append(toIndentedString(minGroupSize)).append("\n");
-    sb.append("    statusOnly: ").append(toIndentedString(statusOnly)).append("\n");
+    sb.append("    minSimilarity: ").append(toIndentedString(minSimilarity)).append("\n");
     sb.append("    noCache: ").append(toIndentedString(noCache)).append("\n");
+    sb.append("    statusOnly: ").append(toIndentedString(statusOnly)).append("\n");
     sb.append("    useCanonicalNames: ").append(toIndentedString(useCanonicalNames)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -361,7 +361,7 @@ public class AutoUnstripRequest {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("min_similarity", "apply", "confidence_threshold", "min_group_size", "status_only", "no_cache", "use_canonical_names"));
+    openapiFields = new HashSet<String>(Arrays.asList("apply", "confidence_threshold", "min_group_size", "min_similarity", "no_cache", "status_only", "use_canonical_names"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);

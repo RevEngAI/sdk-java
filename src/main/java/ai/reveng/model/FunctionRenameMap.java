@@ -56,15 +56,15 @@ public class FunctionRenameMap {
   @javax.annotation.Nonnull
   private Long functionId;
 
-  public static final String SERIALIZED_NAME_NEW_NAME = "new_name";
-  @SerializedName(SERIALIZED_NAME_NEW_NAME)
-  @javax.annotation.Nonnull
-  private String newName;
-
   public static final String SERIALIZED_NAME_NEW_MANGLED_NAME = "new_mangled_name";
   @SerializedName(SERIALIZED_NAME_NEW_MANGLED_NAME)
   @javax.annotation.Nonnull
   private String newMangledName;
+
+  public static final String SERIALIZED_NAME_NEW_NAME = "new_name";
+  @SerializedName(SERIALIZED_NAME_NEW_NAME)
+  @javax.annotation.Nonnull
+  private String newName;
 
   public FunctionRenameMap() {
   }
@@ -88,25 +88,6 @@ public class FunctionRenameMap {
   }
 
 
-  public FunctionRenameMap newName(@javax.annotation.Nonnull String newName) {
-    this.newName = newName;
-    return this;
-  }
-
-  /**
-   * The new name for the function
-   * @return newName
-   */
-  @javax.annotation.Nonnull
-  public String getNewName() {
-    return newName;
-  }
-
-  public void setNewName(@javax.annotation.Nonnull String newName) {
-    this.newName = newName;
-  }
-
-
   public FunctionRenameMap newMangledName(@javax.annotation.Nonnull String newMangledName) {
     this.newMangledName = newMangledName;
     return this;
@@ -123,6 +104,25 @@ public class FunctionRenameMap {
 
   public void setNewMangledName(@javax.annotation.Nonnull String newMangledName) {
     this.newMangledName = newMangledName;
+  }
+
+
+  public FunctionRenameMap newName(@javax.annotation.Nonnull String newName) {
+    this.newName = newName;
+    return this;
+  }
+
+  /**
+   * The new name for the function
+   * @return newName
+   */
+  @javax.annotation.Nonnull
+  public String getNewName() {
+    return newName;
+  }
+
+  public void setNewName(@javax.annotation.Nonnull String newName) {
+    this.newName = newName;
   }
 
   /**
@@ -181,14 +181,14 @@ public class FunctionRenameMap {
     }
     FunctionRenameMap functionRenameMap = (FunctionRenameMap) o;
     return Objects.equals(this.functionId, functionRenameMap.functionId) &&
-        Objects.equals(this.newName, functionRenameMap.newName) &&
-        Objects.equals(this.newMangledName, functionRenameMap.newMangledName)&&
+        Objects.equals(this.newMangledName, functionRenameMap.newMangledName) &&
+        Objects.equals(this.newName, functionRenameMap.newName)&&
         Objects.equals(this.additionalProperties, functionRenameMap.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(functionId, newName, newMangledName, additionalProperties);
+    return Objects.hash(functionId, newMangledName, newName, additionalProperties);
   }
 
   @Override
@@ -196,8 +196,8 @@ public class FunctionRenameMap {
     StringBuilder sb = new StringBuilder();
     sb.append("class FunctionRenameMap {\n");
     sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
-    sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    newMangledName: ").append(toIndentedString(newMangledName)).append("\n");
+    sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -220,10 +220,10 @@ public class FunctionRenameMap {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("function_id", "new_name", "new_mangled_name"));
+    openapiFields = new HashSet<String>(Arrays.asList("function_id", "new_mangled_name", "new_name"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("function_id", "new_name", "new_mangled_name"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("function_id", "new_mangled_name", "new_name"));
   }
 
   /**
@@ -246,11 +246,11 @@ public class FunctionRenameMap {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("new_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `new_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("new_name").toString()));
-      }
       if (!jsonObj.get("new_mangled_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `new_mangled_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("new_mangled_name").toString()));
+      }
+      if (!jsonObj.get("new_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `new_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("new_name").toString()));
       }
   }
 

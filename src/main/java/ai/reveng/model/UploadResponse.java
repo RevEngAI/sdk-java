@@ -52,11 +52,6 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UploadResponse {
-  public static final String SERIALIZED_NAME_SHA256_HASH = "sha_256_hash";
-  @SerializedName(SERIALIZED_NAME_SHA256_HASH)
-  @javax.annotation.Nonnull
-  private String sha256Hash;
-
   public static final String SERIALIZED_NAME_FILE_TYPE = "file_type";
   @SerializedName(SERIALIZED_NAME_FILE_TYPE)
   @javax.annotation.Nonnull
@@ -67,27 +62,13 @@ public class UploadResponse {
   @javax.annotation.Nonnull
   private String filename;
 
+  public static final String SERIALIZED_NAME_SHA256_HASH = "sha_256_hash";
+  @SerializedName(SERIALIZED_NAME_SHA256_HASH)
+  @javax.annotation.Nonnull
+  private String sha256Hash;
+
   public UploadResponse() {
   }
-
-  public UploadResponse sha256Hash(@javax.annotation.Nonnull String sha256Hash) {
-    this.sha256Hash = sha256Hash;
-    return this;
-  }
-
-  /**
-   * Get sha256Hash
-   * @return sha256Hash
-   */
-  @javax.annotation.Nonnull
-  public String getSha256Hash() {
-    return sha256Hash;
-  }
-
-  public void setSha256Hash(@javax.annotation.Nonnull String sha256Hash) {
-    this.sha256Hash = sha256Hash;
-  }
-
 
   public UploadResponse fileType(@javax.annotation.Nonnull UploadFileType fileType) {
     this.fileType = fileType;
@@ -124,6 +105,25 @@ public class UploadResponse {
 
   public void setFilename(@javax.annotation.Nonnull String filename) {
     this.filename = filename;
+  }
+
+
+  public UploadResponse sha256Hash(@javax.annotation.Nonnull String sha256Hash) {
+    this.sha256Hash = sha256Hash;
+    return this;
+  }
+
+  /**
+   * Get sha256Hash
+   * @return sha256Hash
+   */
+  @javax.annotation.Nonnull
+  public String getSha256Hash() {
+    return sha256Hash;
+  }
+
+  public void setSha256Hash(@javax.annotation.Nonnull String sha256Hash) {
+    this.sha256Hash = sha256Hash;
   }
 
   /**
@@ -181,24 +181,24 @@ public class UploadResponse {
       return false;
     }
     UploadResponse uploadResponse = (UploadResponse) o;
-    return Objects.equals(this.sha256Hash, uploadResponse.sha256Hash) &&
-        Objects.equals(this.fileType, uploadResponse.fileType) &&
-        Objects.equals(this.filename, uploadResponse.filename)&&
+    return Objects.equals(this.fileType, uploadResponse.fileType) &&
+        Objects.equals(this.filename, uploadResponse.filename) &&
+        Objects.equals(this.sha256Hash, uploadResponse.sha256Hash)&&
         Objects.equals(this.additionalProperties, uploadResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sha256Hash, fileType, filename, additionalProperties);
+    return Objects.hash(fileType, filename, sha256Hash, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UploadResponse {\n");
-    sb.append("    sha256Hash: ").append(toIndentedString(sha256Hash)).append("\n");
     sb.append("    fileType: ").append(toIndentedString(fileType)).append("\n");
     sb.append("    filename: ").append(toIndentedString(filename)).append("\n");
+    sb.append("    sha256Hash: ").append(toIndentedString(sha256Hash)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -221,10 +221,10 @@ public class UploadResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("sha_256_hash", "file_type", "filename"));
+    openapiFields = new HashSet<String>(Arrays.asList("file_type", "filename", "sha_256_hash"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("sha_256_hash", "file_type", "filename"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("file_type", "filename", "sha_256_hash"));
   }
 
   /**
@@ -247,13 +247,13 @@ public class UploadResponse {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("sha_256_hash").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `sha_256_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sha_256_hash").toString()));
-      }
       // validate the required field `file_type`
       UploadFileType.validateJsonElement(jsonObj.get("file_type"));
       if (!jsonObj.get("filename").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `filename` to be a primitive type in the JSON string but got `%s`", jsonObj.get("filename").toString()));
+      }
+      if (!jsonObj.get("sha_256_hash").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `sha_256_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sha_256_hash").toString()));
       }
   }
 

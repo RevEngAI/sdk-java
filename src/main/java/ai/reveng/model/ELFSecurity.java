@@ -51,16 +51,6 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ELFSecurity {
-  public static final String SERIALIZED_NAME_PIE = "pie";
-  @SerializedName(SERIALIZED_NAME_PIE)
-  @javax.annotation.Nonnull
-  private Boolean pie;
-
-  public static final String SERIALIZED_NAME_STRIPPED = "stripped";
-  @SerializedName(SERIALIZED_NAME_STRIPPED)
-  @javax.annotation.Nonnull
-  private Boolean stripped;
-
   public static final String SERIALIZED_NAME_CANARY = "canary";
   @SerializedName(SERIALIZED_NAME_CANARY)
   @javax.annotation.Nonnull
@@ -71,51 +61,23 @@ public class ELFSecurity {
   @javax.annotation.Nonnull
   private Boolean nx;
 
+  public static final String SERIALIZED_NAME_PIE = "pie";
+  @SerializedName(SERIALIZED_NAME_PIE)
+  @javax.annotation.Nonnull
+  private Boolean pie;
+
   public static final String SERIALIZED_NAME_RELO = "relo";
   @SerializedName(SERIALIZED_NAME_RELO)
   @javax.annotation.Nonnull
   private Boolean relo;
 
+  public static final String SERIALIZED_NAME_STRIPPED = "stripped";
+  @SerializedName(SERIALIZED_NAME_STRIPPED)
+  @javax.annotation.Nonnull
+  private Boolean stripped;
+
   public ELFSecurity() {
   }
-
-  public ELFSecurity pie(@javax.annotation.Nonnull Boolean pie) {
-    this.pie = pie;
-    return this;
-  }
-
-  /**
-   * Get pie
-   * @return pie
-   */
-  @javax.annotation.Nonnull
-  public Boolean getPie() {
-    return pie;
-  }
-
-  public void setPie(@javax.annotation.Nonnull Boolean pie) {
-    this.pie = pie;
-  }
-
-
-  public ELFSecurity stripped(@javax.annotation.Nonnull Boolean stripped) {
-    this.stripped = stripped;
-    return this;
-  }
-
-  /**
-   * Get stripped
-   * @return stripped
-   */
-  @javax.annotation.Nonnull
-  public Boolean getStripped() {
-    return stripped;
-  }
-
-  public void setStripped(@javax.annotation.Nonnull Boolean stripped) {
-    this.stripped = stripped;
-  }
-
 
   public ELFSecurity canary(@javax.annotation.Nonnull Boolean canary) {
     this.canary = canary;
@@ -155,6 +117,25 @@ public class ELFSecurity {
   }
 
 
+  public ELFSecurity pie(@javax.annotation.Nonnull Boolean pie) {
+    this.pie = pie;
+    return this;
+  }
+
+  /**
+   * Get pie
+   * @return pie
+   */
+  @javax.annotation.Nonnull
+  public Boolean getPie() {
+    return pie;
+  }
+
+  public void setPie(@javax.annotation.Nonnull Boolean pie) {
+    this.pie = pie;
+  }
+
+
   public ELFSecurity relo(@javax.annotation.Nonnull Boolean relo) {
     this.relo = relo;
     return this;
@@ -171,6 +152,25 @@ public class ELFSecurity {
 
   public void setRelo(@javax.annotation.Nonnull Boolean relo) {
     this.relo = relo;
+  }
+
+
+  public ELFSecurity stripped(@javax.annotation.Nonnull Boolean stripped) {
+    this.stripped = stripped;
+    return this;
+  }
+
+  /**
+   * Get stripped
+   * @return stripped
+   */
+  @javax.annotation.Nonnull
+  public Boolean getStripped() {
+    return stripped;
+  }
+
+  public void setStripped(@javax.annotation.Nonnull Boolean stripped) {
+    this.stripped = stripped;
   }
 
   /**
@@ -228,28 +228,28 @@ public class ELFSecurity {
       return false;
     }
     ELFSecurity elFSecurity = (ELFSecurity) o;
-    return Objects.equals(this.pie, elFSecurity.pie) &&
-        Objects.equals(this.stripped, elFSecurity.stripped) &&
-        Objects.equals(this.canary, elFSecurity.canary) &&
+    return Objects.equals(this.canary, elFSecurity.canary) &&
         Objects.equals(this.nx, elFSecurity.nx) &&
-        Objects.equals(this.relo, elFSecurity.relo)&&
+        Objects.equals(this.pie, elFSecurity.pie) &&
+        Objects.equals(this.relo, elFSecurity.relo) &&
+        Objects.equals(this.stripped, elFSecurity.stripped)&&
         Objects.equals(this.additionalProperties, elFSecurity.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pie, stripped, canary, nx, relo, additionalProperties);
+    return Objects.hash(canary, nx, pie, relo, stripped, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ELFSecurity {\n");
-    sb.append("    pie: ").append(toIndentedString(pie)).append("\n");
-    sb.append("    stripped: ").append(toIndentedString(stripped)).append("\n");
     sb.append("    canary: ").append(toIndentedString(canary)).append("\n");
     sb.append("    nx: ").append(toIndentedString(nx)).append("\n");
+    sb.append("    pie: ").append(toIndentedString(pie)).append("\n");
     sb.append("    relo: ").append(toIndentedString(relo)).append("\n");
+    sb.append("    stripped: ").append(toIndentedString(stripped)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -272,10 +272,10 @@ public class ELFSecurity {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("pie", "stripped", "canary", "nx", "relo"));
+    openapiFields = new HashSet<String>(Arrays.asList("canary", "nx", "pie", "relo", "stripped"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("pie", "stripped", "canary", "nx", "relo"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("canary", "nx", "pie", "relo", "stripped"));
   }
 
   /**

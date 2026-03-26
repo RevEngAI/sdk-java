@@ -275,8 +275,8 @@ public class SearchApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> You must provide at least one of the filters; partial_collection_name, partial_binary_name, partial_binary_sha256, tags or model_name to search </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The model name provided does not exist </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> You must provide at least one of the filters; partial_collection_name, partial_binary_name, partial_binary_sha256, tags or model_name to search </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call searchCollectionsCall(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialCollectionName, @javax.annotation.Nullable String partialBinaryName, @javax.annotation.Nullable String partialBinarySha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable List<Filters> filters, @javax.annotation.Nullable AppApiRestV2CollectionsEnumsOrderBy orderBy, @javax.annotation.Nullable Order orderByDirection, final ApiCallback _callback) throws ApiException {
@@ -389,8 +389,8 @@ public class SearchApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> You must provide at least one of the filters; partial_collection_name, partial_binary_name, partial_binary_sha256, tags or model_name to search </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The model name provided does not exist </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> You must provide at least one of the filters; partial_collection_name, partial_binary_name, partial_binary_sha256, tags or model_name to search </td><td>  -  </td></tr>
      </table>
      */
     public BaseResponseCollectionSearchResponse searchCollections(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialCollectionName, @javax.annotation.Nullable String partialBinaryName, @javax.annotation.Nullable String partialBinarySha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable List<Filters> filters, @javax.annotation.Nullable AppApiRestV2CollectionsEnumsOrderBy orderBy, @javax.annotation.Nullable Order orderByDirection) throws ApiException {
@@ -418,8 +418,8 @@ public class SearchApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> You must provide at least one of the filters; partial_collection_name, partial_binary_name, partial_binary_sha256, tags or model_name to search </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The model name provided does not exist </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> You must provide at least one of the filters; partial_collection_name, partial_binary_name, partial_binary_sha256, tags or model_name to search </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<BaseResponseCollectionSearchResponse> searchCollectionsWithHttpInfo(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialCollectionName, @javax.annotation.Nullable String partialBinaryName, @javax.annotation.Nullable String partialBinarySha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable List<Filters> filters, @javax.annotation.Nullable AppApiRestV2CollectionsEnumsOrderBy orderBy, @javax.annotation.Nullable Order orderByDirection) throws ApiException {
@@ -449,8 +449,8 @@ public class SearchApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> You must provide at least one of the filters; partial_collection_name, partial_binary_name, partial_binary_sha256, tags or model_name to search </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The model name provided does not exist </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> You must provide at least one of the filters; partial_collection_name, partial_binary_name, partial_binary_sha256, tags or model_name to search </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call searchCollectionsAsync(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialCollectionName, @javax.annotation.Nullable String partialBinaryName, @javax.annotation.Nullable String partialBinarySha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable List<Filters> filters, @javax.annotation.Nullable AppApiRestV2CollectionsEnumsOrderBy orderBy, @javax.annotation.Nullable Order orderByDirection, final ApiCallback<BaseResponseCollectionSearchResponse> _callback) throws ApiException {

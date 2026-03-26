@@ -51,6 +51,11 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DieMatch {
+  public static final String SERIALIZED_NAME_DISPLAY = "display";
+  @SerializedName(SERIALIZED_NAME_DISPLAY)
+  @javax.annotation.Nonnull
+  private String display;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   @javax.annotation.Nonnull
@@ -61,11 +66,6 @@ public class DieMatch {
   @javax.annotation.Nonnull
   private String type;
 
-  public static final String SERIALIZED_NAME_DISPLAY = "display";
-  @SerializedName(SERIALIZED_NAME_DISPLAY)
-  @javax.annotation.Nonnull
-  private String display;
-
   public static final String SERIALIZED_NAME_VERSION = "version";
   @SerializedName(SERIALIZED_NAME_VERSION)
   @javax.annotation.Nonnull
@@ -73,6 +73,25 @@ public class DieMatch {
 
   public DieMatch() {
   }
+
+  public DieMatch display(@javax.annotation.Nonnull String display) {
+    this.display = display;
+    return this;
+  }
+
+  /**
+   * Human-readable description from DIE&#39;s &#39;string&#39; field; suitable for UI/logs, not for parsing.
+   * @return display
+   */
+  @javax.annotation.Nonnull
+  public String getDisplay() {
+    return display;
+  }
+
+  public void setDisplay(@javax.annotation.Nonnull String display) {
+    this.display = display;
+  }
+
 
   public DieMatch name(@javax.annotation.Nonnull String name) {
     this.name = name;
@@ -109,25 +128,6 @@ public class DieMatch {
 
   public void setType(@javax.annotation.Nonnull String type) {
     this.type = type;
-  }
-
-
-  public DieMatch display(@javax.annotation.Nonnull String display) {
-    this.display = display;
-    return this;
-  }
-
-  /**
-   * Human-readable description from DIE&#39;s &#39;string&#39; field; suitable for UI/logs, not for parsing.
-   * @return display
-   */
-  @javax.annotation.Nonnull
-  public String getDisplay() {
-    return display;
-  }
-
-  public void setDisplay(@javax.annotation.Nonnull String display) {
-    this.display = display;
   }
 
 
@@ -204,25 +204,25 @@ public class DieMatch {
       return false;
     }
     DieMatch dieMatch = (DieMatch) o;
-    return Objects.equals(this.name, dieMatch.name) &&
+    return Objects.equals(this.display, dieMatch.display) &&
+        Objects.equals(this.name, dieMatch.name) &&
         Objects.equals(this.type, dieMatch.type) &&
-        Objects.equals(this.display, dieMatch.display) &&
         Objects.equals(this.version, dieMatch.version)&&
         Objects.equals(this.additionalProperties, dieMatch.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, type, display, version, additionalProperties);
+    return Objects.hash(display, name, type, version, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DieMatch {\n");
+    sb.append("    display: ").append(toIndentedString(display)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    display: ").append(toIndentedString(display)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -246,10 +246,10 @@ public class DieMatch {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("name", "type", "display", "version"));
+    openapiFields = new HashSet<String>(Arrays.asList("display", "name", "type", "version"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "type", "display", "version"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("display", "name", "type", "version"));
   }
 
   /**
@@ -272,14 +272,14 @@ public class DieMatch {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("display").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `display` to be a primitive type in the JSON string but got `%s`", jsonObj.get("display").toString()));
+      }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if (!jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-      }
-      if (!jsonObj.get("display").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `display` to be a primitive type in the JSON string but got `%s`", jsonObj.get("display").toString()));
       }
       if (!jsonObj.get("version").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("version").toString()));

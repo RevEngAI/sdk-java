@@ -52,15 +52,15 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GetMeResponse {
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
+  public static final String SERIALIZED_NAME_CREATION = "creation";
+  @SerializedName(SERIALIZED_NAME_CREATION)
   @javax.annotation.Nonnull
-  private String username;
+  private OffsetDateTime creation;
 
-  public static final String SERIALIZED_NAME_USER_ID = "user_id";
-  @SerializedName(SERIALIZED_NAME_USER_ID)
+  public static final String SERIALIZED_NAME_EMAIL = "email";
+  @SerializedName(SERIALIZED_NAME_EMAIL)
   @javax.annotation.Nonnull
-  private Integer userId;
+  private String email;
 
   public static final String SERIALIZED_NAME_FIRST_NAME = "first_name";
   @SerializedName(SERIALIZED_NAME_FIRST_NAME)
@@ -71,21 +71,6 @@ public class GetMeResponse {
   @SerializedName(SERIALIZED_NAME_LAST_NAME)
   @javax.annotation.Nonnull
   private String lastName;
-
-  public static final String SERIALIZED_NAME_EMAIL = "email";
-  @SerializedName(SERIALIZED_NAME_EMAIL)
-  @javax.annotation.Nonnull
-  private String email;
-
-  public static final String SERIALIZED_NAME_CREATION = "creation";
-  @SerializedName(SERIALIZED_NAME_CREATION)
-  @javax.annotation.Nonnull
-  private OffsetDateTime creation;
-
-  public static final String SERIALIZED_NAME_TUTORIAL_SEEN = "tutorial_seen";
-  @SerializedName(SERIALIZED_NAME_TUTORIAL_SEEN)
-  @javax.annotation.Nonnull
-  private Boolean tutorialSeen;
 
   /**
    * Gets or Sets role
@@ -148,44 +133,59 @@ public class GetMeResponse {
   @javax.annotation.Nonnull
   private RoleEnum role;
 
+  public static final String SERIALIZED_NAME_TUTORIAL_SEEN = "tutorial_seen";
+  @SerializedName(SERIALIZED_NAME_TUTORIAL_SEEN)
+  @javax.annotation.Nonnull
+  private Boolean tutorialSeen;
+
+  public static final String SERIALIZED_NAME_USER_ID = "user_id";
+  @SerializedName(SERIALIZED_NAME_USER_ID)
+  @javax.annotation.Nonnull
+  private Integer userId;
+
+  public static final String SERIALIZED_NAME_USERNAME = "username";
+  @SerializedName(SERIALIZED_NAME_USERNAME)
+  @javax.annotation.Nonnull
+  private String username;
+
   public GetMeResponse() {
   }
 
-  public GetMeResponse username(@javax.annotation.Nonnull String username) {
-    this.username = username;
+  public GetMeResponse creation(@javax.annotation.Nonnull OffsetDateTime creation) {
+    this.creation = creation;
     return this;
   }
 
   /**
-   * Get username
-   * @return username
+   * Get creation
+   * @return creation
    */
   @javax.annotation.Nonnull
-  public String getUsername() {
-    return username;
+  public OffsetDateTime getCreation() {
+    return creation;
   }
 
-  public void setUsername(@javax.annotation.Nonnull String username) {
-    this.username = username;
+  public void setCreation(@javax.annotation.Nonnull OffsetDateTime creation) {
+    this.creation = creation;
   }
 
 
-  public GetMeResponse userId(@javax.annotation.Nonnull Integer userId) {
-    this.userId = userId;
+  public GetMeResponse email(@javax.annotation.Nonnull String email) {
+    this.email = email;
     return this;
   }
 
   /**
-   * Get userId
-   * @return userId
+   * Get email
+   * @return email
    */
   @javax.annotation.Nonnull
-  public Integer getUserId() {
-    return userId;
+  public String getEmail() {
+    return email;
   }
 
-  public void setUserId(@javax.annotation.Nonnull Integer userId) {
-    this.userId = userId;
+  public void setEmail(@javax.annotation.Nonnull String email) {
+    this.email = email;
   }
 
 
@@ -227,41 +227,22 @@ public class GetMeResponse {
   }
 
 
-  public GetMeResponse email(@javax.annotation.Nonnull String email) {
-    this.email = email;
+  public GetMeResponse role(@javax.annotation.Nonnull RoleEnum role) {
+    this.role = role;
     return this;
   }
 
   /**
-   * Get email
-   * @return email
+   * Get role
+   * @return role
    */
   @javax.annotation.Nonnull
-  public String getEmail() {
-    return email;
+  public RoleEnum getRole() {
+    return role;
   }
 
-  public void setEmail(@javax.annotation.Nonnull String email) {
-    this.email = email;
-  }
-
-
-  public GetMeResponse creation(@javax.annotation.Nonnull OffsetDateTime creation) {
-    this.creation = creation;
-    return this;
-  }
-
-  /**
-   * Get creation
-   * @return creation
-   */
-  @javax.annotation.Nonnull
-  public OffsetDateTime getCreation() {
-    return creation;
-  }
-
-  public void setCreation(@javax.annotation.Nonnull OffsetDateTime creation) {
-    this.creation = creation;
+  public void setRole(@javax.annotation.Nonnull RoleEnum role) {
+    this.role = role;
   }
 
 
@@ -284,22 +265,41 @@ public class GetMeResponse {
   }
 
 
-  public GetMeResponse role(@javax.annotation.Nonnull RoleEnum role) {
-    this.role = role;
+  public GetMeResponse userId(@javax.annotation.Nonnull Integer userId) {
+    this.userId = userId;
     return this;
   }
 
   /**
-   * Get role
-   * @return role
+   * Get userId
+   * @return userId
    */
   @javax.annotation.Nonnull
-  public RoleEnum getRole() {
-    return role;
+  public Integer getUserId() {
+    return userId;
   }
 
-  public void setRole(@javax.annotation.Nonnull RoleEnum role) {
-    this.role = role;
+  public void setUserId(@javax.annotation.Nonnull Integer userId) {
+    this.userId = userId;
+  }
+
+
+  public GetMeResponse username(@javax.annotation.Nonnull String username) {
+    this.username = username;
+    return this;
+  }
+
+  /**
+   * Get username
+   * @return username
+   */
+  @javax.annotation.Nonnull
+  public String getUsername() {
+    return username;
+  }
+
+  public void setUsername(@javax.annotation.Nonnull String username) {
+    this.username = username;
   }
 
   /**
@@ -357,34 +357,34 @@ public class GetMeResponse {
       return false;
     }
     GetMeResponse getMeResponse = (GetMeResponse) o;
-    return Objects.equals(this.username, getMeResponse.username) &&
-        Objects.equals(this.userId, getMeResponse.userId) &&
+    return Objects.equals(this.creation, getMeResponse.creation) &&
+        Objects.equals(this.email, getMeResponse.email) &&
         Objects.equals(this.firstName, getMeResponse.firstName) &&
         Objects.equals(this.lastName, getMeResponse.lastName) &&
-        Objects.equals(this.email, getMeResponse.email) &&
-        Objects.equals(this.creation, getMeResponse.creation) &&
+        Objects.equals(this.role, getMeResponse.role) &&
         Objects.equals(this.tutorialSeen, getMeResponse.tutorialSeen) &&
-        Objects.equals(this.role, getMeResponse.role)&&
+        Objects.equals(this.userId, getMeResponse.userId) &&
+        Objects.equals(this.username, getMeResponse.username)&&
         Objects.equals(this.additionalProperties, getMeResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(username, userId, firstName, lastName, email, creation, tutorialSeen, role, additionalProperties);
+    return Objects.hash(creation, email, firstName, lastName, role, tutorialSeen, userId, username, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetMeResponse {\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
-    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
+    sb.append("    creation: ").append(toIndentedString(creation)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
-    sb.append("    email: ").append(toIndentedString(email)).append("\n");
-    sb.append("    creation: ").append(toIndentedString(creation)).append("\n");
-    sb.append("    tutorialSeen: ").append(toIndentedString(tutorialSeen)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");
+    sb.append("    tutorialSeen: ").append(toIndentedString(tutorialSeen)).append("\n");
+    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -407,10 +407,10 @@ public class GetMeResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("username", "user_id", "first_name", "last_name", "email", "creation", "tutorial_seen", "role"));
+    openapiFields = new HashSet<String>(Arrays.asList("creation", "email", "first_name", "last_name", "role", "tutorial_seen", "user_id", "username"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("username", "user_id", "first_name", "last_name", "email", "creation", "tutorial_seen", "role"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("creation", "email", "first_name", "last_name", "role", "tutorial_seen", "user_id", "username"));
   }
 
   /**
@@ -433,8 +433,8 @@ public class GetMeResponse {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("username").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("username").toString()));
+      if (!jsonObj.get("email").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
       }
       if (!jsonObj.get("first_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `first_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("first_name").toString()));
@@ -442,14 +442,14 @@ public class GetMeResponse {
       if (!jsonObj.get("last_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `last_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_name").toString()));
       }
-      if (!jsonObj.get("email").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
-      }
       if (!jsonObj.get("role").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `role` to be a primitive type in the JSON string but got `%s`", jsonObj.get("role").toString()));
       }
       // validate the required field `role`
       RoleEnum.validateJsonElement(jsonObj.get("role"));
+      if (!jsonObj.get("username").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("username").toString()));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

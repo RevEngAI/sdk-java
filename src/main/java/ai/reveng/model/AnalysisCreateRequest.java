@@ -60,6 +60,31 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AnalysisCreateRequest {
+  public static final String SERIALIZED_NAME_ANALYSIS_CONFIG = "analysis_config";
+  @SerializedName(SERIALIZED_NAME_ANALYSIS_CONFIG)
+  @javax.annotation.Nullable
+  private AnalysisConfig analysisConfig;
+
+  public static final String SERIALIZED_NAME_ANALYSIS_SCOPE = "analysis_scope";
+  @SerializedName(SERIALIZED_NAME_ANALYSIS_SCOPE)
+  @javax.annotation.Nullable
+  private AnalysisScope analysisScope;
+
+  public static final String SERIALIZED_NAME_AUTO_RUN_AGENTS = "auto_run_agents";
+  @SerializedName(SERIALIZED_NAME_AUTO_RUN_AGENTS)
+  @javax.annotation.Nullable
+  private AutoRunAgents autoRunAgents;
+
+  public static final String SERIALIZED_NAME_BINARY_CONFIG = "binary_config";
+  @SerializedName(SERIALIZED_NAME_BINARY_CONFIG)
+  @javax.annotation.Nullable
+  private BinaryConfig binaryConfig;
+
+  public static final String SERIALIZED_NAME_DEBUG_HASH = "debug_hash";
+  @SerializedName(SERIALIZED_NAME_DEBUG_HASH)
+  @javax.annotation.Nullable
+  private String debugHash;
+
   public static final String SERIALIZED_NAME_FILENAME = "filename";
   @SerializedName(SERIALIZED_NAME_FILENAME)
   @javax.annotation.Nonnull
@@ -70,43 +95,113 @@ public class AnalysisCreateRequest {
   @javax.annotation.Nonnull
   private String sha256Hash;
 
-  public static final String SERIALIZED_NAME_TAGS = "tags";
-  @SerializedName(SERIALIZED_NAME_TAGS)
-  @javax.annotation.Nullable
-  private List<Tag> tags = new ArrayList<>();
-
-  public static final String SERIALIZED_NAME_ANALYSIS_SCOPE = "analysis_scope";
-  @SerializedName(SERIALIZED_NAME_ANALYSIS_SCOPE)
-  @javax.annotation.Nullable
-  private AnalysisScope analysisScope;
-
   public static final String SERIALIZED_NAME_SYMBOLS = "symbols";
   @SerializedName(SERIALIZED_NAME_SYMBOLS)
   @javax.annotation.Nullable
   private Symbols symbols;
 
-  public static final String SERIALIZED_NAME_DEBUG_HASH = "debug_hash";
-  @SerializedName(SERIALIZED_NAME_DEBUG_HASH)
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
   @javax.annotation.Nullable
-  private String debugHash;
-
-  public static final String SERIALIZED_NAME_ANALYSIS_CONFIG = "analysis_config";
-  @SerializedName(SERIALIZED_NAME_ANALYSIS_CONFIG)
-  @javax.annotation.Nullable
-  private AnalysisConfig analysisConfig;
-
-  public static final String SERIALIZED_NAME_BINARY_CONFIG = "binary_config";
-  @SerializedName(SERIALIZED_NAME_BINARY_CONFIG)
-  @javax.annotation.Nullable
-  private BinaryConfig binaryConfig;
-
-  public static final String SERIALIZED_NAME_AUTO_RUN_AGENTS = "auto_run_agents";
-  @SerializedName(SERIALIZED_NAME_AUTO_RUN_AGENTS)
-  @javax.annotation.Nullable
-  private AutoRunAgents autoRunAgents;
+  private List<Tag> tags = new ArrayList<>();
 
   public AnalysisCreateRequest() {
   }
+
+  public AnalysisCreateRequest analysisConfig(@javax.annotation.Nullable AnalysisConfig analysisConfig) {
+    this.analysisConfig = analysisConfig;
+    return this;
+  }
+
+  /**
+   * The analysis config enables the configuration of optional analysis stages
+   * @return analysisConfig
+   */
+  @javax.annotation.Nullable
+  public AnalysisConfig getAnalysisConfig() {
+    return analysisConfig;
+  }
+
+  public void setAnalysisConfig(@javax.annotation.Nullable AnalysisConfig analysisConfig) {
+    this.analysisConfig = analysisConfig;
+  }
+
+
+  public AnalysisCreateRequest analysisScope(@javax.annotation.Nullable AnalysisScope analysisScope) {
+    this.analysisScope = analysisScope;
+    return this;
+  }
+
+  /**
+   * The scope of the analysis determines who can access it
+   * @return analysisScope
+   */
+  @javax.annotation.Nullable
+  public AnalysisScope getAnalysisScope() {
+    return analysisScope;
+  }
+
+  public void setAnalysisScope(@javax.annotation.Nullable AnalysisScope analysisScope) {
+    this.analysisScope = analysisScope;
+  }
+
+
+  public AnalysisCreateRequest autoRunAgents(@javax.annotation.Nullable AutoRunAgents autoRunAgents) {
+    this.autoRunAgents = autoRunAgents;
+    return this;
+  }
+
+  /**
+   * Get autoRunAgents
+   * @return autoRunAgents
+   */
+  @javax.annotation.Nullable
+  public AutoRunAgents getAutoRunAgents() {
+    return autoRunAgents;
+  }
+
+  public void setAutoRunAgents(@javax.annotation.Nullable AutoRunAgents autoRunAgents) {
+    this.autoRunAgents = autoRunAgents;
+  }
+
+
+  public AnalysisCreateRequest binaryConfig(@javax.annotation.Nullable BinaryConfig binaryConfig) {
+    this.binaryConfig = binaryConfig;
+    return this;
+  }
+
+  /**
+   * The binary config can override automatically determined values such as ISA, Platform, File Format, etc
+   * @return binaryConfig
+   */
+  @javax.annotation.Nullable
+  public BinaryConfig getBinaryConfig() {
+    return binaryConfig;
+  }
+
+  public void setBinaryConfig(@javax.annotation.Nullable BinaryConfig binaryConfig) {
+    this.binaryConfig = binaryConfig;
+  }
+
+
+  public AnalysisCreateRequest debugHash(@javax.annotation.Nullable String debugHash) {
+    this.debugHash = debugHash;
+    return this;
+  }
+
+  /**
+   * Get debugHash
+   * @return debugHash
+   */
+  @javax.annotation.Nullable
+  public String getDebugHash() {
+    return debugHash;
+  }
+
+  public void setDebugHash(@javax.annotation.Nullable String debugHash) {
+    this.debugHash = debugHash;
+  }
+
 
   public AnalysisCreateRequest filename(@javax.annotation.Nonnull String filename) {
     this.filename = filename;
@@ -146,6 +241,25 @@ public class AnalysisCreateRequest {
   }
 
 
+  public AnalysisCreateRequest symbols(@javax.annotation.Nullable Symbols symbols) {
+    this.symbols = symbols;
+    return this;
+  }
+
+  /**
+   * Get symbols
+   * @return symbols
+   */
+  @javax.annotation.Nullable
+  public Symbols getSymbols() {
+    return symbols;
+  }
+
+  public void setSymbols(@javax.annotation.Nullable Symbols symbols) {
+    this.symbols = symbols;
+  }
+
+
   public AnalysisCreateRequest tags(@javax.annotation.Nullable List<Tag> tags) {
     this.tags = tags;
     return this;
@@ -170,120 +284,6 @@ public class AnalysisCreateRequest {
 
   public void setTags(@javax.annotation.Nullable List<Tag> tags) {
     this.tags = tags;
-  }
-
-
-  public AnalysisCreateRequest analysisScope(@javax.annotation.Nullable AnalysisScope analysisScope) {
-    this.analysisScope = analysisScope;
-    return this;
-  }
-
-  /**
-   * The scope of the analysis determines who can access it
-   * @return analysisScope
-   */
-  @javax.annotation.Nullable
-  public AnalysisScope getAnalysisScope() {
-    return analysisScope;
-  }
-
-  public void setAnalysisScope(@javax.annotation.Nullable AnalysisScope analysisScope) {
-    this.analysisScope = analysisScope;
-  }
-
-
-  public AnalysisCreateRequest symbols(@javax.annotation.Nullable Symbols symbols) {
-    this.symbols = symbols;
-    return this;
-  }
-
-  /**
-   * Get symbols
-   * @return symbols
-   */
-  @javax.annotation.Nullable
-  public Symbols getSymbols() {
-    return symbols;
-  }
-
-  public void setSymbols(@javax.annotation.Nullable Symbols symbols) {
-    this.symbols = symbols;
-  }
-
-
-  public AnalysisCreateRequest debugHash(@javax.annotation.Nullable String debugHash) {
-    this.debugHash = debugHash;
-    return this;
-  }
-
-  /**
-   * Get debugHash
-   * @return debugHash
-   */
-  @javax.annotation.Nullable
-  public String getDebugHash() {
-    return debugHash;
-  }
-
-  public void setDebugHash(@javax.annotation.Nullable String debugHash) {
-    this.debugHash = debugHash;
-  }
-
-
-  public AnalysisCreateRequest analysisConfig(@javax.annotation.Nullable AnalysisConfig analysisConfig) {
-    this.analysisConfig = analysisConfig;
-    return this;
-  }
-
-  /**
-   * The analysis config enables the configuration of optional analysis stages
-   * @return analysisConfig
-   */
-  @javax.annotation.Nullable
-  public AnalysisConfig getAnalysisConfig() {
-    return analysisConfig;
-  }
-
-  public void setAnalysisConfig(@javax.annotation.Nullable AnalysisConfig analysisConfig) {
-    this.analysisConfig = analysisConfig;
-  }
-
-
-  public AnalysisCreateRequest binaryConfig(@javax.annotation.Nullable BinaryConfig binaryConfig) {
-    this.binaryConfig = binaryConfig;
-    return this;
-  }
-
-  /**
-   * The binary config can override automatically determined values such as ISA, Platform, File Format, etc
-   * @return binaryConfig
-   */
-  @javax.annotation.Nullable
-  public BinaryConfig getBinaryConfig() {
-    return binaryConfig;
-  }
-
-  public void setBinaryConfig(@javax.annotation.Nullable BinaryConfig binaryConfig) {
-    this.binaryConfig = binaryConfig;
-  }
-
-
-  public AnalysisCreateRequest autoRunAgents(@javax.annotation.Nullable AutoRunAgents autoRunAgents) {
-    this.autoRunAgents = autoRunAgents;
-    return this;
-  }
-
-  /**
-   * Get autoRunAgents
-   * @return autoRunAgents
-   */
-  @javax.annotation.Nullable
-  public AutoRunAgents getAutoRunAgents() {
-    return autoRunAgents;
-  }
-
-  public void setAutoRunAgents(@javax.annotation.Nullable AutoRunAgents autoRunAgents) {
-    this.autoRunAgents = autoRunAgents;
   }
 
   /**
@@ -341,15 +341,15 @@ public class AnalysisCreateRequest {
       return false;
     }
     AnalysisCreateRequest analysisCreateRequest = (AnalysisCreateRequest) o;
-    return Objects.equals(this.filename, analysisCreateRequest.filename) &&
-        Objects.equals(this.sha256Hash, analysisCreateRequest.sha256Hash) &&
-        Objects.equals(this.tags, analysisCreateRequest.tags) &&
+    return Objects.equals(this.analysisConfig, analysisCreateRequest.analysisConfig) &&
         Objects.equals(this.analysisScope, analysisCreateRequest.analysisScope) &&
-        Objects.equals(this.symbols, analysisCreateRequest.symbols) &&
-        Objects.equals(this.debugHash, analysisCreateRequest.debugHash) &&
-        Objects.equals(this.analysisConfig, analysisCreateRequest.analysisConfig) &&
+        Objects.equals(this.autoRunAgents, analysisCreateRequest.autoRunAgents) &&
         Objects.equals(this.binaryConfig, analysisCreateRequest.binaryConfig) &&
-        Objects.equals(this.autoRunAgents, analysisCreateRequest.autoRunAgents)&&
+        Objects.equals(this.debugHash, analysisCreateRequest.debugHash) &&
+        Objects.equals(this.filename, analysisCreateRequest.filename) &&
+        Objects.equals(this.sha256Hash, analysisCreateRequest.sha256Hash) &&
+        Objects.equals(this.symbols, analysisCreateRequest.symbols) &&
+        Objects.equals(this.tags, analysisCreateRequest.tags)&&
         Objects.equals(this.additionalProperties, analysisCreateRequest.additionalProperties);
   }
 
@@ -359,7 +359,7 @@ public class AnalysisCreateRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(filename, sha256Hash, tags, analysisScope, symbols, debugHash, analysisConfig, binaryConfig, autoRunAgents, additionalProperties);
+    return Objects.hash(analysisConfig, analysisScope, autoRunAgents, binaryConfig, debugHash, filename, sha256Hash, symbols, tags, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -373,15 +373,15 @@ public class AnalysisCreateRequest {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AnalysisCreateRequest {\n");
+    sb.append("    analysisConfig: ").append(toIndentedString(analysisConfig)).append("\n");
+    sb.append("    analysisScope: ").append(toIndentedString(analysisScope)).append("\n");
+    sb.append("    autoRunAgents: ").append(toIndentedString(autoRunAgents)).append("\n");
+    sb.append("    binaryConfig: ").append(toIndentedString(binaryConfig)).append("\n");
+    sb.append("    debugHash: ").append(toIndentedString(debugHash)).append("\n");
     sb.append("    filename: ").append(toIndentedString(filename)).append("\n");
     sb.append("    sha256Hash: ").append(toIndentedString(sha256Hash)).append("\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
-    sb.append("    analysisScope: ").append(toIndentedString(analysisScope)).append("\n");
     sb.append("    symbols: ").append(toIndentedString(symbols)).append("\n");
-    sb.append("    debugHash: ").append(toIndentedString(debugHash)).append("\n");
-    sb.append("    analysisConfig: ").append(toIndentedString(analysisConfig)).append("\n");
-    sb.append("    binaryConfig: ").append(toIndentedString(binaryConfig)).append("\n");
-    sb.append("    autoRunAgents: ").append(toIndentedString(autoRunAgents)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -404,7 +404,7 @@ public class AnalysisCreateRequest {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("filename", "sha_256_hash", "tags", "analysis_scope", "symbols", "debug_hash", "analysis_config", "binary_config", "auto_run_agents"));
+    openapiFields = new HashSet<String>(Arrays.asList("analysis_config", "analysis_scope", "auto_run_agents", "binary_config", "debug_hash", "filename", "sha_256_hash", "symbols", "tags"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("filename", "sha_256_hash"));
@@ -430,11 +430,34 @@ public class AnalysisCreateRequest {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // validate the optional field `analysis_config`
+      if (jsonObj.get("analysis_config") != null && !jsonObj.get("analysis_config").isJsonNull()) {
+        AnalysisConfig.validateJsonElement(jsonObj.get("analysis_config"));
+      }
+      // validate the optional field `analysis_scope`
+      if (jsonObj.get("analysis_scope") != null && !jsonObj.get("analysis_scope").isJsonNull()) {
+        AnalysisScope.validateJsonElement(jsonObj.get("analysis_scope"));
+      }
+      // validate the optional field `auto_run_agents`
+      if (jsonObj.get("auto_run_agents") != null && !jsonObj.get("auto_run_agents").isJsonNull()) {
+        AutoRunAgents.validateJsonElement(jsonObj.get("auto_run_agents"));
+      }
+      // validate the optional field `binary_config`
+      if (jsonObj.get("binary_config") != null && !jsonObj.get("binary_config").isJsonNull()) {
+        BinaryConfig.validateJsonElement(jsonObj.get("binary_config"));
+      }
+      if ((jsonObj.get("debug_hash") != null && !jsonObj.get("debug_hash").isJsonNull()) && !jsonObj.get("debug_hash").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `debug_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("debug_hash").toString()));
+      }
       if (!jsonObj.get("filename").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `filename` to be a primitive type in the JSON string but got `%s`", jsonObj.get("filename").toString()));
       }
       if (!jsonObj.get("sha_256_hash").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `sha_256_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sha_256_hash").toString()));
+      }
+      // validate the optional field `symbols`
+      if (jsonObj.get("symbols") != null && !jsonObj.get("symbols").isJsonNull()) {
+        Symbols.validateJsonElement(jsonObj.get("symbols"));
       }
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull()) {
         JsonArray jsonArraytags = jsonObj.getAsJsonArray("tags");
@@ -449,29 +472,6 @@ public class AnalysisCreateRequest {
             Tag.validateJsonElement(jsonArraytags.get(i));
           };
         }
-      }
-      // validate the optional field `analysis_scope`
-      if (jsonObj.get("analysis_scope") != null && !jsonObj.get("analysis_scope").isJsonNull()) {
-        AnalysisScope.validateJsonElement(jsonObj.get("analysis_scope"));
-      }
-      // validate the optional field `symbols`
-      if (jsonObj.get("symbols") != null && !jsonObj.get("symbols").isJsonNull()) {
-        Symbols.validateJsonElement(jsonObj.get("symbols"));
-      }
-      if ((jsonObj.get("debug_hash") != null && !jsonObj.get("debug_hash").isJsonNull()) && !jsonObj.get("debug_hash").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `debug_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("debug_hash").toString()));
-      }
-      // validate the optional field `analysis_config`
-      if (jsonObj.get("analysis_config") != null && !jsonObj.get("analysis_config").isJsonNull()) {
-        AnalysisConfig.validateJsonElement(jsonObj.get("analysis_config"));
-      }
-      // validate the optional field `binary_config`
-      if (jsonObj.get("binary_config") != null && !jsonObj.get("binary_config").isJsonNull()) {
-        BinaryConfig.validateJsonElement(jsonObj.get("binary_config"));
-      }
-      // validate the optional field `auto_run_agents`
-      if (jsonObj.get("auto_run_agents") != null && !jsonObj.get("auto_run_agents").isJsonNull()) {
-        AutoRunAgents.validateJsonElement(jsonObj.get("auto_run_agents"));
       }
   }
 

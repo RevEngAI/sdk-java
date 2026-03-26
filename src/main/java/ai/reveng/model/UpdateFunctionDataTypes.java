@@ -52,37 +52,18 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateFunctionDataTypes {
-  public static final String SERIALIZED_NAME_DATA_TYPES_VERSION = "data_types_version";
-  @SerializedName(SERIALIZED_NAME_DATA_TYPES_VERSION)
-  @javax.annotation.Nonnull
-  private Integer dataTypesVersion;
-
   public static final String SERIALIZED_NAME_DATA_TYPES = "data_types";
   @SerializedName(SERIALIZED_NAME_DATA_TYPES)
   @javax.annotation.Nonnull
   private FunctionInfoInput dataTypes;
 
+  public static final String SERIALIZED_NAME_DATA_TYPES_VERSION = "data_types_version";
+  @SerializedName(SERIALIZED_NAME_DATA_TYPES_VERSION)
+  @javax.annotation.Nonnull
+  private Integer dataTypesVersion;
+
   public UpdateFunctionDataTypes() {
   }
-
-  public UpdateFunctionDataTypes dataTypesVersion(@javax.annotation.Nonnull Integer dataTypesVersion) {
-    this.dataTypesVersion = dataTypesVersion;
-    return this;
-  }
-
-  /**
-   * Version of the function data types, used to check this update is not overwriting a newer one
-   * @return dataTypesVersion
-   */
-  @javax.annotation.Nonnull
-  public Integer getDataTypesVersion() {
-    return dataTypesVersion;
-  }
-
-  public void setDataTypesVersion(@javax.annotation.Nonnull Integer dataTypesVersion) {
-    this.dataTypesVersion = dataTypesVersion;
-  }
-
 
   public UpdateFunctionDataTypes dataTypes(@javax.annotation.Nonnull FunctionInfoInput dataTypes) {
     this.dataTypes = dataTypes;
@@ -100,6 +81,25 @@ public class UpdateFunctionDataTypes {
 
   public void setDataTypes(@javax.annotation.Nonnull FunctionInfoInput dataTypes) {
     this.dataTypes = dataTypes;
+  }
+
+
+  public UpdateFunctionDataTypes dataTypesVersion(@javax.annotation.Nonnull Integer dataTypesVersion) {
+    this.dataTypesVersion = dataTypesVersion;
+    return this;
+  }
+
+  /**
+   * Version of the function data types, used to check this update is not overwriting a newer one
+   * @return dataTypesVersion
+   */
+  @javax.annotation.Nonnull
+  public Integer getDataTypesVersion() {
+    return dataTypesVersion;
+  }
+
+  public void setDataTypesVersion(@javax.annotation.Nonnull Integer dataTypesVersion) {
+    this.dataTypesVersion = dataTypesVersion;
   }
 
   /**
@@ -157,22 +157,22 @@ public class UpdateFunctionDataTypes {
       return false;
     }
     UpdateFunctionDataTypes updateFunctionDataTypes = (UpdateFunctionDataTypes) o;
-    return Objects.equals(this.dataTypesVersion, updateFunctionDataTypes.dataTypesVersion) &&
-        Objects.equals(this.dataTypes, updateFunctionDataTypes.dataTypes)&&
+    return Objects.equals(this.dataTypes, updateFunctionDataTypes.dataTypes) &&
+        Objects.equals(this.dataTypesVersion, updateFunctionDataTypes.dataTypesVersion)&&
         Objects.equals(this.additionalProperties, updateFunctionDataTypes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataTypesVersion, dataTypes, additionalProperties);
+    return Objects.hash(dataTypes, dataTypesVersion, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateFunctionDataTypes {\n");
-    sb.append("    dataTypesVersion: ").append(toIndentedString(dataTypesVersion)).append("\n");
     sb.append("    dataTypes: ").append(toIndentedString(dataTypes)).append("\n");
+    sb.append("    dataTypesVersion: ").append(toIndentedString(dataTypesVersion)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -195,10 +195,10 @@ public class UpdateFunctionDataTypes {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("data_types_version", "data_types"));
+    openapiFields = new HashSet<String>(Arrays.asList("data_types", "data_types_version"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("data_types_version", "data_types"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("data_types", "data_types_version"));
   }
 
   /**

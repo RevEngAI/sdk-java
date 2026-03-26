@@ -55,6 +55,11 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class BinaryAdditionalDetailsDataResponse {
+  public static final String SERIALIZED_NAME_ELF = "elf";
+  @SerializedName(SERIALIZED_NAME_ELF)
+  @javax.annotation.Nullable
+  private ELFModel elf;
+
   public static final String SERIALIZED_NAME_FILE = "file";
   @SerializedName(SERIALIZED_NAME_FILE)
   @javax.annotation.Nonnull
@@ -65,13 +70,27 @@ public class BinaryAdditionalDetailsDataResponse {
   @javax.annotation.Nullable
   private PEModel pe;
 
-  public static final String SERIALIZED_NAME_ELF = "elf";
-  @SerializedName(SERIALIZED_NAME_ELF)
-  @javax.annotation.Nullable
-  private ELFModel elf;
-
   public BinaryAdditionalDetailsDataResponse() {
   }
+
+  public BinaryAdditionalDetailsDataResponse elf(@javax.annotation.Nullable ELFModel elf) {
+    this.elf = elf;
+    return this;
+  }
+
+  /**
+   * Get elf
+   * @return elf
+   */
+  @javax.annotation.Nullable
+  public ELFModel getElf() {
+    return elf;
+  }
+
+  public void setElf(@javax.annotation.Nullable ELFModel elf) {
+    this.elf = elf;
+  }
+
 
   public BinaryAdditionalDetailsDataResponse _file(@javax.annotation.Nonnull FileMetadata _file) {
     this._file = _file;
@@ -108,25 +127,6 @@ public class BinaryAdditionalDetailsDataResponse {
 
   public void setPe(@javax.annotation.Nullable PEModel pe) {
     this.pe = pe;
-  }
-
-
-  public BinaryAdditionalDetailsDataResponse elf(@javax.annotation.Nullable ELFModel elf) {
-    this.elf = elf;
-    return this;
-  }
-
-  /**
-   * Get elf
-   * @return elf
-   */
-  @javax.annotation.Nullable
-  public ELFModel getElf() {
-    return elf;
-  }
-
-  public void setElf(@javax.annotation.Nullable ELFModel elf) {
-    this.elf = elf;
   }
 
   /**
@@ -184,9 +184,9 @@ public class BinaryAdditionalDetailsDataResponse {
       return false;
     }
     BinaryAdditionalDetailsDataResponse binaryAdditionalDetailsDataResponse = (BinaryAdditionalDetailsDataResponse) o;
-    return Objects.equals(this._file, binaryAdditionalDetailsDataResponse._file) &&
-        Objects.equals(this.pe, binaryAdditionalDetailsDataResponse.pe) &&
-        Objects.equals(this.elf, binaryAdditionalDetailsDataResponse.elf)&&
+    return Objects.equals(this.elf, binaryAdditionalDetailsDataResponse.elf) &&
+        Objects.equals(this._file, binaryAdditionalDetailsDataResponse._file) &&
+        Objects.equals(this.pe, binaryAdditionalDetailsDataResponse.pe)&&
         Objects.equals(this.additionalProperties, binaryAdditionalDetailsDataResponse.additionalProperties);
   }
 
@@ -196,7 +196,7 @@ public class BinaryAdditionalDetailsDataResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(_file, pe, elf, additionalProperties);
+    return Objects.hash(elf, _file, pe, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -210,9 +210,9 @@ public class BinaryAdditionalDetailsDataResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class BinaryAdditionalDetailsDataResponse {\n");
+    sb.append("    elf: ").append(toIndentedString(elf)).append("\n");
     sb.append("    _file: ").append(toIndentedString(_file)).append("\n");
     sb.append("    pe: ").append(toIndentedString(pe)).append("\n");
-    sb.append("    elf: ").append(toIndentedString(elf)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -235,7 +235,7 @@ public class BinaryAdditionalDetailsDataResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("file", "pe", "elf"));
+    openapiFields = new HashSet<String>(Arrays.asList("elf", "file", "pe"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("file"));
@@ -261,15 +261,15 @@ public class BinaryAdditionalDetailsDataResponse {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // validate the optional field `elf`
+      if (jsonObj.get("elf") != null && !jsonObj.get("elf").isJsonNull()) {
+        ELFModel.validateJsonElement(jsonObj.get("elf"));
+      }
       // validate the required field `file`
       FileMetadata.validateJsonElement(jsonObj.get("file"));
       // validate the optional field `pe`
       if (jsonObj.get("pe") != null && !jsonObj.get("pe").isJsonNull()) {
         PEModel.validateJsonElement(jsonObj.get("pe"));
-      }
-      // validate the optional field `elf`
-      if (jsonObj.get("elf") != null && !jsonObj.get("elf").isJsonNull()) {
-        ELFModel.validateJsonElement(jsonObj.get("elf"));
       }
   }
 

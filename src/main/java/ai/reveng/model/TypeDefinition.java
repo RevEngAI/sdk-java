@@ -52,6 +52,11 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TypeDefinition {
+  public static final String SERIALIZED_NAME_ARTIFACT_TYPE = "artifact_type";
+  @SerializedName(SERIALIZED_NAME_ARTIFACT_TYPE)
+  @javax.annotation.Nullable
+  private String artifactType;
+
   public static final String SERIALIZED_NAME_LAST_CHANGE = "last_change";
   @SerializedName(SERIALIZED_NAME_LAST_CHANGE)
   @javax.annotation.Nullable
@@ -67,13 +72,27 @@ public class TypeDefinition {
   @javax.annotation.Nonnull
   private String type;
 
-  public static final String SERIALIZED_NAME_ARTIFACT_TYPE = "artifact_type";
-  @SerializedName(SERIALIZED_NAME_ARTIFACT_TYPE)
-  @javax.annotation.Nullable
-  private String artifactType;
-
   public TypeDefinition() {
   }
+
+  public TypeDefinition artifactType(@javax.annotation.Nullable String artifactType) {
+    this.artifactType = artifactType;
+    return this;
+  }
+
+  /**
+   * Type of artifact the type definition is associated with
+   * @return artifactType
+   */
+  @javax.annotation.Nullable
+  public String getArtifactType() {
+    return artifactType;
+  }
+
+  public void setArtifactType(@javax.annotation.Nullable String artifactType) {
+    this.artifactType = artifactType;
+  }
+
 
   public TypeDefinition lastChange(@javax.annotation.Nullable String lastChange) {
     this.lastChange = lastChange;
@@ -131,25 +150,6 @@ public class TypeDefinition {
     this.type = type;
   }
 
-
-  public TypeDefinition artifactType(@javax.annotation.Nullable String artifactType) {
-    this.artifactType = artifactType;
-    return this;
-  }
-
-  /**
-   * Type of artifact the type definition is associated with
-   * @return artifactType
-   */
-  @javax.annotation.Nullable
-  public String getArtifactType() {
-    return artifactType;
-  }
-
-  public void setArtifactType(@javax.annotation.Nullable String artifactType) {
-    this.artifactType = artifactType;
-  }
-
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -205,10 +205,10 @@ public class TypeDefinition {
       return false;
     }
     TypeDefinition typeDefinition = (TypeDefinition) o;
-    return Objects.equals(this.lastChange, typeDefinition.lastChange) &&
+    return Objects.equals(this.artifactType, typeDefinition.artifactType) &&
+        Objects.equals(this.lastChange, typeDefinition.lastChange) &&
         Objects.equals(this.name, typeDefinition.name) &&
-        Objects.equals(this.type, typeDefinition.type) &&
-        Objects.equals(this.artifactType, typeDefinition.artifactType)&&
+        Objects.equals(this.type, typeDefinition.type)&&
         Objects.equals(this.additionalProperties, typeDefinition.additionalProperties);
   }
 
@@ -218,7 +218,7 @@ public class TypeDefinition {
 
   @Override
   public int hashCode() {
-    return Objects.hash(lastChange, name, type, artifactType, additionalProperties);
+    return Objects.hash(artifactType, lastChange, name, type, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -232,10 +232,10 @@ public class TypeDefinition {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TypeDefinition {\n");
+    sb.append("    artifactType: ").append(toIndentedString(artifactType)).append("\n");
     sb.append("    lastChange: ").append(toIndentedString(lastChange)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    artifactType: ").append(toIndentedString(artifactType)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -258,7 +258,7 @@ public class TypeDefinition {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("last_change", "name", "type", "artifact_type"));
+    openapiFields = new HashSet<String>(Arrays.asList("artifact_type", "last_change", "name", "type"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "type"));
@@ -284,6 +284,9 @@ public class TypeDefinition {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("artifact_type") != null && !jsonObj.get("artifact_type").isJsonNull()) && !jsonObj.get("artifact_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `artifact_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("artifact_type").toString()));
+      }
       if ((jsonObj.get("last_change") != null && !jsonObj.get("last_change").isJsonNull()) && !jsonObj.get("last_change").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `last_change` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_change").toString()));
       }
@@ -292,9 +295,6 @@ public class TypeDefinition {
       }
       if (!jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-      }
-      if ((jsonObj.get("artifact_type") != null && !jsonObj.get("artifact_type").isJsonNull()) && !jsonObj.get("artifact_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `artifact_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("artifact_type").toString()));
       }
   }
 

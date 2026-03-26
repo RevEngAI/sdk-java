@@ -51,37 +51,18 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TTPSOccurance {
-  public static final String SERIALIZED_NAME_PPID = "ppid";
-  @SerializedName(SERIALIZED_NAME_PPID)
-  @javax.annotation.Nonnull
-  private Integer ppid;
-
   public static final String SERIALIZED_NAME_PID = "pid";
   @SerializedName(SERIALIZED_NAME_PID)
   @javax.annotation.Nonnull
   private Integer pid;
 
+  public static final String SERIALIZED_NAME_PPID = "ppid";
+  @SerializedName(SERIALIZED_NAME_PPID)
+  @javax.annotation.Nonnull
+  private Integer ppid;
+
   public TTPSOccurance() {
   }
-
-  public TTPSOccurance ppid(@javax.annotation.Nonnull Integer ppid) {
-    this.ppid = ppid;
-    return this;
-  }
-
-  /**
-   * Get ppid
-   * @return ppid
-   */
-  @javax.annotation.Nonnull
-  public Integer getPpid() {
-    return ppid;
-  }
-
-  public void setPpid(@javax.annotation.Nonnull Integer ppid) {
-    this.ppid = ppid;
-  }
-
 
   public TTPSOccurance pid(@javax.annotation.Nonnull Integer pid) {
     this.pid = pid;
@@ -99,6 +80,25 @@ public class TTPSOccurance {
 
   public void setPid(@javax.annotation.Nonnull Integer pid) {
     this.pid = pid;
+  }
+
+
+  public TTPSOccurance ppid(@javax.annotation.Nonnull Integer ppid) {
+    this.ppid = ppid;
+    return this;
+  }
+
+  /**
+   * Get ppid
+   * @return ppid
+   */
+  @javax.annotation.Nonnull
+  public Integer getPpid() {
+    return ppid;
+  }
+
+  public void setPpid(@javax.annotation.Nonnull Integer ppid) {
+    this.ppid = ppid;
   }
 
   /**
@@ -156,22 +156,22 @@ public class TTPSOccurance {
       return false;
     }
     TTPSOccurance ttPSOccurance = (TTPSOccurance) o;
-    return Objects.equals(this.ppid, ttPSOccurance.ppid) &&
-        Objects.equals(this.pid, ttPSOccurance.pid)&&
+    return Objects.equals(this.pid, ttPSOccurance.pid) &&
+        Objects.equals(this.ppid, ttPSOccurance.ppid)&&
         Objects.equals(this.additionalProperties, ttPSOccurance.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ppid, pid, additionalProperties);
+    return Objects.hash(pid, ppid, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TTPSOccurance {\n");
-    sb.append("    ppid: ").append(toIndentedString(ppid)).append("\n");
     sb.append("    pid: ").append(toIndentedString(pid)).append("\n");
+    sb.append("    ppid: ").append(toIndentedString(ppid)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -194,10 +194,10 @@ public class TTPSOccurance {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ppid", "pid"));
+    openapiFields = new HashSet<String>(Arrays.asList("pid", "ppid"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("ppid", "pid"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("pid", "ppid"));
   }
 
   /**

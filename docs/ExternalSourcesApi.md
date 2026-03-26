@@ -75,8 +75,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **202** | Successful Response |  -  |
-| **422** | Invalid request parameters |  -  |
 | **409** | Request already queued |  -  |
+| **422** | Invalid request parameters |  -  |
 
 <a id="getVtData"></a>
 # **getVtData**
@@ -144,8 +144,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful Response |  -  |
-| **422** | Invalid request parameters |  -  |
 | **404** | No data retrieved from VirusTotal for the given analysis_id |  -  |
+| **422** | Invalid request parameters |  -  |
 
 <a id="getVtTaskStatus"></a>
 # **getVtTaskStatus**

@@ -7,8 +7,9 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**value** | **String** | The value of the string literal |  |
+|**source** | **StringSource** | The source of the string |  [optional] |
 |**vaddr** | **Integer** | The vaddr of the string value |  |
+|**value** | **String** | The value of the string literal |  |
 
 
 

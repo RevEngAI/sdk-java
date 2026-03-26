@@ -7,16 +7,16 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**name** | **String** |  |  |
-|**type** | **String** |  |  |
-|**virtualAddress** | **Integer** |  |  |
-|**virtualSize** | **Integer** |  |  |
-|**rawSize** | **Integer** |  |  |
+|**alignment** | **Integer** |  |  |
+|**entropy** | **BigDecimal** |  |  |
 |**fileOffset** | **Integer** |  |  |
 |**flags** | **String** |  |  |
 |**flagsRaw** | **Integer** |  |  |
-|**entropy** | **BigDecimal** |  |  |
-|**alignment** | **Integer** |  |  |
+|**name** | **String** |  |  |
+|**rawSize** | **Integer** |  |  |
+|**type** | **String** |  |  |
+|**virtualAddress** | **Integer** |  |  |
+|**virtualSize** | **Integer** |  |  |
 
 
 

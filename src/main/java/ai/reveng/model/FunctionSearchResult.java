@@ -52,16 +52,6 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FunctionSearchResult {
-  public static final String SERIALIZED_NAME_FUNCTION_ID = "function_id";
-  @SerializedName(SERIALIZED_NAME_FUNCTION_ID)
-  @javax.annotation.Nonnull
-  private Long functionId;
-
-  public static final String SERIALIZED_NAME_FUNCTION_NAME = "function_name";
-  @SerializedName(SERIALIZED_NAME_FUNCTION_NAME)
-  @javax.annotation.Nonnull
-  private String functionName;
-
   public static final String SERIALIZED_NAME_BINARY_NAME = "binary_name";
   @SerializedName(SERIALIZED_NAME_BINARY_NAME)
   @javax.annotation.Nonnull
@@ -71,6 +61,16 @@ public class FunctionSearchResult {
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   @javax.annotation.Nonnull
   private OffsetDateTime createdAt;
+
+  public static final String SERIALIZED_NAME_FUNCTION_ID = "function_id";
+  @SerializedName(SERIALIZED_NAME_FUNCTION_ID)
+  @javax.annotation.Nonnull
+  private Long functionId;
+
+  public static final String SERIALIZED_NAME_FUNCTION_NAME = "function_name";
+  @SerializedName(SERIALIZED_NAME_FUNCTION_NAME)
+  @javax.annotation.Nonnull
+  private String functionName;
 
   public static final String SERIALIZED_NAME_MODEL_ID = "model_id";
   @SerializedName(SERIALIZED_NAME_MODEL_ID)
@@ -89,44 +89,6 @@ public class FunctionSearchResult {
 
   public FunctionSearchResult() {
   }
-
-  public FunctionSearchResult functionId(@javax.annotation.Nonnull Long functionId) {
-    this.functionId = functionId;
-    return this;
-  }
-
-  /**
-   * The function ID
-   * @return functionId
-   */
-  @javax.annotation.Nonnull
-  public Long getFunctionId() {
-    return functionId;
-  }
-
-  public void setFunctionId(@javax.annotation.Nonnull Long functionId) {
-    this.functionId = functionId;
-  }
-
-
-  public FunctionSearchResult functionName(@javax.annotation.Nonnull String functionName) {
-    this.functionName = functionName;
-    return this;
-  }
-
-  /**
-   * The name of the function
-   * @return functionName
-   */
-  @javax.annotation.Nonnull
-  public String getFunctionName() {
-    return functionName;
-  }
-
-  public void setFunctionName(@javax.annotation.Nonnull String functionName) {
-    this.functionName = functionName;
-  }
-
 
   public FunctionSearchResult binaryName(@javax.annotation.Nonnull String binaryName) {
     this.binaryName = binaryName;
@@ -163,6 +125,44 @@ public class FunctionSearchResult {
 
   public void setCreatedAt(@javax.annotation.Nonnull OffsetDateTime createdAt) {
     this.createdAt = createdAt;
+  }
+
+
+  public FunctionSearchResult functionId(@javax.annotation.Nonnull Long functionId) {
+    this.functionId = functionId;
+    return this;
+  }
+
+  /**
+   * The function ID
+   * @return functionId
+   */
+  @javax.annotation.Nonnull
+  public Long getFunctionId() {
+    return functionId;
+  }
+
+  public void setFunctionId(@javax.annotation.Nonnull Long functionId) {
+    this.functionId = functionId;
+  }
+
+
+  public FunctionSearchResult functionName(@javax.annotation.Nonnull String functionName) {
+    this.functionName = functionName;
+    return this;
+  }
+
+  /**
+   * The name of the function
+   * @return functionName
+   */
+  @javax.annotation.Nonnull
+  public String getFunctionName() {
+    return functionName;
+  }
+
+  public void setFunctionName(@javax.annotation.Nonnull String functionName) {
+    this.functionName = functionName;
   }
 
 
@@ -277,10 +277,10 @@ public class FunctionSearchResult {
       return false;
     }
     FunctionSearchResult functionSearchResult = (FunctionSearchResult) o;
-    return Objects.equals(this.functionId, functionSearchResult.functionId) &&
-        Objects.equals(this.functionName, functionSearchResult.functionName) &&
-        Objects.equals(this.binaryName, functionSearchResult.binaryName) &&
+    return Objects.equals(this.binaryName, functionSearchResult.binaryName) &&
         Objects.equals(this.createdAt, functionSearchResult.createdAt) &&
+        Objects.equals(this.functionId, functionSearchResult.functionId) &&
+        Objects.equals(this.functionName, functionSearchResult.functionName) &&
         Objects.equals(this.modelId, functionSearchResult.modelId) &&
         Objects.equals(this.modelName, functionSearchResult.modelName) &&
         Objects.equals(this.ownedBy, functionSearchResult.ownedBy)&&
@@ -289,17 +289,17 @@ public class FunctionSearchResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(functionId, functionName, binaryName, createdAt, modelId, modelName, ownedBy, additionalProperties);
+    return Objects.hash(binaryName, createdAt, functionId, functionName, modelId, modelName, ownedBy, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FunctionSearchResult {\n");
-    sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
-    sb.append("    functionName: ").append(toIndentedString(functionName)).append("\n");
     sb.append("    binaryName: ").append(toIndentedString(binaryName)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
+    sb.append("    functionName: ").append(toIndentedString(functionName)).append("\n");
     sb.append("    modelId: ").append(toIndentedString(modelId)).append("\n");
     sb.append("    modelName: ").append(toIndentedString(modelName)).append("\n");
     sb.append("    ownedBy: ").append(toIndentedString(ownedBy)).append("\n");
@@ -325,10 +325,10 @@ public class FunctionSearchResult {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("function_id", "function_name", "binary_name", "created_at", "model_id", "model_name", "owned_by"));
+    openapiFields = new HashSet<String>(Arrays.asList("binary_name", "created_at", "function_id", "function_name", "model_id", "model_name", "owned_by"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("function_id", "function_name", "binary_name", "created_at", "model_id", "model_name", "owned_by"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("binary_name", "created_at", "function_id", "function_name", "model_id", "model_name", "owned_by"));
   }
 
   /**
@@ -351,11 +351,11 @@ public class FunctionSearchResult {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("function_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `function_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("function_name").toString()));
-      }
       if (!jsonObj.get("binary_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `binary_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("binary_name").toString()));
+      }
+      if (!jsonObj.get("function_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `function_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("function_name").toString()));
       }
       if (!jsonObj.get("model_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `model_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("model_name").toString()));

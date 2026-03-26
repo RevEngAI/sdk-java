@@ -55,6 +55,31 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FunctionMatchingResponse {
+  public static final String SERIALIZED_NAME_CURRENT_PAGE = "current_page";
+  @SerializedName(SERIALIZED_NAME_CURRENT_PAGE)
+  @javax.annotation.Nullable
+  private Integer currentPage;
+
+  public static final String SERIALIZED_NAME_ERROR_MESSAGE = "error_message";
+  @SerializedName(SERIALIZED_NAME_ERROR_MESSAGE)
+  @javax.annotation.Nullable
+  private String errorMessage;
+
+  public static final String SERIALIZED_NAME_MATCHES = "matches";
+  @SerializedName(SERIALIZED_NAME_MATCHES)
+  @javax.annotation.Nullable
+  private List<FunctionMatch> matches;
+
+  public static final String SERIALIZED_NAME_NUM_DEBUG_MATCHES = "num_debug_matches";
+  @SerializedName(SERIALIZED_NAME_NUM_DEBUG_MATCHES)
+  @javax.annotation.Nullable
+  private Integer numDebugMatches;
+
+  public static final String SERIALIZED_NAME_NUM_MATCHES = "num_matches";
+  @SerializedName(SERIALIZED_NAME_NUM_MATCHES)
+  @javax.annotation.Nullable
+  private Integer numMatches;
+
   public static final String SERIALIZED_NAME_PROGRESS = "progress";
   @SerializedName(SERIALIZED_NAME_PROGRESS)
   @javax.annotation.Nullable
@@ -65,40 +90,15 @@ public class FunctionMatchingResponse {
   @javax.annotation.Nullable
   private String status;
 
-  public static final String SERIALIZED_NAME_TOTAL_TIME = "total_time";
-  @SerializedName(SERIALIZED_NAME_TOTAL_TIME)
-  @javax.annotation.Nullable
-  private Integer totalTime;
-
-  public static final String SERIALIZED_NAME_ERROR_MESSAGE = "error_message";
-  @SerializedName(SERIALIZED_NAME_ERROR_MESSAGE)
-  @javax.annotation.Nullable
-  private String errorMessage;
-
-  public static final String SERIALIZED_NAME_CURRENT_PAGE = "current_page";
-  @SerializedName(SERIALIZED_NAME_CURRENT_PAGE)
-  @javax.annotation.Nullable
-  private Integer currentPage;
-
   public static final String SERIALIZED_NAME_TOTAL_PAGES = "total_pages";
   @SerializedName(SERIALIZED_NAME_TOTAL_PAGES)
   @javax.annotation.Nullable
   private Integer totalPages;
 
-  public static final String SERIALIZED_NAME_MATCHES = "matches";
-  @SerializedName(SERIALIZED_NAME_MATCHES)
+  public static final String SERIALIZED_NAME_TOTAL_TIME = "total_time";
+  @SerializedName(SERIALIZED_NAME_TOTAL_TIME)
   @javax.annotation.Nullable
-  private List<FunctionMatch> matches;
-
-  public static final String SERIALIZED_NAME_NUM_MATCHES = "num_matches";
-  @SerializedName(SERIALIZED_NAME_NUM_MATCHES)
-  @javax.annotation.Nullable
-  private Integer numMatches;
-
-  public static final String SERIALIZED_NAME_NUM_DEBUG_MATCHES = "num_debug_matches";
-  @SerializedName(SERIALIZED_NAME_NUM_DEBUG_MATCHES)
-  @javax.annotation.Nullable
-  private Integer numDebugMatches;
+  private Integer totalTime;
 
   public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
   @SerializedName(SERIALIZED_NAME_UPDATED_AT)
@@ -107,6 +107,109 @@ public class FunctionMatchingResponse {
 
   public FunctionMatchingResponse() {
   }
+
+  public FunctionMatchingResponse currentPage(@javax.annotation.Nullable Integer currentPage) {
+    this.currentPage = currentPage;
+    return this;
+  }
+
+  /**
+   * Get currentPage
+   * @return currentPage
+   */
+  @javax.annotation.Nullable
+  public Integer getCurrentPage() {
+    return currentPage;
+  }
+
+  public void setCurrentPage(@javax.annotation.Nullable Integer currentPage) {
+    this.currentPage = currentPage;
+  }
+
+
+  public FunctionMatchingResponse errorMessage(@javax.annotation.Nullable String errorMessage) {
+    this.errorMessage = errorMessage;
+    return this;
+  }
+
+  /**
+   * Get errorMessage
+   * @return errorMessage
+   */
+  @javax.annotation.Nullable
+  public String getErrorMessage() {
+    return errorMessage;
+  }
+
+  public void setErrorMessage(@javax.annotation.Nullable String errorMessage) {
+    this.errorMessage = errorMessage;
+  }
+
+
+  public FunctionMatchingResponse matches(@javax.annotation.Nullable List<FunctionMatch> matches) {
+    this.matches = matches;
+    return this;
+  }
+
+  public FunctionMatchingResponse addMatchesItem(FunctionMatch matchesItem) {
+    if (this.matches == null) {
+      this.matches = new ArrayList<>();
+    }
+    this.matches.add(matchesItem);
+    return this;
+  }
+
+  /**
+   * Get matches
+   * @return matches
+   */
+  @javax.annotation.Nullable
+  public List<FunctionMatch> getMatches() {
+    return matches;
+  }
+
+  public void setMatches(@javax.annotation.Nullable List<FunctionMatch> matches) {
+    this.matches = matches;
+  }
+
+
+  public FunctionMatchingResponse numDebugMatches(@javax.annotation.Nullable Integer numDebugMatches) {
+    this.numDebugMatches = numDebugMatches;
+    return this;
+  }
+
+  /**
+   * Get numDebugMatches
+   * @return numDebugMatches
+   */
+  @javax.annotation.Nullable
+  public Integer getNumDebugMatches() {
+    return numDebugMatches;
+  }
+
+  public void setNumDebugMatches(@javax.annotation.Nullable Integer numDebugMatches) {
+    this.numDebugMatches = numDebugMatches;
+  }
+
+
+  public FunctionMatchingResponse numMatches(@javax.annotation.Nullable Integer numMatches) {
+    this.numMatches = numMatches;
+    return this;
+  }
+
+  /**
+   * Get numMatches
+   * @return numMatches
+   */
+  @javax.annotation.Nullable
+  public Integer getNumMatches() {
+    return numMatches;
+  }
+
+  public void setNumMatches(@javax.annotation.Nullable Integer numMatches) {
+    this.numMatches = numMatches;
+  }
+
 
   public FunctionMatchingResponse progress(@javax.annotation.Nullable Integer progress) {
     this.progress = progress;
@@ -146,63 +249,6 @@ public class FunctionMatchingResponse {
   }
 
 
-  public FunctionMatchingResponse totalTime(@javax.annotation.Nullable Integer totalTime) {
-    this.totalTime = totalTime;
-    return this;
-  }
-
-  /**
-   * Get totalTime
-   * @return totalTime
-   */
-  @javax.annotation.Nullable
-  public Integer getTotalTime() {
-    return totalTime;
-  }
-
-  public void setTotalTime(@javax.annotation.Nullable Integer totalTime) {
-    this.totalTime = totalTime;
-  }
-
-
-  public FunctionMatchingResponse errorMessage(@javax.annotation.Nullable String errorMessage) {
-    this.errorMessage = errorMessage;
-    return this;
-  }
-
-  /**
-   * Get errorMessage
-   * @return errorMessage
-   */
-  @javax.annotation.Nullable
-  public String getErrorMessage() {
-    return errorMessage;
-  }
-
-  public void setErrorMessage(@javax.annotation.Nullable String errorMessage) {
-    this.errorMessage = errorMessage;
-  }
-
-
-  public FunctionMatchingResponse currentPage(@javax.annotation.Nullable Integer currentPage) {
-    this.currentPage = currentPage;
-    return this;
-  }
-
-  /**
-   * Get currentPage
-   * @return currentPage
-   */
-  @javax.annotation.Nullable
-  public Integer getCurrentPage() {
-    return currentPage;
-  }
-
-  public void setCurrentPage(@javax.annotation.Nullable Integer currentPage) {
-    this.currentPage = currentPage;
-  }
-
-
   public FunctionMatchingResponse totalPages(@javax.annotation.Nullable Integer totalPages) {
     this.totalPages = totalPages;
     return this;
@@ -222,68 +268,22 @@ public class FunctionMatchingResponse {
   }
 
 
-  public FunctionMatchingResponse matches(@javax.annotation.Nullable List<FunctionMatch> matches) {
-    this.matches = matches;
-    return this;
-  }
-
-  public FunctionMatchingResponse addMatchesItem(FunctionMatch matchesItem) {
-    if (this.matches == null) {
-      this.matches = new ArrayList<>();
-    }
-    this.matches.add(matchesItem);
+  public FunctionMatchingResponse totalTime(@javax.annotation.Nullable Integer totalTime) {
+    this.totalTime = totalTime;
     return this;
   }
 
   /**
-   * Get matches
-   * @return matches
+   * Get totalTime
+   * @return totalTime
    */
   @javax.annotation.Nullable
-  public List<FunctionMatch> getMatches() {
-    return matches;
+  public Integer getTotalTime() {
+    return totalTime;
   }
 
-  public void setMatches(@javax.annotation.Nullable List<FunctionMatch> matches) {
-    this.matches = matches;
-  }
-
-
-  public FunctionMatchingResponse numMatches(@javax.annotation.Nullable Integer numMatches) {
-    this.numMatches = numMatches;
-    return this;
-  }
-
-  /**
-   * Get numMatches
-   * @return numMatches
-   */
-  @javax.annotation.Nullable
-  public Integer getNumMatches() {
-    return numMatches;
-  }
-
-  public void setNumMatches(@javax.annotation.Nullable Integer numMatches) {
-    this.numMatches = numMatches;
-  }
-
-
-  public FunctionMatchingResponse numDebugMatches(@javax.annotation.Nullable Integer numDebugMatches) {
-    this.numDebugMatches = numDebugMatches;
-    return this;
-  }
-
-  /**
-   * Get numDebugMatches
-   * @return numDebugMatches
-   */
-  @javax.annotation.Nullable
-  public Integer getNumDebugMatches() {
-    return numDebugMatches;
-  }
-
-  public void setNumDebugMatches(@javax.annotation.Nullable Integer numDebugMatches) {
-    this.numDebugMatches = numDebugMatches;
+  public void setTotalTime(@javax.annotation.Nullable Integer totalTime) {
+    this.totalTime = totalTime;
   }
 
 
@@ -360,15 +360,15 @@ public class FunctionMatchingResponse {
       return false;
     }
     FunctionMatchingResponse functionMatchingResponse = (FunctionMatchingResponse) o;
-    return Objects.equals(this.progress, functionMatchingResponse.progress) &&
-        Objects.equals(this.status, functionMatchingResponse.status) &&
-        Objects.equals(this.totalTime, functionMatchingResponse.totalTime) &&
+    return Objects.equals(this.currentPage, functionMatchingResponse.currentPage) &&
         Objects.equals(this.errorMessage, functionMatchingResponse.errorMessage) &&
-        Objects.equals(this.currentPage, functionMatchingResponse.currentPage) &&
-        Objects.equals(this.totalPages, functionMatchingResponse.totalPages) &&
         Objects.equals(this.matches, functionMatchingResponse.matches) &&
-        Objects.equals(this.numMatches, functionMatchingResponse.numMatches) &&
         Objects.equals(this.numDebugMatches, functionMatchingResponse.numDebugMatches) &&
+        Objects.equals(this.numMatches, functionMatchingResponse.numMatches) &&
+        Objects.equals(this.progress, functionMatchingResponse.progress) &&
+        Objects.equals(this.status, functionMatchingResponse.status) &&
+        Objects.equals(this.totalPages, functionMatchingResponse.totalPages) &&
+        Objects.equals(this.totalTime, functionMatchingResponse.totalTime) &&
         Objects.equals(this.updatedAt, functionMatchingResponse.updatedAt)&&
         Objects.equals(this.additionalProperties, functionMatchingResponse.additionalProperties);
   }
@@ -379,7 +379,7 @@ public class FunctionMatchingResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(progress, status, totalTime, errorMessage, currentPage, totalPages, matches, numMatches, numDebugMatches, updatedAt, additionalProperties);
+    return Objects.hash(currentPage, errorMessage, matches, numDebugMatches, numMatches, progress, status, totalPages, totalTime, updatedAt, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -393,15 +393,15 @@ public class FunctionMatchingResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FunctionMatchingResponse {\n");
+    sb.append("    currentPage: ").append(toIndentedString(currentPage)).append("\n");
+    sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
+    sb.append("    matches: ").append(toIndentedString(matches)).append("\n");
+    sb.append("    numDebugMatches: ").append(toIndentedString(numDebugMatches)).append("\n");
+    sb.append("    numMatches: ").append(toIndentedString(numMatches)).append("\n");
     sb.append("    progress: ").append(toIndentedString(progress)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    totalTime: ").append(toIndentedString(totalTime)).append("\n");
-    sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
-    sb.append("    currentPage: ").append(toIndentedString(currentPage)).append("\n");
     sb.append("    totalPages: ").append(toIndentedString(totalPages)).append("\n");
-    sb.append("    matches: ").append(toIndentedString(matches)).append("\n");
-    sb.append("    numMatches: ").append(toIndentedString(numMatches)).append("\n");
-    sb.append("    numDebugMatches: ").append(toIndentedString(numDebugMatches)).append("\n");
+    sb.append("    totalTime: ").append(toIndentedString(totalTime)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -425,7 +425,7 @@ public class FunctionMatchingResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("progress", "status", "total_time", "error_message", "current_page", "total_pages", "matches", "num_matches", "num_debug_matches", "updated_at"));
+    openapiFields = new HashSet<String>(Arrays.asList("current_page", "error_message", "matches", "num_debug_matches", "num_matches", "progress", "status", "total_pages", "total_time", "updated_at"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -444,9 +444,6 @@ public class FunctionMatchingResponse {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) && !jsonObj.get("status").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
-      }
       if ((jsonObj.get("error_message") != null && !jsonObj.get("error_message").isJsonNull()) && !jsonObj.get("error_message").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `error_message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("error_message").toString()));
       }
@@ -463,6 +460,9 @@ public class FunctionMatchingResponse {
             FunctionMatch.validateJsonElement(jsonArraymatches.get(i));
           };
         }
+      }
+      if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) && !jsonObj.get("status").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
       }
       if ((jsonObj.get("updated_at") != null && !jsonObj.get("updated_at").isJsonNull()) && !jsonObj.get("updated_at").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `updated_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("updated_at").toString()));

@@ -54,18 +54,37 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SingleCodeSignatureModel {
-  public static final String SERIALIZED_NAME_CERTIFICATES = "certificates";
-  @SerializedName(SERIALIZED_NAME_CERTIFICATES)
-  @javax.annotation.Nonnull
-  private List<SingleCodeCertificateModel> certificates = new ArrayList<>();
-
   public static final String SERIALIZED_NAME_AUTHENTICODE_DIGEST = "authenticode_digest";
   @SerializedName(SERIALIZED_NAME_AUTHENTICODE_DIGEST)
   @javax.annotation.Nonnull
   private String authenticodeDigest;
 
+  public static final String SERIALIZED_NAME_CERTIFICATES = "certificates";
+  @SerializedName(SERIALIZED_NAME_CERTIFICATES)
+  @javax.annotation.Nonnull
+  private List<SingleCodeCertificateModel> certificates = new ArrayList<>();
+
   public SingleCodeSignatureModel() {
   }
+
+  public SingleCodeSignatureModel authenticodeDigest(@javax.annotation.Nonnull String authenticodeDigest) {
+    this.authenticodeDigest = authenticodeDigest;
+    return this;
+  }
+
+  /**
+   * Get authenticodeDigest
+   * @return authenticodeDigest
+   */
+  @javax.annotation.Nonnull
+  public String getAuthenticodeDigest() {
+    return authenticodeDigest;
+  }
+
+  public void setAuthenticodeDigest(@javax.annotation.Nonnull String authenticodeDigest) {
+    this.authenticodeDigest = authenticodeDigest;
+  }
+
 
   public SingleCodeSignatureModel certificates(@javax.annotation.Nonnull List<SingleCodeCertificateModel> certificates) {
     this.certificates = certificates;
@@ -91,25 +110,6 @@ public class SingleCodeSignatureModel {
 
   public void setCertificates(@javax.annotation.Nonnull List<SingleCodeCertificateModel> certificates) {
     this.certificates = certificates;
-  }
-
-
-  public SingleCodeSignatureModel authenticodeDigest(@javax.annotation.Nonnull String authenticodeDigest) {
-    this.authenticodeDigest = authenticodeDigest;
-    return this;
-  }
-
-  /**
-   * Get authenticodeDigest
-   * @return authenticodeDigest
-   */
-  @javax.annotation.Nonnull
-  public String getAuthenticodeDigest() {
-    return authenticodeDigest;
-  }
-
-  public void setAuthenticodeDigest(@javax.annotation.Nonnull String authenticodeDigest) {
-    this.authenticodeDigest = authenticodeDigest;
   }
 
   /**
@@ -167,22 +167,22 @@ public class SingleCodeSignatureModel {
       return false;
     }
     SingleCodeSignatureModel singleCodeSignatureModel = (SingleCodeSignatureModel) o;
-    return Objects.equals(this.certificates, singleCodeSignatureModel.certificates) &&
-        Objects.equals(this.authenticodeDigest, singleCodeSignatureModel.authenticodeDigest)&&
+    return Objects.equals(this.authenticodeDigest, singleCodeSignatureModel.authenticodeDigest) &&
+        Objects.equals(this.certificates, singleCodeSignatureModel.certificates)&&
         Objects.equals(this.additionalProperties, singleCodeSignatureModel.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificates, authenticodeDigest, additionalProperties);
+    return Objects.hash(authenticodeDigest, certificates, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SingleCodeSignatureModel {\n");
-    sb.append("    certificates: ").append(toIndentedString(certificates)).append("\n");
     sb.append("    authenticodeDigest: ").append(toIndentedString(authenticodeDigest)).append("\n");
+    sb.append("    certificates: ").append(toIndentedString(certificates)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -205,10 +205,10 @@ public class SingleCodeSignatureModel {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("certificates", "authenticode_digest"));
+    openapiFields = new HashSet<String>(Arrays.asList("authenticode_digest", "certificates"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("certificates", "authenticode_digest"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("authenticode_digest", "certificates"));
   }
 
   /**
@@ -231,6 +231,9 @@ public class SingleCodeSignatureModel {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("authenticode_digest").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `authenticode_digest` to be a primitive type in the JSON string but got `%s`", jsonObj.get("authenticode_digest").toString()));
+      }
       // ensure the json data is an array
       if (!jsonObj.get("certificates").isJsonArray()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `certificates` to be an array in the JSON string but got `%s`", jsonObj.get("certificates").toString()));
@@ -241,9 +244,6 @@ public class SingleCodeSignatureModel {
       for (int i = 0; i < jsonArraycertificates.size(); i++) {
         SingleCodeCertificateModel.validateJsonElement(jsonArraycertificates.get(i));
       };
-      if (!jsonObj.get("authenticode_digest").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `authenticode_digest` to be a primitive type in the JSON string but got `%s`", jsonObj.get("authenticode_digest").toString()));
-      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

@@ -51,63 +51,82 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SecurityModel {
-  public static final String SERIALIZED_NAME_ASLR = "aslr";
-  @SerializedName(SERIALIZED_NAME_ASLR)
-  @javax.annotation.Nonnull
-  private Boolean aslr;
-
-  public static final String SERIALIZED_NAME_DEP = "dep";
-  @SerializedName(SERIALIZED_NAME_DEP)
-  @javax.annotation.Nonnull
-  private Boolean dep;
-
-  public static final String SERIALIZED_NAME_CFG = "cfg";
-  @SerializedName(SERIALIZED_NAME_CFG)
-  @javax.annotation.Nonnull
-  private Boolean cfg;
-
-  public static final String SERIALIZED_NAME_DRIVER_MODEL = "driver_model";
-  @SerializedName(SERIALIZED_NAME_DRIVER_MODEL)
-  @javax.annotation.Nonnull
-  private Boolean driverModel;
-
   public static final String SERIALIZED_NAME_APP_CONTAINER = "app_container";
   @SerializedName(SERIALIZED_NAME_APP_CONTAINER)
   @javax.annotation.Nonnull
   private Boolean appContainer;
 
-  public static final String SERIALIZED_NAME_TERMINAL_SERVER_AWARE = "terminal_server_aware";
-  @SerializedName(SERIALIZED_NAME_TERMINAL_SERVER_AWARE)
+  public static final String SERIALIZED_NAME_ASLR = "aslr";
+  @SerializedName(SERIALIZED_NAME_ASLR)
   @javax.annotation.Nonnull
-  private Boolean terminalServerAware;
-
-  public static final String SERIALIZED_NAME_IMAGE_ISOLATION = "image_isolation";
-  @SerializedName(SERIALIZED_NAME_IMAGE_ISOLATION)
-  @javax.annotation.Nonnull
-  private Boolean imageIsolation;
-
-  public static final String SERIALIZED_NAME_CODE_INTEGRITY = "code_integrity";
-  @SerializedName(SERIALIZED_NAME_CODE_INTEGRITY)
-  @javax.annotation.Nonnull
-  private Boolean codeIntegrity;
-
-  public static final String SERIALIZED_NAME_HIGH_ENTROPY = "high_entropy";
-  @SerializedName(SERIALIZED_NAME_HIGH_ENTROPY)
-  @javax.annotation.Nonnull
-  private Boolean highEntropy;
-
-  public static final String SERIALIZED_NAME_SEH = "seh";
-  @SerializedName(SERIALIZED_NAME_SEH)
-  @javax.annotation.Nonnull
-  private Boolean seh;
+  private Boolean aslr;
 
   public static final String SERIALIZED_NAME_BOUND_IMAGE = "bound_image";
   @SerializedName(SERIALIZED_NAME_BOUND_IMAGE)
   @javax.annotation.Nonnull
   private Boolean boundImage;
 
+  public static final String SERIALIZED_NAME_CFG = "cfg";
+  @SerializedName(SERIALIZED_NAME_CFG)
+  @javax.annotation.Nonnull
+  private Boolean cfg;
+
+  public static final String SERIALIZED_NAME_CODE_INTEGRITY = "code_integrity";
+  @SerializedName(SERIALIZED_NAME_CODE_INTEGRITY)
+  @javax.annotation.Nonnull
+  private Boolean codeIntegrity;
+
+  public static final String SERIALIZED_NAME_DEP = "dep";
+  @SerializedName(SERIALIZED_NAME_DEP)
+  @javax.annotation.Nonnull
+  private Boolean dep;
+
+  public static final String SERIALIZED_NAME_DRIVER_MODEL = "driver_model";
+  @SerializedName(SERIALIZED_NAME_DRIVER_MODEL)
+  @javax.annotation.Nonnull
+  private Boolean driverModel;
+
+  public static final String SERIALIZED_NAME_HIGH_ENTROPY = "high_entropy";
+  @SerializedName(SERIALIZED_NAME_HIGH_ENTROPY)
+  @javax.annotation.Nonnull
+  private Boolean highEntropy;
+
+  public static final String SERIALIZED_NAME_IMAGE_ISOLATION = "image_isolation";
+  @SerializedName(SERIALIZED_NAME_IMAGE_ISOLATION)
+  @javax.annotation.Nonnull
+  private Boolean imageIsolation;
+
+  public static final String SERIALIZED_NAME_SEH = "seh";
+  @SerializedName(SERIALIZED_NAME_SEH)
+  @javax.annotation.Nonnull
+  private Boolean seh;
+
+  public static final String SERIALIZED_NAME_TERMINAL_SERVER_AWARE = "terminal_server_aware";
+  @SerializedName(SERIALIZED_NAME_TERMINAL_SERVER_AWARE)
+  @javax.annotation.Nonnull
+  private Boolean terminalServerAware;
+
   public SecurityModel() {
   }
+
+  public SecurityModel appContainer(@javax.annotation.Nonnull Boolean appContainer) {
+    this.appContainer = appContainer;
+    return this;
+  }
+
+  /**
+   * Get appContainer
+   * @return appContainer
+   */
+  @javax.annotation.Nonnull
+  public Boolean getAppContainer() {
+    return appContainer;
+  }
+
+  public void setAppContainer(@javax.annotation.Nonnull Boolean appContainer) {
+    this.appContainer = appContainer;
+  }
+
 
   public SecurityModel aslr(@javax.annotation.Nonnull Boolean aslr) {
     this.aslr = aslr;
@@ -128,22 +147,22 @@ public class SecurityModel {
   }
 
 
-  public SecurityModel dep(@javax.annotation.Nonnull Boolean dep) {
-    this.dep = dep;
+  public SecurityModel boundImage(@javax.annotation.Nonnull Boolean boundImage) {
+    this.boundImage = boundImage;
     return this;
   }
 
   /**
-   * Get dep
-   * @return dep
+   * Get boundImage
+   * @return boundImage
    */
   @javax.annotation.Nonnull
-  public Boolean getDep() {
-    return dep;
+  public Boolean getBoundImage() {
+    return boundImage;
   }
 
-  public void setDep(@javax.annotation.Nonnull Boolean dep) {
-    this.dep = dep;
+  public void setBoundImage(@javax.annotation.Nonnull Boolean boundImage) {
+    this.boundImage = boundImage;
   }
 
 
@@ -166,82 +185,6 @@ public class SecurityModel {
   }
 
 
-  public SecurityModel driverModel(@javax.annotation.Nonnull Boolean driverModel) {
-    this.driverModel = driverModel;
-    return this;
-  }
-
-  /**
-   * Get driverModel
-   * @return driverModel
-   */
-  @javax.annotation.Nonnull
-  public Boolean getDriverModel() {
-    return driverModel;
-  }
-
-  public void setDriverModel(@javax.annotation.Nonnull Boolean driverModel) {
-    this.driverModel = driverModel;
-  }
-
-
-  public SecurityModel appContainer(@javax.annotation.Nonnull Boolean appContainer) {
-    this.appContainer = appContainer;
-    return this;
-  }
-
-  /**
-   * Get appContainer
-   * @return appContainer
-   */
-  @javax.annotation.Nonnull
-  public Boolean getAppContainer() {
-    return appContainer;
-  }
-
-  public void setAppContainer(@javax.annotation.Nonnull Boolean appContainer) {
-    this.appContainer = appContainer;
-  }
-
-
-  public SecurityModel terminalServerAware(@javax.annotation.Nonnull Boolean terminalServerAware) {
-    this.terminalServerAware = terminalServerAware;
-    return this;
-  }
-
-  /**
-   * Get terminalServerAware
-   * @return terminalServerAware
-   */
-  @javax.annotation.Nonnull
-  public Boolean getTerminalServerAware() {
-    return terminalServerAware;
-  }
-
-  public void setTerminalServerAware(@javax.annotation.Nonnull Boolean terminalServerAware) {
-    this.terminalServerAware = terminalServerAware;
-  }
-
-
-  public SecurityModel imageIsolation(@javax.annotation.Nonnull Boolean imageIsolation) {
-    this.imageIsolation = imageIsolation;
-    return this;
-  }
-
-  /**
-   * Get imageIsolation
-   * @return imageIsolation
-   */
-  @javax.annotation.Nonnull
-  public Boolean getImageIsolation() {
-    return imageIsolation;
-  }
-
-  public void setImageIsolation(@javax.annotation.Nonnull Boolean imageIsolation) {
-    this.imageIsolation = imageIsolation;
-  }
-
-
   public SecurityModel codeIntegrity(@javax.annotation.Nonnull Boolean codeIntegrity) {
     this.codeIntegrity = codeIntegrity;
     return this;
@@ -258,6 +201,44 @@ public class SecurityModel {
 
   public void setCodeIntegrity(@javax.annotation.Nonnull Boolean codeIntegrity) {
     this.codeIntegrity = codeIntegrity;
+  }
+
+
+  public SecurityModel dep(@javax.annotation.Nonnull Boolean dep) {
+    this.dep = dep;
+    return this;
+  }
+
+  /**
+   * Get dep
+   * @return dep
+   */
+  @javax.annotation.Nonnull
+  public Boolean getDep() {
+    return dep;
+  }
+
+  public void setDep(@javax.annotation.Nonnull Boolean dep) {
+    this.dep = dep;
+  }
+
+
+  public SecurityModel driverModel(@javax.annotation.Nonnull Boolean driverModel) {
+    this.driverModel = driverModel;
+    return this;
+  }
+
+  /**
+   * Get driverModel
+   * @return driverModel
+   */
+  @javax.annotation.Nonnull
+  public Boolean getDriverModel() {
+    return driverModel;
+  }
+
+  public void setDriverModel(@javax.annotation.Nonnull Boolean driverModel) {
+    this.driverModel = driverModel;
   }
 
 
@@ -280,6 +261,25 @@ public class SecurityModel {
   }
 
 
+  public SecurityModel imageIsolation(@javax.annotation.Nonnull Boolean imageIsolation) {
+    this.imageIsolation = imageIsolation;
+    return this;
+  }
+
+  /**
+   * Get imageIsolation
+   * @return imageIsolation
+   */
+  @javax.annotation.Nonnull
+  public Boolean getImageIsolation() {
+    return imageIsolation;
+  }
+
+  public void setImageIsolation(@javax.annotation.Nonnull Boolean imageIsolation) {
+    this.imageIsolation = imageIsolation;
+  }
+
+
   public SecurityModel seh(@javax.annotation.Nonnull Boolean seh) {
     this.seh = seh;
     return this;
@@ -299,22 +299,22 @@ public class SecurityModel {
   }
 
 
-  public SecurityModel boundImage(@javax.annotation.Nonnull Boolean boundImage) {
-    this.boundImage = boundImage;
+  public SecurityModel terminalServerAware(@javax.annotation.Nonnull Boolean terminalServerAware) {
+    this.terminalServerAware = terminalServerAware;
     return this;
   }
 
   /**
-   * Get boundImage
-   * @return boundImage
+   * Get terminalServerAware
+   * @return terminalServerAware
    */
   @javax.annotation.Nonnull
-  public Boolean getBoundImage() {
-    return boundImage;
+  public Boolean getTerminalServerAware() {
+    return terminalServerAware;
   }
 
-  public void setBoundImage(@javax.annotation.Nonnull Boolean boundImage) {
-    this.boundImage = boundImage;
+  public void setTerminalServerAware(@javax.annotation.Nonnull Boolean terminalServerAware) {
+    this.terminalServerAware = terminalServerAware;
   }
 
   /**
@@ -372,40 +372,40 @@ public class SecurityModel {
       return false;
     }
     SecurityModel securityModel = (SecurityModel) o;
-    return Objects.equals(this.aslr, securityModel.aslr) &&
-        Objects.equals(this.dep, securityModel.dep) &&
+    return Objects.equals(this.appContainer, securityModel.appContainer) &&
+        Objects.equals(this.aslr, securityModel.aslr) &&
+        Objects.equals(this.boundImage, securityModel.boundImage) &&
         Objects.equals(this.cfg, securityModel.cfg) &&
-        Objects.equals(this.driverModel, securityModel.driverModel) &&
-        Objects.equals(this.appContainer, securityModel.appContainer) &&
-        Objects.equals(this.terminalServerAware, securityModel.terminalServerAware) &&
-        Objects.equals(this.imageIsolation, securityModel.imageIsolation) &&
         Objects.equals(this.codeIntegrity, securityModel.codeIntegrity) &&
+        Objects.equals(this.dep, securityModel.dep) &&
+        Objects.equals(this.driverModel, securityModel.driverModel) &&
         Objects.equals(this.highEntropy, securityModel.highEntropy) &&
+        Objects.equals(this.imageIsolation, securityModel.imageIsolation) &&
         Objects.equals(this.seh, securityModel.seh) &&
-        Objects.equals(this.boundImage, securityModel.boundImage)&&
+        Objects.equals(this.terminalServerAware, securityModel.terminalServerAware)&&
         Objects.equals(this.additionalProperties, securityModel.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aslr, dep, cfg, driverModel, appContainer, terminalServerAware, imageIsolation, codeIntegrity, highEntropy, seh, boundImage, additionalProperties);
+    return Objects.hash(appContainer, aslr, boundImage, cfg, codeIntegrity, dep, driverModel, highEntropy, imageIsolation, seh, terminalServerAware, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SecurityModel {\n");
-    sb.append("    aslr: ").append(toIndentedString(aslr)).append("\n");
-    sb.append("    dep: ").append(toIndentedString(dep)).append("\n");
-    sb.append("    cfg: ").append(toIndentedString(cfg)).append("\n");
-    sb.append("    driverModel: ").append(toIndentedString(driverModel)).append("\n");
     sb.append("    appContainer: ").append(toIndentedString(appContainer)).append("\n");
-    sb.append("    terminalServerAware: ").append(toIndentedString(terminalServerAware)).append("\n");
-    sb.append("    imageIsolation: ").append(toIndentedString(imageIsolation)).append("\n");
-    sb.append("    codeIntegrity: ").append(toIndentedString(codeIntegrity)).append("\n");
-    sb.append("    highEntropy: ").append(toIndentedString(highEntropy)).append("\n");
-    sb.append("    seh: ").append(toIndentedString(seh)).append("\n");
+    sb.append("    aslr: ").append(toIndentedString(aslr)).append("\n");
     sb.append("    boundImage: ").append(toIndentedString(boundImage)).append("\n");
+    sb.append("    cfg: ").append(toIndentedString(cfg)).append("\n");
+    sb.append("    codeIntegrity: ").append(toIndentedString(codeIntegrity)).append("\n");
+    sb.append("    dep: ").append(toIndentedString(dep)).append("\n");
+    sb.append("    driverModel: ").append(toIndentedString(driverModel)).append("\n");
+    sb.append("    highEntropy: ").append(toIndentedString(highEntropy)).append("\n");
+    sb.append("    imageIsolation: ").append(toIndentedString(imageIsolation)).append("\n");
+    sb.append("    seh: ").append(toIndentedString(seh)).append("\n");
+    sb.append("    terminalServerAware: ").append(toIndentedString(terminalServerAware)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -428,10 +428,10 @@ public class SecurityModel {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("aslr", "dep", "cfg", "driver_model", "app_container", "terminal_server_aware", "image_isolation", "code_integrity", "high_entropy", "seh", "bound_image"));
+    openapiFields = new HashSet<String>(Arrays.asList("app_container", "aslr", "bound_image", "cfg", "code_integrity", "dep", "driver_model", "high_entropy", "image_isolation", "seh", "terminal_server_aware"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("aslr", "dep", "cfg", "driver_model", "app_container", "terminal_server_aware", "image_isolation", "code_integrity", "high_entropy", "seh", "bound_image"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("app_container", "aslr", "bound_image", "cfg", "code_integrity", "dep", "driver_model", "high_entropy", "image_isolation", "seh", "terminal_server_aware"));
   }
 
   /**

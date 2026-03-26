@@ -51,37 +51,18 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SandboxOptions {
-  public static final String SERIALIZED_NAME_ENABLED = "enabled";
-  @SerializedName(SERIALIZED_NAME_ENABLED)
-  @javax.annotation.Nullable
-  private Boolean enabled = false;
-
   public static final String SERIALIZED_NAME_COMMAND_LINE_ARGS = "command_line_args";
   @SerializedName(SERIALIZED_NAME_COMMAND_LINE_ARGS)
   @javax.annotation.Nullable
   private String commandLineArgs = "";
 
+  public static final String SERIALIZED_NAME_ENABLED = "enabled";
+  @SerializedName(SERIALIZED_NAME_ENABLED)
+  @javax.annotation.Nullable
+  private Boolean enabled = false;
+
   public SandboxOptions() {
   }
-
-  public SandboxOptions enabled(@javax.annotation.Nullable Boolean enabled) {
-    this.enabled = enabled;
-    return this;
-  }
-
-  /**
-   * Get enabled
-   * @return enabled
-   */
-  @javax.annotation.Nullable
-  public Boolean getEnabled() {
-    return enabled;
-  }
-
-  public void setEnabled(@javax.annotation.Nullable Boolean enabled) {
-    this.enabled = enabled;
-  }
-
 
   public SandboxOptions commandLineArgs(@javax.annotation.Nullable String commandLineArgs) {
     this.commandLineArgs = commandLineArgs;
@@ -99,6 +80,25 @@ public class SandboxOptions {
 
   public void setCommandLineArgs(@javax.annotation.Nullable String commandLineArgs) {
     this.commandLineArgs = commandLineArgs;
+  }
+
+
+  public SandboxOptions enabled(@javax.annotation.Nullable Boolean enabled) {
+    this.enabled = enabled;
+    return this;
+  }
+
+  /**
+   * Get enabled
+   * @return enabled
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnabled() {
+    return enabled;
+  }
+
+  public void setEnabled(@javax.annotation.Nullable Boolean enabled) {
+    this.enabled = enabled;
   }
 
   /**
@@ -156,22 +156,22 @@ public class SandboxOptions {
       return false;
     }
     SandboxOptions sandboxOptions = (SandboxOptions) o;
-    return Objects.equals(this.enabled, sandboxOptions.enabled) &&
-        Objects.equals(this.commandLineArgs, sandboxOptions.commandLineArgs)&&
+    return Objects.equals(this.commandLineArgs, sandboxOptions.commandLineArgs) &&
+        Objects.equals(this.enabled, sandboxOptions.enabled)&&
         Objects.equals(this.additionalProperties, sandboxOptions.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled, commandLineArgs, additionalProperties);
+    return Objects.hash(commandLineArgs, enabled, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SandboxOptions {\n");
-    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    commandLineArgs: ").append(toIndentedString(commandLineArgs)).append("\n");
+    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -194,7 +194,7 @@ public class SandboxOptions {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("enabled", "command_line_args"));
+    openapiFields = new HashSet<String>(Arrays.asList("command_line_args", "enabled"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);

@@ -55,6 +55,11 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class BinaryConfig {
+  public static final String SERIALIZED_NAME_FILE_FORMAT = "file_format";
+  @SerializedName(SERIALIZED_NAME_FILE_FORMAT)
+  @javax.annotation.Nullable
+  private FileFormat fileFormat;
+
   public static final String SERIALIZED_NAME_ISA = "isa";
   @SerializedName(SERIALIZED_NAME_ISA)
   @javax.annotation.Nullable
@@ -65,13 +70,27 @@ public class BinaryConfig {
   @javax.annotation.Nullable
   private Platform platform;
 
-  public static final String SERIALIZED_NAME_FILE_FORMAT = "file_format";
-  @SerializedName(SERIALIZED_NAME_FILE_FORMAT)
-  @javax.annotation.Nullable
-  private FileFormat fileFormat;
-
   public BinaryConfig() {
   }
+
+  public BinaryConfig fileFormat(@javax.annotation.Nullable FileFormat fileFormat) {
+    this.fileFormat = fileFormat;
+    return this;
+  }
+
+  /**
+   * Get fileFormat
+   * @return fileFormat
+   */
+  @javax.annotation.Nullable
+  public FileFormat getFileFormat() {
+    return fileFormat;
+  }
+
+  public void setFileFormat(@javax.annotation.Nullable FileFormat fileFormat) {
+    this.fileFormat = fileFormat;
+  }
+
 
   public BinaryConfig isa(@javax.annotation.Nullable ISA isa) {
     this.isa = isa;
@@ -108,25 +127,6 @@ public class BinaryConfig {
 
   public void setPlatform(@javax.annotation.Nullable Platform platform) {
     this.platform = platform;
-  }
-
-
-  public BinaryConfig fileFormat(@javax.annotation.Nullable FileFormat fileFormat) {
-    this.fileFormat = fileFormat;
-    return this;
-  }
-
-  /**
-   * Get fileFormat
-   * @return fileFormat
-   */
-  @javax.annotation.Nullable
-  public FileFormat getFileFormat() {
-    return fileFormat;
-  }
-
-  public void setFileFormat(@javax.annotation.Nullable FileFormat fileFormat) {
-    this.fileFormat = fileFormat;
   }
 
   /**
@@ -184,9 +184,9 @@ public class BinaryConfig {
       return false;
     }
     BinaryConfig binaryConfig = (BinaryConfig) o;
-    return Objects.equals(this.isa, binaryConfig.isa) &&
-        Objects.equals(this.platform, binaryConfig.platform) &&
-        Objects.equals(this.fileFormat, binaryConfig.fileFormat)&&
+    return Objects.equals(this.fileFormat, binaryConfig.fileFormat) &&
+        Objects.equals(this.isa, binaryConfig.isa) &&
+        Objects.equals(this.platform, binaryConfig.platform)&&
         Objects.equals(this.additionalProperties, binaryConfig.additionalProperties);
   }
 
@@ -196,7 +196,7 @@ public class BinaryConfig {
 
   @Override
   public int hashCode() {
-    return Objects.hash(isa, platform, fileFormat, additionalProperties);
+    return Objects.hash(fileFormat, isa, platform, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -210,9 +210,9 @@ public class BinaryConfig {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class BinaryConfig {\n");
+    sb.append("    fileFormat: ").append(toIndentedString(fileFormat)).append("\n");
     sb.append("    isa: ").append(toIndentedString(isa)).append("\n");
     sb.append("    platform: ").append(toIndentedString(platform)).append("\n");
-    sb.append("    fileFormat: ").append(toIndentedString(fileFormat)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -235,7 +235,7 @@ public class BinaryConfig {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("isa", "platform", "file_format"));
+    openapiFields = new HashSet<String>(Arrays.asList("file_format", "isa", "platform"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -254,6 +254,10 @@ public class BinaryConfig {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // validate the optional field `file_format`
+      if (jsonObj.get("file_format") != null && !jsonObj.get("file_format").isJsonNull()) {
+        FileFormat.validateJsonElement(jsonObj.get("file_format"));
+      }
       // validate the optional field `isa`
       if (jsonObj.get("isa") != null && !jsonObj.get("isa").isJsonNull()) {
         ISA.validateJsonElement(jsonObj.get("isa"));
@@ -261,10 +265,6 @@ public class BinaryConfig {
       // validate the optional field `platform`
       if (jsonObj.get("platform") != null && !jsonObj.get("platform").isJsonNull()) {
         Platform.validateJsonElement(jsonObj.get("platform"));
-      }
-      // validate the optional field `file_format`
-      if (jsonObj.get("file_format") != null && !jsonObj.get("file_format").isJsonNull()) {
-        FileFormat.validateJsonElement(jsonObj.get("file_format"));
       }
   }
 

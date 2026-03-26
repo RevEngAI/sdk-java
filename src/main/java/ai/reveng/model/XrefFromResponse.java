@@ -53,16 +53,6 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class XrefFromResponse {
-  public static final String SERIALIZED_NAME_VALUE = "value";
-  @SerializedName(SERIALIZED_NAME_VALUE)
-  @javax.annotation.Nullable
-  private String value;
-
-  public static final String SERIALIZED_NAME_IS_SCALAR = "is_scalar";
-  @SerializedName(SERIALIZED_NAME_IS_SCALAR)
-  @javax.annotation.Nullable
-  private Boolean isScalar;
-
   public static final String SERIALIZED_NAME_IS_CALL = "is_call";
   @SerializedName(SERIALIZED_NAME_IS_CALL)
   @javax.annotation.Nullable
@@ -73,10 +63,20 @@ public class XrefFromResponse {
   @javax.annotation.Nullable
   private Boolean isData;
 
+  public static final String SERIALIZED_NAME_IS_SCALAR = "is_scalar";
+  @SerializedName(SERIALIZED_NAME_IS_SCALAR)
+  @javax.annotation.Nullable
+  private Boolean isScalar;
+
   public static final String SERIALIZED_NAME_IS_STRING = "is_string";
   @SerializedName(SERIALIZED_NAME_IS_STRING)
   @javax.annotation.Nullable
   private Boolean isString;
+
+  public static final String SERIALIZED_NAME_ORIG_STR_ENCODING = "orig_str_encoding";
+  @SerializedName(SERIALIZED_NAME_ORIG_STR_ENCODING)
+  @javax.annotation.Nullable
+  private String origStrEncoding;
 
   public static final String SERIALIZED_NAME_RAW_DATA = "raw_data";
   @SerializedName(SERIALIZED_NAME_RAW_DATA)
@@ -88,10 +88,10 @@ public class XrefFromResponse {
   @javax.annotation.Nullable
   private SegmentInfo segment;
 
-  public static final String SERIALIZED_NAME_ORIG_STR_ENCODING = "orig_str_encoding";
-  @SerializedName(SERIALIZED_NAME_ORIG_STR_ENCODING)
+  public static final String SERIALIZED_NAME_VALUE = "value";
+  @SerializedName(SERIALIZED_NAME_VALUE)
   @javax.annotation.Nullable
-  private String origStrEncoding;
+  private String value;
 
   public static final String SERIALIZED_NAME_XREF_TO = "xref_to";
   @SerializedName(SERIALIZED_NAME_XREF_TO)
@@ -100,44 +100,6 @@ public class XrefFromResponse {
 
   public XrefFromResponse() {
   }
-
-  public XrefFromResponse value(@javax.annotation.Nullable String value) {
-    this.value = value;
-    return this;
-  }
-
-  /**
-   * Get value
-   * @return value
-   */
-  @javax.annotation.Nullable
-  public String getValue() {
-    return value;
-  }
-
-  public void setValue(@javax.annotation.Nullable String value) {
-    this.value = value;
-  }
-
-
-  public XrefFromResponse isScalar(@javax.annotation.Nullable Boolean isScalar) {
-    this.isScalar = isScalar;
-    return this;
-  }
-
-  /**
-   * Get isScalar
-   * @return isScalar
-   */
-  @javax.annotation.Nullable
-  public Boolean getIsScalar() {
-    return isScalar;
-  }
-
-  public void setIsScalar(@javax.annotation.Nullable Boolean isScalar) {
-    this.isScalar = isScalar;
-  }
-
 
   public XrefFromResponse isCall(@javax.annotation.Nullable Boolean isCall) {
     this.isCall = isCall;
@@ -177,6 +139,25 @@ public class XrefFromResponse {
   }
 
 
+  public XrefFromResponse isScalar(@javax.annotation.Nullable Boolean isScalar) {
+    this.isScalar = isScalar;
+    return this;
+  }
+
+  /**
+   * Get isScalar
+   * @return isScalar
+   */
+  @javax.annotation.Nullable
+  public Boolean getIsScalar() {
+    return isScalar;
+  }
+
+  public void setIsScalar(@javax.annotation.Nullable Boolean isScalar) {
+    this.isScalar = isScalar;
+  }
+
+
   public XrefFromResponse isString(@javax.annotation.Nullable Boolean isString) {
     this.isString = isString;
     return this;
@@ -193,6 +174,25 @@ public class XrefFromResponse {
 
   public void setIsString(@javax.annotation.Nullable Boolean isString) {
     this.isString = isString;
+  }
+
+
+  public XrefFromResponse origStrEncoding(@javax.annotation.Nullable String origStrEncoding) {
+    this.origStrEncoding = origStrEncoding;
+    return this;
+  }
+
+  /**
+   * Get origStrEncoding
+   * @return origStrEncoding
+   */
+  @javax.annotation.Nullable
+  public String getOrigStrEncoding() {
+    return origStrEncoding;
+  }
+
+  public void setOrigStrEncoding(@javax.annotation.Nullable String origStrEncoding) {
+    this.origStrEncoding = origStrEncoding;
   }
 
 
@@ -234,22 +234,22 @@ public class XrefFromResponse {
   }
 
 
-  public XrefFromResponse origStrEncoding(@javax.annotation.Nullable String origStrEncoding) {
-    this.origStrEncoding = origStrEncoding;
+  public XrefFromResponse value(@javax.annotation.Nullable String value) {
+    this.value = value;
     return this;
   }
 
   /**
-   * Get origStrEncoding
-   * @return origStrEncoding
+   * Get value
+   * @return value
    */
   @javax.annotation.Nullable
-  public String getOrigStrEncoding() {
-    return origStrEncoding;
+  public String getValue() {
+    return value;
   }
 
-  public void setOrigStrEncoding(@javax.annotation.Nullable String origStrEncoding) {
-    this.origStrEncoding = origStrEncoding;
+  public void setValue(@javax.annotation.Nullable String value) {
+    this.value = value;
   }
 
 
@@ -326,14 +326,14 @@ public class XrefFromResponse {
       return false;
     }
     XrefFromResponse xrefFromResponse = (XrefFromResponse) o;
-    return Objects.equals(this.value, xrefFromResponse.value) &&
-        Objects.equals(this.isScalar, xrefFromResponse.isScalar) &&
-        Objects.equals(this.isCall, xrefFromResponse.isCall) &&
+    return Objects.equals(this.isCall, xrefFromResponse.isCall) &&
         Objects.equals(this.isData, xrefFromResponse.isData) &&
+        Objects.equals(this.isScalar, xrefFromResponse.isScalar) &&
         Objects.equals(this.isString, xrefFromResponse.isString) &&
+        Objects.equals(this.origStrEncoding, xrefFromResponse.origStrEncoding) &&
         Objects.equals(this.rawData, xrefFromResponse.rawData) &&
         Objects.equals(this.segment, xrefFromResponse.segment) &&
-        Objects.equals(this.origStrEncoding, xrefFromResponse.origStrEncoding) &&
+        Objects.equals(this.value, xrefFromResponse.value) &&
         Objects.equals(this.xrefTo, xrefFromResponse.xrefTo)&&
         Objects.equals(this.additionalProperties, xrefFromResponse.additionalProperties);
   }
@@ -344,7 +344,7 @@ public class XrefFromResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value, isScalar, isCall, isData, isString, rawData, segment, origStrEncoding, xrefTo, additionalProperties);
+    return Objects.hash(isCall, isData, isScalar, isString, origStrEncoding, rawData, segment, value, xrefTo, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -358,14 +358,14 @@ public class XrefFromResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class XrefFromResponse {\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
-    sb.append("    isScalar: ").append(toIndentedString(isScalar)).append("\n");
     sb.append("    isCall: ").append(toIndentedString(isCall)).append("\n");
     sb.append("    isData: ").append(toIndentedString(isData)).append("\n");
+    sb.append("    isScalar: ").append(toIndentedString(isScalar)).append("\n");
     sb.append("    isString: ").append(toIndentedString(isString)).append("\n");
+    sb.append("    origStrEncoding: ").append(toIndentedString(origStrEncoding)).append("\n");
     sb.append("    rawData: ").append(toIndentedString(rawData)).append("\n");
     sb.append("    segment: ").append(toIndentedString(segment)).append("\n");
-    sb.append("    origStrEncoding: ").append(toIndentedString(origStrEncoding)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    xrefTo: ").append(toIndentedString(xrefTo)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -389,7 +389,7 @@ public class XrefFromResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("value", "is_scalar", "is_call", "is_data", "is_string", "raw_data", "segment", "orig_str_encoding", "xref_to"));
+    openapiFields = new HashSet<String>(Arrays.asList("is_call", "is_data", "is_scalar", "is_string", "orig_str_encoding", "raw_data", "segment", "value", "xref_to"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("value", "xref_to"));
@@ -415,8 +415,8 @@ public class XrefFromResponse {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("value") != null && !jsonObj.get("value").isJsonNull()) && !jsonObj.get("value").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
+      if ((jsonObj.get("orig_str_encoding") != null && !jsonObj.get("orig_str_encoding").isJsonNull()) && !jsonObj.get("orig_str_encoding").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `orig_str_encoding` to be a primitive type in the JSON string but got `%s`", jsonObj.get("orig_str_encoding").toString()));
       }
       if ((jsonObj.get("raw_data") != null && !jsonObj.get("raw_data").isJsonNull()) && !jsonObj.get("raw_data").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `raw_data` to be a primitive type in the JSON string but got `%s`", jsonObj.get("raw_data").toString()));
@@ -425,8 +425,8 @@ public class XrefFromResponse {
       if (jsonObj.get("segment") != null && !jsonObj.get("segment").isJsonNull()) {
         SegmentInfo.validateJsonElement(jsonObj.get("segment"));
       }
-      if ((jsonObj.get("orig_str_encoding") != null && !jsonObj.get("orig_str_encoding").isJsonNull()) && !jsonObj.get("orig_str_encoding").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `orig_str_encoding` to be a primitive type in the JSON string but got `%s`", jsonObj.get("orig_str_encoding").toString()));
+      if ((jsonObj.get("value") != null && !jsonObj.get("value").isJsonNull()) && !jsonObj.get("value").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
       }
       if ((jsonObj.get("xref_to") != null && !jsonObj.get("xref_to").isJsonNull()) && !jsonObj.get("xref_to").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `xref_to` to be a primitive type in the JSON string but got `%s`", jsonObj.get("xref_to").toString()));

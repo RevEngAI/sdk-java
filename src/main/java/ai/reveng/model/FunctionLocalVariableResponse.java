@@ -61,11 +61,6 @@ public class FunctionLocalVariableResponse {
   @javax.annotation.Nonnull
   private String dType;
 
-  public static final String SERIALIZED_NAME_SIZE = "size";
-  @SerializedName(SERIALIZED_NAME_SIZE)
-  @javax.annotation.Nonnull
-  private Integer size;
-
   public static final String SERIALIZED_NAME_LOC = "loc";
   @SerializedName(SERIALIZED_NAME_LOC)
   @javax.annotation.Nonnull
@@ -75,6 +70,11 @@ public class FunctionLocalVariableResponse {
   @SerializedName(SERIALIZED_NAME_NAME)
   @javax.annotation.Nonnull
   private String name;
+
+  public static final String SERIALIZED_NAME_SIZE = "size";
+  @SerializedName(SERIALIZED_NAME_SIZE)
+  @javax.annotation.Nonnull
+  private Integer size;
 
   public FunctionLocalVariableResponse() {
   }
@@ -117,25 +117,6 @@ public class FunctionLocalVariableResponse {
   }
 
 
-  public FunctionLocalVariableResponse size(@javax.annotation.Nonnull Integer size) {
-    this.size = size;
-    return this;
-  }
-
-  /**
-   * Get size
-   * @return size
-   */
-  @javax.annotation.Nonnull
-  public Integer getSize() {
-    return size;
-  }
-
-  public void setSize(@javax.annotation.Nonnull Integer size) {
-    this.size = size;
-  }
-
-
   public FunctionLocalVariableResponse loc(@javax.annotation.Nonnull String loc) {
     this.loc = loc;
     return this;
@@ -171,6 +152,25 @@ public class FunctionLocalVariableResponse {
 
   public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
+  }
+
+
+  public FunctionLocalVariableResponse size(@javax.annotation.Nonnull Integer size) {
+    this.size = size;
+    return this;
+  }
+
+  /**
+   * Get size
+   * @return size
+   */
+  @javax.annotation.Nonnull
+  public Integer getSize() {
+    return size;
+  }
+
+  public void setSize(@javax.annotation.Nonnull Integer size) {
+    this.size = size;
   }
 
   /**
@@ -230,15 +230,15 @@ public class FunctionLocalVariableResponse {
     FunctionLocalVariableResponse functionLocalVariableResponse = (FunctionLocalVariableResponse) o;
     return Objects.equals(this.address, functionLocalVariableResponse.address) &&
         Objects.equals(this.dType, functionLocalVariableResponse.dType) &&
-        Objects.equals(this.size, functionLocalVariableResponse.size) &&
         Objects.equals(this.loc, functionLocalVariableResponse.loc) &&
-        Objects.equals(this.name, functionLocalVariableResponse.name)&&
+        Objects.equals(this.name, functionLocalVariableResponse.name) &&
+        Objects.equals(this.size, functionLocalVariableResponse.size)&&
         Objects.equals(this.additionalProperties, functionLocalVariableResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, dType, size, loc, name, additionalProperties);
+    return Objects.hash(address, dType, loc, name, size, additionalProperties);
   }
 
   @Override
@@ -247,9 +247,9 @@ public class FunctionLocalVariableResponse {
     sb.append("class FunctionLocalVariableResponse {\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
     sb.append("    dType: ").append(toIndentedString(dType)).append("\n");
-    sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    loc: ").append(toIndentedString(loc)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -272,10 +272,10 @@ public class FunctionLocalVariableResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("address", "d_type", "size", "loc", "name"));
+    openapiFields = new HashSet<String>(Arrays.asList("address", "d_type", "loc", "name", "size"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("address", "d_type", "size", "loc", "name"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("address", "d_type", "loc", "name", "size"));
   }
 
   /**

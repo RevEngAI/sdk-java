@@ -15,6 +15,7 @@ All URIs are relative to *https://api.reveng.ai*
 | [**insertAnalysisLog**](AnalysesCoreApi.md#insertAnalysisLog) | **POST** /v2/analyses/{analysis_id}/logs | Insert a log entry for an analysis |
 | [**listAnalyses**](AnalysesCoreApi.md#listAnalyses) | **GET** /v2/analyses/list | Gets the most recent analyses |
 | [**lookupBinaryId**](AnalysesCoreApi.md#lookupBinaryId) | **GET** /v2/analyses/lookup/{binary_id} | Gets the analysis ID from binary ID |
+| [**putAnalysisStrings**](AnalysesCoreApi.md#putAnalysisStrings) | **PUT** /v2/analyses/{analysis_id}/strings | Add strings to the analysis |
 | [**requeueAnalysis**](AnalysesCoreApi.md#requeueAnalysis) | **POST** /v2/analyses/{analysis_id}/requeue | Requeue Analysis |
 | [**updateAnalysis**](AnalysesCoreApi.md#updateAnalysis) | **PATCH** /v2/analyses/{analysis_id} | Update Analysis |
 | [**updateAnalysisTags**](AnalysesCoreApi.md#updateAnalysisTags) | **PATCH** /v2/analyses/{analysis_id}/tags | Update Analysis Tags |
@@ -161,9 +162,9 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Successful Response |  -  |
-| **422** | Invalid request parameters |  -  |
-| **404** | Not Found |  -  |
 | **400** | Bad Request |  -  |
+| **404** | Not Found |  -  |
+| **422** | Invalid request parameters |  -  |
 
 <a id="deleteAnalysis"></a>
 # **deleteAnalysis**
@@ -233,9 +234,9 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful Response |  -  |
-| **422** | Invalid request parameters |  -  |
-| **404** | Not Found |  -  |
 | **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **422** | Invalid request parameters |  -  |
 
 <a id="getAnalysisBasicInfo"></a>
 # **getAnalysisBasicInfo**
@@ -819,6 +820,78 @@ public class Example {
 | **200** | Successful Response |  -  |
 | **422** | Invalid request parameters |  -  |
 
+<a id="putAnalysisStrings"></a>
+# **putAnalysisStrings**
+> BaseResponse putAnalysisStrings(analysisId, putAnalysisStringsRequest)
+
+Add strings to the analysis
+
+Add strings to the analysis. Rejects if any string already exists at the given vaddr.
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.AnalysesCoreApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
+    Integer analysisId = 56; // Integer | 
+    PutAnalysisStringsRequest putAnalysisStringsRequest = new PutAnalysisStringsRequest(); // PutAnalysisStringsRequest | 
+    try {
+      BaseResponse result = apiInstance.putAnalysisStrings(analysisId, putAnalysisStringsRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AnalysesCoreApi#putAnalysisStrings");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **analysisId** | **Integer**|  | |
+| **putAnalysisStringsRequest** | [**PutAnalysisStringsRequest**](PutAnalysisStringsRequest.md)|  | |
+
+### Return type
+
+[**BaseResponse**](BaseResponse.md)
+
+### Authorization
+
+[APIKey](../README.md#APIKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Successful Response |  -  |
+| **422** | Invalid request parameters |  -  |
+
 <a id="requeueAnalysis"></a>
 # **requeueAnalysis**
 > BaseResponseCreated requeueAnalysis(analysisId, reAnalysisForm, xRevEngApplication)
@@ -891,9 +964,9 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Successful Response |  -  |
-| **422** | Invalid request parameters |  -  |
-| **404** | Not Found |  -  |
 | **400** | Bad Request |  -  |
+| **404** | Not Found |  -  |
+| **422** | Invalid request parameters |  -  |
 
 <a id="updateAnalysis"></a>
 # **updateAnalysis**
@@ -1041,7 +1114,7 @@ public class Example {
 
 <a id="uploadFile"></a>
 # **uploadFile**
-> BaseResponseUploadResponse uploadFile(uploadFileType, _file, packedPassword, forceOverwrite)
+> BaseResponseUploadResponse uploadFile(_file, uploadFileType, packedPassword, forceOverwrite)
 
 Upload File
 
@@ -1067,12 +1140,12 @@ public class Example {
     //APIKey.setApiKeyPrefix("Token");
 
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
-    UploadFileType uploadFileType = UploadFileType.fromValue("BINARY"); // UploadFileType | 
     File _file = new File("/path/to/file"); // File | 
+    UploadFileType uploadFileType = UploadFileType.fromValue("BINARY"); // UploadFileType | 
     String packedPassword = "packedPassword_example"; // String | 
     Boolean forceOverwrite = false; // Boolean | 
     try {
-      BaseResponseUploadResponse result = apiInstance.uploadFile(uploadFileType, _file, packedPassword, forceOverwrite);
+      BaseResponseUploadResponse result = apiInstance.uploadFile(_file, uploadFileType, packedPassword, forceOverwrite);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCoreApi#uploadFile");
@@ -1089,8 +1162,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **uploadFileType** | [**UploadFileType**](UploadFileType.md)|  | [enum: BINARY, DEBUG, PACKED, FIRMWARE] |
 | **_file** | **File**|  | |
+| **uploadFileType** | [**UploadFileType**](UploadFileType.md)|  | [enum: BINARY, DEBUG, PACKED, FIRMWARE] |
 | **packedPassword** | **String**|  | [optional] |
 | **forceOverwrite** | **Boolean**|  | [optional] [default to false] |
 

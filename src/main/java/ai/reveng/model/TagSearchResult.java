@@ -51,37 +51,18 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TagSearchResult {
-  public static final String SERIALIZED_NAME_TAG_ID = "tag_id";
-  @SerializedName(SERIALIZED_NAME_TAG_ID)
-  @javax.annotation.Nonnull
-  private Integer tagId;
-
   public static final String SERIALIZED_NAME_TAG = "tag";
   @SerializedName(SERIALIZED_NAME_TAG)
   @javax.annotation.Nonnull
   private String tag;
 
+  public static final String SERIALIZED_NAME_TAG_ID = "tag_id";
+  @SerializedName(SERIALIZED_NAME_TAG_ID)
+  @javax.annotation.Nonnull
+  private Integer tagId;
+
   public TagSearchResult() {
   }
-
-  public TagSearchResult tagId(@javax.annotation.Nonnull Integer tagId) {
-    this.tagId = tagId;
-    return this;
-  }
-
-  /**
-   * The ID of the tag
-   * @return tagId
-   */
-  @javax.annotation.Nonnull
-  public Integer getTagId() {
-    return tagId;
-  }
-
-  public void setTagId(@javax.annotation.Nonnull Integer tagId) {
-    this.tagId = tagId;
-  }
-
 
   public TagSearchResult tag(@javax.annotation.Nonnull String tag) {
     this.tag = tag;
@@ -99,6 +80,25 @@ public class TagSearchResult {
 
   public void setTag(@javax.annotation.Nonnull String tag) {
     this.tag = tag;
+  }
+
+
+  public TagSearchResult tagId(@javax.annotation.Nonnull Integer tagId) {
+    this.tagId = tagId;
+    return this;
+  }
+
+  /**
+   * The ID of the tag
+   * @return tagId
+   */
+  @javax.annotation.Nonnull
+  public Integer getTagId() {
+    return tagId;
+  }
+
+  public void setTagId(@javax.annotation.Nonnull Integer tagId) {
+    this.tagId = tagId;
   }
 
   /**
@@ -156,22 +156,22 @@ public class TagSearchResult {
       return false;
     }
     TagSearchResult tagSearchResult = (TagSearchResult) o;
-    return Objects.equals(this.tagId, tagSearchResult.tagId) &&
-        Objects.equals(this.tag, tagSearchResult.tag)&&
+    return Objects.equals(this.tag, tagSearchResult.tag) &&
+        Objects.equals(this.tagId, tagSearchResult.tagId)&&
         Objects.equals(this.additionalProperties, tagSearchResult.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(tagId, tag, additionalProperties);
+    return Objects.hash(tag, tagId, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TagSearchResult {\n");
-    sb.append("    tagId: ").append(toIndentedString(tagId)).append("\n");
     sb.append("    tag: ").append(toIndentedString(tag)).append("\n");
+    sb.append("    tagId: ").append(toIndentedString(tagId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -194,10 +194,10 @@ public class TagSearchResult {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("tag_id", "tag"));
+    openapiFields = new HashSet<String>(Arrays.asList("tag", "tag_id"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("tag_id", "tag"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("tag", "tag_id"));
   }
 
   /**

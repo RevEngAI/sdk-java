@@ -55,10 +55,20 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Structure {
+  public static final String SERIALIZED_NAME_ARTIFACT_TYPE = "artifact_type";
+  @SerializedName(SERIALIZED_NAME_ARTIFACT_TYPE)
+  @javax.annotation.Nullable
+  private String artifactType;
+
   public static final String SERIALIZED_NAME_LAST_CHANGE = "last_change";
   @SerializedName(SERIALIZED_NAME_LAST_CHANGE)
   @javax.annotation.Nullable
   private String lastChange;
+
+  public static final String SERIALIZED_NAME_MEMBERS = "members";
+  @SerializedName(SERIALIZED_NAME_MEMBERS)
+  @javax.annotation.Nonnull
+  private Map<String, StructureMember> members = new HashMap<>();
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -70,18 +80,27 @@ public class Structure {
   @javax.annotation.Nullable
   private Integer size;
 
-  public static final String SERIALIZED_NAME_MEMBERS = "members";
-  @SerializedName(SERIALIZED_NAME_MEMBERS)
-  @javax.annotation.Nonnull
-  private Map<String, StructureMember> members = new HashMap<>();
-
-  public static final String SERIALIZED_NAME_ARTIFACT_TYPE = "artifact_type";
-  @SerializedName(SERIALIZED_NAME_ARTIFACT_TYPE)
-  @javax.annotation.Nullable
-  private String artifactType;
-
   public Structure() {
   }
+
+  public Structure artifactType(@javax.annotation.Nullable String artifactType) {
+    this.artifactType = artifactType;
+    return this;
+  }
+
+  /**
+   * Type of artifact that the structure is associated with
+   * @return artifactType
+   */
+  @javax.annotation.Nullable
+  public String getArtifactType() {
+    return artifactType;
+  }
+
+  public void setArtifactType(@javax.annotation.Nullable String artifactType) {
+    this.artifactType = artifactType;
+  }
+
 
   public Structure lastChange(@javax.annotation.Nullable String lastChange) {
     this.lastChange = lastChange;
@@ -99,6 +118,33 @@ public class Structure {
 
   public void setLastChange(@javax.annotation.Nullable String lastChange) {
     this.lastChange = lastChange;
+  }
+
+
+  public Structure members(@javax.annotation.Nonnull Map<String, StructureMember> members) {
+    this.members = members;
+    return this;
+  }
+
+  public Structure putMembersItem(String key, StructureMember membersItem) {
+    if (this.members == null) {
+      this.members = new HashMap<>();
+    }
+    this.members.put(key, membersItem);
+    return this;
+  }
+
+  /**
+   * Dictionary of structure members
+   * @return members
+   */
+  @javax.annotation.Nonnull
+  public Map<String, StructureMember> getMembers() {
+    return members;
+  }
+
+  public void setMembers(@javax.annotation.Nonnull Map<String, StructureMember> members) {
+    this.members = members;
   }
 
 
@@ -137,52 +183,6 @@ public class Structure {
 
   public void setSize(@javax.annotation.Nullable Integer size) {
     this.size = size;
-  }
-
-
-  public Structure members(@javax.annotation.Nonnull Map<String, StructureMember> members) {
-    this.members = members;
-    return this;
-  }
-
-  public Structure putMembersItem(String key, StructureMember membersItem) {
-    if (this.members == null) {
-      this.members = new HashMap<>();
-    }
-    this.members.put(key, membersItem);
-    return this;
-  }
-
-  /**
-   * Dictionary of structure members
-   * @return members
-   */
-  @javax.annotation.Nonnull
-  public Map<String, StructureMember> getMembers() {
-    return members;
-  }
-
-  public void setMembers(@javax.annotation.Nonnull Map<String, StructureMember> members) {
-    this.members = members;
-  }
-
-
-  public Structure artifactType(@javax.annotation.Nullable String artifactType) {
-    this.artifactType = artifactType;
-    return this;
-  }
-
-  /**
-   * Type of artifact that the structure is associated with
-   * @return artifactType
-   */
-  @javax.annotation.Nullable
-  public String getArtifactType() {
-    return artifactType;
-  }
-
-  public void setArtifactType(@javax.annotation.Nullable String artifactType) {
-    this.artifactType = artifactType;
   }
 
   /**
@@ -240,11 +240,11 @@ public class Structure {
       return false;
     }
     Structure structure = (Structure) o;
-    return Objects.equals(this.lastChange, structure.lastChange) &&
-        Objects.equals(this.name, structure.name) &&
-        Objects.equals(this.size, structure.size) &&
+    return Objects.equals(this.artifactType, structure.artifactType) &&
+        Objects.equals(this.lastChange, structure.lastChange) &&
         Objects.equals(this.members, structure.members) &&
-        Objects.equals(this.artifactType, structure.artifactType)&&
+        Objects.equals(this.name, structure.name) &&
+        Objects.equals(this.size, structure.size)&&
         Objects.equals(this.additionalProperties, structure.additionalProperties);
   }
 
@@ -254,7 +254,7 @@ public class Structure {
 
   @Override
   public int hashCode() {
-    return Objects.hash(lastChange, name, size, members, artifactType, additionalProperties);
+    return Objects.hash(artifactType, lastChange, members, name, size, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -268,11 +268,11 @@ public class Structure {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Structure {\n");
+    sb.append("    artifactType: ").append(toIndentedString(artifactType)).append("\n");
     sb.append("    lastChange: ").append(toIndentedString(lastChange)).append("\n");
+    sb.append("    members: ").append(toIndentedString(members)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
-    sb.append("    members: ").append(toIndentedString(members)).append("\n");
-    sb.append("    artifactType: ").append(toIndentedString(artifactType)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -295,10 +295,10 @@ public class Structure {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("last_change", "name", "size", "members", "artifact_type"));
+    openapiFields = new HashSet<String>(Arrays.asList("artifact_type", "last_change", "members", "name", "size"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "members"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("members", "name"));
   }
 
   /**
@@ -321,14 +321,14 @@ public class Structure {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("artifact_type") != null && !jsonObj.get("artifact_type").isJsonNull()) && !jsonObj.get("artifact_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `artifact_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("artifact_type").toString()));
+      }
       if ((jsonObj.get("last_change") != null && !jsonObj.get("last_change").isJsonNull()) && !jsonObj.get("last_change").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `last_change` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_change").toString()));
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      if ((jsonObj.get("artifact_type") != null && !jsonObj.get("artifact_type").isJsonNull()) && !jsonObj.get("artifact_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `artifact_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("artifact_type").toString()));
       }
   }
 

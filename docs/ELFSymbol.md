@@ -7,13 +7,13 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**binding** | **String** |  |  |
 |**name** | **String** |  |  |
-|**value** | **Integer** |  |  |
+|**sectionIndex** | **Integer** |  |  |
 |**size** | **Integer** |  |  |
 |**type** | **String** |  |  |
-|**binding** | **String** |  |  |
+|**value** | **Integer** |  |  |
 |**visibility** | **String** |  |  |
-|**sectionIndex** | **Integer** |  |  |
 
 
 

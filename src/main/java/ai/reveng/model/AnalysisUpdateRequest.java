@@ -52,11 +52,6 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AnalysisUpdateRequest {
-  public static final String SERIALIZED_NAME_BINARY_NAME = "binary_name";
-  @SerializedName(SERIALIZED_NAME_BINARY_NAME)
-  @javax.annotation.Nullable
-  private String binaryName;
-
   /**
    * Gets or Sets analysisScope
    */
@@ -114,27 +109,13 @@ public class AnalysisUpdateRequest {
   @javax.annotation.Nullable
   private AnalysisScopeEnum analysisScope;
 
+  public static final String SERIALIZED_NAME_BINARY_NAME = "binary_name";
+  @SerializedName(SERIALIZED_NAME_BINARY_NAME)
+  @javax.annotation.Nullable
+  private String binaryName;
+
   public AnalysisUpdateRequest() {
   }
-
-  public AnalysisUpdateRequest binaryName(@javax.annotation.Nullable String binaryName) {
-    this.binaryName = binaryName;
-    return this;
-  }
-
-  /**
-   * Get binaryName
-   * @return binaryName
-   */
-  @javax.annotation.Nullable
-  public String getBinaryName() {
-    return binaryName;
-  }
-
-  public void setBinaryName(@javax.annotation.Nullable String binaryName) {
-    this.binaryName = binaryName;
-  }
-
 
   public AnalysisUpdateRequest analysisScope(@javax.annotation.Nullable AnalysisScopeEnum analysisScope) {
     this.analysisScope = analysisScope;
@@ -152,6 +133,25 @@ public class AnalysisUpdateRequest {
 
   public void setAnalysisScope(@javax.annotation.Nullable AnalysisScopeEnum analysisScope) {
     this.analysisScope = analysisScope;
+  }
+
+
+  public AnalysisUpdateRequest binaryName(@javax.annotation.Nullable String binaryName) {
+    this.binaryName = binaryName;
+    return this;
+  }
+
+  /**
+   * Get binaryName
+   * @return binaryName
+   */
+  @javax.annotation.Nullable
+  public String getBinaryName() {
+    return binaryName;
+  }
+
+  public void setBinaryName(@javax.annotation.Nullable String binaryName) {
+    this.binaryName = binaryName;
   }
 
   /**
@@ -209,8 +209,8 @@ public class AnalysisUpdateRequest {
       return false;
     }
     AnalysisUpdateRequest analysisUpdateRequest = (AnalysisUpdateRequest) o;
-    return Objects.equals(this.binaryName, analysisUpdateRequest.binaryName) &&
-        Objects.equals(this.analysisScope, analysisUpdateRequest.analysisScope)&&
+    return Objects.equals(this.analysisScope, analysisUpdateRequest.analysisScope) &&
+        Objects.equals(this.binaryName, analysisUpdateRequest.binaryName)&&
         Objects.equals(this.additionalProperties, analysisUpdateRequest.additionalProperties);
   }
 
@@ -220,7 +220,7 @@ public class AnalysisUpdateRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(binaryName, analysisScope, additionalProperties);
+    return Objects.hash(analysisScope, binaryName, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -234,8 +234,8 @@ public class AnalysisUpdateRequest {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AnalysisUpdateRequest {\n");
-    sb.append("    binaryName: ").append(toIndentedString(binaryName)).append("\n");
     sb.append("    analysisScope: ").append(toIndentedString(analysisScope)).append("\n");
+    sb.append("    binaryName: ").append(toIndentedString(binaryName)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -258,7 +258,7 @@ public class AnalysisUpdateRequest {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("binary_name", "analysis_scope"));
+    openapiFields = new HashSet<String>(Arrays.asList("analysis_scope", "binary_name"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -277,15 +277,15 @@ public class AnalysisUpdateRequest {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("binary_name") != null && !jsonObj.get("binary_name").isJsonNull()) && !jsonObj.get("binary_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `binary_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("binary_name").toString()));
-      }
       if ((jsonObj.get("analysis_scope") != null && !jsonObj.get("analysis_scope").isJsonNull()) && !jsonObj.get("analysis_scope").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `analysis_scope` to be a primitive type in the JSON string but got `%s`", jsonObj.get("analysis_scope").toString()));
       }
       // validate the optional field `analysis_scope`
       if (jsonObj.get("analysis_scope") != null && !jsonObj.get("analysis_scope").isJsonNull()) {
         AnalysisScopeEnum.validateJsonElement(jsonObj.get("analysis_scope"));
+      }
+      if ((jsonObj.get("binary_name") != null && !jsonObj.get("binary_name").isJsonNull()) && !jsonObj.get("binary_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `binary_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("binary_name").toString()));
       }
   }
 

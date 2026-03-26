@@ -7,17 +7,17 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**aslr** | **Boolean** |  |  |
-|**dep** | **Boolean** |  |  |
-|**cfg** | **Boolean** |  |  |
-|**driverModel** | **Boolean** |  |  |
 |**appContainer** | **Boolean** |  |  |
-|**terminalServerAware** | **Boolean** |  |  |
-|**imageIsolation** | **Boolean** |  |  |
-|**codeIntegrity** | **Boolean** |  |  |
-|**highEntropy** | **Boolean** |  |  |
-|**seh** | **Boolean** |  |  |
+|**aslr** | **Boolean** |  |  |
 |**boundImage** | **Boolean** |  |  |
+|**cfg** | **Boolean** |  |  |
+|**codeIntegrity** | **Boolean** |  |  |
+|**dep** | **Boolean** |  |  |
+|**driverModel** | **Boolean** |  |  |
+|**highEntropy** | **Boolean** |  |  |
+|**imageIsolation** | **Boolean** |  |  |
+|**seh** | **Boolean** |  |  |
+|**terminalServerAware** | **Boolean** |  |  |
 
 
 

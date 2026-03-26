@@ -56,37 +56,18 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FunctionInfoOutput {
-  public static final String SERIALIZED_NAME_FUNC_TYPES = "func_types";
-  @SerializedName(SERIALIZED_NAME_FUNC_TYPES)
-  @javax.annotation.Nullable
-  private FunctionTypeOutput funcTypes;
-
   public static final String SERIALIZED_NAME_FUNC_DEPS = "func_deps";
   @SerializedName(SERIALIZED_NAME_FUNC_DEPS)
   @javax.annotation.Nonnull
   private List<FunctionInfoInputFuncDepsInner> funcDeps = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_FUNC_TYPES = "func_types";
+  @SerializedName(SERIALIZED_NAME_FUNC_TYPES)
+  @javax.annotation.Nullable
+  private FunctionTypeOutput funcTypes;
+
   public FunctionInfoOutput() {
   }
-
-  public FunctionInfoOutput funcTypes(@javax.annotation.Nullable FunctionTypeOutput funcTypes) {
-    this.funcTypes = funcTypes;
-    return this;
-  }
-
-  /**
-   * Get funcTypes
-   * @return funcTypes
-   */
-  @javax.annotation.Nullable
-  public FunctionTypeOutput getFuncTypes() {
-    return funcTypes;
-  }
-
-  public void setFuncTypes(@javax.annotation.Nullable FunctionTypeOutput funcTypes) {
-    this.funcTypes = funcTypes;
-  }
-
 
   public FunctionInfoOutput funcDeps(@javax.annotation.Nonnull List<FunctionInfoInputFuncDepsInner> funcDeps) {
     this.funcDeps = funcDeps;
@@ -112,6 +93,25 @@ public class FunctionInfoOutput {
 
   public void setFuncDeps(@javax.annotation.Nonnull List<FunctionInfoInputFuncDepsInner> funcDeps) {
     this.funcDeps = funcDeps;
+  }
+
+
+  public FunctionInfoOutput funcTypes(@javax.annotation.Nullable FunctionTypeOutput funcTypes) {
+    this.funcTypes = funcTypes;
+    return this;
+  }
+
+  /**
+   * Get funcTypes
+   * @return funcTypes
+   */
+  @javax.annotation.Nullable
+  public FunctionTypeOutput getFuncTypes() {
+    return funcTypes;
+  }
+
+  public void setFuncTypes(@javax.annotation.Nullable FunctionTypeOutput funcTypes) {
+    this.funcTypes = funcTypes;
   }
 
   /**
@@ -169,8 +169,8 @@ public class FunctionInfoOutput {
       return false;
     }
     FunctionInfoOutput functionInfoOutput = (FunctionInfoOutput) o;
-    return Objects.equals(this.funcTypes, functionInfoOutput.funcTypes) &&
-        Objects.equals(this.funcDeps, functionInfoOutput.funcDeps)&&
+    return Objects.equals(this.funcDeps, functionInfoOutput.funcDeps) &&
+        Objects.equals(this.funcTypes, functionInfoOutput.funcTypes)&&
         Objects.equals(this.additionalProperties, functionInfoOutput.additionalProperties);
   }
 
@@ -180,7 +180,7 @@ public class FunctionInfoOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(funcTypes, funcDeps, additionalProperties);
+    return Objects.hash(funcDeps, funcTypes, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -194,8 +194,8 @@ public class FunctionInfoOutput {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FunctionInfoOutput {\n");
-    sb.append("    funcTypes: ").append(toIndentedString(funcTypes)).append("\n");
     sb.append("    funcDeps: ").append(toIndentedString(funcDeps)).append("\n");
+    sb.append("    funcTypes: ").append(toIndentedString(funcTypes)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -218,7 +218,7 @@ public class FunctionInfoOutput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("func_types", "func_deps"));
+    openapiFields = new HashSet<String>(Arrays.asList("func_deps", "func_types"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("func_deps"));
@@ -244,10 +244,6 @@ public class FunctionInfoOutput {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the optional field `func_types`
-      if (jsonObj.get("func_types") != null && !jsonObj.get("func_types").isJsonNull()) {
-        FunctionTypeOutput.validateJsonElement(jsonObj.get("func_types"));
-      }
       // ensure the json data is an array
       if (!jsonObj.get("func_deps").isJsonArray()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `func_deps` to be an array in the JSON string but got `%s`", jsonObj.get("func_deps").toString()));
@@ -258,6 +254,10 @@ public class FunctionInfoOutput {
       for (int i = 0; i < jsonArrayfuncDeps.size(); i++) {
         FunctionInfoInputFuncDepsInner.validateJsonElement(jsonArrayfuncDeps.get(i));
       };
+      // validate the optional field `func_types`
+      if (jsonObj.get("func_types") != null && !jsonObj.get("func_types").isJsonNull()) {
+        FunctionTypeOutput.validateJsonElement(jsonObj.get("func_types"));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

@@ -51,26 +51,6 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CalleeFunctionInfo {
-  public static final String SERIALIZED_NAME_FUNCTION_ID = "function_id";
-  @SerializedName(SERIALIZED_NAME_FUNCTION_ID)
-  @javax.annotation.Nonnull
-  private Long functionId;
-
-  public static final String SERIALIZED_NAME_MATCHED_FUNCTION_ID = "matched_function_id";
-  @SerializedName(SERIALIZED_NAME_MATCHED_FUNCTION_ID)
-  @javax.annotation.Nullable
-  private Integer matchedFunctionId;
-
-  public static final String SERIALIZED_NAME_DASHBOARD_URL = "dashboard_url";
-  @SerializedName(SERIALIZED_NAME_DASHBOARD_URL)
-  @javax.annotation.Nullable
-  private String dashboardUrl;
-
-  public static final String SERIALIZED_NAME_IS_EXTERNAL = "is_external";
-  @SerializedName(SERIALIZED_NAME_IS_EXTERNAL)
-  @javax.annotation.Nullable
-  private Boolean isExternal = false;
-
   public static final String SERIALIZED_NAME_CALLEE_NAME = "callee_name";
   @SerializedName(SERIALIZED_NAME_CALLEE_NAME)
   @javax.annotation.Nonnull
@@ -81,84 +61,28 @@ public class CalleeFunctionInfo {
   @javax.annotation.Nonnull
   private String calleeVaddr;
 
+  public static final String SERIALIZED_NAME_DASHBOARD_URL = "dashboard_url";
+  @SerializedName(SERIALIZED_NAME_DASHBOARD_URL)
+  @javax.annotation.Nullable
+  private String dashboardUrl;
+
+  public static final String SERIALIZED_NAME_FUNCTION_ID = "function_id";
+  @SerializedName(SERIALIZED_NAME_FUNCTION_ID)
+  @javax.annotation.Nonnull
+  private Long functionId;
+
+  public static final String SERIALIZED_NAME_IS_EXTERNAL = "is_external";
+  @SerializedName(SERIALIZED_NAME_IS_EXTERNAL)
+  @javax.annotation.Nullable
+  private Boolean isExternal = false;
+
+  public static final String SERIALIZED_NAME_MATCHED_FUNCTION_ID = "matched_function_id";
+  @SerializedName(SERIALIZED_NAME_MATCHED_FUNCTION_ID)
+  @javax.annotation.Nullable
+  private Integer matchedFunctionId;
+
   public CalleeFunctionInfo() {
   }
-
-  public CalleeFunctionInfo functionId(@javax.annotation.Nonnull Long functionId) {
-    this.functionId = functionId;
-    return this;
-  }
-
-  /**
-   * Unique identifier of the function
-   * @return functionId
-   */
-  @javax.annotation.Nonnull
-  public Long getFunctionId() {
-    return functionId;
-  }
-
-  public void setFunctionId(@javax.annotation.Nonnull Long functionId) {
-    this.functionId = functionId;
-  }
-
-
-  public CalleeFunctionInfo matchedFunctionId(@javax.annotation.Nullable Integer matchedFunctionId) {
-    this.matchedFunctionId = matchedFunctionId;
-    return this;
-  }
-
-  /**
-   * Get matchedFunctionId
-   * @return matchedFunctionId
-   */
-  @javax.annotation.Nullable
-  public Integer getMatchedFunctionId() {
-    return matchedFunctionId;
-  }
-
-  public void setMatchedFunctionId(@javax.annotation.Nullable Integer matchedFunctionId) {
-    this.matchedFunctionId = matchedFunctionId;
-  }
-
-
-  public CalleeFunctionInfo dashboardUrl(@javax.annotation.Nullable String dashboardUrl) {
-    this.dashboardUrl = dashboardUrl;
-    return this;
-  }
-
-  /**
-   * Get dashboardUrl
-   * @return dashboardUrl
-   */
-  @javax.annotation.Nullable
-  public String getDashboardUrl() {
-    return dashboardUrl;
-  }
-
-  public void setDashboardUrl(@javax.annotation.Nullable String dashboardUrl) {
-    this.dashboardUrl = dashboardUrl;
-  }
-
-
-  public CalleeFunctionInfo isExternal(@javax.annotation.Nullable Boolean isExternal) {
-    this.isExternal = isExternal;
-    return this;
-  }
-
-  /**
-   * Indicates if the function is external
-   * @return isExternal
-   */
-  @javax.annotation.Nullable
-  public Boolean getIsExternal() {
-    return isExternal;
-  }
-
-  public void setIsExternal(@javax.annotation.Nullable Boolean isExternal) {
-    this.isExternal = isExternal;
-  }
-
 
   public CalleeFunctionInfo calleeName(@javax.annotation.Nonnull String calleeName) {
     this.calleeName = calleeName;
@@ -195,6 +119,82 @@ public class CalleeFunctionInfo {
 
   public void setCalleeVaddr(@javax.annotation.Nonnull String calleeVaddr) {
     this.calleeVaddr = calleeVaddr;
+  }
+
+
+  public CalleeFunctionInfo dashboardUrl(@javax.annotation.Nullable String dashboardUrl) {
+    this.dashboardUrl = dashboardUrl;
+    return this;
+  }
+
+  /**
+   * Get dashboardUrl
+   * @return dashboardUrl
+   */
+  @javax.annotation.Nullable
+  public String getDashboardUrl() {
+    return dashboardUrl;
+  }
+
+  public void setDashboardUrl(@javax.annotation.Nullable String dashboardUrl) {
+    this.dashboardUrl = dashboardUrl;
+  }
+
+
+  public CalleeFunctionInfo functionId(@javax.annotation.Nonnull Long functionId) {
+    this.functionId = functionId;
+    return this;
+  }
+
+  /**
+   * Unique identifier of the function
+   * @return functionId
+   */
+  @javax.annotation.Nonnull
+  public Long getFunctionId() {
+    return functionId;
+  }
+
+  public void setFunctionId(@javax.annotation.Nonnull Long functionId) {
+    this.functionId = functionId;
+  }
+
+
+  public CalleeFunctionInfo isExternal(@javax.annotation.Nullable Boolean isExternal) {
+    this.isExternal = isExternal;
+    return this;
+  }
+
+  /**
+   * Indicates if the function is external
+   * @return isExternal
+   */
+  @javax.annotation.Nullable
+  public Boolean getIsExternal() {
+    return isExternal;
+  }
+
+  public void setIsExternal(@javax.annotation.Nullable Boolean isExternal) {
+    this.isExternal = isExternal;
+  }
+
+
+  public CalleeFunctionInfo matchedFunctionId(@javax.annotation.Nullable Integer matchedFunctionId) {
+    this.matchedFunctionId = matchedFunctionId;
+    return this;
+  }
+
+  /**
+   * Get matchedFunctionId
+   * @return matchedFunctionId
+   */
+  @javax.annotation.Nullable
+  public Integer getMatchedFunctionId() {
+    return matchedFunctionId;
+  }
+
+  public void setMatchedFunctionId(@javax.annotation.Nullable Integer matchedFunctionId) {
+    this.matchedFunctionId = matchedFunctionId;
   }
 
   /**
@@ -252,30 +252,30 @@ public class CalleeFunctionInfo {
       return false;
     }
     CalleeFunctionInfo calleeFunctionInfo = (CalleeFunctionInfo) o;
-    return Objects.equals(this.functionId, calleeFunctionInfo.functionId) &&
-        Objects.equals(this.matchedFunctionId, calleeFunctionInfo.matchedFunctionId) &&
+    return Objects.equals(this.calleeName, calleeFunctionInfo.calleeName) &&
+        Objects.equals(this.calleeVaddr, calleeFunctionInfo.calleeVaddr) &&
         Objects.equals(this.dashboardUrl, calleeFunctionInfo.dashboardUrl) &&
+        Objects.equals(this.functionId, calleeFunctionInfo.functionId) &&
         Objects.equals(this.isExternal, calleeFunctionInfo.isExternal) &&
-        Objects.equals(this.calleeName, calleeFunctionInfo.calleeName) &&
-        Objects.equals(this.calleeVaddr, calleeFunctionInfo.calleeVaddr)&&
+        Objects.equals(this.matchedFunctionId, calleeFunctionInfo.matchedFunctionId)&&
         Objects.equals(this.additionalProperties, calleeFunctionInfo.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(functionId, matchedFunctionId, dashboardUrl, isExternal, calleeName, calleeVaddr, additionalProperties);
+    return Objects.hash(calleeName, calleeVaddr, dashboardUrl, functionId, isExternal, matchedFunctionId, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CalleeFunctionInfo {\n");
-    sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
-    sb.append("    matchedFunctionId: ").append(toIndentedString(matchedFunctionId)).append("\n");
-    sb.append("    dashboardUrl: ").append(toIndentedString(dashboardUrl)).append("\n");
-    sb.append("    isExternal: ").append(toIndentedString(isExternal)).append("\n");
     sb.append("    calleeName: ").append(toIndentedString(calleeName)).append("\n");
     sb.append("    calleeVaddr: ").append(toIndentedString(calleeVaddr)).append("\n");
+    sb.append("    dashboardUrl: ").append(toIndentedString(dashboardUrl)).append("\n");
+    sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
+    sb.append("    isExternal: ").append(toIndentedString(isExternal)).append("\n");
+    sb.append("    matchedFunctionId: ").append(toIndentedString(matchedFunctionId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -298,10 +298,10 @@ public class CalleeFunctionInfo {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("function_id", "matched_function_id", "dashboard_url", "is_external", "callee_name", "callee_vaddr"));
+    openapiFields = new HashSet<String>(Arrays.asList("callee_name", "callee_vaddr", "dashboard_url", "function_id", "is_external", "matched_function_id"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("function_id", "matched_function_id", "dashboard_url", "callee_name", "callee_vaddr"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("callee_name", "callee_vaddr", "dashboard_url", "function_id", "matched_function_id"));
   }
 
   /**
@@ -324,14 +324,14 @@ public class CalleeFunctionInfo {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("dashboard_url") != null && !jsonObj.get("dashboard_url").isJsonNull()) && !jsonObj.get("dashboard_url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `dashboard_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dashboard_url").toString()));
-      }
       if (!jsonObj.get("callee_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `callee_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("callee_name").toString()));
       }
       if (!jsonObj.get("callee_vaddr").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `callee_vaddr` to be a primitive type in the JSON string but got `%s`", jsonObj.get("callee_vaddr").toString()));
+      }
+      if ((jsonObj.get("dashboard_url") != null && !jsonObj.get("dashboard_url").isJsonNull()) && !jsonObj.get("dashboard_url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `dashboard_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dashboard_url").toString()));
       }
   }
 

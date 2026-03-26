@@ -62,15 +62,15 @@ public class MatchedFunctionSuggestion {
   @javax.annotation.Nonnull
   private Long functionVaddr;
 
-  public static final String SERIALIZED_NAME_SUGGESTED_NAME = "suggested_name";
-  @SerializedName(SERIALIZED_NAME_SUGGESTED_NAME)
-  @javax.annotation.Nullable
-  private String suggestedName;
-
   public static final String SERIALIZED_NAME_SUGGESTED_DEMANGLED_NAME = "suggested_demangled_name";
   @SerializedName(SERIALIZED_NAME_SUGGESTED_DEMANGLED_NAME)
   @javax.annotation.Nonnull
   private String suggestedDemangledName;
+
+  public static final String SERIALIZED_NAME_SUGGESTED_NAME = "suggested_name";
+  @SerializedName(SERIALIZED_NAME_SUGGESTED_NAME)
+  @javax.annotation.Nullable
+  private String suggestedName;
 
   public MatchedFunctionSuggestion() {
   }
@@ -113,25 +113,6 @@ public class MatchedFunctionSuggestion {
   }
 
 
-  public MatchedFunctionSuggestion suggestedName(@javax.annotation.Nullable String suggestedName) {
-    this.suggestedName = suggestedName;
-    return this;
-  }
-
-  /**
-   * Get suggestedName
-   * @return suggestedName
-   */
-  @javax.annotation.Nullable
-  public String getSuggestedName() {
-    return suggestedName;
-  }
-
-  public void setSuggestedName(@javax.annotation.Nullable String suggestedName) {
-    this.suggestedName = suggestedName;
-  }
-
-
   public MatchedFunctionSuggestion suggestedDemangledName(@javax.annotation.Nonnull String suggestedDemangledName) {
     this.suggestedDemangledName = suggestedDemangledName;
     return this;
@@ -148,6 +129,25 @@ public class MatchedFunctionSuggestion {
 
   public void setSuggestedDemangledName(@javax.annotation.Nonnull String suggestedDemangledName) {
     this.suggestedDemangledName = suggestedDemangledName;
+  }
+
+
+  public MatchedFunctionSuggestion suggestedName(@javax.annotation.Nullable String suggestedName) {
+    this.suggestedName = suggestedName;
+    return this;
+  }
+
+  /**
+   * Get suggestedName
+   * @return suggestedName
+   */
+  @javax.annotation.Nullable
+  public String getSuggestedName() {
+    return suggestedName;
+  }
+
+  public void setSuggestedName(@javax.annotation.Nullable String suggestedName) {
+    this.suggestedName = suggestedName;
   }
 
   /**
@@ -207,8 +207,8 @@ public class MatchedFunctionSuggestion {
     MatchedFunctionSuggestion matchedFunctionSuggestion = (MatchedFunctionSuggestion) o;
     return Objects.equals(this.functionId, matchedFunctionSuggestion.functionId) &&
         Objects.equals(this.functionVaddr, matchedFunctionSuggestion.functionVaddr) &&
-        Objects.equals(this.suggestedName, matchedFunctionSuggestion.suggestedName) &&
-        Objects.equals(this.suggestedDemangledName, matchedFunctionSuggestion.suggestedDemangledName)&&
+        Objects.equals(this.suggestedDemangledName, matchedFunctionSuggestion.suggestedDemangledName) &&
+        Objects.equals(this.suggestedName, matchedFunctionSuggestion.suggestedName)&&
         Objects.equals(this.additionalProperties, matchedFunctionSuggestion.additionalProperties);
   }
 
@@ -218,7 +218,7 @@ public class MatchedFunctionSuggestion {
 
   @Override
   public int hashCode() {
-    return Objects.hash(functionId, functionVaddr, suggestedName, suggestedDemangledName, additionalProperties);
+    return Objects.hash(functionId, functionVaddr, suggestedDemangledName, suggestedName, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -234,8 +234,8 @@ public class MatchedFunctionSuggestion {
     sb.append("class MatchedFunctionSuggestion {\n");
     sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
     sb.append("    functionVaddr: ").append(toIndentedString(functionVaddr)).append("\n");
-    sb.append("    suggestedName: ").append(toIndentedString(suggestedName)).append("\n");
     sb.append("    suggestedDemangledName: ").append(toIndentedString(suggestedDemangledName)).append("\n");
+    sb.append("    suggestedName: ").append(toIndentedString(suggestedName)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -258,7 +258,7 @@ public class MatchedFunctionSuggestion {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("function_id", "function_vaddr", "suggested_name", "suggested_demangled_name"));
+    openapiFields = new HashSet<String>(Arrays.asList("function_id", "function_vaddr", "suggested_demangled_name", "suggested_name"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("function_id", "function_vaddr", "suggested_demangled_name"));
@@ -284,11 +284,11 @@ public class MatchedFunctionSuggestion {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("suggested_name") != null && !jsonObj.get("suggested_name").isJsonNull()) && !jsonObj.get("suggested_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `suggested_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("suggested_name").toString()));
-      }
       if (!jsonObj.get("suggested_demangled_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `suggested_demangled_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("suggested_demangled_name").toString()));
+      }
+      if ((jsonObj.get("suggested_name") != null && !jsonObj.get("suggested_name").isJsonNull()) && !jsonObj.get("suggested_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `suggested_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("suggested_name").toString()));
       }
   }
 

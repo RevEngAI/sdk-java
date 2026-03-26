@@ -51,25 +51,25 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FunctionParamResponse {
-  public static final String SERIALIZED_NAME_D_TYPE = "d_type";
-  @SerializedName(SERIALIZED_NAME_D_TYPE)
-  @javax.annotation.Nonnull
-  private String dType;
-
-  public static final String SERIALIZED_NAME_LOC = "loc";
-  @SerializedName(SERIALIZED_NAME_LOC)
-  @javax.annotation.Nonnull
-  private String loc;
-
   public static final String SERIALIZED_NAME_ADDR = "addr";
   @SerializedName(SERIALIZED_NAME_ADDR)
   @javax.annotation.Nonnull
   private String addr;
 
+  public static final String SERIALIZED_NAME_D_TYPE = "d_type";
+  @SerializedName(SERIALIZED_NAME_D_TYPE)
+  @javax.annotation.Nonnull
+  private String dType;
+
   public static final String SERIALIZED_NAME_LENGTH = "length";
   @SerializedName(SERIALIZED_NAME_LENGTH)
   @javax.annotation.Nonnull
   private Integer length;
+
+  public static final String SERIALIZED_NAME_LOC = "loc";
+  @SerializedName(SERIALIZED_NAME_LOC)
+  @javax.annotation.Nonnull
+  private String loc;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -78,44 +78,6 @@ public class FunctionParamResponse {
 
   public FunctionParamResponse() {
   }
-
-  public FunctionParamResponse dType(@javax.annotation.Nonnull String dType) {
-    this.dType = dType;
-    return this;
-  }
-
-  /**
-   * Get dType
-   * @return dType
-   */
-  @javax.annotation.Nonnull
-  public String getdType() {
-    return dType;
-  }
-
-  public void setdType(@javax.annotation.Nonnull String dType) {
-    this.dType = dType;
-  }
-
-
-  public FunctionParamResponse loc(@javax.annotation.Nonnull String loc) {
-    this.loc = loc;
-    return this;
-  }
-
-  /**
-   * Get loc
-   * @return loc
-   */
-  @javax.annotation.Nonnull
-  public String getLoc() {
-    return loc;
-  }
-
-  public void setLoc(@javax.annotation.Nonnull String loc) {
-    this.loc = loc;
-  }
-
 
   public FunctionParamResponse addr(@javax.annotation.Nonnull String addr) {
     this.addr = addr;
@@ -136,6 +98,25 @@ public class FunctionParamResponse {
   }
 
 
+  public FunctionParamResponse dType(@javax.annotation.Nonnull String dType) {
+    this.dType = dType;
+    return this;
+  }
+
+  /**
+   * Get dType
+   * @return dType
+   */
+  @javax.annotation.Nonnull
+  public String getdType() {
+    return dType;
+  }
+
+  public void setdType(@javax.annotation.Nonnull String dType) {
+    this.dType = dType;
+  }
+
+
   public FunctionParamResponse length(@javax.annotation.Nonnull Integer length) {
     this.length = length;
     return this;
@@ -152,6 +133,25 @@ public class FunctionParamResponse {
 
   public void setLength(@javax.annotation.Nonnull Integer length) {
     this.length = length;
+  }
+
+
+  public FunctionParamResponse loc(@javax.annotation.Nonnull String loc) {
+    this.loc = loc;
+    return this;
+  }
+
+  /**
+   * Get loc
+   * @return loc
+   */
+  @javax.annotation.Nonnull
+  public String getLoc() {
+    return loc;
+  }
+
+  public void setLoc(@javax.annotation.Nonnull String loc) {
+    this.loc = loc;
   }
 
 
@@ -228,27 +228,27 @@ public class FunctionParamResponse {
       return false;
     }
     FunctionParamResponse functionParamResponse = (FunctionParamResponse) o;
-    return Objects.equals(this.dType, functionParamResponse.dType) &&
-        Objects.equals(this.loc, functionParamResponse.loc) &&
-        Objects.equals(this.addr, functionParamResponse.addr) &&
+    return Objects.equals(this.addr, functionParamResponse.addr) &&
+        Objects.equals(this.dType, functionParamResponse.dType) &&
         Objects.equals(this.length, functionParamResponse.length) &&
+        Objects.equals(this.loc, functionParamResponse.loc) &&
         Objects.equals(this.name, functionParamResponse.name)&&
         Objects.equals(this.additionalProperties, functionParamResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dType, loc, addr, length, name, additionalProperties);
+    return Objects.hash(addr, dType, length, loc, name, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FunctionParamResponse {\n");
-    sb.append("    dType: ").append(toIndentedString(dType)).append("\n");
-    sb.append("    loc: ").append(toIndentedString(loc)).append("\n");
     sb.append("    addr: ").append(toIndentedString(addr)).append("\n");
+    sb.append("    dType: ").append(toIndentedString(dType)).append("\n");
     sb.append("    length: ").append(toIndentedString(length)).append("\n");
+    sb.append("    loc: ").append(toIndentedString(loc)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -272,10 +272,10 @@ public class FunctionParamResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("d_type", "loc", "addr", "length", "name"));
+    openapiFields = new HashSet<String>(Arrays.asList("addr", "d_type", "length", "loc", "name"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("d_type", "loc", "addr", "length", "name"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("addr", "d_type", "length", "loc", "name"));
   }
 
   /**
@@ -298,14 +298,14 @@ public class FunctionParamResponse {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("addr").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `addr` to be a primitive type in the JSON string but got `%s`", jsonObj.get("addr").toString()));
+      }
       if (!jsonObj.get("d_type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `d_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("d_type").toString()));
       }
       if (!jsonObj.get("loc").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `loc` to be a primitive type in the JSON string but got `%s`", jsonObj.get("loc").toString()));
-      }
-      if (!jsonObj.get("addr").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `addr` to be a primitive type in the JSON string but got `%s`", jsonObj.get("addr").toString()));
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));

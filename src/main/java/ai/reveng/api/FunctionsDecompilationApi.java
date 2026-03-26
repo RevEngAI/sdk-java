@@ -88,8 +88,8 @@ public class FunctionsDecompilationApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createDecompilationCommentCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull FunctionCommentCreateRequest functionCommentCreateRequest, final ApiCallback _callback) throws ApiException {
@@ -166,8 +166,8 @@ public class FunctionsDecompilationApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public BaseResponseCommentResponse createDecompilationComment(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull FunctionCommentCreateRequest functionCommentCreateRequest) throws ApiException {
@@ -187,8 +187,8 @@ public class FunctionsDecompilationApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<BaseResponseCommentResponse> createDecompilationCommentWithHttpInfo(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull FunctionCommentCreateRequest functionCommentCreateRequest) throws ApiException {
@@ -210,8 +210,8 @@ public class FunctionsDecompilationApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createDecompilationCommentAsync(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull FunctionCommentCreateRequest functionCommentCreateRequest, final ApiCallback<BaseResponseCommentResponse> _callback) throws ApiException {
@@ -233,9 +233,9 @@ public class FunctionsDecompilationApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> You can only delete your own comments </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You can only delete your own comments </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteDecompilationCommentCall(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId, final ApiCallback _callback) throws ApiException {
@@ -312,9 +312,9 @@ public class FunctionsDecompilationApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> You can only delete your own comments </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You can only delete your own comments </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public BaseResponseBool deleteDecompilationComment(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId) throws ApiException {
@@ -334,9 +334,9 @@ public class FunctionsDecompilationApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> You can only delete your own comments </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You can only delete your own comments </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<BaseResponseBool> deleteDecompilationCommentWithHttpInfo(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId) throws ApiException {
@@ -358,9 +358,9 @@ public class FunctionsDecompilationApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> You can only delete your own comments </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You can only delete your own comments </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteDecompilationCommentAsync(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId, final ApiCallback<BaseResponseBool> _callback) throws ApiException {
@@ -514,9 +514,9 @@ public class FunctionsDecompilationApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> You can only update your own comments </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You can only update your own comments </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateDecompilationCommentCall(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull CommentUpdateRequest commentUpdateRequest, final ApiCallback _callback) throws ApiException {
@@ -600,9 +600,9 @@ public class FunctionsDecompilationApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> You can only update your own comments </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You can only update your own comments </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public BaseResponseCommentResponse updateDecompilationComment(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull CommentUpdateRequest commentUpdateRequest) throws ApiException {
@@ -623,9 +623,9 @@ public class FunctionsDecompilationApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> You can only update your own comments </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You can only update your own comments </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<BaseResponseCommentResponse> updateDecompilationCommentWithHttpInfo(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull CommentUpdateRequest commentUpdateRequest) throws ApiException {
@@ -648,9 +648,9 @@ public class FunctionsDecompilationApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> You can only update your own comments </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You can only update your own comments </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateDecompilationCommentAsync(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull CommentUpdateRequest commentUpdateRequest, final ApiCallback<BaseResponseCommentResponse> _callback) throws ApiException {

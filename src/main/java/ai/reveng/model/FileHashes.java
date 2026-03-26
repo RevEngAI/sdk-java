@@ -66,11 +66,6 @@ public class FileHashes {
   @javax.annotation.Nullable
   private String sha256;
 
-  public static final String SERIALIZED_NAME_SHA512 = "sha512";
-  @SerializedName(SERIALIZED_NAME_SHA512)
-  @javax.annotation.Nullable
-  private String sha512;
-
   public static final String SERIALIZED_NAME_SHA3224 = "sha3_224";
   @SerializedName(SERIALIZED_NAME_SHA3224)
   @javax.annotation.Nullable
@@ -90,6 +85,11 @@ public class FileHashes {
   @SerializedName(SERIALIZED_NAME_SHA3512)
   @javax.annotation.Nullable
   private String sha3512;
+
+  public static final String SERIALIZED_NAME_SHA512 = "sha512";
+  @SerializedName(SERIALIZED_NAME_SHA512)
+  @javax.annotation.Nullable
+  private String sha512;
 
   public FileHashes() {
   }
@@ -148,25 +148,6 @@ public class FileHashes {
 
   public void setSha256(@javax.annotation.Nullable String sha256) {
     this.sha256 = sha256;
-  }
-
-
-  public FileHashes sha512(@javax.annotation.Nullable String sha512) {
-    this.sha512 = sha512;
-    return this;
-  }
-
-  /**
-   * Get sha512
-   * @return sha512
-   */
-  @javax.annotation.Nullable
-  public String getSha512() {
-    return sha512;
-  }
-
-  public void setSha512(@javax.annotation.Nullable String sha512) {
-    this.sha512 = sha512;
   }
 
 
@@ -245,6 +226,25 @@ public class FileHashes {
     this.sha3512 = sha3512;
   }
 
+
+  public FileHashes sha512(@javax.annotation.Nullable String sha512) {
+    this.sha512 = sha512;
+    return this;
+  }
+
+  /**
+   * Get sha512
+   * @return sha512
+   */
+  @javax.annotation.Nullable
+  public String getSha512() {
+    return sha512;
+  }
+
+  public void setSha512(@javax.annotation.Nullable String sha512) {
+    this.sha512 = sha512;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -303,17 +303,17 @@ public class FileHashes {
     return Objects.equals(this.md5, fileHashes.md5) &&
         Objects.equals(this.sha1, fileHashes.sha1) &&
         Objects.equals(this.sha256, fileHashes.sha256) &&
-        Objects.equals(this.sha512, fileHashes.sha512) &&
         Objects.equals(this.sha3224, fileHashes.sha3224) &&
         Objects.equals(this.sha3256, fileHashes.sha3256) &&
         Objects.equals(this.sha3384, fileHashes.sha3384) &&
-        Objects.equals(this.sha3512, fileHashes.sha3512)&&
+        Objects.equals(this.sha3512, fileHashes.sha3512) &&
+        Objects.equals(this.sha512, fileHashes.sha512)&&
         Objects.equals(this.additionalProperties, fileHashes.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(md5, sha1, sha256, sha512, sha3224, sha3256, sha3384, sha3512, additionalProperties);
+    return Objects.hash(md5, sha1, sha256, sha3224, sha3256, sha3384, sha3512, sha512, additionalProperties);
   }
 
   @Override
@@ -323,11 +323,11 @@ public class FileHashes {
     sb.append("    md5: ").append(toIndentedString(md5)).append("\n");
     sb.append("    sha1: ").append(toIndentedString(sha1)).append("\n");
     sb.append("    sha256: ").append(toIndentedString(sha256)).append("\n");
-    sb.append("    sha512: ").append(toIndentedString(sha512)).append("\n");
     sb.append("    sha3224: ").append(toIndentedString(sha3224)).append("\n");
     sb.append("    sha3256: ").append(toIndentedString(sha3256)).append("\n");
     sb.append("    sha3384: ").append(toIndentedString(sha3384)).append("\n");
     sb.append("    sha3512: ").append(toIndentedString(sha3512)).append("\n");
+    sb.append("    sha512: ").append(toIndentedString(sha512)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -350,10 +350,10 @@ public class FileHashes {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("md5", "sha1", "sha256", "sha512", "sha3_224", "sha3_256", "sha3_384", "sha3_512"));
+    openapiFields = new HashSet<String>(Arrays.asList("md5", "sha1", "sha256", "sha3_224", "sha3_256", "sha3_384", "sha3_512", "sha512"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("md5", "sha1", "sha256", "sha512", "sha3_224", "sha3_256", "sha3_384", "sha3_512"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("md5", "sha1", "sha256", "sha3_224", "sha3_256", "sha3_384", "sha3_512", "sha512"));
   }
 
   /**
@@ -385,9 +385,6 @@ public class FileHashes {
       if ((jsonObj.get("sha256") != null && !jsonObj.get("sha256").isJsonNull()) && !jsonObj.get("sha256").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `sha256` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sha256").toString()));
       }
-      if ((jsonObj.get("sha512") != null && !jsonObj.get("sha512").isJsonNull()) && !jsonObj.get("sha512").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `sha512` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sha512").toString()));
-      }
       if ((jsonObj.get("sha3_224") != null && !jsonObj.get("sha3_224").isJsonNull()) && !jsonObj.get("sha3_224").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `sha3_224` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sha3_224").toString()));
       }
@@ -399,6 +396,9 @@ public class FileHashes {
       }
       if ((jsonObj.get("sha3_512") != null && !jsonObj.get("sha3_512").isJsonNull()) && !jsonObj.get("sha3_512").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `sha3_512` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sha3_512").toString()));
+      }
+      if ((jsonObj.get("sha512") != null && !jsonObj.get("sha512").isJsonNull()) && !jsonObj.get("sha512").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `sha512` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sha512").toString()));
       }
   }
 

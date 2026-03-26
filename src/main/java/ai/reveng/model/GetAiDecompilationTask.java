@@ -57,20 +57,15 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GetAiDecompilationTask {
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
-  @javax.annotation.Nonnull
-  private AiDecompilationTaskStatus status;
+  public static final String SERIALIZED_NAME_AI_SUMMARY = "ai_summary";
+  @SerializedName(SERIALIZED_NAME_AI_SUMMARY)
+  @javax.annotation.Nullable
+  private String aiSummary;
 
   public static final String SERIALIZED_NAME_DECOMPILATION = "decompilation";
   @SerializedName(SERIALIZED_NAME_DECOMPILATION)
   @javax.annotation.Nullable
   private String decompilation;
-
-  public static final String SERIALIZED_NAME_RAW_DECOMPILATION = "raw_decompilation";
-  @SerializedName(SERIALIZED_NAME_RAW_DECOMPILATION)
-  @javax.annotation.Nullable
-  private String rawDecompilation;
 
   public static final String SERIALIZED_NAME_FUNCTION_MAPPING = "function_mapping";
   @SerializedName(SERIALIZED_NAME_FUNCTION_MAPPING)
@@ -82,45 +77,50 @@ public class GetAiDecompilationTask {
   @javax.annotation.Nullable
   private FunctionMappingFull functionMappingFull;
 
-  public static final String SERIALIZED_NAME_SUMMARY = "summary";
-  @SerializedName(SERIALIZED_NAME_SUMMARY)
+  public static final String SERIALIZED_NAME_PREDICTED_FUNCTION_NAME = "predicted_function_name";
+  @SerializedName(SERIALIZED_NAME_PREDICTED_FUNCTION_NAME)
   @javax.annotation.Nullable
-  private String summary;
-
-  public static final String SERIALIZED_NAME_AI_SUMMARY = "ai_summary";
-  @SerializedName(SERIALIZED_NAME_AI_SUMMARY)
-  @javax.annotation.Nullable
-  private String aiSummary;
+  private String predictedFunctionName;
 
   public static final String SERIALIZED_NAME_RAW_AI_SUMMARY = "raw_ai_summary";
   @SerializedName(SERIALIZED_NAME_RAW_AI_SUMMARY)
   @javax.annotation.Nullable
   private String rawAiSummary;
 
-  public static final String SERIALIZED_NAME_PREDICTED_FUNCTION_NAME = "predicted_function_name";
-  @SerializedName(SERIALIZED_NAME_PREDICTED_FUNCTION_NAME)
+  public static final String SERIALIZED_NAME_RAW_DECOMPILATION = "raw_decompilation";
+  @SerializedName(SERIALIZED_NAME_RAW_DECOMPILATION)
   @javax.annotation.Nullable
-  private String predictedFunctionName;
+  private String rawDecompilation;
+
+  public static final String SERIALIZED_NAME_STATUS = "status";
+  @SerializedName(SERIALIZED_NAME_STATUS)
+  @javax.annotation.Nonnull
+  private AiDecompilationTaskStatus status;
+
+  public static final String SERIALIZED_NAME_SUMMARY = "summary";
+  @SerializedName(SERIALIZED_NAME_SUMMARY)
+  @javax.annotation.Nullable
+  private String summary;
 
   public GetAiDecompilationTask() {
   }
 
-  public GetAiDecompilationTask status(@javax.annotation.Nonnull AiDecompilationTaskStatus status) {
-    this.status = status;
+  public GetAiDecompilationTask aiSummary(@javax.annotation.Nullable String aiSummary) {
+    this.aiSummary = aiSummary;
     return this;
   }
 
   /**
-   * The status of the AI decompilation task
-   * @return status
+   * Get aiSummary
+   * @return aiSummary
    */
-  @javax.annotation.Nonnull
-  public AiDecompilationTaskStatus getStatus() {
-    return status;
+  @javax.annotation.Nullable
+  public String getAiSummary() {
+    return aiSummary;
   }
 
-  public void setStatus(@javax.annotation.Nonnull AiDecompilationTaskStatus status) {
-    this.status = status;
+  public void setAiSummary(@javax.annotation.Nullable String aiSummary) {
+    this.aiSummary = aiSummary;
   }
 
 
@@ -140,25 +140,6 @@ public class GetAiDecompilationTask {
 
   public void setDecompilation(@javax.annotation.Nullable String decompilation) {
     this.decompilation = decompilation;
-  }
-
-
-  public GetAiDecompilationTask rawDecompilation(@javax.annotation.Nullable String rawDecompilation) {
-    this.rawDecompilation = rawDecompilation;
-    return this;
-  }
-
-  /**
-   * Get rawDecompilation
-   * @return rawDecompilation
-   */
-  @javax.annotation.Nullable
-  public String getRawDecompilation() {
-    return rawDecompilation;
-  }
-
-  public void setRawDecompilation(@javax.annotation.Nullable String rawDecompilation) {
-    this.rawDecompilation = rawDecompilation;
   }
 
 
@@ -208,41 +189,22 @@ public class GetAiDecompilationTask {
   }
 
 
-  public GetAiDecompilationTask summary(@javax.annotation.Nullable String summary) {
-    this.summary = summary;
+  public GetAiDecompilationTask predictedFunctionName(@javax.annotation.Nullable String predictedFunctionName) {
+    this.predictedFunctionName = predictedFunctionName;
     return this;
   }
 
   /**
-   * Get summary
-   * @return summary
+   * Get predictedFunctionName
+   * @return predictedFunctionName
    */
   @javax.annotation.Nullable
-  public String getSummary() {
-    return summary;
+  public String getPredictedFunctionName() {
+    return predictedFunctionName;
   }
 
-  public void setSummary(@javax.annotation.Nullable String summary) {
-    this.summary = summary;
-  }
-
-
-  public GetAiDecompilationTask aiSummary(@javax.annotation.Nullable String aiSummary) {
-    this.aiSummary = aiSummary;
-    return this;
-  }
-
-  /**
-   * Get aiSummary
-   * @return aiSummary
-   */
-  @javax.annotation.Nullable
-  public String getAiSummary() {
-    return aiSummary;
-  }
-
-  public void setAiSummary(@javax.annotation.Nullable String aiSummary) {
-    this.aiSummary = aiSummary;
+  public void setPredictedFunctionName(@javax.annotation.Nullable String predictedFunctionName) {
+    this.predictedFunctionName = predictedFunctionName;
   }
 
 
@@ -265,22 +227,60 @@ public class GetAiDecompilationTask {
   }
 
 
-  public GetAiDecompilationTask predictedFunctionName(@javax.annotation.Nullable String predictedFunctionName) {
-    this.predictedFunctionName = predictedFunctionName;
+  public GetAiDecompilationTask rawDecompilation(@javax.annotation.Nullable String rawDecompilation) {
+    this.rawDecompilation = rawDecompilation;
     return this;
   }
 
   /**
-   * Get predictedFunctionName
-   * @return predictedFunctionName
+   * Get rawDecompilation
+   * @return rawDecompilation
    */
   @javax.annotation.Nullable
-  public String getPredictedFunctionName() {
-    return predictedFunctionName;
+  public String getRawDecompilation() {
+    return rawDecompilation;
   }
 
-  public void setPredictedFunctionName(@javax.annotation.Nullable String predictedFunctionName) {
-    this.predictedFunctionName = predictedFunctionName;
+  public void setRawDecompilation(@javax.annotation.Nullable String rawDecompilation) {
+    this.rawDecompilation = rawDecompilation;
+  }
+
+
+  public GetAiDecompilationTask status(@javax.annotation.Nonnull AiDecompilationTaskStatus status) {
+    this.status = status;
+    return this;
+  }
+
+  /**
+   * The status of the AI decompilation task
+   * @return status
+   */
+  @javax.annotation.Nonnull
+  public AiDecompilationTaskStatus getStatus() {
+    return status;
+  }
+
+  public void setStatus(@javax.annotation.Nonnull AiDecompilationTaskStatus status) {
+    this.status = status;
+  }
+
+
+  public GetAiDecompilationTask summary(@javax.annotation.Nullable String summary) {
+    this.summary = summary;
+    return this;
+  }
+
+  /**
+   * Get summary
+   * @return summary
+   */
+  @javax.annotation.Nullable
+  public String getSummary() {
+    return summary;
+  }
+
+  public void setSummary(@javax.annotation.Nullable String summary) {
+    this.summary = summary;
   }
 
   /**
@@ -338,15 +338,15 @@ public class GetAiDecompilationTask {
       return false;
     }
     GetAiDecompilationTask getAiDecompilationTask = (GetAiDecompilationTask) o;
-    return Objects.equals(this.status, getAiDecompilationTask.status) &&
+    return Objects.equals(this.aiSummary, getAiDecompilationTask.aiSummary) &&
         Objects.equals(this.decompilation, getAiDecompilationTask.decompilation) &&
-        Objects.equals(this.rawDecompilation, getAiDecompilationTask.rawDecompilation) &&
         Objects.equals(this.functionMapping, getAiDecompilationTask.functionMapping) &&
         Objects.equals(this.functionMappingFull, getAiDecompilationTask.functionMappingFull) &&
-        Objects.equals(this.summary, getAiDecompilationTask.summary) &&
-        Objects.equals(this.aiSummary, getAiDecompilationTask.aiSummary) &&
+        Objects.equals(this.predictedFunctionName, getAiDecompilationTask.predictedFunctionName) &&
         Objects.equals(this.rawAiSummary, getAiDecompilationTask.rawAiSummary) &&
-        Objects.equals(this.predictedFunctionName, getAiDecompilationTask.predictedFunctionName)&&
+        Objects.equals(this.rawDecompilation, getAiDecompilationTask.rawDecompilation) &&
+        Objects.equals(this.status, getAiDecompilationTask.status) &&
+        Objects.equals(this.summary, getAiDecompilationTask.summary)&&
         Objects.equals(this.additionalProperties, getAiDecompilationTask.additionalProperties);
   }
 
@@ -356,7 +356,7 @@ public class GetAiDecompilationTask {
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, decompilation, rawDecompilation, functionMapping, functionMappingFull, summary, aiSummary, rawAiSummary, predictedFunctionName, additionalProperties);
+    return Objects.hash(aiSummary, decompilation, functionMapping, functionMappingFull, predictedFunctionName, rawAiSummary, rawDecompilation, status, summary, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -370,15 +370,15 @@ public class GetAiDecompilationTask {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetAiDecompilationTask {\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    aiSummary: ").append(toIndentedString(aiSummary)).append("\n");
     sb.append("    decompilation: ").append(toIndentedString(decompilation)).append("\n");
-    sb.append("    rawDecompilation: ").append(toIndentedString(rawDecompilation)).append("\n");
     sb.append("    functionMapping: ").append(toIndentedString(functionMapping)).append("\n");
     sb.append("    functionMappingFull: ").append(toIndentedString(functionMappingFull)).append("\n");
-    sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
-    sb.append("    aiSummary: ").append(toIndentedString(aiSummary)).append("\n");
-    sb.append("    rawAiSummary: ").append(toIndentedString(rawAiSummary)).append("\n");
     sb.append("    predictedFunctionName: ").append(toIndentedString(predictedFunctionName)).append("\n");
+    sb.append("    rawAiSummary: ").append(toIndentedString(rawAiSummary)).append("\n");
+    sb.append("    rawDecompilation: ").append(toIndentedString(rawDecompilation)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -401,10 +401,10 @@ public class GetAiDecompilationTask {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("status", "decompilation", "raw_decompilation", "function_mapping", "function_mapping_full", "summary", "ai_summary", "raw_ai_summary", "predicted_function_name"));
+    openapiFields = new HashSet<String>(Arrays.asList("ai_summary", "decompilation", "function_mapping", "function_mapping_full", "predicted_function_name", "raw_ai_summary", "raw_decompilation", "status", "summary"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("status", "decompilation", "raw_decompilation", "function_mapping", "function_mapping_full"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("decompilation", "function_mapping", "function_mapping_full", "raw_decompilation", "status"));
   }
 
   /**
@@ -427,27 +427,27 @@ public class GetAiDecompilationTask {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the required field `status`
-      AiDecompilationTaskStatus.validateJsonElement(jsonObj.get("status"));
+      if ((jsonObj.get("ai_summary") != null && !jsonObj.get("ai_summary").isJsonNull()) && !jsonObj.get("ai_summary").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `ai_summary` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ai_summary").toString()));
+      }
       if ((jsonObj.get("decompilation") != null && !jsonObj.get("decompilation").isJsonNull()) && !jsonObj.get("decompilation").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `decompilation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("decompilation").toString()));
       }
-      if ((jsonObj.get("raw_decompilation") != null && !jsonObj.get("raw_decompilation").isJsonNull()) && !jsonObj.get("raw_decompilation").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `raw_decompilation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("raw_decompilation").toString()));
-      }
       // validate the required field `function_mapping_full`
       FunctionMappingFull.validateJsonElement(jsonObj.get("function_mapping_full"));
-      if ((jsonObj.get("summary") != null && !jsonObj.get("summary").isJsonNull()) && !jsonObj.get("summary").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `summary` to be a primitive type in the JSON string but got `%s`", jsonObj.get("summary").toString()));
-      }
-      if ((jsonObj.get("ai_summary") != null && !jsonObj.get("ai_summary").isJsonNull()) && !jsonObj.get("ai_summary").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `ai_summary` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ai_summary").toString()));
+      if ((jsonObj.get("predicted_function_name") != null && !jsonObj.get("predicted_function_name").isJsonNull()) && !jsonObj.get("predicted_function_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `predicted_function_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("predicted_function_name").toString()));
       }
       if ((jsonObj.get("raw_ai_summary") != null && !jsonObj.get("raw_ai_summary").isJsonNull()) && !jsonObj.get("raw_ai_summary").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `raw_ai_summary` to be a primitive type in the JSON string but got `%s`", jsonObj.get("raw_ai_summary").toString()));
       }
-      if ((jsonObj.get("predicted_function_name") != null && !jsonObj.get("predicted_function_name").isJsonNull()) && !jsonObj.get("predicted_function_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `predicted_function_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("predicted_function_name").toString()));
+      if ((jsonObj.get("raw_decompilation") != null && !jsonObj.get("raw_decompilation").isJsonNull()) && !jsonObj.get("raw_decompilation").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `raw_decompilation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("raw_decompilation").toString()));
+      }
+      // validate the required field `status`
+      AiDecompilationTaskStatus.validateJsonElement(jsonObj.get("status"));
+      if ((jsonObj.get("summary") != null && !jsonObj.get("summary").isJsonNull()) && !jsonObj.get("summary").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `summary` to be a primitive type in the JSON string but got `%s`", jsonObj.get("summary").toString()));
       }
   }
 

@@ -85,8 +85,8 @@ public class AnalysesXRefsApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Xref or analysis cache not found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getXrefByVaddrCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer vaddr, final ApiCallback _callback) throws ApiException {
@@ -163,8 +163,8 @@ public class AnalysesXRefsApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Xref or analysis cache not found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public BaseResponseXrefResponse getXrefByVaddr(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer vaddr) throws ApiException {
@@ -184,8 +184,8 @@ public class AnalysesXRefsApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Xref or analysis cache not found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<BaseResponseXrefResponse> getXrefByVaddrWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer vaddr) throws ApiException {
@@ -207,8 +207,8 @@ public class AnalysesXRefsApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Xref or analysis cache not found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getXrefByVaddrAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer vaddr, final ApiCallback<BaseResponseXrefResponse> _callback) throws ApiException {

@@ -53,10 +53,15 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AnalysisConfig {
-  public static final String SERIALIZED_NAME_SCRAPE_THIRD_PARTY_CONFIG = "scrape_third_party_config";
-  @SerializedName(SERIALIZED_NAME_SCRAPE_THIRD_PARTY_CONFIG)
+  public static final String SERIALIZED_NAME_ADVANCED_ANALYSIS = "advanced_analysis";
+  @SerializedName(SERIALIZED_NAME_ADVANCED_ANALYSIS)
   @javax.annotation.Nullable
-  private ScrapeThirdPartyConfig scrapeThirdPartyConfig;
+  private Boolean advancedAnalysis = false;
+
+  public static final String SERIALIZED_NAME_GENERATE_CAPABILITIES = "generate_capabilities";
+  @SerializedName(SERIALIZED_NAME_GENERATE_CAPABILITIES)
+  @javax.annotation.Nullable
+  private Boolean generateCapabilities = false;
 
   public static final String SERIALIZED_NAME_GENERATE_CVES = "generate_cves";
   @SerializedName(SERIALIZED_NAME_GENERATE_CVES)
@@ -68,45 +73,59 @@ public class AnalysisConfig {
   @javax.annotation.Nullable
   private Boolean generateSbom = false;
 
-  public static final String SERIALIZED_NAME_GENERATE_CAPABILITIES = "generate_capabilities";
-  @SerializedName(SERIALIZED_NAME_GENERATE_CAPABILITIES)
-  @javax.annotation.Nullable
-  private Boolean generateCapabilities = false;
-
   public static final String SERIALIZED_NAME_NO_CACHE = "no_cache";
   @SerializedName(SERIALIZED_NAME_NO_CACHE)
   @javax.annotation.Nullable
   private Boolean noCache = false;
-
-  public static final String SERIALIZED_NAME_ADVANCED_ANALYSIS = "advanced_analysis";
-  @SerializedName(SERIALIZED_NAME_ADVANCED_ANALYSIS)
-  @javax.annotation.Nullable
-  private Boolean advancedAnalysis = false;
 
   public static final String SERIALIZED_NAME_SANDBOX_CONFIG = "sandbox_config";
   @SerializedName(SERIALIZED_NAME_SANDBOX_CONFIG)
   @javax.annotation.Nullable
   private SandboxOptions sandboxConfig;
 
+  public static final String SERIALIZED_NAME_SCRAPE_THIRD_PARTY_CONFIG = "scrape_third_party_config";
+  @SerializedName(SERIALIZED_NAME_SCRAPE_THIRD_PARTY_CONFIG)
+  @javax.annotation.Nullable
+  private ScrapeThirdPartyConfig scrapeThirdPartyConfig;
+
   public AnalysisConfig() {
   }
 
-  public AnalysisConfig scrapeThirdPartyConfig(@javax.annotation.Nullable ScrapeThirdPartyConfig scrapeThirdPartyConfig) {
-    this.scrapeThirdPartyConfig = scrapeThirdPartyConfig;
+  public AnalysisConfig advancedAnalysis(@javax.annotation.Nullable Boolean advancedAnalysis) {
+    this.advancedAnalysis = advancedAnalysis;
     return this;
   }
 
   /**
-   * Settings to scrape third party sources
-   * @return scrapeThirdPartyConfig
+   * Enables an advanced security analysis.
+   * @return advancedAnalysis
    */
   @javax.annotation.Nullable
-  public ScrapeThirdPartyConfig getScrapeThirdPartyConfig() {
-    return scrapeThirdPartyConfig;
+  public Boolean getAdvancedAnalysis() {
+    return advancedAnalysis;
   }
 
-  public void setScrapeThirdPartyConfig(@javax.annotation.Nullable ScrapeThirdPartyConfig scrapeThirdPartyConfig) {
-    this.scrapeThirdPartyConfig = scrapeThirdPartyConfig;
+  public void setAdvancedAnalysis(@javax.annotation.Nullable Boolean advancedAnalysis) {
+    this.advancedAnalysis = advancedAnalysis;
+  }
+
+
+  public AnalysisConfig generateCapabilities(@javax.annotation.Nullable Boolean generateCapabilities) {
+    this.generateCapabilities = generateCapabilities;
+    return this;
+  }
+
+  /**
+   * A configuration option for generating capabilities of a binary
+   * @return generateCapabilities
+   */
+  @javax.annotation.Nullable
+  public Boolean getGenerateCapabilities() {
+    return generateCapabilities;
+  }
+
+  public void setGenerateCapabilities(@javax.annotation.Nullable Boolean generateCapabilities) {
+    this.generateCapabilities = generateCapabilities;
   }
 
 
@@ -148,25 +167,6 @@ public class AnalysisConfig {
   }
 
 
-  public AnalysisConfig generateCapabilities(@javax.annotation.Nullable Boolean generateCapabilities) {
-    this.generateCapabilities = generateCapabilities;
-    return this;
-  }
-
-  /**
-   * A configuration option for generating capabilities of a binary
-   * @return generateCapabilities
-   */
-  @javax.annotation.Nullable
-  public Boolean getGenerateCapabilities() {
-    return generateCapabilities;
-  }
-
-  public void setGenerateCapabilities(@javax.annotation.Nullable Boolean generateCapabilities) {
-    this.generateCapabilities = generateCapabilities;
-  }
-
-
   public AnalysisConfig noCache(@javax.annotation.Nullable Boolean noCache) {
     this.noCache = noCache;
     return this;
@@ -186,25 +186,6 @@ public class AnalysisConfig {
   }
 
 
-  public AnalysisConfig advancedAnalysis(@javax.annotation.Nullable Boolean advancedAnalysis) {
-    this.advancedAnalysis = advancedAnalysis;
-    return this;
-  }
-
-  /**
-   * Enables an advanced security analysis.
-   * @return advancedAnalysis
-   */
-  @javax.annotation.Nullable
-  public Boolean getAdvancedAnalysis() {
-    return advancedAnalysis;
-  }
-
-  public void setAdvancedAnalysis(@javax.annotation.Nullable Boolean advancedAnalysis) {
-    this.advancedAnalysis = advancedAnalysis;
-  }
-
-
   public AnalysisConfig sandboxConfig(@javax.annotation.Nullable SandboxOptions sandboxConfig) {
     this.sandboxConfig = sandboxConfig;
     return this;
@@ -221,6 +202,25 @@ public class AnalysisConfig {
 
   public void setSandboxConfig(@javax.annotation.Nullable SandboxOptions sandboxConfig) {
     this.sandboxConfig = sandboxConfig;
+  }
+
+
+  public AnalysisConfig scrapeThirdPartyConfig(@javax.annotation.Nullable ScrapeThirdPartyConfig scrapeThirdPartyConfig) {
+    this.scrapeThirdPartyConfig = scrapeThirdPartyConfig;
+    return this;
+  }
+
+  /**
+   * Settings to scrape third party sources
+   * @return scrapeThirdPartyConfig
+   */
+  @javax.annotation.Nullable
+  public ScrapeThirdPartyConfig getScrapeThirdPartyConfig() {
+    return scrapeThirdPartyConfig;
+  }
+
+  public void setScrapeThirdPartyConfig(@javax.annotation.Nullable ScrapeThirdPartyConfig scrapeThirdPartyConfig) {
+    this.scrapeThirdPartyConfig = scrapeThirdPartyConfig;
   }
 
   /**
@@ -278,32 +278,32 @@ public class AnalysisConfig {
       return false;
     }
     AnalysisConfig analysisConfig = (AnalysisConfig) o;
-    return Objects.equals(this.scrapeThirdPartyConfig, analysisConfig.scrapeThirdPartyConfig) &&
+    return Objects.equals(this.advancedAnalysis, analysisConfig.advancedAnalysis) &&
+        Objects.equals(this.generateCapabilities, analysisConfig.generateCapabilities) &&
         Objects.equals(this.generateCves, analysisConfig.generateCves) &&
         Objects.equals(this.generateSbom, analysisConfig.generateSbom) &&
-        Objects.equals(this.generateCapabilities, analysisConfig.generateCapabilities) &&
         Objects.equals(this.noCache, analysisConfig.noCache) &&
-        Objects.equals(this.advancedAnalysis, analysisConfig.advancedAnalysis) &&
-        Objects.equals(this.sandboxConfig, analysisConfig.sandboxConfig)&&
+        Objects.equals(this.sandboxConfig, analysisConfig.sandboxConfig) &&
+        Objects.equals(this.scrapeThirdPartyConfig, analysisConfig.scrapeThirdPartyConfig)&&
         Objects.equals(this.additionalProperties, analysisConfig.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(scrapeThirdPartyConfig, generateCves, generateSbom, generateCapabilities, noCache, advancedAnalysis, sandboxConfig, additionalProperties);
+    return Objects.hash(advancedAnalysis, generateCapabilities, generateCves, generateSbom, noCache, sandboxConfig, scrapeThirdPartyConfig, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AnalysisConfig {\n");
-    sb.append("    scrapeThirdPartyConfig: ").append(toIndentedString(scrapeThirdPartyConfig)).append("\n");
+    sb.append("    advancedAnalysis: ").append(toIndentedString(advancedAnalysis)).append("\n");
+    sb.append("    generateCapabilities: ").append(toIndentedString(generateCapabilities)).append("\n");
     sb.append("    generateCves: ").append(toIndentedString(generateCves)).append("\n");
     sb.append("    generateSbom: ").append(toIndentedString(generateSbom)).append("\n");
-    sb.append("    generateCapabilities: ").append(toIndentedString(generateCapabilities)).append("\n");
     sb.append("    noCache: ").append(toIndentedString(noCache)).append("\n");
-    sb.append("    advancedAnalysis: ").append(toIndentedString(advancedAnalysis)).append("\n");
     sb.append("    sandboxConfig: ").append(toIndentedString(sandboxConfig)).append("\n");
+    sb.append("    scrapeThirdPartyConfig: ").append(toIndentedString(scrapeThirdPartyConfig)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -326,7 +326,7 @@ public class AnalysisConfig {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("scrape_third_party_config", "generate_cves", "generate_sbom", "generate_capabilities", "no_cache", "advanced_analysis", "sandbox_config"));
+    openapiFields = new HashSet<String>(Arrays.asList("advanced_analysis", "generate_capabilities", "generate_cves", "generate_sbom", "no_cache", "sandbox_config", "scrape_third_party_config"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -345,13 +345,13 @@ public class AnalysisConfig {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the optional field `scrape_third_party_config`
-      if (jsonObj.get("scrape_third_party_config") != null && !jsonObj.get("scrape_third_party_config").isJsonNull()) {
-        ScrapeThirdPartyConfig.validateJsonElement(jsonObj.get("scrape_third_party_config"));
-      }
       // validate the optional field `sandbox_config`
       if (jsonObj.get("sandbox_config") != null && !jsonObj.get("sandbox_config").isJsonNull()) {
         SandboxOptions.validateJsonElement(jsonObj.get("sandbox_config"));
+      }
+      // validate the optional field `scrape_third_party_config`
+      if (jsonObj.get("scrape_third_party_config") != null && !jsonObj.get("scrape_third_party_config").isJsonNull()) {
+        ScrapeThirdPartyConfig.validateJsonElement(jsonObj.get("scrape_third_party_config"));
       }
   }
 

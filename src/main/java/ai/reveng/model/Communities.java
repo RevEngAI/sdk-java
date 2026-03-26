@@ -55,16 +55,6 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Communities {
-  public static final String SERIALIZED_NAME_TOTAL_FUNCTIONS = "total_functions";
-  @SerializedName(SERIALIZED_NAME_TOTAL_FUNCTIONS)
-  @javax.annotation.Nonnull
-  private Integer totalFunctions;
-
-  public static final String SERIALIZED_NAME_TOTAL_MATCHED_FUNCTIONS = "total_matched_functions";
-  @SerializedName(SERIALIZED_NAME_TOTAL_MATCHED_FUNCTIONS)
-  @javax.annotation.Nonnull
-  private Integer totalMatchedFunctions;
-
   public static final String SERIALIZED_NAME_DIRECT_COMMUNITY_MATCH_PERCENTAGES = "direct_community_match_percentages";
   @SerializedName(SERIALIZED_NAME_DIRECT_COMMUNITY_MATCH_PERCENTAGES)
   @javax.annotation.Nonnull
@@ -75,46 +65,18 @@ public class Communities {
   @javax.annotation.Nonnull
   private List<Map<String, Object>> topComponents = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_TOTAL_FUNCTIONS = "total_functions";
+  @SerializedName(SERIALIZED_NAME_TOTAL_FUNCTIONS)
+  @javax.annotation.Nonnull
+  private Integer totalFunctions;
+
+  public static final String SERIALIZED_NAME_TOTAL_MATCHED_FUNCTIONS = "total_matched_functions";
+  @SerializedName(SERIALIZED_NAME_TOTAL_MATCHED_FUNCTIONS)
+  @javax.annotation.Nonnull
+  private Integer totalMatchedFunctions;
+
   public Communities() {
   }
-
-  public Communities totalFunctions(@javax.annotation.Nonnull Integer totalFunctions) {
-    this.totalFunctions = totalFunctions;
-    return this;
-  }
-
-  /**
-   * The total number of matched community functions
-   * @return totalFunctions
-   */
-  @javax.annotation.Nonnull
-  public Integer getTotalFunctions() {
-    return totalFunctions;
-  }
-
-  public void setTotalFunctions(@javax.annotation.Nonnull Integer totalFunctions) {
-    this.totalFunctions = totalFunctions;
-  }
-
-
-  public Communities totalMatchedFunctions(@javax.annotation.Nonnull Integer totalMatchedFunctions) {
-    this.totalMatchedFunctions = totalMatchedFunctions;
-    return this;
-  }
-
-  /**
-   * The total number of functions in the binary
-   * @return totalMatchedFunctions
-   */
-  @javax.annotation.Nonnull
-  public Integer getTotalMatchedFunctions() {
-    return totalMatchedFunctions;
-  }
-
-  public void setTotalMatchedFunctions(@javax.annotation.Nonnull Integer totalMatchedFunctions) {
-    this.totalMatchedFunctions = totalMatchedFunctions;
-  }
-
 
   public Communities directCommunityMatchPercentages(@javax.annotation.Nonnull List<CommunityMatchPercentages> directCommunityMatchPercentages) {
     this.directCommunityMatchPercentages = directCommunityMatchPercentages;
@@ -167,6 +129,44 @@ public class Communities {
 
   public void setTopComponents(@javax.annotation.Nonnull List<Map<String, Object>> topComponents) {
     this.topComponents = topComponents;
+  }
+
+
+  public Communities totalFunctions(@javax.annotation.Nonnull Integer totalFunctions) {
+    this.totalFunctions = totalFunctions;
+    return this;
+  }
+
+  /**
+   * The total number of matched community functions
+   * @return totalFunctions
+   */
+  @javax.annotation.Nonnull
+  public Integer getTotalFunctions() {
+    return totalFunctions;
+  }
+
+  public void setTotalFunctions(@javax.annotation.Nonnull Integer totalFunctions) {
+    this.totalFunctions = totalFunctions;
+  }
+
+
+  public Communities totalMatchedFunctions(@javax.annotation.Nonnull Integer totalMatchedFunctions) {
+    this.totalMatchedFunctions = totalMatchedFunctions;
+    return this;
+  }
+
+  /**
+   * The total number of functions in the binary
+   * @return totalMatchedFunctions
+   */
+  @javax.annotation.Nonnull
+  public Integer getTotalMatchedFunctions() {
+    return totalMatchedFunctions;
+  }
+
+  public void setTotalMatchedFunctions(@javax.annotation.Nonnull Integer totalMatchedFunctions) {
+    this.totalMatchedFunctions = totalMatchedFunctions;
   }
 
   /**
@@ -224,26 +224,26 @@ public class Communities {
       return false;
     }
     Communities communities = (Communities) o;
-    return Objects.equals(this.totalFunctions, communities.totalFunctions) &&
-        Objects.equals(this.totalMatchedFunctions, communities.totalMatchedFunctions) &&
-        Objects.equals(this.directCommunityMatchPercentages, communities.directCommunityMatchPercentages) &&
-        Objects.equals(this.topComponents, communities.topComponents)&&
+    return Objects.equals(this.directCommunityMatchPercentages, communities.directCommunityMatchPercentages) &&
+        Objects.equals(this.topComponents, communities.topComponents) &&
+        Objects.equals(this.totalFunctions, communities.totalFunctions) &&
+        Objects.equals(this.totalMatchedFunctions, communities.totalMatchedFunctions)&&
         Objects.equals(this.additionalProperties, communities.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(totalFunctions, totalMatchedFunctions, directCommunityMatchPercentages, topComponents, additionalProperties);
+    return Objects.hash(directCommunityMatchPercentages, topComponents, totalFunctions, totalMatchedFunctions, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Communities {\n");
-    sb.append("    totalFunctions: ").append(toIndentedString(totalFunctions)).append("\n");
-    sb.append("    totalMatchedFunctions: ").append(toIndentedString(totalMatchedFunctions)).append("\n");
     sb.append("    directCommunityMatchPercentages: ").append(toIndentedString(directCommunityMatchPercentages)).append("\n");
     sb.append("    topComponents: ").append(toIndentedString(topComponents)).append("\n");
+    sb.append("    totalFunctions: ").append(toIndentedString(totalFunctions)).append("\n");
+    sb.append("    totalMatchedFunctions: ").append(toIndentedString(totalMatchedFunctions)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -266,10 +266,10 @@ public class Communities {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("total_functions", "total_matched_functions", "direct_community_match_percentages", "top_components"));
+    openapiFields = new HashSet<String>(Arrays.asList("direct_community_match_percentages", "top_components", "total_functions", "total_matched_functions"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("total_functions", "total_matched_functions", "direct_community_match_percentages", "top_components"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("direct_community_match_percentages", "top_components", "total_functions", "total_matched_functions"));
   }
 
   /**

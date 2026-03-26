@@ -7,10 +7,10 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**size** | **Integer** |  |  |
-|**friendlySize** | **String** |  |  |
 |**entropy** | **BigDecimal** |  |  |
+|**friendlySize** | **String** |  |  |
 |**hashes** | [**FileHashes**](FileHashes.md) |  |  |
+|**size** | **Integer** |  |  |
 
 
 

@@ -54,6 +54,16 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SecurityChecksResult {
+  public static final String SERIALIZED_NAME_CONFIDENCE = "confidence";
+  @SerializedName(SERIALIZED_NAME_CONFIDENCE)
+  @javax.annotation.Nonnull
+  private ConfidenceType confidence;
+
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  @javax.annotation.Nonnull
+  private String description;
+
   public static final String SERIALIZED_NAME_FUNCTION_ID = "function_id";
   @SerializedName(SERIALIZED_NAME_FUNCTION_ID)
   @javax.annotation.Nonnull
@@ -69,33 +79,61 @@ public class SecurityChecksResult {
   @javax.annotation.Nonnull
   private String name;
 
-  public static final String SERIALIZED_NAME_VULN_CLASS = "vuln_class";
-  @SerializedName(SERIALIZED_NAME_VULN_CLASS)
-  @javax.annotation.Nonnull
-  private VulnerabilityType vulnClass;
-
-  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nonnull
-  private String description;
-
   public static final String SERIALIZED_NAME_REMEDIATION = "remediation";
   @SerializedName(SERIALIZED_NAME_REMEDIATION)
   @javax.annotation.Nonnull
   private String remediation;
-
-  public static final String SERIALIZED_NAME_CONFIDENCE = "confidence";
-  @SerializedName(SERIALIZED_NAME_CONFIDENCE)
-  @javax.annotation.Nonnull
-  private ConfidenceType confidence;
 
   public static final String SERIALIZED_NAME_SEVERITY = "severity";
   @SerializedName(SERIALIZED_NAME_SEVERITY)
   @javax.annotation.Nonnull
   private SeverityType severity;
 
+  public static final String SERIALIZED_NAME_VULN_CLASS = "vuln_class";
+  @SerializedName(SERIALIZED_NAME_VULN_CLASS)
+  @javax.annotation.Nonnull
+  private VulnerabilityType vulnClass;
+
   public SecurityChecksResult() {
   }
+
+  public SecurityChecksResult confidence(@javax.annotation.Nonnull ConfidenceType confidence) {
+    this.confidence = confidence;
+    return this;
+  }
+
+  /**
+   * Get confidence
+   * @return confidence
+   */
+  @javax.annotation.Nonnull
+  public ConfidenceType getConfidence() {
+    return confidence;
+  }
+
+  public void setConfidence(@javax.annotation.Nonnull ConfidenceType confidence) {
+    this.confidence = confidence;
+  }
+
+
+  public SecurityChecksResult description(@javax.annotation.Nonnull String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * Get description
+   * @return description
+   */
+  @javax.annotation.Nonnull
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(@javax.annotation.Nonnull String description) {
+    this.description = description;
+  }
+
 
   public SecurityChecksResult functionId(@javax.annotation.Nonnull Long functionId) {
     this.functionId = functionId;
@@ -154,44 +192,6 @@ public class SecurityChecksResult {
   }
 
 
-  public SecurityChecksResult vulnClass(@javax.annotation.Nonnull VulnerabilityType vulnClass) {
-    this.vulnClass = vulnClass;
-    return this;
-  }
-
-  /**
-   * Get vulnClass
-   * @return vulnClass
-   */
-  @javax.annotation.Nonnull
-  public VulnerabilityType getVulnClass() {
-    return vulnClass;
-  }
-
-  public void setVulnClass(@javax.annotation.Nonnull VulnerabilityType vulnClass) {
-    this.vulnClass = vulnClass;
-  }
-
-
-  public SecurityChecksResult description(@javax.annotation.Nonnull String description) {
-    this.description = description;
-    return this;
-  }
-
-  /**
-   * Get description
-   * @return description
-   */
-  @javax.annotation.Nonnull
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(@javax.annotation.Nonnull String description) {
-    this.description = description;
-  }
-
-
   public SecurityChecksResult remediation(@javax.annotation.Nonnull String remediation) {
     this.remediation = remediation;
     return this;
@@ -211,25 +211,6 @@ public class SecurityChecksResult {
   }
 
 
-  public SecurityChecksResult confidence(@javax.annotation.Nonnull ConfidenceType confidence) {
-    this.confidence = confidence;
-    return this;
-  }
-
-  /**
-   * Get confidence
-   * @return confidence
-   */
-  @javax.annotation.Nonnull
-  public ConfidenceType getConfidence() {
-    return confidence;
-  }
-
-  public void setConfidence(@javax.annotation.Nonnull ConfidenceType confidence) {
-    this.confidence = confidence;
-  }
-
-
   public SecurityChecksResult severity(@javax.annotation.Nonnull SeverityType severity) {
     this.severity = severity;
     return this;
@@ -246,6 +227,25 @@ public class SecurityChecksResult {
 
   public void setSeverity(@javax.annotation.Nonnull SeverityType severity) {
     this.severity = severity;
+  }
+
+
+  public SecurityChecksResult vulnClass(@javax.annotation.Nonnull VulnerabilityType vulnClass) {
+    this.vulnClass = vulnClass;
+    return this;
+  }
+
+  /**
+   * Get vulnClass
+   * @return vulnClass
+   */
+  @javax.annotation.Nonnull
+  public VulnerabilityType getVulnClass() {
+    return vulnClass;
+  }
+
+  public void setVulnClass(@javax.annotation.Nonnull VulnerabilityType vulnClass) {
+    this.vulnClass = vulnClass;
   }
 
   /**
@@ -303,34 +303,34 @@ public class SecurityChecksResult {
       return false;
     }
     SecurityChecksResult securityChecksResult = (SecurityChecksResult) o;
-    return Objects.equals(this.functionId, securityChecksResult.functionId) &&
+    return Objects.equals(this.confidence, securityChecksResult.confidence) &&
+        Objects.equals(this.description, securityChecksResult.description) &&
+        Objects.equals(this.functionId, securityChecksResult.functionId) &&
         Objects.equals(this.functionName, securityChecksResult.functionName) &&
         Objects.equals(this.name, securityChecksResult.name) &&
-        Objects.equals(this.vulnClass, securityChecksResult.vulnClass) &&
-        Objects.equals(this.description, securityChecksResult.description) &&
         Objects.equals(this.remediation, securityChecksResult.remediation) &&
-        Objects.equals(this.confidence, securityChecksResult.confidence) &&
-        Objects.equals(this.severity, securityChecksResult.severity)&&
+        Objects.equals(this.severity, securityChecksResult.severity) &&
+        Objects.equals(this.vulnClass, securityChecksResult.vulnClass)&&
         Objects.equals(this.additionalProperties, securityChecksResult.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(functionId, functionName, name, vulnClass, description, remediation, confidence, severity, additionalProperties);
+    return Objects.hash(confidence, description, functionId, functionName, name, remediation, severity, vulnClass, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SecurityChecksResult {\n");
+    sb.append("    confidence: ").append(toIndentedString(confidence)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
     sb.append("    functionName: ").append(toIndentedString(functionName)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    vulnClass: ").append(toIndentedString(vulnClass)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    remediation: ").append(toIndentedString(remediation)).append("\n");
-    sb.append("    confidence: ").append(toIndentedString(confidence)).append("\n");
     sb.append("    severity: ").append(toIndentedString(severity)).append("\n");
+    sb.append("    vulnClass: ").append(toIndentedString(vulnClass)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -353,10 +353,10 @@ public class SecurityChecksResult {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("function_id", "function_name", "name", "vuln_class", "description", "remediation", "confidence", "severity"));
+    openapiFields = new HashSet<String>(Arrays.asList("confidence", "description", "function_id", "function_name", "name", "remediation", "severity", "vuln_class"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("function_id", "function_name", "name", "vuln_class", "description", "remediation", "confidence", "severity"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("confidence", "description", "function_id", "function_name", "name", "remediation", "severity", "vuln_class"));
   }
 
   /**
@@ -379,24 +379,24 @@ public class SecurityChecksResult {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // validate the required field `confidence`
+      ConfidenceType.validateJsonElement(jsonObj.get("confidence"));
+      if (!jsonObj.get("description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
       if (!jsonObj.get("function_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `function_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("function_name").toString()));
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      // validate the required field `vuln_class`
-      VulnerabilityType.validateJsonElement(jsonObj.get("vuln_class"));
-      if (!jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
       if (!jsonObj.get("remediation").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `remediation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("remediation").toString()));
       }
-      // validate the required field `confidence`
-      ConfidenceType.validateJsonElement(jsonObj.get("confidence"));
       // validate the required field `severity`
       SeverityType.validateJsonElement(jsonObj.get("severity"));
+      // validate the required field `vuln_class`
+      VulnerabilityType.validateJsonElement(jsonObj.get("vuln_class"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

@@ -51,15 +51,15 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SinglePDBEntryModel {
-  public static final String SERIALIZED_NAME_GUID = "guid";
-  @SerializedName(SERIALIZED_NAME_GUID)
-  @javax.annotation.Nonnull
-  private String guid;
-
   public static final String SERIALIZED_NAME_AGE = "age";
   @SerializedName(SERIALIZED_NAME_AGE)
   @javax.annotation.Nonnull
   private Integer age;
+
+  public static final String SERIALIZED_NAME_GUID = "guid";
+  @SerializedName(SERIALIZED_NAME_GUID)
+  @javax.annotation.Nonnull
+  private String guid;
 
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)
@@ -68,25 +68,6 @@ public class SinglePDBEntryModel {
 
   public SinglePDBEntryModel() {
   }
-
-  public SinglePDBEntryModel guid(@javax.annotation.Nonnull String guid) {
-    this.guid = guid;
-    return this;
-  }
-
-  /**
-   * Get guid
-   * @return guid
-   */
-  @javax.annotation.Nonnull
-  public String getGuid() {
-    return guid;
-  }
-
-  public void setGuid(@javax.annotation.Nonnull String guid) {
-    this.guid = guid;
-  }
-
 
   public SinglePDBEntryModel age(@javax.annotation.Nonnull Integer age) {
     this.age = age;
@@ -104,6 +85,25 @@ public class SinglePDBEntryModel {
 
   public void setAge(@javax.annotation.Nonnull Integer age) {
     this.age = age;
+  }
+
+
+  public SinglePDBEntryModel guid(@javax.annotation.Nonnull String guid) {
+    this.guid = guid;
+    return this;
+  }
+
+  /**
+   * Get guid
+   * @return guid
+   */
+  @javax.annotation.Nonnull
+  public String getGuid() {
+    return guid;
+  }
+
+  public void setGuid(@javax.annotation.Nonnull String guid) {
+    this.guid = guid;
   }
 
 
@@ -180,23 +180,23 @@ public class SinglePDBEntryModel {
       return false;
     }
     SinglePDBEntryModel singlePDBEntryModel = (SinglePDBEntryModel) o;
-    return Objects.equals(this.guid, singlePDBEntryModel.guid) &&
-        Objects.equals(this.age, singlePDBEntryModel.age) &&
+    return Objects.equals(this.age, singlePDBEntryModel.age) &&
+        Objects.equals(this.guid, singlePDBEntryModel.guid) &&
         Objects.equals(this.path, singlePDBEntryModel.path)&&
         Objects.equals(this.additionalProperties, singlePDBEntryModel.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(guid, age, path, additionalProperties);
+    return Objects.hash(age, guid, path, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SinglePDBEntryModel {\n");
-    sb.append("    guid: ").append(toIndentedString(guid)).append("\n");
     sb.append("    age: ").append(toIndentedString(age)).append("\n");
+    sb.append("    guid: ").append(toIndentedString(guid)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -220,10 +220,10 @@ public class SinglePDBEntryModel {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("guid", "age", "path"));
+    openapiFields = new HashSet<String>(Arrays.asList("age", "guid", "path"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("guid", "age", "path"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("age", "guid", "path"));
   }
 
   /**

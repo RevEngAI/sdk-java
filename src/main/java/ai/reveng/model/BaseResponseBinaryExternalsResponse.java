@@ -57,52 +57,33 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class BaseResponseBinaryExternalsResponse {
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
-  @javax.annotation.Nullable
-  private Boolean status = true;
-
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
   @javax.annotation.Nullable
   private BinaryExternalsResponse data;
-
-  public static final String SERIALIZED_NAME_MESSAGE = "message";
-  @SerializedName(SERIALIZED_NAME_MESSAGE)
-  @javax.annotation.Nullable
-  private String message;
 
   public static final String SERIALIZED_NAME_ERRORS = "errors";
   @SerializedName(SERIALIZED_NAME_ERRORS)
   @javax.annotation.Nullable
   private List<ErrorModel> errors;
 
+  public static final String SERIALIZED_NAME_MESSAGE = "message";
+  @SerializedName(SERIALIZED_NAME_MESSAGE)
+  @javax.annotation.Nullable
+  private String message;
+
   public static final String SERIALIZED_NAME_META = "meta";
   @SerializedName(SERIALIZED_NAME_META)
   @javax.annotation.Nullable
   private MetaModel meta;
 
+  public static final String SERIALIZED_NAME_STATUS = "status";
+  @SerializedName(SERIALIZED_NAME_STATUS)
+  @javax.annotation.Nullable
+  private Boolean status = true;
+
   public BaseResponseBinaryExternalsResponse() {
   }
-
-  public BaseResponseBinaryExternalsResponse status(@javax.annotation.Nullable Boolean status) {
-    this.status = status;
-    return this;
-  }
-
-  /**
-   * Response status on whether the request succeeded
-   * @return status
-   */
-  @javax.annotation.Nullable
-  public Boolean getStatus() {
-    return status;
-  }
-
-  public void setStatus(@javax.annotation.Nullable Boolean status) {
-    this.status = status;
-  }
-
 
   public BaseResponseBinaryExternalsResponse data(@javax.annotation.Nullable BinaryExternalsResponse data) {
     this.data = data;
@@ -120,25 +101,6 @@ public class BaseResponseBinaryExternalsResponse {
 
   public void setData(@javax.annotation.Nullable BinaryExternalsResponse data) {
     this.data = data;
-  }
-
-
-  public BaseResponseBinaryExternalsResponse message(@javax.annotation.Nullable String message) {
-    this.message = message;
-    return this;
-  }
-
-  /**
-   * Get message
-   * @return message
-   */
-  @javax.annotation.Nullable
-  public String getMessage() {
-    return message;
-  }
-
-  public void setMessage(@javax.annotation.Nullable String message) {
-    this.message = message;
   }
 
 
@@ -169,6 +131,25 @@ public class BaseResponseBinaryExternalsResponse {
   }
 
 
+  public BaseResponseBinaryExternalsResponse message(@javax.annotation.Nullable String message) {
+    this.message = message;
+    return this;
+  }
+
+  /**
+   * Get message
+   * @return message
+   */
+  @javax.annotation.Nullable
+  public String getMessage() {
+    return message;
+  }
+
+  public void setMessage(@javax.annotation.Nullable String message) {
+    this.message = message;
+  }
+
+
   public BaseResponseBinaryExternalsResponse meta(@javax.annotation.Nullable MetaModel meta) {
     this.meta = meta;
     return this;
@@ -185,6 +166,25 @@ public class BaseResponseBinaryExternalsResponse {
 
   public void setMeta(@javax.annotation.Nullable MetaModel meta) {
     this.meta = meta;
+  }
+
+
+  public BaseResponseBinaryExternalsResponse status(@javax.annotation.Nullable Boolean status) {
+    this.status = status;
+    return this;
+  }
+
+  /**
+   * Response status on whether the request succeeded
+   * @return status
+   */
+  @javax.annotation.Nullable
+  public Boolean getStatus() {
+    return status;
+  }
+
+  public void setStatus(@javax.annotation.Nullable Boolean status) {
+    this.status = status;
   }
 
   /**
@@ -242,11 +242,11 @@ public class BaseResponseBinaryExternalsResponse {
       return false;
     }
     BaseResponseBinaryExternalsResponse baseResponseBinaryExternalsResponse = (BaseResponseBinaryExternalsResponse) o;
-    return Objects.equals(this.status, baseResponseBinaryExternalsResponse.status) &&
-        Objects.equals(this.data, baseResponseBinaryExternalsResponse.data) &&
-        Objects.equals(this.message, baseResponseBinaryExternalsResponse.message) &&
+    return Objects.equals(this.data, baseResponseBinaryExternalsResponse.data) &&
         Objects.equals(this.errors, baseResponseBinaryExternalsResponse.errors) &&
-        Objects.equals(this.meta, baseResponseBinaryExternalsResponse.meta)&&
+        Objects.equals(this.message, baseResponseBinaryExternalsResponse.message) &&
+        Objects.equals(this.meta, baseResponseBinaryExternalsResponse.meta) &&
+        Objects.equals(this.status, baseResponseBinaryExternalsResponse.status)&&
         Objects.equals(this.additionalProperties, baseResponseBinaryExternalsResponse.additionalProperties);
   }
 
@@ -256,7 +256,7 @@ public class BaseResponseBinaryExternalsResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, data, message, errors, meta, additionalProperties);
+    return Objects.hash(data, errors, message, meta, status, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -270,11 +270,11 @@ public class BaseResponseBinaryExternalsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class BaseResponseBinaryExternalsResponse {\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -297,7 +297,7 @@ public class BaseResponseBinaryExternalsResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("status", "data", "message", "errors", "meta"));
+    openapiFields = new HashSet<String>(Arrays.asList("data", "errors", "message", "meta", "status"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -320,9 +320,6 @@ public class BaseResponseBinaryExternalsResponse {
       if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
         BinaryExternalsResponse.validateJsonElement(jsonObj.get("data"));
       }
-      if ((jsonObj.get("message") != null && !jsonObj.get("message").isJsonNull()) && !jsonObj.get("message").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
-      }
       if (jsonObj.get("errors") != null && !jsonObj.get("errors").isJsonNull()) {
         JsonArray jsonArrayerrors = jsonObj.getAsJsonArray("errors");
         if (jsonArrayerrors != null) {
@@ -336,6 +333,9 @@ public class BaseResponseBinaryExternalsResponse {
             ErrorModel.validateJsonElement(jsonArrayerrors.get(i));
           };
         }
+      }
+      if ((jsonObj.get("message") != null && !jsonObj.get("message").isJsonNull()) && !jsonObj.get("message").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
       }
       // validate the optional field `meta`
       if (jsonObj.get("meta") != null && !jsonObj.get("meta").isJsonNull()) {

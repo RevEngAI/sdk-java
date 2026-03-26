@@ -51,30 +51,10 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ELFSegment {
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
+  public static final String SERIALIZED_NAME_ALIGNMENT = "alignment";
+  @SerializedName(SERIALIZED_NAME_ALIGNMENT)
   @javax.annotation.Nonnull
-  private String type;
-
-  public static final String SERIALIZED_NAME_VIRTUAL_ADDRESS = "virtual_address";
-  @SerializedName(SERIALIZED_NAME_VIRTUAL_ADDRESS)
-  @javax.annotation.Nonnull
-  private Integer virtualAddress;
-
-  public static final String SERIALIZED_NAME_VIRTUAL_SIZE = "virtual_size";
-  @SerializedName(SERIALIZED_NAME_VIRTUAL_SIZE)
-  @javax.annotation.Nonnull
-  private Integer virtualSize;
-
-  public static final String SERIALIZED_NAME_PHYSICAL_ADDRESS = "physical_address";
-  @SerializedName(SERIALIZED_NAME_PHYSICAL_ADDRESS)
-  @javax.annotation.Nonnull
-  private Integer physicalAddress;
-
-  public static final String SERIALIZED_NAME_PHYSICAL_SIZE = "physical_size";
-  @SerializedName(SERIALIZED_NAME_PHYSICAL_SIZE)
-  @javax.annotation.Nonnull
-  private Integer physicalSize;
+  private Integer alignment;
 
   public static final String SERIALIZED_NAME_FILE_OFFSET = "file_offset";
   @SerializedName(SERIALIZED_NAME_FILE_OFFSET)
@@ -91,106 +71,50 @@ public class ELFSegment {
   @javax.annotation.Nonnull
   private Integer flagsRaw;
 
-  public static final String SERIALIZED_NAME_ALIGNMENT = "alignment";
-  @SerializedName(SERIALIZED_NAME_ALIGNMENT)
+  public static final String SERIALIZED_NAME_PHYSICAL_ADDRESS = "physical_address";
+  @SerializedName(SERIALIZED_NAME_PHYSICAL_ADDRESS)
   @javax.annotation.Nonnull
-  private Integer alignment;
+  private Integer physicalAddress;
+
+  public static final String SERIALIZED_NAME_PHYSICAL_SIZE = "physical_size";
+  @SerializedName(SERIALIZED_NAME_PHYSICAL_SIZE)
+  @javax.annotation.Nonnull
+  private Integer physicalSize;
+
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  @javax.annotation.Nonnull
+  private String type;
+
+  public static final String SERIALIZED_NAME_VIRTUAL_ADDRESS = "virtual_address";
+  @SerializedName(SERIALIZED_NAME_VIRTUAL_ADDRESS)
+  @javax.annotation.Nonnull
+  private Integer virtualAddress;
+
+  public static final String SERIALIZED_NAME_VIRTUAL_SIZE = "virtual_size";
+  @SerializedName(SERIALIZED_NAME_VIRTUAL_SIZE)
+  @javax.annotation.Nonnull
+  private Integer virtualSize;
 
   public ELFSegment() {
   }
 
-  public ELFSegment type(@javax.annotation.Nonnull String type) {
-    this.type = type;
+  public ELFSegment alignment(@javax.annotation.Nonnull Integer alignment) {
+    this.alignment = alignment;
     return this;
   }
 
   /**
-   * Get type
-   * @return type
+   * Get alignment
+   * @return alignment
    */
   @javax.annotation.Nonnull
-  public String getType() {
-    return type;
+  public Integer getAlignment() {
+    return alignment;
   }
 
-  public void setType(@javax.annotation.Nonnull String type) {
-    this.type = type;
-  }
-
-
-  public ELFSegment virtualAddress(@javax.annotation.Nonnull Integer virtualAddress) {
-    this.virtualAddress = virtualAddress;
-    return this;
-  }
-
-  /**
-   * Get virtualAddress
-   * @return virtualAddress
-   */
-  @javax.annotation.Nonnull
-  public Integer getVirtualAddress() {
-    return virtualAddress;
-  }
-
-  public void setVirtualAddress(@javax.annotation.Nonnull Integer virtualAddress) {
-    this.virtualAddress = virtualAddress;
-  }
-
-
-  public ELFSegment virtualSize(@javax.annotation.Nonnull Integer virtualSize) {
-    this.virtualSize = virtualSize;
-    return this;
-  }
-
-  /**
-   * Get virtualSize
-   * @return virtualSize
-   */
-  @javax.annotation.Nonnull
-  public Integer getVirtualSize() {
-    return virtualSize;
-  }
-
-  public void setVirtualSize(@javax.annotation.Nonnull Integer virtualSize) {
-    this.virtualSize = virtualSize;
-  }
-
-
-  public ELFSegment physicalAddress(@javax.annotation.Nonnull Integer physicalAddress) {
-    this.physicalAddress = physicalAddress;
-    return this;
-  }
-
-  /**
-   * Get physicalAddress
-   * @return physicalAddress
-   */
-  @javax.annotation.Nonnull
-  public Integer getPhysicalAddress() {
-    return physicalAddress;
-  }
-
-  public void setPhysicalAddress(@javax.annotation.Nonnull Integer physicalAddress) {
-    this.physicalAddress = physicalAddress;
-  }
-
-
-  public ELFSegment physicalSize(@javax.annotation.Nonnull Integer physicalSize) {
-    this.physicalSize = physicalSize;
-    return this;
-  }
-
-  /**
-   * Get physicalSize
-   * @return physicalSize
-   */
-  @javax.annotation.Nonnull
-  public Integer getPhysicalSize() {
-    return physicalSize;
-  }
-
-  public void setPhysicalSize(@javax.annotation.Nonnull Integer physicalSize) {
-    this.physicalSize = physicalSize;
+  public void setAlignment(@javax.annotation.Nonnull Integer alignment) {
+    this.alignment = alignment;
   }
 
 
@@ -251,22 +175,98 @@ public class ELFSegment {
   }
 
 
-  public ELFSegment alignment(@javax.annotation.Nonnull Integer alignment) {
-    this.alignment = alignment;
+  public ELFSegment physicalAddress(@javax.annotation.Nonnull Integer physicalAddress) {
+    this.physicalAddress = physicalAddress;
     return this;
   }
 
   /**
-   * Get alignment
-   * @return alignment
+   * Get physicalAddress
+   * @return physicalAddress
    */
   @javax.annotation.Nonnull
-  public Integer getAlignment() {
-    return alignment;
+  public Integer getPhysicalAddress() {
+    return physicalAddress;
   }
 
-  public void setAlignment(@javax.annotation.Nonnull Integer alignment) {
-    this.alignment = alignment;
+  public void setPhysicalAddress(@javax.annotation.Nonnull Integer physicalAddress) {
+    this.physicalAddress = physicalAddress;
+  }
+
+
+  public ELFSegment physicalSize(@javax.annotation.Nonnull Integer physicalSize) {
+    this.physicalSize = physicalSize;
+    return this;
+  }
+
+  /**
+   * Get physicalSize
+   * @return physicalSize
+   */
+  @javax.annotation.Nonnull
+  public Integer getPhysicalSize() {
+    return physicalSize;
+  }
+
+  public void setPhysicalSize(@javax.annotation.Nonnull Integer physicalSize) {
+    this.physicalSize = physicalSize;
+  }
+
+
+  public ELFSegment type(@javax.annotation.Nonnull String type) {
+    this.type = type;
+    return this;
+  }
+
+  /**
+   * Get type
+   * @return type
+   */
+  @javax.annotation.Nonnull
+  public String getType() {
+    return type;
+  }
+
+  public void setType(@javax.annotation.Nonnull String type) {
+    this.type = type;
+  }
+
+
+  public ELFSegment virtualAddress(@javax.annotation.Nonnull Integer virtualAddress) {
+    this.virtualAddress = virtualAddress;
+    return this;
+  }
+
+  /**
+   * Get virtualAddress
+   * @return virtualAddress
+   */
+  @javax.annotation.Nonnull
+  public Integer getVirtualAddress() {
+    return virtualAddress;
+  }
+
+  public void setVirtualAddress(@javax.annotation.Nonnull Integer virtualAddress) {
+    this.virtualAddress = virtualAddress;
+  }
+
+
+  public ELFSegment virtualSize(@javax.annotation.Nonnull Integer virtualSize) {
+    this.virtualSize = virtualSize;
+    return this;
+  }
+
+  /**
+   * Get virtualSize
+   * @return virtualSize
+   */
+  @javax.annotation.Nonnull
+  public Integer getVirtualSize() {
+    return virtualSize;
+  }
+
+  public void setVirtualSize(@javax.annotation.Nonnull Integer virtualSize) {
+    this.virtualSize = virtualSize;
   }
 
   /**
@@ -324,36 +324,36 @@ public class ELFSegment {
       return false;
     }
     ELFSegment elFSegment = (ELFSegment) o;
-    return Objects.equals(this.type, elFSegment.type) &&
-        Objects.equals(this.virtualAddress, elFSegment.virtualAddress) &&
-        Objects.equals(this.virtualSize, elFSegment.virtualSize) &&
-        Objects.equals(this.physicalAddress, elFSegment.physicalAddress) &&
-        Objects.equals(this.physicalSize, elFSegment.physicalSize) &&
+    return Objects.equals(this.alignment, elFSegment.alignment) &&
         Objects.equals(this.fileOffset, elFSegment.fileOffset) &&
         Objects.equals(this.flags, elFSegment.flags) &&
         Objects.equals(this.flagsRaw, elFSegment.flagsRaw) &&
-        Objects.equals(this.alignment, elFSegment.alignment)&&
+        Objects.equals(this.physicalAddress, elFSegment.physicalAddress) &&
+        Objects.equals(this.physicalSize, elFSegment.physicalSize) &&
+        Objects.equals(this.type, elFSegment.type) &&
+        Objects.equals(this.virtualAddress, elFSegment.virtualAddress) &&
+        Objects.equals(this.virtualSize, elFSegment.virtualSize)&&
         Objects.equals(this.additionalProperties, elFSegment.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, virtualAddress, virtualSize, physicalAddress, physicalSize, fileOffset, flags, flagsRaw, alignment, additionalProperties);
+    return Objects.hash(alignment, fileOffset, flags, flagsRaw, physicalAddress, physicalSize, type, virtualAddress, virtualSize, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ELFSegment {\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    virtualAddress: ").append(toIndentedString(virtualAddress)).append("\n");
-    sb.append("    virtualSize: ").append(toIndentedString(virtualSize)).append("\n");
-    sb.append("    physicalAddress: ").append(toIndentedString(physicalAddress)).append("\n");
-    sb.append("    physicalSize: ").append(toIndentedString(physicalSize)).append("\n");
+    sb.append("    alignment: ").append(toIndentedString(alignment)).append("\n");
     sb.append("    fileOffset: ").append(toIndentedString(fileOffset)).append("\n");
     sb.append("    flags: ").append(toIndentedString(flags)).append("\n");
     sb.append("    flagsRaw: ").append(toIndentedString(flagsRaw)).append("\n");
-    sb.append("    alignment: ").append(toIndentedString(alignment)).append("\n");
+    sb.append("    physicalAddress: ").append(toIndentedString(physicalAddress)).append("\n");
+    sb.append("    physicalSize: ").append(toIndentedString(physicalSize)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    virtualAddress: ").append(toIndentedString(virtualAddress)).append("\n");
+    sb.append("    virtualSize: ").append(toIndentedString(virtualSize)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -376,10 +376,10 @@ public class ELFSegment {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("type", "virtual_address", "virtual_size", "physical_address", "physical_size", "file_offset", "flags", "flags_raw", "alignment"));
+    openapiFields = new HashSet<String>(Arrays.asList("alignment", "file_offset", "flags", "flags_raw", "physical_address", "physical_size", "type", "virtual_address", "virtual_size"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("type", "virtual_address", "virtual_size", "physical_address", "physical_size", "file_offset", "flags", "flags_raw", "alignment"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("alignment", "file_offset", "flags", "flags_raw", "physical_address", "physical_size", "type", "virtual_address", "virtual_size"));
   }
 
   /**
@@ -402,11 +402,11 @@ public class ELFSegment {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-      }
       if (!jsonObj.get("flags").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `flags` to be a primitive type in the JSON string but got `%s`", jsonObj.get("flags").toString()));
+      }
+      if (!jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
   }
 

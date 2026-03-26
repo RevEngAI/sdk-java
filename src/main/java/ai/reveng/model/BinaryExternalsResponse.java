@@ -54,6 +54,16 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class BinaryExternalsResponse {
+  public static final String SERIALIZED_NAME_MB = "mb";
+  @SerializedName(SERIALIZED_NAME_MB)
+  @javax.annotation.Nonnull
+  private Map<String, Object> mb = new HashMap<>();
+
+  public static final String SERIALIZED_NAME_MB_LAST_UPDATED = "mb_last_updated";
+  @SerializedName(SERIALIZED_NAME_MB_LAST_UPDATED)
+  @javax.annotation.Nonnull
+  private OffsetDateTime mbLastUpdated;
+
   public static final String SERIALIZED_NAME_SHA256_HASH = "sha_256_hash";
   @SerializedName(SERIALIZED_NAME_SHA256_HASH)
   @javax.annotation.Nonnull
@@ -69,18 +79,54 @@ public class BinaryExternalsResponse {
   @javax.annotation.Nonnull
   private OffsetDateTime vtLastUpdated;
 
-  public static final String SERIALIZED_NAME_MB = "mb";
-  @SerializedName(SERIALIZED_NAME_MB)
-  @javax.annotation.Nonnull
-  private Map<String, Object> mb = new HashMap<>();
-
-  public static final String SERIALIZED_NAME_MB_LAST_UPDATED = "mb_last_updated";
-  @SerializedName(SERIALIZED_NAME_MB_LAST_UPDATED)
-  @javax.annotation.Nonnull
-  private OffsetDateTime mbLastUpdated;
-
   public BinaryExternalsResponse() {
   }
+
+  public BinaryExternalsResponse mb(@javax.annotation.Nonnull Map<String, Object> mb) {
+    this.mb = mb;
+    return this;
+  }
+
+  public BinaryExternalsResponse putMbItem(String key, Object mbItem) {
+    if (this.mb == null) {
+      this.mb = new HashMap<>();
+    }
+    this.mb.put(key, mbItem);
+    return this;
+  }
+
+  /**
+   * MalwareBazaar information
+   * @return mb
+   */
+  @javax.annotation.Nonnull
+  public Map<String, Object> getMb() {
+    return mb;
+  }
+
+  public void setMb(@javax.annotation.Nonnull Map<String, Object> mb) {
+    this.mb = mb;
+  }
+
+
+  public BinaryExternalsResponse mbLastUpdated(@javax.annotation.Nonnull OffsetDateTime mbLastUpdated) {
+    this.mbLastUpdated = mbLastUpdated;
+    return this;
+  }
+
+  /**
+   * MalwareBazaar last updated date
+   * @return mbLastUpdated
+   */
+  @javax.annotation.Nonnull
+  public OffsetDateTime getMbLastUpdated() {
+    return mbLastUpdated;
+  }
+
+  public void setMbLastUpdated(@javax.annotation.Nonnull OffsetDateTime mbLastUpdated) {
+    this.mbLastUpdated = mbLastUpdated;
+  }
+
 
   public BinaryExternalsResponse sha256Hash(@javax.annotation.Nonnull String sha256Hash) {
     this.sha256Hash = sha256Hash;
@@ -146,52 +192,6 @@ public class BinaryExternalsResponse {
     this.vtLastUpdated = vtLastUpdated;
   }
 
-
-  public BinaryExternalsResponse mb(@javax.annotation.Nonnull Map<String, Object> mb) {
-    this.mb = mb;
-    return this;
-  }
-
-  public BinaryExternalsResponse putMbItem(String key, Object mbItem) {
-    if (this.mb == null) {
-      this.mb = new HashMap<>();
-    }
-    this.mb.put(key, mbItem);
-    return this;
-  }
-
-  /**
-   * MalwareBazaar information
-   * @return mb
-   */
-  @javax.annotation.Nonnull
-  public Map<String, Object> getMb() {
-    return mb;
-  }
-
-  public void setMb(@javax.annotation.Nonnull Map<String, Object> mb) {
-    this.mb = mb;
-  }
-
-
-  public BinaryExternalsResponse mbLastUpdated(@javax.annotation.Nonnull OffsetDateTime mbLastUpdated) {
-    this.mbLastUpdated = mbLastUpdated;
-    return this;
-  }
-
-  /**
-   * MalwareBazaar last updated date
-   * @return mbLastUpdated
-   */
-  @javax.annotation.Nonnull
-  public OffsetDateTime getMbLastUpdated() {
-    return mbLastUpdated;
-  }
-
-  public void setMbLastUpdated(@javax.annotation.Nonnull OffsetDateTime mbLastUpdated) {
-    this.mbLastUpdated = mbLastUpdated;
-  }
-
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -247,28 +247,28 @@ public class BinaryExternalsResponse {
       return false;
     }
     BinaryExternalsResponse binaryExternalsResponse = (BinaryExternalsResponse) o;
-    return Objects.equals(this.sha256Hash, binaryExternalsResponse.sha256Hash) &&
+    return Objects.equals(this.mb, binaryExternalsResponse.mb) &&
+        Objects.equals(this.mbLastUpdated, binaryExternalsResponse.mbLastUpdated) &&
+        Objects.equals(this.sha256Hash, binaryExternalsResponse.sha256Hash) &&
         Objects.equals(this.vt, binaryExternalsResponse.vt) &&
-        Objects.equals(this.vtLastUpdated, binaryExternalsResponse.vtLastUpdated) &&
-        Objects.equals(this.mb, binaryExternalsResponse.mb) &&
-        Objects.equals(this.mbLastUpdated, binaryExternalsResponse.mbLastUpdated)&&
+        Objects.equals(this.vtLastUpdated, binaryExternalsResponse.vtLastUpdated)&&
         Objects.equals(this.additionalProperties, binaryExternalsResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sha256Hash, vt, vtLastUpdated, mb, mbLastUpdated, additionalProperties);
+    return Objects.hash(mb, mbLastUpdated, sha256Hash, vt, vtLastUpdated, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class BinaryExternalsResponse {\n");
+    sb.append("    mb: ").append(toIndentedString(mb)).append("\n");
+    sb.append("    mbLastUpdated: ").append(toIndentedString(mbLastUpdated)).append("\n");
     sb.append("    sha256Hash: ").append(toIndentedString(sha256Hash)).append("\n");
     sb.append("    vt: ").append(toIndentedString(vt)).append("\n");
     sb.append("    vtLastUpdated: ").append(toIndentedString(vtLastUpdated)).append("\n");
-    sb.append("    mb: ").append(toIndentedString(mb)).append("\n");
-    sb.append("    mbLastUpdated: ").append(toIndentedString(mbLastUpdated)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -291,10 +291,10 @@ public class BinaryExternalsResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("sha_256_hash", "vt", "vt_last_updated", "mb", "mb_last_updated"));
+    openapiFields = new HashSet<String>(Arrays.asList("mb", "mb_last_updated", "sha_256_hash", "vt", "vt_last_updated"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("sha_256_hash", "vt", "vt_last_updated", "mb", "mb_last_updated"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("mb", "mb_last_updated", "sha_256_hash", "vt", "vt_last_updated"));
   }
 
   /**

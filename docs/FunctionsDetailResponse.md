@@ -7,19 +7,19 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**functionId** | **Long** | Function id |  |
-|**functionName** | **String** |  |  |
-|**functionNameMangled** | **String** |  |  |
-|**functionVaddr** | **Long** |  |  |
-|**functionSize** | **Integer** |  |  |
 |**analysisId** | **Integer** |  |  |
 |**binaryId** | **Integer** |  |  |
 |**binaryName** | **String** |  |  |
-|**sha256Hash** | **String** |  |  |
-|**debugHash** | **String** |  |  |
 |**debug** | **Boolean** |  |  |
-|**embedding3d** | **List&lt;BigDecimal&gt;** |  |  [optional] |
+|**debugHash** | **String** |  |  |
 |**embedding1d** | **List&lt;BigDecimal&gt;** |  |  [optional] |
+|**embedding3d** | **List&lt;BigDecimal&gt;** |  |  [optional] |
+|**functionId** | **Long** | Function id |  |
+|**functionName** | **String** |  |  |
+|**functionNameMangled** | **String** |  |  |
+|**functionSize** | **Integer** |  |  |
+|**functionVaddr** | **Long** |  |  |
+|**sha256Hash** | **String** |  |  |
 
 
 

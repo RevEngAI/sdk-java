@@ -54,6 +54,21 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Process {
+  public static final String SERIALIZED_NAME_ARGS = "args";
+  @SerializedName(SERIALIZED_NAME_ARGS)
+  @javax.annotation.Nonnull
+  private List<String> args = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_CHILDREN = "children";
+  @SerializedName(SERIALIZED_NAME_CHILDREN)
+  @javax.annotation.Nonnull
+  private List<Object> children = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_EXECUTABLE_NAME = "executable_name";
+  @SerializedName(SERIALIZED_NAME_EXECUTABLE_NAME)
+  @javax.annotation.Nonnull
+  private String executableName;
+
   public static final String SERIALIZED_NAME_PID = "pid";
   @SerializedName(SERIALIZED_NAME_PID)
   @javax.annotation.Nonnull
@@ -63,16 +78,6 @@ public class Process {
   @SerializedName(SERIALIZED_NAME_PROCNAME)
   @javax.annotation.Nonnull
   private String procname;
-
-  public static final String SERIALIZED_NAME_EXECUTABLE_NAME = "executable_name";
-  @SerializedName(SERIALIZED_NAME_EXECUTABLE_NAME)
-  @javax.annotation.Nonnull
-  private String executableName;
-
-  public static final String SERIALIZED_NAME_ARGS = "args";
-  @SerializedName(SERIALIZED_NAME_ARGS)
-  @javax.annotation.Nonnull
-  private List<String> args = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_TS_FROM = "ts_from";
   @SerializedName(SERIALIZED_NAME_TS_FROM)
@@ -84,13 +89,81 @@ public class Process {
   @javax.annotation.Nullable
   private BigDecimal tsTo;
 
-  public static final String SERIALIZED_NAME_CHILDREN = "children";
-  @SerializedName(SERIALIZED_NAME_CHILDREN)
-  @javax.annotation.Nonnull
-  private List<Object> children = new ArrayList<>();
-
   public Process() {
   }
+
+  public Process args(@javax.annotation.Nonnull List<String> args) {
+    this.args = args;
+    return this;
+  }
+
+  public Process addArgsItem(String argsItem) {
+    if (this.args == null) {
+      this.args = new ArrayList<>();
+    }
+    this.args.add(argsItem);
+    return this;
+  }
+
+  /**
+   * Get args
+   * @return args
+   */
+  @javax.annotation.Nonnull
+  public List<String> getArgs() {
+    return args;
+  }
+
+  public void setArgs(@javax.annotation.Nonnull List<String> args) {
+    this.args = args;
+  }
+
+
+  public Process children(@javax.annotation.Nonnull List<Object> children) {
+    this.children = children;
+    return this;
+  }
+
+  public Process addChildrenItem(Object childrenItem) {
+    if (this.children == null) {
+      this.children = new ArrayList<>();
+    }
+    this.children.add(childrenItem);
+    return this;
+  }
+
+  /**
+   * Get children
+   * @return children
+   */
+  @javax.annotation.Nonnull
+  public List<Object> getChildren() {
+    return children;
+  }
+
+  public void setChildren(@javax.annotation.Nonnull List<Object> children) {
+    this.children = children;
+  }
+
+
+  public Process executableName(@javax.annotation.Nonnull String executableName) {
+    this.executableName = executableName;
+    return this;
+  }
+
+  /**
+   * Get executableName
+   * @return executableName
+   */
+  @javax.annotation.Nonnull
+  public String getExecutableName() {
+    return executableName;
+  }
+
+  public void setExecutableName(@javax.annotation.Nonnull String executableName) {
+    this.executableName = executableName;
+  }
+
 
   public Process pid(@javax.annotation.Nonnull Integer pid) {
     this.pid = pid;
@@ -130,52 +203,6 @@ public class Process {
   }
 
 
-  public Process executableName(@javax.annotation.Nonnull String executableName) {
-    this.executableName = executableName;
-    return this;
-  }
-
-  /**
-   * Get executableName
-   * @return executableName
-   */
-  @javax.annotation.Nonnull
-  public String getExecutableName() {
-    return executableName;
-  }
-
-  public void setExecutableName(@javax.annotation.Nonnull String executableName) {
-    this.executableName = executableName;
-  }
-
-
-  public Process args(@javax.annotation.Nonnull List<String> args) {
-    this.args = args;
-    return this;
-  }
-
-  public Process addArgsItem(String argsItem) {
-    if (this.args == null) {
-      this.args = new ArrayList<>();
-    }
-    this.args.add(argsItem);
-    return this;
-  }
-
-  /**
-   * Get args
-   * @return args
-   */
-  @javax.annotation.Nonnull
-  public List<String> getArgs() {
-    return args;
-  }
-
-  public void setArgs(@javax.annotation.Nonnull List<String> args) {
-    this.args = args;
-  }
-
-
   public Process tsFrom(@javax.annotation.Nonnull BigDecimal tsFrom) {
     this.tsFrom = tsFrom;
     return this;
@@ -211,33 +238,6 @@ public class Process {
 
   public void setTsTo(@javax.annotation.Nullable BigDecimal tsTo) {
     this.tsTo = tsTo;
-  }
-
-
-  public Process children(@javax.annotation.Nonnull List<Object> children) {
-    this.children = children;
-    return this;
-  }
-
-  public Process addChildrenItem(Object childrenItem) {
-    if (this.children == null) {
-      this.children = new ArrayList<>();
-    }
-    this.children.add(childrenItem);
-    return this;
-  }
-
-  /**
-   * Get children
-   * @return children
-   */
-  @javax.annotation.Nonnull
-  public List<Object> getChildren() {
-    return children;
-  }
-
-  public void setChildren(@javax.annotation.Nonnull List<Object> children) {
-    this.children = children;
   }
 
   /**
@@ -295,32 +295,32 @@ public class Process {
       return false;
     }
     Process process = (Process) o;
-    return Objects.equals(this.pid, process.pid) &&
-        Objects.equals(this.procname, process.procname) &&
+    return Objects.equals(this.args, process.args) &&
+        Objects.equals(this.children, process.children) &&
         Objects.equals(this.executableName, process.executableName) &&
-        Objects.equals(this.args, process.args) &&
+        Objects.equals(this.pid, process.pid) &&
+        Objects.equals(this.procname, process.procname) &&
         Objects.equals(this.tsFrom, process.tsFrom) &&
-        Objects.equals(this.tsTo, process.tsTo) &&
-        Objects.equals(this.children, process.children)&&
+        Objects.equals(this.tsTo, process.tsTo)&&
         Objects.equals(this.additionalProperties, process.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pid, procname, executableName, args, tsFrom, tsTo, children, additionalProperties);
+    return Objects.hash(args, children, executableName, pid, procname, tsFrom, tsTo, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Process {\n");
+    sb.append("    args: ").append(toIndentedString(args)).append("\n");
+    sb.append("    children: ").append(toIndentedString(children)).append("\n");
+    sb.append("    executableName: ").append(toIndentedString(executableName)).append("\n");
     sb.append("    pid: ").append(toIndentedString(pid)).append("\n");
     sb.append("    procname: ").append(toIndentedString(procname)).append("\n");
-    sb.append("    executableName: ").append(toIndentedString(executableName)).append("\n");
-    sb.append("    args: ").append(toIndentedString(args)).append("\n");
     sb.append("    tsFrom: ").append(toIndentedString(tsFrom)).append("\n");
     sb.append("    tsTo: ").append(toIndentedString(tsTo)).append("\n");
-    sb.append("    children: ").append(toIndentedString(children)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -343,10 +343,10 @@ public class Process {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("pid", "procname", "executable_name", "args", "ts_from", "ts_to", "children"));
+    openapiFields = new HashSet<String>(Arrays.asList("args", "children", "executable_name", "pid", "procname", "ts_from", "ts_to"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("pid", "procname", "executable_name", "args", "ts_from", "ts_to", "children"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("args", "children", "executable_name", "pid", "procname", "ts_from", "ts_to"));
   }
 
   /**
@@ -369,12 +369,6 @@ public class Process {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("procname").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `procname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("procname").toString()));
-      }
-      if (!jsonObj.get("executable_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `executable_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("executable_name").toString()));
-      }
       // ensure the required json array is present
       if (jsonObj.get("args") == null) {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
@@ -386,6 +380,12 @@ public class Process {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
       } else if (!jsonObj.get("children").isJsonArray()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `children` to be an array in the JSON string but got `%s`", jsonObj.get("children").toString()));
+      }
+      if (!jsonObj.get("executable_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `executable_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("executable_name").toString()));
+      }
+      if (!jsonObj.get("procname").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `procname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("procname").toString()));
       }
   }
 

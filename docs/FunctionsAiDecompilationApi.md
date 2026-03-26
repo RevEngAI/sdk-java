@@ -85,8 +85,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Successful Response |  -  |
-| **422** | Invalid request parameters |  -  |
 | **400** | Bad Request |  -  |
+| **422** | Invalid request parameters |  -  |
 
 <a id="createAiDecompilationTask"></a>
 # **createAiDecompilationTask**
@@ -156,11 +156,11 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Successful Response |  -  |
-| **422** | Invalid request parameters |  -  |
-| **403** | Forbidden |  -  |
-| **402** | Payment Required |  -  |
-| **409** | Conflict |  -  |
 | **400** | Bad Request |  -  |
+| **402** | Payment Required |  -  |
+| **403** | Forbidden |  -  |
+| **409** | Conflict |  -  |
+| **422** | Invalid request parameters |  -  |
 
 <a id="deleteAiDecompilationComment"></a>
 # **deleteAiDecompilationComment**
@@ -232,9 +232,9 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful Response |  -  |
-| **422** | Invalid request parameters |  -  |
-| **403** | You can only delete your own comments |  -  |
 | **400** | Bad Request |  -  |
+| **403** | You can only delete your own comments |  -  |
+| **422** | Invalid request parameters |  -  |
 
 <a id="getAiDecompilationComments"></a>
 # **getAiDecompilationComments**
@@ -406,7 +406,7 @@ public class Example {
     FunctionsAiDecompilationApi apiInstance = new FunctionsAiDecompilationApi(defaultClient);
     Long functionId = 56L; // Long | The ID of the function being decompiled
     Boolean summarise = true; // Boolean | Generate a summary for the decompilation
-    Boolean generateInlineComments = true; // Boolean | Generate inline comments for the decompilation (only works if summarise is enabled)
+    Boolean generateInlineComments = true; // Boolean | Generate inline comments for the decompilation
     try {
       BaseResponseGetAiDecompilationTask result = apiInstance.getAiDecompilationTaskResult(functionId, summarise, generateInlineComments);
       System.out.println(result);
@@ -427,7 +427,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **functionId** | **Long**| The ID of the function being decompiled | |
 | **summarise** | **Boolean**| Generate a summary for the decompilation | [optional] [default to true] |
-| **generateInlineComments** | **Boolean**| Generate inline comments for the decompilation (only works if summarise is enabled) | [optional] [default to true] |
+| **generateInlineComments** | **Boolean**| Generate inline comments for the decompilation | [optional] [default to true] |
 
 ### Return type
 
@@ -446,8 +446,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful Response |  -  |
-| **422** | Invalid request parameters |  -  |
 | **403** | Forbidden |  -  |
+| **422** | Invalid request parameters |  -  |
 
 <a id="getAiDecompilationTaskStatus"></a>
 # **getAiDecompilationTaskStatus**
@@ -589,9 +589,9 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful Response |  -  |
-| **422** | Invalid request parameters |  -  |
-| **403** | You can only update your own comments |  -  |
 | **400** | Bad Request |  -  |
+| **403** | You can only update your own comments |  -  |
+| **422** | Invalid request parameters |  -  |
 
 <a id="upsertAiDecompilationRating"></a>
 # **upsertAiDecompilationRating**

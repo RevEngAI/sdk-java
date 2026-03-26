@@ -51,37 +51,18 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class InverseStringMapItem {
-  public static final String SERIALIZED_NAME_STRING = "string";
-  @SerializedName(SERIALIZED_NAME_STRING)
-  @javax.annotation.Nonnull
-  private String string;
-
   public static final String SERIALIZED_NAME_ADDR = "addr";
   @SerializedName(SERIALIZED_NAME_ADDR)
   @javax.annotation.Nullable
   private Long addr;
 
+  public static final String SERIALIZED_NAME_STRING = "string";
+  @SerializedName(SERIALIZED_NAME_STRING)
+  @javax.annotation.Nonnull
+  private String string;
+
   public InverseStringMapItem() {
   }
-
-  public InverseStringMapItem string(@javax.annotation.Nonnull String string) {
-    this.string = string;
-    return this;
-  }
-
-  /**
-   * Get string
-   * @return string
-   */
-  @javax.annotation.Nonnull
-  public String getString() {
-    return string;
-  }
-
-  public void setString(@javax.annotation.Nonnull String string) {
-    this.string = string;
-  }
-
 
   public InverseStringMapItem addr(@javax.annotation.Nullable Long addr) {
     this.addr = addr;
@@ -99,6 +80,25 @@ public class InverseStringMapItem {
 
   public void setAddr(@javax.annotation.Nullable Long addr) {
     this.addr = addr;
+  }
+
+
+  public InverseStringMapItem string(@javax.annotation.Nonnull String string) {
+    this.string = string;
+    return this;
+  }
+
+  /**
+   * Get string
+   * @return string
+   */
+  @javax.annotation.Nonnull
+  public String getString() {
+    return string;
+  }
+
+  public void setString(@javax.annotation.Nonnull String string) {
+    this.string = string;
   }
 
   /**
@@ -156,22 +156,22 @@ public class InverseStringMapItem {
       return false;
     }
     InverseStringMapItem inverseStringMapItem = (InverseStringMapItem) o;
-    return Objects.equals(this.string, inverseStringMapItem.string) &&
-        Objects.equals(this.addr, inverseStringMapItem.addr)&&
+    return Objects.equals(this.addr, inverseStringMapItem.addr) &&
+        Objects.equals(this.string, inverseStringMapItem.string)&&
         Objects.equals(this.additionalProperties, inverseStringMapItem.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(string, addr, additionalProperties);
+    return Objects.hash(addr, string, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InverseStringMapItem {\n");
-    sb.append("    string: ").append(toIndentedString(string)).append("\n");
     sb.append("    addr: ").append(toIndentedString(addr)).append("\n");
+    sb.append("    string: ").append(toIndentedString(string)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -194,10 +194,10 @@ public class InverseStringMapItem {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("string", "addr"));
+    openapiFields = new HashSet<String>(Arrays.asList("addr", "string"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("string", "addr"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("addr", "string"));
   }
 
   /**

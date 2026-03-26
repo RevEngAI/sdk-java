@@ -15,6 +15,7 @@ package ai.reveng.model;
 import java.util.Objects;
 import java.util.Locale;
 import ai.reveng.model.AppApiRestV2FunctionsResponsesFunction;
+import ai.reveng.model.StringSource;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -54,37 +55,23 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class StringFunctions {
-  public static final String SERIALIZED_NAME_VALUE = "value";
-  @SerializedName(SERIALIZED_NAME_VALUE)
-  @javax.annotation.Nonnull
-  private String value;
-
   public static final String SERIALIZED_NAME_FUNCTIONS = "functions";
   @SerializedName(SERIALIZED_NAME_FUNCTIONS)
   @javax.annotation.Nonnull
   private List<AppApiRestV2FunctionsResponsesFunction> functions = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_SOURCE = "source";
+  @SerializedName(SERIALIZED_NAME_SOURCE)
+  @javax.annotation.Nullable
+  private StringSource source;
+
+  public static final String SERIALIZED_NAME_VALUE = "value";
+  @SerializedName(SERIALIZED_NAME_VALUE)
+  @javax.annotation.Nonnull
+  private String value;
+
   public StringFunctions() {
   }
-
-  public StringFunctions value(@javax.annotation.Nonnull String value) {
-    this.value = value;
-    return this;
-  }
-
-  /**
-   * The value of the string literal
-   * @return value
-   */
-  @javax.annotation.Nonnull
-  public String getValue() {
-    return value;
-  }
-
-  public void setValue(@javax.annotation.Nonnull String value) {
-    this.value = value;
-  }
-
 
   public StringFunctions functions(@javax.annotation.Nonnull List<AppApiRestV2FunctionsResponsesFunction> functions) {
     this.functions = functions;
@@ -110,6 +97,44 @@ public class StringFunctions {
 
   public void setFunctions(@javax.annotation.Nonnull List<AppApiRestV2FunctionsResponsesFunction> functions) {
     this.functions = functions;
+  }
+
+
+  public StringFunctions source(@javax.annotation.Nullable StringSource source) {
+    this.source = source;
+    return this;
+  }
+
+  /**
+   * The source of the string
+   * @return source
+   */
+  @javax.annotation.Nullable
+  public StringSource getSource() {
+    return source;
+  }
+
+  public void setSource(@javax.annotation.Nullable StringSource source) {
+    this.source = source;
+  }
+
+
+  public StringFunctions value(@javax.annotation.Nonnull String value) {
+    this.value = value;
+    return this;
+  }
+
+  /**
+   * The value of the string literal
+   * @return value
+   */
+  @javax.annotation.Nonnull
+  public String getValue() {
+    return value;
+  }
+
+  public void setValue(@javax.annotation.Nonnull String value) {
+    this.value = value;
   }
 
   /**
@@ -167,22 +192,24 @@ public class StringFunctions {
       return false;
     }
     StringFunctions stringFunctions = (StringFunctions) o;
-    return Objects.equals(this.value, stringFunctions.value) &&
-        Objects.equals(this.functions, stringFunctions.functions)&&
+    return Objects.equals(this.functions, stringFunctions.functions) &&
+        Objects.equals(this.source, stringFunctions.source) &&
+        Objects.equals(this.value, stringFunctions.value)&&
         Objects.equals(this.additionalProperties, stringFunctions.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(value, functions, additionalProperties);
+    return Objects.hash(functions, source, value, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class StringFunctions {\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    functions: ").append(toIndentedString(functions)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -205,10 +232,10 @@ public class StringFunctions {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("value", "functions"));
+    openapiFields = new HashSet<String>(Arrays.asList("functions", "source", "value"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("value", "functions"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("functions", "value"));
   }
 
   /**
@@ -231,9 +258,6 @@ public class StringFunctions {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("value").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
-      }
       // ensure the json data is an array
       if (!jsonObj.get("functions").isJsonArray()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `functions` to be an array in the JSON string but got `%s`", jsonObj.get("functions").toString()));
@@ -244,6 +268,13 @@ public class StringFunctions {
       for (int i = 0; i < jsonArrayfunctions.size(); i++) {
         AppApiRestV2FunctionsResponsesFunction.validateJsonElement(jsonArrayfunctions.get(i));
       };
+      // validate the optional field `source`
+      if (jsonObj.get("source") != null && !jsonObj.get("source").isJsonNull()) {
+        StringSource.validateJsonElement(jsonObj.get("source"));
+      }
+      if (!jsonObj.get("value").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

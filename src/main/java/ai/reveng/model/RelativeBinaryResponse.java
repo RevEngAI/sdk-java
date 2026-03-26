@@ -52,15 +52,15 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class RelativeBinaryResponse {
-  public static final String SERIALIZED_NAME_BINARY_ID = "binary_id";
-  @SerializedName(SERIALIZED_NAME_BINARY_ID)
-  @javax.annotation.Nonnull
-  private Integer binaryId;
-
   public static final String SERIALIZED_NAME_ANALYSIS_ID = "analysis_id";
   @SerializedName(SERIALIZED_NAME_ANALYSIS_ID)
   @javax.annotation.Nullable
   private Integer analysisId;
+
+  public static final String SERIALIZED_NAME_BINARY_ID = "binary_id";
+  @SerializedName(SERIALIZED_NAME_BINARY_ID)
+  @javax.annotation.Nonnull
+  private Integer binaryId;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -74,25 +74,6 @@ public class RelativeBinaryResponse {
 
   public RelativeBinaryResponse() {
   }
-
-  public RelativeBinaryResponse binaryId(@javax.annotation.Nonnull Integer binaryId) {
-    this.binaryId = binaryId;
-    return this;
-  }
-
-  /**
-   * ID of the relative binary
-   * @return binaryId
-   */
-  @javax.annotation.Nonnull
-  public Integer getBinaryId() {
-    return binaryId;
-  }
-
-  public void setBinaryId(@javax.annotation.Nonnull Integer binaryId) {
-    this.binaryId = binaryId;
-  }
-
 
   public RelativeBinaryResponse analysisId(@javax.annotation.Nullable Integer analysisId) {
     this.analysisId = analysisId;
@@ -110,6 +91,25 @@ public class RelativeBinaryResponse {
 
   public void setAnalysisId(@javax.annotation.Nullable Integer analysisId) {
     this.analysisId = analysisId;
+  }
+
+
+  public RelativeBinaryResponse binaryId(@javax.annotation.Nonnull Integer binaryId) {
+    this.binaryId = binaryId;
+    return this;
+  }
+
+  /**
+   * ID of the relative binary
+   * @return binaryId
+   */
+  @javax.annotation.Nonnull
+  public Integer getBinaryId() {
+    return binaryId;
+  }
+
+  public void setBinaryId(@javax.annotation.Nonnull Integer binaryId) {
+    this.binaryId = binaryId;
   }
 
 
@@ -205,8 +205,8 @@ public class RelativeBinaryResponse {
       return false;
     }
     RelativeBinaryResponse relativeBinaryResponse = (RelativeBinaryResponse) o;
-    return Objects.equals(this.binaryId, relativeBinaryResponse.binaryId) &&
-        Objects.equals(this.analysisId, relativeBinaryResponse.analysisId) &&
+    return Objects.equals(this.analysisId, relativeBinaryResponse.analysisId) &&
+        Objects.equals(this.binaryId, relativeBinaryResponse.binaryId) &&
         Objects.equals(this.name, relativeBinaryResponse.name) &&
         Objects.equals(this.sha256, relativeBinaryResponse.sha256)&&
         Objects.equals(this.additionalProperties, relativeBinaryResponse.additionalProperties);
@@ -218,7 +218,7 @@ public class RelativeBinaryResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(binaryId, analysisId, name, sha256, additionalProperties);
+    return Objects.hash(analysisId, binaryId, name, sha256, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -232,8 +232,8 @@ public class RelativeBinaryResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RelativeBinaryResponse {\n");
-    sb.append("    binaryId: ").append(toIndentedString(binaryId)).append("\n");
     sb.append("    analysisId: ").append(toIndentedString(analysisId)).append("\n");
+    sb.append("    binaryId: ").append(toIndentedString(binaryId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    sha256: ").append(toIndentedString(sha256)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -258,7 +258,7 @@ public class RelativeBinaryResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("binary_id", "analysis_id", "name", "sha256"));
+    openapiFields = new HashSet<String>(Arrays.asList("analysis_id", "binary_id", "name", "sha256"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("binary_id", "name", "sha256"));

@@ -54,6 +54,11 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class BinarySearchResult {
+  public static final String SERIALIZED_NAME_ANALYSIS_ID = "analysis_id";
+  @SerializedName(SERIALIZED_NAME_ANALYSIS_ID)
+  @javax.annotation.Nonnull
+  private Integer analysisId;
+
   public static final String SERIALIZED_NAME_BINARY_ID = "binary_id";
   @SerializedName(SERIALIZED_NAME_BINARY_ID)
   @javax.annotation.Nonnull
@@ -63,21 +68,6 @@ public class BinarySearchResult {
   @SerializedName(SERIALIZED_NAME_BINARY_NAME)
   @javax.annotation.Nonnull
   private String binaryName;
-
-  public static final String SERIALIZED_NAME_ANALYSIS_ID = "analysis_id";
-  @SerializedName(SERIALIZED_NAME_ANALYSIS_ID)
-  @javax.annotation.Nonnull
-  private Integer analysisId;
-
-  public static final String SERIALIZED_NAME_SHA256_HASH = "sha_256_hash";
-  @SerializedName(SERIALIZED_NAME_SHA256_HASH)
-  @javax.annotation.Nonnull
-  private String sha256Hash;
-
-  public static final String SERIALIZED_NAME_TAGS = "tags";
-  @SerializedName(SERIALIZED_NAME_TAGS)
-  @javax.annotation.Nullable
-  private List<String> tags;
 
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
@@ -99,8 +89,37 @@ public class BinarySearchResult {
   @javax.annotation.Nonnull
   private String ownedBy;
 
+  public static final String SERIALIZED_NAME_SHA256_HASH = "sha_256_hash";
+  @SerializedName(SERIALIZED_NAME_SHA256_HASH)
+  @javax.annotation.Nonnull
+  private String sha256Hash;
+
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  @javax.annotation.Nullable
+  private List<String> tags;
+
   public BinarySearchResult() {
   }
+
+  public BinarySearchResult analysisId(@javax.annotation.Nonnull Integer analysisId) {
+    this.analysisId = analysisId;
+    return this;
+  }
+
+  /**
+   * The analysis ID
+   * @return analysisId
+   */
+  @javax.annotation.Nonnull
+  public Integer getAnalysisId() {
+    return analysisId;
+  }
+
+  public void setAnalysisId(@javax.annotation.Nonnull Integer analysisId) {
+    this.analysisId = analysisId;
+  }
+
 
   public BinarySearchResult binaryId(@javax.annotation.Nonnull Integer binaryId) {
     this.binaryId = binaryId;
@@ -137,71 +156,6 @@ public class BinarySearchResult {
 
   public void setBinaryName(@javax.annotation.Nonnull String binaryName) {
     this.binaryName = binaryName;
-  }
-
-
-  public BinarySearchResult analysisId(@javax.annotation.Nonnull Integer analysisId) {
-    this.analysisId = analysisId;
-    return this;
-  }
-
-  /**
-   * The analysis ID
-   * @return analysisId
-   */
-  @javax.annotation.Nonnull
-  public Integer getAnalysisId() {
-    return analysisId;
-  }
-
-  public void setAnalysisId(@javax.annotation.Nonnull Integer analysisId) {
-    this.analysisId = analysisId;
-  }
-
-
-  public BinarySearchResult sha256Hash(@javax.annotation.Nonnull String sha256Hash) {
-    this.sha256Hash = sha256Hash;
-    return this;
-  }
-
-  /**
-   * The SHA-256 hash of the binary
-   * @return sha256Hash
-   */
-  @javax.annotation.Nonnull
-  public String getSha256Hash() {
-    return sha256Hash;
-  }
-
-  public void setSha256Hash(@javax.annotation.Nonnull String sha256Hash) {
-    this.sha256Hash = sha256Hash;
-  }
-
-
-  public BinarySearchResult tags(@javax.annotation.Nullable List<String> tags) {
-    this.tags = tags;
-    return this;
-  }
-
-  public BinarySearchResult addTagsItem(String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new ArrayList<>();
-    }
-    this.tags.add(tagsItem);
-    return this;
-  }
-
-  /**
-   * Get tags
-   * @return tags
-   */
-  @javax.annotation.Nullable
-  public List<String> getTags() {
-    return tags;
-  }
-
-  public void setTags(@javax.annotation.Nullable List<String> tags) {
-    this.tags = tags;
   }
 
 
@@ -280,6 +234,52 @@ public class BinarySearchResult {
     this.ownedBy = ownedBy;
   }
 
+
+  public BinarySearchResult sha256Hash(@javax.annotation.Nonnull String sha256Hash) {
+    this.sha256Hash = sha256Hash;
+    return this;
+  }
+
+  /**
+   * The SHA-256 hash of the binary
+   * @return sha256Hash
+   */
+  @javax.annotation.Nonnull
+  public String getSha256Hash() {
+    return sha256Hash;
+  }
+
+  public void setSha256Hash(@javax.annotation.Nonnull String sha256Hash) {
+    this.sha256Hash = sha256Hash;
+  }
+
+
+  public BinarySearchResult tags(@javax.annotation.Nullable List<String> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public BinarySearchResult addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+  /**
+   * Get tags
+   * @return tags
+   */
+  @javax.annotation.Nullable
+  public List<String> getTags() {
+    return tags;
+  }
+
+  public void setTags(@javax.annotation.Nullable List<String> tags) {
+    this.tags = tags;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -335,36 +335,36 @@ public class BinarySearchResult {
       return false;
     }
     BinarySearchResult binarySearchResult = (BinarySearchResult) o;
-    return Objects.equals(this.binaryId, binarySearchResult.binaryId) &&
+    return Objects.equals(this.analysisId, binarySearchResult.analysisId) &&
+        Objects.equals(this.binaryId, binarySearchResult.binaryId) &&
         Objects.equals(this.binaryName, binarySearchResult.binaryName) &&
-        Objects.equals(this.analysisId, binarySearchResult.analysisId) &&
-        Objects.equals(this.sha256Hash, binarySearchResult.sha256Hash) &&
-        Objects.equals(this.tags, binarySearchResult.tags) &&
         Objects.equals(this.createdAt, binarySearchResult.createdAt) &&
         Objects.equals(this.modelId, binarySearchResult.modelId) &&
         Objects.equals(this.modelName, binarySearchResult.modelName) &&
-        Objects.equals(this.ownedBy, binarySearchResult.ownedBy)&&
+        Objects.equals(this.ownedBy, binarySearchResult.ownedBy) &&
+        Objects.equals(this.sha256Hash, binarySearchResult.sha256Hash) &&
+        Objects.equals(this.tags, binarySearchResult.tags)&&
         Objects.equals(this.additionalProperties, binarySearchResult.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(binaryId, binaryName, analysisId, sha256Hash, tags, createdAt, modelId, modelName, ownedBy, additionalProperties);
+    return Objects.hash(analysisId, binaryId, binaryName, createdAt, modelId, modelName, ownedBy, sha256Hash, tags, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class BinarySearchResult {\n");
+    sb.append("    analysisId: ").append(toIndentedString(analysisId)).append("\n");
     sb.append("    binaryId: ").append(toIndentedString(binaryId)).append("\n");
     sb.append("    binaryName: ").append(toIndentedString(binaryName)).append("\n");
-    sb.append("    analysisId: ").append(toIndentedString(analysisId)).append("\n");
-    sb.append("    sha256Hash: ").append(toIndentedString(sha256Hash)).append("\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    modelId: ").append(toIndentedString(modelId)).append("\n");
     sb.append("    modelName: ").append(toIndentedString(modelName)).append("\n");
     sb.append("    ownedBy: ").append(toIndentedString(ownedBy)).append("\n");
+    sb.append("    sha256Hash: ").append(toIndentedString(sha256Hash)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -387,10 +387,10 @@ public class BinarySearchResult {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("binary_id", "binary_name", "analysis_id", "sha_256_hash", "tags", "created_at", "model_id", "model_name", "owned_by"));
+    openapiFields = new HashSet<String>(Arrays.asList("analysis_id", "binary_id", "binary_name", "created_at", "model_id", "model_name", "owned_by", "sha_256_hash", "tags"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("binary_id", "binary_name", "analysis_id", "sha_256_hash", "tags", "created_at", "model_id", "model_name", "owned_by"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("analysis_id", "binary_id", "binary_name", "created_at", "model_id", "model_name", "owned_by", "sha_256_hash", "tags"));
   }
 
   /**
@@ -416,6 +416,12 @@ public class BinarySearchResult {
       if (!jsonObj.get("binary_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `binary_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("binary_name").toString()));
       }
+      if (!jsonObj.get("model_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `model_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("model_name").toString()));
+      }
+      if (!jsonObj.get("owned_by").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `owned_by` to be a primitive type in the JSON string but got `%s`", jsonObj.get("owned_by").toString()));
+      }
       if (!jsonObj.get("sha_256_hash").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `sha_256_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sha_256_hash").toString()));
       }
@@ -424,12 +430,6 @@ public class BinarySearchResult {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
       } else if (!jsonObj.get("tags").isJsonArray()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
-      }
-      if (!jsonObj.get("model_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `model_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("model_name").toString()));
-      }
-      if (!jsonObj.get("owned_by").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `owned_by` to be a primitive type in the JSON string but got `%s`", jsonObj.get("owned_by").toString()));
       }
   }
 

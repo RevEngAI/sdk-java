@@ -86,8 +86,8 @@ public class AnalysesSecurityChecksApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 202 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Security checks already extracted or queued </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createScurityChecksTaskCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
@@ -157,8 +157,8 @@ public class AnalysesSecurityChecksApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 202 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Security checks already extracted or queued </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public QueuedSecurityChecksTaskResponse createScurityChecksTask(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
@@ -177,8 +177,8 @@ public class AnalysesSecurityChecksApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 202 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Security checks already extracted or queued </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<QueuedSecurityChecksTaskResponse> createScurityChecksTaskWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
@@ -199,8 +199,8 @@ public class AnalysesSecurityChecksApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 202 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Security checks already extracted or queued </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createScurityChecksTaskAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<QueuedSecurityChecksTaskResponse> _callback) throws ApiException {

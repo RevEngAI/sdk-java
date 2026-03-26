@@ -58,11 +58,6 @@ public class FunctionDataTypes {
   @javax.annotation.Nonnull
   private Boolean completed;
 
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
-  @javax.annotation.Nonnull
-  private String status;
-
   public static final String SERIALIZED_NAME_DATA_TYPES = "data_types";
   @SerializedName(SERIALIZED_NAME_DATA_TYPES)
   @javax.annotation.Nullable
@@ -72,6 +67,11 @@ public class FunctionDataTypes {
   @SerializedName(SERIALIZED_NAME_DATA_TYPES_VERSION)
   @javax.annotation.Nullable
   private Integer dataTypesVersion;
+
+  public static final String SERIALIZED_NAME_STATUS = "status";
+  @SerializedName(SERIALIZED_NAME_STATUS)
+  @javax.annotation.Nonnull
+  private String status;
 
   public FunctionDataTypes() {
   }
@@ -92,25 +92,6 @@ public class FunctionDataTypes {
 
   public void setCompleted(@javax.annotation.Nonnull Boolean completed) {
     this.completed = completed;
-  }
-
-
-  public FunctionDataTypes status(@javax.annotation.Nonnull String status) {
-    this.status = status;
-    return this;
-  }
-
-  /**
-   * The current status of the data types service
-   * @return status
-   */
-  @javax.annotation.Nonnull
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(@javax.annotation.Nonnull String status) {
-    this.status = status;
   }
 
 
@@ -149,6 +130,25 @@ public class FunctionDataTypes {
 
   public void setDataTypesVersion(@javax.annotation.Nullable Integer dataTypesVersion) {
     this.dataTypesVersion = dataTypesVersion;
+  }
+
+
+  public FunctionDataTypes status(@javax.annotation.Nonnull String status) {
+    this.status = status;
+    return this;
+  }
+
+  /**
+   * The current status of the data types service
+   * @return status
+   */
+  @javax.annotation.Nonnull
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(@javax.annotation.Nonnull String status) {
+    this.status = status;
   }
 
   /**
@@ -207,9 +207,9 @@ public class FunctionDataTypes {
     }
     FunctionDataTypes functionDataTypes = (FunctionDataTypes) o;
     return Objects.equals(this.completed, functionDataTypes.completed) &&
-        Objects.equals(this.status, functionDataTypes.status) &&
         Objects.equals(this.dataTypes, functionDataTypes.dataTypes) &&
-        Objects.equals(this.dataTypesVersion, functionDataTypes.dataTypesVersion)&&
+        Objects.equals(this.dataTypesVersion, functionDataTypes.dataTypesVersion) &&
+        Objects.equals(this.status, functionDataTypes.status)&&
         Objects.equals(this.additionalProperties, functionDataTypes.additionalProperties);
   }
 
@@ -219,7 +219,7 @@ public class FunctionDataTypes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(completed, status, dataTypes, dataTypesVersion, additionalProperties);
+    return Objects.hash(completed, dataTypes, dataTypesVersion, status, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -234,9 +234,9 @@ public class FunctionDataTypes {
     StringBuilder sb = new StringBuilder();
     sb.append("class FunctionDataTypes {\n");
     sb.append("    completed: ").append(toIndentedString(completed)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    dataTypes: ").append(toIndentedString(dataTypes)).append("\n");
     sb.append("    dataTypesVersion: ").append(toIndentedString(dataTypesVersion)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -259,7 +259,7 @@ public class FunctionDataTypes {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("completed", "status", "data_types", "data_types_version"));
+    openapiFields = new HashSet<String>(Arrays.asList("completed", "data_types", "data_types_version", "status"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("completed", "status"));
@@ -285,12 +285,12 @@ public class FunctionDataTypes {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("status").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
-      }
       // validate the optional field `data_types`
       if (jsonObj.get("data_types") != null && !jsonObj.get("data_types").isJsonNull()) {
         FunctionInfoOutput.validateJsonElement(jsonObj.get("data_types"));
+      }
+      if (!jsonObj.get("status").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
       }
   }
 

@@ -65,20 +65,20 @@ public class CollectionSearchResult {
   @javax.annotation.Nonnull
   private String collectionName;
 
-  public static final String SERIALIZED_NAME_SCOPE = "scope";
-  @SerializedName(SERIALIZED_NAME_SCOPE)
+  public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
+  @SerializedName(SERIALIZED_NAME_CREATED_AT)
   @javax.annotation.Nonnull
-  private String scope;
+  private OffsetDateTime createdAt;
+
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  @javax.annotation.Nonnull
+  private String description;
 
   public static final String SERIALIZED_NAME_LAST_UPDATED_AT = "last_updated_at";
   @SerializedName(SERIALIZED_NAME_LAST_UPDATED_AT)
   @javax.annotation.Nonnull
   private OffsetDateTime lastUpdatedAt;
-
-  public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
-  @SerializedName(SERIALIZED_NAME_CREATED_AT)
-  @javax.annotation.Nonnull
-  private OffsetDateTime createdAt;
 
   public static final String SERIALIZED_NAME_MODEL_ID = "model_id";
   @SerializedName(SERIALIZED_NAME_MODEL_ID)
@@ -95,20 +95,20 @@ public class CollectionSearchResult {
   @javax.annotation.Nonnull
   private String ownedBy;
 
-  public static final String SERIALIZED_NAME_TAGS = "tags";
-  @SerializedName(SERIALIZED_NAME_TAGS)
-  @javax.annotation.Nullable
-  private List<String> tags;
+  public static final String SERIALIZED_NAME_SCOPE = "scope";
+  @SerializedName(SERIALIZED_NAME_SCOPE)
+  @javax.annotation.Nonnull
+  private String scope;
 
   public static final String SERIALIZED_NAME_SIZE = "size";
   @SerializedName(SERIALIZED_NAME_SIZE)
   @javax.annotation.Nullable
   private Integer size;
 
-  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nonnull
-  private String description;
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  @javax.annotation.Nullable
+  private List<String> tags;
 
   public static final String SERIALIZED_NAME_TEAM_ID = "team_id";
   @SerializedName(SERIALIZED_NAME_TEAM_ID)
@@ -156,22 +156,41 @@ public class CollectionSearchResult {
   }
 
 
-  public CollectionSearchResult scope(@javax.annotation.Nonnull String scope) {
-    this.scope = scope;
+  public CollectionSearchResult createdAt(@javax.annotation.Nonnull OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
     return this;
   }
 
   /**
-   * The scope of the collection
-   * @return scope
+   * The creation date of the collection
+   * @return createdAt
    */
   @javax.annotation.Nonnull
-  public String getScope() {
-    return scope;
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
   }
 
-  public void setScope(@javax.annotation.Nonnull String scope) {
-    this.scope = scope;
+  public void setCreatedAt(@javax.annotation.Nonnull OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
+  }
+
+
+  public CollectionSearchResult description(@javax.annotation.Nonnull String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * The description of the collection
+   * @return description
+   */
+  @javax.annotation.Nonnull
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(@javax.annotation.Nonnull String description) {
+    this.description = description;
   }
 
 
@@ -191,25 +210,6 @@ public class CollectionSearchResult {
 
   public void setLastUpdatedAt(@javax.annotation.Nonnull OffsetDateTime lastUpdatedAt) {
     this.lastUpdatedAt = lastUpdatedAt;
-  }
-
-
-  public CollectionSearchResult createdAt(@javax.annotation.Nonnull OffsetDateTime createdAt) {
-    this.createdAt = createdAt;
-    return this;
-  }
-
-  /**
-   * The creation date of the collection
-   * @return createdAt
-   */
-  @javax.annotation.Nonnull
-  public OffsetDateTime getCreatedAt() {
-    return createdAt;
-  }
-
-  public void setCreatedAt(@javax.annotation.Nonnull OffsetDateTime createdAt) {
-    this.createdAt = createdAt;
   }
 
 
@@ -270,6 +270,44 @@ public class CollectionSearchResult {
   }
 
 
+  public CollectionSearchResult scope(@javax.annotation.Nonnull String scope) {
+    this.scope = scope;
+    return this;
+  }
+
+  /**
+   * The scope of the collection
+   * @return scope
+   */
+  @javax.annotation.Nonnull
+  public String getScope() {
+    return scope;
+  }
+
+  public void setScope(@javax.annotation.Nonnull String scope) {
+    this.scope = scope;
+  }
+
+
+  public CollectionSearchResult size(@javax.annotation.Nullable Integer size) {
+    this.size = size;
+    return this;
+  }
+
+  /**
+   * Get size
+   * @return size
+   */
+  @javax.annotation.Nullable
+  public Integer getSize() {
+    return size;
+  }
+
+  public void setSize(@javax.annotation.Nullable Integer size) {
+    this.size = size;
+  }
+
+
   public CollectionSearchResult tags(@javax.annotation.Nullable List<String> tags) {
     this.tags = tags;
     return this;
@@ -294,44 +332,6 @@ public class CollectionSearchResult {
 
   public void setTags(@javax.annotation.Nullable List<String> tags) {
     this.tags = tags;
-  }
-
-
-  public CollectionSearchResult size(@javax.annotation.Nullable Integer size) {
-    this.size = size;
-    return this;
-  }
-
-  /**
-   * Get size
-   * @return size
-   */
-  @javax.annotation.Nullable
-  public Integer getSize() {
-    return size;
-  }
-
-  public void setSize(@javax.annotation.Nullable Integer size) {
-    this.size = size;
-  }
-
-
-  public CollectionSearchResult description(@javax.annotation.Nonnull String description) {
-    this.description = description;
-    return this;
-  }
-
-  /**
-   * The description of the collection
-   * @return description
-   */
-  @javax.annotation.Nonnull
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(@javax.annotation.Nonnull String description) {
-    this.description = description;
   }
 
 
@@ -410,15 +410,15 @@ public class CollectionSearchResult {
     CollectionSearchResult collectionSearchResult = (CollectionSearchResult) o;
     return Objects.equals(this.collectionId, collectionSearchResult.collectionId) &&
         Objects.equals(this.collectionName, collectionSearchResult.collectionName) &&
-        Objects.equals(this.scope, collectionSearchResult.scope) &&
-        Objects.equals(this.lastUpdatedAt, collectionSearchResult.lastUpdatedAt) &&
         Objects.equals(this.createdAt, collectionSearchResult.createdAt) &&
+        Objects.equals(this.description, collectionSearchResult.description) &&
+        Objects.equals(this.lastUpdatedAt, collectionSearchResult.lastUpdatedAt) &&
         Objects.equals(this.modelId, collectionSearchResult.modelId) &&
         Objects.equals(this.modelName, collectionSearchResult.modelName) &&
         Objects.equals(this.ownedBy, collectionSearchResult.ownedBy) &&
-        Objects.equals(this.tags, collectionSearchResult.tags) &&
+        Objects.equals(this.scope, collectionSearchResult.scope) &&
         Objects.equals(this.size, collectionSearchResult.size) &&
-        Objects.equals(this.description, collectionSearchResult.description) &&
+        Objects.equals(this.tags, collectionSearchResult.tags) &&
         Objects.equals(this.teamId, collectionSearchResult.teamId)&&
         Objects.equals(this.additionalProperties, collectionSearchResult.additionalProperties);
   }
@@ -429,7 +429,7 @@ public class CollectionSearchResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(collectionId, collectionName, scope, lastUpdatedAt, createdAt, modelId, modelName, ownedBy, tags, size, description, teamId, additionalProperties);
+    return Objects.hash(collectionId, collectionName, createdAt, description, lastUpdatedAt, modelId, modelName, ownedBy, scope, size, tags, teamId, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -445,15 +445,15 @@ public class CollectionSearchResult {
     sb.append("class CollectionSearchResult {\n");
     sb.append("    collectionId: ").append(toIndentedString(collectionId)).append("\n");
     sb.append("    collectionName: ").append(toIndentedString(collectionName)).append("\n");
-    sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
-    sb.append("    lastUpdatedAt: ").append(toIndentedString(lastUpdatedAt)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    lastUpdatedAt: ").append(toIndentedString(lastUpdatedAt)).append("\n");
     sb.append("    modelId: ").append(toIndentedString(modelId)).append("\n");
     sb.append("    modelName: ").append(toIndentedString(modelName)).append("\n");
     sb.append("    ownedBy: ").append(toIndentedString(ownedBy)).append("\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    teamId: ").append(toIndentedString(teamId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -477,10 +477,10 @@ public class CollectionSearchResult {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("collection_id", "collection_name", "scope", "last_updated_at", "created_at", "model_id", "model_name", "owned_by", "tags", "size", "description", "team_id"));
+    openapiFields = new HashSet<String>(Arrays.asList("collection_id", "collection_name", "created_at", "description", "last_updated_at", "model_id", "model_name", "owned_by", "scope", "size", "tags", "team_id"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("collection_id", "collection_name", "scope", "last_updated_at", "created_at", "model_id", "model_name", "owned_by", "description"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("collection_id", "collection_name", "created_at", "description", "last_updated_at", "model_id", "model_name", "owned_by", "scope"));
   }
 
   /**
@@ -506,8 +506,8 @@ public class CollectionSearchResult {
       if (!jsonObj.get("collection_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `collection_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("collection_name").toString()));
       }
-      if (!jsonObj.get("scope").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `scope` to be a primitive type in the JSON string but got `%s`", jsonObj.get("scope").toString()));
+      if (!jsonObj.get("description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
       if (!jsonObj.get("model_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `model_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("model_name").toString()));
@@ -515,12 +515,12 @@ public class CollectionSearchResult {
       if (!jsonObj.get("owned_by").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `owned_by` to be a primitive type in the JSON string but got `%s`", jsonObj.get("owned_by").toString()));
       }
+      if (!jsonObj.get("scope").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `scope` to be a primitive type in the JSON string but got `%s`", jsonObj.get("scope").toString()));
+      }
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
-      }
-      if (!jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
   }
 

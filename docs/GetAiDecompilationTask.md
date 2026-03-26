@@ -7,15 +7,15 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**status** | **AiDecompilationTaskStatus** | The status of the AI decompilation task |  |
+|**aiSummary** | **String** |  |  [optional] |
 |**decompilation** | **String** |  |  |
-|**rawDecompilation** | **String** |  |  |
 |**functionMapping** | [**Map&lt;String, InverseFunctionMapItem&gt;**](InverseFunctionMapItem.md) |  |  |
 |**functionMappingFull** | [**FunctionMappingFull**](FunctionMappingFull.md) |  |  |
-|**summary** | **String** |  |  [optional] |
-|**aiSummary** | **String** |  |  [optional] |
-|**rawAiSummary** | **String** |  |  [optional] |
 |**predictedFunctionName** | **String** |  |  [optional] |
+|**rawAiSummary** | **String** |  |  [optional] |
+|**rawDecompilation** | **String** |  |  |
+|**status** | **AiDecompilationTaskStatus** | The status of the AI decompilation task |  |
+|**summary** | **String** |  |  [optional] |
 
 
 

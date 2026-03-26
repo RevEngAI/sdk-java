@@ -51,37 +51,18 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LoginRequest {
-  public static final String SERIALIZED_NAME_USERNAME = "username";
-  @SerializedName(SERIALIZED_NAME_USERNAME)
-  @javax.annotation.Nonnull
-  private String username;
-
   public static final String SERIALIZED_NAME_PASSWORD = "password";
   @SerializedName(SERIALIZED_NAME_PASSWORD)
   @javax.annotation.Nonnull
   private String password;
 
+  public static final String SERIALIZED_NAME_USERNAME = "username";
+  @SerializedName(SERIALIZED_NAME_USERNAME)
+  @javax.annotation.Nonnull
+  private String username;
+
   public LoginRequest() {
   }
-
-  public LoginRequest username(@javax.annotation.Nonnull String username) {
-    this.username = username;
-    return this;
-  }
-
-  /**
-   * User&#39;s username or email
-   * @return username
-   */
-  @javax.annotation.Nonnull
-  public String getUsername() {
-    return username;
-  }
-
-  public void setUsername(@javax.annotation.Nonnull String username) {
-    this.username = username;
-  }
-
 
   public LoginRequest password(@javax.annotation.Nonnull String password) {
     this.password = password;
@@ -99,6 +80,25 @@ public class LoginRequest {
 
   public void setPassword(@javax.annotation.Nonnull String password) {
     this.password = password;
+  }
+
+
+  public LoginRequest username(@javax.annotation.Nonnull String username) {
+    this.username = username;
+    return this;
+  }
+
+  /**
+   * User&#39;s username or email
+   * @return username
+   */
+  @javax.annotation.Nonnull
+  public String getUsername() {
+    return username;
+  }
+
+  public void setUsername(@javax.annotation.Nonnull String username) {
+    this.username = username;
   }
 
   /**
@@ -156,22 +156,22 @@ public class LoginRequest {
       return false;
     }
     LoginRequest loginRequest = (LoginRequest) o;
-    return Objects.equals(this.username, loginRequest.username) &&
-        Objects.equals(this.password, loginRequest.password)&&
+    return Objects.equals(this.password, loginRequest.password) &&
+        Objects.equals(this.username, loginRequest.username)&&
         Objects.equals(this.additionalProperties, loginRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(username, password, additionalProperties);
+    return Objects.hash(password, username, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class LoginRequest {\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -194,10 +194,10 @@ public class LoginRequest {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("username", "password"));
+    openapiFields = new HashSet<String>(Arrays.asList("password", "username"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("username", "password"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("password", "username"));
   }
 
   /**
@@ -220,11 +220,11 @@ public class LoginRequest {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("username").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("username").toString()));
-      }
       if (!jsonObj.get("password").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password").toString()));
+      }
+      if (!jsonObj.get("username").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("username").toString()));
       }
   }
 

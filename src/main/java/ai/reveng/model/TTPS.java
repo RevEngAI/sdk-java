@@ -52,37 +52,18 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TTPS {
-  public static final String SERIALIZED_NAME_SUCCESS = "success";
-  @SerializedName(SERIALIZED_NAME_SUCCESS)
-  @javax.annotation.Nonnull
-  private Boolean success;
-
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
   @javax.annotation.Nonnull
   private TTPSData data;
 
+  public static final String SERIALIZED_NAME_SUCCESS = "success";
+  @SerializedName(SERIALIZED_NAME_SUCCESS)
+  @javax.annotation.Nonnull
+  private Boolean success;
+
   public TTPS() {
   }
-
-  public TTPS success(@javax.annotation.Nonnull Boolean success) {
-    this.success = success;
-    return this;
-  }
-
-  /**
-   * Get success
-   * @return success
-   */
-  @javax.annotation.Nonnull
-  public Boolean getSuccess() {
-    return success;
-  }
-
-  public void setSuccess(@javax.annotation.Nonnull Boolean success) {
-    this.success = success;
-  }
-
 
   public TTPS data(@javax.annotation.Nonnull TTPSData data) {
     this.data = data;
@@ -100,6 +81,25 @@ public class TTPS {
 
   public void setData(@javax.annotation.Nonnull TTPSData data) {
     this.data = data;
+  }
+
+
+  public TTPS success(@javax.annotation.Nonnull Boolean success) {
+    this.success = success;
+    return this;
+  }
+
+  /**
+   * Get success
+   * @return success
+   */
+  @javax.annotation.Nonnull
+  public Boolean getSuccess() {
+    return success;
+  }
+
+  public void setSuccess(@javax.annotation.Nonnull Boolean success) {
+    this.success = success;
   }
 
   /**
@@ -157,22 +157,22 @@ public class TTPS {
       return false;
     }
     TTPS TTPS = (TTPS) o;
-    return Objects.equals(this.success, TTPS.success) &&
-        Objects.equals(this.data, TTPS.data)&&
+    return Objects.equals(this.data, TTPS.data) &&
+        Objects.equals(this.success, TTPS.success)&&
         Objects.equals(this.additionalProperties, TTPS.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(success, data, additionalProperties);
+    return Objects.hash(data, success, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TTPS {\n");
-    sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    success: ").append(toIndentedString(success)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -195,10 +195,10 @@ public class TTPS {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("success", "data"));
+    openapiFields = new HashSet<String>(Arrays.asList("data", "success"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("success", "data"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("data", "success"));
   }
 
   /**

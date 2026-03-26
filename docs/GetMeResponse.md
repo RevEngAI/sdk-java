@@ -7,14 +7,14 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**username** | **String** |  |  |
-|**userId** | **Integer** |  |  |
+|**creation** | **OffsetDateTime** |  |  |
+|**email** | **String** |  |  |
 |**firstName** | **String** |  |  |
 |**lastName** | **String** |  |  |
-|**email** | **String** |  |  |
-|**creation** | **OffsetDateTime** |  |  |
-|**tutorialSeen** | **Boolean** |  |  |
 |**role** | [**RoleEnum**](#RoleEnum) |  |  |
+|**tutorialSeen** | **Boolean** |  |  |
+|**userId** | **Integer** |  |  |
+|**username** | **String** |  |  |
 
 
 

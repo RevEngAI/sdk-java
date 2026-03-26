@@ -51,37 +51,18 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DecompilationCommentContext {
-  public static final String SERIALIZED_NAME_START_LINE = "start_line";
-  @SerializedName(SERIALIZED_NAME_START_LINE)
-  @javax.annotation.Nullable
-  private Integer startLine;
-
   public static final String SERIALIZED_NAME_END_LINE = "end_line";
   @SerializedName(SERIALIZED_NAME_END_LINE)
   @javax.annotation.Nullable
   private Integer endLine;
 
+  public static final String SERIALIZED_NAME_START_LINE = "start_line";
+  @SerializedName(SERIALIZED_NAME_START_LINE)
+  @javax.annotation.Nullable
+  private Integer startLine;
+
   public DecompilationCommentContext() {
   }
-
-  public DecompilationCommentContext startLine(@javax.annotation.Nullable Integer startLine) {
-    this.startLine = startLine;
-    return this;
-  }
-
-  /**
-   * Get startLine
-   * @return startLine
-   */
-  @javax.annotation.Nullable
-  public Integer getStartLine() {
-    return startLine;
-  }
-
-  public void setStartLine(@javax.annotation.Nullable Integer startLine) {
-    this.startLine = startLine;
-  }
-
 
   public DecompilationCommentContext endLine(@javax.annotation.Nullable Integer endLine) {
     this.endLine = endLine;
@@ -99,6 +80,25 @@ public class DecompilationCommentContext {
 
   public void setEndLine(@javax.annotation.Nullable Integer endLine) {
     this.endLine = endLine;
+  }
+
+
+  public DecompilationCommentContext startLine(@javax.annotation.Nullable Integer startLine) {
+    this.startLine = startLine;
+    return this;
+  }
+
+  /**
+   * Get startLine
+   * @return startLine
+   */
+  @javax.annotation.Nullable
+  public Integer getStartLine() {
+    return startLine;
+  }
+
+  public void setStartLine(@javax.annotation.Nullable Integer startLine) {
+    this.startLine = startLine;
   }
 
   /**
@@ -156,22 +156,22 @@ public class DecompilationCommentContext {
       return false;
     }
     DecompilationCommentContext decompilationCommentContext = (DecompilationCommentContext) o;
-    return Objects.equals(this.startLine, decompilationCommentContext.startLine) &&
-        Objects.equals(this.endLine, decompilationCommentContext.endLine)&&
+    return Objects.equals(this.endLine, decompilationCommentContext.endLine) &&
+        Objects.equals(this.startLine, decompilationCommentContext.startLine)&&
         Objects.equals(this.additionalProperties, decompilationCommentContext.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(startLine, endLine, additionalProperties);
+    return Objects.hash(endLine, startLine, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DecompilationCommentContext {\n");
-    sb.append("    startLine: ").append(toIndentedString(startLine)).append("\n");
     sb.append("    endLine: ").append(toIndentedString(endLine)).append("\n");
+    sb.append("    startLine: ").append(toIndentedString(startLine)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -194,10 +194,10 @@ public class DecompilationCommentContext {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("start_line", "end_line"));
+    openapiFields = new HashSet<String>(Arrays.asList("end_line", "start_line"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("start_line", "end_line"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("end_line", "start_line"));
   }
 
   /**

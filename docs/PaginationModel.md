@@ -7,9 +7,9 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**pageSize** | **Integer** |  |  |
-|**pageNumber** | **Integer** |  |  |
 |**hasNextPage** | **Boolean** |  |  |
+|**pageNumber** | **Integer** |  |  |
+|**pageSize** | **Integer** |  |  |
 
 
 

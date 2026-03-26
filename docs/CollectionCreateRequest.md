@@ -7,12 +7,12 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**collectionName** | **String** |  |  |
-|**description** | **String** |  |  |
-|**collectionScope** | **CollectionScope** |  |  [optional] |
-|**tags** | **List&lt;String&gt;** |  |  [optional] |
 |**binaries** | **List&lt;Integer&gt;** |  |  [optional] |
+|**collectionName** | **String** |  |  |
+|**collectionScope** | **CollectionScope** |  |  [optional] |
+|**description** | **String** |  |  |
 |**modelId** | **Integer** |  |  |
+|**tags** | **List&lt;String&gt;** |  |  [optional] |
 
 
 

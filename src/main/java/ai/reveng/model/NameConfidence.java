@@ -52,18 +52,39 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class NameConfidence {
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
-  private String name;
-
   public static final String SERIALIZED_NAME_CONFIDENCE = "confidence";
   @SerializedName(SERIALIZED_NAME_CONFIDENCE)
   @javax.annotation.Nonnull
   private BigDecimal confidence;
 
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  @javax.annotation.Nonnull
+  private String name;
+
   public NameConfidence() {
   }
+
+  public NameConfidence confidence(@javax.annotation.Nonnull BigDecimal confidence) {
+    this.confidence = confidence;
+    return this;
+  }
+
+  /**
+   * Confidence score as a percentage
+   * minimum: 0
+   * maximum: 100
+   * @return confidence
+   */
+  @javax.annotation.Nonnull
+  public BigDecimal getConfidence() {
+    return confidence;
+  }
+
+  public void setConfidence(@javax.annotation.Nonnull BigDecimal confidence) {
+    this.confidence = confidence;
+  }
+
 
   public NameConfidence name(@javax.annotation.Nonnull String name) {
     this.name = name;
@@ -81,27 +102,6 @@ public class NameConfidence {
 
   public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
-  }
-
-
-  public NameConfidence confidence(@javax.annotation.Nonnull BigDecimal confidence) {
-    this.confidence = confidence;
-    return this;
-  }
-
-  /**
-   * Confidence score as a percentage
-   * minimum: 0.0
-   * maximum: 100.0
-   * @return confidence
-   */
-  @javax.annotation.Nonnull
-  public BigDecimal getConfidence() {
-    return confidence;
-  }
-
-  public void setConfidence(@javax.annotation.Nonnull BigDecimal confidence) {
-    this.confidence = confidence;
   }
 
   /**
@@ -159,22 +159,22 @@ public class NameConfidence {
       return false;
     }
     NameConfidence nameConfidence = (NameConfidence) o;
-    return Objects.equals(this.name, nameConfidence.name) &&
-        Objects.equals(this.confidence, nameConfidence.confidence)&&
+    return Objects.equals(this.confidence, nameConfidence.confidence) &&
+        Objects.equals(this.name, nameConfidence.name)&&
         Objects.equals(this.additionalProperties, nameConfidence.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, confidence, additionalProperties);
+    return Objects.hash(confidence, name, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class NameConfidence {\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    confidence: ").append(toIndentedString(confidence)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -197,10 +197,10 @@ public class NameConfidence {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("name", "confidence"));
+    openapiFields = new HashSet<String>(Arrays.asList("confidence", "name"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "confidence"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("confidence", "name"));
   }
 
   /**

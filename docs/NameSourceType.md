@@ -7,10 +7,10 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**type** | [**TypeEnum**](#TypeEnum) | The source (process) the function name came from |  |
-|**functionId** | **Integer** |  |  [optional] |
-|**binaryId** | **Integer** |  |  [optional] |
 |**analysisId** | **Integer** |  |  [optional] |
+|**binaryId** | **Integer** |  |  [optional] |
+|**functionId** | **Integer** |  |  [optional] |
+|**type** | [**TypeEnum**](#TypeEnum) | The source (process) the function name came from |  |
 
 
 

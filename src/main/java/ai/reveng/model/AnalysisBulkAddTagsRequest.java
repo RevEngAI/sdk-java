@@ -53,45 +53,18 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AnalysisBulkAddTagsRequest {
-  public static final String SERIALIZED_NAME_TAGS = "tags";
-  @SerializedName(SERIALIZED_NAME_TAGS)
-  @javax.annotation.Nonnull
-  private List<String> tags = new ArrayList<>();
-
   public static final String SERIALIZED_NAME_ANALYSIS_IDS = "analysis_ids";
   @SerializedName(SERIALIZED_NAME_ANALYSIS_IDS)
   @javax.annotation.Nonnull
   private List<Integer> analysisIds = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_TAGS = "tags";
+  @SerializedName(SERIALIZED_NAME_TAGS)
+  @javax.annotation.Nonnull
+  private List<String> tags = new ArrayList<>();
+
   public AnalysisBulkAddTagsRequest() {
   }
-
-  public AnalysisBulkAddTagsRequest tags(@javax.annotation.Nonnull List<String> tags) {
-    this.tags = tags;
-    return this;
-  }
-
-  public AnalysisBulkAddTagsRequest addTagsItem(String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new ArrayList<>();
-    }
-    this.tags.add(tagsItem);
-    return this;
-  }
-
-  /**
-   * Get tags
-   * @return tags
-   */
-  @javax.annotation.Nonnull
-  public List<String> getTags() {
-    return tags;
-  }
-
-  public void setTags(@javax.annotation.Nonnull List<String> tags) {
-    this.tags = tags;
-  }
-
 
   public AnalysisBulkAddTagsRequest analysisIds(@javax.annotation.Nonnull List<Integer> analysisIds) {
     this.analysisIds = analysisIds;
@@ -117,6 +90,33 @@ public class AnalysisBulkAddTagsRequest {
 
   public void setAnalysisIds(@javax.annotation.Nonnull List<Integer> analysisIds) {
     this.analysisIds = analysisIds;
+  }
+
+
+  public AnalysisBulkAddTagsRequest tags(@javax.annotation.Nonnull List<String> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public AnalysisBulkAddTagsRequest addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+  /**
+   * Get tags
+   * @return tags
+   */
+  @javax.annotation.Nonnull
+  public List<String> getTags() {
+    return tags;
+  }
+
+  public void setTags(@javax.annotation.Nonnull List<String> tags) {
+    this.tags = tags;
   }
 
   /**
@@ -174,22 +174,22 @@ public class AnalysisBulkAddTagsRequest {
       return false;
     }
     AnalysisBulkAddTagsRequest analysisBulkAddTagsRequest = (AnalysisBulkAddTagsRequest) o;
-    return Objects.equals(this.tags, analysisBulkAddTagsRequest.tags) &&
-        Objects.equals(this.analysisIds, analysisBulkAddTagsRequest.analysisIds)&&
+    return Objects.equals(this.analysisIds, analysisBulkAddTagsRequest.analysisIds) &&
+        Objects.equals(this.tags, analysisBulkAddTagsRequest.tags)&&
         Objects.equals(this.additionalProperties, analysisBulkAddTagsRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(tags, analysisIds, additionalProperties);
+    return Objects.hash(analysisIds, tags, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AnalysisBulkAddTagsRequest {\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    analysisIds: ").append(toIndentedString(analysisIds)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -212,10 +212,10 @@ public class AnalysisBulkAddTagsRequest {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("tags", "analysis_ids"));
+    openapiFields = new HashSet<String>(Arrays.asList("analysis_ids", "tags"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("tags", "analysis_ids"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("analysis_ids", "tags"));
   }
 
   /**
@@ -239,16 +239,16 @@ public class AnalysisBulkAddTagsRequest {
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the required json array is present
-      if (jsonObj.get("tags") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("tags").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
-      }
-      // ensure the required json array is present
       if (jsonObj.get("analysis_ids") == null) {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
       } else if (!jsonObj.get("analysis_ids").isJsonArray()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `analysis_ids` to be an array in the JSON string but got `%s`", jsonObj.get("analysis_ids").toString()));
+      }
+      // ensure the required json array is present
+      if (jsonObj.get("tags") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("tags").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
       }
   }
 

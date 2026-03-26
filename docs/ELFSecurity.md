@@ -7,11 +7,11 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**pie** | **Boolean** |  |  |
-|**stripped** | **Boolean** |  |  |
 |**canary** | **Boolean** |  |  |
 |**nx** | **Boolean** |  |  |
+|**pie** | **Boolean** |  |  |
 |**relo** | **Boolean** |  |  |
+|**stripped** | **Boolean** |  |  |
 
 
 

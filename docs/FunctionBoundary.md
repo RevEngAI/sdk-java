@@ -7,10 +7,10 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**mangledName** | **String** |  |  |
-|**startAddress** | **Long** |  |  |
 |**endAddress** | **Long** |  |  |
 |**includeInAnalysis** | **Boolean** |  |  [optional] |
+|**mangledName** | **String** |  |  |
+|**startAddress** | **Long** |  |  |
 
 
 

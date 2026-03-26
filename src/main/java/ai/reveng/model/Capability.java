@@ -53,6 +53,11 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Capability {
+  public static final String SERIALIZED_NAME_CAPABILITIES = "capabilities";
+  @SerializedName(SERIALIZED_NAME_CAPABILITIES)
+  @javax.annotation.Nonnull
+  private List<String> capabilities = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_FUNCTION_NAME = "function_name";
   @SerializedName(SERIALIZED_NAME_FUNCTION_NAME)
   @javax.annotation.Nonnull
@@ -63,13 +68,35 @@ public class Capability {
   @javax.annotation.Nonnull
   private Long functionVaddr;
 
-  public static final String SERIALIZED_NAME_CAPABILITIES = "capabilities";
-  @SerializedName(SERIALIZED_NAME_CAPABILITIES)
-  @javax.annotation.Nonnull
-  private List<String> capabilities = new ArrayList<>();
-
   public Capability() {
   }
+
+  public Capability capabilities(@javax.annotation.Nonnull List<String> capabilities) {
+    this.capabilities = capabilities;
+    return this;
+  }
+
+  public Capability addCapabilitiesItem(String capabilitiesItem) {
+    if (this.capabilities == null) {
+      this.capabilities = new ArrayList<>();
+    }
+    this.capabilities.add(capabilitiesItem);
+    return this;
+  }
+
+  /**
+   * The list of capabilities associated with the function
+   * @return capabilities
+   */
+  @javax.annotation.Nonnull
+  public List<String> getCapabilities() {
+    return capabilities;
+  }
+
+  public void setCapabilities(@javax.annotation.Nonnull List<String> capabilities) {
+    this.capabilities = capabilities;
+  }
+
 
   public Capability functionName(@javax.annotation.Nonnull String functionName) {
     this.functionName = functionName;
@@ -106,33 +133,6 @@ public class Capability {
 
   public void setFunctionVaddr(@javax.annotation.Nonnull Long functionVaddr) {
     this.functionVaddr = functionVaddr;
-  }
-
-
-  public Capability capabilities(@javax.annotation.Nonnull List<String> capabilities) {
-    this.capabilities = capabilities;
-    return this;
-  }
-
-  public Capability addCapabilitiesItem(String capabilitiesItem) {
-    if (this.capabilities == null) {
-      this.capabilities = new ArrayList<>();
-    }
-    this.capabilities.add(capabilitiesItem);
-    return this;
-  }
-
-  /**
-   * The list of capabilities associated with the function
-   * @return capabilities
-   */
-  @javax.annotation.Nonnull
-  public List<String> getCapabilities() {
-    return capabilities;
-  }
-
-  public void setCapabilities(@javax.annotation.Nonnull List<String> capabilities) {
-    this.capabilities = capabilities;
   }
 
   /**
@@ -190,24 +190,24 @@ public class Capability {
       return false;
     }
     Capability capability = (Capability) o;
-    return Objects.equals(this.functionName, capability.functionName) &&
-        Objects.equals(this.functionVaddr, capability.functionVaddr) &&
-        Objects.equals(this.capabilities, capability.capabilities)&&
+    return Objects.equals(this.capabilities, capability.capabilities) &&
+        Objects.equals(this.functionName, capability.functionName) &&
+        Objects.equals(this.functionVaddr, capability.functionVaddr)&&
         Objects.equals(this.additionalProperties, capability.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(functionName, functionVaddr, capabilities, additionalProperties);
+    return Objects.hash(capabilities, functionName, functionVaddr, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Capability {\n");
+    sb.append("    capabilities: ").append(toIndentedString(capabilities)).append("\n");
     sb.append("    functionName: ").append(toIndentedString(functionName)).append("\n");
     sb.append("    functionVaddr: ").append(toIndentedString(functionVaddr)).append("\n");
-    sb.append("    capabilities: ").append(toIndentedString(capabilities)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -230,10 +230,10 @@ public class Capability {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("function_name", "function_vaddr", "capabilities"));
+    openapiFields = new HashSet<String>(Arrays.asList("capabilities", "function_name", "function_vaddr"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("function_name", "function_vaddr", "capabilities"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("capabilities", "function_name", "function_vaddr"));
   }
 
   /**
@@ -256,14 +256,14 @@ public class Capability {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("function_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `function_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("function_name").toString()));
-      }
       // ensure the required json array is present
       if (jsonObj.get("capabilities") == null) {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
       } else if (!jsonObj.get("capabilities").isJsonArray()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `capabilities` to be an array in the JSON string but got `%s`", jsonObj.get("capabilities").toString()));
+      }
+      if (!jsonObj.get("function_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `function_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("function_name").toString()));
       }
   }
 

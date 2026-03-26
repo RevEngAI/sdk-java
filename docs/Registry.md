@@ -7,10 +7,10 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**method** | **String** |  |  |
 |**key** | **String** |  |  |
-|**valueName** | **String** |  |  |
+|**method** | **String** |  |  |
 |**value** | **String** |  |  |
+|**valueName** | **String** |  |  |
 
 
 

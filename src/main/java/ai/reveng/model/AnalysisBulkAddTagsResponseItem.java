@@ -57,15 +57,15 @@ public class AnalysisBulkAddTagsResponseItem {
   @javax.annotation.Nonnull
   private Integer analysisId;
 
-  public static final String SERIALIZED_NAME_MESSAGE = "message";
-  @SerializedName(SERIALIZED_NAME_MESSAGE)
-  @javax.annotation.Nullable
-  private String message;
-
   public static final String SERIALIZED_NAME_ERROR = "error";
   @SerializedName(SERIALIZED_NAME_ERROR)
   @javax.annotation.Nullable
   private String error;
+
+  public static final String SERIALIZED_NAME_MESSAGE = "message";
+  @SerializedName(SERIALIZED_NAME_MESSAGE)
+  @javax.annotation.Nullable
+  private String message;
 
   public AnalysisBulkAddTagsResponseItem() {
   }
@@ -89,25 +89,6 @@ public class AnalysisBulkAddTagsResponseItem {
   }
 
 
-  public AnalysisBulkAddTagsResponseItem message(@javax.annotation.Nullable String message) {
-    this.message = message;
-    return this;
-  }
-
-  /**
-   * Get message
-   * @return message
-   */
-  @javax.annotation.Nullable
-  public String getMessage() {
-    return message;
-  }
-
-  public void setMessage(@javax.annotation.Nullable String message) {
-    this.message = message;
-  }
-
-
   public AnalysisBulkAddTagsResponseItem error(@javax.annotation.Nullable String error) {
     this.error = error;
     return this;
@@ -124,6 +105,25 @@ public class AnalysisBulkAddTagsResponseItem {
 
   public void setError(@javax.annotation.Nullable String error) {
     this.error = error;
+  }
+
+
+  public AnalysisBulkAddTagsResponseItem message(@javax.annotation.Nullable String message) {
+    this.message = message;
+    return this;
+  }
+
+  /**
+   * Get message
+   * @return message
+   */
+  @javax.annotation.Nullable
+  public String getMessage() {
+    return message;
+  }
+
+  public void setMessage(@javax.annotation.Nullable String message) {
+    this.message = message;
   }
 
   /**
@@ -182,8 +182,8 @@ public class AnalysisBulkAddTagsResponseItem {
     }
     AnalysisBulkAddTagsResponseItem analysisBulkAddTagsResponseItem = (AnalysisBulkAddTagsResponseItem) o;
     return Objects.equals(this.analysisId, analysisBulkAddTagsResponseItem.analysisId) &&
-        Objects.equals(this.message, analysisBulkAddTagsResponseItem.message) &&
-        Objects.equals(this.error, analysisBulkAddTagsResponseItem.error)&&
+        Objects.equals(this.error, analysisBulkAddTagsResponseItem.error) &&
+        Objects.equals(this.message, analysisBulkAddTagsResponseItem.message)&&
         Objects.equals(this.additionalProperties, analysisBulkAddTagsResponseItem.additionalProperties);
   }
 
@@ -193,7 +193,7 @@ public class AnalysisBulkAddTagsResponseItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(analysisId, message, error, additionalProperties);
+    return Objects.hash(analysisId, error, message, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -208,8 +208,8 @@ public class AnalysisBulkAddTagsResponseItem {
     StringBuilder sb = new StringBuilder();
     sb.append("class AnalysisBulkAddTagsResponseItem {\n");
     sb.append("    analysisId: ").append(toIndentedString(analysisId)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -232,7 +232,7 @@ public class AnalysisBulkAddTagsResponseItem {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("analysis_id", "message", "error"));
+    openapiFields = new HashSet<String>(Arrays.asList("analysis_id", "error", "message"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("analysis_id", "message"));
@@ -258,11 +258,11 @@ public class AnalysisBulkAddTagsResponseItem {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("message") != null && !jsonObj.get("message").isJsonNull()) && !jsonObj.get("message").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
-      }
       if ((jsonObj.get("error") != null && !jsonObj.get("error").isJsonNull()) && !jsonObj.get("error").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `error` to be a primitive type in the JSON string but got `%s`", jsonObj.get("error").toString()));
+      }
+      if ((jsonObj.get("message") != null && !jsonObj.get("message").isJsonNull()) && !jsonObj.get("message").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
       }
   }
 

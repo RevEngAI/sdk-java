@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**numberOfImports** | **Integer** |  |  |
 |**imports** | **List&lt;String&gt;** |  |  |
+|**numberOfImports** | **Integer** |  |  |
 
 
 

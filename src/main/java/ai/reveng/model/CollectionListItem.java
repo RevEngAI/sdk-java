@@ -55,55 +55,55 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CollectionListItem {
+  public static final String SERIALIZED_NAME_COLLECTION_ID = "collection_id";
+  @SerializedName(SERIALIZED_NAME_COLLECTION_ID)
+  @javax.annotation.Nonnull
+  private Integer collectionId;
+
   public static final String SERIALIZED_NAME_COLLECTION_NAME = "collection_name";
   @SerializedName(SERIALIZED_NAME_COLLECTION_NAME)
   @javax.annotation.Nonnull
   private String collectionName;
-
-  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nonnull
-  private String description;
-
-  public static final String SERIALIZED_NAME_COLLECTION_SCOPE = "collection_scope";
-  @SerializedName(SERIALIZED_NAME_COLLECTION_SCOPE)
-  @javax.annotation.Nonnull
-  private String collectionScope;
 
   public static final String SERIALIZED_NAME_COLLECTION_OWNER = "collection_owner";
   @SerializedName(SERIALIZED_NAME_COLLECTION_OWNER)
   @javax.annotation.Nonnull
   private String collectionOwner;
 
-  public static final String SERIALIZED_NAME_OFFICIAL_COLLECTION = "official_collection";
-  @SerializedName(SERIALIZED_NAME_OFFICIAL_COLLECTION)
+  public static final String SERIALIZED_NAME_COLLECTION_SCOPE = "collection_scope";
+  @SerializedName(SERIALIZED_NAME_COLLECTION_SCOPE)
   @javax.annotation.Nonnull
-  private Boolean officialCollection;
-
-  public static final String SERIALIZED_NAME_COLLECTION_TAGS = "collection_tags";
-  @SerializedName(SERIALIZED_NAME_COLLECTION_TAGS)
-  @javax.annotation.Nullable
-  private List<String> collectionTags = new ArrayList<>();
+  private String collectionScope;
 
   public static final String SERIALIZED_NAME_COLLECTION_SIZE = "collection_size";
   @SerializedName(SERIALIZED_NAME_COLLECTION_SIZE)
   @javax.annotation.Nonnull
   private Integer collectionSize;
 
-  public static final String SERIALIZED_NAME_COLLECTION_ID = "collection_id";
-  @SerializedName(SERIALIZED_NAME_COLLECTION_ID)
-  @javax.annotation.Nonnull
-  private Integer collectionId;
+  public static final String SERIALIZED_NAME_COLLECTION_TAGS = "collection_tags";
+  @SerializedName(SERIALIZED_NAME_COLLECTION_TAGS)
+  @javax.annotation.Nullable
+  private List<String> collectionTags = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_CREATION = "creation";
   @SerializedName(SERIALIZED_NAME_CREATION)
   @javax.annotation.Nonnull
   private OffsetDateTime creation;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  @javax.annotation.Nonnull
+  private String description;
+
   public static final String SERIALIZED_NAME_MODEL_NAME = "model_name";
   @SerializedName(SERIALIZED_NAME_MODEL_NAME)
   @javax.annotation.Nonnull
   private String modelName;
+
+  public static final String SERIALIZED_NAME_OFFICIAL_COLLECTION = "official_collection";
+  @SerializedName(SERIALIZED_NAME_OFFICIAL_COLLECTION)
+  @javax.annotation.Nonnull
+  private Boolean officialCollection;
 
   public static final String SERIALIZED_NAME_TEAM_ID = "team_id";
   @SerializedName(SERIALIZED_NAME_TEAM_ID)
@@ -112,6 +112,25 @@ public class CollectionListItem {
 
   public CollectionListItem() {
   }
+
+  public CollectionListItem collectionId(@javax.annotation.Nonnull Integer collectionId) {
+    this.collectionId = collectionId;
+    return this;
+  }
+
+  /**
+   * The ID of the collection
+   * @return collectionId
+   */
+  @javax.annotation.Nonnull
+  public Integer getCollectionId() {
+    return collectionId;
+  }
+
+  public void setCollectionId(@javax.annotation.Nonnull Integer collectionId) {
+    this.collectionId = collectionId;
+  }
+
 
   public CollectionListItem collectionName(@javax.annotation.Nonnull String collectionName) {
     this.collectionName = collectionName;
@@ -129,44 +148,6 @@ public class CollectionListItem {
 
   public void setCollectionName(@javax.annotation.Nonnull String collectionName) {
     this.collectionName = collectionName;
-  }
-
-
-  public CollectionListItem description(@javax.annotation.Nonnull String description) {
-    this.description = description;
-    return this;
-  }
-
-  /**
-   * The description of the collection
-   * @return description
-   */
-  @javax.annotation.Nonnull
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(@javax.annotation.Nonnull String description) {
-    this.description = description;
-  }
-
-
-  public CollectionListItem collectionScope(@javax.annotation.Nonnull String collectionScope) {
-    this.collectionScope = collectionScope;
-    return this;
-  }
-
-  /**
-   * The scope of the collection
-   * @return collectionScope
-   */
-  @javax.annotation.Nonnull
-  public String getCollectionScope() {
-    return collectionScope;
-  }
-
-  public void setCollectionScope(@javax.annotation.Nonnull String collectionScope) {
-    this.collectionScope = collectionScope;
   }
 
 
@@ -189,22 +170,41 @@ public class CollectionListItem {
   }
 
 
-  public CollectionListItem officialCollection(@javax.annotation.Nonnull Boolean officialCollection) {
-    this.officialCollection = officialCollection;
+  public CollectionListItem collectionScope(@javax.annotation.Nonnull String collectionScope) {
+    this.collectionScope = collectionScope;
     return this;
   }
 
   /**
-   * Whether the collection is maintained by RevEng.AI
-   * @return officialCollection
+   * The scope of the collection
+   * @return collectionScope
    */
   @javax.annotation.Nonnull
-  public Boolean getOfficialCollection() {
-    return officialCollection;
+  public String getCollectionScope() {
+    return collectionScope;
   }
 
-  public void setOfficialCollection(@javax.annotation.Nonnull Boolean officialCollection) {
-    this.officialCollection = officialCollection;
+  public void setCollectionScope(@javax.annotation.Nonnull String collectionScope) {
+    this.collectionScope = collectionScope;
+  }
+
+
+  public CollectionListItem collectionSize(@javax.annotation.Nonnull Integer collectionSize) {
+    this.collectionSize = collectionSize;
+    return this;
+  }
+
+  /**
+   * The size of the collection
+   * @return collectionSize
+   */
+  @javax.annotation.Nonnull
+  public Integer getCollectionSize() {
+    return collectionSize;
+  }
+
+  public void setCollectionSize(@javax.annotation.Nonnull Integer collectionSize) {
+    this.collectionSize = collectionSize;
   }
 
 
@@ -235,44 +235,6 @@ public class CollectionListItem {
   }
 
 
-  public CollectionListItem collectionSize(@javax.annotation.Nonnull Integer collectionSize) {
-    this.collectionSize = collectionSize;
-    return this;
-  }
-
-  /**
-   * The size of the collection
-   * @return collectionSize
-   */
-  @javax.annotation.Nonnull
-  public Integer getCollectionSize() {
-    return collectionSize;
-  }
-
-  public void setCollectionSize(@javax.annotation.Nonnull Integer collectionSize) {
-    this.collectionSize = collectionSize;
-  }
-
-
-  public CollectionListItem collectionId(@javax.annotation.Nonnull Integer collectionId) {
-    this.collectionId = collectionId;
-    return this;
-  }
-
-  /**
-   * The ID of the collection
-   * @return collectionId
-   */
-  @javax.annotation.Nonnull
-  public Integer getCollectionId() {
-    return collectionId;
-  }
-
-  public void setCollectionId(@javax.annotation.Nonnull Integer collectionId) {
-    this.collectionId = collectionId;
-  }
-
-
   public CollectionListItem creation(@javax.annotation.Nonnull OffsetDateTime creation) {
     this.creation = creation;
     return this;
@@ -292,6 +254,25 @@ public class CollectionListItem {
   }
 
 
+  public CollectionListItem description(@javax.annotation.Nonnull String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * The description of the collection
+   * @return description
+   */
+  @javax.annotation.Nonnull
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(@javax.annotation.Nonnull String description) {
+    this.description = description;
+  }
+
+
   public CollectionListItem modelName(@javax.annotation.Nonnull String modelName) {
     this.modelName = modelName;
     return this;
@@ -308,6 +289,25 @@ public class CollectionListItem {
 
   public void setModelName(@javax.annotation.Nonnull String modelName) {
     this.modelName = modelName;
+  }
+
+
+  public CollectionListItem officialCollection(@javax.annotation.Nonnull Boolean officialCollection) {
+    this.officialCollection = officialCollection;
+    return this;
+  }
+
+  /**
+   * Whether the collection is maintained by RevEng.AI
+   * @return officialCollection
+   */
+  @javax.annotation.Nonnull
+  public Boolean getOfficialCollection() {
+    return officialCollection;
+  }
+
+  public void setOfficialCollection(@javax.annotation.Nonnull Boolean officialCollection) {
+    this.officialCollection = officialCollection;
   }
 
 
@@ -384,16 +384,16 @@ public class CollectionListItem {
       return false;
     }
     CollectionListItem collectionListItem = (CollectionListItem) o;
-    return Objects.equals(this.collectionName, collectionListItem.collectionName) &&
-        Objects.equals(this.description, collectionListItem.description) &&
-        Objects.equals(this.collectionScope, collectionListItem.collectionScope) &&
+    return Objects.equals(this.collectionId, collectionListItem.collectionId) &&
+        Objects.equals(this.collectionName, collectionListItem.collectionName) &&
         Objects.equals(this.collectionOwner, collectionListItem.collectionOwner) &&
-        Objects.equals(this.officialCollection, collectionListItem.officialCollection) &&
-        Objects.equals(this.collectionTags, collectionListItem.collectionTags) &&
+        Objects.equals(this.collectionScope, collectionListItem.collectionScope) &&
         Objects.equals(this.collectionSize, collectionListItem.collectionSize) &&
-        Objects.equals(this.collectionId, collectionListItem.collectionId) &&
+        Objects.equals(this.collectionTags, collectionListItem.collectionTags) &&
         Objects.equals(this.creation, collectionListItem.creation) &&
+        Objects.equals(this.description, collectionListItem.description) &&
         Objects.equals(this.modelName, collectionListItem.modelName) &&
+        Objects.equals(this.officialCollection, collectionListItem.officialCollection) &&
         Objects.equals(this.teamId, collectionListItem.teamId)&&
         Objects.equals(this.additionalProperties, collectionListItem.additionalProperties);
   }
@@ -404,7 +404,7 @@ public class CollectionListItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(collectionName, description, collectionScope, collectionOwner, officialCollection, collectionTags, collectionSize, collectionId, creation, modelName, teamId, additionalProperties);
+    return Objects.hash(collectionId, collectionName, collectionOwner, collectionScope, collectionSize, collectionTags, creation, description, modelName, officialCollection, teamId, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -418,16 +418,16 @@ public class CollectionListItem {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CollectionListItem {\n");
-    sb.append("    collectionName: ").append(toIndentedString(collectionName)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    collectionScope: ").append(toIndentedString(collectionScope)).append("\n");
-    sb.append("    collectionOwner: ").append(toIndentedString(collectionOwner)).append("\n");
-    sb.append("    officialCollection: ").append(toIndentedString(officialCollection)).append("\n");
-    sb.append("    collectionTags: ").append(toIndentedString(collectionTags)).append("\n");
-    sb.append("    collectionSize: ").append(toIndentedString(collectionSize)).append("\n");
     sb.append("    collectionId: ").append(toIndentedString(collectionId)).append("\n");
+    sb.append("    collectionName: ").append(toIndentedString(collectionName)).append("\n");
+    sb.append("    collectionOwner: ").append(toIndentedString(collectionOwner)).append("\n");
+    sb.append("    collectionScope: ").append(toIndentedString(collectionScope)).append("\n");
+    sb.append("    collectionSize: ").append(toIndentedString(collectionSize)).append("\n");
+    sb.append("    collectionTags: ").append(toIndentedString(collectionTags)).append("\n");
     sb.append("    creation: ").append(toIndentedString(creation)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    modelName: ").append(toIndentedString(modelName)).append("\n");
+    sb.append("    officialCollection: ").append(toIndentedString(officialCollection)).append("\n");
     sb.append("    teamId: ").append(toIndentedString(teamId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -451,10 +451,10 @@ public class CollectionListItem {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("collection_name", "description", "collection_scope", "collection_owner", "official_collection", "collection_tags", "collection_size", "collection_id", "creation", "model_name", "team_id"));
+    openapiFields = new HashSet<String>(Arrays.asList("collection_id", "collection_name", "collection_owner", "collection_scope", "collection_size", "collection_tags", "creation", "description", "model_name", "official_collection", "team_id"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("collection_name", "description", "collection_scope", "collection_owner", "official_collection", "collection_size", "collection_id", "creation", "model_name"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("collection_id", "collection_name", "collection_owner", "collection_scope", "collection_size", "creation", "description", "model_name", "official_collection"));
   }
 
   /**
@@ -480,18 +480,18 @@ public class CollectionListItem {
       if (!jsonObj.get("collection_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `collection_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("collection_name").toString()));
       }
-      if (!jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      if (!jsonObj.get("collection_owner").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `collection_owner` to be a primitive type in the JSON string but got `%s`", jsonObj.get("collection_owner").toString()));
       }
       if (!jsonObj.get("collection_scope").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `collection_scope` to be a primitive type in the JSON string but got `%s`", jsonObj.get("collection_scope").toString()));
       }
-      if (!jsonObj.get("collection_owner").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `collection_owner` to be a primitive type in the JSON string but got `%s`", jsonObj.get("collection_owner").toString()));
-      }
       // ensure the optional json data is an array if present
       if (jsonObj.get("collection_tags") != null && !jsonObj.get("collection_tags").isJsonNull() && !jsonObj.get("collection_tags").isJsonArray()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `collection_tags` to be an array in the JSON string but got `%s`", jsonObj.get("collection_tags").toString()));
+      }
+      if (!jsonObj.get("description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
       if (!jsonObj.get("model_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `model_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("model_name").toString()));

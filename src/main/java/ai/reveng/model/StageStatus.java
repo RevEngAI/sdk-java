@@ -53,6 +53,11 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class StageStatus {
+  public static final String SERIALIZED_NAME_NUM_AHEAD = "num_ahead";
+  @SerializedName(SERIALIZED_NAME_NUM_AHEAD)
+  @javax.annotation.Nonnull
+  private Integer numAhead;
+
   public static final String SERIALIZED_NAME_STAGE = "stage";
   @SerializedName(SERIALIZED_NAME_STAGE)
   @javax.annotation.Nonnull
@@ -63,13 +68,27 @@ public class StageStatus {
   @javax.annotation.Nonnull
   private PipelineStageStatus status;
 
-  public static final String SERIALIZED_NAME_NUM_AHEAD = "num_ahead";
-  @SerializedName(SERIALIZED_NAME_NUM_AHEAD)
-  @javax.annotation.Nonnull
-  private Integer numAhead;
-
   public StageStatus() {
   }
+
+  public StageStatus numAhead(@javax.annotation.Nonnull Integer numAhead) {
+    this.numAhead = numAhead;
+    return this;
+  }
+
+  /**
+   * Get numAhead
+   * @return numAhead
+   */
+  @javax.annotation.Nonnull
+  public Integer getNumAhead() {
+    return numAhead;
+  }
+
+  public void setNumAhead(@javax.annotation.Nonnull Integer numAhead) {
+    this.numAhead = numAhead;
+  }
+
 
   public StageStatus stage(@javax.annotation.Nonnull AnalysisStage stage) {
     this.stage = stage;
@@ -106,25 +125,6 @@ public class StageStatus {
 
   public void setStatus(@javax.annotation.Nonnull PipelineStageStatus status) {
     this.status = status;
-  }
-
-
-  public StageStatus numAhead(@javax.annotation.Nonnull Integer numAhead) {
-    this.numAhead = numAhead;
-    return this;
-  }
-
-  /**
-   * Get numAhead
-   * @return numAhead
-   */
-  @javax.annotation.Nonnull
-  public Integer getNumAhead() {
-    return numAhead;
-  }
-
-  public void setNumAhead(@javax.annotation.Nonnull Integer numAhead) {
-    this.numAhead = numAhead;
   }
 
   /**
@@ -182,24 +182,24 @@ public class StageStatus {
       return false;
     }
     StageStatus stageStatus = (StageStatus) o;
-    return Objects.equals(this.stage, stageStatus.stage) &&
-        Objects.equals(this.status, stageStatus.status) &&
-        Objects.equals(this.numAhead, stageStatus.numAhead)&&
+    return Objects.equals(this.numAhead, stageStatus.numAhead) &&
+        Objects.equals(this.stage, stageStatus.stage) &&
+        Objects.equals(this.status, stageStatus.status)&&
         Objects.equals(this.additionalProperties, stageStatus.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(stage, status, numAhead, additionalProperties);
+    return Objects.hash(numAhead, stage, status, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class StageStatus {\n");
+    sb.append("    numAhead: ").append(toIndentedString(numAhead)).append("\n");
     sb.append("    stage: ").append(toIndentedString(stage)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    numAhead: ").append(toIndentedString(numAhead)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -222,10 +222,10 @@ public class StageStatus {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("stage", "status", "num_ahead"));
+    openapiFields = new HashSet<String>(Arrays.asList("num_ahead", "stage", "status"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("stage", "status", "num_ahead"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("num_ahead", "stage", "status"));
   }
 
   /**

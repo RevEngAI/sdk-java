@@ -67,16 +67,6 @@ public class CollectionBinaryResponse {
   @javax.annotation.Nonnull
   private String binaryName;
 
-  public static final String SERIALIZED_NAME_OWNER_ID = "owner_id";
-  @SerializedName(SERIALIZED_NAME_OWNER_ID)
-  @javax.annotation.Nonnull
-  private Integer ownerId;
-
-  public static final String SERIALIZED_NAME_SHA256_HASH = "sha_256_hash";
-  @SerializedName(SERIALIZED_NAME_SHA256_HASH)
-  @javax.annotation.Nonnull
-  private String sha256Hash;
-
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   @javax.annotation.Nonnull
@@ -86,6 +76,16 @@ public class CollectionBinaryResponse {
   @SerializedName(SERIALIZED_NAME_IS_SYSTEM_ANALYSIS)
   @javax.annotation.Nonnull
   private Boolean isSystemAnalysis;
+
+  public static final String SERIALIZED_NAME_OWNER_ID = "owner_id";
+  @SerializedName(SERIALIZED_NAME_OWNER_ID)
+  @javax.annotation.Nonnull
+  private Integer ownerId;
+
+  public static final String SERIALIZED_NAME_SHA256_HASH = "sha_256_hash";
+  @SerializedName(SERIALIZED_NAME_SHA256_HASH)
+  @javax.annotation.Nonnull
+  private String sha256Hash;
 
   public CollectionBinaryResponse() {
   }
@@ -147,44 +147,6 @@ public class CollectionBinaryResponse {
   }
 
 
-  public CollectionBinaryResponse ownerId(@javax.annotation.Nonnull Integer ownerId) {
-    this.ownerId = ownerId;
-    return this;
-  }
-
-  /**
-   * Binary owner
-   * @return ownerId
-   */
-  @javax.annotation.Nonnull
-  public Integer getOwnerId() {
-    return ownerId;
-  }
-
-  public void setOwnerId(@javax.annotation.Nonnull Integer ownerId) {
-    this.ownerId = ownerId;
-  }
-
-
-  public CollectionBinaryResponse sha256Hash(@javax.annotation.Nonnull String sha256Hash) {
-    this.sha256Hash = sha256Hash;
-    return this;
-  }
-
-  /**
-   * Binary SHA-256 hash
-   * @return sha256Hash
-   */
-  @javax.annotation.Nonnull
-  public String getSha256Hash() {
-    return sha256Hash;
-  }
-
-  public void setSha256Hash(@javax.annotation.Nonnull String sha256Hash) {
-    this.sha256Hash = sha256Hash;
-  }
-
-
   public CollectionBinaryResponse createdAt(@javax.annotation.Nonnull OffsetDateTime createdAt) {
     this.createdAt = createdAt;
     return this;
@@ -220,6 +182,44 @@ public class CollectionBinaryResponse {
 
   public void setIsSystemAnalysis(@javax.annotation.Nonnull Boolean isSystemAnalysis) {
     this.isSystemAnalysis = isSystemAnalysis;
+  }
+
+
+  public CollectionBinaryResponse ownerId(@javax.annotation.Nonnull Integer ownerId) {
+    this.ownerId = ownerId;
+    return this;
+  }
+
+  /**
+   * Binary owner
+   * @return ownerId
+   */
+  @javax.annotation.Nonnull
+  public Integer getOwnerId() {
+    return ownerId;
+  }
+
+  public void setOwnerId(@javax.annotation.Nonnull Integer ownerId) {
+    this.ownerId = ownerId;
+  }
+
+
+  public CollectionBinaryResponse sha256Hash(@javax.annotation.Nonnull String sha256Hash) {
+    this.sha256Hash = sha256Hash;
+    return this;
+  }
+
+  /**
+   * Binary SHA-256 hash
+   * @return sha256Hash
+   */
+  @javax.annotation.Nonnull
+  public String getSha256Hash() {
+    return sha256Hash;
+  }
+
+  public void setSha256Hash(@javax.annotation.Nonnull String sha256Hash) {
+    this.sha256Hash = sha256Hash;
   }
 
   /**
@@ -280,16 +280,16 @@ public class CollectionBinaryResponse {
     return Objects.equals(this.analysisId, collectionBinaryResponse.analysisId) &&
         Objects.equals(this.binaryId, collectionBinaryResponse.binaryId) &&
         Objects.equals(this.binaryName, collectionBinaryResponse.binaryName) &&
-        Objects.equals(this.ownerId, collectionBinaryResponse.ownerId) &&
-        Objects.equals(this.sha256Hash, collectionBinaryResponse.sha256Hash) &&
         Objects.equals(this.createdAt, collectionBinaryResponse.createdAt) &&
-        Objects.equals(this.isSystemAnalysis, collectionBinaryResponse.isSystemAnalysis)&&
+        Objects.equals(this.isSystemAnalysis, collectionBinaryResponse.isSystemAnalysis) &&
+        Objects.equals(this.ownerId, collectionBinaryResponse.ownerId) &&
+        Objects.equals(this.sha256Hash, collectionBinaryResponse.sha256Hash)&&
         Objects.equals(this.additionalProperties, collectionBinaryResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(analysisId, binaryId, binaryName, ownerId, sha256Hash, createdAt, isSystemAnalysis, additionalProperties);
+    return Objects.hash(analysisId, binaryId, binaryName, createdAt, isSystemAnalysis, ownerId, sha256Hash, additionalProperties);
   }
 
   @Override
@@ -299,10 +299,10 @@ public class CollectionBinaryResponse {
     sb.append("    analysisId: ").append(toIndentedString(analysisId)).append("\n");
     sb.append("    binaryId: ").append(toIndentedString(binaryId)).append("\n");
     sb.append("    binaryName: ").append(toIndentedString(binaryName)).append("\n");
-    sb.append("    ownerId: ").append(toIndentedString(ownerId)).append("\n");
-    sb.append("    sha256Hash: ").append(toIndentedString(sha256Hash)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    isSystemAnalysis: ").append(toIndentedString(isSystemAnalysis)).append("\n");
+    sb.append("    ownerId: ").append(toIndentedString(ownerId)).append("\n");
+    sb.append("    sha256Hash: ").append(toIndentedString(sha256Hash)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -325,10 +325,10 @@ public class CollectionBinaryResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("analysis_id", "binary_id", "binary_name", "owner_id", "sha_256_hash", "created_at", "is_system_analysis"));
+    openapiFields = new HashSet<String>(Arrays.asList("analysis_id", "binary_id", "binary_name", "created_at", "is_system_analysis", "owner_id", "sha_256_hash"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("analysis_id", "binary_id", "binary_name", "owner_id", "sha_256_hash", "created_at", "is_system_analysis"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("analysis_id", "binary_id", "binary_name", "created_at", "is_system_analysis", "owner_id", "sha_256_hash"));
   }
 
   /**

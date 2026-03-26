@@ -52,62 +52,43 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FunctionNameHistory {
-  public static final String SERIALIZED_NAME_HISTORY_ID = "history_id";
-  @SerializedName(SERIALIZED_NAME_HISTORY_ID)
-  @javax.annotation.Nonnull
-  private Integer historyId;
-
   public static final String SERIALIZED_NAME_CHANGE_MADE_BY = "change_made_by";
   @SerializedName(SERIALIZED_NAME_CHANGE_MADE_BY)
   @javax.annotation.Nonnull
   private String changeMadeBy;
-
-  public static final String SERIALIZED_NAME_FUNCTION_NAME = "function_name";
-  @SerializedName(SERIALIZED_NAME_FUNCTION_NAME)
-  @javax.annotation.Nonnull
-  private String functionName;
-
-  public static final String SERIALIZED_NAME_MANGLED_NAME = "mangled_name";
-  @SerializedName(SERIALIZED_NAME_MANGLED_NAME)
-  @javax.annotation.Nonnull
-  private String mangledName;
-
-  public static final String SERIALIZED_NAME_IS_DEBUG = "is_debug";
-  @SerializedName(SERIALIZED_NAME_IS_DEBUG)
-  @javax.annotation.Nonnull
-  private Boolean isDebug;
-
-  public static final String SERIALIZED_NAME_SOURCE_TYPE = "source_type";
-  @SerializedName(SERIALIZED_NAME_SOURCE_TYPE)
-  @javax.annotation.Nonnull
-  private FunctionSourceType sourceType;
 
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   @javax.annotation.Nonnull
   private String createdAt;
 
+  public static final String SERIALIZED_NAME_FUNCTION_NAME = "function_name";
+  @SerializedName(SERIALIZED_NAME_FUNCTION_NAME)
+  @javax.annotation.Nonnull
+  private String functionName;
+
+  public static final String SERIALIZED_NAME_HISTORY_ID = "history_id";
+  @SerializedName(SERIALIZED_NAME_HISTORY_ID)
+  @javax.annotation.Nonnull
+  private Integer historyId;
+
+  public static final String SERIALIZED_NAME_IS_DEBUG = "is_debug";
+  @SerializedName(SERIALIZED_NAME_IS_DEBUG)
+  @javax.annotation.Nonnull
+  private Boolean isDebug;
+
+  public static final String SERIALIZED_NAME_MANGLED_NAME = "mangled_name";
+  @SerializedName(SERIALIZED_NAME_MANGLED_NAME)
+  @javax.annotation.Nonnull
+  private String mangledName;
+
+  public static final String SERIALIZED_NAME_SOURCE_TYPE = "source_type";
+  @SerializedName(SERIALIZED_NAME_SOURCE_TYPE)
+  @javax.annotation.Nonnull
+  private FunctionSourceType sourceType;
+
   public FunctionNameHistory() {
   }
-
-  public FunctionNameHistory historyId(@javax.annotation.Nonnull Integer historyId) {
-    this.historyId = historyId;
-    return this;
-  }
-
-  /**
-   * The ID of the history record
-   * @return historyId
-   */
-  @javax.annotation.Nonnull
-  public Integer getHistoryId() {
-    return historyId;
-  }
-
-  public void setHistoryId(@javax.annotation.Nonnull Integer historyId) {
-    this.historyId = historyId;
-  }
-
 
   public FunctionNameHistory changeMadeBy(@javax.annotation.Nonnull String changeMadeBy) {
     this.changeMadeBy = changeMadeBy;
@@ -125,6 +106,25 @@ public class FunctionNameHistory {
 
   public void setChangeMadeBy(@javax.annotation.Nonnull String changeMadeBy) {
     this.changeMadeBy = changeMadeBy;
+  }
+
+
+  public FunctionNameHistory createdAt(@javax.annotation.Nonnull String createdAt) {
+    this.createdAt = createdAt;
+    return this;
+  }
+
+  /**
+   * The timestamp when the function name was created
+   * @return createdAt
+   */
+  @javax.annotation.Nonnull
+  public String getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(@javax.annotation.Nonnull String createdAt) {
+    this.createdAt = createdAt;
   }
 
 
@@ -147,22 +147,22 @@ public class FunctionNameHistory {
   }
 
 
-  public FunctionNameHistory mangledName(@javax.annotation.Nonnull String mangledName) {
-    this.mangledName = mangledName;
+  public FunctionNameHistory historyId(@javax.annotation.Nonnull Integer historyId) {
+    this.historyId = historyId;
     return this;
   }
 
   /**
-   * The mangled name of the function
-   * @return mangledName
+   * The ID of the history record
+   * @return historyId
    */
   @javax.annotation.Nonnull
-  public String getMangledName() {
-    return mangledName;
+  public Integer getHistoryId() {
+    return historyId;
   }
 
-  public void setMangledName(@javax.annotation.Nonnull String mangledName) {
-    this.mangledName = mangledName;
+  public void setHistoryId(@javax.annotation.Nonnull Integer historyId) {
+    this.historyId = historyId;
   }
 
 
@@ -185,6 +185,25 @@ public class FunctionNameHistory {
   }
 
 
+  public FunctionNameHistory mangledName(@javax.annotation.Nonnull String mangledName) {
+    this.mangledName = mangledName;
+    return this;
+  }
+
+  /**
+   * The mangled name of the function
+   * @return mangledName
+   */
+  @javax.annotation.Nonnull
+  public String getMangledName() {
+    return mangledName;
+  }
+
+  public void setMangledName(@javax.annotation.Nonnull String mangledName) {
+    this.mangledName = mangledName;
+  }
+
+
   public FunctionNameHistory sourceType(@javax.annotation.Nonnull FunctionSourceType sourceType) {
     this.sourceType = sourceType;
     return this;
@@ -201,25 +220,6 @@ public class FunctionNameHistory {
 
   public void setSourceType(@javax.annotation.Nonnull FunctionSourceType sourceType) {
     this.sourceType = sourceType;
-  }
-
-
-  public FunctionNameHistory createdAt(@javax.annotation.Nonnull String createdAt) {
-    this.createdAt = createdAt;
-    return this;
-  }
-
-  /**
-   * The timestamp when the function name was created
-   * @return createdAt
-   */
-  @javax.annotation.Nonnull
-  public String getCreatedAt() {
-    return createdAt;
-  }
-
-  public void setCreatedAt(@javax.annotation.Nonnull String createdAt) {
-    this.createdAt = createdAt;
   }
 
   /**
@@ -277,32 +277,32 @@ public class FunctionNameHistory {
       return false;
     }
     FunctionNameHistory functionNameHistory = (FunctionNameHistory) o;
-    return Objects.equals(this.historyId, functionNameHistory.historyId) &&
-        Objects.equals(this.changeMadeBy, functionNameHistory.changeMadeBy) &&
+    return Objects.equals(this.changeMadeBy, functionNameHistory.changeMadeBy) &&
+        Objects.equals(this.createdAt, functionNameHistory.createdAt) &&
         Objects.equals(this.functionName, functionNameHistory.functionName) &&
-        Objects.equals(this.mangledName, functionNameHistory.mangledName) &&
+        Objects.equals(this.historyId, functionNameHistory.historyId) &&
         Objects.equals(this.isDebug, functionNameHistory.isDebug) &&
-        Objects.equals(this.sourceType, functionNameHistory.sourceType) &&
-        Objects.equals(this.createdAt, functionNameHistory.createdAt)&&
+        Objects.equals(this.mangledName, functionNameHistory.mangledName) &&
+        Objects.equals(this.sourceType, functionNameHistory.sourceType)&&
         Objects.equals(this.additionalProperties, functionNameHistory.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(historyId, changeMadeBy, functionName, mangledName, isDebug, sourceType, createdAt, additionalProperties);
+    return Objects.hash(changeMadeBy, createdAt, functionName, historyId, isDebug, mangledName, sourceType, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FunctionNameHistory {\n");
-    sb.append("    historyId: ").append(toIndentedString(historyId)).append("\n");
     sb.append("    changeMadeBy: ").append(toIndentedString(changeMadeBy)).append("\n");
-    sb.append("    functionName: ").append(toIndentedString(functionName)).append("\n");
-    sb.append("    mangledName: ").append(toIndentedString(mangledName)).append("\n");
-    sb.append("    isDebug: ").append(toIndentedString(isDebug)).append("\n");
-    sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    functionName: ").append(toIndentedString(functionName)).append("\n");
+    sb.append("    historyId: ").append(toIndentedString(historyId)).append("\n");
+    sb.append("    isDebug: ").append(toIndentedString(isDebug)).append("\n");
+    sb.append("    mangledName: ").append(toIndentedString(mangledName)).append("\n");
+    sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -325,10 +325,10 @@ public class FunctionNameHistory {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("history_id", "change_made_by", "function_name", "mangled_name", "is_debug", "source_type", "created_at"));
+    openapiFields = new HashSet<String>(Arrays.asList("change_made_by", "created_at", "function_name", "history_id", "is_debug", "mangled_name", "source_type"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("history_id", "change_made_by", "function_name", "mangled_name", "is_debug", "source_type", "created_at"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("change_made_by", "created_at", "function_name", "history_id", "is_debug", "mangled_name", "source_type"));
   }
 
   /**
@@ -354,6 +354,9 @@ public class FunctionNameHistory {
       if (!jsonObj.get("change_made_by").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `change_made_by` to be a primitive type in the JSON string but got `%s`", jsonObj.get("change_made_by").toString()));
       }
+      if (!jsonObj.get("created_at").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `created_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("created_at").toString()));
+      }
       if (!jsonObj.get("function_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `function_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("function_name").toString()));
       }
@@ -362,9 +365,6 @@ public class FunctionNameHistory {
       }
       // validate the required field `source_type`
       FunctionSourceType.validateJsonElement(jsonObj.get("source_type"));
-      if (!jsonObj.get("created_at").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `created_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("created_at").toString()));
-      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

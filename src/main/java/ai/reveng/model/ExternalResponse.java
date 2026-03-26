@@ -54,11 +54,6 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ExternalResponse {
-  public static final String SERIALIZED_NAME_SHA256_HASH = "sha_256_hash";
-  @SerializedName(SERIALIZED_NAME_SHA256_HASH)
-  @javax.annotation.Nonnull
-  private String sha256Hash;
-
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
   @javax.annotation.Nonnull
@@ -69,27 +64,13 @@ public class ExternalResponse {
   @javax.annotation.Nonnull
   private OffsetDateTime lastUpdated;
 
+  public static final String SERIALIZED_NAME_SHA256_HASH = "sha_256_hash";
+  @SerializedName(SERIALIZED_NAME_SHA256_HASH)
+  @javax.annotation.Nonnull
+  private String sha256Hash;
+
   public ExternalResponse() {
   }
-
-  public ExternalResponse sha256Hash(@javax.annotation.Nonnull String sha256Hash) {
-    this.sha256Hash = sha256Hash;
-    return this;
-  }
-
-  /**
-   * Get sha256Hash
-   * @return sha256Hash
-   */
-  @javax.annotation.Nonnull
-  public String getSha256Hash() {
-    return sha256Hash;
-  }
-
-  public void setSha256Hash(@javax.annotation.Nonnull String sha256Hash) {
-    this.sha256Hash = sha256Hash;
-  }
-
 
   public ExternalResponse data(@javax.annotation.Nonnull Map<String, Object> data) {
     this.data = data;
@@ -134,6 +115,25 @@ public class ExternalResponse {
 
   public void setLastUpdated(@javax.annotation.Nonnull OffsetDateTime lastUpdated) {
     this.lastUpdated = lastUpdated;
+  }
+
+
+  public ExternalResponse sha256Hash(@javax.annotation.Nonnull String sha256Hash) {
+    this.sha256Hash = sha256Hash;
+    return this;
+  }
+
+  /**
+   * Get sha256Hash
+   * @return sha256Hash
+   */
+  @javax.annotation.Nonnull
+  public String getSha256Hash() {
+    return sha256Hash;
+  }
+
+  public void setSha256Hash(@javax.annotation.Nonnull String sha256Hash) {
+    this.sha256Hash = sha256Hash;
   }
 
   /**
@@ -191,24 +191,24 @@ public class ExternalResponse {
       return false;
     }
     ExternalResponse externalResponse = (ExternalResponse) o;
-    return Objects.equals(this.sha256Hash, externalResponse.sha256Hash) &&
-        Objects.equals(this.data, externalResponse.data) &&
-        Objects.equals(this.lastUpdated, externalResponse.lastUpdated)&&
+    return Objects.equals(this.data, externalResponse.data) &&
+        Objects.equals(this.lastUpdated, externalResponse.lastUpdated) &&
+        Objects.equals(this.sha256Hash, externalResponse.sha256Hash)&&
         Objects.equals(this.additionalProperties, externalResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sha256Hash, data, lastUpdated, additionalProperties);
+    return Objects.hash(data, lastUpdated, sha256Hash, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ExternalResponse {\n");
-    sb.append("    sha256Hash: ").append(toIndentedString(sha256Hash)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    lastUpdated: ").append(toIndentedString(lastUpdated)).append("\n");
+    sb.append("    sha256Hash: ").append(toIndentedString(sha256Hash)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -231,10 +231,10 @@ public class ExternalResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("sha_256_hash", "data", "last_updated"));
+    openapiFields = new HashSet<String>(Arrays.asList("data", "last_updated", "sha_256_hash"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("sha_256_hash", "data", "last_updated"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("data", "last_updated", "sha_256_hash"));
   }
 
   /**

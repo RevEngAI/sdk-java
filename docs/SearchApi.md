@@ -178,8 +178,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful Response |  -  |
-| **422** | You must provide at least one of the filters; partial_collection_name, partial_binary_name, partial_binary_sha256, tags or model_name to search |  -  |
 | **404** | The model name provided does not exist |  -  |
+| **422** | You must provide at least one of the filters; partial_collection_name, partial_binary_name, partial_binary_sha256, tags or model_name to search |  -  |
 
 <a id="searchFunctions"></a>
 # **searchFunctions**

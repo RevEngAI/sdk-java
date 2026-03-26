@@ -80,8 +80,8 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Successful Response |  -  |
-| **422** | Invalid request parameters |  -  |
 | **400** | Bad Request |  -  |
+| **422** | Invalid request parameters |  -  |
 
 <a id="deleteDecompilationComment"></a>
 # **deleteDecompilationComment**
@@ -153,9 +153,9 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful Response |  -  |
-| **422** | Invalid request parameters |  -  |
-| **403** | You can only delete your own comments |  -  |
 | **400** | Bad Request |  -  |
+| **403** | You can only delete your own comments |  -  |
+| **422** | Invalid request parameters |  -  |
 
 <a id="getDecompilationComments"></a>
 # **getDecompilationComments**
@@ -299,7 +299,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful Response |  -  |
-| **422** | Invalid request parameters |  -  |
-| **403** | You can only update your own comments |  -  |
 | **400** | Bad Request |  -  |
+| **403** | You can only update your own comments |  -  |
+| **422** | Invalid request parameters |  -  |
 

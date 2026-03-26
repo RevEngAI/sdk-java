@@ -54,37 +54,18 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ImportModel {
-  public static final String SERIALIZED_NAME_NUMBER_OF_IMPORTS = "number_of_imports";
-  @SerializedName(SERIALIZED_NAME_NUMBER_OF_IMPORTS)
-  @javax.annotation.Nonnull
-  private Integer numberOfImports;
-
   public static final String SERIALIZED_NAME_IMPORTS = "imports";
   @SerializedName(SERIALIZED_NAME_IMPORTS)
   @javax.annotation.Nonnull
   private List<Map<String, Map<String, Integer>>> imports = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_NUMBER_OF_IMPORTS = "number_of_imports";
+  @SerializedName(SERIALIZED_NAME_NUMBER_OF_IMPORTS)
+  @javax.annotation.Nonnull
+  private Integer numberOfImports;
+
   public ImportModel() {
   }
-
-  public ImportModel numberOfImports(@javax.annotation.Nonnull Integer numberOfImports) {
-    this.numberOfImports = numberOfImports;
-    return this;
-  }
-
-  /**
-   * Get numberOfImports
-   * @return numberOfImports
-   */
-  @javax.annotation.Nonnull
-  public Integer getNumberOfImports() {
-    return numberOfImports;
-  }
-
-  public void setNumberOfImports(@javax.annotation.Nonnull Integer numberOfImports) {
-    this.numberOfImports = numberOfImports;
-  }
-
 
   public ImportModel imports(@javax.annotation.Nonnull List<Map<String, Map<String, Integer>>> imports) {
     this.imports = imports;
@@ -110,6 +91,25 @@ public class ImportModel {
 
   public void setImports(@javax.annotation.Nonnull List<Map<String, Map<String, Integer>>> imports) {
     this.imports = imports;
+  }
+
+
+  public ImportModel numberOfImports(@javax.annotation.Nonnull Integer numberOfImports) {
+    this.numberOfImports = numberOfImports;
+    return this;
+  }
+
+  /**
+   * Get numberOfImports
+   * @return numberOfImports
+   */
+  @javax.annotation.Nonnull
+  public Integer getNumberOfImports() {
+    return numberOfImports;
+  }
+
+  public void setNumberOfImports(@javax.annotation.Nonnull Integer numberOfImports) {
+    this.numberOfImports = numberOfImports;
   }
 
   /**
@@ -167,22 +167,22 @@ public class ImportModel {
       return false;
     }
     ImportModel importModel = (ImportModel) o;
-    return Objects.equals(this.numberOfImports, importModel.numberOfImports) &&
-        Objects.equals(this.imports, importModel.imports)&&
+    return Objects.equals(this.imports, importModel.imports) &&
+        Objects.equals(this.numberOfImports, importModel.numberOfImports)&&
         Objects.equals(this.additionalProperties, importModel.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(numberOfImports, imports, additionalProperties);
+    return Objects.hash(imports, numberOfImports, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ImportModel {\n");
-    sb.append("    numberOfImports: ").append(toIndentedString(numberOfImports)).append("\n");
     sb.append("    imports: ").append(toIndentedString(imports)).append("\n");
+    sb.append("    numberOfImports: ").append(toIndentedString(numberOfImports)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -205,10 +205,10 @@ public class ImportModel {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("number_of_imports", "imports"));
+    openapiFields = new HashSet<String>(Arrays.asList("imports", "number_of_imports"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("number_of_imports", "imports"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("imports", "number_of_imports"));
   }
 
   /**

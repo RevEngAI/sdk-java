@@ -57,52 +57,33 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class BaseResponseListFunctionNameHistory {
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
-  @javax.annotation.Nullable
-  private Boolean status = true;
-
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
   @javax.annotation.Nullable
   private List<FunctionNameHistory> data;
-
-  public static final String SERIALIZED_NAME_MESSAGE = "message";
-  @SerializedName(SERIALIZED_NAME_MESSAGE)
-  @javax.annotation.Nullable
-  private String message;
 
   public static final String SERIALIZED_NAME_ERRORS = "errors";
   @SerializedName(SERIALIZED_NAME_ERRORS)
   @javax.annotation.Nullable
   private List<ErrorModel> errors;
 
+  public static final String SERIALIZED_NAME_MESSAGE = "message";
+  @SerializedName(SERIALIZED_NAME_MESSAGE)
+  @javax.annotation.Nullable
+  private String message;
+
   public static final String SERIALIZED_NAME_META = "meta";
   @SerializedName(SERIALIZED_NAME_META)
   @javax.annotation.Nullable
   private MetaModel meta;
 
+  public static final String SERIALIZED_NAME_STATUS = "status";
+  @SerializedName(SERIALIZED_NAME_STATUS)
+  @javax.annotation.Nullable
+  private Boolean status = true;
+
   public BaseResponseListFunctionNameHistory() {
   }
-
-  public BaseResponseListFunctionNameHistory status(@javax.annotation.Nullable Boolean status) {
-    this.status = status;
-    return this;
-  }
-
-  /**
-   * Response status on whether the request succeeded
-   * @return status
-   */
-  @javax.annotation.Nullable
-  public Boolean getStatus() {
-    return status;
-  }
-
-  public void setStatus(@javax.annotation.Nullable Boolean status) {
-    this.status = status;
-  }
-
 
   public BaseResponseListFunctionNameHistory data(@javax.annotation.Nullable List<FunctionNameHistory> data) {
     this.data = data;
@@ -128,25 +109,6 @@ public class BaseResponseListFunctionNameHistory {
 
   public void setData(@javax.annotation.Nullable List<FunctionNameHistory> data) {
     this.data = data;
-  }
-
-
-  public BaseResponseListFunctionNameHistory message(@javax.annotation.Nullable String message) {
-    this.message = message;
-    return this;
-  }
-
-  /**
-   * Get message
-   * @return message
-   */
-  @javax.annotation.Nullable
-  public String getMessage() {
-    return message;
-  }
-
-  public void setMessage(@javax.annotation.Nullable String message) {
-    this.message = message;
   }
 
 
@@ -177,6 +139,25 @@ public class BaseResponseListFunctionNameHistory {
   }
 
 
+  public BaseResponseListFunctionNameHistory message(@javax.annotation.Nullable String message) {
+    this.message = message;
+    return this;
+  }
+
+  /**
+   * Get message
+   * @return message
+   */
+  @javax.annotation.Nullable
+  public String getMessage() {
+    return message;
+  }
+
+  public void setMessage(@javax.annotation.Nullable String message) {
+    this.message = message;
+  }
+
+
   public BaseResponseListFunctionNameHistory meta(@javax.annotation.Nullable MetaModel meta) {
     this.meta = meta;
     return this;
@@ -193,6 +174,25 @@ public class BaseResponseListFunctionNameHistory {
 
   public void setMeta(@javax.annotation.Nullable MetaModel meta) {
     this.meta = meta;
+  }
+
+
+  public BaseResponseListFunctionNameHistory status(@javax.annotation.Nullable Boolean status) {
+    this.status = status;
+    return this;
+  }
+
+  /**
+   * Response status on whether the request succeeded
+   * @return status
+   */
+  @javax.annotation.Nullable
+  public Boolean getStatus() {
+    return status;
+  }
+
+  public void setStatus(@javax.annotation.Nullable Boolean status) {
+    this.status = status;
   }
 
   /**
@@ -250,11 +250,11 @@ public class BaseResponseListFunctionNameHistory {
       return false;
     }
     BaseResponseListFunctionNameHistory baseResponseListFunctionNameHistory = (BaseResponseListFunctionNameHistory) o;
-    return Objects.equals(this.status, baseResponseListFunctionNameHistory.status) &&
-        Objects.equals(this.data, baseResponseListFunctionNameHistory.data) &&
-        Objects.equals(this.message, baseResponseListFunctionNameHistory.message) &&
+    return Objects.equals(this.data, baseResponseListFunctionNameHistory.data) &&
         Objects.equals(this.errors, baseResponseListFunctionNameHistory.errors) &&
-        Objects.equals(this.meta, baseResponseListFunctionNameHistory.meta)&&
+        Objects.equals(this.message, baseResponseListFunctionNameHistory.message) &&
+        Objects.equals(this.meta, baseResponseListFunctionNameHistory.meta) &&
+        Objects.equals(this.status, baseResponseListFunctionNameHistory.status)&&
         Objects.equals(this.additionalProperties, baseResponseListFunctionNameHistory.additionalProperties);
   }
 
@@ -264,7 +264,7 @@ public class BaseResponseListFunctionNameHistory {
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, data, message, errors, meta, additionalProperties);
+    return Objects.hash(data, errors, message, meta, status, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -278,11 +278,11 @@ public class BaseResponseListFunctionNameHistory {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class BaseResponseListFunctionNameHistory {\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -305,7 +305,7 @@ public class BaseResponseListFunctionNameHistory {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("status", "data", "message", "errors", "meta"));
+    openapiFields = new HashSet<String>(Arrays.asList("data", "errors", "message", "meta", "status"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -338,9 +338,6 @@ public class BaseResponseListFunctionNameHistory {
           };
         }
       }
-      if ((jsonObj.get("message") != null && !jsonObj.get("message").isJsonNull()) && !jsonObj.get("message").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
-      }
       if (jsonObj.get("errors") != null && !jsonObj.get("errors").isJsonNull()) {
         JsonArray jsonArrayerrors = jsonObj.getAsJsonArray("errors");
         if (jsonArrayerrors != null) {
@@ -354,6 +351,9 @@ public class BaseResponseListFunctionNameHistory {
             ErrorModel.validateJsonElement(jsonArrayerrors.get(i));
           };
         }
+      }
+      if ((jsonObj.get("message") != null && !jsonObj.get("message").isJsonNull()) && !jsonObj.get("message").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
       }
       // validate the optional field `meta`
       if (jsonObj.get("meta") != null && !jsonObj.get("meta").isJsonNull()) {

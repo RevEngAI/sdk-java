@@ -51,40 +51,40 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TimestampModel {
-  public static final String SERIALIZED_NAME_PE_TIMESTAMP = "pe_timestamp";
-  @SerializedName(SERIALIZED_NAME_PE_TIMESTAMP)
+  public static final String SERIALIZED_NAME_DEBUG_TIMESTAMP = "debug_timestamp";
+  @SerializedName(SERIALIZED_NAME_DEBUG_TIMESTAMP)
   @javax.annotation.Nonnull
-  private Integer peTimestamp;
+  private Integer debugTimestamp;
 
   public static final String SERIALIZED_NAME_EXPORT_TIMESTAMP = "export_timestamp";
   @SerializedName(SERIALIZED_NAME_EXPORT_TIMESTAMP)
   @javax.annotation.Nonnull
   private Integer exportTimestamp;
 
-  public static final String SERIALIZED_NAME_DEBUG_TIMESTAMP = "debug_timestamp";
-  @SerializedName(SERIALIZED_NAME_DEBUG_TIMESTAMP)
+  public static final String SERIALIZED_NAME_PE_TIMESTAMP = "pe_timestamp";
+  @SerializedName(SERIALIZED_NAME_PE_TIMESTAMP)
   @javax.annotation.Nonnull
-  private Integer debugTimestamp;
+  private Integer peTimestamp;
 
   public TimestampModel() {
   }
 
-  public TimestampModel peTimestamp(@javax.annotation.Nonnull Integer peTimestamp) {
-    this.peTimestamp = peTimestamp;
+  public TimestampModel debugTimestamp(@javax.annotation.Nonnull Integer debugTimestamp) {
+    this.debugTimestamp = debugTimestamp;
     return this;
   }
 
   /**
-   * Get peTimestamp
-   * @return peTimestamp
+   * Get debugTimestamp
+   * @return debugTimestamp
    */
   @javax.annotation.Nonnull
-  public Integer getPeTimestamp() {
-    return peTimestamp;
+  public Integer getDebugTimestamp() {
+    return debugTimestamp;
   }
 
-  public void setPeTimestamp(@javax.annotation.Nonnull Integer peTimestamp) {
-    this.peTimestamp = peTimestamp;
+  public void setDebugTimestamp(@javax.annotation.Nonnull Integer debugTimestamp) {
+    this.debugTimestamp = debugTimestamp;
   }
 
 
@@ -107,22 +107,22 @@ public class TimestampModel {
   }
 
 
-  public TimestampModel debugTimestamp(@javax.annotation.Nonnull Integer debugTimestamp) {
-    this.debugTimestamp = debugTimestamp;
+  public TimestampModel peTimestamp(@javax.annotation.Nonnull Integer peTimestamp) {
+    this.peTimestamp = peTimestamp;
     return this;
   }
 
   /**
-   * Get debugTimestamp
-   * @return debugTimestamp
+   * Get peTimestamp
+   * @return peTimestamp
    */
   @javax.annotation.Nonnull
-  public Integer getDebugTimestamp() {
-    return debugTimestamp;
+  public Integer getPeTimestamp() {
+    return peTimestamp;
   }
 
-  public void setDebugTimestamp(@javax.annotation.Nonnull Integer debugTimestamp) {
-    this.debugTimestamp = debugTimestamp;
+  public void setPeTimestamp(@javax.annotation.Nonnull Integer peTimestamp) {
+    this.peTimestamp = peTimestamp;
   }
 
   /**
@@ -180,24 +180,24 @@ public class TimestampModel {
       return false;
     }
     TimestampModel timestampModel = (TimestampModel) o;
-    return Objects.equals(this.peTimestamp, timestampModel.peTimestamp) &&
+    return Objects.equals(this.debugTimestamp, timestampModel.debugTimestamp) &&
         Objects.equals(this.exportTimestamp, timestampModel.exportTimestamp) &&
-        Objects.equals(this.debugTimestamp, timestampModel.debugTimestamp)&&
+        Objects.equals(this.peTimestamp, timestampModel.peTimestamp)&&
         Objects.equals(this.additionalProperties, timestampModel.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(peTimestamp, exportTimestamp, debugTimestamp, additionalProperties);
+    return Objects.hash(debugTimestamp, exportTimestamp, peTimestamp, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TimestampModel {\n");
-    sb.append("    peTimestamp: ").append(toIndentedString(peTimestamp)).append("\n");
-    sb.append("    exportTimestamp: ").append(toIndentedString(exportTimestamp)).append("\n");
     sb.append("    debugTimestamp: ").append(toIndentedString(debugTimestamp)).append("\n");
+    sb.append("    exportTimestamp: ").append(toIndentedString(exportTimestamp)).append("\n");
+    sb.append("    peTimestamp: ").append(toIndentedString(peTimestamp)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -220,10 +220,10 @@ public class TimestampModel {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("pe_timestamp", "export_timestamp", "debug_timestamp"));
+    openapiFields = new HashSet<String>(Arrays.asList("debug_timestamp", "export_timestamp", "pe_timestamp"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("pe_timestamp", "export_timestamp", "debug_timestamp"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("debug_timestamp", "export_timestamp", "pe_timestamp"));
   }
 
   /**

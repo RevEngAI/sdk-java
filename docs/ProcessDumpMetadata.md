@@ -8,8 +8,8 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**sha256** | **String** |  |  |
-|**type** | **String** |  |  |
 |**size** | **Integer** |  |  |
+|**type** | **String** |  |  |
 
 
 

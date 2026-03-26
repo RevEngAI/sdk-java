@@ -7,13 +7,13 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**address** | **Integer** |  |  |
-|**type** | **String** |  |  |
-|**size** | **Integer** |  |  |
 |**addend** | **Integer** |  |  |
-|**symbolName** | **String** |  |  |
+|**address** | **Integer** |  |  |
 |**isDynamic** | **Boolean** |  |  |
 |**isPltgot** | **Boolean** |  |  |
+|**size** | **Integer** |  |  |
+|**symbolName** | **String** |  |  |
+|**type** | **String** |  |  |
 
 
 

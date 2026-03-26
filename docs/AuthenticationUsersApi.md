@@ -341,6 +341,6 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful Response |  -  |
-| **422** | Invalid request parameters |  -  |
 | **401** | Invalid credentials |  -  |
+| **422** | Invalid request parameters |  -  |
 
