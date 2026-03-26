@@ -787,7 +787,7 @@ public class FunctionsAiDecompilationApi {
      * Build call for getAiDecompilationTaskResult
      * @param functionId The ID of the function being decompiled (required)
      * @param summarise Generate a summary for the decompilation (optional, default to true)
-     * @param generateInlineComments Generate inline comments for the decompilation (only works if summarise is enabled) (optional, default to true)
+     * @param generateInlineComments Generate inline comments for the decompilation (optional, default to true)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -869,7 +869,7 @@ public class FunctionsAiDecompilationApi {
      * Polls the AI Decompilation Process
      * @param functionId The ID of the function being decompiled (required)
      * @param summarise Generate a summary for the decompilation (optional, default to true)
-     * @param generateInlineComments Generate inline comments for the decompilation (only works if summarise is enabled) (optional, default to true)
+     * @param generateInlineComments Generate inline comments for the decompilation (optional, default to true)
      * @return BaseResponseGetAiDecompilationTask
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -891,7 +891,7 @@ public class FunctionsAiDecompilationApi {
      * Polls the AI Decompilation Process
      * @param functionId The ID of the function being decompiled (required)
      * @param summarise Generate a summary for the decompilation (optional, default to true)
-     * @param generateInlineComments Generate inline comments for the decompilation (only works if summarise is enabled) (optional, default to true)
+     * @param generateInlineComments Generate inline comments for the decompilation (optional, default to true)
      * @return ApiResponse&lt;BaseResponseGetAiDecompilationTask&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -914,7 +914,7 @@ public class FunctionsAiDecompilationApi {
      * Polls the AI Decompilation Process
      * @param functionId The ID of the function being decompiled (required)
      * @param summarise Generate a summary for the decompilation (optional, default to true)
-     * @param generateInlineComments Generate inline comments for the decompilation (only works if summarise is enabled) (optional, default to true)
+     * @param generateInlineComments Generate inline comments for the decompilation (optional, default to true)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

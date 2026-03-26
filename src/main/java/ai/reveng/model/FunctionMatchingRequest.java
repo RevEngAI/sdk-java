@@ -69,7 +69,7 @@ public class FunctionMatchingRequest {
   public static final String SERIALIZED_NAME_MIN_SIMILARITY = "min_similarity";
   @SerializedName(SERIALIZED_NAME_MIN_SIMILARITY)
   @javax.annotation.Nullable
-  private BigDecimal minSimilarity = new BigDecimal("90.0");
+  private BigDecimal minSimilarity = new BigDecimal("90");
 
   public static final String SERIALIZED_NAME_FILTERS = "filters";
   @SerializedName(SERIALIZED_NAME_FILTERS)
@@ -165,8 +165,8 @@ public class FunctionMatchingRequest {
 
   /**
    * Minimum similarity expected for a match as a percentage, default is 90
-   * minimum: 0.0
-   * maximum: 100.0
+   * minimum: 0
+   * maximum: 100
    * @return minSimilarity
    */
   @javax.annotation.Nullable

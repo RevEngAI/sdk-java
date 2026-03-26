@@ -50,6 +50,7 @@ import java.io.File;
 import ai.reveng.model.InsertAnalysisLogRequest;
 import ai.reveng.model.ModelName;
 import ai.reveng.model.Order;
+import ai.reveng.model.PutAnalysisStringsRequest;
 import ai.reveng.model.ReAnalysisForm;
 import ai.reveng.model.StatusInput;
 import ai.reveng.model.UploadFileType;
@@ -1649,6 +1650,147 @@ public class AnalysesCoreApi {
 
         okhttp3.Call localVarCall = lookupBinaryIdValidateBeforeCall(binaryId, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for putAnalysisStrings
+     * @param analysisId  (required)
+     * @param putAnalysisStringsRequest  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call putAnalysisStringsCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull PutAnalysisStringsRequest putAnalysisStringsRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = putAnalysisStringsRequest;
+
+        // create path and map variables
+        String localVarPath = "/v2/analyses/{analysis_id}/strings"
+            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call putAnalysisStringsValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull PutAnalysisStringsRequest putAnalysisStringsRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'analysisId' is set
+        if (analysisId == null) {
+            throw new ApiException("Missing the required parameter 'analysisId' when calling putAnalysisStrings(Async)");
+        }
+
+        // verify the required parameter 'putAnalysisStringsRequest' is set
+        if (putAnalysisStringsRequest == null) {
+            throw new ApiException("Missing the required parameter 'putAnalysisStringsRequest' when calling putAnalysisStrings(Async)");
+        }
+
+        return putAnalysisStringsCall(analysisId, putAnalysisStringsRequest, _callback);
+
+    }
+
+    /**
+     * Add strings to the analysis
+     * Add strings to the analysis. Rejects if any string already exists at the given vaddr.
+     * @param analysisId  (required)
+     * @param putAnalysisStringsRequest  (required)
+     * @return BaseResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+     </table>
+     */
+    public BaseResponse putAnalysisStrings(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull PutAnalysisStringsRequest putAnalysisStringsRequest) throws ApiException {
+        ApiResponse<BaseResponse> localVarResp = putAnalysisStringsWithHttpInfo(analysisId, putAnalysisStringsRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Add strings to the analysis
+     * Add strings to the analysis. Rejects if any string already exists at the given vaddr.
+     * @param analysisId  (required)
+     * @param putAnalysisStringsRequest  (required)
+     * @return ApiResponse&lt;BaseResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<BaseResponse> putAnalysisStringsWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull PutAnalysisStringsRequest putAnalysisStringsRequest) throws ApiException {
+        okhttp3.Call localVarCall = putAnalysisStringsValidateBeforeCall(analysisId, putAnalysisStringsRequest, null);
+        Type localVarReturnType = new TypeToken<BaseResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Add strings to the analysis (asynchronously)
+     * Add strings to the analysis. Rejects if any string already exists at the given vaddr.
+     * @param analysisId  (required)
+     * @param putAnalysisStringsRequest  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call putAnalysisStringsAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull PutAnalysisStringsRequest putAnalysisStringsRequest, final ApiCallback<BaseResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = putAnalysisStringsValidateBeforeCall(analysisId, putAnalysisStringsRequest, _callback);
+        Type localVarReturnType = new TypeToken<BaseResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
