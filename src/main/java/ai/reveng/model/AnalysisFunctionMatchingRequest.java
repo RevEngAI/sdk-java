@@ -146,9 +146,9 @@ public class AnalysisFunctionMatchingRequest {
   }
 
   /**
-   * Maximum number of matches to return per function, default is 1, max is 10
+   * Maximum number of matches to return per function, default is 1, max is 30
    * minimum: 1
-   * maximum: 10
+   * maximum: 30
    * @return resultsPerFunction
    */
   @javax.annotation.Nullable
