@@ -20,11 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -84,16 +80,6 @@ public class AppApiRestV2FunctionsTypesFunction {
   @SerializedName(SERIALIZED_NAME_DEBUG)
   @javax.annotation.Nonnull
   private Boolean debug;
-
-  public static final String SERIALIZED_NAME_EMBEDDING3D = "embedding_3d";
-  @SerializedName(SERIALIZED_NAME_EMBEDDING3D)
-  @javax.annotation.Nullable
-  private List<BigDecimal> embedding3d;
-
-  public static final String SERIALIZED_NAME_EMBEDDING1D = "embedding_1d";
-  @SerializedName(SERIALIZED_NAME_EMBEDDING1D)
-  @javax.annotation.Nullable
-  private List<BigDecimal> embedding1d;
 
   public AppApiRestV2FunctionsTypesFunction() {
   }
@@ -211,60 +197,6 @@ public class AppApiRestV2FunctionsTypesFunction {
     this.debug = debug;
   }
 
-
-  public AppApiRestV2FunctionsTypesFunction embedding3d(@javax.annotation.Nullable List<BigDecimal> embedding3d) {
-    this.embedding3d = embedding3d;
-    return this;
-  }
-
-  public AppApiRestV2FunctionsTypesFunction addEmbedding3dItem(BigDecimal embedding3dItem) {
-    if (this.embedding3d == null) {
-      this.embedding3d = new ArrayList<>();
-    }
-    this.embedding3d.add(embedding3dItem);
-    return this;
-  }
-
-  /**
-   * Get embedding3d
-   * @return embedding3d
-   */
-  @javax.annotation.Nullable
-  public List<BigDecimal> getEmbedding3d() {
-    return embedding3d;
-  }
-
-  public void setEmbedding3d(@javax.annotation.Nullable List<BigDecimal> embedding3d) {
-    this.embedding3d = embedding3d;
-  }
-
-
-  public AppApiRestV2FunctionsTypesFunction embedding1d(@javax.annotation.Nullable List<BigDecimal> embedding1d) {
-    this.embedding1d = embedding1d;
-    return this;
-  }
-
-  public AppApiRestV2FunctionsTypesFunction addEmbedding1dItem(BigDecimal embedding1dItem) {
-    if (this.embedding1d == null) {
-      this.embedding1d = new ArrayList<>();
-    }
-    this.embedding1d.add(embedding1dItem);
-    return this;
-  }
-
-  /**
-   * Get embedding1d
-   * @return embedding1d
-   */
-  @javax.annotation.Nullable
-  public List<BigDecimal> getEmbedding1d() {
-    return embedding1d;
-  }
-
-  public void setEmbedding1d(@javax.annotation.Nullable List<BigDecimal> embedding1d) {
-    this.embedding1d = embedding1d;
-  }
-
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -325,26 +257,13 @@ public class AppApiRestV2FunctionsTypesFunction {
         Objects.equals(this.functionMangledName, appApiRestV2FunctionsTypesFunction.functionMangledName) &&
         Objects.equals(this.functionVaddr, appApiRestV2FunctionsTypesFunction.functionVaddr) &&
         Objects.equals(this.functionSize, appApiRestV2FunctionsTypesFunction.functionSize) &&
-        Objects.equals(this.debug, appApiRestV2FunctionsTypesFunction.debug) &&
-        Objects.equals(this.embedding3d, appApiRestV2FunctionsTypesFunction.embedding3d) &&
-        Objects.equals(this.embedding1d, appApiRestV2FunctionsTypesFunction.embedding1d)&&
+        Objects.equals(this.debug, appApiRestV2FunctionsTypesFunction.debug)&&
         Objects.equals(this.additionalProperties, appApiRestV2FunctionsTypesFunction.additionalProperties);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(functionId, functionName, functionMangledName, functionVaddr, functionSize, debug, embedding3d, embedding1d, additionalProperties);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(functionId, functionName, functionMangledName, functionVaddr, functionSize, debug, additionalProperties);
   }
 
   @Override
@@ -357,8 +276,6 @@ public class AppApiRestV2FunctionsTypesFunction {
     sb.append("    functionVaddr: ").append(toIndentedString(functionVaddr)).append("\n");
     sb.append("    functionSize: ").append(toIndentedString(functionSize)).append("\n");
     sb.append("    debug: ").append(toIndentedString(debug)).append("\n");
-    sb.append("    embedding3d: ").append(toIndentedString(embedding3d)).append("\n");
-    sb.append("    embedding1d: ").append(toIndentedString(embedding1d)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -381,7 +298,7 @@ public class AppApiRestV2FunctionsTypesFunction {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("function_id", "function_name", "function_mangled_name", "function_vaddr", "function_size", "debug", "embedding_3d", "embedding_1d"));
+    openapiFields = new HashSet<String>(Arrays.asList("function_id", "function_name", "function_mangled_name", "function_vaddr", "function_size", "debug"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("function_id", "function_name", "function_mangled_name", "function_vaddr", "function_size", "debug"));
@@ -412,14 +329,6 @@ public class AppApiRestV2FunctionsTypesFunction {
       }
       if (!jsonObj.get("function_mangled_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `function_mangled_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("function_mangled_name").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("embedding_3d") != null && !jsonObj.get("embedding_3d").isJsonNull() && !jsonObj.get("embedding_3d").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `embedding_3d` to be an array in the JSON string but got `%s`", jsonObj.get("embedding_3d").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("embedding_1d") != null && !jsonObj.get("embedding_1d").isJsonNull() && !jsonObj.get("embedding_1d").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `embedding_1d` to be an array in the JSON string but got `%s`", jsonObj.get("embedding_1d").toString()));
       }
   }
 
