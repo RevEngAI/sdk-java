@@ -8,8 +8,8 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**filename** | **String** | The name of the file |  |
-|**sha256Hash** | **String** | The name of the file |  |
-|**tags** | [**List&lt;Tag&gt;**](Tag.md) | List of community tags to assign to an analysis |  [optional] |
+|**sha256Hash** | **String** | The sha256 hash of the file |  |
+|**tags** | [**List&lt;Tag&gt;**](Tag.md) | List of tags to assign to an analysis |  [optional] |
 |**analysisScope** | **AnalysisScope** | The scope of the analysis determines who can access it |  [optional] |
 |**symbols** | [**Symbols**](Symbols.md) |  |  [optional] |
 |**debugHash** | **String** |  |  [optional] |

@@ -133,7 +133,7 @@ public class AnalysisCreateRequest {
   }
 
   /**
-   * The name of the file
+   * The sha256 hash of the file
    * @return sha256Hash
    */
   @javax.annotation.Nonnull
@@ -160,7 +160,7 @@ public class AnalysisCreateRequest {
   }
 
   /**
-   * List of community tags to assign to an analysis
+   * List of tags to assign to an analysis
    * @return tags
    */
   @javax.annotation.Nullable
