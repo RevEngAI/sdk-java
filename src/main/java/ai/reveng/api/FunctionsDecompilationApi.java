@@ -80,6 +80,12 @@ public class FunctionsDecompilationApi {
      * Build call for createDecompilationComment
      * @param functionId  (required)
      * @param functionCommentCreateRequest  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -92,7 +98,7 @@ public class FunctionsDecompilationApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createDecompilationCommentCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull FunctionCommentCreateRequest functionCommentCreateRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createDecompilationCommentCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull FunctionCommentCreateRequest functionCommentCreateRequest, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -118,6 +124,30 @@ public class FunctionsDecompilationApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (endpointUrl != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("endpoint_url", endpointUrl));
+        }
+
+        if (localCacheDir != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_dir", localCacheDir));
+        }
+
+        if (localCacheMaxSizeMb != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_max_size_mb", localCacheMaxSizeMb));
+        }
+
+        if (customerSamplesBucket != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("customer_samples_bucket", customerSamplesBucket));
+        }
+
+        if (firmwareSamplesBucket != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("firmware_samples_bucket", firmwareSamplesBucket));
+        }
+
+        if (maxRetryAttempts != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("max_retry_attempts", maxRetryAttempts));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -139,7 +169,7 @@ public class FunctionsDecompilationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createDecompilationCommentValidateBeforeCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull FunctionCommentCreateRequest functionCommentCreateRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createDecompilationCommentValidateBeforeCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull FunctionCommentCreateRequest functionCommentCreateRequest, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'functionId' is set
         if (functionId == null) {
             throw new ApiException("Missing the required parameter 'functionId' when calling createDecompilationComment(Async)");
@@ -150,7 +180,7 @@ public class FunctionsDecompilationApi {
             throw new ApiException("Missing the required parameter 'functionCommentCreateRequest' when calling createDecompilationComment(Async)");
         }
 
-        return createDecompilationCommentCall(functionId, functionCommentCreateRequest, _callback);
+        return createDecompilationCommentCall(functionId, functionCommentCreateRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, _callback);
 
     }
 
@@ -159,6 +189,12 @@ public class FunctionsDecompilationApi {
      * Creates a comment associated with a specified function).
      * @param functionId  (required)
      * @param functionCommentCreateRequest  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @return BaseResponseCommentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -170,8 +206,8 @@ public class FunctionsDecompilationApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseCommentResponse createDecompilationComment(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull FunctionCommentCreateRequest functionCommentCreateRequest) throws ApiException {
-        ApiResponse<BaseResponseCommentResponse> localVarResp = createDecompilationCommentWithHttpInfo(functionId, functionCommentCreateRequest);
+    public BaseResponseCommentResponse createDecompilationComment(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull FunctionCommentCreateRequest functionCommentCreateRequest, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts) throws ApiException {
+        ApiResponse<BaseResponseCommentResponse> localVarResp = createDecompilationCommentWithHttpInfo(functionId, functionCommentCreateRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
         return localVarResp.getData();
     }
 
@@ -180,6 +216,12 @@ public class FunctionsDecompilationApi {
      * Creates a comment associated with a specified function).
      * @param functionId  (required)
      * @param functionCommentCreateRequest  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @return ApiResponse&lt;BaseResponseCommentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -191,8 +233,8 @@ public class FunctionsDecompilationApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseCommentResponse> createDecompilationCommentWithHttpInfo(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull FunctionCommentCreateRequest functionCommentCreateRequest) throws ApiException {
-        okhttp3.Call localVarCall = createDecompilationCommentValidateBeforeCall(functionId, functionCommentCreateRequest, null);
+    public ApiResponse<BaseResponseCommentResponse> createDecompilationCommentWithHttpInfo(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull FunctionCommentCreateRequest functionCommentCreateRequest, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts) throws ApiException {
+        okhttp3.Call localVarCall = createDecompilationCommentValidateBeforeCall(functionId, functionCommentCreateRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, null);
         Type localVarReturnType = new TypeToken<BaseResponseCommentResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -202,6 +244,12 @@ public class FunctionsDecompilationApi {
      * Creates a comment associated with a specified function).
      * @param functionId  (required)
      * @param functionCommentCreateRequest  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -214,9 +262,9 @@ public class FunctionsDecompilationApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createDecompilationCommentAsync(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull FunctionCommentCreateRequest functionCommentCreateRequest, final ApiCallback<BaseResponseCommentResponse> _callback) throws ApiException {
+    public okhttp3.Call createDecompilationCommentAsync(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull FunctionCommentCreateRequest functionCommentCreateRequest, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback<BaseResponseCommentResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createDecompilationCommentValidateBeforeCall(functionId, functionCommentCreateRequest, _callback);
+        okhttp3.Call localVarCall = createDecompilationCommentValidateBeforeCall(functionId, functionCommentCreateRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseCommentResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -225,6 +273,12 @@ public class FunctionsDecompilationApi {
      * Build call for deleteDecompilationComment
      * @param commentId  (required)
      * @param functionId  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -238,7 +292,7 @@ public class FunctionsDecompilationApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteDecompilationCommentCall(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteDecompilationCommentCall(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -265,6 +319,30 @@ public class FunctionsDecompilationApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (endpointUrl != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("endpoint_url", endpointUrl));
+        }
+
+        if (localCacheDir != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_dir", localCacheDir));
+        }
+
+        if (localCacheMaxSizeMb != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_max_size_mb", localCacheMaxSizeMb));
+        }
+
+        if (customerSamplesBucket != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("customer_samples_bucket", customerSamplesBucket));
+        }
+
+        if (firmwareSamplesBucket != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("firmware_samples_bucket", firmwareSamplesBucket));
+        }
+
+        if (maxRetryAttempts != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("max_retry_attempts", maxRetryAttempts));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -285,7 +363,7 @@ public class FunctionsDecompilationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteDecompilationCommentValidateBeforeCall(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteDecompilationCommentValidateBeforeCall(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'commentId' is set
         if (commentId == null) {
             throw new ApiException("Missing the required parameter 'commentId' when calling deleteDecompilationComment(Async)");
@@ -296,7 +374,7 @@ public class FunctionsDecompilationApi {
             throw new ApiException("Missing the required parameter 'functionId' when calling deleteDecompilationComment(Async)");
         }
 
-        return deleteDecompilationCommentCall(commentId, functionId, _callback);
+        return deleteDecompilationCommentCall(commentId, functionId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, _callback);
 
     }
 
@@ -305,6 +383,12 @@ public class FunctionsDecompilationApi {
      * Deletes an existing comment. Users can only delete their own comments.
      * @param commentId  (required)
      * @param functionId  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @return BaseResponseBool
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -317,8 +401,8 @@ public class FunctionsDecompilationApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseBool deleteDecompilationComment(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId) throws ApiException {
-        ApiResponse<BaseResponseBool> localVarResp = deleteDecompilationCommentWithHttpInfo(commentId, functionId);
+    public BaseResponseBool deleteDecompilationComment(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts) throws ApiException {
+        ApiResponse<BaseResponseBool> localVarResp = deleteDecompilationCommentWithHttpInfo(commentId, functionId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
         return localVarResp.getData();
     }
 
@@ -327,6 +411,12 @@ public class FunctionsDecompilationApi {
      * Deletes an existing comment. Users can only delete their own comments.
      * @param commentId  (required)
      * @param functionId  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @return ApiResponse&lt;BaseResponseBool&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -339,8 +429,8 @@ public class FunctionsDecompilationApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseBool> deleteDecompilationCommentWithHttpInfo(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId) throws ApiException {
-        okhttp3.Call localVarCall = deleteDecompilationCommentValidateBeforeCall(commentId, functionId, null);
+    public ApiResponse<BaseResponseBool> deleteDecompilationCommentWithHttpInfo(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts) throws ApiException {
+        okhttp3.Call localVarCall = deleteDecompilationCommentValidateBeforeCall(commentId, functionId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, null);
         Type localVarReturnType = new TypeToken<BaseResponseBool>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -350,6 +440,12 @@ public class FunctionsDecompilationApi {
      * Deletes an existing comment. Users can only delete their own comments.
      * @param commentId  (required)
      * @param functionId  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -363,9 +459,9 @@ public class FunctionsDecompilationApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteDecompilationCommentAsync(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId, final ApiCallback<BaseResponseBool> _callback) throws ApiException {
+    public okhttp3.Call deleteDecompilationCommentAsync(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback<BaseResponseBool> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteDecompilationCommentValidateBeforeCall(commentId, functionId, _callback);
+        okhttp3.Call localVarCall = deleteDecompilationCommentValidateBeforeCall(commentId, functionId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseBool>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -373,6 +469,12 @@ public class FunctionsDecompilationApi {
     /**
      * Build call for getDecompilationComments
      * @param functionId  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -384,7 +486,7 @@ public class FunctionsDecompilationApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getDecompilationCommentsCall(@javax.annotation.Nonnull Integer functionId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getDecompilationCommentsCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -410,6 +512,30 @@ public class FunctionsDecompilationApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (endpointUrl != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("endpoint_url", endpointUrl));
+        }
+
+        if (localCacheDir != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_dir", localCacheDir));
+        }
+
+        if (localCacheMaxSizeMb != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_max_size_mb", localCacheMaxSizeMb));
+        }
+
+        if (customerSamplesBucket != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("customer_samples_bucket", customerSamplesBucket));
+        }
+
+        if (firmwareSamplesBucket != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("firmware_samples_bucket", firmwareSamplesBucket));
+        }
+
+        if (maxRetryAttempts != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("max_retry_attempts", maxRetryAttempts));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -430,13 +556,13 @@ public class FunctionsDecompilationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getDecompilationCommentsValidateBeforeCall(@javax.annotation.Nonnull Integer functionId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getDecompilationCommentsValidateBeforeCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'functionId' is set
         if (functionId == null) {
             throw new ApiException("Missing the required parameter 'functionId' when calling getDecompilationComments(Async)");
         }
 
-        return getDecompilationCommentsCall(functionId, _callback);
+        return getDecompilationCommentsCall(functionId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, _callback);
 
     }
 
@@ -444,6 +570,12 @@ public class FunctionsDecompilationApi {
      * Get comments for this function
      * Retrieves all comments created for a specific function. Only returns comments for resources the requesting user has access to.
      * @param functionId  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @return BaseResponseListCommentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -454,8 +586,8 @@ public class FunctionsDecompilationApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseListCommentResponse getDecompilationComments(@javax.annotation.Nonnull Integer functionId) throws ApiException {
-        ApiResponse<BaseResponseListCommentResponse> localVarResp = getDecompilationCommentsWithHttpInfo(functionId);
+    public BaseResponseListCommentResponse getDecompilationComments(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts) throws ApiException {
+        ApiResponse<BaseResponseListCommentResponse> localVarResp = getDecompilationCommentsWithHttpInfo(functionId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
         return localVarResp.getData();
     }
 
@@ -463,6 +595,12 @@ public class FunctionsDecompilationApi {
      * Get comments for this function
      * Retrieves all comments created for a specific function. Only returns comments for resources the requesting user has access to.
      * @param functionId  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @return ApiResponse&lt;BaseResponseListCommentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -473,8 +611,8 @@ public class FunctionsDecompilationApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseListCommentResponse> getDecompilationCommentsWithHttpInfo(@javax.annotation.Nonnull Integer functionId) throws ApiException {
-        okhttp3.Call localVarCall = getDecompilationCommentsValidateBeforeCall(functionId, null);
+    public ApiResponse<BaseResponseListCommentResponse> getDecompilationCommentsWithHttpInfo(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts) throws ApiException {
+        okhttp3.Call localVarCall = getDecompilationCommentsValidateBeforeCall(functionId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, null);
         Type localVarReturnType = new TypeToken<BaseResponseListCommentResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -483,6 +621,12 @@ public class FunctionsDecompilationApi {
      * Get comments for this function (asynchronously)
      * Retrieves all comments created for a specific function. Only returns comments for resources the requesting user has access to.
      * @param functionId  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -494,9 +638,9 @@ public class FunctionsDecompilationApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getDecompilationCommentsAsync(@javax.annotation.Nonnull Integer functionId, final ApiCallback<BaseResponseListCommentResponse> _callback) throws ApiException {
+    public okhttp3.Call getDecompilationCommentsAsync(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback<BaseResponseListCommentResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getDecompilationCommentsValidateBeforeCall(functionId, _callback);
+        okhttp3.Call localVarCall = getDecompilationCommentsValidateBeforeCall(functionId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseListCommentResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -506,6 +650,12 @@ public class FunctionsDecompilationApi {
      * @param commentId  (required)
      * @param functionId  (required)
      * @param commentUpdateRequest  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -519,7 +669,7 @@ public class FunctionsDecompilationApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateDecompilationCommentCall(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull CommentUpdateRequest commentUpdateRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateDecompilationCommentCall(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull CommentUpdateRequest commentUpdateRequest, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -546,6 +696,30 @@ public class FunctionsDecompilationApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (endpointUrl != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("endpoint_url", endpointUrl));
+        }
+
+        if (localCacheDir != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_dir", localCacheDir));
+        }
+
+        if (localCacheMaxSizeMb != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_max_size_mb", localCacheMaxSizeMb));
+        }
+
+        if (customerSamplesBucket != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("customer_samples_bucket", customerSamplesBucket));
+        }
+
+        if (firmwareSamplesBucket != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("firmware_samples_bucket", firmwareSamplesBucket));
+        }
+
+        if (maxRetryAttempts != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("max_retry_attempts", maxRetryAttempts));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -567,7 +741,7 @@ public class FunctionsDecompilationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateDecompilationCommentValidateBeforeCall(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull CommentUpdateRequest commentUpdateRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateDecompilationCommentValidateBeforeCall(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull CommentUpdateRequest commentUpdateRequest, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'commentId' is set
         if (commentId == null) {
             throw new ApiException("Missing the required parameter 'commentId' when calling updateDecompilationComment(Async)");
@@ -583,7 +757,7 @@ public class FunctionsDecompilationApi {
             throw new ApiException("Missing the required parameter 'commentUpdateRequest' when calling updateDecompilationComment(Async)");
         }
 
-        return updateDecompilationCommentCall(commentId, functionId, commentUpdateRequest, _callback);
+        return updateDecompilationCommentCall(commentId, functionId, commentUpdateRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, _callback);
 
     }
 
@@ -593,6 +767,12 @@ public class FunctionsDecompilationApi {
      * @param commentId  (required)
      * @param functionId  (required)
      * @param commentUpdateRequest  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @return BaseResponseCommentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -605,8 +785,8 @@ public class FunctionsDecompilationApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseCommentResponse updateDecompilationComment(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull CommentUpdateRequest commentUpdateRequest) throws ApiException {
-        ApiResponse<BaseResponseCommentResponse> localVarResp = updateDecompilationCommentWithHttpInfo(commentId, functionId, commentUpdateRequest);
+    public BaseResponseCommentResponse updateDecompilationComment(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull CommentUpdateRequest commentUpdateRequest, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts) throws ApiException {
+        ApiResponse<BaseResponseCommentResponse> localVarResp = updateDecompilationCommentWithHttpInfo(commentId, functionId, commentUpdateRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
         return localVarResp.getData();
     }
 
@@ -616,6 +796,12 @@ public class FunctionsDecompilationApi {
      * @param commentId  (required)
      * @param functionId  (required)
      * @param commentUpdateRequest  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @return ApiResponse&lt;BaseResponseCommentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -628,8 +814,8 @@ public class FunctionsDecompilationApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseCommentResponse> updateDecompilationCommentWithHttpInfo(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull CommentUpdateRequest commentUpdateRequest) throws ApiException {
-        okhttp3.Call localVarCall = updateDecompilationCommentValidateBeforeCall(commentId, functionId, commentUpdateRequest, null);
+    public ApiResponse<BaseResponseCommentResponse> updateDecompilationCommentWithHttpInfo(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull CommentUpdateRequest commentUpdateRequest, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts) throws ApiException {
+        okhttp3.Call localVarCall = updateDecompilationCommentValidateBeforeCall(commentId, functionId, commentUpdateRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, null);
         Type localVarReturnType = new TypeToken<BaseResponseCommentResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -640,6 +826,12 @@ public class FunctionsDecompilationApi {
      * @param commentId  (required)
      * @param functionId  (required)
      * @param commentUpdateRequest  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -653,9 +845,9 @@ public class FunctionsDecompilationApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateDecompilationCommentAsync(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull CommentUpdateRequest commentUpdateRequest, final ApiCallback<BaseResponseCommentResponse> _callback) throws ApiException {
+    public okhttp3.Call updateDecompilationCommentAsync(@javax.annotation.Nonnull Integer commentId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull CommentUpdateRequest commentUpdateRequest, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback<BaseResponseCommentResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateDecompilationCommentValidateBeforeCall(commentId, functionId, commentUpdateRequest, _callback);
+        okhttp3.Call localVarCall = updateDecompilationCommentValidateBeforeCall(commentId, functionId, commentUpdateRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseCommentResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

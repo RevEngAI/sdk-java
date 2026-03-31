@@ -102,6 +102,12 @@ public class AnalysesCoreApi {
     /**
      * Build call for bulkAddAnalysisTags
      * @param analysisBulkAddTagsRequest  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -113,7 +119,7 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call bulkAddAnalysisTagsCall(@javax.annotation.Nonnull AnalysisBulkAddTagsRequest analysisBulkAddTagsRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call bulkAddAnalysisTagsCall(@javax.annotation.Nonnull AnalysisBulkAddTagsRequest analysisBulkAddTagsRequest, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -138,6 +144,30 @@ public class AnalysesCoreApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (endpointUrl != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("endpoint_url", endpointUrl));
+        }
+
+        if (localCacheDir != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_dir", localCacheDir));
+        }
+
+        if (localCacheMaxSizeMb != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_max_size_mb", localCacheMaxSizeMb));
+        }
+
+        if (customerSamplesBucket != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("customer_samples_bucket", customerSamplesBucket));
+        }
+
+        if (firmwareSamplesBucket != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("firmware_samples_bucket", firmwareSamplesBucket));
+        }
+
+        if (maxRetryAttempts != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("max_retry_attempts", maxRetryAttempts));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -159,13 +189,13 @@ public class AnalysesCoreApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call bulkAddAnalysisTagsValidateBeforeCall(@javax.annotation.Nonnull AnalysisBulkAddTagsRequest analysisBulkAddTagsRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call bulkAddAnalysisTagsValidateBeforeCall(@javax.annotation.Nonnull AnalysisBulkAddTagsRequest analysisBulkAddTagsRequest, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisBulkAddTagsRequest' is set
         if (analysisBulkAddTagsRequest == null) {
             throw new ApiException("Missing the required parameter 'analysisBulkAddTagsRequest' when calling bulkAddAnalysisTags(Async)");
         }
 
-        return bulkAddAnalysisTagsCall(analysisBulkAddTagsRequest, _callback);
+        return bulkAddAnalysisTagsCall(analysisBulkAddTagsRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, _callback);
 
     }
 
@@ -173,6 +203,12 @@ public class AnalysesCoreApi {
      * Bulk Add Analysis Tags
      * Updates analysis tags for multiple analyses. User must be the owner.
      * @param analysisBulkAddTagsRequest  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @return BaseResponseAnalysisBulkAddTagsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -183,8 +219,8 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseAnalysisBulkAddTagsResponse bulkAddAnalysisTags(@javax.annotation.Nonnull AnalysisBulkAddTagsRequest analysisBulkAddTagsRequest) throws ApiException {
-        ApiResponse<BaseResponseAnalysisBulkAddTagsResponse> localVarResp = bulkAddAnalysisTagsWithHttpInfo(analysisBulkAddTagsRequest);
+    public BaseResponseAnalysisBulkAddTagsResponse bulkAddAnalysisTags(@javax.annotation.Nonnull AnalysisBulkAddTagsRequest analysisBulkAddTagsRequest, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts) throws ApiException {
+        ApiResponse<BaseResponseAnalysisBulkAddTagsResponse> localVarResp = bulkAddAnalysisTagsWithHttpInfo(analysisBulkAddTagsRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
         return localVarResp.getData();
     }
 
@@ -192,6 +228,12 @@ public class AnalysesCoreApi {
      * Bulk Add Analysis Tags
      * Updates analysis tags for multiple analyses. User must be the owner.
      * @param analysisBulkAddTagsRequest  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @return ApiResponse&lt;BaseResponseAnalysisBulkAddTagsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -202,8 +244,8 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseAnalysisBulkAddTagsResponse> bulkAddAnalysisTagsWithHttpInfo(@javax.annotation.Nonnull AnalysisBulkAddTagsRequest analysisBulkAddTagsRequest) throws ApiException {
-        okhttp3.Call localVarCall = bulkAddAnalysisTagsValidateBeforeCall(analysisBulkAddTagsRequest, null);
+    public ApiResponse<BaseResponseAnalysisBulkAddTagsResponse> bulkAddAnalysisTagsWithHttpInfo(@javax.annotation.Nonnull AnalysisBulkAddTagsRequest analysisBulkAddTagsRequest, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts) throws ApiException {
+        okhttp3.Call localVarCall = bulkAddAnalysisTagsValidateBeforeCall(analysisBulkAddTagsRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, null);
         Type localVarReturnType = new TypeToken<BaseResponseAnalysisBulkAddTagsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -212,6 +254,12 @@ public class AnalysesCoreApi {
      * Bulk Add Analysis Tags (asynchronously)
      * Updates analysis tags for multiple analyses. User must be the owner.
      * @param analysisBulkAddTagsRequest  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -223,9 +271,9 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call bulkAddAnalysisTagsAsync(@javax.annotation.Nonnull AnalysisBulkAddTagsRequest analysisBulkAddTagsRequest, final ApiCallback<BaseResponseAnalysisBulkAddTagsResponse> _callback) throws ApiException {
+    public okhttp3.Call bulkAddAnalysisTagsAsync(@javax.annotation.Nonnull AnalysisBulkAddTagsRequest analysisBulkAddTagsRequest, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback<BaseResponseAnalysisBulkAddTagsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = bulkAddAnalysisTagsValidateBeforeCall(analysisBulkAddTagsRequest, _callback);
+        okhttp3.Call localVarCall = bulkAddAnalysisTagsValidateBeforeCall(analysisBulkAddTagsRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseAnalysisBulkAddTagsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -233,6 +281,12 @@ public class AnalysesCoreApi {
     /**
      * Build call for createAnalysis
      * @param analysisCreateRequest  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @param xRevEngApplication  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -247,7 +301,7 @@ public class AnalysesCoreApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAnalysisCall(@javax.annotation.Nonnull AnalysisCreateRequest analysisCreateRequest, @javax.annotation.Nullable String xRevEngApplication, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createAnalysisCall(@javax.annotation.Nonnull AnalysisCreateRequest analysisCreateRequest, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, @javax.annotation.Nullable String xRevEngApplication, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -271,6 +325,30 @@ public class AnalysesCoreApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (endpointUrl != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("endpoint_url", endpointUrl));
+        }
+
+        if (localCacheDir != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_dir", localCacheDir));
+        }
+
+        if (localCacheMaxSizeMb != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_max_size_mb", localCacheMaxSizeMb));
+        }
+
+        if (customerSamplesBucket != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("customer_samples_bucket", customerSamplesBucket));
+        }
+
+        if (firmwareSamplesBucket != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("firmware_samples_bucket", firmwareSamplesBucket));
+        }
+
+        if (maxRetryAttempts != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("max_retry_attempts", maxRetryAttempts));
+        }
 
         final String[] localVarAccepts = {
             "application/json"
@@ -298,13 +376,13 @@ public class AnalysesCoreApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createAnalysisValidateBeforeCall(@javax.annotation.Nonnull AnalysisCreateRequest analysisCreateRequest, @javax.annotation.Nullable String xRevEngApplication, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createAnalysisValidateBeforeCall(@javax.annotation.Nonnull AnalysisCreateRequest analysisCreateRequest, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, @javax.annotation.Nullable String xRevEngApplication, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisCreateRequest' is set
         if (analysisCreateRequest == null) {
             throw new ApiException("Missing the required parameter 'analysisCreateRequest' when calling createAnalysis(Async)");
         }
 
-        return createAnalysisCall(analysisCreateRequest, xRevEngApplication, _callback);
+        return createAnalysisCall(analysisCreateRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, xRevEngApplication, _callback);
 
     }
 
@@ -312,6 +390,12 @@ public class AnalysesCoreApi {
      * Create Analysis
      * Begins an analysis
      * @param analysisCreateRequest  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @param xRevEngApplication  (optional)
      * @return BaseResponseAnalysisCreateResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -325,8 +409,8 @@ public class AnalysesCoreApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseAnalysisCreateResponse createAnalysis(@javax.annotation.Nonnull AnalysisCreateRequest analysisCreateRequest, @javax.annotation.Nullable String xRevEngApplication) throws ApiException {
-        ApiResponse<BaseResponseAnalysisCreateResponse> localVarResp = createAnalysisWithHttpInfo(analysisCreateRequest, xRevEngApplication);
+    public BaseResponseAnalysisCreateResponse createAnalysis(@javax.annotation.Nonnull AnalysisCreateRequest analysisCreateRequest, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, @javax.annotation.Nullable String xRevEngApplication) throws ApiException {
+        ApiResponse<BaseResponseAnalysisCreateResponse> localVarResp = createAnalysisWithHttpInfo(analysisCreateRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, xRevEngApplication);
         return localVarResp.getData();
     }
 
@@ -334,6 +418,12 @@ public class AnalysesCoreApi {
      * Create Analysis
      * Begins an analysis
      * @param analysisCreateRequest  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @param xRevEngApplication  (optional)
      * @return ApiResponse&lt;BaseResponseAnalysisCreateResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -347,8 +437,8 @@ public class AnalysesCoreApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseAnalysisCreateResponse> createAnalysisWithHttpInfo(@javax.annotation.Nonnull AnalysisCreateRequest analysisCreateRequest, @javax.annotation.Nullable String xRevEngApplication) throws ApiException {
-        okhttp3.Call localVarCall = createAnalysisValidateBeforeCall(analysisCreateRequest, xRevEngApplication, null);
+    public ApiResponse<BaseResponseAnalysisCreateResponse> createAnalysisWithHttpInfo(@javax.annotation.Nonnull AnalysisCreateRequest analysisCreateRequest, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, @javax.annotation.Nullable String xRevEngApplication) throws ApiException {
+        okhttp3.Call localVarCall = createAnalysisValidateBeforeCall(analysisCreateRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, xRevEngApplication, null);
         Type localVarReturnType = new TypeToken<BaseResponseAnalysisCreateResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -357,6 +447,12 @@ public class AnalysesCoreApi {
      * Create Analysis (asynchronously)
      * Begins an analysis
      * @param analysisCreateRequest  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @param xRevEngApplication  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -371,9 +467,9 @@ public class AnalysesCoreApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAnalysisAsync(@javax.annotation.Nonnull AnalysisCreateRequest analysisCreateRequest, @javax.annotation.Nullable String xRevEngApplication, final ApiCallback<BaseResponseAnalysisCreateResponse> _callback) throws ApiException {
+    public okhttp3.Call createAnalysisAsync(@javax.annotation.Nonnull AnalysisCreateRequest analysisCreateRequest, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, @javax.annotation.Nullable String xRevEngApplication, final ApiCallback<BaseResponseAnalysisCreateResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createAnalysisValidateBeforeCall(analysisCreateRequest, xRevEngApplication, _callback);
+        okhttp3.Call localVarCall = createAnalysisValidateBeforeCall(analysisCreateRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, xRevEngApplication, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseAnalysisCreateResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -381,6 +477,12 @@ public class AnalysesCoreApi {
     /**
      * Build call for deleteAnalysis
      * @param analysisId  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -394,7 +496,7 @@ public class AnalysesCoreApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteAnalysisCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteAnalysisCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -420,6 +522,30 @@ public class AnalysesCoreApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (endpointUrl != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("endpoint_url", endpointUrl));
+        }
+
+        if (localCacheDir != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_dir", localCacheDir));
+        }
+
+        if (localCacheMaxSizeMb != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_max_size_mb", localCacheMaxSizeMb));
+        }
+
+        if (customerSamplesBucket != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("customer_samples_bucket", customerSamplesBucket));
+        }
+
+        if (firmwareSamplesBucket != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("firmware_samples_bucket", firmwareSamplesBucket));
+        }
+
+        if (maxRetryAttempts != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("max_retry_attempts", maxRetryAttempts));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -440,13 +566,13 @@ public class AnalysesCoreApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteAnalysisValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteAnalysisValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling deleteAnalysis(Async)");
         }
 
-        return deleteAnalysisCall(analysisId, _callback);
+        return deleteAnalysisCall(analysisId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, _callback);
 
     }
 
@@ -454,6 +580,12 @@ public class AnalysesCoreApi {
      * Delete Analysis
      * Deletes an analysis based on the provided analysis ID.
      * @param analysisId  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @return BaseResponseDict
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -466,8 +598,8 @@ public class AnalysesCoreApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseDict deleteAnalysis(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
-        ApiResponse<BaseResponseDict> localVarResp = deleteAnalysisWithHttpInfo(analysisId);
+    public BaseResponseDict deleteAnalysis(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts) throws ApiException {
+        ApiResponse<BaseResponseDict> localVarResp = deleteAnalysisWithHttpInfo(analysisId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
         return localVarResp.getData();
     }
 
@@ -475,6 +607,12 @@ public class AnalysesCoreApi {
      * Delete Analysis
      * Deletes an analysis based on the provided analysis ID.
      * @param analysisId  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @return ApiResponse&lt;BaseResponseDict&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -487,8 +625,8 @@ public class AnalysesCoreApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseDict> deleteAnalysisWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
-        okhttp3.Call localVarCall = deleteAnalysisValidateBeforeCall(analysisId, null);
+    public ApiResponse<BaseResponseDict> deleteAnalysisWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts) throws ApiException {
+        okhttp3.Call localVarCall = deleteAnalysisValidateBeforeCall(analysisId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, null);
         Type localVarReturnType = new TypeToken<BaseResponseDict>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -497,6 +635,12 @@ public class AnalysesCoreApi {
      * Delete Analysis (asynchronously)
      * Deletes an analysis based on the provided analysis ID.
      * @param analysisId  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -510,9 +654,9 @@ public class AnalysesCoreApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteAnalysisAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<BaseResponseDict> _callback) throws ApiException {
+    public okhttp3.Call deleteAnalysisAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback<BaseResponseDict> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteAnalysisValidateBeforeCall(analysisId, _callback);
+        okhttp3.Call localVarCall = deleteAnalysisValidateBeforeCall(analysisId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseDict>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -651,6 +795,12 @@ public class AnalysesCoreApi {
     /**
      * Build call for getAnalysisFunctionMap
      * @param analysisId  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -662,7 +812,7 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAnalysisFunctionMapCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAnalysisFunctionMapCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -688,6 +838,30 @@ public class AnalysesCoreApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (endpointUrl != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("endpoint_url", endpointUrl));
+        }
+
+        if (localCacheDir != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_dir", localCacheDir));
+        }
+
+        if (localCacheMaxSizeMb != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_max_size_mb", localCacheMaxSizeMb));
+        }
+
+        if (customerSamplesBucket != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("customer_samples_bucket", customerSamplesBucket));
+        }
+
+        if (firmwareSamplesBucket != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("firmware_samples_bucket", firmwareSamplesBucket));
+        }
+
+        if (maxRetryAttempts != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("max_retry_attempts", maxRetryAttempts));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -708,13 +882,13 @@ public class AnalysesCoreApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAnalysisFunctionMapValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAnalysisFunctionMapValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling getAnalysisFunctionMap(Async)");
         }
 
-        return getAnalysisFunctionMapCall(analysisId, _callback);
+        return getAnalysisFunctionMapCall(analysisId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, _callback);
 
     }
 
@@ -722,6 +896,12 @@ public class AnalysesCoreApi {
      * Get Analysis Function Map
      * Returns three maps: a map of function ids to function addresses, it&#39;s inverse and a map of function addresses to function names.
      * @param analysisId  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @return BaseResponseAnalysisFunctionMapping
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -732,8 +912,8 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseAnalysisFunctionMapping getAnalysisFunctionMap(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
-        ApiResponse<BaseResponseAnalysisFunctionMapping> localVarResp = getAnalysisFunctionMapWithHttpInfo(analysisId);
+    public BaseResponseAnalysisFunctionMapping getAnalysisFunctionMap(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts) throws ApiException {
+        ApiResponse<BaseResponseAnalysisFunctionMapping> localVarResp = getAnalysisFunctionMapWithHttpInfo(analysisId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
         return localVarResp.getData();
     }
 
@@ -741,6 +921,12 @@ public class AnalysesCoreApi {
      * Get Analysis Function Map
      * Returns three maps: a map of function ids to function addresses, it&#39;s inverse and a map of function addresses to function names.
      * @param analysisId  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @return ApiResponse&lt;BaseResponseAnalysisFunctionMapping&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -751,8 +937,8 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseAnalysisFunctionMapping> getAnalysisFunctionMapWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
-        okhttp3.Call localVarCall = getAnalysisFunctionMapValidateBeforeCall(analysisId, null);
+    public ApiResponse<BaseResponseAnalysisFunctionMapping> getAnalysisFunctionMapWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts) throws ApiException {
+        okhttp3.Call localVarCall = getAnalysisFunctionMapValidateBeforeCall(analysisId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, null);
         Type localVarReturnType = new TypeToken<BaseResponseAnalysisFunctionMapping>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -761,6 +947,12 @@ public class AnalysesCoreApi {
      * Get Analysis Function Map (asynchronously)
      * Returns three maps: a map of function ids to function addresses, it&#39;s inverse and a map of function addresses to function names.
      * @param analysisId  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -772,9 +964,9 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAnalysisFunctionMapAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<BaseResponseAnalysisFunctionMapping> _callback) throws ApiException {
+    public okhttp3.Call getAnalysisFunctionMapAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback<BaseResponseAnalysisFunctionMapping> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAnalysisFunctionMapValidateBeforeCall(analysisId, _callback);
+        okhttp3.Call localVarCall = getAnalysisFunctionMapValidateBeforeCall(analysisId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseAnalysisFunctionMapping>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -782,6 +974,12 @@ public class AnalysesCoreApi {
     /**
      * Build call for getAnalysisLogs
      * @param analysisId  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -793,7 +991,7 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAnalysisLogsCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAnalysisLogsCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -819,6 +1017,30 @@ public class AnalysesCoreApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (endpointUrl != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("endpoint_url", endpointUrl));
+        }
+
+        if (localCacheDir != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_dir", localCacheDir));
+        }
+
+        if (localCacheMaxSizeMb != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_max_size_mb", localCacheMaxSizeMb));
+        }
+
+        if (customerSamplesBucket != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("customer_samples_bucket", customerSamplesBucket));
+        }
+
+        if (firmwareSamplesBucket != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("firmware_samples_bucket", firmwareSamplesBucket));
+        }
+
+        if (maxRetryAttempts != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("max_retry_attempts", maxRetryAttempts));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -839,13 +1061,13 @@ public class AnalysesCoreApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAnalysisLogsValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAnalysisLogsValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling getAnalysisLogs(Async)");
         }
 
-        return getAnalysisLogsCall(analysisId, _callback);
+        return getAnalysisLogsCall(analysisId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, _callback);
 
     }
 
@@ -853,6 +1075,12 @@ public class AnalysesCoreApi {
      * Gets the logs of an analysis
      * Given an analysis ID gets the current logs of an analysis
      * @param analysisId  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @return BaseResponseLogs
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -863,8 +1091,8 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseLogs getAnalysisLogs(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
-        ApiResponse<BaseResponseLogs> localVarResp = getAnalysisLogsWithHttpInfo(analysisId);
+    public BaseResponseLogs getAnalysisLogs(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts) throws ApiException {
+        ApiResponse<BaseResponseLogs> localVarResp = getAnalysisLogsWithHttpInfo(analysisId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
         return localVarResp.getData();
     }
 
@@ -872,6 +1100,12 @@ public class AnalysesCoreApi {
      * Gets the logs of an analysis
      * Given an analysis ID gets the current logs of an analysis
      * @param analysisId  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @return ApiResponse&lt;BaseResponseLogs&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -882,8 +1116,8 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseLogs> getAnalysisLogsWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
-        okhttp3.Call localVarCall = getAnalysisLogsValidateBeforeCall(analysisId, null);
+    public ApiResponse<BaseResponseLogs> getAnalysisLogsWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts) throws ApiException {
+        okhttp3.Call localVarCall = getAnalysisLogsValidateBeforeCall(analysisId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, null);
         Type localVarReturnType = new TypeToken<BaseResponseLogs>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -892,6 +1126,12 @@ public class AnalysesCoreApi {
      * Gets the logs of an analysis (asynchronously)
      * Given an analysis ID gets the current logs of an analysis
      * @param analysisId  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -903,9 +1143,9 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAnalysisLogsAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<BaseResponseLogs> _callback) throws ApiException {
+    public okhttp3.Call getAnalysisLogsAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback<BaseResponseLogs> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAnalysisLogsValidateBeforeCall(analysisId, _callback);
+        okhttp3.Call localVarCall = getAnalysisLogsValidateBeforeCall(analysisId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseLogs>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -913,6 +1153,12 @@ public class AnalysesCoreApi {
     /**
      * Build call for getAnalysisParams
      * @param analysisId  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -924,7 +1170,7 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAnalysisParamsCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAnalysisParamsCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -950,6 +1196,30 @@ public class AnalysesCoreApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (endpointUrl != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("endpoint_url", endpointUrl));
+        }
+
+        if (localCacheDir != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_dir", localCacheDir));
+        }
+
+        if (localCacheMaxSizeMb != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_max_size_mb", localCacheMaxSizeMb));
+        }
+
+        if (customerSamplesBucket != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("customer_samples_bucket", customerSamplesBucket));
+        }
+
+        if (firmwareSamplesBucket != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("firmware_samples_bucket", firmwareSamplesBucket));
+        }
+
+        if (maxRetryAttempts != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("max_retry_attempts", maxRetryAttempts));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -970,13 +1240,13 @@ public class AnalysesCoreApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAnalysisParamsValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAnalysisParamsValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling getAnalysisParams(Async)");
         }
 
-        return getAnalysisParamsCall(analysisId, _callback);
+        return getAnalysisParamsCall(analysisId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, _callback);
 
     }
 
@@ -984,6 +1254,12 @@ public class AnalysesCoreApi {
      * Gets analysis param information
      * Gets the params that the analysis was run with
      * @param analysisId  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @return BaseResponseParams
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -994,8 +1270,8 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseParams getAnalysisParams(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
-        ApiResponse<BaseResponseParams> localVarResp = getAnalysisParamsWithHttpInfo(analysisId);
+    public BaseResponseParams getAnalysisParams(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts) throws ApiException {
+        ApiResponse<BaseResponseParams> localVarResp = getAnalysisParamsWithHttpInfo(analysisId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
         return localVarResp.getData();
     }
 
@@ -1003,6 +1279,12 @@ public class AnalysesCoreApi {
      * Gets analysis param information
      * Gets the params that the analysis was run with
      * @param analysisId  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @return ApiResponse&lt;BaseResponseParams&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1013,8 +1295,8 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseParams> getAnalysisParamsWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
-        okhttp3.Call localVarCall = getAnalysisParamsValidateBeforeCall(analysisId, null);
+    public ApiResponse<BaseResponseParams> getAnalysisParamsWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts) throws ApiException {
+        okhttp3.Call localVarCall = getAnalysisParamsValidateBeforeCall(analysisId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, null);
         Type localVarReturnType = new TypeToken<BaseResponseParams>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1023,6 +1305,12 @@ public class AnalysesCoreApi {
      * Gets analysis param information (asynchronously)
      * Gets the params that the analysis was run with
      * @param analysisId  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1034,9 +1322,9 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAnalysisParamsAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<BaseResponseParams> _callback) throws ApiException {
+    public okhttp3.Call getAnalysisParamsAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback<BaseResponseParams> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAnalysisParamsValidateBeforeCall(analysisId, _callback);
+        okhttp3.Call localVarCall = getAnalysisParamsValidateBeforeCall(analysisId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseParams>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1176,6 +1464,12 @@ public class AnalysesCoreApi {
      * Build call for insertAnalysisLog
      * @param analysisId  (required)
      * @param insertAnalysisLogRequest  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1187,7 +1481,7 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call insertAnalysisLogCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull InsertAnalysisLogRequest insertAnalysisLogRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call insertAnalysisLogCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull InsertAnalysisLogRequest insertAnalysisLogRequest, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1213,6 +1507,30 @@ public class AnalysesCoreApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (endpointUrl != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("endpoint_url", endpointUrl));
+        }
+
+        if (localCacheDir != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_dir", localCacheDir));
+        }
+
+        if (localCacheMaxSizeMb != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_max_size_mb", localCacheMaxSizeMb));
+        }
+
+        if (customerSamplesBucket != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("customer_samples_bucket", customerSamplesBucket));
+        }
+
+        if (firmwareSamplesBucket != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("firmware_samples_bucket", firmwareSamplesBucket));
+        }
+
+        if (maxRetryAttempts != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("max_retry_attempts", maxRetryAttempts));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -1234,7 +1552,7 @@ public class AnalysesCoreApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call insertAnalysisLogValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull InsertAnalysisLogRequest insertAnalysisLogRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call insertAnalysisLogValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull InsertAnalysisLogRequest insertAnalysisLogRequest, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling insertAnalysisLog(Async)");
@@ -1245,7 +1563,7 @@ public class AnalysesCoreApi {
             throw new ApiException("Missing the required parameter 'insertAnalysisLogRequest' when calling insertAnalysisLog(Async)");
         }
 
-        return insertAnalysisLogCall(analysisId, insertAnalysisLogRequest, _callback);
+        return insertAnalysisLogCall(analysisId, insertAnalysisLogRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, _callback);
 
     }
 
@@ -1254,6 +1572,12 @@ public class AnalysesCoreApi {
      * Inserts a log record for an analysis. Only the analysis owner can insert logs.
      * @param analysisId  (required)
      * @param insertAnalysisLogRequest  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @return BaseResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1264,8 +1588,8 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponse insertAnalysisLog(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull InsertAnalysisLogRequest insertAnalysisLogRequest) throws ApiException {
-        ApiResponse<BaseResponse> localVarResp = insertAnalysisLogWithHttpInfo(analysisId, insertAnalysisLogRequest);
+    public BaseResponse insertAnalysisLog(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull InsertAnalysisLogRequest insertAnalysisLogRequest, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts) throws ApiException {
+        ApiResponse<BaseResponse> localVarResp = insertAnalysisLogWithHttpInfo(analysisId, insertAnalysisLogRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
         return localVarResp.getData();
     }
 
@@ -1274,6 +1598,12 @@ public class AnalysesCoreApi {
      * Inserts a log record for an analysis. Only the analysis owner can insert logs.
      * @param analysisId  (required)
      * @param insertAnalysisLogRequest  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @return ApiResponse&lt;BaseResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1284,8 +1614,8 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponse> insertAnalysisLogWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull InsertAnalysisLogRequest insertAnalysisLogRequest) throws ApiException {
-        okhttp3.Call localVarCall = insertAnalysisLogValidateBeforeCall(analysisId, insertAnalysisLogRequest, null);
+    public ApiResponse<BaseResponse> insertAnalysisLogWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull InsertAnalysisLogRequest insertAnalysisLogRequest, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts) throws ApiException {
+        okhttp3.Call localVarCall = insertAnalysisLogValidateBeforeCall(analysisId, insertAnalysisLogRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, null);
         Type localVarReturnType = new TypeToken<BaseResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1295,6 +1625,12 @@ public class AnalysesCoreApi {
      * Inserts a log record for an analysis. Only the analysis owner can insert logs.
      * @param analysisId  (required)
      * @param insertAnalysisLogRequest  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1306,9 +1642,9 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call insertAnalysisLogAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull InsertAnalysisLogRequest insertAnalysisLogRequest, final ApiCallback<BaseResponse> _callback) throws ApiException {
+    public okhttp3.Call insertAnalysisLogAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull InsertAnalysisLogRequest insertAnalysisLogRequest, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback<BaseResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = insertAnalysisLogValidateBeforeCall(analysisId, insertAnalysisLogRequest, _callback);
+        okhttp3.Call localVarCall = insertAnalysisLogValidateBeforeCall(analysisId, insertAnalysisLogRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, _callback);
         Type localVarReturnType = new TypeToken<BaseResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1798,6 +2134,12 @@ public class AnalysesCoreApi {
      * Build call for requeueAnalysis
      * @param analysisId  (required)
      * @param reAnalysisForm  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @param xRevEngApplication  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1812,7 +2154,7 @@ public class AnalysesCoreApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call requeueAnalysisCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull ReAnalysisForm reAnalysisForm, @javax.annotation.Nullable String xRevEngApplication, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call requeueAnalysisCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull ReAnalysisForm reAnalysisForm, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, @javax.annotation.Nullable String xRevEngApplication, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1837,6 +2179,30 @@ public class AnalysesCoreApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (endpointUrl != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("endpoint_url", endpointUrl));
+        }
+
+        if (localCacheDir != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_dir", localCacheDir));
+        }
+
+        if (localCacheMaxSizeMb != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_max_size_mb", localCacheMaxSizeMb));
+        }
+
+        if (customerSamplesBucket != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("customer_samples_bucket", customerSamplesBucket));
+        }
+
+        if (firmwareSamplesBucket != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("firmware_samples_bucket", firmwareSamplesBucket));
+        }
+
+        if (maxRetryAttempts != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("max_retry_attempts", maxRetryAttempts));
+        }
 
         final String[] localVarAccepts = {
             "application/json"
@@ -1864,7 +2230,7 @@ public class AnalysesCoreApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call requeueAnalysisValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull ReAnalysisForm reAnalysisForm, @javax.annotation.Nullable String xRevEngApplication, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call requeueAnalysisValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull ReAnalysisForm reAnalysisForm, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, @javax.annotation.Nullable String xRevEngApplication, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling requeueAnalysis(Async)");
@@ -1875,7 +2241,7 @@ public class AnalysesCoreApi {
             throw new ApiException("Missing the required parameter 'reAnalysisForm' when calling requeueAnalysis(Async)");
         }
 
-        return requeueAnalysisCall(analysisId, reAnalysisForm, xRevEngApplication, _callback);
+        return requeueAnalysisCall(analysisId, reAnalysisForm, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, xRevEngApplication, _callback);
 
     }
 
@@ -1884,6 +2250,12 @@ public class AnalysesCoreApi {
      * Re-queues an already uploaded analysis
      * @param analysisId  (required)
      * @param reAnalysisForm  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @param xRevEngApplication  (optional)
      * @return BaseResponseCreated
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1897,8 +2269,8 @@ public class AnalysesCoreApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseCreated requeueAnalysis(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull ReAnalysisForm reAnalysisForm, @javax.annotation.Nullable String xRevEngApplication) throws ApiException {
-        ApiResponse<BaseResponseCreated> localVarResp = requeueAnalysisWithHttpInfo(analysisId, reAnalysisForm, xRevEngApplication);
+    public BaseResponseCreated requeueAnalysis(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull ReAnalysisForm reAnalysisForm, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, @javax.annotation.Nullable String xRevEngApplication) throws ApiException {
+        ApiResponse<BaseResponseCreated> localVarResp = requeueAnalysisWithHttpInfo(analysisId, reAnalysisForm, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, xRevEngApplication);
         return localVarResp.getData();
     }
 
@@ -1907,6 +2279,12 @@ public class AnalysesCoreApi {
      * Re-queues an already uploaded analysis
      * @param analysisId  (required)
      * @param reAnalysisForm  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @param xRevEngApplication  (optional)
      * @return ApiResponse&lt;BaseResponseCreated&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1920,8 +2298,8 @@ public class AnalysesCoreApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseCreated> requeueAnalysisWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull ReAnalysisForm reAnalysisForm, @javax.annotation.Nullable String xRevEngApplication) throws ApiException {
-        okhttp3.Call localVarCall = requeueAnalysisValidateBeforeCall(analysisId, reAnalysisForm, xRevEngApplication, null);
+    public ApiResponse<BaseResponseCreated> requeueAnalysisWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull ReAnalysisForm reAnalysisForm, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, @javax.annotation.Nullable String xRevEngApplication) throws ApiException {
+        okhttp3.Call localVarCall = requeueAnalysisValidateBeforeCall(analysisId, reAnalysisForm, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, xRevEngApplication, null);
         Type localVarReturnType = new TypeToken<BaseResponseCreated>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1931,6 +2309,12 @@ public class AnalysesCoreApi {
      * Re-queues an already uploaded analysis
      * @param analysisId  (required)
      * @param reAnalysisForm  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @param xRevEngApplication  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1945,9 +2329,9 @@ public class AnalysesCoreApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call requeueAnalysisAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull ReAnalysisForm reAnalysisForm, @javax.annotation.Nullable String xRevEngApplication, final ApiCallback<BaseResponseCreated> _callback) throws ApiException {
+    public okhttp3.Call requeueAnalysisAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull ReAnalysisForm reAnalysisForm, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, @javax.annotation.Nullable String xRevEngApplication, final ApiCallback<BaseResponseCreated> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = requeueAnalysisValidateBeforeCall(analysisId, reAnalysisForm, xRevEngApplication, _callback);
+        okhttp3.Call localVarCall = requeueAnalysisValidateBeforeCall(analysisId, reAnalysisForm, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, xRevEngApplication, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseCreated>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1956,6 +2340,12 @@ public class AnalysesCoreApi {
      * Build call for updateAnalysis
      * @param analysisId  (required)
      * @param analysisUpdateRequest  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1967,7 +2357,7 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateAnalysisCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateRequest analysisUpdateRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateAnalysisCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateRequest analysisUpdateRequest, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1993,6 +2383,30 @@ public class AnalysesCoreApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (endpointUrl != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("endpoint_url", endpointUrl));
+        }
+
+        if (localCacheDir != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_dir", localCacheDir));
+        }
+
+        if (localCacheMaxSizeMb != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_max_size_mb", localCacheMaxSizeMb));
+        }
+
+        if (customerSamplesBucket != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("customer_samples_bucket", customerSamplesBucket));
+        }
+
+        if (firmwareSamplesBucket != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("firmware_samples_bucket", firmwareSamplesBucket));
+        }
+
+        if (maxRetryAttempts != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("max_retry_attempts", maxRetryAttempts));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -2014,7 +2428,7 @@ public class AnalysesCoreApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateAnalysisValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateRequest analysisUpdateRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateAnalysisValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateRequest analysisUpdateRequest, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling updateAnalysis(Async)");
@@ -2025,7 +2439,7 @@ public class AnalysesCoreApi {
             throw new ApiException("Missing the required parameter 'analysisUpdateRequest' when calling updateAnalysis(Async)");
         }
 
-        return updateAnalysisCall(analysisId, analysisUpdateRequest, _callback);
+        return updateAnalysisCall(analysisId, analysisUpdateRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, _callback);
 
     }
 
@@ -2034,6 +2448,12 @@ public class AnalysesCoreApi {
      * Updates analysis attributes (binary_name, analysis_scope). User must be the owner.
      * @param analysisId  (required)
      * @param analysisUpdateRequest  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @return BaseResponseAnalysisDetailResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2044,8 +2464,8 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseAnalysisDetailResponse updateAnalysis(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateRequest analysisUpdateRequest) throws ApiException {
-        ApiResponse<BaseResponseAnalysisDetailResponse> localVarResp = updateAnalysisWithHttpInfo(analysisId, analysisUpdateRequest);
+    public BaseResponseAnalysisDetailResponse updateAnalysis(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateRequest analysisUpdateRequest, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts) throws ApiException {
+        ApiResponse<BaseResponseAnalysisDetailResponse> localVarResp = updateAnalysisWithHttpInfo(analysisId, analysisUpdateRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
         return localVarResp.getData();
     }
 
@@ -2054,6 +2474,12 @@ public class AnalysesCoreApi {
      * Updates analysis attributes (binary_name, analysis_scope). User must be the owner.
      * @param analysisId  (required)
      * @param analysisUpdateRequest  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @return ApiResponse&lt;BaseResponseAnalysisDetailResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2064,8 +2490,8 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseAnalysisDetailResponse> updateAnalysisWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateRequest analysisUpdateRequest) throws ApiException {
-        okhttp3.Call localVarCall = updateAnalysisValidateBeforeCall(analysisId, analysisUpdateRequest, null);
+    public ApiResponse<BaseResponseAnalysisDetailResponse> updateAnalysisWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateRequest analysisUpdateRequest, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts) throws ApiException {
+        okhttp3.Call localVarCall = updateAnalysisValidateBeforeCall(analysisId, analysisUpdateRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, null);
         Type localVarReturnType = new TypeToken<BaseResponseAnalysisDetailResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2075,6 +2501,12 @@ public class AnalysesCoreApi {
      * Updates analysis attributes (binary_name, analysis_scope). User must be the owner.
      * @param analysisId  (required)
      * @param analysisUpdateRequest  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2086,9 +2518,9 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateAnalysisAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateRequest analysisUpdateRequest, final ApiCallback<BaseResponseAnalysisDetailResponse> _callback) throws ApiException {
+    public okhttp3.Call updateAnalysisAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateRequest analysisUpdateRequest, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback<BaseResponseAnalysisDetailResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateAnalysisValidateBeforeCall(analysisId, analysisUpdateRequest, _callback);
+        okhttp3.Call localVarCall = updateAnalysisValidateBeforeCall(analysisId, analysisUpdateRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseAnalysisDetailResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2097,6 +2529,12 @@ public class AnalysesCoreApi {
      * Build call for updateAnalysisTags
      * @param analysisId  (required)
      * @param analysisUpdateTagsRequest  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2108,7 +2546,7 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateAnalysisTagsCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateTagsRequest analysisUpdateTagsRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateAnalysisTagsCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateTagsRequest analysisUpdateTagsRequest, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2134,6 +2572,30 @@ public class AnalysesCoreApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (endpointUrl != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("endpoint_url", endpointUrl));
+        }
+
+        if (localCacheDir != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_dir", localCacheDir));
+        }
+
+        if (localCacheMaxSizeMb != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_max_size_mb", localCacheMaxSizeMb));
+        }
+
+        if (customerSamplesBucket != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("customer_samples_bucket", customerSamplesBucket));
+        }
+
+        if (firmwareSamplesBucket != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("firmware_samples_bucket", firmwareSamplesBucket));
+        }
+
+        if (maxRetryAttempts != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("max_retry_attempts", maxRetryAttempts));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -2155,7 +2617,7 @@ public class AnalysesCoreApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateAnalysisTagsValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateTagsRequest analysisUpdateTagsRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateAnalysisTagsValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateTagsRequest analysisUpdateTagsRequest, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling updateAnalysisTags(Async)");
@@ -2166,7 +2628,7 @@ public class AnalysesCoreApi {
             throw new ApiException("Missing the required parameter 'analysisUpdateTagsRequest' when calling updateAnalysisTags(Async)");
         }
 
-        return updateAnalysisTagsCall(analysisId, analysisUpdateTagsRequest, _callback);
+        return updateAnalysisTagsCall(analysisId, analysisUpdateTagsRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, _callback);
 
     }
 
@@ -2175,6 +2637,12 @@ public class AnalysesCoreApi {
      * Updates analysis tags. User must be the owner.
      * @param analysisId  (required)
      * @param analysisUpdateTagsRequest  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @return BaseResponseAnalysisUpdateTagsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2185,8 +2653,8 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseAnalysisUpdateTagsResponse updateAnalysisTags(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateTagsRequest analysisUpdateTagsRequest) throws ApiException {
-        ApiResponse<BaseResponseAnalysisUpdateTagsResponse> localVarResp = updateAnalysisTagsWithHttpInfo(analysisId, analysisUpdateTagsRequest);
+    public BaseResponseAnalysisUpdateTagsResponse updateAnalysisTags(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateTagsRequest analysisUpdateTagsRequest, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts) throws ApiException {
+        ApiResponse<BaseResponseAnalysisUpdateTagsResponse> localVarResp = updateAnalysisTagsWithHttpInfo(analysisId, analysisUpdateTagsRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
         return localVarResp.getData();
     }
 
@@ -2195,6 +2663,12 @@ public class AnalysesCoreApi {
      * Updates analysis tags. User must be the owner.
      * @param analysisId  (required)
      * @param analysisUpdateTagsRequest  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @return ApiResponse&lt;BaseResponseAnalysisUpdateTagsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2205,8 +2679,8 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseAnalysisUpdateTagsResponse> updateAnalysisTagsWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateTagsRequest analysisUpdateTagsRequest) throws ApiException {
-        okhttp3.Call localVarCall = updateAnalysisTagsValidateBeforeCall(analysisId, analysisUpdateTagsRequest, null);
+    public ApiResponse<BaseResponseAnalysisUpdateTagsResponse> updateAnalysisTagsWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateTagsRequest analysisUpdateTagsRequest, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts) throws ApiException {
+        okhttp3.Call localVarCall = updateAnalysisTagsValidateBeforeCall(analysisId, analysisUpdateTagsRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, null);
         Type localVarReturnType = new TypeToken<BaseResponseAnalysisUpdateTagsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2216,6 +2690,12 @@ public class AnalysesCoreApi {
      * Updates analysis tags. User must be the owner.
      * @param analysisId  (required)
      * @param analysisUpdateTagsRequest  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2227,9 +2707,9 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateAnalysisTagsAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateTagsRequest analysisUpdateTagsRequest, final ApiCallback<BaseResponseAnalysisUpdateTagsResponse> _callback) throws ApiException {
+    public okhttp3.Call updateAnalysisTagsAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateTagsRequest analysisUpdateTagsRequest, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback<BaseResponseAnalysisUpdateTagsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateAnalysisTagsValidateBeforeCall(analysisId, analysisUpdateTagsRequest, _callback);
+        okhttp3.Call localVarCall = updateAnalysisTagsValidateBeforeCall(analysisId, analysisUpdateTagsRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseAnalysisUpdateTagsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2239,6 +2719,12 @@ public class AnalysesCoreApi {
      * @param uploadFileType  (required)
      * @param _file  (required)
      * @param packedPassword  (optional)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @param forceOverwrite  (optional, default to false)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -2251,7 +2737,7 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call uploadFileCall(@javax.annotation.Nonnull UploadFileType uploadFileType, @javax.annotation.Nonnull File _file, @javax.annotation.Nullable String packedPassword, @javax.annotation.Nullable Boolean forceOverwrite, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call uploadFileCall(@javax.annotation.Nonnull UploadFileType uploadFileType, @javax.annotation.Nonnull File _file, @javax.annotation.Nullable String packedPassword, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, @javax.annotation.Nullable Boolean forceOverwrite, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2292,6 +2778,30 @@ public class AnalysesCoreApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("packed_password", packedPassword));
         }
 
+        if (endpointUrl != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("endpoint_url", endpointUrl));
+        }
+
+        if (localCacheDir != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_dir", localCacheDir));
+        }
+
+        if (localCacheMaxSizeMb != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_max_size_mb", localCacheMaxSizeMb));
+        }
+
+        if (customerSamplesBucket != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("customer_samples_bucket", customerSamplesBucket));
+        }
+
+        if (firmwareSamplesBucket != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("firmware_samples_bucket", firmwareSamplesBucket));
+        }
+
+        if (maxRetryAttempts != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("max_retry_attempts", maxRetryAttempts));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -2313,7 +2823,7 @@ public class AnalysesCoreApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call uploadFileValidateBeforeCall(@javax.annotation.Nonnull UploadFileType uploadFileType, @javax.annotation.Nonnull File _file, @javax.annotation.Nullable String packedPassword, @javax.annotation.Nullable Boolean forceOverwrite, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call uploadFileValidateBeforeCall(@javax.annotation.Nonnull UploadFileType uploadFileType, @javax.annotation.Nonnull File _file, @javax.annotation.Nullable String packedPassword, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, @javax.annotation.Nullable Boolean forceOverwrite, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'uploadFileType' is set
         if (uploadFileType == null) {
             throw new ApiException("Missing the required parameter 'uploadFileType' when calling uploadFile(Async)");
@@ -2324,7 +2834,7 @@ public class AnalysesCoreApi {
             throw new ApiException("Missing the required parameter '_file' when calling uploadFile(Async)");
         }
 
-        return uploadFileCall(uploadFileType, _file, packedPassword, forceOverwrite, _callback);
+        return uploadFileCall(uploadFileType, _file, packedPassword, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, forceOverwrite, _callback);
 
     }
 
@@ -2334,6 +2844,12 @@ public class AnalysesCoreApi {
      * @param uploadFileType  (required)
      * @param _file  (required)
      * @param packedPassword  (optional)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @param forceOverwrite  (optional, default to false)
      * @return BaseResponseUploadResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2345,8 +2861,8 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseUploadResponse uploadFile(@javax.annotation.Nonnull UploadFileType uploadFileType, @javax.annotation.Nonnull File _file, @javax.annotation.Nullable String packedPassword, @javax.annotation.Nullable Boolean forceOverwrite) throws ApiException {
-        ApiResponse<BaseResponseUploadResponse> localVarResp = uploadFileWithHttpInfo(uploadFileType, _file, packedPassword, forceOverwrite);
+    public BaseResponseUploadResponse uploadFile(@javax.annotation.Nonnull UploadFileType uploadFileType, @javax.annotation.Nonnull File _file, @javax.annotation.Nullable String packedPassword, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, @javax.annotation.Nullable Boolean forceOverwrite) throws ApiException {
+        ApiResponse<BaseResponseUploadResponse> localVarResp = uploadFileWithHttpInfo(uploadFileType, _file, packedPassword, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, forceOverwrite);
         return localVarResp.getData();
     }
 
@@ -2356,6 +2872,12 @@ public class AnalysesCoreApi {
      * @param uploadFileType  (required)
      * @param _file  (required)
      * @param packedPassword  (optional)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @param forceOverwrite  (optional, default to false)
      * @return ApiResponse&lt;BaseResponseUploadResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2367,8 +2889,8 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseUploadResponse> uploadFileWithHttpInfo(@javax.annotation.Nonnull UploadFileType uploadFileType, @javax.annotation.Nonnull File _file, @javax.annotation.Nullable String packedPassword, @javax.annotation.Nullable Boolean forceOverwrite) throws ApiException {
-        okhttp3.Call localVarCall = uploadFileValidateBeforeCall(uploadFileType, _file, packedPassword, forceOverwrite, null);
+    public ApiResponse<BaseResponseUploadResponse> uploadFileWithHttpInfo(@javax.annotation.Nonnull UploadFileType uploadFileType, @javax.annotation.Nonnull File _file, @javax.annotation.Nullable String packedPassword, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, @javax.annotation.Nullable Boolean forceOverwrite) throws ApiException {
+        okhttp3.Call localVarCall = uploadFileValidateBeforeCall(uploadFileType, _file, packedPassword, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, forceOverwrite, null);
         Type localVarReturnType = new TypeToken<BaseResponseUploadResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2379,6 +2901,12 @@ public class AnalysesCoreApi {
      * @param uploadFileType  (required)
      * @param _file  (required)
      * @param packedPassword  (optional)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @param forceOverwrite  (optional, default to false)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2391,9 +2919,9 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call uploadFileAsync(@javax.annotation.Nonnull UploadFileType uploadFileType, @javax.annotation.Nonnull File _file, @javax.annotation.Nullable String packedPassword, @javax.annotation.Nullable Boolean forceOverwrite, final ApiCallback<BaseResponseUploadResponse> _callback) throws ApiException {
+    public okhttp3.Call uploadFileAsync(@javax.annotation.Nonnull UploadFileType uploadFileType, @javax.annotation.Nonnull File _file, @javax.annotation.Nullable String packedPassword, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, @javax.annotation.Nullable Boolean forceOverwrite, final ApiCallback<BaseResponseUploadResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = uploadFileValidateBeforeCall(uploadFileType, _file, packedPassword, forceOverwrite, _callback);
+        okhttp3.Call localVarCall = uploadFileValidateBeforeCall(uploadFileType, _file, packedPassword, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, forceOverwrite, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseUploadResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

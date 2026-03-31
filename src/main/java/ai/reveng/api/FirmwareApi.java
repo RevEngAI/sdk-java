@@ -206,6 +206,12 @@ public class FirmwareApi {
     /**
      * Build call for uploadFirmware
      * @param _file  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @param password  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -219,7 +225,7 @@ public class FirmwareApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call uploadFirmwareCall(@javax.annotation.Nonnull File _file, @javax.annotation.Nullable String password, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call uploadFirmwareCall(@javax.annotation.Nonnull File _file, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, @javax.annotation.Nullable String password, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -252,6 +258,30 @@ public class FirmwareApi {
             localVarFormParams.put("password", password);
         }
 
+        if (endpointUrl != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("endpoint_url", endpointUrl));
+        }
+
+        if (localCacheDir != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_dir", localCacheDir));
+        }
+
+        if (localCacheMaxSizeMb != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_max_size_mb", localCacheMaxSizeMb));
+        }
+
+        if (customerSamplesBucket != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("customer_samples_bucket", customerSamplesBucket));
+        }
+
+        if (firmwareSamplesBucket != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("firmware_samples_bucket", firmwareSamplesBucket));
+        }
+
+        if (maxRetryAttempts != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("max_retry_attempts", maxRetryAttempts));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -273,13 +303,13 @@ public class FirmwareApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call uploadFirmwareValidateBeforeCall(@javax.annotation.Nonnull File _file, @javax.annotation.Nullable String password, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call uploadFirmwareValidateBeforeCall(@javax.annotation.Nonnull File _file, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, @javax.annotation.Nullable String password, final ApiCallback _callback) throws ApiException {
         // verify the required parameter '_file' is set
         if (_file == null) {
             throw new ApiException("Missing the required parameter '_file' when calling uploadFirmware(Async)");
         }
 
-        return uploadFirmwareCall(_file, password, _callback);
+        return uploadFirmwareCall(_file, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, password, _callback);
 
     }
 
@@ -287,6 +317,12 @@ public class FirmwareApi {
      * Upload firmware for unpacking
      * Uploads a firmware file and begins a &#39;Firmware Unpacker&#39; task. Returns a result identifier, which can be used to poll for the response.
      * @param _file  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @param password  (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -299,8 +335,8 @@ public class FirmwareApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public Object uploadFirmware(@javax.annotation.Nonnull File _file, @javax.annotation.Nullable String password) throws ApiException {
-        ApiResponse<Object> localVarResp = uploadFirmwareWithHttpInfo(_file, password);
+    public Object uploadFirmware(@javax.annotation.Nonnull File _file, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, @javax.annotation.Nullable String password) throws ApiException {
+        ApiResponse<Object> localVarResp = uploadFirmwareWithHttpInfo(_file, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, password);
         return localVarResp.getData();
     }
 
@@ -308,6 +344,12 @@ public class FirmwareApi {
      * Upload firmware for unpacking
      * Uploads a firmware file and begins a &#39;Firmware Unpacker&#39; task. Returns a result identifier, which can be used to poll for the response.
      * @param _file  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @param password  (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -320,8 +362,8 @@ public class FirmwareApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> uploadFirmwareWithHttpInfo(@javax.annotation.Nonnull File _file, @javax.annotation.Nullable String password) throws ApiException {
-        okhttp3.Call localVarCall = uploadFirmwareValidateBeforeCall(_file, password, null);
+    public ApiResponse<Object> uploadFirmwareWithHttpInfo(@javax.annotation.Nonnull File _file, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, @javax.annotation.Nullable String password) throws ApiException {
+        okhttp3.Call localVarCall = uploadFirmwareValidateBeforeCall(_file, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, password, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -330,6 +372,12 @@ public class FirmwareApi {
      * Upload firmware for unpacking (asynchronously)
      * Uploads a firmware file and begins a &#39;Firmware Unpacker&#39; task. Returns a result identifier, which can be used to poll for the response.
      * @param _file  (required)
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @param password  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -343,9 +391,9 @@ public class FirmwareApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call uploadFirmwareAsync(@javax.annotation.Nonnull File _file, @javax.annotation.Nullable String password, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call uploadFirmwareAsync(@javax.annotation.Nonnull File _file, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, @javax.annotation.Nullable String password, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = uploadFirmwareValidateBeforeCall(_file, password, _callback);
+        okhttp3.Call localVarCall = uploadFirmwareValidateBeforeCall(_file, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, password, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

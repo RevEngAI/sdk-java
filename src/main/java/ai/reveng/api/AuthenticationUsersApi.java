@@ -452,6 +452,12 @@ public class AuthenticationUsersApi {
     }
     /**
      * Build call for getUserComments
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -463,7 +469,7 @@ public class AuthenticationUsersApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUserCommentsCall(final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getUserCommentsCall(@javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -488,6 +494,30 @@ public class AuthenticationUsersApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (endpointUrl != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("endpoint_url", endpointUrl));
+        }
+
+        if (localCacheDir != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_dir", localCacheDir));
+        }
+
+        if (localCacheMaxSizeMb != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_max_size_mb", localCacheMaxSizeMb));
+        }
+
+        if (customerSamplesBucket != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("customer_samples_bucket", customerSamplesBucket));
+        }
+
+        if (firmwareSamplesBucket != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("firmware_samples_bucket", firmwareSamplesBucket));
+        }
+
+        if (maxRetryAttempts != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("max_retry_attempts", maxRetryAttempts));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -508,14 +538,20 @@ public class AuthenticationUsersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getUserCommentsValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        return getUserCommentsCall(_callback);
+    private okhttp3.Call getUserCommentsValidateBeforeCall(@javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback _callback) throws ApiException {
+        return getUserCommentsCall(endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, _callback);
 
     }
 
     /**
      * Get comments by user
      * Retrieves all comments created by a specific user. Only returns comments for resources the requesting user has access to.
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @return BaseResponseListCommentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -526,14 +562,20 @@ public class AuthenticationUsersApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseListCommentResponse getUserComments() throws ApiException {
-        ApiResponse<BaseResponseListCommentResponse> localVarResp = getUserCommentsWithHttpInfo();
+    public BaseResponseListCommentResponse getUserComments(@javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts) throws ApiException {
+        ApiResponse<BaseResponseListCommentResponse> localVarResp = getUserCommentsWithHttpInfo(endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
         return localVarResp.getData();
     }
 
     /**
      * Get comments by user
      * Retrieves all comments created by a specific user. Only returns comments for resources the requesting user has access to.
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @return ApiResponse&lt;BaseResponseListCommentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -544,8 +586,8 @@ public class AuthenticationUsersApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseListCommentResponse> getUserCommentsWithHttpInfo() throws ApiException {
-        okhttp3.Call localVarCall = getUserCommentsValidateBeforeCall(null);
+    public ApiResponse<BaseResponseListCommentResponse> getUserCommentsWithHttpInfo(@javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts) throws ApiException {
+        okhttp3.Call localVarCall = getUserCommentsValidateBeforeCall(endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, null);
         Type localVarReturnType = new TypeToken<BaseResponseListCommentResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -553,6 +595,12 @@ public class AuthenticationUsersApi {
     /**
      * Get comments by user (asynchronously)
      * Retrieves all comments created by a specific user. Only returns comments for resources the requesting user has access to.
+     * @param endpointUrl  (optional)
+     * @param localCacheDir  (optional)
+     * @param localCacheMaxSizeMb  (optional)
+     * @param customerSamplesBucket  (optional)
+     * @param firmwareSamplesBucket  (optional)
+     * @param maxRetryAttempts  (optional, default to 5)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -564,9 +612,9 @@ public class AuthenticationUsersApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUserCommentsAsync(final ApiCallback<BaseResponseListCommentResponse> _callback) throws ApiException {
+    public okhttp3.Call getUserCommentsAsync(@javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback<BaseResponseListCommentResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getUserCommentsValidateBeforeCall(_callback);
+        okhttp3.Call localVarCall = getUserCommentsValidateBeforeCall(endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseListCommentResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
