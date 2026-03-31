@@ -12,7 +12,7 @@ All URIs are relative to *https://api.reveng.ai*
 
 <a id="createDecompilationComment"></a>
 # **createDecompilationComment**
-> BaseResponseCommentResponse createDecompilationComment(functionId, functionCommentCreateRequest)
+> BaseResponseCommentResponse createDecompilationComment(functionId, functionCommentCreateRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts)
 
 Create a comment for this function
 
@@ -42,8 +42,14 @@ public class Example {
     FunctionsDecompilationApi apiInstance = new FunctionsDecompilationApi(defaultClient);
     Integer functionId = 56; // Integer | 
     FunctionCommentCreateRequest functionCommentCreateRequest = new FunctionCommentCreateRequest(); // FunctionCommentCreateRequest | 
+    String endpointUrl = "endpointUrl_example"; // String | 
+    String localCacheDir = "localCacheDir_example"; // String | 
+    Integer localCacheMaxSizeMb = 56; // Integer | 
+    String customerSamplesBucket = "customerSamplesBucket_example"; // String | 
+    String firmwareSamplesBucket = "firmwareSamplesBucket_example"; // String | 
+    Integer maxRetryAttempts = 5; // Integer | 
     try {
-      BaseResponseCommentResponse result = apiInstance.createDecompilationComment(functionId, functionCommentCreateRequest);
+      BaseResponseCommentResponse result = apiInstance.createDecompilationComment(functionId, functionCommentCreateRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsDecompilationApi#createDecompilationComment");
@@ -62,6 +68,12 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **functionId** | **Integer**|  | |
 | **functionCommentCreateRequest** | [**FunctionCommentCreateRequest**](FunctionCommentCreateRequest.md)|  | |
+| **endpointUrl** | **String**|  | [optional] |
+| **localCacheDir** | **String**|  | [optional] |
+| **localCacheMaxSizeMb** | **Integer**|  | [optional] |
+| **customerSamplesBucket** | **String**|  | [optional] |
+| **firmwareSamplesBucket** | **String**|  | [optional] |
+| **maxRetryAttempts** | **Integer**|  | [optional] [default to 5] |
 
 ### Return type
 
@@ -85,7 +97,7 @@ public class Example {
 
 <a id="deleteDecompilationComment"></a>
 # **deleteDecompilationComment**
-> BaseResponseBool deleteDecompilationComment(commentId, functionId)
+> BaseResponseBool deleteDecompilationComment(commentId, functionId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts)
 
 Delete a comment
 
@@ -115,8 +127,14 @@ public class Example {
     FunctionsDecompilationApi apiInstance = new FunctionsDecompilationApi(defaultClient);
     Integer commentId = 56; // Integer | 
     Integer functionId = 56; // Integer | 
+    String endpointUrl = "endpointUrl_example"; // String | 
+    String localCacheDir = "localCacheDir_example"; // String | 
+    Integer localCacheMaxSizeMb = 56; // Integer | 
+    String customerSamplesBucket = "customerSamplesBucket_example"; // String | 
+    String firmwareSamplesBucket = "firmwareSamplesBucket_example"; // String | 
+    Integer maxRetryAttempts = 5; // Integer | 
     try {
-      BaseResponseBool result = apiInstance.deleteDecompilationComment(commentId, functionId);
+      BaseResponseBool result = apiInstance.deleteDecompilationComment(commentId, functionId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsDecompilationApi#deleteDecompilationComment");
@@ -135,6 +153,12 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **commentId** | **Integer**|  | |
 | **functionId** | **Integer**|  | |
+| **endpointUrl** | **String**|  | [optional] |
+| **localCacheDir** | **String**|  | [optional] |
+| **localCacheMaxSizeMb** | **Integer**|  | [optional] |
+| **customerSamplesBucket** | **String**|  | [optional] |
+| **firmwareSamplesBucket** | **String**|  | [optional] |
+| **maxRetryAttempts** | **Integer**|  | [optional] [default to 5] |
 
 ### Return type
 
@@ -159,7 +183,7 @@ public class Example {
 
 <a id="getDecompilationComments"></a>
 # **getDecompilationComments**
-> BaseResponseListCommentResponse getDecompilationComments(functionId)
+> BaseResponseListCommentResponse getDecompilationComments(functionId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts)
 
 Get comments for this function
 
@@ -188,8 +212,14 @@ public class Example {
 
     FunctionsDecompilationApi apiInstance = new FunctionsDecompilationApi(defaultClient);
     Integer functionId = 56; // Integer | 
+    String endpointUrl = "endpointUrl_example"; // String | 
+    String localCacheDir = "localCacheDir_example"; // String | 
+    Integer localCacheMaxSizeMb = 56; // Integer | 
+    String customerSamplesBucket = "customerSamplesBucket_example"; // String | 
+    String firmwareSamplesBucket = "firmwareSamplesBucket_example"; // String | 
+    Integer maxRetryAttempts = 5; // Integer | 
     try {
-      BaseResponseListCommentResponse result = apiInstance.getDecompilationComments(functionId);
+      BaseResponseListCommentResponse result = apiInstance.getDecompilationComments(functionId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsDecompilationApi#getDecompilationComments");
@@ -207,6 +237,12 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **functionId** | **Integer**|  | |
+| **endpointUrl** | **String**|  | [optional] |
+| **localCacheDir** | **String**|  | [optional] |
+| **localCacheMaxSizeMb** | **Integer**|  | [optional] |
+| **customerSamplesBucket** | **String**|  | [optional] |
+| **firmwareSamplesBucket** | **String**|  | [optional] |
+| **maxRetryAttempts** | **Integer**|  | [optional] [default to 5] |
 
 ### Return type
 
@@ -229,7 +265,7 @@ public class Example {
 
 <a id="updateDecompilationComment"></a>
 # **updateDecompilationComment**
-> BaseResponseCommentResponse updateDecompilationComment(commentId, functionId, commentUpdateRequest)
+> BaseResponseCommentResponse updateDecompilationComment(commentId, functionId, commentUpdateRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts)
 
 Update a comment
 
@@ -260,8 +296,14 @@ public class Example {
     Integer commentId = 56; // Integer | 
     Integer functionId = 56; // Integer | 
     CommentUpdateRequest commentUpdateRequest = new CommentUpdateRequest(); // CommentUpdateRequest | 
+    String endpointUrl = "endpointUrl_example"; // String | 
+    String localCacheDir = "localCacheDir_example"; // String | 
+    Integer localCacheMaxSizeMb = 56; // Integer | 
+    String customerSamplesBucket = "customerSamplesBucket_example"; // String | 
+    String firmwareSamplesBucket = "firmwareSamplesBucket_example"; // String | 
+    Integer maxRetryAttempts = 5; // Integer | 
     try {
-      BaseResponseCommentResponse result = apiInstance.updateDecompilationComment(commentId, functionId, commentUpdateRequest);
+      BaseResponseCommentResponse result = apiInstance.updateDecompilationComment(commentId, functionId, commentUpdateRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsDecompilationApi#updateDecompilationComment");
@@ -281,6 +323,12 @@ public class Example {
 | **commentId** | **Integer**|  | |
 | **functionId** | **Integer**|  | |
 | **commentUpdateRequest** | [**CommentUpdateRequest**](CommentUpdateRequest.md)|  | |
+| **endpointUrl** | **String**|  | [optional] |
+| **localCacheDir** | **String**|  | [optional] |
+| **localCacheMaxSizeMb** | **Integer**|  | [optional] |
+| **customerSamplesBucket** | **String**|  | [optional] |
+| **firmwareSamplesBucket** | **String**|  | [optional] |
+| **maxRetryAttempts** | **Integer**|  | [optional] [default to 5] |
 
 ### Return type
 

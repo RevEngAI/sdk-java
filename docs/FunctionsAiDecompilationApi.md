@@ -17,7 +17,7 @@ All URIs are relative to *https://api.reveng.ai*
 
 <a id="createAiDecompilationComment"></a>
 # **createAiDecompilationComment**
-> BaseResponseCommentResponse createAiDecompilationComment(functionId, functionCommentCreateRequest)
+> BaseResponseCommentResponse createAiDecompilationComment(functionId, functionCommentCreateRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts)
 
 Create a comment for this function
 
@@ -47,8 +47,14 @@ public class Example {
     FunctionsAiDecompilationApi apiInstance = new FunctionsAiDecompilationApi(defaultClient);
     Integer functionId = 56; // Integer | 
     FunctionCommentCreateRequest functionCommentCreateRequest = new FunctionCommentCreateRequest(); // FunctionCommentCreateRequest | 
+    String endpointUrl = "endpointUrl_example"; // String | 
+    String localCacheDir = "localCacheDir_example"; // String | 
+    Integer localCacheMaxSizeMb = 56; // Integer | 
+    String customerSamplesBucket = "customerSamplesBucket_example"; // String | 
+    String firmwareSamplesBucket = "firmwareSamplesBucket_example"; // String | 
+    Integer maxRetryAttempts = 5; // Integer | 
     try {
-      BaseResponseCommentResponse result = apiInstance.createAiDecompilationComment(functionId, functionCommentCreateRequest);
+      BaseResponseCommentResponse result = apiInstance.createAiDecompilationComment(functionId, functionCommentCreateRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsAiDecompilationApi#createAiDecompilationComment");
@@ -67,6 +73,12 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **functionId** | **Integer**|  | |
 | **functionCommentCreateRequest** | [**FunctionCommentCreateRequest**](FunctionCommentCreateRequest.md)|  | |
+| **endpointUrl** | **String**|  | [optional] |
+| **localCacheDir** | **String**|  | [optional] |
+| **localCacheMaxSizeMb** | **Integer**|  | [optional] |
+| **customerSamplesBucket** | **String**|  | [optional] |
+| **firmwareSamplesBucket** | **String**|  | [optional] |
+| **maxRetryAttempts** | **Integer**|  | [optional] [default to 5] |
 
 ### Return type
 
@@ -164,7 +176,7 @@ public class Example {
 
 <a id="deleteAiDecompilationComment"></a>
 # **deleteAiDecompilationComment**
-> BaseResponseBool deleteAiDecompilationComment(commentId, functionId)
+> BaseResponseBool deleteAiDecompilationComment(commentId, functionId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts)
 
 Delete a comment
 
@@ -194,8 +206,14 @@ public class Example {
     FunctionsAiDecompilationApi apiInstance = new FunctionsAiDecompilationApi(defaultClient);
     Integer commentId = 56; // Integer | 
     Integer functionId = 56; // Integer | 
+    String endpointUrl = "endpointUrl_example"; // String | 
+    String localCacheDir = "localCacheDir_example"; // String | 
+    Integer localCacheMaxSizeMb = 56; // Integer | 
+    String customerSamplesBucket = "customerSamplesBucket_example"; // String | 
+    String firmwareSamplesBucket = "firmwareSamplesBucket_example"; // String | 
+    Integer maxRetryAttempts = 5; // Integer | 
     try {
-      BaseResponseBool result = apiInstance.deleteAiDecompilationComment(commentId, functionId);
+      BaseResponseBool result = apiInstance.deleteAiDecompilationComment(commentId, functionId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsAiDecompilationApi#deleteAiDecompilationComment");
@@ -214,6 +232,12 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **commentId** | **Integer**|  | |
 | **functionId** | **Integer**|  | |
+| **endpointUrl** | **String**|  | [optional] |
+| **localCacheDir** | **String**|  | [optional] |
+| **localCacheMaxSizeMb** | **Integer**|  | [optional] |
+| **customerSamplesBucket** | **String**|  | [optional] |
+| **firmwareSamplesBucket** | **String**|  | [optional] |
+| **maxRetryAttempts** | **Integer**|  | [optional] [default to 5] |
 
 ### Return type
 
@@ -238,7 +262,7 @@ public class Example {
 
 <a id="getAiDecompilationComments"></a>
 # **getAiDecompilationComments**
-> BaseResponseListCommentResponse getAiDecompilationComments(functionId)
+> BaseResponseListCommentResponse getAiDecompilationComments(functionId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts)
 
 Get comments for this function
 
@@ -267,8 +291,14 @@ public class Example {
 
     FunctionsAiDecompilationApi apiInstance = new FunctionsAiDecompilationApi(defaultClient);
     Integer functionId = 56; // Integer | 
+    String endpointUrl = "endpointUrl_example"; // String | 
+    String localCacheDir = "localCacheDir_example"; // String | 
+    Integer localCacheMaxSizeMb = 56; // Integer | 
+    String customerSamplesBucket = "customerSamplesBucket_example"; // String | 
+    String firmwareSamplesBucket = "firmwareSamplesBucket_example"; // String | 
+    Integer maxRetryAttempts = 5; // Integer | 
     try {
-      BaseResponseListCommentResponse result = apiInstance.getAiDecompilationComments(functionId);
+      BaseResponseListCommentResponse result = apiInstance.getAiDecompilationComments(functionId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsAiDecompilationApi#getAiDecompilationComments");
@@ -286,6 +316,12 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **functionId** | **Integer**|  | |
+| **endpointUrl** | **String**|  | [optional] |
+| **localCacheDir** | **String**|  | [optional] |
+| **localCacheMaxSizeMb** | **Integer**|  | [optional] |
+| **customerSamplesBucket** | **String**|  | [optional] |
+| **firmwareSamplesBucket** | **String**|  | [optional] |
+| **maxRetryAttempts** | **Integer**|  | [optional] [default to 5] |
 
 ### Return type
 
@@ -519,7 +555,7 @@ public class Example {
 
 <a id="updateAiDecompilationComment"></a>
 # **updateAiDecompilationComment**
-> BaseResponseCommentResponse updateAiDecompilationComment(commentId, functionId, commentUpdateRequest)
+> BaseResponseCommentResponse updateAiDecompilationComment(commentId, functionId, commentUpdateRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts)
 
 Update a comment
 
@@ -550,8 +586,14 @@ public class Example {
     Integer commentId = 56; // Integer | 
     Integer functionId = 56; // Integer | 
     CommentUpdateRequest commentUpdateRequest = new CommentUpdateRequest(); // CommentUpdateRequest | 
+    String endpointUrl = "endpointUrl_example"; // String | 
+    String localCacheDir = "localCacheDir_example"; // String | 
+    Integer localCacheMaxSizeMb = 56; // Integer | 
+    String customerSamplesBucket = "customerSamplesBucket_example"; // String | 
+    String firmwareSamplesBucket = "firmwareSamplesBucket_example"; // String | 
+    Integer maxRetryAttempts = 5; // Integer | 
     try {
-      BaseResponseCommentResponse result = apiInstance.updateAiDecompilationComment(commentId, functionId, commentUpdateRequest);
+      BaseResponseCommentResponse result = apiInstance.updateAiDecompilationComment(commentId, functionId, commentUpdateRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsAiDecompilationApi#updateAiDecompilationComment");
@@ -571,6 +613,12 @@ public class Example {
 | **commentId** | **Integer**|  | |
 | **functionId** | **Integer**|  | |
 | **commentUpdateRequest** | [**CommentUpdateRequest**](CommentUpdateRequest.md)|  | |
+| **endpointUrl** | **String**|  | [optional] |
+| **localCacheDir** | **String**|  | [optional] |
+| **localCacheMaxSizeMb** | **Integer**|  | [optional] |
+| **customerSamplesBucket** | **String**|  | [optional] |
+| **firmwareSamplesBucket** | **String**|  | [optional] |
+| **maxRetryAttempts** | **Integer**|  | [optional] [default to 5] |
 
 ### Return type
 

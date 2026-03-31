@@ -12,7 +12,7 @@ All URIs are relative to *https://api.reveng.ai*
 
 <a id="createAnalysisComment"></a>
 # **createAnalysisComment**
-> BaseResponseCommentResponse createAnalysisComment(analysisId, commentBase)
+> BaseResponseCommentResponse createAnalysisComment(analysisId, commentBase, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts)
 
 Create a comment for this analysis
 
@@ -42,8 +42,14 @@ public class Example {
     AnalysesCommentsApi apiInstance = new AnalysesCommentsApi(defaultClient);
     Integer analysisId = 56; // Integer | 
     CommentBase commentBase = new CommentBase(); // CommentBase | 
+    String endpointUrl = "endpointUrl_example"; // String | 
+    String localCacheDir = "localCacheDir_example"; // String | 
+    Integer localCacheMaxSizeMb = 56; // Integer | 
+    String customerSamplesBucket = "customerSamplesBucket_example"; // String | 
+    String firmwareSamplesBucket = "firmwareSamplesBucket_example"; // String | 
+    Integer maxRetryAttempts = 5; // Integer | 
     try {
-      BaseResponseCommentResponse result = apiInstance.createAnalysisComment(analysisId, commentBase);
+      BaseResponseCommentResponse result = apiInstance.createAnalysisComment(analysisId, commentBase, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCommentsApi#createAnalysisComment");
@@ -62,6 +68,12 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
 | **commentBase** | [**CommentBase**](CommentBase.md)|  | |
+| **endpointUrl** | **String**|  | [optional] |
+| **localCacheDir** | **String**|  | [optional] |
+| **localCacheMaxSizeMb** | **Integer**|  | [optional] |
+| **customerSamplesBucket** | **String**|  | [optional] |
+| **firmwareSamplesBucket** | **String**|  | [optional] |
+| **maxRetryAttempts** | **Integer**|  | [optional] [default to 5] |
 
 ### Return type
 
@@ -85,7 +97,7 @@ public class Example {
 
 <a id="deleteAnalysisComment"></a>
 # **deleteAnalysisComment**
-> BaseResponseBool deleteAnalysisComment(commentId, analysisId)
+> BaseResponseBool deleteAnalysisComment(commentId, analysisId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts)
 
 Delete a comment
 
@@ -115,8 +127,14 @@ public class Example {
     AnalysesCommentsApi apiInstance = new AnalysesCommentsApi(defaultClient);
     Integer commentId = 56; // Integer | 
     Integer analysisId = 56; // Integer | 
+    String endpointUrl = "endpointUrl_example"; // String | 
+    String localCacheDir = "localCacheDir_example"; // String | 
+    Integer localCacheMaxSizeMb = 56; // Integer | 
+    String customerSamplesBucket = "customerSamplesBucket_example"; // String | 
+    String firmwareSamplesBucket = "firmwareSamplesBucket_example"; // String | 
+    Integer maxRetryAttempts = 5; // Integer | 
     try {
-      BaseResponseBool result = apiInstance.deleteAnalysisComment(commentId, analysisId);
+      BaseResponseBool result = apiInstance.deleteAnalysisComment(commentId, analysisId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCommentsApi#deleteAnalysisComment");
@@ -135,6 +153,12 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **commentId** | **Integer**|  | |
 | **analysisId** | **Integer**|  | |
+| **endpointUrl** | **String**|  | [optional] |
+| **localCacheDir** | **String**|  | [optional] |
+| **localCacheMaxSizeMb** | **Integer**|  | [optional] |
+| **customerSamplesBucket** | **String**|  | [optional] |
+| **firmwareSamplesBucket** | **String**|  | [optional] |
+| **maxRetryAttempts** | **Integer**|  | [optional] [default to 5] |
 
 ### Return type
 
@@ -159,7 +183,7 @@ public class Example {
 
 <a id="getAnalysisComments"></a>
 # **getAnalysisComments**
-> BaseResponseListCommentResponse getAnalysisComments(analysisId)
+> BaseResponseListCommentResponse getAnalysisComments(analysisId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts)
 
 Get comments for this analysis
 
@@ -188,8 +212,14 @@ public class Example {
 
     AnalysesCommentsApi apiInstance = new AnalysesCommentsApi(defaultClient);
     Integer analysisId = 56; // Integer | 
+    String endpointUrl = "endpointUrl_example"; // String | 
+    String localCacheDir = "localCacheDir_example"; // String | 
+    Integer localCacheMaxSizeMb = 56; // Integer | 
+    String customerSamplesBucket = "customerSamplesBucket_example"; // String | 
+    String firmwareSamplesBucket = "firmwareSamplesBucket_example"; // String | 
+    Integer maxRetryAttempts = 5; // Integer | 
     try {
-      BaseResponseListCommentResponse result = apiInstance.getAnalysisComments(analysisId);
+      BaseResponseListCommentResponse result = apiInstance.getAnalysisComments(analysisId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCommentsApi#getAnalysisComments");
@@ -207,6 +237,12 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
+| **endpointUrl** | **String**|  | [optional] |
+| **localCacheDir** | **String**|  | [optional] |
+| **localCacheMaxSizeMb** | **Integer**|  | [optional] |
+| **customerSamplesBucket** | **String**|  | [optional] |
+| **firmwareSamplesBucket** | **String**|  | [optional] |
+| **maxRetryAttempts** | **Integer**|  | [optional] [default to 5] |
 
 ### Return type
 
@@ -229,7 +265,7 @@ public class Example {
 
 <a id="updateAnalysisComment"></a>
 # **updateAnalysisComment**
-> BaseResponseCommentResponse updateAnalysisComment(commentId, analysisId, commentUpdateRequest)
+> BaseResponseCommentResponse updateAnalysisComment(commentId, analysisId, commentUpdateRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts)
 
 Update a comment
 
@@ -260,8 +296,14 @@ public class Example {
     Integer commentId = 56; // Integer | 
     Integer analysisId = 56; // Integer | 
     CommentUpdateRequest commentUpdateRequest = new CommentUpdateRequest(); // CommentUpdateRequest | 
+    String endpointUrl = "endpointUrl_example"; // String | 
+    String localCacheDir = "localCacheDir_example"; // String | 
+    Integer localCacheMaxSizeMb = 56; // Integer | 
+    String customerSamplesBucket = "customerSamplesBucket_example"; // String | 
+    String firmwareSamplesBucket = "firmwareSamplesBucket_example"; // String | 
+    Integer maxRetryAttempts = 5; // Integer | 
     try {
-      BaseResponseCommentResponse result = apiInstance.updateAnalysisComment(commentId, analysisId, commentUpdateRequest);
+      BaseResponseCommentResponse result = apiInstance.updateAnalysisComment(commentId, analysisId, commentUpdateRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCommentsApi#updateAnalysisComment");
@@ -281,6 +323,12 @@ public class Example {
 | **commentId** | **Integer**|  | |
 | **analysisId** | **Integer**|  | |
 | **commentUpdateRequest** | [**CommentUpdateRequest**](CommentUpdateRequest.md)|  | |
+| **endpointUrl** | **String**|  | [optional] |
+| **localCacheDir** | **String**|  | [optional] |
+| **localCacheMaxSizeMb** | **Integer**|  | [optional] |
+| **customerSamplesBucket** | **String**|  | [optional] |
+| **firmwareSamplesBucket** | **String**|  | [optional] |
+| **maxRetryAttempts** | **Integer**|  | [optional] [default to 5] |
 
 ### Return type
 
