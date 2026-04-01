@@ -16,7 +16,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>ai.reveng</groupId>
     <artifactId>sdk</artifactId>
-    <version>3.57.0</version>
+    <version>3.57.2</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -31,7 +31,7 @@ repositories {
 }
 
 dependencies {
-    implementation "ai.reveng:sdk:3.57.0"
+    implementation "ai.reveng:sdk:3.57.2"
 }
 ```
 
@@ -276,7 +276,6 @@ Class | Method | HTTP request | Description
  - [BaseResponseFunctionsDetailResponse](docs/BaseResponseFunctionsDetailResponse.md)
  - [BaseResponseGenerateFunctionDataTypes](docs/BaseResponseGenerateFunctionDataTypes.md)
  - [BaseResponseGenerationStatusList](docs/BaseResponseGenerationStatusList.md)
- - [BaseResponseGetAiDecompilationRatingResponse](docs/BaseResponseGetAiDecompilationRatingResponse.md)
  - [BaseResponseGetAiDecompilationTask](docs/BaseResponseGetAiDecompilationTask.md)
  - [BaseResponseGetMeResponse](docs/BaseResponseGetMeResponse.md)
  - [BaseResponseGetPublicUserResponse](docs/BaseResponseGetPublicUserResponse.md)
@@ -304,6 +303,7 @@ Class | Method | HTTP request | Description
  - [BaseResponseTTPS](docs/BaseResponseTTPS.md)
  - [BaseResponseTagSearchResponse](docs/BaseResponseTagSearchResponse.md)
  - [BaseResponseTaskResponse](docs/BaseResponseTaskResponse.md)
+ - [BaseResponseUnionGetAiDecompilationRatingResponseNoneType](docs/BaseResponseUnionGetAiDecompilationRatingResponseNoneType.md)
  - [BaseResponseUploadResponse](docs/BaseResponseUploadResponse.md)
  - [BaseResponseVulnerabilities](docs/BaseResponseVulnerabilities.md)
  - [BaseResponseXrefResponse](docs/BaseResponseXrefResponse.md)

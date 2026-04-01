@@ -53,10 +53,10 @@ import java.util.Locale;
 import ai.reveng.invoker.JSON;
 
 /**
- * BaseResponseGetAiDecompilationRatingResponse
+ * BaseResponseUnionGetAiDecompilationRatingResponseNoneType
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class BaseResponseGetAiDecompilationRatingResponse {
+public class BaseResponseUnionGetAiDecompilationRatingResponseNoneType {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
   @javax.annotation.Nullable
@@ -82,10 +82,10 @@ public class BaseResponseGetAiDecompilationRatingResponse {
   @javax.annotation.Nullable
   private MetaModel meta;
 
-  public BaseResponseGetAiDecompilationRatingResponse() {
+  public BaseResponseUnionGetAiDecompilationRatingResponseNoneType() {
   }
 
-  public BaseResponseGetAiDecompilationRatingResponse status(@javax.annotation.Nullable Boolean status) {
+  public BaseResponseUnionGetAiDecompilationRatingResponseNoneType status(@javax.annotation.Nullable Boolean status) {
     this.status = status;
     return this;
   }
@@ -104,7 +104,7 @@ public class BaseResponseGetAiDecompilationRatingResponse {
   }
 
 
-  public BaseResponseGetAiDecompilationRatingResponse data(@javax.annotation.Nullable GetAiDecompilationRatingResponse data) {
+  public BaseResponseUnionGetAiDecompilationRatingResponseNoneType data(@javax.annotation.Nullable GetAiDecompilationRatingResponse data) {
     this.data = data;
     return this;
   }
@@ -123,7 +123,7 @@ public class BaseResponseGetAiDecompilationRatingResponse {
   }
 
 
-  public BaseResponseGetAiDecompilationRatingResponse message(@javax.annotation.Nullable String message) {
+  public BaseResponseUnionGetAiDecompilationRatingResponseNoneType message(@javax.annotation.Nullable String message) {
     this.message = message;
     return this;
   }
@@ -142,12 +142,12 @@ public class BaseResponseGetAiDecompilationRatingResponse {
   }
 
 
-  public BaseResponseGetAiDecompilationRatingResponse errors(@javax.annotation.Nullable List<ErrorModel> errors) {
+  public BaseResponseUnionGetAiDecompilationRatingResponseNoneType errors(@javax.annotation.Nullable List<ErrorModel> errors) {
     this.errors = errors;
     return this;
   }
 
-  public BaseResponseGetAiDecompilationRatingResponse addErrorsItem(ErrorModel errorsItem) {
+  public BaseResponseUnionGetAiDecompilationRatingResponseNoneType addErrorsItem(ErrorModel errorsItem) {
     if (this.errors == null) {
       this.errors = new ArrayList<>();
     }
@@ -169,7 +169,7 @@ public class BaseResponseGetAiDecompilationRatingResponse {
   }
 
 
-  public BaseResponseGetAiDecompilationRatingResponse meta(@javax.annotation.Nullable MetaModel meta) {
+  public BaseResponseUnionGetAiDecompilationRatingResponseNoneType meta(@javax.annotation.Nullable MetaModel meta) {
     this.meta = meta;
     return this;
   }
@@ -200,9 +200,9 @@ public class BaseResponseGetAiDecompilationRatingResponse {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the BaseResponseGetAiDecompilationRatingResponse instance itself
+   * @return the BaseResponseUnionGetAiDecompilationRatingResponseNoneType instance itself
    */
-  public BaseResponseGetAiDecompilationRatingResponse putAdditionalProperty(String key, Object value) {
+  public BaseResponseUnionGetAiDecompilationRatingResponseNoneType putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -241,13 +241,13 @@ public class BaseResponseGetAiDecompilationRatingResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BaseResponseGetAiDecompilationRatingResponse baseResponseGetAiDecompilationRatingResponse = (BaseResponseGetAiDecompilationRatingResponse) o;
-    return Objects.equals(this.status, baseResponseGetAiDecompilationRatingResponse.status) &&
-        Objects.equals(this.data, baseResponseGetAiDecompilationRatingResponse.data) &&
-        Objects.equals(this.message, baseResponseGetAiDecompilationRatingResponse.message) &&
-        Objects.equals(this.errors, baseResponseGetAiDecompilationRatingResponse.errors) &&
-        Objects.equals(this.meta, baseResponseGetAiDecompilationRatingResponse.meta)&&
-        Objects.equals(this.additionalProperties, baseResponseGetAiDecompilationRatingResponse.additionalProperties);
+    BaseResponseUnionGetAiDecompilationRatingResponseNoneType baseResponseUnionGetAiDecompilationRatingResponseNoneType = (BaseResponseUnionGetAiDecompilationRatingResponseNoneType) o;
+    return Objects.equals(this.status, baseResponseUnionGetAiDecompilationRatingResponseNoneType.status) &&
+        Objects.equals(this.data, baseResponseUnionGetAiDecompilationRatingResponseNoneType.data) &&
+        Objects.equals(this.message, baseResponseUnionGetAiDecompilationRatingResponseNoneType.message) &&
+        Objects.equals(this.errors, baseResponseUnionGetAiDecompilationRatingResponseNoneType.errors) &&
+        Objects.equals(this.meta, baseResponseUnionGetAiDecompilationRatingResponseNoneType.meta)&&
+        Objects.equals(this.additionalProperties, baseResponseUnionGetAiDecompilationRatingResponseNoneType.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -269,7 +269,7 @@ public class BaseResponseGetAiDecompilationRatingResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BaseResponseGetAiDecompilationRatingResponse {\n");
+    sb.append("class BaseResponseUnionGetAiDecompilationRatingResponseNoneType {\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
@@ -307,12 +307,12 @@ public class BaseResponseGetAiDecompilationRatingResponse {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to BaseResponseGetAiDecompilationRatingResponse
+   * @throws IOException if the JSON Element is invalid with respect to BaseResponseUnionGetAiDecompilationRatingResponseNoneType
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!BaseResponseGetAiDecompilationRatingResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in BaseResponseGetAiDecompilationRatingResponse is not found in the empty JSON string", BaseResponseGetAiDecompilationRatingResponse.openapiRequiredFields.toString()));
+        if (!BaseResponseUnionGetAiDecompilationRatingResponseNoneType.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in BaseResponseUnionGetAiDecompilationRatingResponseNoneType is not found in the empty JSON string", BaseResponseUnionGetAiDecompilationRatingResponseNoneType.openapiRequiredFields.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -347,16 +347,16 @@ public class BaseResponseGetAiDecompilationRatingResponse {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!BaseResponseGetAiDecompilationRatingResponse.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'BaseResponseGetAiDecompilationRatingResponse' and its subtypes
+       if (!BaseResponseUnionGetAiDecompilationRatingResponseNoneType.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'BaseResponseUnionGetAiDecompilationRatingResponseNoneType' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<BaseResponseGetAiDecompilationRatingResponse> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(BaseResponseGetAiDecompilationRatingResponse.class));
+       final TypeAdapter<BaseResponseUnionGetAiDecompilationRatingResponseNoneType> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(BaseResponseUnionGetAiDecompilationRatingResponseNoneType.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<BaseResponseGetAiDecompilationRatingResponse>() {
+       return (TypeAdapter<T>) new TypeAdapter<BaseResponseUnionGetAiDecompilationRatingResponseNoneType>() {
            @Override
-           public void write(JsonWriter out, BaseResponseGetAiDecompilationRatingResponse value) throws IOException {
+           public void write(JsonWriter out, BaseResponseUnionGetAiDecompilationRatingResponseNoneType value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -384,12 +384,12 @@ public class BaseResponseGetAiDecompilationRatingResponse {
            }
 
            @Override
-           public BaseResponseGetAiDecompilationRatingResponse read(JsonReader in) throws IOException {
+           public BaseResponseUnionGetAiDecompilationRatingResponseNoneType read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             BaseResponseGetAiDecompilationRatingResponse instance = thisAdapter.fromJsonTree(jsonObj);
+             BaseResponseUnionGetAiDecompilationRatingResponseNoneType instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -416,18 +416,18 @@ public class BaseResponseGetAiDecompilationRatingResponse {
   }
 
   /**
-   * Create an instance of BaseResponseGetAiDecompilationRatingResponse given an JSON string
+   * Create an instance of BaseResponseUnionGetAiDecompilationRatingResponseNoneType given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of BaseResponseGetAiDecompilationRatingResponse
-   * @throws IOException if the JSON string is invalid with respect to BaseResponseGetAiDecompilationRatingResponse
+   * @return An instance of BaseResponseUnionGetAiDecompilationRatingResponseNoneType
+   * @throws IOException if the JSON string is invalid with respect to BaseResponseUnionGetAiDecompilationRatingResponseNoneType
    */
-  public static BaseResponseGetAiDecompilationRatingResponse fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, BaseResponseGetAiDecompilationRatingResponse.class);
+  public static BaseResponseUnionGetAiDecompilationRatingResponseNoneType fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, BaseResponseUnionGetAiDecompilationRatingResponseNoneType.class);
   }
 
   /**
-   * Convert an instance of BaseResponseGetAiDecompilationRatingResponse to an JSON string
+   * Convert an instance of BaseResponseUnionGetAiDecompilationRatingResponseNoneType to an JSON string
    *
    * @return JSON string
    */

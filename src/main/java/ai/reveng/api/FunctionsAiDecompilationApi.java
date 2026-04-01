@@ -30,9 +30,9 @@ import ai.reveng.model.BaseResponse;
 import ai.reveng.model.BaseResponseBool;
 import ai.reveng.model.BaseResponseCommentResponse;
 import ai.reveng.model.BaseResponseFunctionTaskResponse;
-import ai.reveng.model.BaseResponseGetAiDecompilationRatingResponse;
 import ai.reveng.model.BaseResponseGetAiDecompilationTask;
 import ai.reveng.model.BaseResponseListCommentResponse;
+import ai.reveng.model.BaseResponseUnionGetAiDecompilationRatingResponseNoneType;
 import ai.reveng.model.CommentUpdateRequest;
 import ai.reveng.model.FunctionCommentCreateRequest;
 import ai.reveng.model.UpsertAiDecomplationRatingRequest;
@@ -870,7 +870,7 @@ public class FunctionsAiDecompilationApi {
      * Get rating for AI decompilation
      * 
      * @param functionId The ID of the function for which to get the rating (required)
-     * @return BaseResponseGetAiDecompilationRatingResponse
+     * @return BaseResponseUnionGetAiDecompilationRatingResponseNoneType
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -880,8 +880,8 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseGetAiDecompilationRatingResponse getAiDecompilationRating(@javax.annotation.Nonnull Long functionId) throws ApiException {
-        ApiResponse<BaseResponseGetAiDecompilationRatingResponse> localVarResp = getAiDecompilationRatingWithHttpInfo(functionId);
+    public BaseResponseUnionGetAiDecompilationRatingResponseNoneType getAiDecompilationRating(@javax.annotation.Nonnull Long functionId) throws ApiException {
+        ApiResponse<BaseResponseUnionGetAiDecompilationRatingResponseNoneType> localVarResp = getAiDecompilationRatingWithHttpInfo(functionId);
         return localVarResp.getData();
     }
 
@@ -889,7 +889,7 @@ public class FunctionsAiDecompilationApi {
      * Get rating for AI decompilation
      * 
      * @param functionId The ID of the function for which to get the rating (required)
-     * @return ApiResponse&lt;BaseResponseGetAiDecompilationRatingResponse&gt;
+     * @return ApiResponse&lt;BaseResponseUnionGetAiDecompilationRatingResponseNoneType&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -899,9 +899,9 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseGetAiDecompilationRatingResponse> getAiDecompilationRatingWithHttpInfo(@javax.annotation.Nonnull Long functionId) throws ApiException {
+    public ApiResponse<BaseResponseUnionGetAiDecompilationRatingResponseNoneType> getAiDecompilationRatingWithHttpInfo(@javax.annotation.Nonnull Long functionId) throws ApiException {
         okhttp3.Call localVarCall = getAiDecompilationRatingValidateBeforeCall(functionId, null);
-        Type localVarReturnType = new TypeToken<BaseResponseGetAiDecompilationRatingResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<BaseResponseUnionGetAiDecompilationRatingResponseNoneType>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -920,10 +920,10 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAiDecompilationRatingAsync(@javax.annotation.Nonnull Long functionId, final ApiCallback<BaseResponseGetAiDecompilationRatingResponse> _callback) throws ApiException {
+    public okhttp3.Call getAiDecompilationRatingAsync(@javax.annotation.Nonnull Long functionId, final ApiCallback<BaseResponseUnionGetAiDecompilationRatingResponseNoneType> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getAiDecompilationRatingValidateBeforeCall(functionId, _callback);
-        Type localVarReturnType = new TypeToken<BaseResponseGetAiDecompilationRatingResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<BaseResponseUnionGetAiDecompilationRatingResponseNoneType>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
