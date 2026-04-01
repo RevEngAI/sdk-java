@@ -1,6 +1,6 @@
 
 
-# BaseResponseGetAiDecompilationRatingResponse
+# BaseResponseUnionGetAiDecompilationRatingResponseNoneType
 
 
 ## Properties

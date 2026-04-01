@@ -344,7 +344,7 @@ public class Example {
 
 <a id="getAiDecompilationRating"></a>
 # **getAiDecompilationRating**
-> BaseResponseGetAiDecompilationRatingResponse getAiDecompilationRating(functionId)
+> BaseResponseUnionGetAiDecompilationRatingResponseNoneType getAiDecompilationRating(functionId)
 
 Get rating for AI decompilation
 
@@ -372,7 +372,7 @@ public class Example {
     FunctionsAiDecompilationApi apiInstance = new FunctionsAiDecompilationApi(defaultClient);
     Long functionId = 56L; // Long | The ID of the function for which to get the rating
     try {
-      BaseResponseGetAiDecompilationRatingResponse result = apiInstance.getAiDecompilationRating(functionId);
+      BaseResponseUnionGetAiDecompilationRatingResponseNoneType result = apiInstance.getAiDecompilationRating(functionId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsAiDecompilationApi#getAiDecompilationRating");
@@ -393,7 +393,7 @@ public class Example {
 
 ### Return type
 
-[**BaseResponseGetAiDecompilationRatingResponse**](BaseResponseGetAiDecompilationRatingResponse.md)
+[**BaseResponseUnionGetAiDecompilationRatingResponseNoneType**](BaseResponseUnionGetAiDecompilationRatingResponseNoneType.md)
 
 ### Authorization
 
