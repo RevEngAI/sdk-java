@@ -9,6 +9,7 @@ All URIs are relative to *https://api.reveng.ai*
 | [**getUserActivity**](AuthenticationUsersApi.md#getUserActivity) | **GET** /v2/users/activity | Get auth user activity |
 | [**getUserComments**](AuthenticationUsersApi.md#getUserComments) | **GET** /v2/users/me/comments | Get comments by user |
 | [**loginUser**](AuthenticationUsersApi.md#loginUser) | **POST** /v2/auth/login | Authenticate a user |
+| [**submitUserFeedback**](AuthenticationUsersApi.md#submitUserFeedback) | **POST** /v2/users/feedback | Submit feedback about the application |
 
 
 <a id="getRequesterUserInfo"></a>
@@ -357,4 +358,74 @@ public class Example {
 | **200** | Successful Response |  -  |
 | **422** | Invalid request parameters |  -  |
 | **401** | Invalid credentials |  -  |
+
+<a id="submitUserFeedback"></a>
+# **submitUserFeedback**
+> BaseResponse submitUserFeedback(submitUserFeedbackRequest)
+
+Submit feedback about the application
+
+Submits feedback about the application and forwards it to the RevEng.ai project management tool.
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.AuthenticationUsersApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    AuthenticationUsersApi apiInstance = new AuthenticationUsersApi(defaultClient);
+    SubmitUserFeedbackRequest submitUserFeedbackRequest = new SubmitUserFeedbackRequest(); // SubmitUserFeedbackRequest | 
+    try {
+      BaseResponse result = apiInstance.submitUserFeedback(submitUserFeedbackRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AuthenticationUsersApi#submitUserFeedback");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **submitUserFeedbackRequest** | [**SubmitUserFeedbackRequest**](SubmitUserFeedbackRequest.md)|  | |
+
+### Return type
+
+[**BaseResponse**](BaseResponse.md)
+
+### Authorization
+
+[APIKey](../README.md#APIKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+| **422** | Invalid request parameters |  -  |
 
