@@ -146,7 +146,7 @@ public class ApiClient {
         json = new JSON();
 
         // Set default User-Agent.
-        setUserAgent("OpenAPI-Generator/3.63.0/java");
+        setUserAgent("OpenAPI-Generator/3.66.0/java");
 
         authentications = new HashMap<String, Authentication>();
     }
