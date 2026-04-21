@@ -14,16 +14,13 @@ package ai.reveng.model;
 
 import java.util.Objects;
 import java.util.Locale;
-import ai.reveng.model.AppApiRestV2InfoTypesCapability;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -50,42 +47,34 @@ import java.util.Locale;
 import ai.reveng.invoker.JSON;
 
 /**
- * Capabilities
+ * QueuedWorkflowTaskResponse
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class Capabilities {
-  public static final String SERIALIZED_NAME_CAPABILITIES = "capabilities";
-  @SerializedName(SERIALIZED_NAME_CAPABILITIES)
+public class QueuedWorkflowTaskResponse {
+  public static final String SERIALIZED_NAME_TASK_ID = "task_id";
+  @SerializedName(SERIALIZED_NAME_TASK_ID)
   @javax.annotation.Nonnull
-  private List<AppApiRestV2InfoTypesCapability> capabilities = new ArrayList<>();
+  private String taskId;
 
-  public Capabilities() {
+  public QueuedWorkflowTaskResponse() {
   }
 
-  public Capabilities capabilities(@javax.annotation.Nonnull List<AppApiRestV2InfoTypesCapability> capabilities) {
-    this.capabilities = capabilities;
-    return this;
-  }
-
-  public Capabilities addCapabilitiesItem(AppApiRestV2InfoTypesCapability capabilitiesItem) {
-    if (this.capabilities == null) {
-      this.capabilities = new ArrayList<>();
-    }
-    this.capabilities.add(capabilitiesItem);
+  public QueuedWorkflowTaskResponse taskId(@javax.annotation.Nonnull String taskId) {
+    this.taskId = taskId;
     return this;
   }
 
   /**
-   * List of capabilities for a given analysis
-   * @return capabilities
+   * Get taskId
+   * @return taskId
    */
   @javax.annotation.Nonnull
-  public List<AppApiRestV2InfoTypesCapability> getCapabilities() {
-    return capabilities;
+  public String getTaskId() {
+    return taskId;
   }
 
-  public void setCapabilities(@javax.annotation.Nonnull List<AppApiRestV2InfoTypesCapability> capabilities) {
-    this.capabilities = capabilities;
+  public void setTaskId(@javax.annotation.Nonnull String taskId) {
+    this.taskId = taskId;
   }
 
   /**
@@ -101,9 +90,9 @@ public class Capabilities {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the Capabilities instance itself
+   * @return the QueuedWorkflowTaskResponse instance itself
    */
-  public Capabilities putAdditionalProperty(String key, Object value) {
+  public QueuedWorkflowTaskResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -142,21 +131,21 @@ public class Capabilities {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Capabilities capabilities = (Capabilities) o;
-    return Objects.equals(this.capabilities, capabilities.capabilities)&&
-        Objects.equals(this.additionalProperties, capabilities.additionalProperties);
+    QueuedWorkflowTaskResponse queuedWorkflowTaskResponse = (QueuedWorkflowTaskResponse) o;
+    return Objects.equals(this.taskId, queuedWorkflowTaskResponse.taskId)&&
+        Objects.equals(this.additionalProperties, queuedWorkflowTaskResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(capabilities, additionalProperties);
+    return Objects.hash(taskId, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Capabilities {\n");
-    sb.append("    capabilities: ").append(toIndentedString(capabilities)).append("\n");
+    sb.append("class QueuedWorkflowTaskResponse {\n");
+    sb.append("    taskId: ").append(toIndentedString(taskId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -179,58 +168,51 @@ public class Capabilities {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("capabilities"));
+    openapiFields = new HashSet<String>(Arrays.asList("task_id"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("capabilities"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("task_id"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to Capabilities
+   * @throws IOException if the JSON Element is invalid with respect to QueuedWorkflowTaskResponse
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!Capabilities.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in Capabilities is not found in the empty JSON string", Capabilities.openapiRequiredFields.toString()));
+        if (!QueuedWorkflowTaskResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in QueuedWorkflowTaskResponse is not found in the empty JSON string", QueuedWorkflowTaskResponse.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : Capabilities.openapiRequiredFields) {
+      for (String requiredField : QueuedWorkflowTaskResponse.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the json data is an array
-      if (!jsonObj.get("capabilities").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `capabilities` to be an array in the JSON string but got `%s`", jsonObj.get("capabilities").toString()));
+      if (!jsonObj.get("task_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `task_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("task_id").toString()));
       }
-
-      JsonArray jsonArraycapabilities = jsonObj.getAsJsonArray("capabilities");
-      // validate the required field `capabilities` (array)
-      for (int i = 0; i < jsonArraycapabilities.size(); i++) {
-        AppApiRestV2InfoTypesCapability.validateJsonElement(jsonArraycapabilities.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!Capabilities.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Capabilities' and its subtypes
+       if (!QueuedWorkflowTaskResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'QueuedWorkflowTaskResponse' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<Capabilities> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(Capabilities.class));
+       final TypeAdapter<QueuedWorkflowTaskResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(QueuedWorkflowTaskResponse.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<Capabilities>() {
+       return (TypeAdapter<T>) new TypeAdapter<QueuedWorkflowTaskResponse>() {
            @Override
-           public void write(JsonWriter out, Capabilities value) throws IOException {
+           public void write(JsonWriter out, QueuedWorkflowTaskResponse value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -258,12 +240,12 @@ public class Capabilities {
            }
 
            @Override
-           public Capabilities read(JsonReader in) throws IOException {
+           public QueuedWorkflowTaskResponse read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             Capabilities instance = thisAdapter.fromJsonTree(jsonObj);
+             QueuedWorkflowTaskResponse instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -290,18 +272,18 @@ public class Capabilities {
   }
 
   /**
-   * Create an instance of Capabilities given an JSON string
+   * Create an instance of QueuedWorkflowTaskResponse given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of Capabilities
-   * @throws IOException if the JSON string is invalid with respect to Capabilities
+   * @return An instance of QueuedWorkflowTaskResponse
+   * @throws IOException if the JSON string is invalid with respect to QueuedWorkflowTaskResponse
    */
-  public static Capabilities fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, Capabilities.class);
+  public static QueuedWorkflowTaskResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, QueuedWorkflowTaskResponse.class);
   }
 
   /**
-   * Convert an instance of Capabilities to an JSON string
+   * Convert an instance of QueuedWorkflowTaskResponse to an JSON string
    *
    * @return JSON string
    */

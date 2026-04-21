@@ -1,6 +1,6 @@
 
 
-# Capability
+# AppApiRestV2InfoTypesCapability
 
 
 ## Properties
