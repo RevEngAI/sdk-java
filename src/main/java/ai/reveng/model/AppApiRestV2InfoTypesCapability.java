@@ -14,7 +14,6 @@ package ai.reveng.model;
 
 import java.util.Objects;
 import java.util.Locale;
-import ai.reveng.model.AppApiRestV2InfoTypesCapability;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -50,24 +49,72 @@ import java.util.Locale;
 import ai.reveng.invoker.JSON;
 
 /**
- * Capabilities
+ * AppApiRestV2InfoTypesCapability
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class Capabilities {
+public class AppApiRestV2InfoTypesCapability {
+  public static final String SERIALIZED_NAME_FUNCTION_NAME = "function_name";
+  @SerializedName(SERIALIZED_NAME_FUNCTION_NAME)
+  @javax.annotation.Nonnull
+  private String functionName;
+
+  public static final String SERIALIZED_NAME_FUNCTION_VADDR = "function_vaddr";
+  @SerializedName(SERIALIZED_NAME_FUNCTION_VADDR)
+  @javax.annotation.Nonnull
+  private Long functionVaddr;
+
   public static final String SERIALIZED_NAME_CAPABILITIES = "capabilities";
   @SerializedName(SERIALIZED_NAME_CAPABILITIES)
   @javax.annotation.Nonnull
-  private List<AppApiRestV2InfoTypesCapability> capabilities = new ArrayList<>();
+  private List<String> capabilities = new ArrayList<>();
 
-  public Capabilities() {
+  public AppApiRestV2InfoTypesCapability() {
   }
 
-  public Capabilities capabilities(@javax.annotation.Nonnull List<AppApiRestV2InfoTypesCapability> capabilities) {
+  public AppApiRestV2InfoTypesCapability functionName(@javax.annotation.Nonnull String functionName) {
+    this.functionName = functionName;
+    return this;
+  }
+
+  /**
+   * The name of the function with a capability
+   * @return functionName
+   */
+  @javax.annotation.Nonnull
+  public String getFunctionName() {
+    return functionName;
+  }
+
+  public void setFunctionName(@javax.annotation.Nonnull String functionName) {
+    this.functionName = functionName;
+  }
+
+
+  public AppApiRestV2InfoTypesCapability functionVaddr(@javax.annotation.Nonnull Long functionVaddr) {
+    this.functionVaddr = functionVaddr;
+    return this;
+  }
+
+  /**
+   * The virtual address of the function where the capability comes from
+   * @return functionVaddr
+   */
+  @javax.annotation.Nonnull
+  public Long getFunctionVaddr() {
+    return functionVaddr;
+  }
+
+  public void setFunctionVaddr(@javax.annotation.Nonnull Long functionVaddr) {
+    this.functionVaddr = functionVaddr;
+  }
+
+
+  public AppApiRestV2InfoTypesCapability capabilities(@javax.annotation.Nonnull List<String> capabilities) {
     this.capabilities = capabilities;
     return this;
   }
 
-  public Capabilities addCapabilitiesItem(AppApiRestV2InfoTypesCapability capabilitiesItem) {
+  public AppApiRestV2InfoTypesCapability addCapabilitiesItem(String capabilitiesItem) {
     if (this.capabilities == null) {
       this.capabilities = new ArrayList<>();
     }
@@ -76,15 +123,15 @@ public class Capabilities {
   }
 
   /**
-   * List of capabilities for a given analysis
+   * The list of capabilities associated with the function
    * @return capabilities
    */
   @javax.annotation.Nonnull
-  public List<AppApiRestV2InfoTypesCapability> getCapabilities() {
+  public List<String> getCapabilities() {
     return capabilities;
   }
 
-  public void setCapabilities(@javax.annotation.Nonnull List<AppApiRestV2InfoTypesCapability> capabilities) {
+  public void setCapabilities(@javax.annotation.Nonnull List<String> capabilities) {
     this.capabilities = capabilities;
   }
 
@@ -101,9 +148,9 @@ public class Capabilities {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the Capabilities instance itself
+   * @return the AppApiRestV2InfoTypesCapability instance itself
    */
-  public Capabilities putAdditionalProperty(String key, Object value) {
+  public AppApiRestV2InfoTypesCapability putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -142,20 +189,24 @@ public class Capabilities {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Capabilities capabilities = (Capabilities) o;
-    return Objects.equals(this.capabilities, capabilities.capabilities)&&
-        Objects.equals(this.additionalProperties, capabilities.additionalProperties);
+    AppApiRestV2InfoTypesCapability appApiRestV2InfoTypesCapability = (AppApiRestV2InfoTypesCapability) o;
+    return Objects.equals(this.functionName, appApiRestV2InfoTypesCapability.functionName) &&
+        Objects.equals(this.functionVaddr, appApiRestV2InfoTypesCapability.functionVaddr) &&
+        Objects.equals(this.capabilities, appApiRestV2InfoTypesCapability.capabilities)&&
+        Objects.equals(this.additionalProperties, appApiRestV2InfoTypesCapability.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(capabilities, additionalProperties);
+    return Objects.hash(functionName, functionVaddr, capabilities, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Capabilities {\n");
+    sb.append("class AppApiRestV2InfoTypesCapability {\n");
+    sb.append("    functionName: ").append(toIndentedString(functionName)).append("\n");
+    sb.append("    functionVaddr: ").append(toIndentedString(functionVaddr)).append("\n");
     sb.append("    capabilities: ").append(toIndentedString(capabilities)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -179,58 +230,57 @@ public class Capabilities {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("capabilities"));
+    openapiFields = new HashSet<String>(Arrays.asList("function_name", "function_vaddr", "capabilities"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("capabilities"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("function_name", "function_vaddr", "capabilities"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to Capabilities
+   * @throws IOException if the JSON Element is invalid with respect to AppApiRestV2InfoTypesCapability
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!Capabilities.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in Capabilities is not found in the empty JSON string", Capabilities.openapiRequiredFields.toString()));
+        if (!AppApiRestV2InfoTypesCapability.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in AppApiRestV2InfoTypesCapability is not found in the empty JSON string", AppApiRestV2InfoTypesCapability.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : Capabilities.openapiRequiredFields) {
+      for (String requiredField : AppApiRestV2InfoTypesCapability.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the json data is an array
-      if (!jsonObj.get("capabilities").isJsonArray()) {
+      if (!jsonObj.get("function_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `function_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("function_name").toString()));
+      }
+      // ensure the required json array is present
+      if (jsonObj.get("capabilities") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("capabilities").isJsonArray()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `capabilities` to be an array in the JSON string but got `%s`", jsonObj.get("capabilities").toString()));
       }
-
-      JsonArray jsonArraycapabilities = jsonObj.getAsJsonArray("capabilities");
-      // validate the required field `capabilities` (array)
-      for (int i = 0; i < jsonArraycapabilities.size(); i++) {
-        AppApiRestV2InfoTypesCapability.validateJsonElement(jsonArraycapabilities.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!Capabilities.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Capabilities' and its subtypes
+       if (!AppApiRestV2InfoTypesCapability.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'AppApiRestV2InfoTypesCapability' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<Capabilities> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(Capabilities.class));
+       final TypeAdapter<AppApiRestV2InfoTypesCapability> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(AppApiRestV2InfoTypesCapability.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<Capabilities>() {
+       return (TypeAdapter<T>) new TypeAdapter<AppApiRestV2InfoTypesCapability>() {
            @Override
-           public void write(JsonWriter out, Capabilities value) throws IOException {
+           public void write(JsonWriter out, AppApiRestV2InfoTypesCapability value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -258,12 +308,12 @@ public class Capabilities {
            }
 
            @Override
-           public Capabilities read(JsonReader in) throws IOException {
+           public AppApiRestV2InfoTypesCapability read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             Capabilities instance = thisAdapter.fromJsonTree(jsonObj);
+             AppApiRestV2InfoTypesCapability instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -290,18 +340,18 @@ public class Capabilities {
   }
 
   /**
-   * Create an instance of Capabilities given an JSON string
+   * Create an instance of AppApiRestV2InfoTypesCapability given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of Capabilities
-   * @throws IOException if the JSON string is invalid with respect to Capabilities
+   * @return An instance of AppApiRestV2InfoTypesCapability
+   * @throws IOException if the JSON string is invalid with respect to AppApiRestV2InfoTypesCapability
    */
-  public static Capabilities fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, Capabilities.class);
+  public static AppApiRestV2InfoTypesCapability fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, AppApiRestV2InfoTypesCapability.class);
   }
 
   /**
-   * Convert an instance of Capabilities to an JSON string
+   * Convert an instance of AppApiRestV2InfoTypesCapability to an JSON string
    *
    * @return JSON string
    */

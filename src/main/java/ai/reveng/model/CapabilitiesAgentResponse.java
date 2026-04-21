@@ -14,7 +14,7 @@ package ai.reveng.model;
 
 import java.util.Objects;
 import java.util.Locale;
-import ai.reveng.model.AppApiRestV2InfoTypesCapability;
+import ai.reveng.model.AppApiRestV2AgentSchemaCapability;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -50,24 +50,24 @@ import java.util.Locale;
 import ai.reveng.invoker.JSON;
 
 /**
- * Capabilities
+ * CapabilitiesAgentResponse
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class Capabilities {
+public class CapabilitiesAgentResponse {
   public static final String SERIALIZED_NAME_CAPABILITIES = "capabilities";
   @SerializedName(SERIALIZED_NAME_CAPABILITIES)
   @javax.annotation.Nonnull
-  private List<AppApiRestV2InfoTypesCapability> capabilities = new ArrayList<>();
+  private List<AppApiRestV2AgentSchemaCapability> capabilities = new ArrayList<>();
 
-  public Capabilities() {
+  public CapabilitiesAgentResponse() {
   }
 
-  public Capabilities capabilities(@javax.annotation.Nonnull List<AppApiRestV2InfoTypesCapability> capabilities) {
+  public CapabilitiesAgentResponse capabilities(@javax.annotation.Nonnull List<AppApiRestV2AgentSchemaCapability> capabilities) {
     this.capabilities = capabilities;
     return this;
   }
 
-  public Capabilities addCapabilitiesItem(AppApiRestV2InfoTypesCapability capabilitiesItem) {
+  public CapabilitiesAgentResponse addCapabilitiesItem(AppApiRestV2AgentSchemaCapability capabilitiesItem) {
     if (this.capabilities == null) {
       this.capabilities = new ArrayList<>();
     }
@@ -76,15 +76,15 @@ public class Capabilities {
   }
 
   /**
-   * List of capabilities for a given analysis
+   * List of enriched capability data
    * @return capabilities
    */
   @javax.annotation.Nonnull
-  public List<AppApiRestV2InfoTypesCapability> getCapabilities() {
+  public List<AppApiRestV2AgentSchemaCapability> getCapabilities() {
     return capabilities;
   }
 
-  public void setCapabilities(@javax.annotation.Nonnull List<AppApiRestV2InfoTypesCapability> capabilities) {
+  public void setCapabilities(@javax.annotation.Nonnull List<AppApiRestV2AgentSchemaCapability> capabilities) {
     this.capabilities = capabilities;
   }
 
@@ -101,9 +101,9 @@ public class Capabilities {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the Capabilities instance itself
+   * @return the CapabilitiesAgentResponse instance itself
    */
-  public Capabilities putAdditionalProperty(String key, Object value) {
+  public CapabilitiesAgentResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -142,9 +142,9 @@ public class Capabilities {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Capabilities capabilities = (Capabilities) o;
-    return Objects.equals(this.capabilities, capabilities.capabilities)&&
-        Objects.equals(this.additionalProperties, capabilities.additionalProperties);
+    CapabilitiesAgentResponse capabilitiesAgentResponse = (CapabilitiesAgentResponse) o;
+    return Objects.equals(this.capabilities, capabilitiesAgentResponse.capabilities)&&
+        Objects.equals(this.additionalProperties, capabilitiesAgentResponse.additionalProperties);
   }
 
   @Override
@@ -155,7 +155,7 @@ public class Capabilities {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Capabilities {\n");
+    sb.append("class CapabilitiesAgentResponse {\n");
     sb.append("    capabilities: ").append(toIndentedString(capabilities)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -189,17 +189,17 @@ public class Capabilities {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to Capabilities
+   * @throws IOException if the JSON Element is invalid with respect to CapabilitiesAgentResponse
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!Capabilities.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in Capabilities is not found in the empty JSON string", Capabilities.openapiRequiredFields.toString()));
+        if (!CapabilitiesAgentResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in CapabilitiesAgentResponse is not found in the empty JSON string", CapabilitiesAgentResponse.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : Capabilities.openapiRequiredFields) {
+      for (String requiredField : CapabilitiesAgentResponse.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
@@ -213,7 +213,7 @@ public class Capabilities {
       JsonArray jsonArraycapabilities = jsonObj.getAsJsonArray("capabilities");
       // validate the required field `capabilities` (array)
       for (int i = 0; i < jsonArraycapabilities.size(); i++) {
-        AppApiRestV2InfoTypesCapability.validateJsonElement(jsonArraycapabilities.get(i));
+        AppApiRestV2AgentSchemaCapability.validateJsonElement(jsonArraycapabilities.get(i));
       };
   }
 
@@ -221,16 +221,16 @@ public class Capabilities {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!Capabilities.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Capabilities' and its subtypes
+       if (!CapabilitiesAgentResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'CapabilitiesAgentResponse' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<Capabilities> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(Capabilities.class));
+       final TypeAdapter<CapabilitiesAgentResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(CapabilitiesAgentResponse.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<Capabilities>() {
+       return (TypeAdapter<T>) new TypeAdapter<CapabilitiesAgentResponse>() {
            @Override
-           public void write(JsonWriter out, Capabilities value) throws IOException {
+           public void write(JsonWriter out, CapabilitiesAgentResponse value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -258,12 +258,12 @@ public class Capabilities {
            }
 
            @Override
-           public Capabilities read(JsonReader in) throws IOException {
+           public CapabilitiesAgentResponse read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             Capabilities instance = thisAdapter.fromJsonTree(jsonObj);
+             CapabilitiesAgentResponse instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -290,18 +290,18 @@ public class Capabilities {
   }
 
   /**
-   * Create an instance of Capabilities given an JSON string
+   * Create an instance of CapabilitiesAgentResponse given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of Capabilities
-   * @throws IOException if the JSON string is invalid with respect to Capabilities
+   * @return An instance of CapabilitiesAgentResponse
+   * @throws IOException if the JSON string is invalid with respect to CapabilitiesAgentResponse
    */
-  public static Capabilities fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, Capabilities.class);
+  public static CapabilitiesAgentResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CapabilitiesAgentResponse.class);
   }
 
   /**
-   * Convert an instance of Capabilities to an JSON string
+   * Convert an instance of CapabilitiesAgentResponse to an JSON string
    *
    * @return JSON string
    */

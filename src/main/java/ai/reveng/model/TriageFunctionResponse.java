@@ -14,13 +14,13 @@ package ai.reveng.model;
 
 import java.util.Objects;
 import java.util.Locale;
-import ai.reveng.model.AppApiRestV2InfoTypesCapability;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -50,24 +50,192 @@ import java.util.Locale;
 import ai.reveng.invoker.JSON;
 
 /**
- * Capabilities
+ * TriageFunctionResponse
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class Capabilities {
+public class TriageFunctionResponse {
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  @javax.annotation.Nonnull
+  private Integer id;
+
+  public static final String SERIALIZED_NAME_ADDRESS = "address";
+  @SerializedName(SERIALIZED_NAME_ADDRESS)
+  @javax.annotation.Nonnull
+  private Integer address;
+
+  public static final String SERIALIZED_NAME_SUMMARY = "summary";
+  @SerializedName(SERIALIZED_NAME_SUMMARY)
+  @javax.annotation.Nonnull
+  private String summary;
+
+  public static final String SERIALIZED_NAME_SCORE = "score";
+  @SerializedName(SERIALIZED_NAME_SCORE)
+  @javax.annotation.Nonnull
+  private BigDecimal score;
+
+  /**
+   * Gets or Sets capabilities
+   */
+  @JsonAdapter(CapabilitiesEnum.Adapter.class)
+  public enum CapabilitiesEnum {
+    PACKING_AND_OBFUSCATION("packing_and_obfuscation"),
+    
+    DEFENSE_EVASION("defense_evasion"),
+    
+    PRIVILEGE_ESCALATION("privilege_escalation"),
+    
+    PERSISTENCE_MECHANISMS("persistence_mechanisms"),
+    
+    DISCOVERY_AND_RECONNAISSANCE("discovery_and_reconnaissance"),
+    
+    CREDENTIAL_AND_DATA_COLLECTION("credential_and_data_collection"),
+    
+    COMMUNICATION_AND_C2("communication_and_c2"),
+    
+    CRYPTOGRAPHIC_OPERATIONS("cryptographic_operations"),
+    
+    PROCESS_AND_MEMORY_MANIPULATION("process_and_memory_manipulation"),
+    
+    PROCESS_AND_COMMAND_EXECUTION("process_and_command_execution"),
+    
+    FILE_ACTIVITY("file_activity");
+
+    private String value;
+
+    CapabilitiesEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static CapabilitiesEnum fromValue(String value) {
+      for (CapabilitiesEnum b : CapabilitiesEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<CapabilitiesEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final CapabilitiesEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public CapabilitiesEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return CapabilitiesEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      CapabilitiesEnum.fromValue(value);
+    }
+  }
+
   public static final String SERIALIZED_NAME_CAPABILITIES = "capabilities";
   @SerializedName(SERIALIZED_NAME_CAPABILITIES)
   @javax.annotation.Nonnull
-  private List<AppApiRestV2InfoTypesCapability> capabilities = new ArrayList<>();
+  private List<CapabilitiesEnum> capabilities = new ArrayList<>();
 
-  public Capabilities() {
+  public TriageFunctionResponse() {
   }
 
-  public Capabilities capabilities(@javax.annotation.Nonnull List<AppApiRestV2InfoTypesCapability> capabilities) {
+  public TriageFunctionResponse id(@javax.annotation.Nonnull Integer id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Unique identifier of the function
+   * @return id
+   */
+  @javax.annotation.Nonnull
+  public Integer getId() {
+    return id;
+  }
+
+  public void setId(@javax.annotation.Nonnull Integer id) {
+    this.id = id;
+  }
+
+
+  public TriageFunctionResponse address(@javax.annotation.Nonnull Integer address) {
+    this.address = address;
+    return this;
+  }
+
+  /**
+   * Address of the function in the binary
+   * @return address
+   */
+  @javax.annotation.Nonnull
+  public Integer getAddress() {
+    return address;
+  }
+
+  public void setAddress(@javax.annotation.Nonnull Integer address) {
+    this.address = address;
+  }
+
+
+  public TriageFunctionResponse summary(@javax.annotation.Nonnull String summary) {
+    this.summary = summary;
+    return this;
+  }
+
+  /**
+   * Summary of the function&#39;s behaviour
+   * @return summary
+   */
+  @javax.annotation.Nonnull
+  public String getSummary() {
+    return summary;
+  }
+
+  public void setSummary(@javax.annotation.Nonnull String summary) {
+    this.summary = summary;
+  }
+
+
+  public TriageFunctionResponse score(@javax.annotation.Nonnull BigDecimal score) {
+    this.score = score;
+    return this;
+  }
+
+  /**
+   * Score indicating the function&#39;s relevance
+   * minimum: 0
+   * maximum: 1
+   * @return score
+   */
+  @javax.annotation.Nonnull
+  public BigDecimal getScore() {
+    return score;
+  }
+
+  public void setScore(@javax.annotation.Nonnull BigDecimal score) {
+    this.score = score;
+  }
+
+
+  public TriageFunctionResponse capabilities(@javax.annotation.Nonnull List<CapabilitiesEnum> capabilities) {
     this.capabilities = capabilities;
     return this;
   }
 
-  public Capabilities addCapabilitiesItem(AppApiRestV2InfoTypesCapability capabilitiesItem) {
+  public TriageFunctionResponse addCapabilitiesItem(CapabilitiesEnum capabilitiesItem) {
     if (this.capabilities == null) {
       this.capabilities = new ArrayList<>();
     }
@@ -76,15 +244,15 @@ public class Capabilities {
   }
 
   /**
-   * List of capabilities for a given analysis
+   * List of capabilities exhibited by the function
    * @return capabilities
    */
   @javax.annotation.Nonnull
-  public List<AppApiRestV2InfoTypesCapability> getCapabilities() {
+  public List<CapabilitiesEnum> getCapabilities() {
     return capabilities;
   }
 
-  public void setCapabilities(@javax.annotation.Nonnull List<AppApiRestV2InfoTypesCapability> capabilities) {
+  public void setCapabilities(@javax.annotation.Nonnull List<CapabilitiesEnum> capabilities) {
     this.capabilities = capabilities;
   }
 
@@ -101,9 +269,9 @@ public class Capabilities {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the Capabilities instance itself
+   * @return the TriageFunctionResponse instance itself
    */
-  public Capabilities putAdditionalProperty(String key, Object value) {
+  public TriageFunctionResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -142,20 +310,28 @@ public class Capabilities {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Capabilities capabilities = (Capabilities) o;
-    return Objects.equals(this.capabilities, capabilities.capabilities)&&
-        Objects.equals(this.additionalProperties, capabilities.additionalProperties);
+    TriageFunctionResponse triageFunctionResponse = (TriageFunctionResponse) o;
+    return Objects.equals(this.id, triageFunctionResponse.id) &&
+        Objects.equals(this.address, triageFunctionResponse.address) &&
+        Objects.equals(this.summary, triageFunctionResponse.summary) &&
+        Objects.equals(this.score, triageFunctionResponse.score) &&
+        Objects.equals(this.capabilities, triageFunctionResponse.capabilities)&&
+        Objects.equals(this.additionalProperties, triageFunctionResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(capabilities, additionalProperties);
+    return Objects.hash(id, address, summary, score, capabilities, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Capabilities {\n");
+    sb.append("class TriageFunctionResponse {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    address: ").append(toIndentedString(address)).append("\n");
+    sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
+    sb.append("    score: ").append(toIndentedString(score)).append("\n");
     sb.append("    capabilities: ").append(toIndentedString(capabilities)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -179,58 +355,57 @@ public class Capabilities {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("capabilities"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "address", "summary", "score", "capabilities"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("capabilities"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "address", "summary", "score", "capabilities"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to Capabilities
+   * @throws IOException if the JSON Element is invalid with respect to TriageFunctionResponse
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!Capabilities.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in Capabilities is not found in the empty JSON string", Capabilities.openapiRequiredFields.toString()));
+        if (!TriageFunctionResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in TriageFunctionResponse is not found in the empty JSON string", TriageFunctionResponse.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : Capabilities.openapiRequiredFields) {
+      for (String requiredField : TriageFunctionResponse.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the json data is an array
-      if (!jsonObj.get("capabilities").isJsonArray()) {
+      if (!jsonObj.get("summary").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `summary` to be a primitive type in the JSON string but got `%s`", jsonObj.get("summary").toString()));
+      }
+      // ensure the required json array is present
+      if (jsonObj.get("capabilities") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("capabilities").isJsonArray()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `capabilities` to be an array in the JSON string but got `%s`", jsonObj.get("capabilities").toString()));
       }
-
-      JsonArray jsonArraycapabilities = jsonObj.getAsJsonArray("capabilities");
-      // validate the required field `capabilities` (array)
-      for (int i = 0; i < jsonArraycapabilities.size(); i++) {
-        AppApiRestV2InfoTypesCapability.validateJsonElement(jsonArraycapabilities.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!Capabilities.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Capabilities' and its subtypes
+       if (!TriageFunctionResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TriageFunctionResponse' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<Capabilities> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(Capabilities.class));
+       final TypeAdapter<TriageFunctionResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TriageFunctionResponse.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<Capabilities>() {
+       return (TypeAdapter<T>) new TypeAdapter<TriageFunctionResponse>() {
            @Override
-           public void write(JsonWriter out, Capabilities value) throws IOException {
+           public void write(JsonWriter out, TriageFunctionResponse value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -258,12 +433,12 @@ public class Capabilities {
            }
 
            @Override
-           public Capabilities read(JsonReader in) throws IOException {
+           public TriageFunctionResponse read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             Capabilities instance = thisAdapter.fromJsonTree(jsonObj);
+             TriageFunctionResponse instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -290,18 +465,18 @@ public class Capabilities {
   }
 
   /**
-   * Create an instance of Capabilities given an JSON string
+   * Create an instance of TriageFunctionResponse given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of Capabilities
-   * @throws IOException if the JSON string is invalid with respect to Capabilities
+   * @return An instance of TriageFunctionResponse
+   * @throws IOException if the JSON string is invalid with respect to TriageFunctionResponse
    */
-  public static Capabilities fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, Capabilities.class);
+  public static TriageFunctionResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TriageFunctionResponse.class);
   }
 
   /**
-   * Convert an instance of Capabilities to an JSON string
+   * Convert an instance of TriageFunctionResponse to an JSON string
    *
    * @return JSON string
    */

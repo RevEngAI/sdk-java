@@ -14,15 +14,14 @@ package ai.reveng.model;
 
 import java.util.Objects;
 import java.util.Locale;
+import ai.reveng.model.BinaryTaskStatus;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -49,90 +48,34 @@ import java.util.Locale;
 import ai.reveng.invoker.JSON;
 
 /**
- * Capability
+ * TaskStatusResponse
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class Capability {
-  public static final String SERIALIZED_NAME_FUNCTION_NAME = "function_name";
-  @SerializedName(SERIALIZED_NAME_FUNCTION_NAME)
+public class TaskStatusResponse {
+  public static final String SERIALIZED_NAME_STATUS = "status";
+  @SerializedName(SERIALIZED_NAME_STATUS)
   @javax.annotation.Nonnull
-  private String functionName;
+  private BinaryTaskStatus status;
 
-  public static final String SERIALIZED_NAME_FUNCTION_VADDR = "function_vaddr";
-  @SerializedName(SERIALIZED_NAME_FUNCTION_VADDR)
-  @javax.annotation.Nonnull
-  private Long functionVaddr;
-
-  public static final String SERIALIZED_NAME_CAPABILITIES = "capabilities";
-  @SerializedName(SERIALIZED_NAME_CAPABILITIES)
-  @javax.annotation.Nonnull
-  private List<String> capabilities = new ArrayList<>();
-
-  public Capability() {
+  public TaskStatusResponse() {
   }
 
-  public Capability functionName(@javax.annotation.Nonnull String functionName) {
-    this.functionName = functionName;
+  public TaskStatusResponse status(@javax.annotation.Nonnull BinaryTaskStatus status) {
+    this.status = status;
     return this;
   }
 
   /**
-   * The name of the function with a capability
-   * @return functionName
+   * Get status
+   * @return status
    */
   @javax.annotation.Nonnull
-  public String getFunctionName() {
-    return functionName;
+  public BinaryTaskStatus getStatus() {
+    return status;
   }
 
-  public void setFunctionName(@javax.annotation.Nonnull String functionName) {
-    this.functionName = functionName;
-  }
-
-
-  public Capability functionVaddr(@javax.annotation.Nonnull Long functionVaddr) {
-    this.functionVaddr = functionVaddr;
-    return this;
-  }
-
-  /**
-   * The virtual address of the function where the capability comes from
-   * @return functionVaddr
-   */
-  @javax.annotation.Nonnull
-  public Long getFunctionVaddr() {
-    return functionVaddr;
-  }
-
-  public void setFunctionVaddr(@javax.annotation.Nonnull Long functionVaddr) {
-    this.functionVaddr = functionVaddr;
-  }
-
-
-  public Capability capabilities(@javax.annotation.Nonnull List<String> capabilities) {
-    this.capabilities = capabilities;
-    return this;
-  }
-
-  public Capability addCapabilitiesItem(String capabilitiesItem) {
-    if (this.capabilities == null) {
-      this.capabilities = new ArrayList<>();
-    }
-    this.capabilities.add(capabilitiesItem);
-    return this;
-  }
-
-  /**
-   * The list of capabilities associated with the function
-   * @return capabilities
-   */
-  @javax.annotation.Nonnull
-  public List<String> getCapabilities() {
-    return capabilities;
-  }
-
-  public void setCapabilities(@javax.annotation.Nonnull List<String> capabilities) {
-    this.capabilities = capabilities;
+  public void setStatus(@javax.annotation.Nonnull BinaryTaskStatus status) {
+    this.status = status;
   }
 
   /**
@@ -148,9 +91,9 @@ public class Capability {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the Capability instance itself
+   * @return the TaskStatusResponse instance itself
    */
-  public Capability putAdditionalProperty(String key, Object value) {
+  public TaskStatusResponse putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -189,25 +132,21 @@ public class Capability {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Capability capability = (Capability) o;
-    return Objects.equals(this.functionName, capability.functionName) &&
-        Objects.equals(this.functionVaddr, capability.functionVaddr) &&
-        Objects.equals(this.capabilities, capability.capabilities)&&
-        Objects.equals(this.additionalProperties, capability.additionalProperties);
+    TaskStatusResponse taskStatusResponse = (TaskStatusResponse) o;
+    return Objects.equals(this.status, taskStatusResponse.status)&&
+        Objects.equals(this.additionalProperties, taskStatusResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(functionName, functionVaddr, capabilities, additionalProperties);
+    return Objects.hash(status, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Capability {\n");
-    sb.append("    functionName: ").append(toIndentedString(functionName)).append("\n");
-    sb.append("    functionVaddr: ").append(toIndentedString(functionVaddr)).append("\n");
-    sb.append("    capabilities: ").append(toIndentedString(capabilities)).append("\n");
+    sb.append("class TaskStatusResponse {\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -230,57 +169,50 @@ public class Capability {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("function_name", "function_vaddr", "capabilities"));
+    openapiFields = new HashSet<String>(Arrays.asList("status"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("function_name", "function_vaddr", "capabilities"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("status"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to Capability
+   * @throws IOException if the JSON Element is invalid with respect to TaskStatusResponse
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!Capability.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in Capability is not found in the empty JSON string", Capability.openapiRequiredFields.toString()));
+        if (!TaskStatusResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in TaskStatusResponse is not found in the empty JSON string", TaskStatusResponse.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : Capability.openapiRequiredFields) {
+      for (String requiredField : TaskStatusResponse.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("function_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `function_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("function_name").toString()));
-      }
-      // ensure the required json array is present
-      if (jsonObj.get("capabilities") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("capabilities").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `capabilities` to be an array in the JSON string but got `%s`", jsonObj.get("capabilities").toString()));
-      }
+      // validate the required field `status`
+      BinaryTaskStatus.validateJsonElement(jsonObj.get("status"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!Capability.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Capability' and its subtypes
+       if (!TaskStatusResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TaskStatusResponse' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<Capability> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(Capability.class));
+       final TypeAdapter<TaskStatusResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TaskStatusResponse.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<Capability>() {
+       return (TypeAdapter<T>) new TypeAdapter<TaskStatusResponse>() {
            @Override
-           public void write(JsonWriter out, Capability value) throws IOException {
+           public void write(JsonWriter out, TaskStatusResponse value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -308,12 +240,12 @@ public class Capability {
            }
 
            @Override
-           public Capability read(JsonReader in) throws IOException {
+           public TaskStatusResponse read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             Capability instance = thisAdapter.fromJsonTree(jsonObj);
+             TaskStatusResponse instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -340,18 +272,18 @@ public class Capability {
   }
 
   /**
-   * Create an instance of Capability given an JSON string
+   * Create an instance of TaskStatusResponse given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of Capability
-   * @throws IOException if the JSON string is invalid with respect to Capability
+   * @return An instance of TaskStatusResponse
+   * @throws IOException if the JSON string is invalid with respect to TaskStatusResponse
    */
-  public static Capability fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, Capability.class);
+  public static TaskStatusResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TaskStatusResponse.class);
   }
 
   /**
-   * Convert an instance of Capability to an JSON string
+   * Convert an instance of TaskStatusResponse to an JSON string
    *
    * @return JSON string
    */
