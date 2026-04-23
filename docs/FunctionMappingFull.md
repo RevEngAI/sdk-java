@@ -20,6 +20,7 @@
 |**unmatchedGlobalVars** | [**Map&lt;String, InverseValue&gt;**](InverseValue.md) |  |  |
 |**fields** | **Map&lt;String, Map&lt;String, InverseValue&gt;&gt;** |  |  |
 |**unmatchedExternalVars** | [**Map&lt;String, InverseValue&gt;**](InverseValue.md) | No longer provided. |  [optional] |
+|**userOverrideMappings** | **Map&lt;String, String&gt;** |  |  [optional] |
 
 
 

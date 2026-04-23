@@ -122,6 +122,11 @@ public class FunctionMappingFull {
   @javax.annotation.Nullable
   private Map<String, InverseValue> unmatchedExternalVars = new HashMap<>();
 
+  public static final String SERIALIZED_NAME_USER_OVERRIDE_MAPPINGS = "user_override_mappings";
+  @SerializedName(SERIALIZED_NAME_USER_OVERRIDE_MAPPINGS)
+  @javax.annotation.Nullable
+  private Map<String, String> userOverrideMappings = new HashMap<>();
+
   public FunctionMappingFull() {
   }
 
@@ -479,6 +484,33 @@ public class FunctionMappingFull {
     this.unmatchedExternalVars = unmatchedExternalVars;
   }
 
+
+  public FunctionMappingFull userOverrideMappings(@javax.annotation.Nullable Map<String, String> userOverrideMappings) {
+    this.userOverrideMappings = userOverrideMappings;
+    return this;
+  }
+
+  public FunctionMappingFull putUserOverrideMappingsItem(String key, String userOverrideMappingsItem) {
+    if (this.userOverrideMappings == null) {
+      this.userOverrideMappings = new HashMap<>();
+    }
+    this.userOverrideMappings.put(key, userOverrideMappingsItem);
+    return this;
+  }
+
+  /**
+   * Get userOverrideMappings
+   * @return userOverrideMappings
+   */
+  @javax.annotation.Nullable
+  public Map<String, String> getUserOverrideMappings() {
+    return userOverrideMappings;
+  }
+
+  public void setUserOverrideMappings(@javax.annotation.Nullable Map<String, String> userOverrideMappings) {
+    this.userOverrideMappings = userOverrideMappings;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -546,13 +578,14 @@ public class FunctionMappingFull {
         Objects.equals(this.unmatchedEnums, functionMappingFull.unmatchedEnums) &&
         Objects.equals(this.unmatchedGlobalVars, functionMappingFull.unmatchedGlobalVars) &&
         Objects.equals(this.fields, functionMappingFull.fields) &&
-        Objects.equals(this.unmatchedExternalVars, functionMappingFull.unmatchedExternalVars)&&
+        Objects.equals(this.unmatchedExternalVars, functionMappingFull.unmatchedExternalVars) &&
+        Objects.equals(this.userOverrideMappings, functionMappingFull.userOverrideMappings)&&
         Objects.equals(this.additionalProperties, functionMappingFull.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(inverseStringMap, inverseFunctionMap, unmatchedFunctions, unmatchedCustomTypes, unmatchedStrings, unmatchedVars, unmatchedGoToLabels, unmatchedCustomFunctionPointers, unmatchedVariadicLists, unmatchedEnums, unmatchedGlobalVars, fields, unmatchedExternalVars, additionalProperties);
+    return Objects.hash(inverseStringMap, inverseFunctionMap, unmatchedFunctions, unmatchedCustomTypes, unmatchedStrings, unmatchedVars, unmatchedGoToLabels, unmatchedCustomFunctionPointers, unmatchedVariadicLists, unmatchedEnums, unmatchedGlobalVars, fields, unmatchedExternalVars, userOverrideMappings, additionalProperties);
   }
 
   @Override
@@ -572,6 +605,7 @@ public class FunctionMappingFull {
     sb.append("    unmatchedGlobalVars: ").append(toIndentedString(unmatchedGlobalVars)).append("\n");
     sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
     sb.append("    unmatchedExternalVars: ").append(toIndentedString(unmatchedExternalVars)).append("\n");
+    sb.append("    userOverrideMappings: ").append(toIndentedString(userOverrideMappings)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -594,7 +628,7 @@ public class FunctionMappingFull {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("inverse_string_map", "inverse_function_map", "unmatched_functions", "unmatched_custom_types", "unmatched_strings", "unmatched_vars", "unmatched_go_to_labels", "unmatched_custom_function_pointers", "unmatched_variadic_lists", "unmatched_enums", "unmatched_global_vars", "fields", "unmatched_external_vars"));
+    openapiFields = new HashSet<String>(Arrays.asList("inverse_string_map", "inverse_function_map", "unmatched_functions", "unmatched_custom_types", "unmatched_strings", "unmatched_vars", "unmatched_go_to_labels", "unmatched_custom_function_pointers", "unmatched_variadic_lists", "unmatched_enums", "unmatched_global_vars", "fields", "unmatched_external_vars", "user_override_mappings"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("inverse_string_map", "inverse_function_map", "unmatched_functions", "unmatched_custom_types", "unmatched_strings", "unmatched_vars", "unmatched_go_to_labels", "unmatched_custom_function_pointers", "unmatched_variadic_lists", "unmatched_enums", "unmatched_global_vars", "fields"));

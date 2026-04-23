@@ -412,7 +412,7 @@ public class Example {
 
 <a id="getAiDecompilationTaskResult"></a>
 # **getAiDecompilationTaskResult**
-> BaseResponseGetAiDecompilationTask getAiDecompilationTaskResult(functionId, summarise, generateInlineComments)
+> BaseResponseGetAiDecompilationTask getAiDecompilationTaskResult(functionId, summarise, generateInlineComments, forceRegenerate)
 
 Polls AI Decompilation Process
 
@@ -443,8 +443,9 @@ public class Example {
     Long functionId = 56L; // Long | The ID of the function being decompiled
     Boolean summarise = true; // Boolean | Generate a summary for the decompilation
     Boolean generateInlineComments = true; // Boolean | Generate inline comments for the decompilation
+    List<RegenerateTarget> forceRegenerate = Arrays.asList(); // List<RegenerateTarget> | Force regeneration of summary and/or comments.
     try {
-      BaseResponseGetAiDecompilationTask result = apiInstance.getAiDecompilationTaskResult(functionId, summarise, generateInlineComments);
+      BaseResponseGetAiDecompilationTask result = apiInstance.getAiDecompilationTaskResult(functionId, summarise, generateInlineComments, forceRegenerate);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsAiDecompilationApi#getAiDecompilationTaskResult");
@@ -464,6 +465,7 @@ public class Example {
 | **functionId** | **Long**| The ID of the function being decompiled | |
 | **summarise** | **Boolean**| Generate a summary for the decompilation | [optional] [default to true] |
 | **generateInlineComments** | **Boolean**| Generate inline comments for the decompilation | [optional] [default to true] |
+| **forceRegenerate** | [**List&lt;RegenerateTarget&gt;**](RegenerateTarget.md)| Force regeneration of summary and/or comments. | [optional] |
 
 ### Return type
 

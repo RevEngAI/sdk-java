@@ -27,7 +27,6 @@ import java.io.IOException;
 
 
 import ai.reveng.model.BaseResponse;
-import java.io.File;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -225,7 +224,7 @@ public class FirmwareApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call uploadFirmwareCall(@javax.annotation.Nonnull File _file, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, @javax.annotation.Nullable String password, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call uploadFirmwareCall(@javax.annotation.Nonnull String _file, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, @javax.annotation.Nullable String password, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -303,7 +302,7 @@ public class FirmwareApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call uploadFirmwareValidateBeforeCall(@javax.annotation.Nonnull File _file, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, @javax.annotation.Nullable String password, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call uploadFirmwareValidateBeforeCall(@javax.annotation.Nonnull String _file, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, @javax.annotation.Nullable String password, final ApiCallback _callback) throws ApiException {
         // verify the required parameter '_file' is set
         if (_file == null) {
             throw new ApiException("Missing the required parameter '_file' when calling uploadFirmware(Async)");
@@ -335,7 +334,7 @@ public class FirmwareApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public Object uploadFirmware(@javax.annotation.Nonnull File _file, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, @javax.annotation.Nullable String password) throws ApiException {
+    public Object uploadFirmware(@javax.annotation.Nonnull String _file, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, @javax.annotation.Nullable String password) throws ApiException {
         ApiResponse<Object> localVarResp = uploadFirmwareWithHttpInfo(_file, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, password);
         return localVarResp.getData();
     }
@@ -362,7 +361,7 @@ public class FirmwareApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> uploadFirmwareWithHttpInfo(@javax.annotation.Nonnull File _file, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, @javax.annotation.Nullable String password) throws ApiException {
+    public ApiResponse<Object> uploadFirmwareWithHttpInfo(@javax.annotation.Nonnull String _file, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, @javax.annotation.Nullable String password) throws ApiException {
         okhttp3.Call localVarCall = uploadFirmwareValidateBeforeCall(_file, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, password, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -391,7 +390,7 @@ public class FirmwareApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call uploadFirmwareAsync(@javax.annotation.Nonnull File _file, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, @javax.annotation.Nullable String password, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call uploadFirmwareAsync(@javax.annotation.Nonnull String _file, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, @javax.annotation.Nullable String password, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = uploadFirmwareValidateBeforeCall(_file, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, password, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();

@@ -44,7 +44,6 @@ import ai.reveng.model.BaseResponseRecent;
 import ai.reveng.model.BaseResponseStatus;
 import ai.reveng.model.BaseResponseUploadResponse;
 import ai.reveng.model.DynamicExecutionStatusInput;
-import java.io.File;
 import ai.reveng.model.InsertAnalysisLogRequest;
 import ai.reveng.model.ModelName;
 import ai.reveng.model.Order;
@@ -2556,7 +2555,7 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call uploadFileCall(@javax.annotation.Nonnull UploadFileType uploadFileType, @javax.annotation.Nonnull File _file, @javax.annotation.Nullable String packedPassword, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, @javax.annotation.Nullable Boolean forceOverwrite, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call uploadFileCall(@javax.annotation.Nonnull UploadFileType uploadFileType, @javax.annotation.Nonnull String _file, @javax.annotation.Nullable String packedPassword, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, @javax.annotation.Nullable Boolean forceOverwrite, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2642,7 +2641,7 @@ public class AnalysesCoreApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call uploadFileValidateBeforeCall(@javax.annotation.Nonnull UploadFileType uploadFileType, @javax.annotation.Nonnull File _file, @javax.annotation.Nullable String packedPassword, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, @javax.annotation.Nullable Boolean forceOverwrite, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call uploadFileValidateBeforeCall(@javax.annotation.Nonnull UploadFileType uploadFileType, @javax.annotation.Nonnull String _file, @javax.annotation.Nullable String packedPassword, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, @javax.annotation.Nullable Boolean forceOverwrite, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'uploadFileType' is set
         if (uploadFileType == null) {
             throw new ApiException("Missing the required parameter 'uploadFileType' when calling uploadFile(Async)");
@@ -2680,7 +2679,7 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseUploadResponse uploadFile(@javax.annotation.Nonnull UploadFileType uploadFileType, @javax.annotation.Nonnull File _file, @javax.annotation.Nullable String packedPassword, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, @javax.annotation.Nullable Boolean forceOverwrite) throws ApiException {
+    public BaseResponseUploadResponse uploadFile(@javax.annotation.Nonnull UploadFileType uploadFileType, @javax.annotation.Nonnull String _file, @javax.annotation.Nullable String packedPassword, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, @javax.annotation.Nullable Boolean forceOverwrite) throws ApiException {
         ApiResponse<BaseResponseUploadResponse> localVarResp = uploadFileWithHttpInfo(uploadFileType, _file, packedPassword, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, forceOverwrite);
         return localVarResp.getData();
     }
@@ -2708,7 +2707,7 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseUploadResponse> uploadFileWithHttpInfo(@javax.annotation.Nonnull UploadFileType uploadFileType, @javax.annotation.Nonnull File _file, @javax.annotation.Nullable String packedPassword, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, @javax.annotation.Nullable Boolean forceOverwrite) throws ApiException {
+    public ApiResponse<BaseResponseUploadResponse> uploadFileWithHttpInfo(@javax.annotation.Nonnull UploadFileType uploadFileType, @javax.annotation.Nonnull String _file, @javax.annotation.Nullable String packedPassword, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, @javax.annotation.Nullable Boolean forceOverwrite) throws ApiException {
         okhttp3.Call localVarCall = uploadFileValidateBeforeCall(uploadFileType, _file, packedPassword, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, forceOverwrite, null);
         Type localVarReturnType = new TypeToken<BaseResponseUploadResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2738,7 +2737,7 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call uploadFileAsync(@javax.annotation.Nonnull UploadFileType uploadFileType, @javax.annotation.Nonnull File _file, @javax.annotation.Nullable String packedPassword, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, @javax.annotation.Nullable Boolean forceOverwrite, final ApiCallback<BaseResponseUploadResponse> _callback) throws ApiException {
+    public okhttp3.Call uploadFileAsync(@javax.annotation.Nonnull UploadFileType uploadFileType, @javax.annotation.Nonnull String _file, @javax.annotation.Nullable String packedPassword, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, @javax.annotation.Nullable Boolean forceOverwrite, final ApiCallback<BaseResponseUploadResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = uploadFileValidateBeforeCall(uploadFileType, _file, packedPassword, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, forceOverwrite, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseUploadResponse>(){}.getType();

@@ -108,7 +108,7 @@ public class Example {
     //APIKey.setApiKeyPrefix("Token");
 
     FirmwareApi apiInstance = new FirmwareApi(defaultClient);
-    File _file = new File("/path/to/file"); // File | 
+    String _file = "_file_example"; // String | 
     String endpointUrl = "endpointUrl_example"; // String | 
     String localCacheDir = "localCacheDir_example"; // String | 
     Integer localCacheMaxSizeMb = 56; // Integer | 
@@ -134,7 +134,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **_file** | **File**|  | |
+| **_file** | **String**|  | |
 | **endpointUrl** | **String**|  | [optional] |
 | **localCacheDir** | **String**|  | [optional] |
 | **localCacheMaxSizeMb** | **Integer**|  | [optional] |

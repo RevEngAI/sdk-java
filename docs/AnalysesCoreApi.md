@@ -1178,7 +1178,7 @@ public class Example {
 
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
     UploadFileType uploadFileType = UploadFileType.fromValue("BINARY"); // UploadFileType | 
-    File _file = new File("/path/to/file"); // File | 
+    String _file = "_file_example"; // String | 
     String packedPassword = "packedPassword_example"; // String | 
     String endpointUrl = "endpointUrl_example"; // String | 
     String localCacheDir = "localCacheDir_example"; // String | 
@@ -1206,7 +1206,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **uploadFileType** | [**UploadFileType**](UploadFileType.md)|  | [enum: BINARY, DEBUG, PACKED, FIRMWARE] |
-| **_file** | **File**|  | |
+| **_file** | **String**|  | |
 | **packedPassword** | **String**|  | [optional] |
 | **endpointUrl** | **String**|  | [optional] |
 | **localCacheDir** | **String**|  | [optional] |

@@ -35,6 +35,7 @@ import ai.reveng.model.BaseResponseListCommentResponse;
 import ai.reveng.model.BaseResponseUnionGetAiDecompilationRatingResponseNoneType;
 import ai.reveng.model.CommentUpdateRequest;
 import ai.reveng.model.FunctionCommentCreateRequest;
+import ai.reveng.model.RegenerateTarget;
 import ai.reveng.model.UpsertAiDecomplationRatingRequest;
 
 import java.lang.reflect.Type;
@@ -932,6 +933,7 @@ public class FunctionsAiDecompilationApi {
      * @param functionId The ID of the function being decompiled (required)
      * @param summarise Generate a summary for the decompilation (optional, default to true)
      * @param generateInlineComments Generate inline comments for the decompilation (optional, default to true)
+     * @param forceRegenerate Force regeneration of summary and/or comments. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -944,7 +946,7 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAiDecompilationTaskResultCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Boolean summarise, @javax.annotation.Nullable Boolean generateInlineComments, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAiDecompilationTaskResultCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Boolean summarise, @javax.annotation.Nullable Boolean generateInlineComments, @javax.annotation.Nullable List<RegenerateTarget> forceRegenerate, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -978,6 +980,10 @@ public class FunctionsAiDecompilationApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("generate_inline_comments", generateInlineComments));
         }
 
+        if (forceRegenerate != null) {
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "force_regenerate", forceRegenerate));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -998,13 +1004,13 @@ public class FunctionsAiDecompilationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAiDecompilationTaskResultValidateBeforeCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Boolean summarise, @javax.annotation.Nullable Boolean generateInlineComments, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAiDecompilationTaskResultValidateBeforeCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Boolean summarise, @javax.annotation.Nullable Boolean generateInlineComments, @javax.annotation.Nullable List<RegenerateTarget> forceRegenerate, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'functionId' is set
         if (functionId == null) {
             throw new ApiException("Missing the required parameter 'functionId' when calling getAiDecompilationTaskResult(Async)");
         }
 
-        return getAiDecompilationTaskResultCall(functionId, summarise, generateInlineComments, _callback);
+        return getAiDecompilationTaskResultCall(functionId, summarise, generateInlineComments, forceRegenerate, _callback);
 
     }
 
@@ -1014,6 +1020,7 @@ public class FunctionsAiDecompilationApi {
      * @param functionId The ID of the function being decompiled (required)
      * @param summarise Generate a summary for the decompilation (optional, default to true)
      * @param generateInlineComments Generate inline comments for the decompilation (optional, default to true)
+     * @param forceRegenerate Force regeneration of summary and/or comments. (optional)
      * @return BaseResponseGetAiDecompilationTask
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1025,8 +1032,8 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseGetAiDecompilationTask getAiDecompilationTaskResult(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Boolean summarise, @javax.annotation.Nullable Boolean generateInlineComments) throws ApiException {
-        ApiResponse<BaseResponseGetAiDecompilationTask> localVarResp = getAiDecompilationTaskResultWithHttpInfo(functionId, summarise, generateInlineComments);
+    public BaseResponseGetAiDecompilationTask getAiDecompilationTaskResult(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Boolean summarise, @javax.annotation.Nullable Boolean generateInlineComments, @javax.annotation.Nullable List<RegenerateTarget> forceRegenerate) throws ApiException {
+        ApiResponse<BaseResponseGetAiDecompilationTask> localVarResp = getAiDecompilationTaskResultWithHttpInfo(functionId, summarise, generateInlineComments, forceRegenerate);
         return localVarResp.getData();
     }
 
@@ -1036,6 +1043,7 @@ public class FunctionsAiDecompilationApi {
      * @param functionId The ID of the function being decompiled (required)
      * @param summarise Generate a summary for the decompilation (optional, default to true)
      * @param generateInlineComments Generate inline comments for the decompilation (optional, default to true)
+     * @param forceRegenerate Force regeneration of summary and/or comments. (optional)
      * @return ApiResponse&lt;BaseResponseGetAiDecompilationTask&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1047,8 +1055,8 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseGetAiDecompilationTask> getAiDecompilationTaskResultWithHttpInfo(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Boolean summarise, @javax.annotation.Nullable Boolean generateInlineComments) throws ApiException {
-        okhttp3.Call localVarCall = getAiDecompilationTaskResultValidateBeforeCall(functionId, summarise, generateInlineComments, null);
+    public ApiResponse<BaseResponseGetAiDecompilationTask> getAiDecompilationTaskResultWithHttpInfo(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Boolean summarise, @javax.annotation.Nullable Boolean generateInlineComments, @javax.annotation.Nullable List<RegenerateTarget> forceRegenerate) throws ApiException {
+        okhttp3.Call localVarCall = getAiDecompilationTaskResultValidateBeforeCall(functionId, summarise, generateInlineComments, forceRegenerate, null);
         Type localVarReturnType = new TypeToken<BaseResponseGetAiDecompilationTask>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1059,6 +1067,7 @@ public class FunctionsAiDecompilationApi {
      * @param functionId The ID of the function being decompiled (required)
      * @param summarise Generate a summary for the decompilation (optional, default to true)
      * @param generateInlineComments Generate inline comments for the decompilation (optional, default to true)
+     * @param forceRegenerate Force regeneration of summary and/or comments. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1071,9 +1080,9 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAiDecompilationTaskResultAsync(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Boolean summarise, @javax.annotation.Nullable Boolean generateInlineComments, final ApiCallback<BaseResponseGetAiDecompilationTask> _callback) throws ApiException {
+    public okhttp3.Call getAiDecompilationTaskResultAsync(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Boolean summarise, @javax.annotation.Nullable Boolean generateInlineComments, @javax.annotation.Nullable List<RegenerateTarget> forceRegenerate, final ApiCallback<BaseResponseGetAiDecompilationTask> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAiDecompilationTaskResultValidateBeforeCall(functionId, summarise, generateInlineComments, _callback);
+        okhttp3.Call localVarCall = getAiDecompilationTaskResultValidateBeforeCall(functionId, summarise, generateInlineComments, forceRegenerate, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseGetAiDecompilationTask>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
