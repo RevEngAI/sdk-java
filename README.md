@@ -16,7 +16,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>ai.reveng</groupId>
     <artifactId>sdk</artifactId>
-    <version>3.72.0</version>
+    <version>3.74.1</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -31,7 +31,7 @@ repositories {
 }
 
 dependencies {
-    implementation "ai.reveng:sdk:3.72.0"
+    implementation "ai.reveng:sdk:3.74.1"
 }
 ```
 
@@ -127,7 +127,6 @@ Class | Method | HTTP request | Description
 *AuthenticationUsersApi* | [**getUser**](docs/AuthenticationUsersApi.md#getUser) | **GET** /v2/users/{user_id} | Get a user&#39;s public information
 *AuthenticationUsersApi* | [**getUserActivity**](docs/AuthenticationUsersApi.md#getUserActivity) | **GET** /v2/users/activity | Get auth user activity
 *AuthenticationUsersApi* | [**getUserComments**](docs/AuthenticationUsersApi.md#getUserComments) | **GET** /v2/users/me/comments | Get comments by user
-*AuthenticationUsersApi* | [**loginUser**](docs/AuthenticationUsersApi.md#loginUser) | **POST** /v2/auth/login | Authenticate a user
 *AuthenticationUsersApi* | [**submitUserFeedback**](docs/AuthenticationUsersApi.md#submitUserFeedback) | **POST** /v2/users/feedback | Submit feedback about the application
 *BinariesApi* | [**downloadZippedBinary**](docs/BinariesApi.md#downloadZippedBinary) | **GET** /v2/binaries/{binary_id}/download-zipped | Downloads a zipped binary with password protection
 *BinariesApi* | [**getBinaryAdditionalDetails**](docs/BinariesApi.md#getBinaryAdditionalDetails) | **GET** /v2/binaries/{binary_id}/additional-details | Gets the additional details of a binary
@@ -287,7 +286,6 @@ Class | Method | HTTP request | Description
  - [BaseResponseListFunctionNameHistory](docs/BaseResponseListFunctionNameHistory.md)
  - [BaseResponseListSBOM](docs/BaseResponseListSBOM.md)
  - [BaseResponseListUserActivityResponse](docs/BaseResponseListUserActivityResponse.md)
- - [BaseResponseLoginResponse](docs/BaseResponseLoginResponse.md)
  - [BaseResponseLogs](docs/BaseResponseLogs.md)
  - [BaseResponseModelsResponse](docs/BaseResponseModelsResponse.md)
  - [BaseResponseNetworkOverviewResponse](docs/BaseResponseNetworkOverviewResponse.md)
@@ -422,8 +420,6 @@ Class | Method | HTTP request | Description
  - [InverseStringMapItem](docs/InverseStringMapItem.md)
  - [InverseValue](docs/InverseValue.md)
  - [ListCollectionResults](docs/ListCollectionResults.md)
- - [LoginRequest](docs/LoginRequest.md)
- - [LoginResponse](docs/LoginResponse.md)
  - [Logs](docs/Logs.md)
  - [MITRETechnique](docs/MITRETechnique.md)
  - [MatchedFunction](docs/MatchedFunction.md)

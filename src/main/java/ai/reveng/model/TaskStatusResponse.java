@@ -21,7 +21,10 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -57,6 +60,11 @@ public class TaskStatusResponse {
   @javax.annotation.Nonnull
   private BinaryTaskStatus status;
 
+  public static final String SERIALIZED_NAME_LOG_HISTORY = "log_history";
+  @SerializedName(SERIALIZED_NAME_LOG_HISTORY)
+  @javax.annotation.Nullable
+  private List<List<Object>> logHistory;
+
   public TaskStatusResponse() {
   }
 
@@ -76,6 +84,33 @@ public class TaskStatusResponse {
 
   public void setStatus(@javax.annotation.Nonnull BinaryTaskStatus status) {
     this.status = status;
+  }
+
+
+  public TaskStatusResponse logHistory(@javax.annotation.Nullable List<List<Object>> logHistory) {
+    this.logHistory = logHistory;
+    return this;
+  }
+
+  public TaskStatusResponse addLogHistoryItem(List<Object> logHistoryItem) {
+    if (this.logHistory == null) {
+      this.logHistory = new ArrayList<>();
+    }
+    this.logHistory.add(logHistoryItem);
+    return this;
+  }
+
+  /**
+   * Get logHistory
+   * @return logHistory
+   */
+  @javax.annotation.Nullable
+  public List<List<Object>> getLogHistory() {
+    return logHistory;
+  }
+
+  public void setLogHistory(@javax.annotation.Nullable List<List<Object>> logHistory) {
+    this.logHistory = logHistory;
   }
 
   /**
@@ -133,13 +168,25 @@ public class TaskStatusResponse {
       return false;
     }
     TaskStatusResponse taskStatusResponse = (TaskStatusResponse) o;
-    return Objects.equals(this.status, taskStatusResponse.status)&&
+    return Objects.equals(this.status, taskStatusResponse.status) &&
+        Objects.equals(this.logHistory, taskStatusResponse.logHistory)&&
         Objects.equals(this.additionalProperties, taskStatusResponse.additionalProperties);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, additionalProperties);
+    return Objects.hash(status, logHistory, additionalProperties);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -147,6 +194,7 @@ public class TaskStatusResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class TaskStatusResponse {\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    logHistory: ").append(toIndentedString(logHistory)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -169,7 +217,7 @@ public class TaskStatusResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("status"));
+    openapiFields = new HashSet<String>(Arrays.asList("status", "log_history"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("status"));
@@ -197,6 +245,10 @@ public class TaskStatusResponse {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the required field `status`
       BinaryTaskStatus.validateJsonElement(jsonObj.get("status"));
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("log_history") != null && !jsonObj.get("log_history").isJsonNull() && !jsonObj.get("log_history").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `log_history` to be an array in the JSON string but got `%s`", jsonObj.get("log_history").toString()));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
