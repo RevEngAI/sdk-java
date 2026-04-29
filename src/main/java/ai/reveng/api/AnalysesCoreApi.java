@@ -43,7 +43,7 @@ import ai.reveng.model.BaseResponseParams;
 import ai.reveng.model.BaseResponseRecent;
 import ai.reveng.model.BaseResponseStatus;
 import ai.reveng.model.BaseResponseUploadResponse;
-import ai.reveng.model.DynamicExecutionStatusInput;
+import ai.reveng.model.DynamicExecutionStatus;
 import ai.reveng.model.InsertAnalysisLogRequest;
 import ai.reveng.model.ModelName;
 import ai.reveng.model.Order;
@@ -1491,7 +1491,7 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listAnalysesCall(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<Workspace> workspace, @javax.annotation.Nullable List<StatusInput> status, @javax.annotation.Nullable List<ModelName> modelName, @javax.annotation.Nullable DynamicExecutionStatusInput dynamicExecutionStatus, @javax.annotation.Nullable List<String> usernames, @javax.annotation.Nullable String sha256Hash, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable AppApiRestV2AnalysesEnumsOrderBy orderBy, @javax.annotation.Nullable Order order, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listAnalysesCall(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<Workspace> workspace, @javax.annotation.Nullable List<StatusInput> status, @javax.annotation.Nullable List<ModelName> modelName, @javax.annotation.Nullable DynamicExecutionStatus dynamicExecutionStatus, @javax.annotation.Nullable List<String> usernames, @javax.annotation.Nullable String sha256Hash, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable AppApiRestV2AnalysesEnumsOrderBy orderBy, @javax.annotation.Nullable Order order, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1580,7 +1580,7 @@ public class AnalysesCoreApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listAnalysesValidateBeforeCall(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<Workspace> workspace, @javax.annotation.Nullable List<StatusInput> status, @javax.annotation.Nullable List<ModelName> modelName, @javax.annotation.Nullable DynamicExecutionStatusInput dynamicExecutionStatus, @javax.annotation.Nullable List<String> usernames, @javax.annotation.Nullable String sha256Hash, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable AppApiRestV2AnalysesEnumsOrderBy orderBy, @javax.annotation.Nullable Order order, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listAnalysesValidateBeforeCall(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<Workspace> workspace, @javax.annotation.Nullable List<StatusInput> status, @javax.annotation.Nullable List<ModelName> modelName, @javax.annotation.Nullable DynamicExecutionStatus dynamicExecutionStatus, @javax.annotation.Nullable List<String> usernames, @javax.annotation.Nullable String sha256Hash, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable AppApiRestV2AnalysesEnumsOrderBy orderBy, @javax.annotation.Nullable Order order, final ApiCallback _callback) throws ApiException {
         return listAnalysesCall(searchTerm, workspace, status, modelName, dynamicExecutionStatus, usernames, sha256Hash, limit, offset, orderBy, order, _callback);
 
     }
@@ -1609,7 +1609,7 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseRecent listAnalyses(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<Workspace> workspace, @javax.annotation.Nullable List<StatusInput> status, @javax.annotation.Nullable List<ModelName> modelName, @javax.annotation.Nullable DynamicExecutionStatusInput dynamicExecutionStatus, @javax.annotation.Nullable List<String> usernames, @javax.annotation.Nullable String sha256Hash, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable AppApiRestV2AnalysesEnumsOrderBy orderBy, @javax.annotation.Nullable Order order) throws ApiException {
+    public BaseResponseRecent listAnalyses(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<Workspace> workspace, @javax.annotation.Nullable List<StatusInput> status, @javax.annotation.Nullable List<ModelName> modelName, @javax.annotation.Nullable DynamicExecutionStatus dynamicExecutionStatus, @javax.annotation.Nullable List<String> usernames, @javax.annotation.Nullable String sha256Hash, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable AppApiRestV2AnalysesEnumsOrderBy orderBy, @javax.annotation.Nullable Order order) throws ApiException {
         ApiResponse<BaseResponseRecent> localVarResp = listAnalysesWithHttpInfo(searchTerm, workspace, status, modelName, dynamicExecutionStatus, usernames, sha256Hash, limit, offset, orderBy, order);
         return localVarResp.getData();
     }
@@ -1638,7 +1638,7 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseRecent> listAnalysesWithHttpInfo(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<Workspace> workspace, @javax.annotation.Nullable List<StatusInput> status, @javax.annotation.Nullable List<ModelName> modelName, @javax.annotation.Nullable DynamicExecutionStatusInput dynamicExecutionStatus, @javax.annotation.Nullable List<String> usernames, @javax.annotation.Nullable String sha256Hash, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable AppApiRestV2AnalysesEnumsOrderBy orderBy, @javax.annotation.Nullable Order order) throws ApiException {
+    public ApiResponse<BaseResponseRecent> listAnalysesWithHttpInfo(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<Workspace> workspace, @javax.annotation.Nullable List<StatusInput> status, @javax.annotation.Nullable List<ModelName> modelName, @javax.annotation.Nullable DynamicExecutionStatus dynamicExecutionStatus, @javax.annotation.Nullable List<String> usernames, @javax.annotation.Nullable String sha256Hash, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable AppApiRestV2AnalysesEnumsOrderBy orderBy, @javax.annotation.Nullable Order order) throws ApiException {
         okhttp3.Call localVarCall = listAnalysesValidateBeforeCall(searchTerm, workspace, status, modelName, dynamicExecutionStatus, usernames, sha256Hash, limit, offset, orderBy, order, null);
         Type localVarReturnType = new TypeToken<BaseResponseRecent>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1669,7 +1669,7 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listAnalysesAsync(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<Workspace> workspace, @javax.annotation.Nullable List<StatusInput> status, @javax.annotation.Nullable List<ModelName> modelName, @javax.annotation.Nullable DynamicExecutionStatusInput dynamicExecutionStatus, @javax.annotation.Nullable List<String> usernames, @javax.annotation.Nullable String sha256Hash, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable AppApiRestV2AnalysesEnumsOrderBy orderBy, @javax.annotation.Nullable Order order, final ApiCallback<BaseResponseRecent> _callback) throws ApiException {
+    public okhttp3.Call listAnalysesAsync(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<Workspace> workspace, @javax.annotation.Nullable List<StatusInput> status, @javax.annotation.Nullable List<ModelName> modelName, @javax.annotation.Nullable DynamicExecutionStatus dynamicExecutionStatus, @javax.annotation.Nullable List<String> usernames, @javax.annotation.Nullable String sha256Hash, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable AppApiRestV2AnalysesEnumsOrderBy orderBy, @javax.annotation.Nullable Order order, final ApiCallback<BaseResponseRecent> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listAnalysesValidateBeforeCall(searchTerm, workspace, status, modelName, dynamicExecutionStatus, usernames, sha256Hash, limit, offset, orderBy, order, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseRecent>(){}.getType();

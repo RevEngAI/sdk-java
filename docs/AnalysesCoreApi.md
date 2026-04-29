@@ -695,7 +695,7 @@ public class Example {
     List<Workspace> workspace = Arrays.asList(); // List<Workspace> | The workspace to be viewed
     List<StatusInput> status = Arrays.asList(); // List<StatusInput> | The status of the analysis
     List<ModelName> modelName = Arrays.asList(); // List<ModelName> | Show analysis belonging to the model
-    DynamicExecutionStatusInput dynamicExecutionStatus = DynamicExecutionStatusInput.fromValue("PENDING"); // DynamicExecutionStatusInput | Show analysis that have a dynamic execution with the given status
+    DynamicExecutionStatus dynamicExecutionStatus = DynamicExecutionStatus.fromValue("PENDING"); // DynamicExecutionStatus | Show analysis that have a dynamic execution with the given status
     List<String> usernames = Arrays.asList(); // List<String> | Show analysis belonging to the user
     String sha256Hash = "sha256Hash_example"; // String | 
     Integer limit = 20; // Integer | 
@@ -724,7 +724,7 @@ public class Example {
 | **workspace** | [**List&lt;Workspace&gt;**](Workspace.md)| The workspace to be viewed | [optional] |
 | **status** | [**List&lt;StatusInput&gt;**](StatusInput.md)| The status of the analysis | [optional] |
 | **modelName** | [**List&lt;ModelName&gt;**](ModelName.md)| Show analysis belonging to the model | [optional] |
-| **dynamicExecutionStatus** | [**DynamicExecutionStatusInput**](.md)| Show analysis that have a dynamic execution with the given status | [optional] [enum: PENDING, ERROR, SUCCESS, ALL] |
+| **dynamicExecutionStatus** | [**DynamicExecutionStatus**](.md)| Show analysis that have a dynamic execution with the given status | [optional] [enum: PENDING, ERROR, SUCCESS, ALL] |
 | **usernames** | [**List&lt;String&gt;**](String.md)| Show analysis belonging to the user | [optional] |
 | **sha256Hash** | **String**|  | [optional] |
 | **limit** | **Integer**|  | [optional] [default to 20] |
