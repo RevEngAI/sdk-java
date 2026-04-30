@@ -14,7 +14,7 @@ package ai.reveng.model;
 
 import java.util.Objects;
 import java.util.Locale;
-import ai.reveng.model.AppApiRestV2AnalysesEnumsDynamicExecutionStatus;
+import ai.reveng.model.DynamicExecutionStatus;
 import ai.reveng.model.TagItem;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -126,7 +126,7 @@ public class AnalysisRecord {
   public static final String SERIALIZED_NAME_DYNAMIC_EXECUTION_STATUS = "dynamic_execution_status";
   @SerializedName(SERIALIZED_NAME_DYNAMIC_EXECUTION_STATUS)
   @javax.annotation.Nullable
-  private AppApiRestV2AnalysesEnumsDynamicExecutionStatus dynamicExecutionStatus;
+  private DynamicExecutionStatus dynamicExecutionStatus;
 
   public static final String SERIALIZED_NAME_DYNAMIC_EXECUTION_TASK_ID = "dynamic_execution_task_id";
   @SerializedName(SERIALIZED_NAME_DYNAMIC_EXECUTION_TASK_ID)
@@ -393,7 +393,7 @@ public class AnalysisRecord {
   }
 
 
-  public AnalysisRecord dynamicExecutionStatus(@javax.annotation.Nullable AppApiRestV2AnalysesEnumsDynamicExecutionStatus dynamicExecutionStatus) {
+  public AnalysisRecord dynamicExecutionStatus(@javax.annotation.Nullable DynamicExecutionStatus dynamicExecutionStatus) {
     this.dynamicExecutionStatus = dynamicExecutionStatus;
     return this;
   }
@@ -403,11 +403,11 @@ public class AnalysisRecord {
    * @return dynamicExecutionStatus
    */
   @javax.annotation.Nullable
-  public AppApiRestV2AnalysesEnumsDynamicExecutionStatus getDynamicExecutionStatus() {
+  public DynamicExecutionStatus getDynamicExecutionStatus() {
     return dynamicExecutionStatus;
   }
 
-  public void setDynamicExecutionStatus(@javax.annotation.Nullable AppApiRestV2AnalysesEnumsDynamicExecutionStatus dynamicExecutionStatus) {
+  public void setDynamicExecutionStatus(@javax.annotation.Nullable DynamicExecutionStatus dynamicExecutionStatus) {
     this.dynamicExecutionStatus = dynamicExecutionStatus;
   }
 
@@ -659,7 +659,7 @@ public class AnalysisRecord {
       }
       // validate the optional field `dynamic_execution_status`
       if (jsonObj.get("dynamic_execution_status") != null && !jsonObj.get("dynamic_execution_status").isJsonNull()) {
-        AppApiRestV2AnalysesEnumsDynamicExecutionStatus.validateJsonElement(jsonObj.get("dynamic_execution_status"));
+        DynamicExecutionStatus.validateJsonElement(jsonObj.get("dynamic_execution_status"));
       }
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull()) {
         JsonArray jsonArraytags = jsonObj.getAsJsonArray("tags");
