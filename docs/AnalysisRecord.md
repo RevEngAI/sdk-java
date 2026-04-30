@@ -20,7 +20,7 @@
 |**functionBoundariesHash** | **String** | The hash of the function boundaries |  |
 |**binarySize** | **Integer** | The size of the binary |  |
 |**username** | **String** | The username of the analysis owner |  |
-|**dynamicExecutionStatus** | **AppApiRestV2AnalysesEnumsDynamicExecutionStatus** |  |  [optional] |
+|**dynamicExecutionStatus** | **DynamicExecutionStatus** |  |  [optional] |
 |**dynamicExecutionTaskId** | **Integer** |  |  [optional] |
 |**baseAddress** | **BigInteger** | The base address of the binary |  |
 |**tags** | [**List&lt;TagItem&gt;**](TagItem.md) | List of tags associated with the analysis |  [optional] |
