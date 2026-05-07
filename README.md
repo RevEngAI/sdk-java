@@ -16,7 +16,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>ai.reveng</groupId>
     <artifactId>sdk</artifactId>
-    <version>3.80.0</version>
+    <version>3.80.1</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -31,7 +31,7 @@ repositories {
 }
 
 dependencies {
-    implementation "ai.reveng:sdk:3.80.0"
+    implementation "ai.reveng:sdk:3.80.1"
 }
 ```
 
@@ -209,6 +209,7 @@ Class | Method | HTTP request | Description
  - [AnalysisFunctions](docs/AnalysisFunctions.md)
  - [AnalysisFunctionsList](docs/AnalysisFunctionsList.md)
  - [AnalysisRecord](docs/AnalysisRecord.md)
+ - [AnalysisReport](docs/AnalysisReport.md)
  - [AnalysisScope](docs/AnalysisScope.md)
  - [AnalysisStringInput](docs/AnalysisStringInput.md)
  - [AnalysisStringsResponse](docs/AnalysisStringsResponse.md)
@@ -217,6 +218,7 @@ Class | Method | HTTP request | Description
  - [AnalysisUpdateRequest](docs/AnalysisUpdateRequest.md)
  - [AnalysisUpdateTagsRequest](docs/AnalysisUpdateTagsRequest.md)
  - [AnalysisUpdateTagsResponse](docs/AnalysisUpdateTagsResponse.md)
+ - [ApiCall](docs/ApiCall.md)
  - [AppApiRestV2AgentSchemaCapability](docs/AppApiRestV2AgentSchemaCapability.md)
  - [AppApiRestV2AnalysesEnumsOrderBy](docs/AppApiRestV2AnalysesEnumsOrderBy.md)
  - [AppApiRestV2CollectionsEnumsOrderBy](docs/AppApiRestV2CollectionsEnumsOrderBy.md)
@@ -332,6 +334,7 @@ Class | Method | HTTP request | Description
  - [CommentUpdateRequest](docs/CommentUpdateRequest.md)
  - [ConfigResponse](docs/ConfigResponse.md)
  - [ConfirmToolInputBody](docs/ConfirmToolInputBody.md)
+ - [Connection](docs/Connection.md)
  - [Context](docs/Context.md)
  - [Conversation](docs/Conversation.md)
  - [ConversationContext](docs/ConversationContext.md)
@@ -340,7 +343,10 @@ Class | Method | HTTP request | Description
  - [Created](docs/Created.md)
  - [DecompilationCommentContext](docs/DecompilationCommentContext.md)
  - [DieMatch](docs/DieMatch.md)
+ - [DnsQuery](docs/DnsQuery.md)
+ - [DrakvufFileMetadata](docs/DrakvufFileMetadata.md)
  - [DynamicExecutionStatus](docs/DynamicExecutionStatus.md)
+ - [DynamicExecutionStatusResponse](docs/DynamicExecutionStatusResponse.md)
  - [ELFImportModel](docs/ELFImportModel.md)
  - [ELFModel](docs/ELFModel.md)
  - [ELFRelocation](docs/ELFRelocation.md)
@@ -372,6 +378,8 @@ Class | Method | HTTP request | Description
  - [EventTOOLCONFIRMATIONREQUIRED](docs/EventTOOLCONFIRMATIONREQUIRED.md)
  - [ExportModel](docs/ExportModel.md)
  - [ExternalResponse](docs/ExternalResponse.md)
+ - [ExtractedURL](docs/ExtractedURL.md)
+ - [FileActivityEntry](docs/FileActivityEntry.md)
  - [FileFormat](docs/FileFormat.md)
  - [FileHashes](docs/FileHashes.md)
  - [FileMetadata](docs/FileMetadata.md)
@@ -421,6 +429,7 @@ Class | Method | HTTP request | Description
  - [GetMeResponse](docs/GetMeResponse.md)
  - [GetPublicUserResponse](docs/GetPublicUserResponse.md)
  - [GlobalVariable](docs/GlobalVariable.md)
+ - [HttpRequest](docs/HttpRequest.md)
  - [IOC](docs/IOC.md)
  - [ISA](docs/ISA.md)
  - [IconModel](docs/IconModel.md)
@@ -434,33 +443,47 @@ Class | Method | HTTP request | Description
  - [MITRETechnique](docs/MITRETechnique.md)
  - [MatchedFunction](docs/MatchedFunction.md)
  - [MatchedFunctionSuggestion](docs/MatchedFunctionSuggestion.md)
+ - [MemdumpEntry](docs/MemdumpEntry.md)
  - [MetaModel](docs/MetaModel.md)
  - [ModelName](docs/ModelName.md)
  - [ModelsResponse](docs/ModelsResponse.md)
+ - [ModuleLoadEntry](docs/ModuleLoadEntry.md)
+ - [MutexEntry](docs/MutexEntry.md)
  - [NameConfidence](docs/NameConfidence.md)
  - [NameSourceType](docs/NameSourceType.md)
+ - [NetworkActivity](docs/NetworkActivity.md)
  - [Order](docs/Order.md)
  - [PDBDebugModel](docs/PDBDebugModel.md)
  - [PEModel](docs/PEModel.md)
  - [PaginationModel](docs/PaginationModel.md)
  - [Params](docs/Params.md)
  - [Platform](docs/Platform.md)
+ - [ProcessActivityEntry](docs/ProcessActivityEntry.md)
+ - [ProcessMemdumps](docs/ProcessMemdumps.md)
+ - [ProcessNode](docs/ProcessNode.md)
+ - [ProcessTree](docs/ProcessTree.md)
  - [PutAnalysisStringsRequest](docs/PutAnalysisStringsRequest.md)
  - [QueuePositionResponse](docs/QueuePositionResponse.md)
  - [QueuedWorkflowTaskResponse](docs/QueuedWorkflowTaskResponse.md)
  - [ReAnalysisForm](docs/ReAnalysisForm.md)
  - [Recent](docs/Recent.md)
  - [RegenerateTarget](docs/RegenerateTarget.md)
+ - [RegistryOperation](docs/RegistryOperation.md)
  - [RelativeBinaryResponse](docs/RelativeBinaryResponse.md)
  - [ReportAnalysisResponse](docs/ReportAnalysisResponse.md)
+ - [ReportEvent](docs/ReportEvent.md)
+ - [ReportInfo](docs/ReportInfo.md)
+ - [ReportOptions](docs/ReportOptions.md)
  - [SBOM](docs/SBOM.md)
  - [SBOMPackage](docs/SBOMPackage.md)
  - [SandboxOptions](docs/SandboxOptions.md)
+ - [ScheduledTaskEntry](docs/ScheduledTaskEntry.md)
  - [ScrapeThirdPartyConfig](docs/ScrapeThirdPartyConfig.md)
  - [SectionModel](docs/SectionModel.md)
  - [SecurityModel](docs/SecurityModel.md)
  - [SegmentInfo](docs/SegmentInfo.md)
  - [SendMessageRequest](docs/SendMessageRequest.md)
+ - [ServiceEntry](docs/ServiceEntry.md)
  - [SingleCodeCertificateModel](docs/SingleCodeCertificateModel.md)
  - [SingleCodeSignatureModel](docs/SingleCodeSignatureModel.md)
  - [SinglePDBEntryModel](docs/SinglePDBEntryModel.md)
@@ -482,6 +505,7 @@ Class | Method | HTTP request | Description
  - [SseEventToolCallStartData](docs/SseEventToolCallStartData.md)
  - [SseEventToolConfirmationRequiredData](docs/SseEventToolConfirmationRequiredData.md)
  - [StackVariable](docs/StackVariable.md)
+ - [StartupInfo](docs/StartupInfo.md)
  - [StatusInput](docs/StatusInput.md)
  - [StatusOutput](docs/StatusOutput.md)
  - [StatusResponse](docs/StatusResponse.md)
@@ -503,6 +527,7 @@ Class | Method | HTTP request | Description
  - [TimestampModel](docs/TimestampModel.md)
  - [TriageFunctionResponse](docs/TriageFunctionResponse.md)
  - [TriageReportResponse](docs/TriageReportResponse.md)
+ - [Ttp](docs/Ttp.md)
  - [TypeDefinition](docs/TypeDefinition.md)
  - [UpdateFunctionDataTypes](docs/UpdateFunctionDataTypes.md)
  - [UploadFileType](docs/UploadFileType.md)

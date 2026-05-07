@@ -1071,7 +1071,7 @@ public class AgentApi {
 
     /**
      * Get Report Analysis Result
-     * 
+     * Returns: - A summary of the analysis - The software type of the binary - An attack flow summary - List of IOCs - List of MITRE executable techniques - A YARA rule
      * @param analysisId  (required)
      * @return BaseResponseReportAnalysisResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1090,7 +1090,7 @@ public class AgentApi {
 
     /**
      * Get Report Analysis Result
-     * 
+     * Returns: - A summary of the analysis - The software type of the binary - An attack flow summary - List of IOCs - List of MITRE executable techniques - A YARA rule
      * @param analysisId  (required)
      * @return ApiResponse&lt;BaseResponseReportAnalysisResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1110,7 +1110,7 @@ public class AgentApi {
 
     /**
      * Get Report Analysis Result (asynchronously)
-     * 
+     * Returns: - A summary of the analysis - The software type of the binary - An attack flow summary - List of IOCs - List of MITRE executable techniques - A YARA rule
      * @param analysisId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
