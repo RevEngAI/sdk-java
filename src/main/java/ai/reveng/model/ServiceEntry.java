@@ -14,15 +14,16 @@ package ai.reveng.model;
 
 import java.util.Objects;
 import java.util.Locale;
-import ai.reveng.model.SandboxStartMethod;
-import ai.reveng.model.SandboxTimeout;
+import ai.reveng.model.ReportEvent;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -50,106 +51,162 @@ import java.util.Locale;
 import ai.reveng.invoker.JSON;
 
 /**
- * SandboxOptions
+ * ServiceEntry
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class SandboxOptions {
-  public static final String SERIALIZED_NAME_ENABLED = "enabled";
-  @SerializedName(SERIALIZED_NAME_ENABLED)
+public class ServiceEntry {
+  public static final String SERIALIZED_NAME_BINARY_PATH = "binary_path";
+  @SerializedName(SERIALIZED_NAME_BINARY_PATH)
   @javax.annotation.Nullable
-  private Boolean enabled = false;
+  private String binaryPath;
 
-  public static final String SERIALIZED_NAME_COMMAND_LINE_ARGS = "command_line_args";
-  @SerializedName(SERIALIZED_NAME_COMMAND_LINE_ARGS)
+  public static final String SERIALIZED_NAME_DISPLAY_NAME = "display_name";
+  @SerializedName(SERIALIZED_NAME_DISPLAY_NAME)
   @javax.annotation.Nullable
-  private String commandLineArgs = "";
+  private String displayName;
 
-  public static final String SERIALIZED_NAME_START_METHOD = "start_method";
-  @SerializedName(SERIALIZED_NAME_START_METHOD)
+  public static final String SERIALIZED_NAME_EVENTS = "events";
+  @SerializedName(SERIALIZED_NAME_EVENTS)
   @javax.annotation.Nullable
-  private SandboxStartMethod startMethod;
+  private List<ReportEvent> events;
 
-  public static final String SERIALIZED_NAME_TIMEOUT = "timeout";
-  @SerializedName(SERIALIZED_NAME_TIMEOUT)
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
   @javax.annotation.Nullable
-  private SandboxTimeout timeout;
+  private String name;
 
-  public SandboxOptions() {
+  public static final String SERIALIZED_NAME_SERVICE_TYPE = "service_type";
+  @SerializedName(SERIALIZED_NAME_SERVICE_TYPE)
+  @javax.annotation.Nullable
+  private String serviceType;
+
+  public static final String SERIALIZED_NAME_START_TYPE = "start_type";
+  @SerializedName(SERIALIZED_NAME_START_TYPE)
+  @javax.annotation.Nullable
+  private String startType;
+
+  public ServiceEntry() {
   }
 
-  public SandboxOptions enabled(@javax.annotation.Nullable Boolean enabled) {
-    this.enabled = enabled;
+  public ServiceEntry binaryPath(@javax.annotation.Nullable String binaryPath) {
+    this.binaryPath = binaryPath;
     return this;
   }
 
   /**
-   * Get enabled
-   * @return enabled
+   * Get binaryPath
+   * @return binaryPath
    */
   @javax.annotation.Nullable
-  public Boolean getEnabled() {
-    return enabled;
+  public String getBinaryPath() {
+    return binaryPath;
   }
 
-  public void setEnabled(@javax.annotation.Nullable Boolean enabled) {
-    this.enabled = enabled;
+  public void setBinaryPath(@javax.annotation.Nullable String binaryPath) {
+    this.binaryPath = binaryPath;
   }
 
 
-  public SandboxOptions commandLineArgs(@javax.annotation.Nullable String commandLineArgs) {
-    this.commandLineArgs = commandLineArgs;
+  public ServiceEntry displayName(@javax.annotation.Nullable String displayName) {
+    this.displayName = displayName;
     return this;
   }
 
   /**
-   * The command line parameters to pass to the dynamic execution sandbox. Requires &#x60;sandbox&#x60; to be True.
-   * @return commandLineArgs
+   * Get displayName
+   * @return displayName
    */
   @javax.annotation.Nullable
-  public String getCommandLineArgs() {
-    return commandLineArgs;
+  public String getDisplayName() {
+    return displayName;
   }
 
-  public void setCommandLineArgs(@javax.annotation.Nullable String commandLineArgs) {
-    this.commandLineArgs = commandLineArgs;
+  public void setDisplayName(@javax.annotation.Nullable String displayName) {
+    this.displayName = displayName;
   }
 
 
-  public SandboxOptions startMethod(@javax.annotation.Nullable SandboxStartMethod startMethod) {
-    this.startMethod = startMethod;
+  public ServiceEntry events(@javax.annotation.Nullable List<ReportEvent> events) {
+    this.events = events;
+    return this;
+  }
+
+  public ServiceEntry addEventsItem(ReportEvent eventsItem) {
+    if (this.events == null) {
+      this.events = new ArrayList<>();
+    }
+    this.events.add(eventsItem);
     return this;
   }
 
   /**
-   * Get startMethod
-   * @return startMethod
+   * Get events
+   * @return events
    */
   @javax.annotation.Nullable
-  public SandboxStartMethod getStartMethod() {
-    return startMethod;
+  public List<ReportEvent> getEvents() {
+    return events;
   }
 
-  public void setStartMethod(@javax.annotation.Nullable SandboxStartMethod startMethod) {
-    this.startMethod = startMethod;
+  public void setEvents(@javax.annotation.Nullable List<ReportEvent> events) {
+    this.events = events;
   }
 
 
-  public SandboxOptions timeout(@javax.annotation.Nullable SandboxTimeout timeout) {
-    this.timeout = timeout;
+  public ServiceEntry name(@javax.annotation.Nullable String name) {
+    this.name = name;
     return this;
   }
 
   /**
-   * Maximum execution time for the sandbox run, in seconds. Allowed values: 120 (2m), 180 (3m), 300 (5m), 600 (10m).
-   * @return timeout
+   * Get name
+   * @return name
    */
   @javax.annotation.Nullable
-  public SandboxTimeout getTimeout() {
-    return timeout;
+  public String getName() {
+    return name;
   }
 
-  public void setTimeout(@javax.annotation.Nullable SandboxTimeout timeout) {
-    this.timeout = timeout;
+  public void setName(@javax.annotation.Nullable String name) {
+    this.name = name;
+  }
+
+
+  public ServiceEntry serviceType(@javax.annotation.Nullable String serviceType) {
+    this.serviceType = serviceType;
+    return this;
+  }
+
+  /**
+   * Get serviceType
+   * @return serviceType
+   */
+  @javax.annotation.Nullable
+  public String getServiceType() {
+    return serviceType;
+  }
+
+  public void setServiceType(@javax.annotation.Nullable String serviceType) {
+    this.serviceType = serviceType;
+  }
+
+
+  public ServiceEntry startType(@javax.annotation.Nullable String startType) {
+    this.startType = startType;
+    return this;
+  }
+
+  /**
+   * Get startType
+   * @return startType
+   */
+  @javax.annotation.Nullable
+  public String getStartType() {
+    return startType;
+  }
+
+  public void setStartType(@javax.annotation.Nullable String startType) {
+    this.startType = startType;
   }
 
   /**
@@ -165,9 +222,9 @@ public class SandboxOptions {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the SandboxOptions instance itself
+   * @return the ServiceEntry instance itself
    */
-  public SandboxOptions putAdditionalProperty(String key, Object value) {
+  public ServiceEntry putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -206,12 +263,14 @@ public class SandboxOptions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SandboxOptions sandboxOptions = (SandboxOptions) o;
-    return Objects.equals(this.enabled, sandboxOptions.enabled) &&
-        Objects.equals(this.commandLineArgs, sandboxOptions.commandLineArgs) &&
-        Objects.equals(this.startMethod, sandboxOptions.startMethod) &&
-        Objects.equals(this.timeout, sandboxOptions.timeout)&&
-        Objects.equals(this.additionalProperties, sandboxOptions.additionalProperties);
+    ServiceEntry serviceEntry = (ServiceEntry) o;
+    return Objects.equals(this.binaryPath, serviceEntry.binaryPath) &&
+        Objects.equals(this.displayName, serviceEntry.displayName) &&
+        Objects.equals(this.events, serviceEntry.events) &&
+        Objects.equals(this.name, serviceEntry.name) &&
+        Objects.equals(this.serviceType, serviceEntry.serviceType) &&
+        Objects.equals(this.startType, serviceEntry.startType)&&
+        Objects.equals(this.additionalProperties, serviceEntry.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -220,7 +279,7 @@ public class SandboxOptions {
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled, commandLineArgs, startMethod, timeout, additionalProperties);
+    return Objects.hash(binaryPath, displayName, events, name, serviceType, startType, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -233,11 +292,13 @@ public class SandboxOptions {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SandboxOptions {\n");
-    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
-    sb.append("    commandLineArgs: ").append(toIndentedString(commandLineArgs)).append("\n");
-    sb.append("    startMethod: ").append(toIndentedString(startMethod)).append("\n");
-    sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
+    sb.append("class ServiceEntry {\n");
+    sb.append("    binaryPath: ").append(toIndentedString(binaryPath)).append("\n");
+    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
+    sb.append("    events: ").append(toIndentedString(events)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    serviceType: ").append(toIndentedString(serviceType)).append("\n");
+    sb.append("    startType: ").append(toIndentedString(startType)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -260,7 +321,7 @@ public class SandboxOptions {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("enabled", "command_line_args", "start_method", "timeout"));
+    openapiFields = new HashSet<String>(Arrays.asList("binary_path", "display_name", "events", "name", "service_type", "start_type"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -270,25 +331,33 @@ public class SandboxOptions {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to SandboxOptions
+   * @throws IOException if the JSON Element is invalid with respect to ServiceEntry
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!SandboxOptions.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in SandboxOptions is not found in the empty JSON string", SandboxOptions.openapiRequiredFields.toString()));
+        if (!ServiceEntry.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in ServiceEntry is not found in the empty JSON string", ServiceEntry.openapiRequiredFields.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("command_line_args") != null && !jsonObj.get("command_line_args").isJsonNull()) && !jsonObj.get("command_line_args").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `command_line_args` to be a primitive type in the JSON string but got `%s`", jsonObj.get("command_line_args").toString()));
+      if ((jsonObj.get("binary_path") != null && !jsonObj.get("binary_path").isJsonNull()) && !jsonObj.get("binary_path").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `binary_path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("binary_path").toString()));
       }
-      // validate the optional field `start_method`
-      if (jsonObj.get("start_method") != null && !jsonObj.get("start_method").isJsonNull()) {
-        SandboxStartMethod.validateJsonElement(jsonObj.get("start_method"));
+      if ((jsonObj.get("display_name") != null && !jsonObj.get("display_name").isJsonNull()) && !jsonObj.get("display_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `display_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("display_name").toString()));
       }
-      // validate the optional field `timeout`
-      if (jsonObj.get("timeout") != null && !jsonObj.get("timeout").isJsonNull()) {
-        SandboxTimeout.validateJsonElement(jsonObj.get("timeout"));
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("events") != null && !jsonObj.get("events").isJsonNull() && !jsonObj.get("events").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `events` to be an array in the JSON string but got `%s`", jsonObj.get("events").toString()));
+      }
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("service_type") != null && !jsonObj.get("service_type").isJsonNull()) && !jsonObj.get("service_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `service_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("service_type").toString()));
+      }
+      if ((jsonObj.get("start_type") != null && !jsonObj.get("start_type").isJsonNull()) && !jsonObj.get("start_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `start_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("start_type").toString()));
       }
   }
 
@@ -296,16 +365,16 @@ public class SandboxOptions {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!SandboxOptions.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'SandboxOptions' and its subtypes
+       if (!ServiceEntry.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ServiceEntry' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<SandboxOptions> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(SandboxOptions.class));
+       final TypeAdapter<ServiceEntry> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ServiceEntry.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<SandboxOptions>() {
+       return (TypeAdapter<T>) new TypeAdapter<ServiceEntry>() {
            @Override
-           public void write(JsonWriter out, SandboxOptions value) throws IOException {
+           public void write(JsonWriter out, ServiceEntry value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -333,12 +402,12 @@ public class SandboxOptions {
            }
 
            @Override
-           public SandboxOptions read(JsonReader in) throws IOException {
+           public ServiceEntry read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             SandboxOptions instance = thisAdapter.fromJsonTree(jsonObj);
+             ServiceEntry instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -365,18 +434,18 @@ public class SandboxOptions {
   }
 
   /**
-   * Create an instance of SandboxOptions given an JSON string
+   * Create an instance of ServiceEntry given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of SandboxOptions
-   * @throws IOException if the JSON string is invalid with respect to SandboxOptions
+   * @return An instance of ServiceEntry
+   * @throws IOException if the JSON string is invalid with respect to ServiceEntry
    */
-  public static SandboxOptions fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, SandboxOptions.class);
+  public static ServiceEntry fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ServiceEntry.class);
   }
 
   /**
-   * Convert an instance of SandboxOptions to an JSON string
+   * Convert an instance of ServiceEntry to an JSON string
    *
    * @return JSON string
    */

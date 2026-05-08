@@ -14,8 +14,6 @@ package ai.reveng.model;
 
 import java.util.Objects;
 import java.util.Locale;
-import ai.reveng.model.SandboxStartMethod;
-import ai.reveng.model.SandboxTimeout;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -50,106 +48,130 @@ import java.util.Locale;
 import ai.reveng.invoker.JSON;
 
 /**
- * SandboxOptions
+ * DrakvufFileMetadata
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class SandboxOptions {
-  public static final String SERIALIZED_NAME_ENABLED = "enabled";
-  @SerializedName(SERIALIZED_NAME_ENABLED)
+public class DrakvufFileMetadata {
+  public static final String SERIALIZED_NAME_MIME_TYPE = "mime_type";
+  @SerializedName(SERIALIZED_NAME_MIME_TYPE)
   @javax.annotation.Nullable
-  private Boolean enabled = false;
+  private String mimeType;
 
-  public static final String SERIALIZED_NAME_COMMAND_LINE_ARGS = "command_line_args";
-  @SerializedName(SERIALIZED_NAME_COMMAND_LINE_ARGS)
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
   @javax.annotation.Nullable
-  private String commandLineArgs = "";
+  private String name;
 
-  public static final String SERIALIZED_NAME_START_METHOD = "start_method";
-  @SerializedName(SERIALIZED_NAME_START_METHOD)
+  public static final String SERIALIZED_NAME_SHA256 = "sha256";
+  @SerializedName(SERIALIZED_NAME_SHA256)
   @javax.annotation.Nullable
-  private SandboxStartMethod startMethod;
+  private String sha256;
 
-  public static final String SERIALIZED_NAME_TIMEOUT = "timeout";
-  @SerializedName(SERIALIZED_NAME_TIMEOUT)
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
   @javax.annotation.Nullable
-  private SandboxTimeout timeout;
+  private String type;
 
-  public SandboxOptions() {
+  public static final String SERIALIZED_NAME_TYPE_ID = "type_id";
+  @SerializedName(SERIALIZED_NAME_TYPE_ID)
+  @javax.annotation.Nullable
+  private String typeId;
+
+  public DrakvufFileMetadata() {
   }
 
-  public SandboxOptions enabled(@javax.annotation.Nullable Boolean enabled) {
-    this.enabled = enabled;
+  public DrakvufFileMetadata mimeType(@javax.annotation.Nullable String mimeType) {
+    this.mimeType = mimeType;
     return this;
   }
 
   /**
-   * Get enabled
-   * @return enabled
+   * Get mimeType
+   * @return mimeType
    */
   @javax.annotation.Nullable
-  public Boolean getEnabled() {
-    return enabled;
+  public String getMimeType() {
+    return mimeType;
   }
 
-  public void setEnabled(@javax.annotation.Nullable Boolean enabled) {
-    this.enabled = enabled;
+  public void setMimeType(@javax.annotation.Nullable String mimeType) {
+    this.mimeType = mimeType;
   }
 
 
-  public SandboxOptions commandLineArgs(@javax.annotation.Nullable String commandLineArgs) {
-    this.commandLineArgs = commandLineArgs;
+  public DrakvufFileMetadata name(@javax.annotation.Nullable String name) {
+    this.name = name;
     return this;
   }
 
   /**
-   * The command line parameters to pass to the dynamic execution sandbox. Requires &#x60;sandbox&#x60; to be True.
-   * @return commandLineArgs
+   * Get name
+   * @return name
    */
   @javax.annotation.Nullable
-  public String getCommandLineArgs() {
-    return commandLineArgs;
+  public String getName() {
+    return name;
   }
 
-  public void setCommandLineArgs(@javax.annotation.Nullable String commandLineArgs) {
-    this.commandLineArgs = commandLineArgs;
+  public void setName(@javax.annotation.Nullable String name) {
+    this.name = name;
   }
 
 
-  public SandboxOptions startMethod(@javax.annotation.Nullable SandboxStartMethod startMethod) {
-    this.startMethod = startMethod;
+  public DrakvufFileMetadata sha256(@javax.annotation.Nullable String sha256) {
+    this.sha256 = sha256;
     return this;
   }
 
   /**
-   * Get startMethod
-   * @return startMethod
+   * Get sha256
+   * @return sha256
    */
   @javax.annotation.Nullable
-  public SandboxStartMethod getStartMethod() {
-    return startMethod;
+  public String getSha256() {
+    return sha256;
   }
 
-  public void setStartMethod(@javax.annotation.Nullable SandboxStartMethod startMethod) {
-    this.startMethod = startMethod;
+  public void setSha256(@javax.annotation.Nullable String sha256) {
+    this.sha256 = sha256;
   }
 
 
-  public SandboxOptions timeout(@javax.annotation.Nullable SandboxTimeout timeout) {
-    this.timeout = timeout;
+  public DrakvufFileMetadata type(@javax.annotation.Nullable String type) {
+    this.type = type;
     return this;
   }
 
   /**
-   * Maximum execution time for the sandbox run, in seconds. Allowed values: 120 (2m), 180 (3m), 300 (5m), 600 (10m).
-   * @return timeout
+   * Get type
+   * @return type
    */
   @javax.annotation.Nullable
-  public SandboxTimeout getTimeout() {
-    return timeout;
+  public String getType() {
+    return type;
   }
 
-  public void setTimeout(@javax.annotation.Nullable SandboxTimeout timeout) {
-    this.timeout = timeout;
+  public void setType(@javax.annotation.Nullable String type) {
+    this.type = type;
+  }
+
+
+  public DrakvufFileMetadata typeId(@javax.annotation.Nullable String typeId) {
+    this.typeId = typeId;
+    return this;
+  }
+
+  /**
+   * Get typeId
+   * @return typeId
+   */
+  @javax.annotation.Nullable
+  public String getTypeId() {
+    return typeId;
+  }
+
+  public void setTypeId(@javax.annotation.Nullable String typeId) {
+    this.typeId = typeId;
   }
 
   /**
@@ -165,9 +187,9 @@ public class SandboxOptions {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the SandboxOptions instance itself
+   * @return the DrakvufFileMetadata instance itself
    */
-  public SandboxOptions putAdditionalProperty(String key, Object value) {
+  public DrakvufFileMetadata putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -206,12 +228,13 @@ public class SandboxOptions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SandboxOptions sandboxOptions = (SandboxOptions) o;
-    return Objects.equals(this.enabled, sandboxOptions.enabled) &&
-        Objects.equals(this.commandLineArgs, sandboxOptions.commandLineArgs) &&
-        Objects.equals(this.startMethod, sandboxOptions.startMethod) &&
-        Objects.equals(this.timeout, sandboxOptions.timeout)&&
-        Objects.equals(this.additionalProperties, sandboxOptions.additionalProperties);
+    DrakvufFileMetadata drakvufFileMetadata = (DrakvufFileMetadata) o;
+    return Objects.equals(this.mimeType, drakvufFileMetadata.mimeType) &&
+        Objects.equals(this.name, drakvufFileMetadata.name) &&
+        Objects.equals(this.sha256, drakvufFileMetadata.sha256) &&
+        Objects.equals(this.type, drakvufFileMetadata.type) &&
+        Objects.equals(this.typeId, drakvufFileMetadata.typeId)&&
+        Objects.equals(this.additionalProperties, drakvufFileMetadata.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -220,7 +243,7 @@ public class SandboxOptions {
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled, commandLineArgs, startMethod, timeout, additionalProperties);
+    return Objects.hash(mimeType, name, sha256, type, typeId, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -233,11 +256,12 @@ public class SandboxOptions {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SandboxOptions {\n");
-    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
-    sb.append("    commandLineArgs: ").append(toIndentedString(commandLineArgs)).append("\n");
-    sb.append("    startMethod: ").append(toIndentedString(startMethod)).append("\n");
-    sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
+    sb.append("class DrakvufFileMetadata {\n");
+    sb.append("    mimeType: ").append(toIndentedString(mimeType)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    sha256: ").append(toIndentedString(sha256)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    typeId: ").append(toIndentedString(typeId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -260,35 +284,46 @@ public class SandboxOptions {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("enabled", "command_line_args", "start_method", "timeout"));
+    openapiFields = new HashSet<String>(Arrays.asList("mime_type", "name", "sha256", "type", "type_id"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(0);
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "sha256"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to SandboxOptions
+   * @throws IOException if the JSON Element is invalid with respect to DrakvufFileMetadata
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!SandboxOptions.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in SandboxOptions is not found in the empty JSON string", SandboxOptions.openapiRequiredFields.toString()));
+        if (!DrakvufFileMetadata.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in DrakvufFileMetadata is not found in the empty JSON string", DrakvufFileMetadata.openapiRequiredFields.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : DrakvufFileMetadata.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("command_line_args") != null && !jsonObj.get("command_line_args").isJsonNull()) && !jsonObj.get("command_line_args").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `command_line_args` to be a primitive type in the JSON string but got `%s`", jsonObj.get("command_line_args").toString()));
+      if ((jsonObj.get("mime_type") != null && !jsonObj.get("mime_type").isJsonNull()) && !jsonObj.get("mime_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `mime_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mime_type").toString()));
       }
-      // validate the optional field `start_method`
-      if (jsonObj.get("start_method") != null && !jsonObj.get("start_method").isJsonNull()) {
-        SandboxStartMethod.validateJsonElement(jsonObj.get("start_method"));
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      // validate the optional field `timeout`
-      if (jsonObj.get("timeout") != null && !jsonObj.get("timeout").isJsonNull()) {
-        SandboxTimeout.validateJsonElement(jsonObj.get("timeout"));
+      if ((jsonObj.get("sha256") != null && !jsonObj.get("sha256").isJsonNull()) && !jsonObj.get("sha256").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `sha256` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sha256").toString()));
+      }
+      if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      }
+      if ((jsonObj.get("type_id") != null && !jsonObj.get("type_id").isJsonNull()) && !jsonObj.get("type_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `type_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type_id").toString()));
       }
   }
 
@@ -296,16 +331,16 @@ public class SandboxOptions {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!SandboxOptions.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'SandboxOptions' and its subtypes
+       if (!DrakvufFileMetadata.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'DrakvufFileMetadata' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<SandboxOptions> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(SandboxOptions.class));
+       final TypeAdapter<DrakvufFileMetadata> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(DrakvufFileMetadata.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<SandboxOptions>() {
+       return (TypeAdapter<T>) new TypeAdapter<DrakvufFileMetadata>() {
            @Override
-           public void write(JsonWriter out, SandboxOptions value) throws IOException {
+           public void write(JsonWriter out, DrakvufFileMetadata value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -333,12 +368,12 @@ public class SandboxOptions {
            }
 
            @Override
-           public SandboxOptions read(JsonReader in) throws IOException {
+           public DrakvufFileMetadata read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             SandboxOptions instance = thisAdapter.fromJsonTree(jsonObj);
+             DrakvufFileMetadata instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -365,18 +400,18 @@ public class SandboxOptions {
   }
 
   /**
-   * Create an instance of SandboxOptions given an JSON string
+   * Create an instance of DrakvufFileMetadata given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of SandboxOptions
-   * @throws IOException if the JSON string is invalid with respect to SandboxOptions
+   * @return An instance of DrakvufFileMetadata
+   * @throws IOException if the JSON string is invalid with respect to DrakvufFileMetadata
    */
-  public static SandboxOptions fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, SandboxOptions.class);
+  public static DrakvufFileMetadata fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, DrakvufFileMetadata.class);
   }
 
   /**
-   * Convert an instance of SandboxOptions to an JSON string
+   * Convert an instance of DrakvufFileMetadata to an JSON string
    *
    * @return JSON string
    */
