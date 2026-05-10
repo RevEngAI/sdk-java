@@ -14,15 +14,16 @@ package ai.reveng.model;
 
 import java.util.Objects;
 import java.util.Locale;
-import ai.reveng.model.SandboxStartMethod;
-import ai.reveng.model.SandboxTimeout;
+import ai.reveng.model.ReportEvent;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -50,106 +51,162 @@ import java.util.Locale;
 import ai.reveng.invoker.JSON;
 
 /**
- * SandboxOptions
+ * Connection
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class SandboxOptions {
-  public static final String SERIALIZED_NAME_ENABLED = "enabled";
-  @SerializedName(SERIALIZED_NAME_ENABLED)
+public class Connection {
+  public static final String SERIALIZED_NAME_EVENTS = "events";
+  @SerializedName(SERIALIZED_NAME_EVENTS)
   @javax.annotation.Nullable
-  private Boolean enabled = false;
+  private List<ReportEvent> events;
 
-  public static final String SERIALIZED_NAME_COMMAND_LINE_ARGS = "command_line_args";
-  @SerializedName(SERIALIZED_NAME_COMMAND_LINE_ARGS)
+  public static final String SERIALIZED_NAME_LOCAL_IP = "local_ip";
+  @SerializedName(SERIALIZED_NAME_LOCAL_IP)
   @javax.annotation.Nullable
-  private String commandLineArgs = "";
+  private String localIp;
 
-  public static final String SERIALIZED_NAME_START_METHOD = "start_method";
-  @SerializedName(SERIALIZED_NAME_START_METHOD)
+  public static final String SERIALIZED_NAME_LOCAL_PORT = "local_port";
+  @SerializedName(SERIALIZED_NAME_LOCAL_PORT)
   @javax.annotation.Nullable
-  private SandboxStartMethod startMethod;
+  private Object localPort = null;
 
-  public static final String SERIALIZED_NAME_TIMEOUT = "timeout";
-  @SerializedName(SERIALIZED_NAME_TIMEOUT)
+  public static final String SERIALIZED_NAME_PROTOCOL = "protocol";
+  @SerializedName(SERIALIZED_NAME_PROTOCOL)
   @javax.annotation.Nullable
-  private SandboxTimeout timeout;
+  private String protocol;
 
-  public SandboxOptions() {
+  public static final String SERIALIZED_NAME_REMOTE_IP = "remote_ip";
+  @SerializedName(SERIALIZED_NAME_REMOTE_IP)
+  @javax.annotation.Nullable
+  private String remoteIp;
+
+  public static final String SERIALIZED_NAME_REMOTE_PORT = "remote_port";
+  @SerializedName(SERIALIZED_NAME_REMOTE_PORT)
+  @javax.annotation.Nullable
+  private Object remotePort = null;
+
+  public Connection() {
   }
 
-  public SandboxOptions enabled(@javax.annotation.Nullable Boolean enabled) {
-    this.enabled = enabled;
+  public Connection events(@javax.annotation.Nullable List<ReportEvent> events) {
+    this.events = events;
+    return this;
+  }
+
+  public Connection addEventsItem(ReportEvent eventsItem) {
+    if (this.events == null) {
+      this.events = new ArrayList<>();
+    }
+    this.events.add(eventsItem);
     return this;
   }
 
   /**
-   * Get enabled
-   * @return enabled
+   * Get events
+   * @return events
    */
   @javax.annotation.Nullable
-  public Boolean getEnabled() {
-    return enabled;
+  public List<ReportEvent> getEvents() {
+    return events;
   }
 
-  public void setEnabled(@javax.annotation.Nullable Boolean enabled) {
-    this.enabled = enabled;
+  public void setEvents(@javax.annotation.Nullable List<ReportEvent> events) {
+    this.events = events;
   }
 
 
-  public SandboxOptions commandLineArgs(@javax.annotation.Nullable String commandLineArgs) {
-    this.commandLineArgs = commandLineArgs;
+  public Connection localIp(@javax.annotation.Nullable String localIp) {
+    this.localIp = localIp;
     return this;
   }
 
   /**
-   * The command line parameters to pass to the dynamic execution sandbox. Requires &#x60;sandbox&#x60; to be True.
-   * @return commandLineArgs
+   * Get localIp
+   * @return localIp
    */
   @javax.annotation.Nullable
-  public String getCommandLineArgs() {
-    return commandLineArgs;
+  public String getLocalIp() {
+    return localIp;
   }
 
-  public void setCommandLineArgs(@javax.annotation.Nullable String commandLineArgs) {
-    this.commandLineArgs = commandLineArgs;
+  public void setLocalIp(@javax.annotation.Nullable String localIp) {
+    this.localIp = localIp;
   }
 
 
-  public SandboxOptions startMethod(@javax.annotation.Nullable SandboxStartMethod startMethod) {
-    this.startMethod = startMethod;
+  public Connection localPort(@javax.annotation.Nullable Object localPort) {
+    this.localPort = localPort;
     return this;
   }
 
   /**
-   * Get startMethod
-   * @return startMethod
+   * Get localPort
+   * @return localPort
    */
   @javax.annotation.Nullable
-  public SandboxStartMethod getStartMethod() {
-    return startMethod;
+  public Object getLocalPort() {
+    return localPort;
   }
 
-  public void setStartMethod(@javax.annotation.Nullable SandboxStartMethod startMethod) {
-    this.startMethod = startMethod;
+  public void setLocalPort(@javax.annotation.Nullable Object localPort) {
+    this.localPort = localPort;
   }
 
 
-  public SandboxOptions timeout(@javax.annotation.Nullable SandboxTimeout timeout) {
-    this.timeout = timeout;
+  public Connection protocol(@javax.annotation.Nullable String protocol) {
+    this.protocol = protocol;
     return this;
   }
 
   /**
-   * Maximum execution time for the sandbox run, in seconds. Allowed values: 120 (2m), 180 (3m), 300 (5m), 600 (10m).
-   * @return timeout
+   * Get protocol
+   * @return protocol
    */
   @javax.annotation.Nullable
-  public SandboxTimeout getTimeout() {
-    return timeout;
+  public String getProtocol() {
+    return protocol;
   }
 
-  public void setTimeout(@javax.annotation.Nullable SandboxTimeout timeout) {
-    this.timeout = timeout;
+  public void setProtocol(@javax.annotation.Nullable String protocol) {
+    this.protocol = protocol;
+  }
+
+
+  public Connection remoteIp(@javax.annotation.Nullable String remoteIp) {
+    this.remoteIp = remoteIp;
+    return this;
+  }
+
+  /**
+   * Get remoteIp
+   * @return remoteIp
+   */
+  @javax.annotation.Nullable
+  public String getRemoteIp() {
+    return remoteIp;
+  }
+
+  public void setRemoteIp(@javax.annotation.Nullable String remoteIp) {
+    this.remoteIp = remoteIp;
+  }
+
+
+  public Connection remotePort(@javax.annotation.Nullable Object remotePort) {
+    this.remotePort = remotePort;
+    return this;
+  }
+
+  /**
+   * Get remotePort
+   * @return remotePort
+   */
+  @javax.annotation.Nullable
+  public Object getRemotePort() {
+    return remotePort;
+  }
+
+  public void setRemotePort(@javax.annotation.Nullable Object remotePort) {
+    this.remotePort = remotePort;
   }
 
   /**
@@ -165,9 +222,9 @@ public class SandboxOptions {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the SandboxOptions instance itself
+   * @return the Connection instance itself
    */
-  public SandboxOptions putAdditionalProperty(String key, Object value) {
+  public Connection putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -206,12 +263,14 @@ public class SandboxOptions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SandboxOptions sandboxOptions = (SandboxOptions) o;
-    return Objects.equals(this.enabled, sandboxOptions.enabled) &&
-        Objects.equals(this.commandLineArgs, sandboxOptions.commandLineArgs) &&
-        Objects.equals(this.startMethod, sandboxOptions.startMethod) &&
-        Objects.equals(this.timeout, sandboxOptions.timeout)&&
-        Objects.equals(this.additionalProperties, sandboxOptions.additionalProperties);
+    Connection connection = (Connection) o;
+    return Objects.equals(this.events, connection.events) &&
+        Objects.equals(this.localIp, connection.localIp) &&
+        Objects.equals(this.localPort, connection.localPort) &&
+        Objects.equals(this.protocol, connection.protocol) &&
+        Objects.equals(this.remoteIp, connection.remoteIp) &&
+        Objects.equals(this.remotePort, connection.remotePort)&&
+        Objects.equals(this.additionalProperties, connection.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -220,7 +279,7 @@ public class SandboxOptions {
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled, commandLineArgs, startMethod, timeout, additionalProperties);
+    return Objects.hash(events, localIp, localPort, protocol, remoteIp, remotePort, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -233,11 +292,13 @@ public class SandboxOptions {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SandboxOptions {\n");
-    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
-    sb.append("    commandLineArgs: ").append(toIndentedString(commandLineArgs)).append("\n");
-    sb.append("    startMethod: ").append(toIndentedString(startMethod)).append("\n");
-    sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
+    sb.append("class Connection {\n");
+    sb.append("    events: ").append(toIndentedString(events)).append("\n");
+    sb.append("    localIp: ").append(toIndentedString(localIp)).append("\n");
+    sb.append("    localPort: ").append(toIndentedString(localPort)).append("\n");
+    sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
+    sb.append("    remoteIp: ").append(toIndentedString(remoteIp)).append("\n");
+    sb.append("    remotePort: ").append(toIndentedString(remotePort)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -260,35 +321,44 @@ public class SandboxOptions {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("enabled", "command_line_args", "start_method", "timeout"));
+    openapiFields = new HashSet<String>(Arrays.asList("events", "local_ip", "local_port", "protocol", "remote_ip", "remote_port"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(0);
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("local_ip", "local_port", "protocol", "remote_ip", "remote_port"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to SandboxOptions
+   * @throws IOException if the JSON Element is invalid with respect to Connection
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!SandboxOptions.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in SandboxOptions is not found in the empty JSON string", SandboxOptions.openapiRequiredFields.toString()));
+        if (!Connection.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in Connection is not found in the empty JSON string", Connection.openapiRequiredFields.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : Connection.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("command_line_args") != null && !jsonObj.get("command_line_args").isJsonNull()) && !jsonObj.get("command_line_args").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `command_line_args` to be a primitive type in the JSON string but got `%s`", jsonObj.get("command_line_args").toString()));
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("events") != null && !jsonObj.get("events").isJsonNull() && !jsonObj.get("events").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `events` to be an array in the JSON string but got `%s`", jsonObj.get("events").toString()));
       }
-      // validate the optional field `start_method`
-      if (jsonObj.get("start_method") != null && !jsonObj.get("start_method").isJsonNull()) {
-        SandboxStartMethod.validateJsonElement(jsonObj.get("start_method"));
+      if ((jsonObj.get("local_ip") != null && !jsonObj.get("local_ip").isJsonNull()) && !jsonObj.get("local_ip").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `local_ip` to be a primitive type in the JSON string but got `%s`", jsonObj.get("local_ip").toString()));
       }
-      // validate the optional field `timeout`
-      if (jsonObj.get("timeout") != null && !jsonObj.get("timeout").isJsonNull()) {
-        SandboxTimeout.validateJsonElement(jsonObj.get("timeout"));
+      if ((jsonObj.get("protocol") != null && !jsonObj.get("protocol").isJsonNull()) && !jsonObj.get("protocol").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `protocol` to be a primitive type in the JSON string but got `%s`", jsonObj.get("protocol").toString()));
+      }
+      if ((jsonObj.get("remote_ip") != null && !jsonObj.get("remote_ip").isJsonNull()) && !jsonObj.get("remote_ip").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `remote_ip` to be a primitive type in the JSON string but got `%s`", jsonObj.get("remote_ip").toString()));
       }
   }
 
@@ -296,16 +366,16 @@ public class SandboxOptions {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!SandboxOptions.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'SandboxOptions' and its subtypes
+       if (!Connection.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'Connection' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<SandboxOptions> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(SandboxOptions.class));
+       final TypeAdapter<Connection> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(Connection.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<SandboxOptions>() {
+       return (TypeAdapter<T>) new TypeAdapter<Connection>() {
            @Override
-           public void write(JsonWriter out, SandboxOptions value) throws IOException {
+           public void write(JsonWriter out, Connection value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -333,12 +403,12 @@ public class SandboxOptions {
            }
 
            @Override
-           public SandboxOptions read(JsonReader in) throws IOException {
+           public Connection read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             SandboxOptions instance = thisAdapter.fromJsonTree(jsonObj);
+             Connection instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -365,18 +435,18 @@ public class SandboxOptions {
   }
 
   /**
-   * Create an instance of SandboxOptions given an JSON string
+   * Create an instance of Connection given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of SandboxOptions
-   * @throws IOException if the JSON string is invalid with respect to SandboxOptions
+   * @return An instance of Connection
+   * @throws IOException if the JSON string is invalid with respect to Connection
    */
-  public static SandboxOptions fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, SandboxOptions.class);
+  public static Connection fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, Connection.class);
   }
 
   /**
-   * Convert an instance of SandboxOptions to an JSON string
+   * Convert an instance of Connection to an JSON string
    *
    * @return JSON string
    */
