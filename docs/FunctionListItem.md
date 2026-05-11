@@ -27,6 +27,7 @@
 | AUTO_UNSTRIP | &quot;AUTO_UNSTRIP&quot; |
 | EXTERNAL | &quot;EXTERNAL&quot; |
 | AI_UNSTRIP | &quot;AI_UNSTRIP&quot; |
+| AI_AGENT | &quot;AI_AGENT&quot; |
 
 
 

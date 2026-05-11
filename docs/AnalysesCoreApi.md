@@ -24,7 +24,7 @@ All URIs are relative to *https://api.reveng.ai*
 
 <a id="createAnalysis"></a>
 # **createAnalysis**
-> BaseResponseAnalysisCreateResponse createAnalysis(analysisCreateRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, xRevEngApplication)
+> BaseResponseAnalysisCreateResponse createAnalysis(analysisCreateRequest, xRevEngApplication)
 
 Create Analysis
 
@@ -53,15 +53,9 @@ public class Example {
 
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
     AnalysisCreateRequest analysisCreateRequest = new AnalysisCreateRequest(); // AnalysisCreateRequest | 
-    String endpointUrl = "endpointUrl_example"; // String | 
-    String localCacheDir = "localCacheDir_example"; // String | 
-    Integer localCacheMaxSizeMb = 56; // Integer | 
-    String customerSamplesBucket = "customerSamplesBucket_example"; // String | 
-    String firmwareSamplesBucket = "firmwareSamplesBucket_example"; // String | 
-    Integer maxRetryAttempts = 5; // Integer | 
     String xRevEngApplication = "xRevEngApplication_example"; // String | 
     try {
-      BaseResponseAnalysisCreateResponse result = apiInstance.createAnalysis(analysisCreateRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, xRevEngApplication);
+      BaseResponseAnalysisCreateResponse result = apiInstance.createAnalysis(analysisCreateRequest, xRevEngApplication);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCoreApi#createAnalysis");
@@ -79,12 +73,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisCreateRequest** | [**AnalysisCreateRequest**](AnalysisCreateRequest.md)|  | |
-| **endpointUrl** | **String**|  | [optional] |
-| **localCacheDir** | **String**|  | [optional] |
-| **localCacheMaxSizeMb** | **Integer**|  | [optional] |
-| **customerSamplesBucket** | **String**|  | [optional] |
-| **firmwareSamplesBucket** | **String**|  | [optional] |
-| **maxRetryAttempts** | **Integer**|  | [optional] [default to 5] |
 | **xRevEngApplication** | **String**|  | [optional] |
 
 ### Return type
@@ -110,7 +98,7 @@ public class Example {
 
 <a id="deleteAnalysis"></a>
 # **deleteAnalysis**
-> BaseResponseDict deleteAnalysis(analysisId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts)
+> BaseResponseDict deleteAnalysis(analysisId)
 
 Delete Analysis
 
@@ -139,14 +127,8 @@ public class Example {
 
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
     Integer analysisId = 56; // Integer | 
-    String endpointUrl = "endpointUrl_example"; // String | 
-    String localCacheDir = "localCacheDir_example"; // String | 
-    Integer localCacheMaxSizeMb = 56; // Integer | 
-    String customerSamplesBucket = "customerSamplesBucket_example"; // String | 
-    String firmwareSamplesBucket = "firmwareSamplesBucket_example"; // String | 
-    Integer maxRetryAttempts = 5; // Integer | 
     try {
-      BaseResponseDict result = apiInstance.deleteAnalysis(analysisId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
+      BaseResponseDict result = apiInstance.deleteAnalysis(analysisId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCoreApi#deleteAnalysis");
@@ -164,12 +146,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
-| **endpointUrl** | **String**|  | [optional] |
-| **localCacheDir** | **String**|  | [optional] |
-| **localCacheMaxSizeMb** | **Integer**|  | [optional] |
-| **customerSamplesBucket** | **String**|  | [optional] |
-| **firmwareSamplesBucket** | **String**|  | [optional] |
-| **maxRetryAttempts** | **Integer**|  | [optional] [default to 5] |
 
 ### Return type
 
@@ -264,7 +240,7 @@ public class Example {
 
 <a id="getAnalysisFunctionMap"></a>
 # **getAnalysisFunctionMap**
-> BaseResponseAnalysisFunctionMapping getAnalysisFunctionMap(analysisId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts)
+> BaseResponseAnalysisFunctionMapping getAnalysisFunctionMap(analysisId)
 
 Get Analysis Function Map
 
@@ -293,14 +269,8 @@ public class Example {
 
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
     Integer analysisId = 56; // Integer | 
-    String endpointUrl = "endpointUrl_example"; // String | 
-    String localCacheDir = "localCacheDir_example"; // String | 
-    Integer localCacheMaxSizeMb = 56; // Integer | 
-    String customerSamplesBucket = "customerSamplesBucket_example"; // String | 
-    String firmwareSamplesBucket = "firmwareSamplesBucket_example"; // String | 
-    Integer maxRetryAttempts = 5; // Integer | 
     try {
-      BaseResponseAnalysisFunctionMapping result = apiInstance.getAnalysisFunctionMap(analysisId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
+      BaseResponseAnalysisFunctionMapping result = apiInstance.getAnalysisFunctionMap(analysisId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCoreApi#getAnalysisFunctionMap");
@@ -318,12 +288,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
-| **endpointUrl** | **String**|  | [optional] |
-| **localCacheDir** | **String**|  | [optional] |
-| **localCacheMaxSizeMb** | **Integer**|  | [optional] |
-| **customerSamplesBucket** | **String**|  | [optional] |
-| **firmwareSamplesBucket** | **String**|  | [optional] |
-| **maxRetryAttempts** | **Integer**|  | [optional] [default to 5] |
 
 ### Return type
 
@@ -346,7 +310,7 @@ public class Example {
 
 <a id="getAnalysisLogs"></a>
 # **getAnalysisLogs**
-> BaseResponseLogs getAnalysisLogs(analysisId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts)
+> BaseResponseLogs getAnalysisLogs(analysisId)
 
 Gets the logs of an analysis
 
@@ -375,14 +339,8 @@ public class Example {
 
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
     Integer analysisId = 56; // Integer | 
-    String endpointUrl = "endpointUrl_example"; // String | 
-    String localCacheDir = "localCacheDir_example"; // String | 
-    Integer localCacheMaxSizeMb = 56; // Integer | 
-    String customerSamplesBucket = "customerSamplesBucket_example"; // String | 
-    String firmwareSamplesBucket = "firmwareSamplesBucket_example"; // String | 
-    Integer maxRetryAttempts = 5; // Integer | 
     try {
-      BaseResponseLogs result = apiInstance.getAnalysisLogs(analysisId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
+      BaseResponseLogs result = apiInstance.getAnalysisLogs(analysisId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCoreApi#getAnalysisLogs");
@@ -400,12 +358,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
-| **endpointUrl** | **String**|  | [optional] |
-| **localCacheDir** | **String**|  | [optional] |
-| **localCacheMaxSizeMb** | **Integer**|  | [optional] |
-| **customerSamplesBucket** | **String**|  | [optional] |
-| **firmwareSamplesBucket** | **String**|  | [optional] |
-| **maxRetryAttempts** | **Integer**|  | [optional] [default to 5] |
 
 ### Return type
 
@@ -428,7 +380,7 @@ public class Example {
 
 <a id="getAnalysisParams"></a>
 # **getAnalysisParams**
-> BaseResponseParams getAnalysisParams(analysisId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts)
+> BaseResponseParams getAnalysisParams(analysisId)
 
 Gets analysis param information
 
@@ -457,14 +409,8 @@ public class Example {
 
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
     Integer analysisId = 56; // Integer | 
-    String endpointUrl = "endpointUrl_example"; // String | 
-    String localCacheDir = "localCacheDir_example"; // String | 
-    Integer localCacheMaxSizeMb = 56; // Integer | 
-    String customerSamplesBucket = "customerSamplesBucket_example"; // String | 
-    String firmwareSamplesBucket = "firmwareSamplesBucket_example"; // String | 
-    Integer maxRetryAttempts = 5; // Integer | 
     try {
-      BaseResponseParams result = apiInstance.getAnalysisParams(analysisId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
+      BaseResponseParams result = apiInstance.getAnalysisParams(analysisId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCoreApi#getAnalysisParams");
@@ -482,12 +428,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
-| **endpointUrl** | **String**|  | [optional] |
-| **localCacheDir** | **String**|  | [optional] |
-| **localCacheMaxSizeMb** | **Integer**|  | [optional] |
-| **customerSamplesBucket** | **String**|  | [optional] |
-| **firmwareSamplesBucket** | **String**|  | [optional] |
-| **maxRetryAttempts** | **Integer**|  | [optional] [default to 5] |
 
 ### Return type
 
@@ -653,7 +593,7 @@ public class Example {
 
 <a id="insertAnalysisLog"></a>
 # **insertAnalysisLog**
-> BaseResponse insertAnalysisLog(analysisId, insertAnalysisLogRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts)
+> BaseResponse insertAnalysisLog(analysisId, insertAnalysisLogRequest)
 
 Insert a log entry for an analysis
 
@@ -683,14 +623,8 @@ public class Example {
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
     Integer analysisId = 56; // Integer | 
     InsertAnalysisLogRequest insertAnalysisLogRequest = new InsertAnalysisLogRequest(); // InsertAnalysisLogRequest | 
-    String endpointUrl = "endpointUrl_example"; // String | 
-    String localCacheDir = "localCacheDir_example"; // String | 
-    Integer localCacheMaxSizeMb = 56; // Integer | 
-    String customerSamplesBucket = "customerSamplesBucket_example"; // String | 
-    String firmwareSamplesBucket = "firmwareSamplesBucket_example"; // String | 
-    Integer maxRetryAttempts = 5; // Integer | 
     try {
-      BaseResponse result = apiInstance.insertAnalysisLog(analysisId, insertAnalysisLogRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
+      BaseResponse result = apiInstance.insertAnalysisLog(analysisId, insertAnalysisLogRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCoreApi#insertAnalysisLog");
@@ -709,12 +643,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
 | **insertAnalysisLogRequest** | [**InsertAnalysisLogRequest**](InsertAnalysisLogRequest.md)|  | |
-| **endpointUrl** | **String**|  | [optional] |
-| **localCacheDir** | **String**|  | [optional] |
-| **localCacheMaxSizeMb** | **Integer**|  | [optional] |
-| **customerSamplesBucket** | **String**|  | [optional] |
-| **firmwareSamplesBucket** | **String**|  | [optional] |
-| **maxRetryAttempts** | **Integer**|  | [optional] [default to 5] |
 
 ### Return type
 
@@ -969,7 +897,7 @@ public class Example {
 
 <a id="requeueAnalysis"></a>
 # **requeueAnalysis**
-> BaseResponseCreated requeueAnalysis(analysisId, reAnalysisForm, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, xRevEngApplication)
+> BaseResponseCreated requeueAnalysis(analysisId, reAnalysisForm, xRevEngApplication)
 
 Requeue Analysis
 
@@ -999,15 +927,9 @@ public class Example {
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
     Integer analysisId = 56; // Integer | 
     ReAnalysisForm reAnalysisForm = new ReAnalysisForm(); // ReAnalysisForm | 
-    String endpointUrl = "endpointUrl_example"; // String | 
-    String localCacheDir = "localCacheDir_example"; // String | 
-    Integer localCacheMaxSizeMb = 56; // Integer | 
-    String customerSamplesBucket = "customerSamplesBucket_example"; // String | 
-    String firmwareSamplesBucket = "firmwareSamplesBucket_example"; // String | 
-    Integer maxRetryAttempts = 5; // Integer | 
     String xRevEngApplication = "xRevEngApplication_example"; // String | 
     try {
-      BaseResponseCreated result = apiInstance.requeueAnalysis(analysisId, reAnalysisForm, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, xRevEngApplication);
+      BaseResponseCreated result = apiInstance.requeueAnalysis(analysisId, reAnalysisForm, xRevEngApplication);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCoreApi#requeueAnalysis");
@@ -1026,12 +948,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
 | **reAnalysisForm** | [**ReAnalysisForm**](ReAnalysisForm.md)|  | |
-| **endpointUrl** | **String**|  | [optional] |
-| **localCacheDir** | **String**|  | [optional] |
-| **localCacheMaxSizeMb** | **Integer**|  | [optional] |
-| **customerSamplesBucket** | **String**|  | [optional] |
-| **firmwareSamplesBucket** | **String**|  | [optional] |
-| **maxRetryAttempts** | **Integer**|  | [optional] [default to 5] |
 | **xRevEngApplication** | **String**|  | [optional] |
 
 ### Return type
@@ -1057,7 +973,7 @@ public class Example {
 
 <a id="updateAnalysis"></a>
 # **updateAnalysis**
-> BaseResponseAnalysisDetailResponse updateAnalysis(analysisId, analysisUpdateRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts)
+> BaseResponseAnalysisDetailResponse updateAnalysis(analysisId, analysisUpdateRequest)
 
 Update Analysis
 
@@ -1087,14 +1003,8 @@ public class Example {
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
     Integer analysisId = 56; // Integer | 
     AnalysisUpdateRequest analysisUpdateRequest = new AnalysisUpdateRequest(); // AnalysisUpdateRequest | 
-    String endpointUrl = "endpointUrl_example"; // String | 
-    String localCacheDir = "localCacheDir_example"; // String | 
-    Integer localCacheMaxSizeMb = 56; // Integer | 
-    String customerSamplesBucket = "customerSamplesBucket_example"; // String | 
-    String firmwareSamplesBucket = "firmwareSamplesBucket_example"; // String | 
-    Integer maxRetryAttempts = 5; // Integer | 
     try {
-      BaseResponseAnalysisDetailResponse result = apiInstance.updateAnalysis(analysisId, analysisUpdateRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
+      BaseResponseAnalysisDetailResponse result = apiInstance.updateAnalysis(analysisId, analysisUpdateRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCoreApi#updateAnalysis");
@@ -1113,12 +1023,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
 | **analysisUpdateRequest** | [**AnalysisUpdateRequest**](AnalysisUpdateRequest.md)|  | |
-| **endpointUrl** | **String**|  | [optional] |
-| **localCacheDir** | **String**|  | [optional] |
-| **localCacheMaxSizeMb** | **Integer**|  | [optional] |
-| **customerSamplesBucket** | **String**|  | [optional] |
-| **firmwareSamplesBucket** | **String**|  | [optional] |
-| **maxRetryAttempts** | **Integer**|  | [optional] [default to 5] |
 
 ### Return type
 
@@ -1141,7 +1045,7 @@ public class Example {
 
 <a id="updateAnalysisTags"></a>
 # **updateAnalysisTags**
-> BaseResponseAnalysisUpdateTagsResponse updateAnalysisTags(analysisId, analysisUpdateTagsRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts)
+> BaseResponseAnalysisUpdateTagsResponse updateAnalysisTags(analysisId, analysisUpdateTagsRequest)
 
 Update Analysis Tags
 
@@ -1171,14 +1075,8 @@ public class Example {
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
     Integer analysisId = 56; // Integer | 
     AnalysisUpdateTagsRequest analysisUpdateTagsRequest = new AnalysisUpdateTagsRequest(); // AnalysisUpdateTagsRequest | 
-    String endpointUrl = "endpointUrl_example"; // String | 
-    String localCacheDir = "localCacheDir_example"; // String | 
-    Integer localCacheMaxSizeMb = 56; // Integer | 
-    String customerSamplesBucket = "customerSamplesBucket_example"; // String | 
-    String firmwareSamplesBucket = "firmwareSamplesBucket_example"; // String | 
-    Integer maxRetryAttempts = 5; // Integer | 
     try {
-      BaseResponseAnalysisUpdateTagsResponse result = apiInstance.updateAnalysisTags(analysisId, analysisUpdateTagsRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
+      BaseResponseAnalysisUpdateTagsResponse result = apiInstance.updateAnalysisTags(analysisId, analysisUpdateTagsRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCoreApi#updateAnalysisTags");
@@ -1197,12 +1095,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Integer**|  | |
 | **analysisUpdateTagsRequest** | [**AnalysisUpdateTagsRequest**](AnalysisUpdateTagsRequest.md)|  | |
-| **endpointUrl** | **String**|  | [optional] |
-| **localCacheDir** | **String**|  | [optional] |
-| **localCacheMaxSizeMb** | **Integer**|  | [optional] |
-| **customerSamplesBucket** | **String**|  | [optional] |
-| **firmwareSamplesBucket** | **String**|  | [optional] |
-| **maxRetryAttempts** | **Integer**|  | [optional] [default to 5] |
 
 ### Return type
 
@@ -1225,7 +1117,7 @@ public class Example {
 
 <a id="uploadFile"></a>
 # **uploadFile**
-> BaseResponseUploadResponse uploadFile(uploadFileType, _file, packedPassword, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, forceOverwrite)
+> BaseResponseUploadResponse uploadFile(uploadFileType, _file, packedPassword, forceOverwrite)
 
 Upload File
 
@@ -1254,15 +1146,9 @@ public class Example {
     UploadFileType uploadFileType = UploadFileType.fromValue("BINARY"); // UploadFileType | 
     String _file = "_file_example"; // String | 
     String packedPassword = "packedPassword_example"; // String | 
-    String endpointUrl = "endpointUrl_example"; // String | 
-    String localCacheDir = "localCacheDir_example"; // String | 
-    Integer localCacheMaxSizeMb = 56; // Integer | 
-    String customerSamplesBucket = "customerSamplesBucket_example"; // String | 
-    String firmwareSamplesBucket = "firmwareSamplesBucket_example"; // String | 
-    Integer maxRetryAttempts = 5; // Integer | 
     Boolean forceOverwrite = false; // Boolean | 
     try {
-      BaseResponseUploadResponse result = apiInstance.uploadFile(uploadFileType, _file, packedPassword, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, forceOverwrite);
+      BaseResponseUploadResponse result = apiInstance.uploadFile(uploadFileType, _file, packedPassword, forceOverwrite);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCoreApi#uploadFile");
@@ -1282,12 +1168,6 @@ public class Example {
 | **uploadFileType** | [**UploadFileType**](UploadFileType.md)|  | [enum: BINARY, DEBUG, PACKED, FIRMWARE] |
 | **_file** | **String**|  | |
 | **packedPassword** | **String**|  | [optional] |
-| **endpointUrl** | **String**|  | [optional] |
-| **localCacheDir** | **String**|  | [optional] |
-| **localCacheMaxSizeMb** | **Integer**|  | [optional] |
-| **customerSamplesBucket** | **String**|  | [optional] |
-| **firmwareSamplesBucket** | **String**|  | [optional] |
-| **maxRetryAttempts** | **Integer**|  | [optional] [default to 5] |
 | **forceOverwrite** | **Boolean**|  | [optional] [default to false] |
 
 ### Return type

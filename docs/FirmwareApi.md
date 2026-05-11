@@ -80,7 +80,7 @@ public class Example {
 
 <a id="uploadFirmware"></a>
 # **uploadFirmware**
-> Object uploadFirmware(_file, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, password)
+> Object uploadFirmware(_file, password)
 
 Upload firmware for unpacking
 
@@ -109,15 +109,9 @@ public class Example {
 
     FirmwareApi apiInstance = new FirmwareApi(defaultClient);
     String _file = "_file_example"; // String | 
-    String endpointUrl = "endpointUrl_example"; // String | 
-    String localCacheDir = "localCacheDir_example"; // String | 
-    Integer localCacheMaxSizeMb = 56; // Integer | 
-    String customerSamplesBucket = "customerSamplesBucket_example"; // String | 
-    String firmwareSamplesBucket = "firmwareSamplesBucket_example"; // String | 
-    Integer maxRetryAttempts = 5; // Integer | 
     String password = "password_example"; // String | 
     try {
-      Object result = apiInstance.uploadFirmware(_file, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, password);
+      Object result = apiInstance.uploadFirmware(_file, password);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FirmwareApi#uploadFirmware");
@@ -135,12 +129,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **_file** | **String**|  | |
-| **endpointUrl** | **String**|  | [optional] |
-| **localCacheDir** | **String**|  | [optional] |
-| **localCacheMaxSizeMb** | **Integer**|  | [optional] |
-| **customerSamplesBucket** | **String**|  | [optional] |
-| **firmwareSamplesBucket** | **String**|  | [optional] |
-| **maxRetryAttempts** | **Integer**|  | [optional] [default to 5] |
 | **password** | **String**|  | [optional] |
 
 ### Return type

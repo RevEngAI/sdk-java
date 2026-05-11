@@ -65,7 +65,9 @@ public class NameSourceType {
     
     EXTERNAL("EXTERNAL"),
     
-    AI_UNSTRIP("AI_UNSTRIP");
+    AI_UNSTRIP("AI_UNSTRIP"),
+    
+    AI_AGENT("AI_AGENT");
 
     private String value;
 

@@ -209,7 +209,7 @@ This endpoint does not need any parameter.
 
 <a id="getUserComments"></a>
 # **getUserComments**
-> BaseResponseListCommentResponse getUserComments(endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts)
+> BaseResponseListCommentResponse getUserComments()
 
 Get comments by user
 
@@ -237,14 +237,8 @@ public class Example {
     //APIKey.setApiKeyPrefix("Token");
 
     AuthenticationUsersApi apiInstance = new AuthenticationUsersApi(defaultClient);
-    String endpointUrl = "endpointUrl_example"; // String | 
-    String localCacheDir = "localCacheDir_example"; // String | 
-    Integer localCacheMaxSizeMb = 56; // Integer | 
-    String customerSamplesBucket = "customerSamplesBucket_example"; // String | 
-    String firmwareSamplesBucket = "firmwareSamplesBucket_example"; // String | 
-    Integer maxRetryAttempts = 5; // Integer | 
     try {
-      BaseResponseListCommentResponse result = apiInstance.getUserComments(endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
+      BaseResponseListCommentResponse result = apiInstance.getUserComments();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AuthenticationUsersApi#getUserComments");
@@ -258,15 +252,7 @@ public class Example {
 ```
 
 ### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **endpointUrl** | **String**|  | [optional] |
-| **localCacheDir** | **String**|  | [optional] |
-| **localCacheMaxSizeMb** | **Integer**|  | [optional] |
-| **customerSamplesBucket** | **String**|  | [optional] |
-| **firmwareSamplesBucket** | **String**|  | [optional] |
-| **maxRetryAttempts** | **Integer**|  | [optional] [default to 5] |
+This endpoint does not need any parameter.
 
 ### Return type
 

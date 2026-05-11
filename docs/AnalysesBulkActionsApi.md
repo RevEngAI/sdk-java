@@ -10,7 +10,7 @@ All URIs are relative to *https://api.reveng.ai*
 
 <a id="bulkAddAnalysisTags"></a>
 # **bulkAddAnalysisTags**
-> BaseResponseAnalysisBulkAddTagsResponse bulkAddAnalysisTags(analysisBulkAddTagsRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts)
+> BaseResponseAnalysisBulkAddTagsResponse bulkAddAnalysisTags(analysisBulkAddTagsRequest)
 
 Bulk Add Analysis Tags
 
@@ -39,14 +39,8 @@ public class Example {
 
     AnalysesBulkActionsApi apiInstance = new AnalysesBulkActionsApi(defaultClient);
     AnalysisBulkAddTagsRequest analysisBulkAddTagsRequest = new AnalysisBulkAddTagsRequest(); // AnalysisBulkAddTagsRequest | 
-    String endpointUrl = "endpointUrl_example"; // String | 
-    String localCacheDir = "localCacheDir_example"; // String | 
-    Integer localCacheMaxSizeMb = 56; // Integer | 
-    String customerSamplesBucket = "customerSamplesBucket_example"; // String | 
-    String firmwareSamplesBucket = "firmwareSamplesBucket_example"; // String | 
-    Integer maxRetryAttempts = 5; // Integer | 
     try {
-      BaseResponseAnalysisBulkAddTagsResponse result = apiInstance.bulkAddAnalysisTags(analysisBulkAddTagsRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
+      BaseResponseAnalysisBulkAddTagsResponse result = apiInstance.bulkAddAnalysisTags(analysisBulkAddTagsRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesBulkActionsApi#bulkAddAnalysisTags");
@@ -64,12 +58,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisBulkAddTagsRequest** | [**AnalysisBulkAddTagsRequest**](AnalysisBulkAddTagsRequest.md)|  | |
-| **endpointUrl** | **String**|  | [optional] |
-| **localCacheDir** | **String**|  | [optional] |
-| **localCacheMaxSizeMb** | **Integer**|  | [optional] |
-| **customerSamplesBucket** | **String**|  | [optional] |
-| **firmwareSamplesBucket** | **String**|  | [optional] |
-| **maxRetryAttempts** | **Integer**|  | [optional] [default to 5] |
 
 ### Return type
 
@@ -92,7 +80,7 @@ public class Example {
 
 <a id="bulkDeleteAnalyses"></a>
 # **bulkDeleteAnalyses**
-> BaseResponseDict bulkDeleteAnalyses(bulkDeleteAnalysesRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts)
+> BaseResponseDict bulkDeleteAnalyses(bulkDeleteAnalysesRequest)
 
 Bulk Delete Analyses
 
@@ -121,14 +109,8 @@ public class Example {
 
     AnalysesBulkActionsApi apiInstance = new AnalysesBulkActionsApi(defaultClient);
     BulkDeleteAnalysesRequest bulkDeleteAnalysesRequest = new BulkDeleteAnalysesRequest(); // BulkDeleteAnalysesRequest | 
-    String endpointUrl = "endpointUrl_example"; // String | 
-    String localCacheDir = "localCacheDir_example"; // String | 
-    Integer localCacheMaxSizeMb = 56; // Integer | 
-    String customerSamplesBucket = "customerSamplesBucket_example"; // String | 
-    String firmwareSamplesBucket = "firmwareSamplesBucket_example"; // String | 
-    Integer maxRetryAttempts = 5; // Integer | 
     try {
-      BaseResponseDict result = apiInstance.bulkDeleteAnalyses(bulkDeleteAnalysesRequest, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
+      BaseResponseDict result = apiInstance.bulkDeleteAnalyses(bulkDeleteAnalysesRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesBulkActionsApi#bulkDeleteAnalyses");
@@ -146,12 +128,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **bulkDeleteAnalysesRequest** | [**BulkDeleteAnalysesRequest**](BulkDeleteAnalysesRequest.md)|  | |
-| **endpointUrl** | **String**|  | [optional] |
-| **localCacheDir** | **String**|  | [optional] |
-| **localCacheMaxSizeMb** | **Integer**|  | [optional] |
-| **customerSamplesBucket** | **String**|  | [optional] |
-| **firmwareSamplesBucket** | **String**|  | [optional] |
-| **maxRetryAttempts** | **Integer**|  | [optional] [default to 5] |
 
 ### Return type
 
