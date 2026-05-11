@@ -16,7 +16,7 @@ All URIs are relative to *https://api.reveng.ai*
 
 <a id="downloadZippedBinary"></a>
 # **downloadZippedBinary**
-> File downloadZippedBinary(binaryId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts)
+> File downloadZippedBinary(binaryId)
 
 Downloads a zipped binary with password protection
 
@@ -43,14 +43,8 @@ public class Example {
 
     BinariesApi apiInstance = new BinariesApi(defaultClient);
     Integer binaryId = 56; // Integer | 
-    String endpointUrl = "endpointUrl_example"; // String | 
-    String localCacheDir = "localCacheDir_example"; // String | 
-    Integer localCacheMaxSizeMb = 56; // Integer | 
-    String customerSamplesBucket = "customerSamplesBucket_example"; // String | 
-    String firmwareSamplesBucket = "firmwareSamplesBucket_example"; // String | 
-    Integer maxRetryAttempts = 5; // Integer | 
     try {
-      File result = apiInstance.downloadZippedBinary(binaryId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
+      File result = apiInstance.downloadZippedBinary(binaryId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BinariesApi#downloadZippedBinary");
@@ -68,12 +62,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **binaryId** | **Integer**|  | |
-| **endpointUrl** | **String**|  | [optional] |
-| **localCacheDir** | **String**|  | [optional] |
-| **localCacheMaxSizeMb** | **Integer**|  | [optional] |
-| **customerSamplesBucket** | **String**|  | [optional] |
-| **firmwareSamplesBucket** | **String**|  | [optional] |
-| **maxRetryAttempts** | **Integer**|  | [optional] [default to 5] |
 
 ### Return type
 
@@ -96,7 +84,7 @@ public class Example {
 
 <a id="getBinaryAdditionalDetails"></a>
 # **getBinaryAdditionalDetails**
-> BaseResponseBinaryAdditionalResponse getBinaryAdditionalDetails(binaryId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts)
+> BaseResponseBinaryAdditionalResponse getBinaryAdditionalDetails(binaryId)
 
 Gets the additional details of a binary
 
@@ -123,14 +111,8 @@ public class Example {
 
     BinariesApi apiInstance = new BinariesApi(defaultClient);
     Integer binaryId = 56; // Integer | 
-    String endpointUrl = "endpointUrl_example"; // String | 
-    String localCacheDir = "localCacheDir_example"; // String | 
-    Integer localCacheMaxSizeMb = 56; // Integer | 
-    String customerSamplesBucket = "customerSamplesBucket_example"; // String | 
-    String firmwareSamplesBucket = "firmwareSamplesBucket_example"; // String | 
-    Integer maxRetryAttempts = 5; // Integer | 
     try {
-      BaseResponseBinaryAdditionalResponse result = apiInstance.getBinaryAdditionalDetails(binaryId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
+      BaseResponseBinaryAdditionalResponse result = apiInstance.getBinaryAdditionalDetails(binaryId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BinariesApi#getBinaryAdditionalDetails");
@@ -148,12 +130,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **binaryId** | **Integer**|  | |
-| **endpointUrl** | **String**|  | [optional] |
-| **localCacheDir** | **String**|  | [optional] |
-| **localCacheMaxSizeMb** | **Integer**|  | [optional] |
-| **customerSamplesBucket** | **String**|  | [optional] |
-| **firmwareSamplesBucket** | **String**|  | [optional] |
-| **maxRetryAttempts** | **Integer**|  | [optional] [default to 5] |
 
 ### Return type
 
@@ -176,7 +152,7 @@ public class Example {
 
 <a id="getBinaryAdditionalDetailsStatus"></a>
 # **getBinaryAdditionalDetailsStatus**
-> BaseResponseAdditionalDetailsStatusResponse getBinaryAdditionalDetailsStatus(binaryId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts)
+> BaseResponseAdditionalDetailsStatusResponse getBinaryAdditionalDetailsStatus(binaryId)
 
 Gets the status of the additional details task for a binary
 
@@ -203,14 +179,8 @@ public class Example {
 
     BinariesApi apiInstance = new BinariesApi(defaultClient);
     Integer binaryId = 56; // Integer | 
-    String endpointUrl = "endpointUrl_example"; // String | 
-    String localCacheDir = "localCacheDir_example"; // String | 
-    Integer localCacheMaxSizeMb = 56; // Integer | 
-    String customerSamplesBucket = "customerSamplesBucket_example"; // String | 
-    String firmwareSamplesBucket = "firmwareSamplesBucket_example"; // String | 
-    Integer maxRetryAttempts = 5; // Integer | 
     try {
-      BaseResponseAdditionalDetailsStatusResponse result = apiInstance.getBinaryAdditionalDetailsStatus(binaryId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
+      BaseResponseAdditionalDetailsStatusResponse result = apiInstance.getBinaryAdditionalDetailsStatus(binaryId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BinariesApi#getBinaryAdditionalDetailsStatus");
@@ -228,12 +198,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **binaryId** | **Integer**|  | |
-| **endpointUrl** | **String**|  | [optional] |
-| **localCacheDir** | **String**|  | [optional] |
-| **localCacheMaxSizeMb** | **Integer**|  | [optional] |
-| **customerSamplesBucket** | **String**|  | [optional] |
-| **firmwareSamplesBucket** | **String**|  | [optional] |
-| **maxRetryAttempts** | **Integer**|  | [optional] [default to 5] |
 
 ### Return type
 
@@ -256,7 +220,7 @@ public class Example {
 
 <a id="getBinaryDetails"></a>
 # **getBinaryDetails**
-> BaseResponseBinaryDetailsResponse getBinaryDetails(binaryId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts)
+> BaseResponseBinaryDetailsResponse getBinaryDetails(binaryId)
 
 Gets the details of a binary
 
@@ -283,14 +247,8 @@ public class Example {
 
     BinariesApi apiInstance = new BinariesApi(defaultClient);
     Integer binaryId = 56; // Integer | 
-    String endpointUrl = "endpointUrl_example"; // String | 
-    String localCacheDir = "localCacheDir_example"; // String | 
-    Integer localCacheMaxSizeMb = 56; // Integer | 
-    String customerSamplesBucket = "customerSamplesBucket_example"; // String | 
-    String firmwareSamplesBucket = "firmwareSamplesBucket_example"; // String | 
-    Integer maxRetryAttempts = 5; // Integer | 
     try {
-      BaseResponseBinaryDetailsResponse result = apiInstance.getBinaryDetails(binaryId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
+      BaseResponseBinaryDetailsResponse result = apiInstance.getBinaryDetails(binaryId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BinariesApi#getBinaryDetails");
@@ -308,12 +266,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **binaryId** | **Integer**|  | |
-| **endpointUrl** | **String**|  | [optional] |
-| **localCacheDir** | **String**|  | [optional] |
-| **localCacheMaxSizeMb** | **Integer**|  | [optional] |
-| **customerSamplesBucket** | **String**|  | [optional] |
-| **firmwareSamplesBucket** | **String**|  | [optional] |
-| **maxRetryAttempts** | **Integer**|  | [optional] [default to 5] |
 
 ### Return type
 
@@ -336,7 +288,7 @@ public class Example {
 
 <a id="getBinaryDieInfo"></a>
 # **getBinaryDieInfo**
-> BaseResponseListDieMatch getBinaryDieInfo(binaryId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts)
+> BaseResponseListDieMatch getBinaryDieInfo(binaryId)
 
 Gets the die info of a binary
 
@@ -363,14 +315,8 @@ public class Example {
 
     BinariesApi apiInstance = new BinariesApi(defaultClient);
     Integer binaryId = 56; // Integer | 
-    String endpointUrl = "endpointUrl_example"; // String | 
-    String localCacheDir = "localCacheDir_example"; // String | 
-    Integer localCacheMaxSizeMb = 56; // Integer | 
-    String customerSamplesBucket = "customerSamplesBucket_example"; // String | 
-    String firmwareSamplesBucket = "firmwareSamplesBucket_example"; // String | 
-    Integer maxRetryAttempts = 5; // Integer | 
     try {
-      BaseResponseListDieMatch result = apiInstance.getBinaryDieInfo(binaryId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
+      BaseResponseListDieMatch result = apiInstance.getBinaryDieInfo(binaryId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BinariesApi#getBinaryDieInfo");
@@ -388,12 +334,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **binaryId** | **Integer**|  | |
-| **endpointUrl** | **String**|  | [optional] |
-| **localCacheDir** | **String**|  | [optional] |
-| **localCacheMaxSizeMb** | **Integer**|  | [optional] |
-| **customerSamplesBucket** | **String**|  | [optional] |
-| **firmwareSamplesBucket** | **String**|  | [optional] |
-| **maxRetryAttempts** | **Integer**|  | [optional] [default to 5] |
 
 ### Return type
 
@@ -416,7 +356,7 @@ public class Example {
 
 <a id="getBinaryExternals"></a>
 # **getBinaryExternals**
-> BaseResponseBinaryExternalsResponse getBinaryExternals(binaryId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts)
+> BaseResponseBinaryExternalsResponse getBinaryExternals(binaryId)
 
 Gets the external details of a binary
 
@@ -443,14 +383,8 @@ public class Example {
 
     BinariesApi apiInstance = new BinariesApi(defaultClient);
     Integer binaryId = 56; // Integer | 
-    String endpointUrl = "endpointUrl_example"; // String | 
-    String localCacheDir = "localCacheDir_example"; // String | 
-    Integer localCacheMaxSizeMb = 56; // Integer | 
-    String customerSamplesBucket = "customerSamplesBucket_example"; // String | 
-    String firmwareSamplesBucket = "firmwareSamplesBucket_example"; // String | 
-    Integer maxRetryAttempts = 5; // Integer | 
     try {
-      BaseResponseBinaryExternalsResponse result = apiInstance.getBinaryExternals(binaryId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
+      BaseResponseBinaryExternalsResponse result = apiInstance.getBinaryExternals(binaryId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BinariesApi#getBinaryExternals");
@@ -468,12 +402,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **binaryId** | **Integer**|  | |
-| **endpointUrl** | **String**|  | [optional] |
-| **localCacheDir** | **String**|  | [optional] |
-| **localCacheMaxSizeMb** | **Integer**|  | [optional] |
-| **customerSamplesBucket** | **String**|  | [optional] |
-| **firmwareSamplesBucket** | **String**|  | [optional] |
-| **maxRetryAttempts** | **Integer**|  | [optional] [default to 5] |
 
 ### Return type
 
@@ -496,7 +424,7 @@ public class Example {
 
 <a id="getBinaryRelatedStatus"></a>
 # **getBinaryRelatedStatus**
-> BaseResponseBinariesRelatedStatusResponse getBinaryRelatedStatus(binaryId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts)
+> BaseResponseBinariesRelatedStatusResponse getBinaryRelatedStatus(binaryId)
 
 Gets the status of the unpack binary task for a binary
 
@@ -523,14 +451,8 @@ public class Example {
 
     BinariesApi apiInstance = new BinariesApi(defaultClient);
     Integer binaryId = 56; // Integer | 
-    String endpointUrl = "endpointUrl_example"; // String | 
-    String localCacheDir = "localCacheDir_example"; // String | 
-    Integer localCacheMaxSizeMb = 56; // Integer | 
-    String customerSamplesBucket = "customerSamplesBucket_example"; // String | 
-    String firmwareSamplesBucket = "firmwareSamplesBucket_example"; // String | 
-    Integer maxRetryAttempts = 5; // Integer | 
     try {
-      BaseResponseBinariesRelatedStatusResponse result = apiInstance.getBinaryRelatedStatus(binaryId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
+      BaseResponseBinariesRelatedStatusResponse result = apiInstance.getBinaryRelatedStatus(binaryId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BinariesApi#getBinaryRelatedStatus");
@@ -548,12 +470,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **binaryId** | **Integer**|  | |
-| **endpointUrl** | **String**|  | [optional] |
-| **localCacheDir** | **String**|  | [optional] |
-| **localCacheMaxSizeMb** | **Integer**|  | [optional] |
-| **customerSamplesBucket** | **String**|  | [optional] |
-| **firmwareSamplesBucket** | **String**|  | [optional] |
-| **maxRetryAttempts** | **Integer**|  | [optional] [default to 5] |
 
 ### Return type
 
@@ -576,7 +492,7 @@ public class Example {
 
 <a id="getRelatedBinaries"></a>
 # **getRelatedBinaries**
-> BaseResponseChildBinariesResponse getRelatedBinaries(binaryId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts)
+> BaseResponseChildBinariesResponse getRelatedBinaries(binaryId)
 
 Gets the related binaries of a binary.
 
@@ -603,14 +519,8 @@ public class Example {
 
     BinariesApi apiInstance = new BinariesApi(defaultClient);
     Integer binaryId = 56; // Integer | 
-    String endpointUrl = "endpointUrl_example"; // String | 
-    String localCacheDir = "localCacheDir_example"; // String | 
-    Integer localCacheMaxSizeMb = 56; // Integer | 
-    String customerSamplesBucket = "customerSamplesBucket_example"; // String | 
-    String firmwareSamplesBucket = "firmwareSamplesBucket_example"; // String | 
-    Integer maxRetryAttempts = 5; // Integer | 
     try {
-      BaseResponseChildBinariesResponse result = apiInstance.getRelatedBinaries(binaryId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
+      BaseResponseChildBinariesResponse result = apiInstance.getRelatedBinaries(binaryId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BinariesApi#getRelatedBinaries");
@@ -628,12 +538,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **binaryId** | **Integer**|  | |
-| **endpointUrl** | **String**|  | [optional] |
-| **localCacheDir** | **String**|  | [optional] |
-| **localCacheMaxSizeMb** | **Integer**|  | [optional] |
-| **customerSamplesBucket** | **String**|  | [optional] |
-| **firmwareSamplesBucket** | **String**|  | [optional] |
-| **maxRetryAttempts** | **Integer**|  | [optional] [default to 5] |
 
 ### Return type
 

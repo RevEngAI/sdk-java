@@ -82,12 +82,6 @@ public class BinariesApi {
     /**
      * Build call for downloadZippedBinary
      * @param binaryId  (required)
-     * @param endpointUrl  (optional)
-     * @param localCacheDir  (optional)
-     * @param localCacheMaxSizeMb  (optional)
-     * @param customerSamplesBucket  (optional)
-     * @param firmwareSamplesBucket  (optional)
-     * @param maxRetryAttempts  (optional, default to 5)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -99,7 +93,7 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call downloadZippedBinaryCall(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call downloadZippedBinaryCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -125,30 +119,6 @@ public class BinariesApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-        if (endpointUrl != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("endpoint_url", endpointUrl));
-        }
-
-        if (localCacheDir != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_dir", localCacheDir));
-        }
-
-        if (localCacheMaxSizeMb != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_max_size_mb", localCacheMaxSizeMb));
-        }
-
-        if (customerSamplesBucket != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("customer_samples_bucket", customerSamplesBucket));
-        }
-
-        if (firmwareSamplesBucket != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("firmware_samples_bucket", firmwareSamplesBucket));
-        }
-
-        if (maxRetryAttempts != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("max_retry_attempts", maxRetryAttempts));
-        }
-
         final String[] localVarAccepts = {
             "application/zip",
             "application/json"
@@ -170,13 +140,13 @@ public class BinariesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call downloadZippedBinaryValidateBeforeCall(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call downloadZippedBinaryValidateBeforeCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'binaryId' is set
         if (binaryId == null) {
             throw new ApiException("Missing the required parameter 'binaryId' when calling downloadZippedBinary(Async)");
         }
 
-        return downloadZippedBinaryCall(binaryId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, _callback);
+        return downloadZippedBinaryCall(binaryId, _callback);
 
     }
 
@@ -184,12 +154,6 @@ public class BinariesApi {
      * Downloads a zipped binary with password protection
      * 
      * @param binaryId  (required)
-     * @param endpointUrl  (optional)
-     * @param localCacheDir  (optional)
-     * @param localCacheMaxSizeMb  (optional)
-     * @param customerSamplesBucket  (optional)
-     * @param firmwareSamplesBucket  (optional)
-     * @param maxRetryAttempts  (optional, default to 5)
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -200,8 +164,8 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public File downloadZippedBinary(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts) throws ApiException {
-        ApiResponse<File> localVarResp = downloadZippedBinaryWithHttpInfo(binaryId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
+    public File downloadZippedBinary(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
+        ApiResponse<File> localVarResp = downloadZippedBinaryWithHttpInfo(binaryId);
         return localVarResp.getData();
     }
 
@@ -209,12 +173,6 @@ public class BinariesApi {
      * Downloads a zipped binary with password protection
      * 
      * @param binaryId  (required)
-     * @param endpointUrl  (optional)
-     * @param localCacheDir  (optional)
-     * @param localCacheMaxSizeMb  (optional)
-     * @param customerSamplesBucket  (optional)
-     * @param firmwareSamplesBucket  (optional)
-     * @param maxRetryAttempts  (optional, default to 5)
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -225,8 +183,8 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<File> downloadZippedBinaryWithHttpInfo(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts) throws ApiException {
-        okhttp3.Call localVarCall = downloadZippedBinaryValidateBeforeCall(binaryId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, null);
+    public ApiResponse<File> downloadZippedBinaryWithHttpInfo(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
+        okhttp3.Call localVarCall = downloadZippedBinaryValidateBeforeCall(binaryId, null);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -235,12 +193,6 @@ public class BinariesApi {
      * Downloads a zipped binary with password protection (asynchronously)
      * 
      * @param binaryId  (required)
-     * @param endpointUrl  (optional)
-     * @param localCacheDir  (optional)
-     * @param localCacheMaxSizeMb  (optional)
-     * @param customerSamplesBucket  (optional)
-     * @param firmwareSamplesBucket  (optional)
-     * @param maxRetryAttempts  (optional, default to 5)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -252,9 +204,9 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call downloadZippedBinaryAsync(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback<File> _callback) throws ApiException {
+    public okhttp3.Call downloadZippedBinaryAsync(@javax.annotation.Nonnull Integer binaryId, final ApiCallback<File> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = downloadZippedBinaryValidateBeforeCall(binaryId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, _callback);
+        okhttp3.Call localVarCall = downloadZippedBinaryValidateBeforeCall(binaryId, _callback);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -262,12 +214,6 @@ public class BinariesApi {
     /**
      * Build call for getBinaryAdditionalDetails
      * @param binaryId  (required)
-     * @param endpointUrl  (optional)
-     * @param localCacheDir  (optional)
-     * @param localCacheMaxSizeMb  (optional)
-     * @param customerSamplesBucket  (optional)
-     * @param firmwareSamplesBucket  (optional)
-     * @param maxRetryAttempts  (optional, default to 5)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -279,7 +225,7 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBinaryAdditionalDetailsCall(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBinaryAdditionalDetailsCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -305,30 +251,6 @@ public class BinariesApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-        if (endpointUrl != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("endpoint_url", endpointUrl));
-        }
-
-        if (localCacheDir != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_dir", localCacheDir));
-        }
-
-        if (localCacheMaxSizeMb != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_max_size_mb", localCacheMaxSizeMb));
-        }
-
-        if (customerSamplesBucket != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("customer_samples_bucket", customerSamplesBucket));
-        }
-
-        if (firmwareSamplesBucket != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("firmware_samples_bucket", firmwareSamplesBucket));
-        }
-
-        if (maxRetryAttempts != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("max_retry_attempts", maxRetryAttempts));
-        }
-
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -349,13 +271,13 @@ public class BinariesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBinaryAdditionalDetailsValidateBeforeCall(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getBinaryAdditionalDetailsValidateBeforeCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'binaryId' is set
         if (binaryId == null) {
             throw new ApiException("Missing the required parameter 'binaryId' when calling getBinaryAdditionalDetails(Async)");
         }
 
-        return getBinaryAdditionalDetailsCall(binaryId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, _callback);
+        return getBinaryAdditionalDetailsCall(binaryId, _callback);
 
     }
 
@@ -363,12 +285,6 @@ public class BinariesApi {
      * Gets the additional details of a binary
      * 
      * @param binaryId  (required)
-     * @param endpointUrl  (optional)
-     * @param localCacheDir  (optional)
-     * @param localCacheMaxSizeMb  (optional)
-     * @param customerSamplesBucket  (optional)
-     * @param firmwareSamplesBucket  (optional)
-     * @param maxRetryAttempts  (optional, default to 5)
      * @return BaseResponseBinaryAdditionalResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -379,8 +295,8 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseBinaryAdditionalResponse getBinaryAdditionalDetails(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts) throws ApiException {
-        ApiResponse<BaseResponseBinaryAdditionalResponse> localVarResp = getBinaryAdditionalDetailsWithHttpInfo(binaryId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
+    public BaseResponseBinaryAdditionalResponse getBinaryAdditionalDetails(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
+        ApiResponse<BaseResponseBinaryAdditionalResponse> localVarResp = getBinaryAdditionalDetailsWithHttpInfo(binaryId);
         return localVarResp.getData();
     }
 
@@ -388,12 +304,6 @@ public class BinariesApi {
      * Gets the additional details of a binary
      * 
      * @param binaryId  (required)
-     * @param endpointUrl  (optional)
-     * @param localCacheDir  (optional)
-     * @param localCacheMaxSizeMb  (optional)
-     * @param customerSamplesBucket  (optional)
-     * @param firmwareSamplesBucket  (optional)
-     * @param maxRetryAttempts  (optional, default to 5)
      * @return ApiResponse&lt;BaseResponseBinaryAdditionalResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -404,8 +314,8 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseBinaryAdditionalResponse> getBinaryAdditionalDetailsWithHttpInfo(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts) throws ApiException {
-        okhttp3.Call localVarCall = getBinaryAdditionalDetailsValidateBeforeCall(binaryId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, null);
+    public ApiResponse<BaseResponseBinaryAdditionalResponse> getBinaryAdditionalDetailsWithHttpInfo(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
+        okhttp3.Call localVarCall = getBinaryAdditionalDetailsValidateBeforeCall(binaryId, null);
         Type localVarReturnType = new TypeToken<BaseResponseBinaryAdditionalResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -414,12 +324,6 @@ public class BinariesApi {
      * Gets the additional details of a binary (asynchronously)
      * 
      * @param binaryId  (required)
-     * @param endpointUrl  (optional)
-     * @param localCacheDir  (optional)
-     * @param localCacheMaxSizeMb  (optional)
-     * @param customerSamplesBucket  (optional)
-     * @param firmwareSamplesBucket  (optional)
-     * @param maxRetryAttempts  (optional, default to 5)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -431,9 +335,9 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBinaryAdditionalDetailsAsync(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback<BaseResponseBinaryAdditionalResponse> _callback) throws ApiException {
+    public okhttp3.Call getBinaryAdditionalDetailsAsync(@javax.annotation.Nonnull Integer binaryId, final ApiCallback<BaseResponseBinaryAdditionalResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBinaryAdditionalDetailsValidateBeforeCall(binaryId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, _callback);
+        okhttp3.Call localVarCall = getBinaryAdditionalDetailsValidateBeforeCall(binaryId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseBinaryAdditionalResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -441,12 +345,6 @@ public class BinariesApi {
     /**
      * Build call for getBinaryAdditionalDetailsStatus
      * @param binaryId  (required)
-     * @param endpointUrl  (optional)
-     * @param localCacheDir  (optional)
-     * @param localCacheMaxSizeMb  (optional)
-     * @param customerSamplesBucket  (optional)
-     * @param firmwareSamplesBucket  (optional)
-     * @param maxRetryAttempts  (optional, default to 5)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -458,7 +356,7 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBinaryAdditionalDetailsStatusCall(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBinaryAdditionalDetailsStatusCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -484,30 +382,6 @@ public class BinariesApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-        if (endpointUrl != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("endpoint_url", endpointUrl));
-        }
-
-        if (localCacheDir != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_dir", localCacheDir));
-        }
-
-        if (localCacheMaxSizeMb != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_max_size_mb", localCacheMaxSizeMb));
-        }
-
-        if (customerSamplesBucket != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("customer_samples_bucket", customerSamplesBucket));
-        }
-
-        if (firmwareSamplesBucket != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("firmware_samples_bucket", firmwareSamplesBucket));
-        }
-
-        if (maxRetryAttempts != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("max_retry_attempts", maxRetryAttempts));
-        }
-
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -528,13 +402,13 @@ public class BinariesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBinaryAdditionalDetailsStatusValidateBeforeCall(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getBinaryAdditionalDetailsStatusValidateBeforeCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'binaryId' is set
         if (binaryId == null) {
             throw new ApiException("Missing the required parameter 'binaryId' when calling getBinaryAdditionalDetailsStatus(Async)");
         }
 
-        return getBinaryAdditionalDetailsStatusCall(binaryId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, _callback);
+        return getBinaryAdditionalDetailsStatusCall(binaryId, _callback);
 
     }
 
@@ -542,12 +416,6 @@ public class BinariesApi {
      * Gets the status of the additional details task for a binary
      * 
      * @param binaryId  (required)
-     * @param endpointUrl  (optional)
-     * @param localCacheDir  (optional)
-     * @param localCacheMaxSizeMb  (optional)
-     * @param customerSamplesBucket  (optional)
-     * @param firmwareSamplesBucket  (optional)
-     * @param maxRetryAttempts  (optional, default to 5)
      * @return BaseResponseAdditionalDetailsStatusResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -558,8 +426,8 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseAdditionalDetailsStatusResponse getBinaryAdditionalDetailsStatus(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts) throws ApiException {
-        ApiResponse<BaseResponseAdditionalDetailsStatusResponse> localVarResp = getBinaryAdditionalDetailsStatusWithHttpInfo(binaryId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
+    public BaseResponseAdditionalDetailsStatusResponse getBinaryAdditionalDetailsStatus(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
+        ApiResponse<BaseResponseAdditionalDetailsStatusResponse> localVarResp = getBinaryAdditionalDetailsStatusWithHttpInfo(binaryId);
         return localVarResp.getData();
     }
 
@@ -567,12 +435,6 @@ public class BinariesApi {
      * Gets the status of the additional details task for a binary
      * 
      * @param binaryId  (required)
-     * @param endpointUrl  (optional)
-     * @param localCacheDir  (optional)
-     * @param localCacheMaxSizeMb  (optional)
-     * @param customerSamplesBucket  (optional)
-     * @param firmwareSamplesBucket  (optional)
-     * @param maxRetryAttempts  (optional, default to 5)
      * @return ApiResponse&lt;BaseResponseAdditionalDetailsStatusResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -583,8 +445,8 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseAdditionalDetailsStatusResponse> getBinaryAdditionalDetailsStatusWithHttpInfo(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts) throws ApiException {
-        okhttp3.Call localVarCall = getBinaryAdditionalDetailsStatusValidateBeforeCall(binaryId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, null);
+    public ApiResponse<BaseResponseAdditionalDetailsStatusResponse> getBinaryAdditionalDetailsStatusWithHttpInfo(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
+        okhttp3.Call localVarCall = getBinaryAdditionalDetailsStatusValidateBeforeCall(binaryId, null);
         Type localVarReturnType = new TypeToken<BaseResponseAdditionalDetailsStatusResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -593,12 +455,6 @@ public class BinariesApi {
      * Gets the status of the additional details task for a binary (asynchronously)
      * 
      * @param binaryId  (required)
-     * @param endpointUrl  (optional)
-     * @param localCacheDir  (optional)
-     * @param localCacheMaxSizeMb  (optional)
-     * @param customerSamplesBucket  (optional)
-     * @param firmwareSamplesBucket  (optional)
-     * @param maxRetryAttempts  (optional, default to 5)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -610,9 +466,9 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBinaryAdditionalDetailsStatusAsync(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback<BaseResponseAdditionalDetailsStatusResponse> _callback) throws ApiException {
+    public okhttp3.Call getBinaryAdditionalDetailsStatusAsync(@javax.annotation.Nonnull Integer binaryId, final ApiCallback<BaseResponseAdditionalDetailsStatusResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBinaryAdditionalDetailsStatusValidateBeforeCall(binaryId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, _callback);
+        okhttp3.Call localVarCall = getBinaryAdditionalDetailsStatusValidateBeforeCall(binaryId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseAdditionalDetailsStatusResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -620,12 +476,6 @@ public class BinariesApi {
     /**
      * Build call for getBinaryDetails
      * @param binaryId  (required)
-     * @param endpointUrl  (optional)
-     * @param localCacheDir  (optional)
-     * @param localCacheMaxSizeMb  (optional)
-     * @param customerSamplesBucket  (optional)
-     * @param firmwareSamplesBucket  (optional)
-     * @param maxRetryAttempts  (optional, default to 5)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -637,7 +487,7 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBinaryDetailsCall(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBinaryDetailsCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -663,30 +513,6 @@ public class BinariesApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-        if (endpointUrl != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("endpoint_url", endpointUrl));
-        }
-
-        if (localCacheDir != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_dir", localCacheDir));
-        }
-
-        if (localCacheMaxSizeMb != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_max_size_mb", localCacheMaxSizeMb));
-        }
-
-        if (customerSamplesBucket != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("customer_samples_bucket", customerSamplesBucket));
-        }
-
-        if (firmwareSamplesBucket != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("firmware_samples_bucket", firmwareSamplesBucket));
-        }
-
-        if (maxRetryAttempts != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("max_retry_attempts", maxRetryAttempts));
-        }
-
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -707,13 +533,13 @@ public class BinariesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBinaryDetailsValidateBeforeCall(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getBinaryDetailsValidateBeforeCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'binaryId' is set
         if (binaryId == null) {
             throw new ApiException("Missing the required parameter 'binaryId' when calling getBinaryDetails(Async)");
         }
 
-        return getBinaryDetailsCall(binaryId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, _callback);
+        return getBinaryDetailsCall(binaryId, _callback);
 
     }
 
@@ -721,12 +547,6 @@ public class BinariesApi {
      * Gets the details of a binary
      * 
      * @param binaryId  (required)
-     * @param endpointUrl  (optional)
-     * @param localCacheDir  (optional)
-     * @param localCacheMaxSizeMb  (optional)
-     * @param customerSamplesBucket  (optional)
-     * @param firmwareSamplesBucket  (optional)
-     * @param maxRetryAttempts  (optional, default to 5)
      * @return BaseResponseBinaryDetailsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -737,8 +557,8 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseBinaryDetailsResponse getBinaryDetails(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts) throws ApiException {
-        ApiResponse<BaseResponseBinaryDetailsResponse> localVarResp = getBinaryDetailsWithHttpInfo(binaryId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
+    public BaseResponseBinaryDetailsResponse getBinaryDetails(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
+        ApiResponse<BaseResponseBinaryDetailsResponse> localVarResp = getBinaryDetailsWithHttpInfo(binaryId);
         return localVarResp.getData();
     }
 
@@ -746,12 +566,6 @@ public class BinariesApi {
      * Gets the details of a binary
      * 
      * @param binaryId  (required)
-     * @param endpointUrl  (optional)
-     * @param localCacheDir  (optional)
-     * @param localCacheMaxSizeMb  (optional)
-     * @param customerSamplesBucket  (optional)
-     * @param firmwareSamplesBucket  (optional)
-     * @param maxRetryAttempts  (optional, default to 5)
      * @return ApiResponse&lt;BaseResponseBinaryDetailsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -762,8 +576,8 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseBinaryDetailsResponse> getBinaryDetailsWithHttpInfo(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts) throws ApiException {
-        okhttp3.Call localVarCall = getBinaryDetailsValidateBeforeCall(binaryId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, null);
+    public ApiResponse<BaseResponseBinaryDetailsResponse> getBinaryDetailsWithHttpInfo(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
+        okhttp3.Call localVarCall = getBinaryDetailsValidateBeforeCall(binaryId, null);
         Type localVarReturnType = new TypeToken<BaseResponseBinaryDetailsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -772,12 +586,6 @@ public class BinariesApi {
      * Gets the details of a binary (asynchronously)
      * 
      * @param binaryId  (required)
-     * @param endpointUrl  (optional)
-     * @param localCacheDir  (optional)
-     * @param localCacheMaxSizeMb  (optional)
-     * @param customerSamplesBucket  (optional)
-     * @param firmwareSamplesBucket  (optional)
-     * @param maxRetryAttempts  (optional, default to 5)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -789,9 +597,9 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBinaryDetailsAsync(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback<BaseResponseBinaryDetailsResponse> _callback) throws ApiException {
+    public okhttp3.Call getBinaryDetailsAsync(@javax.annotation.Nonnull Integer binaryId, final ApiCallback<BaseResponseBinaryDetailsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBinaryDetailsValidateBeforeCall(binaryId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, _callback);
+        okhttp3.Call localVarCall = getBinaryDetailsValidateBeforeCall(binaryId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseBinaryDetailsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -799,12 +607,6 @@ public class BinariesApi {
     /**
      * Build call for getBinaryDieInfo
      * @param binaryId  (required)
-     * @param endpointUrl  (optional)
-     * @param localCacheDir  (optional)
-     * @param localCacheMaxSizeMb  (optional)
-     * @param customerSamplesBucket  (optional)
-     * @param firmwareSamplesBucket  (optional)
-     * @param maxRetryAttempts  (optional, default to 5)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -816,7 +618,7 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBinaryDieInfoCall(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBinaryDieInfoCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -842,30 +644,6 @@ public class BinariesApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-        if (endpointUrl != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("endpoint_url", endpointUrl));
-        }
-
-        if (localCacheDir != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_dir", localCacheDir));
-        }
-
-        if (localCacheMaxSizeMb != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_max_size_mb", localCacheMaxSizeMb));
-        }
-
-        if (customerSamplesBucket != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("customer_samples_bucket", customerSamplesBucket));
-        }
-
-        if (firmwareSamplesBucket != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("firmware_samples_bucket", firmwareSamplesBucket));
-        }
-
-        if (maxRetryAttempts != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("max_retry_attempts", maxRetryAttempts));
-        }
-
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -886,13 +664,13 @@ public class BinariesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBinaryDieInfoValidateBeforeCall(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getBinaryDieInfoValidateBeforeCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'binaryId' is set
         if (binaryId == null) {
             throw new ApiException("Missing the required parameter 'binaryId' when calling getBinaryDieInfo(Async)");
         }
 
-        return getBinaryDieInfoCall(binaryId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, _callback);
+        return getBinaryDieInfoCall(binaryId, _callback);
 
     }
 
@@ -900,12 +678,6 @@ public class BinariesApi {
      * Gets the die info of a binary
      * 
      * @param binaryId  (required)
-     * @param endpointUrl  (optional)
-     * @param localCacheDir  (optional)
-     * @param localCacheMaxSizeMb  (optional)
-     * @param customerSamplesBucket  (optional)
-     * @param firmwareSamplesBucket  (optional)
-     * @param maxRetryAttempts  (optional, default to 5)
      * @return BaseResponseListDieMatch
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -916,8 +688,8 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseListDieMatch getBinaryDieInfo(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts) throws ApiException {
-        ApiResponse<BaseResponseListDieMatch> localVarResp = getBinaryDieInfoWithHttpInfo(binaryId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
+    public BaseResponseListDieMatch getBinaryDieInfo(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
+        ApiResponse<BaseResponseListDieMatch> localVarResp = getBinaryDieInfoWithHttpInfo(binaryId);
         return localVarResp.getData();
     }
 
@@ -925,12 +697,6 @@ public class BinariesApi {
      * Gets the die info of a binary
      * 
      * @param binaryId  (required)
-     * @param endpointUrl  (optional)
-     * @param localCacheDir  (optional)
-     * @param localCacheMaxSizeMb  (optional)
-     * @param customerSamplesBucket  (optional)
-     * @param firmwareSamplesBucket  (optional)
-     * @param maxRetryAttempts  (optional, default to 5)
      * @return ApiResponse&lt;BaseResponseListDieMatch&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -941,8 +707,8 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseListDieMatch> getBinaryDieInfoWithHttpInfo(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts) throws ApiException {
-        okhttp3.Call localVarCall = getBinaryDieInfoValidateBeforeCall(binaryId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, null);
+    public ApiResponse<BaseResponseListDieMatch> getBinaryDieInfoWithHttpInfo(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
+        okhttp3.Call localVarCall = getBinaryDieInfoValidateBeforeCall(binaryId, null);
         Type localVarReturnType = new TypeToken<BaseResponseListDieMatch>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -951,12 +717,6 @@ public class BinariesApi {
      * Gets the die info of a binary (asynchronously)
      * 
      * @param binaryId  (required)
-     * @param endpointUrl  (optional)
-     * @param localCacheDir  (optional)
-     * @param localCacheMaxSizeMb  (optional)
-     * @param customerSamplesBucket  (optional)
-     * @param firmwareSamplesBucket  (optional)
-     * @param maxRetryAttempts  (optional, default to 5)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -968,9 +728,9 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBinaryDieInfoAsync(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback<BaseResponseListDieMatch> _callback) throws ApiException {
+    public okhttp3.Call getBinaryDieInfoAsync(@javax.annotation.Nonnull Integer binaryId, final ApiCallback<BaseResponseListDieMatch> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBinaryDieInfoValidateBeforeCall(binaryId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, _callback);
+        okhttp3.Call localVarCall = getBinaryDieInfoValidateBeforeCall(binaryId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseListDieMatch>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -978,12 +738,6 @@ public class BinariesApi {
     /**
      * Build call for getBinaryExternals
      * @param binaryId  (required)
-     * @param endpointUrl  (optional)
-     * @param localCacheDir  (optional)
-     * @param localCacheMaxSizeMb  (optional)
-     * @param customerSamplesBucket  (optional)
-     * @param firmwareSamplesBucket  (optional)
-     * @param maxRetryAttempts  (optional, default to 5)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -995,7 +749,7 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBinaryExternalsCall(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBinaryExternalsCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1021,30 +775,6 @@ public class BinariesApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-        if (endpointUrl != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("endpoint_url", endpointUrl));
-        }
-
-        if (localCacheDir != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_dir", localCacheDir));
-        }
-
-        if (localCacheMaxSizeMb != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_max_size_mb", localCacheMaxSizeMb));
-        }
-
-        if (customerSamplesBucket != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("customer_samples_bucket", customerSamplesBucket));
-        }
-
-        if (firmwareSamplesBucket != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("firmware_samples_bucket", firmwareSamplesBucket));
-        }
-
-        if (maxRetryAttempts != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("max_retry_attempts", maxRetryAttempts));
-        }
-
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -1065,13 +795,13 @@ public class BinariesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBinaryExternalsValidateBeforeCall(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getBinaryExternalsValidateBeforeCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'binaryId' is set
         if (binaryId == null) {
             throw new ApiException("Missing the required parameter 'binaryId' when calling getBinaryExternals(Async)");
         }
 
-        return getBinaryExternalsCall(binaryId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, _callback);
+        return getBinaryExternalsCall(binaryId, _callback);
 
     }
 
@@ -1079,12 +809,6 @@ public class BinariesApi {
      * Gets the external details of a binary
      * 
      * @param binaryId  (required)
-     * @param endpointUrl  (optional)
-     * @param localCacheDir  (optional)
-     * @param localCacheMaxSizeMb  (optional)
-     * @param customerSamplesBucket  (optional)
-     * @param firmwareSamplesBucket  (optional)
-     * @param maxRetryAttempts  (optional, default to 5)
      * @return BaseResponseBinaryExternalsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1095,8 +819,8 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseBinaryExternalsResponse getBinaryExternals(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts) throws ApiException {
-        ApiResponse<BaseResponseBinaryExternalsResponse> localVarResp = getBinaryExternalsWithHttpInfo(binaryId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
+    public BaseResponseBinaryExternalsResponse getBinaryExternals(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
+        ApiResponse<BaseResponseBinaryExternalsResponse> localVarResp = getBinaryExternalsWithHttpInfo(binaryId);
         return localVarResp.getData();
     }
 
@@ -1104,12 +828,6 @@ public class BinariesApi {
      * Gets the external details of a binary
      * 
      * @param binaryId  (required)
-     * @param endpointUrl  (optional)
-     * @param localCacheDir  (optional)
-     * @param localCacheMaxSizeMb  (optional)
-     * @param customerSamplesBucket  (optional)
-     * @param firmwareSamplesBucket  (optional)
-     * @param maxRetryAttempts  (optional, default to 5)
      * @return ApiResponse&lt;BaseResponseBinaryExternalsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1120,8 +838,8 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseBinaryExternalsResponse> getBinaryExternalsWithHttpInfo(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts) throws ApiException {
-        okhttp3.Call localVarCall = getBinaryExternalsValidateBeforeCall(binaryId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, null);
+    public ApiResponse<BaseResponseBinaryExternalsResponse> getBinaryExternalsWithHttpInfo(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
+        okhttp3.Call localVarCall = getBinaryExternalsValidateBeforeCall(binaryId, null);
         Type localVarReturnType = new TypeToken<BaseResponseBinaryExternalsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1130,12 +848,6 @@ public class BinariesApi {
      * Gets the external details of a binary (asynchronously)
      * 
      * @param binaryId  (required)
-     * @param endpointUrl  (optional)
-     * @param localCacheDir  (optional)
-     * @param localCacheMaxSizeMb  (optional)
-     * @param customerSamplesBucket  (optional)
-     * @param firmwareSamplesBucket  (optional)
-     * @param maxRetryAttempts  (optional, default to 5)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1147,9 +859,9 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBinaryExternalsAsync(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback<BaseResponseBinaryExternalsResponse> _callback) throws ApiException {
+    public okhttp3.Call getBinaryExternalsAsync(@javax.annotation.Nonnull Integer binaryId, final ApiCallback<BaseResponseBinaryExternalsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBinaryExternalsValidateBeforeCall(binaryId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, _callback);
+        okhttp3.Call localVarCall = getBinaryExternalsValidateBeforeCall(binaryId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseBinaryExternalsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1157,12 +869,6 @@ public class BinariesApi {
     /**
      * Build call for getBinaryRelatedStatus
      * @param binaryId  (required)
-     * @param endpointUrl  (optional)
-     * @param localCacheDir  (optional)
-     * @param localCacheMaxSizeMb  (optional)
-     * @param customerSamplesBucket  (optional)
-     * @param firmwareSamplesBucket  (optional)
-     * @param maxRetryAttempts  (optional, default to 5)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1174,7 +880,7 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBinaryRelatedStatusCall(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getBinaryRelatedStatusCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1200,30 +906,6 @@ public class BinariesApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-        if (endpointUrl != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("endpoint_url", endpointUrl));
-        }
-
-        if (localCacheDir != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_dir", localCacheDir));
-        }
-
-        if (localCacheMaxSizeMb != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_max_size_mb", localCacheMaxSizeMb));
-        }
-
-        if (customerSamplesBucket != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("customer_samples_bucket", customerSamplesBucket));
-        }
-
-        if (firmwareSamplesBucket != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("firmware_samples_bucket", firmwareSamplesBucket));
-        }
-
-        if (maxRetryAttempts != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("max_retry_attempts", maxRetryAttempts));
-        }
-
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -1244,13 +926,13 @@ public class BinariesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBinaryRelatedStatusValidateBeforeCall(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getBinaryRelatedStatusValidateBeforeCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'binaryId' is set
         if (binaryId == null) {
             throw new ApiException("Missing the required parameter 'binaryId' when calling getBinaryRelatedStatus(Async)");
         }
 
-        return getBinaryRelatedStatusCall(binaryId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, _callback);
+        return getBinaryRelatedStatusCall(binaryId, _callback);
 
     }
 
@@ -1258,12 +940,6 @@ public class BinariesApi {
      * Gets the status of the unpack binary task for a binary
      * 
      * @param binaryId  (required)
-     * @param endpointUrl  (optional)
-     * @param localCacheDir  (optional)
-     * @param localCacheMaxSizeMb  (optional)
-     * @param customerSamplesBucket  (optional)
-     * @param firmwareSamplesBucket  (optional)
-     * @param maxRetryAttempts  (optional, default to 5)
      * @return BaseResponseBinariesRelatedStatusResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1274,8 +950,8 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseBinariesRelatedStatusResponse getBinaryRelatedStatus(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts) throws ApiException {
-        ApiResponse<BaseResponseBinariesRelatedStatusResponse> localVarResp = getBinaryRelatedStatusWithHttpInfo(binaryId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
+    public BaseResponseBinariesRelatedStatusResponse getBinaryRelatedStatus(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
+        ApiResponse<BaseResponseBinariesRelatedStatusResponse> localVarResp = getBinaryRelatedStatusWithHttpInfo(binaryId);
         return localVarResp.getData();
     }
 
@@ -1283,12 +959,6 @@ public class BinariesApi {
      * Gets the status of the unpack binary task for a binary
      * 
      * @param binaryId  (required)
-     * @param endpointUrl  (optional)
-     * @param localCacheDir  (optional)
-     * @param localCacheMaxSizeMb  (optional)
-     * @param customerSamplesBucket  (optional)
-     * @param firmwareSamplesBucket  (optional)
-     * @param maxRetryAttempts  (optional, default to 5)
      * @return ApiResponse&lt;BaseResponseBinariesRelatedStatusResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1299,8 +969,8 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseBinariesRelatedStatusResponse> getBinaryRelatedStatusWithHttpInfo(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts) throws ApiException {
-        okhttp3.Call localVarCall = getBinaryRelatedStatusValidateBeforeCall(binaryId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, null);
+    public ApiResponse<BaseResponseBinariesRelatedStatusResponse> getBinaryRelatedStatusWithHttpInfo(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
+        okhttp3.Call localVarCall = getBinaryRelatedStatusValidateBeforeCall(binaryId, null);
         Type localVarReturnType = new TypeToken<BaseResponseBinariesRelatedStatusResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1309,12 +979,6 @@ public class BinariesApi {
      * Gets the status of the unpack binary task for a binary (asynchronously)
      * 
      * @param binaryId  (required)
-     * @param endpointUrl  (optional)
-     * @param localCacheDir  (optional)
-     * @param localCacheMaxSizeMb  (optional)
-     * @param customerSamplesBucket  (optional)
-     * @param firmwareSamplesBucket  (optional)
-     * @param maxRetryAttempts  (optional, default to 5)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1326,9 +990,9 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getBinaryRelatedStatusAsync(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback<BaseResponseBinariesRelatedStatusResponse> _callback) throws ApiException {
+    public okhttp3.Call getBinaryRelatedStatusAsync(@javax.annotation.Nonnull Integer binaryId, final ApiCallback<BaseResponseBinariesRelatedStatusResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBinaryRelatedStatusValidateBeforeCall(binaryId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, _callback);
+        okhttp3.Call localVarCall = getBinaryRelatedStatusValidateBeforeCall(binaryId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseBinariesRelatedStatusResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1336,12 +1000,6 @@ public class BinariesApi {
     /**
      * Build call for getRelatedBinaries
      * @param binaryId  (required)
-     * @param endpointUrl  (optional)
-     * @param localCacheDir  (optional)
-     * @param localCacheMaxSizeMb  (optional)
-     * @param customerSamplesBucket  (optional)
-     * @param firmwareSamplesBucket  (optional)
-     * @param maxRetryAttempts  (optional, default to 5)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1354,7 +1012,7 @@ public class BinariesApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRelatedBinariesCall(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getRelatedBinariesCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1380,30 +1038,6 @@ public class BinariesApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-        if (endpointUrl != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("endpoint_url", endpointUrl));
-        }
-
-        if (localCacheDir != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_dir", localCacheDir));
-        }
-
-        if (localCacheMaxSizeMb != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("local_cache_max_size_mb", localCacheMaxSizeMb));
-        }
-
-        if (customerSamplesBucket != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("customer_samples_bucket", customerSamplesBucket));
-        }
-
-        if (firmwareSamplesBucket != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("firmware_samples_bucket", firmwareSamplesBucket));
-        }
-
-        if (maxRetryAttempts != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("max_retry_attempts", maxRetryAttempts));
-        }
-
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -1424,13 +1058,13 @@ public class BinariesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getRelatedBinariesValidateBeforeCall(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getRelatedBinariesValidateBeforeCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'binaryId' is set
         if (binaryId == null) {
             throw new ApiException("Missing the required parameter 'binaryId' when calling getRelatedBinaries(Async)");
         }
 
-        return getRelatedBinariesCall(binaryId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, _callback);
+        return getRelatedBinariesCall(binaryId, _callback);
 
     }
 
@@ -1438,12 +1072,6 @@ public class BinariesApi {
      * Gets the related binaries of a binary.
      * 
      * @param binaryId  (required)
-     * @param endpointUrl  (optional)
-     * @param localCacheDir  (optional)
-     * @param localCacheMaxSizeMb  (optional)
-     * @param customerSamplesBucket  (optional)
-     * @param firmwareSamplesBucket  (optional)
-     * @param maxRetryAttempts  (optional, default to 5)
      * @return BaseResponseChildBinariesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1455,8 +1083,8 @@ public class BinariesApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseChildBinariesResponse getRelatedBinaries(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts) throws ApiException {
-        ApiResponse<BaseResponseChildBinariesResponse> localVarResp = getRelatedBinariesWithHttpInfo(binaryId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts);
+    public BaseResponseChildBinariesResponse getRelatedBinaries(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
+        ApiResponse<BaseResponseChildBinariesResponse> localVarResp = getRelatedBinariesWithHttpInfo(binaryId);
         return localVarResp.getData();
     }
 
@@ -1464,12 +1092,6 @@ public class BinariesApi {
      * Gets the related binaries of a binary.
      * 
      * @param binaryId  (required)
-     * @param endpointUrl  (optional)
-     * @param localCacheDir  (optional)
-     * @param localCacheMaxSizeMb  (optional)
-     * @param customerSamplesBucket  (optional)
-     * @param firmwareSamplesBucket  (optional)
-     * @param maxRetryAttempts  (optional, default to 5)
      * @return ApiResponse&lt;BaseResponseChildBinariesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1481,8 +1103,8 @@ public class BinariesApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseChildBinariesResponse> getRelatedBinariesWithHttpInfo(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts) throws ApiException {
-        okhttp3.Call localVarCall = getRelatedBinariesValidateBeforeCall(binaryId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, null);
+    public ApiResponse<BaseResponseChildBinariesResponse> getRelatedBinariesWithHttpInfo(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
+        okhttp3.Call localVarCall = getRelatedBinariesValidateBeforeCall(binaryId, null);
         Type localVarReturnType = new TypeToken<BaseResponseChildBinariesResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1491,12 +1113,6 @@ public class BinariesApi {
      * Gets the related binaries of a binary. (asynchronously)
      * 
      * @param binaryId  (required)
-     * @param endpointUrl  (optional)
-     * @param localCacheDir  (optional)
-     * @param localCacheMaxSizeMb  (optional)
-     * @param customerSamplesBucket  (optional)
-     * @param firmwareSamplesBucket  (optional)
-     * @param maxRetryAttempts  (optional, default to 5)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1509,9 +1125,9 @@ public class BinariesApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRelatedBinariesAsync(@javax.annotation.Nonnull Integer binaryId, @javax.annotation.Nullable String endpointUrl, @javax.annotation.Nullable String localCacheDir, @javax.annotation.Nullable Integer localCacheMaxSizeMb, @javax.annotation.Nullable String customerSamplesBucket, @javax.annotation.Nullable String firmwareSamplesBucket, @javax.annotation.Nullable Integer maxRetryAttempts, final ApiCallback<BaseResponseChildBinariesResponse> _callback) throws ApiException {
+    public okhttp3.Call getRelatedBinariesAsync(@javax.annotation.Nonnull Integer binaryId, final ApiCallback<BaseResponseChildBinariesResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getRelatedBinariesValidateBeforeCall(binaryId, endpointUrl, localCacheDir, localCacheMaxSizeMb, customerSamplesBucket, firmwareSamplesBucket, maxRetryAttempts, _callback);
+        okhttp3.Call localVarCall = getRelatedBinariesValidateBeforeCall(binaryId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseChildBinariesResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
