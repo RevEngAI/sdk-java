@@ -23,5 +23,7 @@
 
 * `BINNET_0_7_ARM_64_ANDROID` (value: `"binnet-0.7-arm-64-android"`)
 
+* `UNKNOWN_DEFAULT_OPEN_API` (value: `"unknown_default_open_api"`)
+
 
 

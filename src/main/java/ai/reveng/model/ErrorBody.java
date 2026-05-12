@@ -138,7 +138,9 @@ public class ErrorBody {
     
     VERIFICATION_EXPIRED("VERIFICATION_EXPIRED"),
     
-    VERIFICATION_NOT_FOUND("VERIFICATION_NOT_FOUND");
+    VERIFICATION_NOT_FOUND("VERIFICATION_NOT_FOUND"),
+    
+    UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
     private String value;
 
@@ -161,7 +163,7 @@ public class ErrorBody {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return UNKNOWN_DEFAULT_OPEN_API;
     }
 
     public static class Adapter extends TypeAdapter<CodeEnum> {

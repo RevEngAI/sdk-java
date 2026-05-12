@@ -27,6 +27,7 @@
 | POTENTIALLY_UNWANTED_APPLICATION_PUA_ | &quot;Potentially Unwanted Application (PUA)&quot; |
 | LEGITIMATE | &quot;Legitimate&quot; |
 | BACKDOORED_LEGITIMATE_SOFTWARE | &quot;Backdoored Legitimate Software&quot; |
+| UNKNOWN_DEFAULT_OPEN_API | &quot;unknown_default_open_api&quot; |
 
 
 

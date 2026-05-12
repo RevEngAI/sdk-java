@@ -22,6 +22,7 @@
 | USER | &quot;USER&quot; |
 | SYSTEM | &quot;SYSTEM&quot; |
 | EXTERNAL | &quot;EXTERNAL&quot; |
+| UNKNOWN_DEFAULT_OPEN_API | &quot;unknown_default_open_api&quot; |
 
 
 

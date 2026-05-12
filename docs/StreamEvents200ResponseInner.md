@@ -19,6 +19,7 @@
 | Name | Value |
 |---- | -----|
 | TOOL_CONFIRMATION_REQUIRED | &quot;TOOL_CONFIRMATION_REQUIRED&quot; |
+| UNKNOWN_DEFAULT_OPEN_API | &quot;unknown_default_open_api&quot; |
 
 
 

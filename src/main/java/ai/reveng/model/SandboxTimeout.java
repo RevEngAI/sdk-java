@@ -36,7 +36,9 @@ public enum SandboxTimeout {
   
   NUMBER_300(300),
   
-  NUMBER_600(600);
+  NUMBER_600(600),
+  
+  NUMBER_unknown_default_open_api(11184809);
 
   private Integer value;
 
@@ -59,7 +61,7 @@ public enum SandboxTimeout {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    return NUMBER_unknown_default_open_api;
   }
 
   public static class Adapter extends TypeAdapter<SandboxTimeout> {

@@ -19,6 +19,7 @@
 | Name | Value |
 |---- | -----|
 | TOOL_CALL_END | &quot;TOOL_CALL_END&quot; |
+| UNKNOWN_DEFAULT_OPEN_API | &quot;unknown_default_open_api&quot; |
 
 
 

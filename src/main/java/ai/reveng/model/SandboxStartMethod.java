@@ -32,7 +32,9 @@ public enum SandboxStartMethod {
   
   STANDARD_USER_PROCESS("standard_user_process"),
   
-  ADMINISTRATOR_PROCESS("administrator_process");
+  ADMINISTRATOR_PROCESS("administrator_process"),
+  
+  UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
   private String value;
 
@@ -55,7 +57,7 @@ public enum SandboxStartMethod {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    return UNKNOWN_DEFAULT_OPEN_API;
   }
 
   public static class Adapter extends TypeAdapter<SandboxStartMethod> {

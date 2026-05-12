@@ -21,6 +21,7 @@
 | UNINITIALISED | &quot;UNINITIALISED&quot; |
 | PENDING | &quot;PENDING&quot; |
 | COMPLETED | &quot;COMPLETED&quot; |
+| UNKNOWN_DEFAULT_OPEN_API | &quot;unknown_default_open_api&quot; |
 
 
 

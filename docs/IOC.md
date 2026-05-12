@@ -43,6 +43,7 @@
 | PE_HEADER | &quot;pe_header&quot; |
 | ENTROPY | &quot;entropy&quot; |
 | OTHER | &quot;other&quot; |
+| UNKNOWN_DEFAULT_OPEN_API | &quot;unknown_default_open_api&quot; |
 
 
 

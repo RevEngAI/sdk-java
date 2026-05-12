@@ -46,7 +46,9 @@ public enum ModelName {
   
   BINNET_0_7_X86_32_ANDROID("binnet-0.7-x86-32-android"),
   
-  BINNET_0_7_ARM_64_ANDROID("binnet-0.7-arm-64-android");
+  BINNET_0_7_ARM_64_ANDROID("binnet-0.7-arm-64-android"),
+  
+  UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
   private String value;
 
@@ -69,7 +71,7 @@ public enum ModelName {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    return UNKNOWN_DEFAULT_OPEN_API;
   }
 
   public static class Adapter extends TypeAdapter<ModelName> {

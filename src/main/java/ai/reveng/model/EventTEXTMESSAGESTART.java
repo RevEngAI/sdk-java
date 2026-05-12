@@ -62,7 +62,9 @@ public class EventTEXTMESSAGESTART {
    */
   @JsonAdapter(EventEnum.Adapter.class)
   public enum EventEnum {
-    TEXT_MESSAGE_START("TEXT_MESSAGE_START");
+    TEXT_MESSAGE_START("TEXT_MESSAGE_START"),
+    
+    UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
     private String value;
 
@@ -85,7 +87,7 @@ public class EventTEXTMESSAGESTART {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return UNKNOWN_DEFAULT_OPEN_API;
     }
 
     public static class Adapter extends TypeAdapter<EventEnum> {

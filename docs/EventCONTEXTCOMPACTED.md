@@ -19,6 +19,7 @@
 | Name | Value |
 |---- | -----|
 | CONTEXT_COMPACTED | &quot;CONTEXT_COMPACTED&quot; |
+| UNKNOWN_DEFAULT_OPEN_API | &quot;unknown_default_open_api&quot; |
 
 
 

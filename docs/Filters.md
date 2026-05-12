@@ -15,5 +15,7 @@
 
 * `HIDE_EMPTY` (value: `"hide_empty"`)
 
+* `UNKNOWN_DEFAULT_OPEN_API` (value: `"unknown_default_open_api"`)
+
 
 

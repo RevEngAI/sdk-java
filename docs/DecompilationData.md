@@ -22,6 +22,7 @@
 | RUNNING | &quot;RUNNING&quot; |
 | COMPLETED | &quot;COMPLETED&quot; |
 | FAILED | &quot;FAILED&quot; |
+| UNKNOWN_DEFAULT_OPEN_API | &quot;unknown_default_open_api&quot; |
 
 
 

@@ -62,7 +62,9 @@ public class EventSTEPFINISHED {
    */
   @JsonAdapter(EventEnum.Adapter.class)
   public enum EventEnum {
-    STEP_FINISHED("STEP_FINISHED");
+    STEP_FINISHED("STEP_FINISHED"),
+    
+    UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
     private String value;
 
@@ -85,7 +87,7 @@ public class EventSTEPFINISHED {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return UNKNOWN_DEFAULT_OPEN_API;
     }
 
     public static class Adapter extends TypeAdapter<EventEnum> {

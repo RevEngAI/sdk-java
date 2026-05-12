@@ -82,7 +82,9 @@ public class FunctionMatchingFilters {
     
     SYSTEM("SYSTEM"),
     
-    EXTERNAL("EXTERNAL");
+    EXTERNAL("EXTERNAL"),
+    
+    UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
     private String value;
 
@@ -105,7 +107,7 @@ public class FunctionMatchingFilters {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return UNKNOWN_DEFAULT_OPEN_API;
     }
 
     public static class Adapter extends TypeAdapter<DebugTypesEnum> {
