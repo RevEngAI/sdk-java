@@ -38,7 +38,11 @@ public enum FunctionSourceType {
   
   AUTO_UNSTRIP("AUTO_UNSTRIP"),
   
-  AI_UNSTRIP("AI_UNSTRIP");
+  AI_UNSTRIP("AI_UNSTRIP"),
+  
+  AI_AGENT("AI_AGENT"),
+  
+  UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
   private String value;
 
@@ -61,7 +65,7 @@ public enum FunctionSourceType {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    return UNKNOWN_DEFAULT_OPEN_API;
   }
 
   public static class Adapter extends TypeAdapter<FunctionSourceType> {

@@ -62,7 +62,9 @@ public class EventTOOLCALLEND {
    */
   @JsonAdapter(EventEnum.Adapter.class)
   public enum EventEnum {
-    TOOL_CALL_END("TOOL_CALL_END");
+    TOOL_CALL_END("TOOL_CALL_END"),
+    
+    UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
     private String value;
 
@@ -85,7 +87,7 @@ public class EventTOOLCALLEND {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return UNKNOWN_DEFAULT_OPEN_API;
     }
 
     public static class Adapter extends TypeAdapter<EventEnum> {

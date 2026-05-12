@@ -30,6 +30,7 @@
 | PROCESS_AND_MEMORY_MANIPULATION | &quot;process_and_memory_manipulation&quot; |
 | PROCESS_AND_COMMAND_EXECUTION | &quot;process_and_command_execution&quot; |
 | FILE_ACTIVITY | &quot;file_activity&quot; |
+| UNKNOWN_DEFAULT_OPEN_API | &quot;unknown_default_open_api&quot; |
 
 
 

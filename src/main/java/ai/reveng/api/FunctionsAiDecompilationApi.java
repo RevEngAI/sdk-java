@@ -95,6 +95,7 @@ public class FunctionsAiDecompilationApi {
      * Build call for createAiDecompilation
      * @param functionId Function ID (required)
      * @param contextAware Use context-aware decompilation (optional, default to false)
+     * @param temperature LLM temperature (0.0-1.0). Overrides the server default when set. Omit or set to -1 to use the server default. (optional, default to -1)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -110,7 +111,7 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAiDecompilationCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Boolean contextAware, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createAiDecompilationCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Boolean contextAware, @javax.annotation.Nullable Double temperature, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -140,6 +141,10 @@ public class FunctionsAiDecompilationApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("context_aware", contextAware));
         }
 
+        if (temperature != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("temperature", temperature));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -160,13 +165,13 @@ public class FunctionsAiDecompilationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createAiDecompilationValidateBeforeCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Boolean contextAware, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createAiDecompilationValidateBeforeCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Boolean contextAware, @javax.annotation.Nullable Double temperature, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'functionId' is set
         if (functionId == null) {
             throw new ApiException("Missing the required parameter 'functionId' when calling createAiDecompilation(Async)");
         }
 
-        return createAiDecompilationCall(functionId, contextAware, _callback);
+        return createAiDecompilationCall(functionId, contextAware, temperature, _callback);
 
     }
 
@@ -175,6 +180,7 @@ public class FunctionsAiDecompilationApi {
      * Begins the AI decompilation process for a function. Charges team credits and starts the workflow.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict
      * @param functionId Function ID (required)
      * @param contextAware Use context-aware decompilation (optional, default to false)
+     * @param temperature LLM temperature (0.0-1.0). Overrides the server default when set. Omit or set to -1 to use the server default. (optional, default to -1)
      * @return CreateAIDecompOutputBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -189,8 +195,8 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public CreateAIDecompOutputBody createAiDecompilation(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Boolean contextAware) throws ApiException {
-        ApiResponse<CreateAIDecompOutputBody> localVarResp = createAiDecompilationWithHttpInfo(functionId, contextAware);
+    public CreateAIDecompOutputBody createAiDecompilation(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Boolean contextAware, @javax.annotation.Nullable Double temperature) throws ApiException {
+        ApiResponse<CreateAIDecompOutputBody> localVarResp = createAiDecompilationWithHttpInfo(functionId, contextAware, temperature);
         return localVarResp.getData();
     }
 
@@ -199,6 +205,7 @@ public class FunctionsAiDecompilationApi {
      * Begins the AI decompilation process for a function. Charges team credits and starts the workflow.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict
      * @param functionId Function ID (required)
      * @param contextAware Use context-aware decompilation (optional, default to false)
+     * @param temperature LLM temperature (0.0-1.0). Overrides the server default when set. Omit or set to -1 to use the server default. (optional, default to -1)
      * @return ApiResponse&lt;CreateAIDecompOutputBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -213,8 +220,8 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CreateAIDecompOutputBody> createAiDecompilationWithHttpInfo(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Boolean contextAware) throws ApiException {
-        okhttp3.Call localVarCall = createAiDecompilationValidateBeforeCall(functionId, contextAware, null);
+    public ApiResponse<CreateAIDecompOutputBody> createAiDecompilationWithHttpInfo(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Boolean contextAware, @javax.annotation.Nullable Double temperature) throws ApiException {
+        okhttp3.Call localVarCall = createAiDecompilationValidateBeforeCall(functionId, contextAware, temperature, null);
         Type localVarReturnType = new TypeToken<CreateAIDecompOutputBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -224,6 +231,7 @@ public class FunctionsAiDecompilationApi {
      * Begins the AI decompilation process for a function. Charges team credits and starts the workflow.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict
      * @param functionId Function ID (required)
      * @param contextAware Use context-aware decompilation (optional, default to false)
+     * @param temperature LLM temperature (0.0-1.0). Overrides the server default when set. Omit or set to -1 to use the server default. (optional, default to -1)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -239,9 +247,9 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAiDecompilationAsync(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Boolean contextAware, final ApiCallback<CreateAIDecompOutputBody> _callback) throws ApiException {
+    public okhttp3.Call createAiDecompilationAsync(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Boolean contextAware, @javax.annotation.Nullable Double temperature, final ApiCallback<CreateAIDecompOutputBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createAiDecompilationValidateBeforeCall(functionId, contextAware, _callback);
+        okhttp3.Call localVarCall = createAiDecompilationValidateBeforeCall(functionId, contextAware, temperature, _callback);
         Type localVarReturnType = new TypeToken<CreateAIDecompOutputBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

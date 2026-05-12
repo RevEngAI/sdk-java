@@ -87,7 +87,9 @@ public class AppApiRestV2AgentSchemaCapability {
     
     FILE_HEADER("File Header"),
     
-    OTHER("Other");
+    OTHER("Other"),
+    
+    UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
     private String value;
 
@@ -110,7 +112,7 @@ public class AppApiRestV2AgentSchemaCapability {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return UNKNOWN_DEFAULT_OPEN_API;
     }
 
     public static class Adapter extends TypeAdapter<TypeEnum> {

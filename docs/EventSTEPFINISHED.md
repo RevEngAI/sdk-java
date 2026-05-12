@@ -19,6 +19,7 @@
 | Name | Value |
 |---- | -----|
 | STEP_FINISHED | &quot;STEP_FINISHED&quot; |
+| UNKNOWN_DEFAULT_OPEN_API | &quot;unknown_default_open_api&quot; |
 
 
 

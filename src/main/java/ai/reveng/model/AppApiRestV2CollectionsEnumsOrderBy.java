@@ -40,7 +40,9 @@ public enum AppApiRestV2CollectionsEnumsOrderBy {
   
   COLLECTION_SIZE("collection_size"),
   
-  UPDATED("updated");
+  UPDATED("updated"),
+  
+  UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
   private String value;
 
@@ -63,7 +65,7 @@ public enum AppApiRestV2CollectionsEnumsOrderBy {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    return UNKNOWN_DEFAULT_OPEN_API;
   }
 
   public static class Adapter extends TypeAdapter<AppApiRestV2CollectionsEnumsOrderBy> {

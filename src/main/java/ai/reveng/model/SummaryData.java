@@ -76,7 +76,9 @@ public class SummaryData {
     
     PENDING("PENDING"),
     
-    COMPLETED("COMPLETED");
+    COMPLETED("COMPLETED"),
+    
+    UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
     private String value;
 
@@ -99,7 +101,7 @@ public class SummaryData {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return UNKNOWN_DEFAULT_OPEN_API;
     }
 
     public static class Adapter extends TypeAdapter<TaskStatusEnum> {

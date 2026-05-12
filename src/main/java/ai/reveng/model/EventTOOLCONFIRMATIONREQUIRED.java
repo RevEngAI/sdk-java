@@ -62,7 +62,9 @@ public class EventTOOLCONFIRMATIONREQUIRED {
    */
   @JsonAdapter(EventEnum.Adapter.class)
   public enum EventEnum {
-    TOOL_CONFIRMATION_REQUIRED("TOOL_CONFIRMATION_REQUIRED");
+    TOOL_CONFIRMATION_REQUIRED("TOOL_CONFIRMATION_REQUIRED"),
+    
+    UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
     private String value;
 
@@ -85,7 +87,7 @@ public class EventTOOLCONFIRMATIONREQUIRED {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return UNKNOWN_DEFAULT_OPEN_API;
     }
 
     public static class Adapter extends TypeAdapter<EventEnum> {

@@ -99,7 +99,9 @@ public class TriageFunctionResponse {
     
     PROCESS_AND_COMMAND_EXECUTION("process_and_command_execution"),
     
-    FILE_ACTIVITY("file_activity");
+    FILE_ACTIVITY("file_activity"),
+    
+    UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
     private String value;
 
@@ -122,7 +124,7 @@ public class TriageFunctionResponse {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return UNKNOWN_DEFAULT_OPEN_API;
     }
 
     public static class Adapter extends TypeAdapter<CapabilitiesEnum> {

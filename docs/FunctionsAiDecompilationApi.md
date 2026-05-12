@@ -28,7 +28,7 @@ All URIs are relative to *https://api.reveng.ai*
 
 <a id="createAiDecompilation"></a>
 # **createAiDecompilation**
-> CreateAIDecompOutputBody createAiDecompilation(functionId, contextAware)
+> CreateAIDecompOutputBody createAiDecompilation(functionId, contextAware, temperature)
 
 Start AI decompilation
 
@@ -58,8 +58,9 @@ public class Example {
     FunctionsAiDecompilationApi apiInstance = new FunctionsAiDecompilationApi(defaultClient);
     Long functionId = 56L; // Long | Function ID
     Boolean contextAware = false; // Boolean | Use context-aware decompilation
+    Double temperature = -1D; // Double | LLM temperature (0.0-1.0). Overrides the server default when set. Omit or set to -1 to use the server default.
     try {
-      CreateAIDecompOutputBody result = apiInstance.createAiDecompilation(functionId, contextAware);
+      CreateAIDecompOutputBody result = apiInstance.createAiDecompilation(functionId, contextAware, temperature);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsAiDecompilationApi#createAiDecompilation");
@@ -78,6 +79,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **functionId** | **Long**| Function ID | |
 | **contextAware** | **Boolean**| Use context-aware decompilation | [optional] [default to false] |
+| **temperature** | **Double**| LLM temperature (0.0-1.0). Overrides the server default when set. Omit or set to -1 to use the server default. | [optional] [default to -1] |
 
 ### Return type
 

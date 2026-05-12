@@ -61,6 +61,7 @@
 | VALIDATION_FAILED | &quot;VALIDATION_FAILED&quot; |
 | VERIFICATION_EXPIRED | &quot;VERIFICATION_EXPIRED&quot; |
 | VERIFICATION_NOT_FOUND | &quot;VERIFICATION_NOT_FOUND&quot; |
+| UNKNOWN_DEFAULT_OPEN_API | &quot;unknown_default_open_api&quot; |
 
 
 
