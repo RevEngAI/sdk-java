@@ -27,3 +27,5 @@ importMappings:
 globalProperties:
   apiTests: false
   modelTests: false
+# When an unknown enum value is found map to unknown_default_open_api
+enumUnknownDefaultCase: true
