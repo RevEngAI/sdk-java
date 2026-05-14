@@ -26,10 +26,17 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import ai.reveng.model.APIError;
 import ai.reveng.model.BaseResponse;
 import ai.reveng.model.BaseResponseListFunctionNameHistory;
+import ai.reveng.model.BatchRenameInputBody;
+import ai.reveng.model.BatchRenameOutputBody;
 import ai.reveng.model.FunctionRename;
 import ai.reveng.model.FunctionsListRename;
+import ai.reveng.model.HistoryEntry;
+import ai.reveng.model.RenameInputBody;
+import ai.reveng.model.RenameOutputBody;
+import ai.reveng.model.RevertOutputBody;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -206,6 +213,292 @@ public class FunctionsRenamingHistoryApi {
         return localVarCall;
     }
     /**
+     * Build call for batchRenameFunctions
+     * @param batchRenameInputBody  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call batchRenameFunctionsCall(@javax.annotation.Nonnull BatchRenameInputBody batchRenameInputBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = batchRenameInputBody;
+
+        // create path and map variables
+        String localVarPath = "/v3/functions/rename";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call batchRenameFunctionsValidateBeforeCall(@javax.annotation.Nonnull BatchRenameInputBody batchRenameInputBody, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'batchRenameInputBody' is set
+        if (batchRenameInputBody == null) {
+            throw new ApiException("Missing the required parameter 'batchRenameInputBody' when calling batchRenameFunctions(Async)");
+        }
+
+        return batchRenameFunctionsCall(batchRenameInputBody, _callback);
+
+    }
+
+    /**
+     * Batch rename functions
+     * Renames multiple functions in a single request. Records name changes in history and copies data types from source functions.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
+     * @param batchRenameInputBody  (required)
+     * @return BatchRenameOutputBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public BatchRenameOutputBody batchRenameFunctions(@javax.annotation.Nonnull BatchRenameInputBody batchRenameInputBody) throws ApiException {
+        ApiResponse<BatchRenameOutputBody> localVarResp = batchRenameFunctionsWithHttpInfo(batchRenameInputBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Batch rename functions
+     * Renames multiple functions in a single request. Records name changes in history and copies data types from source functions.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
+     * @param batchRenameInputBody  (required)
+     * @return ApiResponse&lt;BatchRenameOutputBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<BatchRenameOutputBody> batchRenameFunctionsWithHttpInfo(@javax.annotation.Nonnull BatchRenameInputBody batchRenameInputBody) throws ApiException {
+        okhttp3.Call localVarCall = batchRenameFunctionsValidateBeforeCall(batchRenameInputBody, null);
+        Type localVarReturnType = new TypeToken<BatchRenameOutputBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Batch rename functions (asynchronously)
+     * Renames multiple functions in a single request. Records name changes in history and copies data types from source functions.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
+     * @param batchRenameInputBody  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call batchRenameFunctionsAsync(@javax.annotation.Nonnull BatchRenameInputBody batchRenameInputBody, final ApiCallback<BatchRenameOutputBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = batchRenameFunctionsValidateBeforeCall(batchRenameInputBody, _callback);
+        Type localVarReturnType = new TypeToken<BatchRenameOutputBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getFunctionHistory
+     * @param functionId Function ID (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getFunctionHistoryCall(@javax.annotation.Nonnull Long functionId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/functions/{function_id}/history"
+            .replace("{" + "function_id" + "}", localVarApiClient.escapeString(functionId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getFunctionHistoryValidateBeforeCall(@javax.annotation.Nonnull Long functionId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'functionId' is set
+        if (functionId == null) {
+            throw new ApiException("Missing the required parameter 'functionId' when calling getFunctionHistory(Async)");
+        }
+
+        return getFunctionHistoryCall(functionId, _callback);
+
+    }
+
+    /**
+     * Get function name history
+     * Returns the name change history for a function, newest first.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * @param functionId Function ID (required)
+     * @return List&lt;HistoryEntry&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public List<HistoryEntry> getFunctionHistory(@javax.annotation.Nonnull Long functionId) throws ApiException {
+        ApiResponse<List<HistoryEntry>> localVarResp = getFunctionHistoryWithHttpInfo(functionId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get function name history
+     * Returns the name change history for a function, newest first.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * @param functionId Function ID (required)
+     * @return ApiResponse&lt;List&lt;HistoryEntry&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<List<HistoryEntry>> getFunctionHistoryWithHttpInfo(@javax.annotation.Nonnull Long functionId) throws ApiException {
+        okhttp3.Call localVarCall = getFunctionHistoryValidateBeforeCall(functionId, null);
+        Type localVarReturnType = new TypeToken<List<HistoryEntry>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get function name history (asynchronously)
+     * Returns the name change history for a function, newest first.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * @param functionId Function ID (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getFunctionHistoryAsync(@javax.annotation.Nonnull Long functionId, final ApiCallback<List<HistoryEntry>> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getFunctionHistoryValidateBeforeCall(functionId, _callback);
+        Type localVarReturnType = new TypeToken<List<HistoryEntry>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for getFunctionNameHistory
      * @param functionId  (required)
      * @param _callback Callback for upload/download progress
@@ -333,6 +626,159 @@ public class FunctionsRenamingHistoryApi {
 
         okhttp3.Call localVarCall = getFunctionNameHistoryValidateBeforeCall(functionId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseListFunctionNameHistory>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for renameFunction
+     * @param functionId Function ID (required)
+     * @param renameInputBody  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call renameFunctionCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull RenameInputBody renameInputBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = renameInputBody;
+
+        // create path and map variables
+        String localVarPath = "/v3/functions/{function_id}/rename"
+            .replace("{" + "function_id" + "}", localVarApiClient.escapeString(functionId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call renameFunctionValidateBeforeCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull RenameInputBody renameInputBody, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'functionId' is set
+        if (functionId == null) {
+            throw new ApiException("Missing the required parameter 'functionId' when calling renameFunction(Async)");
+        }
+
+        // verify the required parameter 'renameInputBody' is set
+        if (renameInputBody == null) {
+            throw new ApiException("Missing the required parameter 'renameInputBody' when calling renameFunction(Async)");
+        }
+
+        return renameFunctionCall(functionId, renameInputBody, _callback);
+
+    }
+
+    /**
+     * Rename a function
+     * Renames a single function and records the change in history.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * @param functionId Function ID (required)
+     * @param renameInputBody  (required)
+     * @return RenameOutputBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public RenameOutputBody renameFunction(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull RenameInputBody renameInputBody) throws ApiException {
+        ApiResponse<RenameOutputBody> localVarResp = renameFunctionWithHttpInfo(functionId, renameInputBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Rename a function
+     * Renames a single function and records the change in history.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * @param functionId Function ID (required)
+     * @param renameInputBody  (required)
+     * @return ApiResponse&lt;RenameOutputBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<RenameOutputBody> renameFunctionWithHttpInfo(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull RenameInputBody renameInputBody) throws ApiException {
+        okhttp3.Call localVarCall = renameFunctionValidateBeforeCall(functionId, renameInputBody, null);
+        Type localVarReturnType = new TypeToken<RenameOutputBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Rename a function (asynchronously)
+     * Renames a single function and records the change in history.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * @param functionId Function ID (required)
+     * @param renameInputBody  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call renameFunctionAsync(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull RenameInputBody renameInputBody, final ApiCallback<RenameOutputBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = renameFunctionValidateBeforeCall(functionId, renameInputBody, _callback);
+        Type localVarReturnType = new TypeToken<RenameOutputBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -615,6 +1061,159 @@ public class FunctionsRenamingHistoryApi {
 
         okhttp3.Call localVarCall = revertFunctionNameValidateBeforeCall(functionId, historyId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for revertFunctionName_0
+     * @param functionId Function ID (required)
+     * @param historyId History ID to revert to (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call revertFunctionName_0Call(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull Long historyId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/functions/{function_id}/history/{history_id}/revert"
+            .replace("{" + "function_id" + "}", localVarApiClient.escapeString(functionId.toString()))
+            .replace("{" + "history_id" + "}", localVarApiClient.escapeString(historyId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call revertFunctionName_0ValidateBeforeCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull Long historyId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'functionId' is set
+        if (functionId == null) {
+            throw new ApiException("Missing the required parameter 'functionId' when calling revertFunctionName_0(Async)");
+        }
+
+        // verify the required parameter 'historyId' is set
+        if (historyId == null) {
+            throw new ApiException("Missing the required parameter 'historyId' when calling revertFunctionName_0(Async)");
+        }
+
+        return revertFunctionName_0Call(functionId, historyId, _callback);
+
+    }
+
+    /**
+     * Revert function name
+     * Reverts a function&#39;s name to a previous value from its history.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * @param functionId Function ID (required)
+     * @param historyId History ID to revert to (required)
+     * @return RevertOutputBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public RevertOutputBody revertFunctionName_0(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull Long historyId) throws ApiException {
+        ApiResponse<RevertOutputBody> localVarResp = revertFunctionName_0WithHttpInfo(functionId, historyId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Revert function name
+     * Reverts a function&#39;s name to a previous value from its history.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * @param functionId Function ID (required)
+     * @param historyId History ID to revert to (required)
+     * @return ApiResponse&lt;RevertOutputBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<RevertOutputBody> revertFunctionName_0WithHttpInfo(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull Long historyId) throws ApiException {
+        okhttp3.Call localVarCall = revertFunctionName_0ValidateBeforeCall(functionId, historyId, null);
+        Type localVarReturnType = new TypeToken<RevertOutputBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Revert function name (asynchronously)
+     * Reverts a function&#39;s name to a previous value from its history.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * @param functionId Function ID (required)
+     * @param historyId History ID to revert to (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call revertFunctionName_0Async(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull Long historyId, final ApiCallback<RevertOutputBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = revertFunctionName_0ValidateBeforeCall(functionId, historyId, _callback);
+        Type localVarReturnType = new TypeToken<RevertOutputBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
