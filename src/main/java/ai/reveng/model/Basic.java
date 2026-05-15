@@ -138,6 +138,11 @@ public class Basic {
   @javax.annotation.Nullable
   private String sequencerVersion;
 
+  public static final String SERIALIZED_NAME_TEAM_ID = "team_id";
+  @SerializedName(SERIALIZED_NAME_TEAM_ID)
+  @javax.annotation.Nonnull
+  private Integer teamId;
+
   public Basic() {
   }
 
@@ -463,6 +468,25 @@ public class Basic {
     this.sequencerVersion = sequencerVersion;
   }
 
+
+  public Basic teamId(@javax.annotation.Nonnull Integer teamId) {
+    this.teamId = teamId;
+    return this;
+  }
+
+  /**
+   * The team ID of the analysis
+   * @return teamId
+   */
+  @javax.annotation.Nonnull
+  public Integer getTeamId() {
+    return teamId;
+  }
+
+  public void setTeamId(@javax.annotation.Nonnull Integer teamId) {
+    this.teamId = teamId;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -534,7 +558,8 @@ public class Basic {
         Objects.equals(this.isAdvanced, basic.isAdvanced) &&
         Objects.equals(this.baseAddress, basic.baseAddress) &&
         Objects.equals(this.binaryUuid, basic.binaryUuid) &&
-        Objects.equals(this.sequencerVersion, basic.sequencerVersion)&&
+        Objects.equals(this.sequencerVersion, basic.sequencerVersion) &&
+        Objects.equals(this.teamId, basic.teamId)&&
         Objects.equals(this.additionalProperties, basic.additionalProperties);
   }
 
@@ -544,7 +569,7 @@ public class Basic {
 
   @Override
   public int hashCode() {
-    return Objects.hash(binaryId, binaryName, binarySize, creation, sha256Hash, modelName, modelId, ownerUsername, isSystem, analysisScope, isOwner, debug, functionCount, isAdvanced, baseAddress, binaryUuid, sequencerVersion, additionalProperties);
+    return Objects.hash(binaryId, binaryName, binarySize, creation, sha256Hash, modelName, modelId, ownerUsername, isSystem, analysisScope, isOwner, debug, functionCount, isAdvanced, baseAddress, binaryUuid, sequencerVersion, teamId, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -575,6 +600,7 @@ public class Basic {
     sb.append("    baseAddress: ").append(toIndentedString(baseAddress)).append("\n");
     sb.append("    binaryUuid: ").append(toIndentedString(binaryUuid)).append("\n");
     sb.append("    sequencerVersion: ").append(toIndentedString(sequencerVersion)).append("\n");
+    sb.append("    teamId: ").append(toIndentedString(teamId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -597,10 +623,10 @@ public class Basic {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("binary_id", "binary_name", "binary_size", "creation", "sha_256_hash", "model_name", "model_id", "owner_username", "is_system", "analysis_scope", "is_owner", "debug", "function_count", "is_advanced", "base_address", "binary_uuid", "sequencer_version"));
+    openapiFields = new HashSet<String>(Arrays.asList("binary_id", "binary_name", "binary_size", "creation", "sha_256_hash", "model_name", "model_id", "owner_username", "is_system", "analysis_scope", "is_owner", "debug", "function_count", "is_advanced", "base_address", "binary_uuid", "sequencer_version", "team_id"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("binary_id", "binary_name", "binary_size", "creation", "sha_256_hash", "model_name", "model_id", "owner_username", "is_system", "analysis_scope", "is_owner", "debug", "function_count", "is_advanced", "base_address"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("binary_id", "binary_name", "binary_size", "creation", "sha_256_hash", "model_name", "model_id", "owner_username", "is_system", "analysis_scope", "is_owner", "debug", "function_count", "is_advanced", "base_address", "team_id"));
   }
 
   /**

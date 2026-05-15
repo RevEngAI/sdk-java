@@ -36,7 +36,6 @@ import ai.reveng.model.FunctionsListRename;
 import ai.reveng.model.HistoryEntry;
 import ai.reveng.model.RenameInputBody;
 import ai.reveng.model.RenameOutputBody;
-import ai.reveng.model.RevertOutputBody;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -1149,7 +1148,7 @@ public class FunctionsRenamingHistoryApi {
      * Reverts a function&#39;s name to a previous value from its history.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
      * @param functionId Function ID (required)
      * @param historyId History ID to revert to (required)
-     * @return RevertOutputBody
+     * @return Map&lt;String, Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -1162,8 +1161,8 @@ public class FunctionsRenamingHistoryApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public RevertOutputBody revertFunctionName_0(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull Long historyId) throws ApiException {
-        ApiResponse<RevertOutputBody> localVarResp = revertFunctionName_0WithHttpInfo(functionId, historyId);
+    public Map<String, Object> revertFunctionName_0(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull Long historyId) throws ApiException {
+        ApiResponse<Map<String, Object>> localVarResp = revertFunctionName_0WithHttpInfo(functionId, historyId);
         return localVarResp.getData();
     }
 
@@ -1172,7 +1171,7 @@ public class FunctionsRenamingHistoryApi {
      * Reverts a function&#39;s name to a previous value from its history.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
      * @param functionId Function ID (required)
      * @param historyId History ID to revert to (required)
-     * @return ApiResponse&lt;RevertOutputBody&gt;
+     * @return ApiResponse&lt;Map&lt;String, Object&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -1185,9 +1184,9 @@ public class FunctionsRenamingHistoryApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<RevertOutputBody> revertFunctionName_0WithHttpInfo(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull Long historyId) throws ApiException {
+    public ApiResponse<Map<String, Object>> revertFunctionName_0WithHttpInfo(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull Long historyId) throws ApiException {
         okhttp3.Call localVarCall = revertFunctionName_0ValidateBeforeCall(functionId, historyId, null);
-        Type localVarReturnType = new TypeToken<RevertOutputBody>(){}.getType();
+        Type localVarReturnType = new TypeToken<Map<String, Object>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1210,10 +1209,10 @@ public class FunctionsRenamingHistoryApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call revertFunctionName_0Async(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull Long historyId, final ApiCallback<RevertOutputBody> _callback) throws ApiException {
+    public okhttp3.Call revertFunctionName_0Async(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull Long historyId, final ApiCallback<Map<String, Object>> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = revertFunctionName_0ValidateBeforeCall(functionId, historyId, _callback);
-        Type localVarReturnType = new TypeToken<RevertOutputBody>(){}.getType();
+        Type localVarReturnType = new TypeToken<Map<String, Object>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

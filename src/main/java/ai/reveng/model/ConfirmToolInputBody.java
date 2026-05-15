@@ -20,7 +20,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.net.URI;
 import java.util.Arrays;
 
 import com.google.gson.Gson;
@@ -52,11 +51,6 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ConfirmToolInputBody {
-  public static final String SERIALIZED_NAME_$_SCHEMA = "$schema";
-  @SerializedName(SERIALIZED_NAME_$_SCHEMA)
-  @javax.annotation.Nullable
-  private URI $schema;
-
   public static final String SERIALIZED_NAME_APPROVED = "approved";
   @SerializedName(SERIALIZED_NAME_APPROVED)
   @javax.annotation.Nonnull
@@ -64,24 +58,6 @@ public class ConfirmToolInputBody {
 
   public ConfirmToolInputBody() {
   }
-
-  public ConfirmToolInputBody(
-     URI $schema
-  ) {
-    this();
-    this.$schema = $schema;
-  }
-
-  /**
-   * A URL to the JSON Schema for this object.
-   * @return $schema
-   */
-  @javax.annotation.Nullable
-  public URI get$Schema() {
-    return $schema;
-  }
-
-
 
   public ConfirmToolInputBody approved(@javax.annotation.Nonnull Boolean approved) {
     this.approved = approved;
@@ -156,21 +132,19 @@ public class ConfirmToolInputBody {
       return false;
     }
     ConfirmToolInputBody confirmToolInputBody = (ConfirmToolInputBody) o;
-    return Objects.equals(this.$schema, confirmToolInputBody.$schema) &&
-        Objects.equals(this.approved, confirmToolInputBody.approved)&&
+    return Objects.equals(this.approved, confirmToolInputBody.approved)&&
         Objects.equals(this.additionalProperties, confirmToolInputBody.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash($schema, approved, additionalProperties);
+    return Objects.hash(approved, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConfirmToolInputBody {\n");
-    sb.append("    $schema: ").append(toIndentedString($schema)).append("\n");
     sb.append("    approved: ").append(toIndentedString(approved)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -194,7 +168,7 @@ public class ConfirmToolInputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("$schema", "approved"));
+    openapiFields = new HashSet<String>(Arrays.asList("approved"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("approved"));
@@ -220,9 +194,6 @@ public class ConfirmToolInputBody {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("$schema") != null && !jsonObj.get("$schema").isJsonNull()) && !jsonObj.get("$schema").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `$schema` to be a primitive type in the JSON string but got `%s`", jsonObj.get("$schema").toString()));
-      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

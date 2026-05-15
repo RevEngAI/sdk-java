@@ -416,7 +416,9 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call createAiDecompilationTaskCall(@javax.annotation.Nonnull Long functionId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -462,6 +464,7 @@ public class FunctionsAiDecompilationApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createAiDecompilationTaskValidateBeforeCall(@javax.annotation.Nonnull Long functionId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'functionId' is set
@@ -490,7 +493,9 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BaseResponse createAiDecompilationTask(@javax.annotation.Nonnull Long functionId) throws ApiException {
         ApiResponse<BaseResponse> localVarResp = createAiDecompilationTaskWithHttpInfo(functionId);
         return localVarResp.getData();
@@ -513,7 +518,9 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BaseResponse> createAiDecompilationTaskWithHttpInfo(@javax.annotation.Nonnull Long functionId) throws ApiException {
         okhttp3.Call localVarCall = createAiDecompilationTaskValidateBeforeCall(functionId, null);
         Type localVarReturnType = new TypeToken<BaseResponse>(){}.getType();
@@ -538,7 +545,9 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call createAiDecompilationTaskAsync(@javax.annotation.Nonnull Long functionId, final ApiCallback<BaseResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createAiDecompilationTaskValidateBeforeCall(functionId, _callback);
@@ -1832,7 +1841,9 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getAiDecompilationTaskResultCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Boolean summarise, @javax.annotation.Nullable Boolean generateInlineComments, @javax.annotation.Nullable List<RegenerateTarget> forceRegenerate, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1890,6 +1901,7 @@ public class FunctionsAiDecompilationApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getAiDecompilationTaskResultValidateBeforeCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Boolean summarise, @javax.annotation.Nullable Boolean generateInlineComments, @javax.annotation.Nullable List<RegenerateTarget> forceRegenerate, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'functionId' is set
@@ -1918,7 +1930,9 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BaseResponseGetAiDecompilationTask getAiDecompilationTaskResult(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Boolean summarise, @javax.annotation.Nullable Boolean generateInlineComments, @javax.annotation.Nullable List<RegenerateTarget> forceRegenerate) throws ApiException {
         ApiResponse<BaseResponseGetAiDecompilationTask> localVarResp = getAiDecompilationTaskResultWithHttpInfo(functionId, summarise, generateInlineComments, forceRegenerate);
         return localVarResp.getData();
@@ -1941,7 +1955,9 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BaseResponseGetAiDecompilationTask> getAiDecompilationTaskResultWithHttpInfo(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Boolean summarise, @javax.annotation.Nullable Boolean generateInlineComments, @javax.annotation.Nullable List<RegenerateTarget> forceRegenerate) throws ApiException {
         okhttp3.Call localVarCall = getAiDecompilationTaskResultValidateBeforeCall(functionId, summarise, generateInlineComments, forceRegenerate, null);
         Type localVarReturnType = new TypeToken<BaseResponseGetAiDecompilationTask>(){}.getType();
@@ -1966,7 +1982,9 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getAiDecompilationTaskResultAsync(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Boolean summarise, @javax.annotation.Nullable Boolean generateInlineComments, @javax.annotation.Nullable List<RegenerateTarget> forceRegenerate, final ApiCallback<BaseResponseGetAiDecompilationTask> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getAiDecompilationTaskResultValidateBeforeCall(functionId, summarise, generateInlineComments, forceRegenerate, _callback);
@@ -1987,7 +2005,9 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getAiDecompilationTaskStatusCall(@javax.annotation.Nonnull Long functionId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -2033,6 +2053,7 @@ public class FunctionsAiDecompilationApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getAiDecompilationTaskStatusValidateBeforeCall(@javax.annotation.Nonnull Long functionId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'functionId' is set
@@ -2057,7 +2078,9 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BaseResponseFunctionTaskResponse getAiDecompilationTaskStatus(@javax.annotation.Nonnull Long functionId) throws ApiException {
         ApiResponse<BaseResponseFunctionTaskResponse> localVarResp = getAiDecompilationTaskStatusWithHttpInfo(functionId);
         return localVarResp.getData();
@@ -2076,7 +2099,9 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BaseResponseFunctionTaskResponse> getAiDecompilationTaskStatusWithHttpInfo(@javax.annotation.Nonnull Long functionId) throws ApiException {
         okhttp3.Call localVarCall = getAiDecompilationTaskStatusValidateBeforeCall(functionId, null);
         Type localVarReturnType = new TypeToken<BaseResponseFunctionTaskResponse>(){}.getType();
@@ -2097,7 +2122,9 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getAiDecompilationTaskStatusAsync(@javax.annotation.Nonnull Long functionId, final ApiCallback<BaseResponseFunctionTaskResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getAiDecompilationTaskStatusValidateBeforeCall(functionId, _callback);

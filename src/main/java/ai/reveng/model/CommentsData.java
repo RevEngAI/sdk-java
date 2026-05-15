@@ -21,7 +21,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -55,11 +54,6 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CommentsData {
-  public static final String SERIALIZED_NAME_$_SCHEMA = "$schema";
-  @SerializedName(SERIALIZED_NAME_$_SCHEMA)
-  @javax.annotation.Nullable
-  private URI $schema;
-
   public static final String SERIALIZED_NAME_INLINE_COMMENTS = "inline_comments";
   @SerializedName(SERIALIZED_NAME_INLINE_COMMENTS)
   @javax.annotation.Nullable
@@ -128,24 +122,6 @@ public class CommentsData {
 
   public CommentsData() {
   }
-
-  public CommentsData(
-     URI $schema
-  ) {
-    this();
-    this.$schema = $schema;
-  }
-
-  /**
-   * A URL to the JSON Schema for this object.
-   * @return $schema
-   */
-  @javax.annotation.Nullable
-  public URI get$Schema() {
-    return $schema;
-  }
-
-
 
   public CommentsData inlineComments(@javax.annotation.Nullable List<InlineComment> inlineComments) {
     this.inlineComments = inlineComments;
@@ -247,22 +223,20 @@ public class CommentsData {
       return false;
     }
     CommentsData commentsData = (CommentsData) o;
-    return Objects.equals(this.$schema, commentsData.$schema) &&
-        Objects.equals(this.inlineComments, commentsData.inlineComments) &&
+    return Objects.equals(this.inlineComments, commentsData.inlineComments) &&
         Objects.equals(this.taskStatus, commentsData.taskStatus)&&
         Objects.equals(this.additionalProperties, commentsData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash($schema, inlineComments, taskStatus, additionalProperties);
+    return Objects.hash(inlineComments, taskStatus, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CommentsData {\n");
-    sb.append("    $schema: ").append(toIndentedString($schema)).append("\n");
     sb.append("    inlineComments: ").append(toIndentedString(inlineComments)).append("\n");
     sb.append("    taskStatus: ").append(toIndentedString(taskStatus)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -287,7 +261,7 @@ public class CommentsData {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("$schema", "inline_comments", "task_status"));
+    openapiFields = new HashSet<String>(Arrays.asList("inline_comments", "task_status"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("inline_comments", "task_status"));
@@ -313,9 +287,6 @@ public class CommentsData {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("$schema") != null && !jsonObj.get("$schema").isJsonNull()) && !jsonObj.get("$schema").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `$schema` to be a primitive type in the JSON string but got `%s`", jsonObj.get("$schema").toString()));
-      }
       // ensure the required json array is present
       if (jsonObj.get("inline_comments") == null) {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");

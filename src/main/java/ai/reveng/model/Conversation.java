@@ -20,7 +20,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.net.URI;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -54,11 +53,6 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Conversation {
-  public static final String SERIALIZED_NAME_$_SCHEMA = "$schema";
-  @SerializedName(SERIALIZED_NAME_$_SCHEMA)
-  @javax.annotation.Nullable
-  private URI $schema;
-
   public static final String SERIALIZED_NAME_CONTEXT = "context";
   @SerializedName(SERIALIZED_NAME_CONTEXT)
   @javax.annotation.Nullable
@@ -91,24 +85,6 @@ public class Conversation {
 
   public Conversation() {
   }
-
-  public Conversation(
-     URI $schema
-  ) {
-    this();
-    this.$schema = $schema;
-  }
-
-  /**
-   * A URL to the JSON Schema for this object.
-   * @return $schema
-   */
-  @javax.annotation.Nullable
-  public URI get$Schema() {
-    return $schema;
-  }
-
-
 
   public Conversation context(@javax.annotation.Nullable Object context) {
     this.context = context;
@@ -278,8 +254,7 @@ public class Conversation {
       return false;
     }
     Conversation conversation = (Conversation) o;
-    return Objects.equals(this.$schema, conversation.$schema) &&
-        Objects.equals(this.context, conversation.context) &&
+    return Objects.equals(this.context, conversation.context) &&
         Objects.equals(this.conversationUuid, conversation.conversationUuid) &&
         Objects.equals(this.createdAt, conversation.createdAt) &&
         Objects.equals(this.title, conversation.title) &&
@@ -294,7 +269,7 @@ public class Conversation {
 
   @Override
   public int hashCode() {
-    return Objects.hash($schema, context, conversationUuid, createdAt, title, updatedAt, userId, additionalProperties);
+    return Objects.hash(context, conversationUuid, createdAt, title, updatedAt, userId, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -308,7 +283,6 @@ public class Conversation {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Conversation {\n");
-    sb.append("    $schema: ").append(toIndentedString($schema)).append("\n");
     sb.append("    context: ").append(toIndentedString(context)).append("\n");
     sb.append("    conversationUuid: ").append(toIndentedString(conversationUuid)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
@@ -337,7 +311,7 @@ public class Conversation {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("$schema", "context", "conversation_uuid", "created_at", "title", "updated_at", "user_id"));
+    openapiFields = new HashSet<String>(Arrays.asList("context", "conversation_uuid", "created_at", "title", "updated_at", "user_id"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("conversation_uuid", "created_at", "title", "updated_at", "user_id"));
@@ -363,9 +337,6 @@ public class Conversation {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("$schema") != null && !jsonObj.get("$schema").isJsonNull()) && !jsonObj.get("$schema").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `$schema` to be a primitive type in the JSON string but got `%s`", jsonObj.get("$schema").toString()));
-      }
       if (!jsonObj.get("conversation_uuid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `conversation_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conversation_uuid").toString()));
       }

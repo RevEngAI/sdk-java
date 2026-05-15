@@ -20,7 +20,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.net.URI;
 import java.util.Arrays;
 
 import com.google.gson.Gson;
@@ -52,11 +51,6 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreateAIDecompOutputBody {
-  public static final String SERIALIZED_NAME_$_SCHEMA = "$schema";
-  @SerializedName(SERIALIZED_NAME_$_SCHEMA)
-  @javax.annotation.Nullable
-  private URI $schema;
-
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
   @javax.annotation.Nonnull
@@ -64,24 +58,6 @@ public class CreateAIDecompOutputBody {
 
   public CreateAIDecompOutputBody() {
   }
-
-  public CreateAIDecompOutputBody(
-     URI $schema
-  ) {
-    this();
-    this.$schema = $schema;
-  }
-
-  /**
-   * A URL to the JSON Schema for this object.
-   * @return $schema
-   */
-  @javax.annotation.Nullable
-  public URI get$Schema() {
-    return $schema;
-  }
-
-
 
   public CreateAIDecompOutputBody status(@javax.annotation.Nonnull Boolean status) {
     this.status = status;
@@ -156,21 +132,19 @@ public class CreateAIDecompOutputBody {
       return false;
     }
     CreateAIDecompOutputBody createAIDecompOutputBody = (CreateAIDecompOutputBody) o;
-    return Objects.equals(this.$schema, createAIDecompOutputBody.$schema) &&
-        Objects.equals(this.status, createAIDecompOutputBody.status)&&
+    return Objects.equals(this.status, createAIDecompOutputBody.status)&&
         Objects.equals(this.additionalProperties, createAIDecompOutputBody.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash($schema, status, additionalProperties);
+    return Objects.hash(status, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateAIDecompOutputBody {\n");
-    sb.append("    $schema: ").append(toIndentedString($schema)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -194,7 +168,7 @@ public class CreateAIDecompOutputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("$schema", "status"));
+    openapiFields = new HashSet<String>(Arrays.asList("status"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("status"));
@@ -220,9 +194,6 @@ public class CreateAIDecompOutputBody {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("$schema") != null && !jsonObj.get("$schema").isJsonNull()) && !jsonObj.get("$schema").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `$schema` to be a primitive type in the JSON string but got `%s`", jsonObj.get("$schema").toString()));
-      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

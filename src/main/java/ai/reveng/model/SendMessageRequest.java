@@ -21,7 +21,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.net.URI;
 import java.util.Arrays;
 
 import com.google.gson.Gson;
@@ -53,11 +52,6 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SendMessageRequest {
-  public static final String SERIALIZED_NAME_$_SCHEMA = "$schema";
-  @SerializedName(SERIALIZED_NAME_$_SCHEMA)
-  @javax.annotation.Nullable
-  private URI $schema;
-
   public static final String SERIALIZED_NAME_CONTENT = "content";
   @SerializedName(SERIALIZED_NAME_CONTENT)
   @javax.annotation.Nonnull
@@ -70,24 +64,6 @@ public class SendMessageRequest {
 
   public SendMessageRequest() {
   }
-
-  public SendMessageRequest(
-     URI $schema
-  ) {
-    this();
-    this.$schema = $schema;
-  }
-
-  /**
-   * A URL to the JSON Schema for this object.
-   * @return $schema
-   */
-  @javax.annotation.Nullable
-  public URI get$Schema() {
-    return $schema;
-  }
-
-
 
   public SendMessageRequest content(@javax.annotation.Nonnull String content) {
     this.content = content;
@@ -181,22 +157,20 @@ public class SendMessageRequest {
       return false;
     }
     SendMessageRequest sendMessageRequest = (SendMessageRequest) o;
-    return Objects.equals(this.$schema, sendMessageRequest.$schema) &&
-        Objects.equals(this.content, sendMessageRequest.content) &&
+    return Objects.equals(this.content, sendMessageRequest.content) &&
         Objects.equals(this.context, sendMessageRequest.context)&&
         Objects.equals(this.additionalProperties, sendMessageRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash($schema, content, context, additionalProperties);
+    return Objects.hash(content, context, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SendMessageRequest {\n");
-    sb.append("    $schema: ").append(toIndentedString($schema)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    context: ").append(toIndentedString(context)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -221,7 +195,7 @@ public class SendMessageRequest {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("$schema", "content", "context"));
+    openapiFields = new HashSet<String>(Arrays.asList("content", "context"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("content"));
@@ -247,9 +221,6 @@ public class SendMessageRequest {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("$schema") != null && !jsonObj.get("$schema").isJsonNull()) && !jsonObj.get("$schema").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `$schema` to be a primitive type in the JSON string but got `%s`", jsonObj.get("$schema").toString()));
-      }
       if (!jsonObj.get("content").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `content` to be a primitive type in the JSON string but got `%s`", jsonObj.get("content").toString()));
       }

@@ -21,7 +21,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -55,11 +54,6 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class BatchRenameInputBody {
-  public static final String SERIALIZED_NAME_$_SCHEMA = "$schema";
-  @SerializedName(SERIALIZED_NAME_$_SCHEMA)
-  @javax.annotation.Nullable
-  private URI $schema;
-
   public static final String SERIALIZED_NAME_FUNCTIONS = "functions";
   @SerializedName(SERIALIZED_NAME_FUNCTIONS)
   @javax.annotation.Nullable
@@ -67,24 +61,6 @@ public class BatchRenameInputBody {
 
   public BatchRenameInputBody() {
   }
-
-  public BatchRenameInputBody(
-     URI $schema
-  ) {
-    this();
-    this.$schema = $schema;
-  }
-
-  /**
-   * A URL to the JSON Schema for this object.
-   * @return $schema
-   */
-  @javax.annotation.Nullable
-  public URI get$Schema() {
-    return $schema;
-  }
-
-
 
   public BatchRenameInputBody functions(@javax.annotation.Nullable List<BatchRenameItem> functions) {
     this.functions = functions;
@@ -167,21 +143,19 @@ public class BatchRenameInputBody {
       return false;
     }
     BatchRenameInputBody batchRenameInputBody = (BatchRenameInputBody) o;
-    return Objects.equals(this.$schema, batchRenameInputBody.$schema) &&
-        Objects.equals(this.functions, batchRenameInputBody.functions)&&
+    return Objects.equals(this.functions, batchRenameInputBody.functions)&&
         Objects.equals(this.additionalProperties, batchRenameInputBody.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash($schema, functions, additionalProperties);
+    return Objects.hash(functions, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class BatchRenameInputBody {\n");
-    sb.append("    $schema: ").append(toIndentedString($schema)).append("\n");
     sb.append("    functions: ").append(toIndentedString(functions)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -205,7 +179,7 @@ public class BatchRenameInputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("$schema", "functions"));
+    openapiFields = new HashSet<String>(Arrays.asList("functions"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("functions"));
@@ -231,9 +205,6 @@ public class BatchRenameInputBody {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("$schema") != null && !jsonObj.get("$schema").isJsonNull()) && !jsonObj.get("$schema").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `$schema` to be a primitive type in the JSON string but got `%s`", jsonObj.get("$schema").toString()));
-      }
       // ensure the required json array is present
       if (jsonObj.get("functions") == null) {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");

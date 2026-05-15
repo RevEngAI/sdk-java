@@ -21,7 +21,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -55,11 +54,6 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WorkflowProgress {
-  public static final String SERIALIZED_NAME_$_SCHEMA = "$schema";
-  @SerializedName(SERIALIZED_NAME_$_SCHEMA)
-  @javax.annotation.Nullable
-  private URI $schema;
-
   public static final String SERIALIZED_NAME_MESSAGES = "messages";
   @SerializedName(SERIALIZED_NAME_MESSAGES)
   @javax.annotation.Nullable
@@ -147,24 +141,6 @@ public class WorkflowProgress {
 
   public WorkflowProgress() {
   }
-
-  public WorkflowProgress(
-     URI $schema
-  ) {
-    this();
-    this.$schema = $schema;
-  }
-
-  /**
-   * A URL to the JSON Schema for this object.
-   * @return $schema
-   */
-  @javax.annotation.Nullable
-  public URI get$Schema() {
-    return $schema;
-  }
-
-
 
   public WorkflowProgress messages(@javax.annotation.Nullable List<ProgressMessage> messages) {
     this.messages = messages;
@@ -323,8 +299,7 @@ public class WorkflowProgress {
       return false;
     }
     WorkflowProgress workflowProgress = (WorkflowProgress) o;
-    return Objects.equals(this.$schema, workflowProgress.$schema) &&
-        Objects.equals(this.messages, workflowProgress.messages) &&
+    return Objects.equals(this.messages, workflowProgress.messages) &&
         Objects.equals(this.status, workflowProgress.status) &&
         Objects.equals(this.step, workflowProgress.step) &&
         Objects.equals(this.stepIndex, workflowProgress.stepIndex) &&
@@ -334,14 +309,13 @@ public class WorkflowProgress {
 
   @Override
   public int hashCode() {
-    return Objects.hash($schema, messages, status, step, stepIndex, stepsTotal, additionalProperties);
+    return Objects.hash(messages, status, step, stepIndex, stepsTotal, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class WorkflowProgress {\n");
-    sb.append("    $schema: ").append(toIndentedString($schema)).append("\n");
     sb.append("    messages: ").append(toIndentedString(messages)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    step: ").append(toIndentedString(step)).append("\n");
@@ -369,7 +343,7 @@ public class WorkflowProgress {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("$schema", "messages", "status", "step", "step_index", "steps_total"));
+    openapiFields = new HashSet<String>(Arrays.asList("messages", "status", "step", "step_index", "steps_total"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("messages", "status", "step", "step_index", "steps_total"));
@@ -395,9 +369,6 @@ public class WorkflowProgress {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("$schema") != null && !jsonObj.get("$schema").isJsonNull()) && !jsonObj.get("$schema").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `$schema` to be a primitive type in the JSON string but got `%s`", jsonObj.get("$schema").toString()));
-      }
       // ensure the required json array is present
       if (jsonObj.get("messages") == null) {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
