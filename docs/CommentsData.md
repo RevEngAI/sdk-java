@@ -7,7 +7,6 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**$schema** | **URI** | A URL to the JSON Schema for this object. |  [optional] [readonly] |
 |**inlineComments** | **List&lt;InlineComment&gt;** | Structured inline comments with line numbers |  |
 |**taskStatus** | [**TaskStatusEnum**](#TaskStatusEnum) | Task status |  |
 

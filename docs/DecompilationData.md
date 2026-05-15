@@ -7,7 +7,6 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**$schema** | **URI** | A URL to the JSON Schema for this object. |  [optional] [readonly] |
 |**decompilation** | **String** | Source code with placeholders replaced |  [optional] |
 |**status** | [**StatusEnum**](#StatusEnum) | Task status |  |
 

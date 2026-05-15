@@ -20,7 +20,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.net.URI;
 import java.util.Arrays;
 
 import com.google.gson.Gson;
@@ -52,11 +51,6 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GeneratePDFOutputBody {
-  public static final String SERIALIZED_NAME_$_SCHEMA = "$schema";
-  @SerializedName(SERIALIZED_NAME_$_SCHEMA)
-  @javax.annotation.Nullable
-  private URI $schema;
-
   public static final String SERIALIZED_NAME_ALREADY_RUNNING = "already_running";
   @SerializedName(SERIALIZED_NAME_ALREADY_RUNNING)
   @javax.annotation.Nullable
@@ -69,24 +63,6 @@ public class GeneratePDFOutputBody {
 
   public GeneratePDFOutputBody() {
   }
-
-  public GeneratePDFOutputBody(
-     URI $schema
-  ) {
-    this();
-    this.$schema = $schema;
-  }
-
-  /**
-   * A URL to the JSON Schema for this object.
-   * @return $schema
-   */
-  @javax.annotation.Nullable
-  public URI get$Schema() {
-    return $schema;
-  }
-
-
 
   public GeneratePDFOutputBody alreadyRunning(@javax.annotation.Nullable Boolean alreadyRunning) {
     this.alreadyRunning = alreadyRunning;
@@ -180,22 +156,20 @@ public class GeneratePDFOutputBody {
       return false;
     }
     GeneratePDFOutputBody generatePDFOutputBody = (GeneratePDFOutputBody) o;
-    return Objects.equals(this.$schema, generatePDFOutputBody.$schema) &&
-        Objects.equals(this.alreadyRunning, generatePDFOutputBody.alreadyRunning) &&
+    return Objects.equals(this.alreadyRunning, generatePDFOutputBody.alreadyRunning) &&
         Objects.equals(this.taskId, generatePDFOutputBody.taskId)&&
         Objects.equals(this.additionalProperties, generatePDFOutputBody.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash($schema, alreadyRunning, taskId, additionalProperties);
+    return Objects.hash(alreadyRunning, taskId, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GeneratePDFOutputBody {\n");
-    sb.append("    $schema: ").append(toIndentedString($schema)).append("\n");
     sb.append("    alreadyRunning: ").append(toIndentedString(alreadyRunning)).append("\n");
     sb.append("    taskId: ").append(toIndentedString(taskId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -220,7 +194,7 @@ public class GeneratePDFOutputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("$schema", "already_running", "task_id"));
+    openapiFields = new HashSet<String>(Arrays.asList("already_running", "task_id"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("task_id"));
@@ -246,9 +220,6 @@ public class GeneratePDFOutputBody {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("$schema") != null && !jsonObj.get("$schema").isJsonNull()) && !jsonObj.get("$schema").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `$schema` to be a primitive type in the JSON string but got `%s`", jsonObj.get("$schema").toString()));
-      }
       if (!jsonObj.get("task_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `task_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("task_id").toString()));
       }

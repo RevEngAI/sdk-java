@@ -20,7 +20,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.net.URI;
 import java.util.Arrays;
 
 import com.google.gson.Gson;
@@ -52,11 +51,6 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class BatchRenameOutputBody {
-  public static final String SERIALIZED_NAME_$_SCHEMA = "$schema";
-  @SerializedName(SERIALIZED_NAME_$_SCHEMA)
-  @javax.annotation.Nullable
-  private URI $schema;
-
   public static final String SERIALIZED_NAME_RENAMED_COUNT = "renamed_count";
   @SerializedName(SERIALIZED_NAME_RENAMED_COUNT)
   @javax.annotation.Nonnull
@@ -64,24 +58,6 @@ public class BatchRenameOutputBody {
 
   public BatchRenameOutputBody() {
   }
-
-  public BatchRenameOutputBody(
-     URI $schema
-  ) {
-    this();
-    this.$schema = $schema;
-  }
-
-  /**
-   * A URL to the JSON Schema for this object.
-   * @return $schema
-   */
-  @javax.annotation.Nullable
-  public URI get$Schema() {
-    return $schema;
-  }
-
-
 
   public BatchRenameOutputBody renamedCount(@javax.annotation.Nonnull Long renamedCount) {
     this.renamedCount = renamedCount;
@@ -156,21 +132,19 @@ public class BatchRenameOutputBody {
       return false;
     }
     BatchRenameOutputBody batchRenameOutputBody = (BatchRenameOutputBody) o;
-    return Objects.equals(this.$schema, batchRenameOutputBody.$schema) &&
-        Objects.equals(this.renamedCount, batchRenameOutputBody.renamedCount)&&
+    return Objects.equals(this.renamedCount, batchRenameOutputBody.renamedCount)&&
         Objects.equals(this.additionalProperties, batchRenameOutputBody.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash($schema, renamedCount, additionalProperties);
+    return Objects.hash(renamedCount, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class BatchRenameOutputBody {\n");
-    sb.append("    $schema: ").append(toIndentedString($schema)).append("\n");
     sb.append("    renamedCount: ").append(toIndentedString(renamedCount)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -194,7 +168,7 @@ public class BatchRenameOutputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("$schema", "renamed_count"));
+    openapiFields = new HashSet<String>(Arrays.asList("renamed_count"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("renamed_count"));
@@ -220,9 +194,6 @@ public class BatchRenameOutputBody {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("$schema") != null && !jsonObj.get("$schema").isJsonNull()) && !jsonObj.get("$schema").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `$schema` to be a primitive type in the JSON string but got `%s`", jsonObj.get("$schema").toString()));
-      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

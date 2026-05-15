@@ -21,7 +21,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.net.URI;
 import java.util.Arrays;
 
 import com.google.gson.Gson;
@@ -53,11 +52,6 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TokenisedData {
-  public static final String SERIALIZED_NAME_$_SCHEMA = "$schema";
-  @SerializedName(SERIALIZED_NAME_$_SCHEMA)
-  @javax.annotation.Nullable
-  private URI $schema;
-
   public static final String SERIALIZED_NAME_FUNCTION_MAPPING = "function_mapping";
   @SerializedName(SERIALIZED_NAME_FUNCTION_MAPPING)
   @javax.annotation.Nullable
@@ -140,24 +134,6 @@ public class TokenisedData {
 
   public TokenisedData() {
   }
-
-  public TokenisedData(
-     URI $schema
-  ) {
-    this();
-    this.$schema = $schema;
-  }
-
-  /**
-   * A URL to the JSON Schema for this object.
-   * @return $schema
-   */
-  @javax.annotation.Nullable
-  public URI get$Schema() {
-    return $schema;
-  }
-
-
 
   public TokenisedData functionMapping(@javax.annotation.Nullable FunctionMapping functionMapping) {
     this.functionMapping = functionMapping;
@@ -289,8 +265,7 @@ public class TokenisedData {
       return false;
     }
     TokenisedData tokenisedData = (TokenisedData) o;
-    return Objects.equals(this.$schema, tokenisedData.$schema) &&
-        Objects.equals(this.functionMapping, tokenisedData.functionMapping) &&
+    return Objects.equals(this.functionMapping, tokenisedData.functionMapping) &&
         Objects.equals(this.predictedFunctionName, tokenisedData.predictedFunctionName) &&
         Objects.equals(this.status, tokenisedData.status) &&
         Objects.equals(this.tokenisedDecompilation, tokenisedData.tokenisedDecompilation)&&
@@ -299,14 +274,13 @@ public class TokenisedData {
 
   @Override
   public int hashCode() {
-    return Objects.hash($schema, functionMapping, predictedFunctionName, status, tokenisedDecompilation, additionalProperties);
+    return Objects.hash(functionMapping, predictedFunctionName, status, tokenisedDecompilation, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TokenisedData {\n");
-    sb.append("    $schema: ").append(toIndentedString($schema)).append("\n");
     sb.append("    functionMapping: ").append(toIndentedString(functionMapping)).append("\n");
     sb.append("    predictedFunctionName: ").append(toIndentedString(predictedFunctionName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
@@ -333,7 +307,7 @@ public class TokenisedData {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("$schema", "function_mapping", "predicted_function_name", "status", "tokenised_decompilation"));
+    openapiFields = new HashSet<String>(Arrays.asList("function_mapping", "predicted_function_name", "status", "tokenised_decompilation"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("status"));
@@ -359,9 +333,6 @@ public class TokenisedData {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("$schema") != null && !jsonObj.get("$schema").isJsonNull()) && !jsonObj.get("$schema").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `$schema` to be a primitive type in the JSON string but got `%s`", jsonObj.get("$schema").toString()));
-      }
       // validate the optional field `function_mapping`
       if (jsonObj.get("function_mapping") != null && !jsonObj.get("function_mapping").isJsonNull()) {
         FunctionMapping.validateJsonElement(jsonObj.get("function_mapping"));

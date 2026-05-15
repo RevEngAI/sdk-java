@@ -21,7 +21,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.net.URI;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -57,11 +56,6 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ConversationWithEvents {
-  public static final String SERIALIZED_NAME_$_SCHEMA = "$schema";
-  @SerializedName(SERIALIZED_NAME_$_SCHEMA)
-  @javax.annotation.Nullable
-  private URI $schema;
-
   public static final String SERIALIZED_NAME_CONTEXT = "context";
   @SerializedName(SERIALIZED_NAME_CONTEXT)
   @javax.annotation.Nullable
@@ -99,24 +93,6 @@ public class ConversationWithEvents {
 
   public ConversationWithEvents() {
   }
-
-  public ConversationWithEvents(
-     URI $schema
-  ) {
-    this();
-    this.$schema = $schema;
-  }
-
-  /**
-   * A URL to the JSON Schema for this object.
-   * @return $schema
-   */
-  @javax.annotation.Nullable
-  public URI get$Schema() {
-    return $schema;
-  }
-
-
 
   public ConversationWithEvents context(@javax.annotation.Nullable Object context) {
     this.context = context;
@@ -313,8 +289,7 @@ public class ConversationWithEvents {
       return false;
     }
     ConversationWithEvents conversationWithEvents = (ConversationWithEvents) o;
-    return Objects.equals(this.$schema, conversationWithEvents.$schema) &&
-        Objects.equals(this.context, conversationWithEvents.context) &&
+    return Objects.equals(this.context, conversationWithEvents.context) &&
         Objects.equals(this.conversationUuid, conversationWithEvents.conversationUuid) &&
         Objects.equals(this.createdAt, conversationWithEvents.createdAt) &&
         Objects.equals(this.events, conversationWithEvents.events) &&
@@ -330,7 +305,7 @@ public class ConversationWithEvents {
 
   @Override
   public int hashCode() {
-    return Objects.hash($schema, context, conversationUuid, createdAt, events, title, updatedAt, userId, additionalProperties);
+    return Objects.hash(context, conversationUuid, createdAt, events, title, updatedAt, userId, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -344,7 +319,6 @@ public class ConversationWithEvents {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConversationWithEvents {\n");
-    sb.append("    $schema: ").append(toIndentedString($schema)).append("\n");
     sb.append("    context: ").append(toIndentedString(context)).append("\n");
     sb.append("    conversationUuid: ").append(toIndentedString(conversationUuid)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
@@ -374,7 +348,7 @@ public class ConversationWithEvents {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("$schema", "context", "conversation_uuid", "created_at", "events", "title", "updated_at", "user_id"));
+    openapiFields = new HashSet<String>(Arrays.asList("context", "conversation_uuid", "created_at", "events", "title", "updated_at", "user_id"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("conversation_uuid", "created_at", "events", "title", "updated_at", "user_id"));
@@ -400,9 +374,6 @@ public class ConversationWithEvents {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("$schema") != null && !jsonObj.get("$schema").isJsonNull()) && !jsonObj.get("$schema").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `$schema` to be a primitive type in the JSON string but got `%s`", jsonObj.get("$schema").toString()));
-      }
       if (!jsonObj.get("conversation_uuid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `conversation_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conversation_uuid").toString()));
       }

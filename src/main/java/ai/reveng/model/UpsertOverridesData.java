@@ -20,7 +20,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.net.URI;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -54,11 +53,6 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpsertOverridesData {
-  public static final String SERIALIZED_NAME_$_SCHEMA = "$schema";
-  @SerializedName(SERIALIZED_NAME_$_SCHEMA)
-  @javax.annotation.Nullable
-  private URI $schema;
-
   public static final String SERIALIZED_NAME_USER_OVERRIDE_MAPPINGS = "user_override_mappings";
   @SerializedName(SERIALIZED_NAME_USER_OVERRIDE_MAPPINGS)
   @javax.annotation.Nonnull
@@ -66,24 +60,6 @@ public class UpsertOverridesData {
 
   public UpsertOverridesData() {
   }
-
-  public UpsertOverridesData(
-     URI $schema
-  ) {
-    this();
-    this.$schema = $schema;
-  }
-
-  /**
-   * A URL to the JSON Schema for this object.
-   * @return $schema
-   */
-  @javax.annotation.Nullable
-  public URI get$Schema() {
-    return $schema;
-  }
-
-
 
   public UpsertOverridesData userOverrideMappings(@javax.annotation.Nonnull Map<String, String> userOverrideMappings) {
     this.userOverrideMappings = userOverrideMappings;
@@ -166,21 +142,19 @@ public class UpsertOverridesData {
       return false;
     }
     UpsertOverridesData upsertOverridesData = (UpsertOverridesData) o;
-    return Objects.equals(this.$schema, upsertOverridesData.$schema) &&
-        Objects.equals(this.userOverrideMappings, upsertOverridesData.userOverrideMappings)&&
+    return Objects.equals(this.userOverrideMappings, upsertOverridesData.userOverrideMappings)&&
         Objects.equals(this.additionalProperties, upsertOverridesData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash($schema, userOverrideMappings, additionalProperties);
+    return Objects.hash(userOverrideMappings, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpsertOverridesData {\n");
-    sb.append("    $schema: ").append(toIndentedString($schema)).append("\n");
     sb.append("    userOverrideMappings: ").append(toIndentedString(userOverrideMappings)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -204,7 +178,7 @@ public class UpsertOverridesData {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("$schema", "user_override_mappings"));
+    openapiFields = new HashSet<String>(Arrays.asList("user_override_mappings"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("user_override_mappings"));
@@ -230,9 +204,6 @@ public class UpsertOverridesData {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("$schema") != null && !jsonObj.get("$schema").isJsonNull()) && !jsonObj.get("$schema").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `$schema` to be a primitive type in the JSON string but got `%s`", jsonObj.get("$schema").toString()));
-      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

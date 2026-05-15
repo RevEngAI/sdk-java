@@ -24,6 +24,7 @@
 |**baseAddress** | **Integer** |  |  |
 |**binaryUuid** | **String** |  |  [optional] |
 |**sequencerVersion** | **String** |  |  [optional] |
+|**teamId** | **Integer** | The team ID of the analysis |  |
 
 
 

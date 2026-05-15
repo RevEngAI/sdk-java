@@ -20,7 +20,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.net.URI;
 import java.util.Arrays;
 
 import com.google.gson.Gson;
@@ -52,11 +51,6 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SummaryData {
-  public static final String SERIALIZED_NAME_$_SCHEMA = "$schema";
-  @SerializedName(SERIALIZED_NAME_$_SCHEMA)
-  @javax.annotation.Nullable
-  private URI $schema;
-
   public static final String SERIALIZED_NAME_AI_SUMMARY = "ai_summary";
   @SerializedName(SERIALIZED_NAME_AI_SUMMARY)
   @javax.annotation.Nonnull
@@ -130,24 +124,6 @@ public class SummaryData {
 
   public SummaryData() {
   }
-
-  public SummaryData(
-     URI $schema
-  ) {
-    this();
-    this.$schema = $schema;
-  }
-
-  /**
-   * A URL to the JSON Schema for this object.
-   * @return $schema
-   */
-  @javax.annotation.Nullable
-  public URI get$Schema() {
-    return $schema;
-  }
-
-
 
   public SummaryData aiSummary(@javax.annotation.Nonnull String aiSummary) {
     this.aiSummary = aiSummary;
@@ -260,8 +236,7 @@ public class SummaryData {
       return false;
     }
     SummaryData summaryData = (SummaryData) o;
-    return Objects.equals(this.$schema, summaryData.$schema) &&
-        Objects.equals(this.aiSummary, summaryData.aiSummary) &&
+    return Objects.equals(this.aiSummary, summaryData.aiSummary) &&
         Objects.equals(this.summary, summaryData.summary) &&
         Objects.equals(this.taskStatus, summaryData.taskStatus)&&
         Objects.equals(this.additionalProperties, summaryData.additionalProperties);
@@ -269,14 +244,13 @@ public class SummaryData {
 
   @Override
   public int hashCode() {
-    return Objects.hash($schema, aiSummary, summary, taskStatus, additionalProperties);
+    return Objects.hash(aiSummary, summary, taskStatus, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SummaryData {\n");
-    sb.append("    $schema: ").append(toIndentedString($schema)).append("\n");
     sb.append("    aiSummary: ").append(toIndentedString(aiSummary)).append("\n");
     sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
     sb.append("    taskStatus: ").append(toIndentedString(taskStatus)).append("\n");
@@ -302,7 +276,7 @@ public class SummaryData {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("$schema", "ai_summary", "summary", "task_status"));
+    openapiFields = new HashSet<String>(Arrays.asList("ai_summary", "summary", "task_status"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("ai_summary", "summary", "task_status"));
@@ -328,9 +302,6 @@ public class SummaryData {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("$schema") != null && !jsonObj.get("$schema").isJsonNull()) && !jsonObj.get("$schema").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `$schema` to be a primitive type in the JSON string but got `%s`", jsonObj.get("$schema").toString()));
-      }
       if (!jsonObj.get("ai_summary").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `ai_summary` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ai_summary").toString()));
       }

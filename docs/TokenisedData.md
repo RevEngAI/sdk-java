@@ -7,7 +7,6 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**$schema** | **URI** | A URL to the JSON Schema for this object. |  [optional] [readonly] |
 |**functionMapping** | [**FunctionMapping**](FunctionMapping.md) | Complete mapping data for token resolution |  [optional] |
 |**predictedFunctionName** | **String** | Predicted function name from the AI model |  [optional] |
 |**status** | [**StatusEnum**](#StatusEnum) | Task status |  |

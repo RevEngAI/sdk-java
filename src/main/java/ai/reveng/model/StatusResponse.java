@@ -20,7 +20,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.net.URI;
 import java.util.Arrays;
 import java.util.UUID;
 
@@ -53,11 +52,6 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class StatusResponse {
-  public static final String SERIALIZED_NAME_$_SCHEMA = "$schema";
-  @SerializedName(SERIALIZED_NAME_$_SCHEMA)
-  @javax.annotation.Nullable
-  private URI $schema;
-
   public static final String SERIALIZED_NAME_CONVERSATION_UUID = "conversation_uuid";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_UUID)
   @javax.annotation.Nonnull
@@ -75,24 +69,6 @@ public class StatusResponse {
 
   public StatusResponse() {
   }
-
-  public StatusResponse(
-     URI $schema
-  ) {
-    this();
-    this.$schema = $schema;
-  }
-
-  /**
-   * A URL to the JSON Schema for this object.
-   * @return $schema
-   */
-  @javax.annotation.Nullable
-  public URI get$Schema() {
-    return $schema;
-  }
-
-
 
   public StatusResponse conversationUuid(@javax.annotation.Nonnull UUID conversationUuid) {
     this.conversationUuid = conversationUuid;
@@ -205,8 +181,7 @@ public class StatusResponse {
       return false;
     }
     StatusResponse statusResponse = (StatusResponse) o;
-    return Objects.equals(this.$schema, statusResponse.$schema) &&
-        Objects.equals(this.conversationUuid, statusResponse.conversationUuid) &&
+    return Objects.equals(this.conversationUuid, statusResponse.conversationUuid) &&
         Objects.equals(this.status, statusResponse.status) &&
         Objects.equals(this.traceId, statusResponse.traceId)&&
         Objects.equals(this.additionalProperties, statusResponse.additionalProperties);
@@ -214,14 +189,13 @@ public class StatusResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash($schema, conversationUuid, status, traceId, additionalProperties);
+    return Objects.hash(conversationUuid, status, traceId, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class StatusResponse {\n");
-    sb.append("    $schema: ").append(toIndentedString($schema)).append("\n");
     sb.append("    conversationUuid: ").append(toIndentedString(conversationUuid)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    traceId: ").append(toIndentedString(traceId)).append("\n");
@@ -247,7 +221,7 @@ public class StatusResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("$schema", "conversation_uuid", "status", "trace_id"));
+    openapiFields = new HashSet<String>(Arrays.asList("conversation_uuid", "status", "trace_id"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("conversation_uuid", "status"));
@@ -273,9 +247,6 @@ public class StatusResponse {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("$schema") != null && !jsonObj.get("$schema").isJsonNull()) && !jsonObj.get("$schema").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `$schema` to be a primitive type in the JSON string but got `%s`", jsonObj.get("$schema").toString()));
-      }
       if (!jsonObj.get("conversation_uuid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `conversation_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conversation_uuid").toString()));
       }

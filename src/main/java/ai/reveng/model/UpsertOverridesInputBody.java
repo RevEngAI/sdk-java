@@ -20,7 +20,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.net.URI;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -54,11 +53,6 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpsertOverridesInputBody {
-  public static final String SERIALIZED_NAME_$_SCHEMA = "$schema";
-  @SerializedName(SERIALIZED_NAME_$_SCHEMA)
-  @javax.annotation.Nullable
-  private URI $schema;
-
   public static final String SERIALIZED_NAME_OVERRIDES = "overrides";
   @SerializedName(SERIALIZED_NAME_OVERRIDES)
   @javax.annotation.Nonnull
@@ -66,24 +60,6 @@ public class UpsertOverridesInputBody {
 
   public UpsertOverridesInputBody() {
   }
-
-  public UpsertOverridesInputBody(
-     URI $schema
-  ) {
-    this();
-    this.$schema = $schema;
-  }
-
-  /**
-   * A URL to the JSON Schema for this object.
-   * @return $schema
-   */
-  @javax.annotation.Nullable
-  public URI get$Schema() {
-    return $schema;
-  }
-
-
 
   public UpsertOverridesInputBody overrides(@javax.annotation.Nonnull Map<String, String> overrides) {
     this.overrides = overrides;
@@ -166,21 +142,19 @@ public class UpsertOverridesInputBody {
       return false;
     }
     UpsertOverridesInputBody upsertOverridesInputBody = (UpsertOverridesInputBody) o;
-    return Objects.equals(this.$schema, upsertOverridesInputBody.$schema) &&
-        Objects.equals(this.overrides, upsertOverridesInputBody.overrides)&&
+    return Objects.equals(this.overrides, upsertOverridesInputBody.overrides)&&
         Objects.equals(this.additionalProperties, upsertOverridesInputBody.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash($schema, overrides, additionalProperties);
+    return Objects.hash(overrides, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpsertOverridesInputBody {\n");
-    sb.append("    $schema: ").append(toIndentedString($schema)).append("\n");
     sb.append("    overrides: ").append(toIndentedString(overrides)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -204,7 +178,7 @@ public class UpsertOverridesInputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("$schema", "overrides"));
+    openapiFields = new HashSet<String>(Arrays.asList("overrides"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("overrides"));
@@ -230,9 +204,6 @@ public class UpsertOverridesInputBody {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("$schema") != null && !jsonObj.get("$schema").isJsonNull()) && !jsonObj.get("$schema").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `$schema` to be a primitive type in the JSON string but got `%s`", jsonObj.get("$schema").toString()));
-      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

@@ -20,7 +20,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.net.URI;
 import java.util.Arrays;
 
 import com.google.gson.Gson;
@@ -52,11 +51,6 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DecompilationData {
-  public static final String SERIALIZED_NAME_$_SCHEMA = "$schema";
-  @SerializedName(SERIALIZED_NAME_$_SCHEMA)
-  @javax.annotation.Nullable
-  private URI $schema;
-
   public static final String SERIALIZED_NAME_DECOMPILATION = "decompilation";
   @SerializedName(SERIALIZED_NAME_DECOMPILATION)
   @javax.annotation.Nullable
@@ -129,24 +123,6 @@ public class DecompilationData {
 
   public DecompilationData() {
   }
-
-  public DecompilationData(
-     URI $schema
-  ) {
-    this();
-    this.$schema = $schema;
-  }
-
-  /**
-   * A URL to the JSON Schema for this object.
-   * @return $schema
-   */
-  @javax.annotation.Nullable
-  public URI get$Schema() {
-    return $schema;
-  }
-
-
 
   public DecompilationData decompilation(@javax.annotation.Nullable String decompilation) {
     this.decompilation = decompilation;
@@ -240,22 +216,20 @@ public class DecompilationData {
       return false;
     }
     DecompilationData decompilationData = (DecompilationData) o;
-    return Objects.equals(this.$schema, decompilationData.$schema) &&
-        Objects.equals(this.decompilation, decompilationData.decompilation) &&
+    return Objects.equals(this.decompilation, decompilationData.decompilation) &&
         Objects.equals(this.status, decompilationData.status)&&
         Objects.equals(this.additionalProperties, decompilationData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash($schema, decompilation, status, additionalProperties);
+    return Objects.hash(decompilation, status, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DecompilationData {\n");
-    sb.append("    $schema: ").append(toIndentedString($schema)).append("\n");
     sb.append("    decompilation: ").append(toIndentedString(decompilation)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -280,7 +254,7 @@ public class DecompilationData {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("$schema", "decompilation", "status"));
+    openapiFields = new HashSet<String>(Arrays.asList("decompilation", "status"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("status"));
@@ -306,9 +280,6 @@ public class DecompilationData {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("$schema") != null && !jsonObj.get("$schema").isJsonNull()) && !jsonObj.get("$schema").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `$schema` to be a primitive type in the JSON string but got `%s`", jsonObj.get("$schema").toString()));
-      }
       if ((jsonObj.get("decompilation") != null && !jsonObj.get("decompilation").isJsonNull()) && !jsonObj.get("decompilation").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `decompilation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("decompilation").toString()));
       }
