@@ -107,7 +107,7 @@ public class ReportsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/v3/analysis/{analysis_id}/pdf"
+        String localVarPath = "/v3/analyses/{analysis_id}/pdf"
             .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -252,7 +252,7 @@ public class ReportsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/v3/analysis/{analysis_id}/pdf/{task_id}"
+        String localVarPath = "/v3/analyses/{analysis_id}/pdf/{task_id}"
             .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()))
             .replace("{" + "task_id" + "}", localVarApiClient.escapeString(taskId.toString()));
 
@@ -404,7 +404,7 @@ public class ReportsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/v3/analysis/{analysis_id}/pdf/{task_id}/status"
+        String localVarPath = "/v3/analyses/{analysis_id}/pdf/{task_id}/status"
             .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()))
             .replace("{" + "task_id" + "}", localVarApiClient.escapeString(taskId.toString()));
 
