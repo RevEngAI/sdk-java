@@ -32,7 +32,7 @@ All URIs are relative to *https://api.reveng.ai*
 
 Start AI decompilation
 
-Begins the AI decompilation process for a function. Charges team credits and starts the workflow.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict
+Begins the AI decompilation process for a function. Charges team credits and starts the workflow.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;402&#x60; [&#x60;INSUFFICIENT_CREDITS&#x60;](/errors/INSUFFICIENT_CREDITS) — Insufficient Credits
 
 ### Example
 ```java
@@ -99,6 +99,7 @@ public class Example {
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
 | **400** | Bad Request |  -  |
+| **402** | Payment Required |  -  |
 | **403** | Forbidden |  -  |
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
