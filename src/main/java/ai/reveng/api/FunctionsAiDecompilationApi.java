@@ -39,6 +39,7 @@ import ai.reveng.model.CommentsData;
 import ai.reveng.model.CreateAIDecompOutputBody;
 import ai.reveng.model.DecompilationData;
 import ai.reveng.model.FunctionCommentCreateRequest;
+import ai.reveng.model.PatchCommentBody;
 import ai.reveng.model.RegenerateOutputBody;
 import ai.reveng.model.RegenerateTarget;
 import ai.reveng.model.SummaryData;
@@ -705,6 +706,159 @@ public class FunctionsAiDecompilationApi {
 
         okhttp3.Call localVarCall = deleteAiDecompilationCommentValidateBeforeCall(commentId, functionId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseBool>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for deleteAiDecompilationInlineComment
+     * @param functionId Function ID (required)
+     * @param line Line number of the comment to delete (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteAiDecompilationInlineCommentCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull Long line, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/functions/{function_id}/ai-decompilation/inline-comments/{line}"
+            .replace("{" + "function_id" + "}", localVarApiClient.escapeString(functionId.toString()))
+            .replace("{" + "line" + "}", localVarApiClient.escapeString(line.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteAiDecompilationInlineCommentValidateBeforeCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull Long line, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'functionId' is set
+        if (functionId == null) {
+            throw new ApiException("Missing the required parameter 'functionId' when calling deleteAiDecompilationInlineComment(Async)");
+        }
+
+        // verify the required parameter 'line' is set
+        if (line == null) {
+            throw new ApiException("Missing the required parameter 'line' when calling deleteAiDecompilationInlineComment(Async)");
+        }
+
+        return deleteAiDecompilationInlineCommentCall(functionId, line, _callback);
+
+    }
+
+    /**
+     * Delete a single inline comment
+     * Removes the comment for the given line number. Requires comments to have been generated first.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * @param functionId Function ID (required)
+     * @param line Line number of the comment to delete (required)
+     * @return CommentsData
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public CommentsData deleteAiDecompilationInlineComment(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull Long line) throws ApiException {
+        ApiResponse<CommentsData> localVarResp = deleteAiDecompilationInlineCommentWithHttpInfo(functionId, line);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Delete a single inline comment
+     * Removes the comment for the given line number. Requires comments to have been generated first.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * @param functionId Function ID (required)
+     * @param line Line number of the comment to delete (required)
+     * @return ApiResponse&lt;CommentsData&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CommentsData> deleteAiDecompilationInlineCommentWithHttpInfo(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull Long line) throws ApiException {
+        okhttp3.Call localVarCall = deleteAiDecompilationInlineCommentValidateBeforeCall(functionId, line, null);
+        Type localVarReturnType = new TypeToken<CommentsData>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Delete a single inline comment (asynchronously)
+     * Removes the comment for the given line number. Requires comments to have been generated first.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * @param functionId Function ID (required)
+     * @param line Line number of the comment to delete (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteAiDecompilationInlineCommentAsync(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull Long line, final ApiCallback<CommentsData> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteAiDecompilationInlineCommentValidateBeforeCall(functionId, line, _callback);
+        Type localVarReturnType = new TypeToken<CommentsData>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2276,6 +2430,159 @@ public class FunctionsAiDecompilationApi {
 
         okhttp3.Call localVarCall = getAiDecompilationTokenisedValidateBeforeCall(functionId, _callback);
         Type localVarReturnType = new TypeToken<TokenisedData>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for patchAiDecompilationInlineComment
+     * @param functionId Function ID (required)
+     * @param patchCommentBody  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call patchAiDecompilationInlineCommentCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull PatchCommentBody patchCommentBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = patchCommentBody;
+
+        // create path and map variables
+        String localVarPath = "/v3/functions/{function_id}/ai-decompilation/inline-comments"
+            .replace("{" + "function_id" + "}", localVarApiClient.escapeString(functionId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call patchAiDecompilationInlineCommentValidateBeforeCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull PatchCommentBody patchCommentBody, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'functionId' is set
+        if (functionId == null) {
+            throw new ApiException("Missing the required parameter 'functionId' when calling patchAiDecompilationInlineComment(Async)");
+        }
+
+        // verify the required parameter 'patchCommentBody' is set
+        if (patchCommentBody == null) {
+            throw new ApiException("Missing the required parameter 'patchCommentBody' when calling patchAiDecompilationInlineComment(Async)");
+        }
+
+        return patchAiDecompilationInlineCommentCall(functionId, patchCommentBody, _callback);
+
+    }
+
+    /**
+     * Update a single inline comment
+     * Merges a single line comment into the existing AI-generated inline comments. Requires comments to have been generated first.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * @param functionId Function ID (required)
+     * @param patchCommentBody  (required)
+     * @return CommentsData
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public CommentsData patchAiDecompilationInlineComment(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull PatchCommentBody patchCommentBody) throws ApiException {
+        ApiResponse<CommentsData> localVarResp = patchAiDecompilationInlineCommentWithHttpInfo(functionId, patchCommentBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update a single inline comment
+     * Merges a single line comment into the existing AI-generated inline comments. Requires comments to have been generated first.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * @param functionId Function ID (required)
+     * @param patchCommentBody  (required)
+     * @return ApiResponse&lt;CommentsData&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CommentsData> patchAiDecompilationInlineCommentWithHttpInfo(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull PatchCommentBody patchCommentBody) throws ApiException {
+        okhttp3.Call localVarCall = patchAiDecompilationInlineCommentValidateBeforeCall(functionId, patchCommentBody, null);
+        Type localVarReturnType = new TypeToken<CommentsData>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update a single inline comment (asynchronously)
+     * Merges a single line comment into the existing AI-generated inline comments. Requires comments to have been generated first.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * @param functionId Function ID (required)
+     * @param patchCommentBody  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call patchAiDecompilationInlineCommentAsync(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull PatchCommentBody patchCommentBody, final ApiCallback<CommentsData> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = patchAiDecompilationInlineCommentValidateBeforeCall(functionId, patchCommentBody, _callback);
+        Type localVarReturnType = new TypeToken<CommentsData>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

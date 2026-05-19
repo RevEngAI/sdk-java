@@ -5,8 +5,8 @@ All URIs are relative to *https://api.reveng.ai*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**createPdfReport**](ReportsApi.md#createPdfReport) | **POST** /v3/analyses/{analysis_id}/pdf | Start PDF report generation |
-| [**downloadPdfReport**](ReportsApi.md#downloadPdfReport) | **GET** /v3/analyses/{analysis_id}/pdf/{task_id} | Download generated PDF report |
-| [**getPdfReportStatus**](ReportsApi.md#getPdfReportStatus) | **GET** /v3/analyses/{analysis_id}/pdf/{task_id}/status | Get PDF report workflow status |
+| [**downloadPdfReport**](ReportsApi.md#downloadPdfReport) | **GET** /v3/analyses/{analysis_id}/pdf | Download generated PDF report |
+| [**getPdfReportStatus**](ReportsApi.md#getPdfReportStatus) | **GET** /v3/analyses/{analysis_id}/pdf/status | Get PDF report workflow status |
 
 
 <a id="createPdfReport"></a>
@@ -15,7 +15,7 @@ All URIs are relative to *https://api.reveng.ai*
 
 Start PDF report generation
 
-Starts an asynchronous PDF report generation workflow for the given analysis. Returns a deterministic task_id used to poll status and download the resulting PDF. Idempotent: if a workflow is already running for this analysis and user, the same task_id is returned with &#x60;already_running: true&#x60; so the caller can rejoin the in-flight workflow.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+Starts an asynchronous PDF report generation workflow for the given analysis. Poll status and download the resulting PDF using the same analysis ID. Idempotent: if a workflow is already running for this analysis and user, the response sets &#x60;already_running: true&#x60; and the caller rejoins the in-flight workflow.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
 
 ### Example
 ```java
@@ -84,11 +84,11 @@ public class Example {
 
 <a id="downloadPdfReport"></a>
 # **downloadPdfReport**
-> downloadPdfReport(analysisId, taskId)
+> downloadPdfReport(analysisId)
 
 Download generated PDF report
 
-Streams the rendered PDF report. Returns 409 when the workflow is still running and 404 when the task does not exist or the caller is not authorised to see it.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;409&#x60; [&#x60;ANALYSIS_NOT_READY&#x60;](/errors/ANALYSIS_NOT_READY) — Analysis Not Ready - &#x60;500&#x60; [&#x60;REPORT_RENDER_FAILED&#x60;](/errors/REPORT_RENDER_FAILED) — Report Render Failed
+Streams the rendered PDF report. Returns 409 when the workflow is still running and 404 when no report generation exists for this analysis or the caller is not authorised to see it.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;409&#x60; [&#x60;ANALYSIS_NOT_READY&#x60;](/errors/ANALYSIS_NOT_READY) — Analysis Not Ready - &#x60;500&#x60; [&#x60;REPORT_RENDER_FAILED&#x60;](/errors/REPORT_RENDER_FAILED) — Report Render Failed
 
 ### Example
 ```java
@@ -113,9 +113,8 @@ public class Example {
 
     ReportsApi apiInstance = new ReportsApi(defaultClient);
     Long analysisId = 56L; // Long | Analysis ID
-    String taskId = "taskId_example"; // String | Task ID returned by the create endpoint
     try {
-      apiInstance.downloadPdfReport(analysisId, taskId);
+      apiInstance.downloadPdfReport(analysisId);
     } catch (ApiException e) {
       System.err.println("Exception when calling ReportsApi#downloadPdfReport");
       System.err.println("Status code: " + e.getCode());
@@ -132,7 +131,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Long**| Analysis ID | |
-| **taskId** | **String**| Task ID returned by the create endpoint | |
 
 ### Return type
 
@@ -159,11 +157,11 @@ null (empty response body)
 
 <a id="getPdfReportStatus"></a>
 # **getPdfReportStatus**
-> WorkflowProgress getPdfReportStatus(analysisId, taskId)
+> WorkflowProgress getPdfReportStatus(analysisId)
 
 Get PDF report workflow status
 
-Returns live workflow progress for the given task. Returns 404 when the task does not exist or the caller is not authorised to see it.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+Returns live workflow progress for the given analysis. Returns 404 when no report generation exists for this analysis or the caller is not authorised to see it.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
 
 ### Example
 ```java
@@ -188,9 +186,8 @@ public class Example {
 
     ReportsApi apiInstance = new ReportsApi(defaultClient);
     Long analysisId = 56L; // Long | Analysis ID
-    String taskId = "taskId_example"; // String | Task ID returned by the create endpoint
     try {
-      WorkflowProgress result = apiInstance.getPdfReportStatus(analysisId, taskId);
+      WorkflowProgress result = apiInstance.getPdfReportStatus(analysisId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ReportsApi#getPdfReportStatus");
@@ -208,7 +205,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Long**| Analysis ID | |
-| **taskId** | **String**| Task ID returned by the create endpoint | |
 
 ### Return type
 

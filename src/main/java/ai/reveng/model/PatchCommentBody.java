@@ -47,34 +47,59 @@ import java.util.Locale;
 import ai.reveng.invoker.JSON;
 
 /**
- * GeneratePDFOutputBody
+ * PatchCommentBody
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class GeneratePDFOutputBody {
-  public static final String SERIALIZED_NAME_ALREADY_RUNNING = "already_running";
-  @SerializedName(SERIALIZED_NAME_ALREADY_RUNNING)
-  @javax.annotation.Nullable
-  private Boolean alreadyRunning;
+public class PatchCommentBody {
+  public static final String SERIALIZED_NAME_COMMENT = "comment";
+  @SerializedName(SERIALIZED_NAME_COMMENT)
+  @javax.annotation.Nonnull
+  private String comment;
 
-  public GeneratePDFOutputBody() {
+  public static final String SERIALIZED_NAME_LINE = "line";
+  @SerializedName(SERIALIZED_NAME_LINE)
+  @javax.annotation.Nonnull
+  private Long line;
+
+  public PatchCommentBody() {
   }
 
-  public GeneratePDFOutputBody alreadyRunning(@javax.annotation.Nullable Boolean alreadyRunning) {
-    this.alreadyRunning = alreadyRunning;
+  public PatchCommentBody comment(@javax.annotation.Nonnull String comment) {
+    this.comment = comment;
     return this;
   }
 
   /**
-   * True when an existing PDF generation is in progress for this analysis and user
-   * @return alreadyRunning
+   * Comment text
+   * @return comment
    */
-  @javax.annotation.Nullable
-  public Boolean getAlreadyRunning() {
-    return alreadyRunning;
+  @javax.annotation.Nonnull
+  public String getComment() {
+    return comment;
   }
 
-  public void setAlreadyRunning(@javax.annotation.Nullable Boolean alreadyRunning) {
-    this.alreadyRunning = alreadyRunning;
+  public void setComment(@javax.annotation.Nonnull String comment) {
+    this.comment = comment;
+  }
+
+
+  public PatchCommentBody line(@javax.annotation.Nonnull Long line) {
+    this.line = line;
+    return this;
+  }
+
+  /**
+   * Line number to set the comment on
+   * minimum: 1
+   * @return line
+   */
+  @javax.annotation.Nonnull
+  public Long getLine() {
+    return line;
+  }
+
+  public void setLine(@javax.annotation.Nonnull Long line) {
+    this.line = line;
   }
 
   /**
@@ -90,9 +115,9 @@ public class GeneratePDFOutputBody {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the GeneratePDFOutputBody instance itself
+   * @return the PatchCommentBody instance itself
    */
-  public GeneratePDFOutputBody putAdditionalProperty(String key, Object value) {
+  public PatchCommentBody putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -131,21 +156,23 @@ public class GeneratePDFOutputBody {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GeneratePDFOutputBody generatePDFOutputBody = (GeneratePDFOutputBody) o;
-    return Objects.equals(this.alreadyRunning, generatePDFOutputBody.alreadyRunning)&&
-        Objects.equals(this.additionalProperties, generatePDFOutputBody.additionalProperties);
+    PatchCommentBody patchCommentBody = (PatchCommentBody) o;
+    return Objects.equals(this.comment, patchCommentBody.comment) &&
+        Objects.equals(this.line, patchCommentBody.line)&&
+        Objects.equals(this.additionalProperties, patchCommentBody.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alreadyRunning, additionalProperties);
+    return Objects.hash(comment, line, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GeneratePDFOutputBody {\n");
-    sb.append("    alreadyRunning: ").append(toIndentedString(alreadyRunning)).append("\n");
+    sb.append("class PatchCommentBody {\n");
+    sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    line: ").append(toIndentedString(line)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -168,41 +195,51 @@ public class GeneratePDFOutputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("already_running"));
+    openapiFields = new HashSet<String>(Arrays.asList("comment", "line"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(0);
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("comment", "line"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to GeneratePDFOutputBody
+   * @throws IOException if the JSON Element is invalid with respect to PatchCommentBody
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!GeneratePDFOutputBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in GeneratePDFOutputBody is not found in the empty JSON string", GeneratePDFOutputBody.openapiRequiredFields.toString()));
+        if (!PatchCommentBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in PatchCommentBody is not found in the empty JSON string", PatchCommentBody.openapiRequiredFields.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : PatchCommentBody.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("comment").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `comment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("comment").toString()));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!GeneratePDFOutputBody.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'GeneratePDFOutputBody' and its subtypes
+       if (!PatchCommentBody.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'PatchCommentBody' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<GeneratePDFOutputBody> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(GeneratePDFOutputBody.class));
+       final TypeAdapter<PatchCommentBody> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(PatchCommentBody.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<GeneratePDFOutputBody>() {
+       return (TypeAdapter<T>) new TypeAdapter<PatchCommentBody>() {
            @Override
-           public void write(JsonWriter out, GeneratePDFOutputBody value) throws IOException {
+           public void write(JsonWriter out, PatchCommentBody value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -230,12 +267,12 @@ public class GeneratePDFOutputBody {
            }
 
            @Override
-           public GeneratePDFOutputBody read(JsonReader in) throws IOException {
+           public PatchCommentBody read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             GeneratePDFOutputBody instance = thisAdapter.fromJsonTree(jsonObj);
+             PatchCommentBody instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -262,18 +299,18 @@ public class GeneratePDFOutputBody {
   }
 
   /**
-   * Create an instance of GeneratePDFOutputBody given an JSON string
+   * Create an instance of PatchCommentBody given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of GeneratePDFOutputBody
-   * @throws IOException if the JSON string is invalid with respect to GeneratePDFOutputBody
+   * @return An instance of PatchCommentBody
+   * @throws IOException if the JSON string is invalid with respect to PatchCommentBody
    */
-  public static GeneratePDFOutputBody fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, GeneratePDFOutputBody.class);
+  public static PatchCommentBody fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, PatchCommentBody.class);
   }
 
   /**
-   * Convert an instance of GeneratePDFOutputBody to an JSON string
+   * Convert an instance of PatchCommentBody to an JSON string
    *
    * @return JSON string
    */
