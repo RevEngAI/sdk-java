@@ -16,7 +16,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>ai.reveng</groupId>
     <artifactId>sdk</artifactId>
-    <version>3.84.0</version>
+    <version>3.85.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -31,7 +31,7 @@ repositories {
 }
 
 dependencies {
-    implementation "ai.reveng:sdk:3.84.0"
+    implementation "ai.reveng:sdk:3.85.0"
 }
 ```
 
@@ -94,6 +94,7 @@ Class | Method | HTTP request | Description
 *AnalysesCoreApi* | [**createAnalysis**](docs/AnalysesCoreApi.md#createAnalysis) | **POST** /v2/analyses | Create Analysis
 *AnalysesCoreApi* | [**deleteAnalysis**](docs/AnalysesCoreApi.md#deleteAnalysis) | **DELETE** /v2/analyses/{analysis_id} | Delete Analysis
 *AnalysesCoreApi* | [**getAnalysisBasicInfo**](docs/AnalysesCoreApi.md#getAnalysisBasicInfo) | **GET** /v2/analyses/{analysis_id}/basic | Gets basic analysis information
+*AnalysesCoreApi* | [**getAnalysisBytes**](docs/AnalysesCoreApi.md#getAnalysisBytes) | **GET** /v3/analyses/{analysis_id}/bytes | Get the bytes of a binary
 *AnalysesCoreApi* | [**getAnalysisFunctionMap**](docs/AnalysesCoreApi.md#getAnalysisFunctionMap) | **GET** /v2/analyses/{analysis_id}/func_maps | Get Analysis Function Map
 *AnalysesCoreApi* | [**getAnalysisLogs**](docs/AnalysesCoreApi.md#getAnalysisLogs) | **GET** /v2/analyses/{analysis_id}/logs | Gets the logs of an analysis
 *AnalysesCoreApi* | [**getAnalysisParams**](docs/AnalysesCoreApi.md#getAnalysisParams) | **GET** /v2/analyses/{analysis_id}/params | Gets analysis param information
@@ -151,6 +152,7 @@ Class | Method | HTTP request | Description
 *FunctionsAiDecompilationApi* | [**createAiDecompilationComment**](docs/FunctionsAiDecompilationApi.md#createAiDecompilationComment) | **POST** /v2/functions/{function_id}/ai-decompilation/comments | Create a comment for this function
 *FunctionsAiDecompilationApi* | [**createAiDecompilationTask**](docs/FunctionsAiDecompilationApi.md#createAiDecompilationTask) | **POST** /v2/functions/{function_id}/ai-decompilation | Begins AI Decompilation Process
 *FunctionsAiDecompilationApi* | [**deleteAiDecompilationComment**](docs/FunctionsAiDecompilationApi.md#deleteAiDecompilationComment) | **DELETE** /v2/functions/{function_id}/ai-decompilation/comments/{comment_id} | Delete a comment
+*FunctionsAiDecompilationApi* | [**deleteAiDecompilationInlineComment**](docs/FunctionsAiDecompilationApi.md#deleteAiDecompilationInlineComment) | **DELETE** /v3/functions/{function_id}/ai-decompilation/inline-comments/{line} | Delete a single inline comment
 *FunctionsAiDecompilationApi* | [**getAiDecompilation**](docs/FunctionsAiDecompilationApi.md#getAiDecompilation) | **GET** /v3/functions/{function_id}/ai-decompilation | Get AI decompilation result
 *FunctionsAiDecompilationApi* | [**getAiDecompilationComments**](docs/FunctionsAiDecompilationApi.md#getAiDecompilationComments) | **GET** /v2/functions/{function_id}/ai-decompilation/comments | Get comments for this function
 *FunctionsAiDecompilationApi* | [**getAiDecompilationInlineComments**](docs/FunctionsAiDecompilationApi.md#getAiDecompilationInlineComments) | **GET** /v3/functions/{function_id}/ai-decompilation/inline-comments | Get AI decompilation inline comments
@@ -162,6 +164,7 @@ Class | Method | HTTP request | Description
 *FunctionsAiDecompilationApi* | [**getAiDecompilationTaskResult**](docs/FunctionsAiDecompilationApi.md#getAiDecompilationTaskResult) | **GET** /v2/functions/{function_id}/ai-decompilation | Polls AI Decompilation Process
 *FunctionsAiDecompilationApi* | [**getAiDecompilationTaskStatus**](docs/FunctionsAiDecompilationApi.md#getAiDecompilationTaskStatus) | **GET** /v2/functions/{function_id}/ai-decompilation/status | Check the status of a function ai decompilation
 *FunctionsAiDecompilationApi* | [**getAiDecompilationTokenised**](docs/FunctionsAiDecompilationApi.md#getAiDecompilationTokenised) | **GET** /v3/functions/{function_id}/ai-decompilation/tokenised | Get tokenised AI decompilation with function mapping
+*FunctionsAiDecompilationApi* | [**patchAiDecompilationInlineComment**](docs/FunctionsAiDecompilationApi.md#patchAiDecompilationInlineComment) | **PATCH** /v3/functions/{function_id}/ai-decompilation/inline-comments | Update a single inline comment
 *FunctionsAiDecompilationApi* | [**regenerateAiDecompilationInlineComments**](docs/FunctionsAiDecompilationApi.md#regenerateAiDecompilationInlineComments) | **POST** /v3/functions/{function_id}/ai-decompilation/inline-comments | Regenerate AI decompilation inline comments
 *FunctionsAiDecompilationApi* | [**regenerateAiDecompilationSummary**](docs/FunctionsAiDecompilationApi.md#regenerateAiDecompilationSummary) | **POST** /v3/functions/{function_id}/ai-decompilation/summary | Regenerate AI decompilation summary
 *FunctionsAiDecompilationApi* | [**updateAiDecompilationComment**](docs/FunctionsAiDecompilationApi.md#updateAiDecompilationComment) | **PATCH** /v2/functions/{function_id}/ai-decompilation/comments/{comment_id} | Update a comment
@@ -197,8 +200,8 @@ Class | Method | HTTP request | Description
 *FunctionsRenamingHistoryApi* | [**revertFunctionName_0**](docs/FunctionsRenamingHistoryApi.md#revertFunctionName_0) | **POST** /v3/functions/{function_id}/history/{history_id}/revert | Revert function name
 *ModelsApi* | [**getModels**](docs/ModelsApi.md#getModels) | **GET** /v2/models | Gets models
 *ReportsApi* | [**createPdfReport**](docs/ReportsApi.md#createPdfReport) | **POST** /v3/analyses/{analysis_id}/pdf | Start PDF report generation
-*ReportsApi* | [**downloadPdfReport**](docs/ReportsApi.md#downloadPdfReport) | **GET** /v3/analyses/{analysis_id}/pdf/{task_id} | Download generated PDF report
-*ReportsApi* | [**getPdfReportStatus**](docs/ReportsApi.md#getPdfReportStatus) | **GET** /v3/analyses/{analysis_id}/pdf/{task_id}/status | Get PDF report workflow status
+*ReportsApi* | [**downloadPdfReport**](docs/ReportsApi.md#downloadPdfReport) | **GET** /v3/analyses/{analysis_id}/pdf | Download generated PDF report
+*ReportsApi* | [**getPdfReportStatus**](docs/ReportsApi.md#getPdfReportStatus) | **GET** /v3/analyses/{analysis_id}/pdf/status | Get PDF report workflow status
 *SearchApi* | [**searchBinaries**](docs/SearchApi.md#searchBinaries) | **GET** /v2/search/binaries | Binaries search
 *SearchApi* | [**searchCollections**](docs/SearchApi.md#searchCollections) | **GET** /v2/search/collections | Collections search
 *SearchApi* | [**searchFunctions**](docs/SearchApi.md#searchFunctions) | **GET** /v2/search/functions | Functions search
@@ -484,6 +487,7 @@ Class | Method | HTTP request | Description
  - [PEModel](docs/PEModel.md)
  - [PaginationModel](docs/PaginationModel.md)
  - [Params](docs/Params.md)
+ - [PatchCommentBody](docs/PatchCommentBody.md)
  - [Platform](docs/Platform.md)
  - [ProcessActivityEntry](docs/ProcessActivityEntry.md)
  - [ProcessMemdumps](docs/ProcessMemdumps.md)

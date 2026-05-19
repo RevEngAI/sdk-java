@@ -148,7 +148,7 @@ public class ReportsApi {
 
     /**
      * Start PDF report generation
-     * Starts an asynchronous PDF report generation workflow for the given analysis. Returns a deterministic task_id used to poll status and download the resulting PDF. Idempotent: if a workflow is already running for this analysis and user, the same task_id is returned with &#x60;already_running: true&#x60; so the caller can rejoin the in-flight workflow.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * Starts an asynchronous PDF report generation workflow for the given analysis. Poll status and download the resulting PDF using the same analysis ID. Idempotent: if a workflow is already running for this analysis and user, the response sets &#x60;already_running: true&#x60; and the caller rejoins the in-flight workflow.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
      * @param analysisId Analysis ID (required)
      * @return GeneratePDFOutputBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -170,7 +170,7 @@ public class ReportsApi {
 
     /**
      * Start PDF report generation
-     * Starts an asynchronous PDF report generation workflow for the given analysis. Returns a deterministic task_id used to poll status and download the resulting PDF. Idempotent: if a workflow is already running for this analysis and user, the same task_id is returned with &#x60;already_running: true&#x60; so the caller can rejoin the in-flight workflow.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * Starts an asynchronous PDF report generation workflow for the given analysis. Poll status and download the resulting PDF using the same analysis ID. Idempotent: if a workflow is already running for this analysis and user, the response sets &#x60;already_running: true&#x60; and the caller rejoins the in-flight workflow.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
      * @param analysisId Analysis ID (required)
      * @return ApiResponse&lt;GeneratePDFOutputBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -193,7 +193,7 @@ public class ReportsApi {
 
     /**
      * Start PDF report generation (asynchronously)
-     * Starts an asynchronous PDF report generation workflow for the given analysis. Returns a deterministic task_id used to poll status and download the resulting PDF. Idempotent: if a workflow is already running for this analysis and user, the same task_id is returned with &#x60;already_running: true&#x60; so the caller can rejoin the in-flight workflow.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * Starts an asynchronous PDF report generation workflow for the given analysis. Poll status and download the resulting PDF using the same analysis ID. Idempotent: if a workflow is already running for this analysis and user, the response sets &#x60;already_running: true&#x60; and the caller rejoins the in-flight workflow.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
      * @param analysisId Analysis ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -219,7 +219,6 @@ public class ReportsApi {
     /**
      * Build call for downloadPdfReport
      * @param analysisId Analysis ID (required)
-     * @param taskId Task ID returned by the create endpoint (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -235,7 +234,7 @@ public class ReportsApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call downloadPdfReportCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String taskId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call downloadPdfReportCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -252,9 +251,8 @@ public class ReportsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/v3/analyses/{analysis_id}/pdf/{task_id}"
-            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()))
-            .replace("{" + "task_id" + "}", localVarApiClient.escapeString(taskId.toString()));
+        String localVarPath = "/v3/analyses/{analysis_id}/pdf"
+            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -282,26 +280,20 @@ public class ReportsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call downloadPdfReportValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String taskId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call downloadPdfReportValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling downloadPdfReport(Async)");
         }
 
-        // verify the required parameter 'taskId' is set
-        if (taskId == null) {
-            throw new ApiException("Missing the required parameter 'taskId' when calling downloadPdfReport(Async)");
-        }
-
-        return downloadPdfReportCall(analysisId, taskId, _callback);
+        return downloadPdfReportCall(analysisId, _callback);
 
     }
 
     /**
      * Download generated PDF report
-     * Streams the rendered PDF report. Returns 409 when the workflow is still running and 404 when the task does not exist or the caller is not authorised to see it.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;409&#x60; [&#x60;ANALYSIS_NOT_READY&#x60;](/errors/ANALYSIS_NOT_READY) — Analysis Not Ready - &#x60;500&#x60; [&#x60;REPORT_RENDER_FAILED&#x60;](/errors/REPORT_RENDER_FAILED) — Report Render Failed
+     * Streams the rendered PDF report. Returns 409 when the workflow is still running and 404 when no report generation exists for this analysis or the caller is not authorised to see it.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;409&#x60; [&#x60;ANALYSIS_NOT_READY&#x60;](/errors/ANALYSIS_NOT_READY) — Analysis Not Ready - &#x60;500&#x60; [&#x60;REPORT_RENDER_FAILED&#x60;](/errors/REPORT_RENDER_FAILED) — Report Render Failed
      * @param analysisId Analysis ID (required)
-     * @param taskId Task ID returned by the create endpoint (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -315,15 +307,14 @@ public class ReportsApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public void downloadPdfReport(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String taskId) throws ApiException {
-        downloadPdfReportWithHttpInfo(analysisId, taskId);
+    public void downloadPdfReport(@javax.annotation.Nonnull Long analysisId) throws ApiException {
+        downloadPdfReportWithHttpInfo(analysisId);
     }
 
     /**
      * Download generated PDF report
-     * Streams the rendered PDF report. Returns 409 when the workflow is still running and 404 when the task does not exist or the caller is not authorised to see it.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;409&#x60; [&#x60;ANALYSIS_NOT_READY&#x60;](/errors/ANALYSIS_NOT_READY) — Analysis Not Ready - &#x60;500&#x60; [&#x60;REPORT_RENDER_FAILED&#x60;](/errors/REPORT_RENDER_FAILED) — Report Render Failed
+     * Streams the rendered PDF report. Returns 409 when the workflow is still running and 404 when no report generation exists for this analysis or the caller is not authorised to see it.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;409&#x60; [&#x60;ANALYSIS_NOT_READY&#x60;](/errors/ANALYSIS_NOT_READY) — Analysis Not Ready - &#x60;500&#x60; [&#x60;REPORT_RENDER_FAILED&#x60;](/errors/REPORT_RENDER_FAILED) — Report Render Failed
      * @param analysisId Analysis ID (required)
-     * @param taskId Task ID returned by the create endpoint (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -338,16 +329,15 @@ public class ReportsApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> downloadPdfReportWithHttpInfo(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String taskId) throws ApiException {
-        okhttp3.Call localVarCall = downloadPdfReportValidateBeforeCall(analysisId, taskId, null);
+    public ApiResponse<Void> downloadPdfReportWithHttpInfo(@javax.annotation.Nonnull Long analysisId) throws ApiException {
+        okhttp3.Call localVarCall = downloadPdfReportValidateBeforeCall(analysisId, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Download generated PDF report (asynchronously)
-     * Streams the rendered PDF report. Returns 409 when the workflow is still running and 404 when the task does not exist or the caller is not authorised to see it.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;409&#x60; [&#x60;ANALYSIS_NOT_READY&#x60;](/errors/ANALYSIS_NOT_READY) — Analysis Not Ready - &#x60;500&#x60; [&#x60;REPORT_RENDER_FAILED&#x60;](/errors/REPORT_RENDER_FAILED) — Report Render Failed
+     * Streams the rendered PDF report. Returns 409 when the workflow is still running and 404 when no report generation exists for this analysis or the caller is not authorised to see it.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;409&#x60; [&#x60;ANALYSIS_NOT_READY&#x60;](/errors/ANALYSIS_NOT_READY) — Analysis Not Ready - &#x60;500&#x60; [&#x60;REPORT_RENDER_FAILED&#x60;](/errors/REPORT_RENDER_FAILED) — Report Render Failed
      * @param analysisId Analysis ID (required)
-     * @param taskId Task ID returned by the create endpoint (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -363,16 +353,15 @@ public class ReportsApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call downloadPdfReportAsync(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String taskId, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call downloadPdfReportAsync(@javax.annotation.Nonnull Long analysisId, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = downloadPdfReportValidateBeforeCall(analysisId, taskId, _callback);
+        okhttp3.Call localVarCall = downloadPdfReportValidateBeforeCall(analysisId, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
      * Build call for getPdfReportStatus
      * @param analysisId Analysis ID (required)
-     * @param taskId Task ID returned by the create endpoint (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -387,7 +376,7 @@ public class ReportsApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPdfReportStatusCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String taskId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getPdfReportStatusCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -404,9 +393,8 @@ public class ReportsApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/v3/analyses/{analysis_id}/pdf/{task_id}/status"
-            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()))
-            .replace("{" + "task_id" + "}", localVarApiClient.escapeString(taskId.toString()));
+        String localVarPath = "/v3/analyses/{analysis_id}/pdf/status"
+            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -434,26 +422,20 @@ public class ReportsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPdfReportStatusValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String taskId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getPdfReportStatusValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling getPdfReportStatus(Async)");
         }
 
-        // verify the required parameter 'taskId' is set
-        if (taskId == null) {
-            throw new ApiException("Missing the required parameter 'taskId' when calling getPdfReportStatus(Async)");
-        }
-
-        return getPdfReportStatusCall(analysisId, taskId, _callback);
+        return getPdfReportStatusCall(analysisId, _callback);
 
     }
 
     /**
      * Get PDF report workflow status
-     * Returns live workflow progress for the given task. Returns 404 when the task does not exist or the caller is not authorised to see it.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * Returns live workflow progress for the given analysis. Returns 404 when no report generation exists for this analysis or the caller is not authorised to see it.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
      * @param analysisId Analysis ID (required)
-     * @param taskId Task ID returned by the create endpoint (required)
      * @return WorkflowProgress
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -467,16 +449,15 @@ public class ReportsApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public WorkflowProgress getPdfReportStatus(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String taskId) throws ApiException {
-        ApiResponse<WorkflowProgress> localVarResp = getPdfReportStatusWithHttpInfo(analysisId, taskId);
+    public WorkflowProgress getPdfReportStatus(@javax.annotation.Nonnull Long analysisId) throws ApiException {
+        ApiResponse<WorkflowProgress> localVarResp = getPdfReportStatusWithHttpInfo(analysisId);
         return localVarResp.getData();
     }
 
     /**
      * Get PDF report workflow status
-     * Returns live workflow progress for the given task. Returns 404 when the task does not exist or the caller is not authorised to see it.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * Returns live workflow progress for the given analysis. Returns 404 when no report generation exists for this analysis or the caller is not authorised to see it.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
      * @param analysisId Analysis ID (required)
-     * @param taskId Task ID returned by the create endpoint (required)
      * @return ApiResponse&lt;WorkflowProgress&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -490,17 +471,16 @@ public class ReportsApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<WorkflowProgress> getPdfReportStatusWithHttpInfo(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String taskId) throws ApiException {
-        okhttp3.Call localVarCall = getPdfReportStatusValidateBeforeCall(analysisId, taskId, null);
+    public ApiResponse<WorkflowProgress> getPdfReportStatusWithHttpInfo(@javax.annotation.Nonnull Long analysisId) throws ApiException {
+        okhttp3.Call localVarCall = getPdfReportStatusValidateBeforeCall(analysisId, null);
         Type localVarReturnType = new TypeToken<WorkflowProgress>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Get PDF report workflow status (asynchronously)
-     * Returns live workflow progress for the given task. Returns 404 when the task does not exist or the caller is not authorised to see it.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * Returns live workflow progress for the given analysis. Returns 404 when no report generation exists for this analysis or the caller is not authorised to see it.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
      * @param analysisId Analysis ID (required)
-     * @param taskId Task ID returned by the create endpoint (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -515,9 +495,9 @@ public class ReportsApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPdfReportStatusAsync(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String taskId, final ApiCallback<WorkflowProgress> _callback) throws ApiException {
+    public okhttp3.Call getPdfReportStatusAsync(@javax.annotation.Nonnull Long analysisId, final ApiCallback<WorkflowProgress> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getPdfReportStatusValidateBeforeCall(analysisId, taskId, _callback);
+        okhttp3.Call localVarCall = getPdfReportStatusValidateBeforeCall(analysisId, _callback);
         Type localVarReturnType = new TypeToken<WorkflowProgress>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
