@@ -42,6 +42,7 @@ import ai.reveng.model.FunctionCommentCreateRequest;
 import ai.reveng.model.PatchCommentBody;
 import ai.reveng.model.RegenerateOutputBody;
 import ai.reveng.model.RegenerateTarget;
+import ai.reveng.model.StreamAiDecompilation200ResponseInner;
 import ai.reveng.model.SummaryData;
 import ai.reveng.model.TokenisedData;
 import ai.reveng.model.UpsertAiDecomplationRatingRequest;
@@ -2869,6 +2870,138 @@ public class FunctionsAiDecompilationApi {
 
         okhttp3.Call localVarCall = regenerateAiDecompilationSummaryValidateBeforeCall(functionId, _callback);
         Type localVarReturnType = new TypeToken<RegenerateOutputBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for streamAiDecompilation
+     * @param functionId Function ID (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call streamAiDecompilationCall(@javax.annotation.Nonnull Long functionId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/functions/{function_id}/ai-decompilation/events"
+            .replace("{" + "function_id" + "}", localVarApiClient.escapeString(functionId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "text/event-stream",
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call streamAiDecompilationValidateBeforeCall(@javax.annotation.Nonnull Long functionId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'functionId' is set
+        if (functionId == null) {
+            throw new ApiException("Missing the required parameter 'functionId' when calling streamAiDecompilation(Async)");
+        }
+
+        return streamAiDecompilationCall(functionId, _callback);
+
+    }
+
+    /**
+     * Stream live AI decompilation output (SSE)
+     * Opens a Server-Sent Events stream of incremental decompilation events for the given function. Each event has a &#x60;type&#x60; discriminator (also used as the SSE &#x60;event:&#x60; line) and a per-attempt monotonic &#x60;seq&#x60;. Terminal events: &#x60;decomp_finished&#x60; (success) or &#x60;decomp_failed&#x60; (all retries exhausted). &#x60;attempt_failed&#x60; is per-attempt and non-terminal — Temporal may retry the activity. Clients should treat &#x60;attempt&#x60; changes as a reset signal. &#x60;last_event_id&#x60; is not supported — clients fall back to polling the standard GET endpoint after the stream ends.
+     * @param functionId Function ID (required)
+     * @return List&lt;StreamAiDecompilation200ResponseInner&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public List<StreamAiDecompilation200ResponseInner> streamAiDecompilation(@javax.annotation.Nonnull Long functionId) throws ApiException {
+        ApiResponse<List<StreamAiDecompilation200ResponseInner>> localVarResp = streamAiDecompilationWithHttpInfo(functionId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Stream live AI decompilation output (SSE)
+     * Opens a Server-Sent Events stream of incremental decompilation events for the given function. Each event has a &#x60;type&#x60; discriminator (also used as the SSE &#x60;event:&#x60; line) and a per-attempt monotonic &#x60;seq&#x60;. Terminal events: &#x60;decomp_finished&#x60; (success) or &#x60;decomp_failed&#x60; (all retries exhausted). &#x60;attempt_failed&#x60; is per-attempt and non-terminal — Temporal may retry the activity. Clients should treat &#x60;attempt&#x60; changes as a reset signal. &#x60;last_event_id&#x60; is not supported — clients fall back to polling the standard GET endpoint after the stream ends.
+     * @param functionId Function ID (required)
+     * @return ApiResponse&lt;List&lt;StreamAiDecompilation200ResponseInner&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<List<StreamAiDecompilation200ResponseInner>> streamAiDecompilationWithHttpInfo(@javax.annotation.Nonnull Long functionId) throws ApiException {
+        okhttp3.Call localVarCall = streamAiDecompilationValidateBeforeCall(functionId, null);
+        Type localVarReturnType = new TypeToken<List<StreamAiDecompilation200ResponseInner>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Stream live AI decompilation output (SSE) (asynchronously)
+     * Opens a Server-Sent Events stream of incremental decompilation events for the given function. Each event has a &#x60;type&#x60; discriminator (also used as the SSE &#x60;event:&#x60; line) and a per-attempt monotonic &#x60;seq&#x60;. Terminal events: &#x60;decomp_finished&#x60; (success) or &#x60;decomp_failed&#x60; (all retries exhausted). &#x60;attempt_failed&#x60; is per-attempt and non-terminal — Temporal may retry the activity. Clients should treat &#x60;attempt&#x60; changes as a reset signal. &#x60;last_event_id&#x60; is not supported — clients fall back to polling the standard GET endpoint after the stream ends.
+     * @param functionId Function ID (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call streamAiDecompilationAsync(@javax.annotation.Nonnull Long functionId, final ApiCallback<List<StreamAiDecompilation200ResponseInner>> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = streamAiDecompilationValidateBeforeCall(functionId, _callback);
+        Type localVarReturnType = new TypeToken<List<StreamAiDecompilation200ResponseInner>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
