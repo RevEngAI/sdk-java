@@ -23,6 +23,7 @@ All URIs are relative to *https://api.reveng.ai*
 | [**patchAiDecompilationInlineComment**](FunctionsAiDecompilationApi.md#patchAiDecompilationInlineComment) | **PATCH** /v3/functions/{function_id}/ai-decompilation/inline-comments | Update a single inline comment |
 | [**regenerateAiDecompilationInlineComments**](FunctionsAiDecompilationApi.md#regenerateAiDecompilationInlineComments) | **POST** /v3/functions/{function_id}/ai-decompilation/inline-comments | Regenerate AI decompilation inline comments |
 | [**regenerateAiDecompilationSummary**](FunctionsAiDecompilationApi.md#regenerateAiDecompilationSummary) | **POST** /v3/functions/{function_id}/ai-decompilation/summary | Regenerate AI decompilation summary |
+| [**streamAiDecompilation**](FunctionsAiDecompilationApi.md#streamAiDecompilation) | **GET** /v3/functions/{function_id}/ai-decompilation/events | Stream live AI decompilation output (SSE) |
 | [**updateAiDecompilationComment**](FunctionsAiDecompilationApi.md#updateAiDecompilationComment) | **PATCH** /v2/functions/{function_id}/ai-decompilation/comments/{comment_id} | Update a comment |
 | [**upsertAiDecompilationOverrides**](FunctionsAiDecompilationApi.md#upsertAiDecompilationOverrides) | **PATCH** /v3/functions/{function_id}/ai-decompilation/overrides | Upsert variable/function name overrides |
 | [**upsertAiDecompilationRating**](FunctionsAiDecompilationApi.md#upsertAiDecompilationRating) | **PATCH** /v2/functions/{function_id}/ai-decompilation/rating | Upsert rating for AI decompilation |
@@ -1417,6 +1418,76 @@ public class Example {
 | **404** | Not Found |  -  |
 | **422** | Unprocessable Entity |  -  |
 | **500** | Internal Server Error |  -  |
+
+<a id="streamAiDecompilation"></a>
+# **streamAiDecompilation**
+> List&lt;StreamAiDecompilation200ResponseInner&gt; streamAiDecompilation(functionId)
+
+Stream live AI decompilation output (SSE)
+
+Opens a Server-Sent Events stream of incremental decompilation events for the given function. Each event has a &#x60;type&#x60; discriminator (also used as the SSE &#x60;event:&#x60; line) and a per-attempt monotonic &#x60;seq&#x60;. Terminal events: &#x60;decomp_finished&#x60; (success) or &#x60;decomp_failed&#x60; (all retries exhausted). &#x60;attempt_failed&#x60; is per-attempt and non-terminal — Temporal may retry the activity. Clients should treat &#x60;attempt&#x60; changes as a reset signal. &#x60;last_event_id&#x60; is not supported — clients fall back to polling the standard GET endpoint after the stream ends.
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.FunctionsAiDecompilationApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    FunctionsAiDecompilationApi apiInstance = new FunctionsAiDecompilationApi(defaultClient);
+    Long functionId = 56L; // Long | Function ID
+    try {
+      List<StreamAiDecompilation200ResponseInner> result = apiInstance.streamAiDecompilation(functionId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling FunctionsAiDecompilationApi#streamAiDecompilation");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **functionId** | **Long**| Function ID | |
+
+### Return type
+
+[**List&lt;StreamAiDecompilation200ResponseInner&gt;**](StreamAiDecompilation200ResponseInner.md)
+
+### Authorization
+
+[APIKey](../README.md#APIKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/event-stream, application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **0** | Error |  -  |
 
 <a id="updateAiDecompilationComment"></a>
 # **updateAiDecompilationComment**
