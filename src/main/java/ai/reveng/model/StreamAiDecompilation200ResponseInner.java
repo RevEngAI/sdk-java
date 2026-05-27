@@ -16,7 +16,6 @@ import java.util.Objects;
 import java.util.Locale;
 import ai.reveng.model.EventAttemptFailed;
 import ai.reveng.model.EventAttemptStarted;
-import ai.reveng.model.EventDebugPrompt;
 import ai.reveng.model.EventDecompFailed;
 import ai.reveng.model.EventDecompFinished;
 import ai.reveng.model.EventProse;
@@ -83,7 +82,6 @@ public class StreamAiDecompilation200ResponseInner extends AbstractOpenApiSchema
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
             final TypeAdapter<EventAttemptFailed> adapterEventAttemptFailed = gson.getDelegateAdapter(this, TypeToken.get(EventAttemptFailed.class));
             final TypeAdapter<EventAttemptStarted> adapterEventAttemptStarted = gson.getDelegateAdapter(this, TypeToken.get(EventAttemptStarted.class));
-            final TypeAdapter<EventDebugPrompt> adapterEventDebugPrompt = gson.getDelegateAdapter(this, TypeToken.get(EventDebugPrompt.class));
             final TypeAdapter<EventDecompFailed> adapterEventDecompFailed = gson.getDelegateAdapter(this, TypeToken.get(EventDecompFailed.class));
             final TypeAdapter<EventDecompFinished> adapterEventDecompFinished = gson.getDelegateAdapter(this, TypeToken.get(EventDecompFinished.class));
             final TypeAdapter<EventProse> adapterEventProse = gson.getDelegateAdapter(this, TypeToken.get(EventProse.class));
@@ -109,12 +107,6 @@ public class StreamAiDecompilation200ResponseInner extends AbstractOpenApiSchema
                     // check if the actual instance is of the type `EventAttemptStarted`
                     if (value.getActualInstance() instanceof EventAttemptStarted) {
                         JsonElement element = adapterEventAttemptStarted.toJsonTree((EventAttemptStarted)value.getActualInstance());
-                        elementAdapter.write(out, element);
-                        return;
-                    }
-                    // check if the actual instance is of the type `EventDebugPrompt`
-                    if (value.getActualInstance() instanceof EventDebugPrompt) {
-                        JsonElement element = adapterEventDebugPrompt.toJsonTree((EventDebugPrompt)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
@@ -160,7 +152,7 @@ public class StreamAiDecompilation200ResponseInner extends AbstractOpenApiSchema
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: EventAttemptFailed, EventAttemptStarted, EventDebugPrompt, EventDecompFailed, EventDecompFinished, EventProse, EventRenameApplied, EventSourceDelta, EventSourceReset, EventWarning");
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: EventAttemptFailed, EventAttemptStarted, EventDecompFailed, EventDecompFinished, EventProse, EventRenameApplied, EventSourceDelta, EventSourceReset, EventWarning");
                 }
 
                 @Override
@@ -195,18 +187,6 @@ public class StreamAiDecompilation200ResponseInner extends AbstractOpenApiSchema
                         // deserialization failed, continue
                         errorMessages.add(String.format(Locale.ROOT, "Deserialization for EventAttemptStarted failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'EventAttemptStarted'", e);
-                    }
-                    // deserialize EventDebugPrompt
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        EventDebugPrompt.validateJsonElement(jsonElement);
-                        actualAdapter = adapterEventDebugPrompt;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'EventDebugPrompt'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format(Locale.ROOT, "Deserialization for EventDebugPrompt failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'EventDebugPrompt'", e);
                     }
                     // deserialize EventDecompFailed
                     try {
@@ -320,7 +300,6 @@ public class StreamAiDecompilation200ResponseInner extends AbstractOpenApiSchema
     static {
         schemas.put("EventAttemptFailed", EventAttemptFailed.class);
         schemas.put("EventAttemptStarted", EventAttemptStarted.class);
-        schemas.put("EventDebugPrompt", EventDebugPrompt.class);
         schemas.put("EventDecompFailed", EventDecompFailed.class);
         schemas.put("EventDecompFinished", EventDecompFinished.class);
         schemas.put("EventProse", EventProse.class);
@@ -338,7 +317,7 @@ public class StreamAiDecompilation200ResponseInner extends AbstractOpenApiSchema
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * EventAttemptFailed, EventAttemptStarted, EventDebugPrompt, EventDecompFailed, EventDecompFinished, EventProse, EventRenameApplied, EventSourceDelta, EventSourceReset, EventWarning
+     * EventAttemptFailed, EventAttemptStarted, EventDecompFailed, EventDecompFinished, EventProse, EventRenameApplied, EventSourceDelta, EventSourceReset, EventWarning
      *
      * It could be an instance of the 'oneOf' schemas.
      */
@@ -350,11 +329,6 @@ public class StreamAiDecompilation200ResponseInner extends AbstractOpenApiSchema
         }
 
         if (instance instanceof EventAttemptStarted) {
-            super.setActualInstance(instance);
-            return;
-        }
-
-        if (instance instanceof EventDebugPrompt) {
             super.setActualInstance(instance);
             return;
         }
@@ -394,14 +368,14 @@ public class StreamAiDecompilation200ResponseInner extends AbstractOpenApiSchema
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be EventAttemptFailed, EventAttemptStarted, EventDebugPrompt, EventDecompFailed, EventDecompFinished, EventProse, EventRenameApplied, EventSourceDelta, EventSourceReset, EventWarning");
+        throw new RuntimeException("Invalid instance type. Must be EventAttemptFailed, EventAttemptStarted, EventDecompFailed, EventDecompFinished, EventProse, EventRenameApplied, EventSourceDelta, EventSourceReset, EventWarning");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * EventAttemptFailed, EventAttemptStarted, EventDebugPrompt, EventDecompFailed, EventDecompFinished, EventProse, EventRenameApplied, EventSourceDelta, EventSourceReset, EventWarning
+     * EventAttemptFailed, EventAttemptStarted, EventDecompFailed, EventDecompFinished, EventProse, EventRenameApplied, EventSourceDelta, EventSourceReset, EventWarning
      *
-     * @return The actual instance (EventAttemptFailed, EventAttemptStarted, EventDebugPrompt, EventDecompFailed, EventDecompFinished, EventProse, EventRenameApplied, EventSourceDelta, EventSourceReset, EventWarning)
+     * @return The actual instance (EventAttemptFailed, EventAttemptStarted, EventDecompFailed, EventDecompFinished, EventProse, EventRenameApplied, EventSourceDelta, EventSourceReset, EventWarning)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -429,17 +403,6 @@ public class StreamAiDecompilation200ResponseInner extends AbstractOpenApiSchema
      */
     public EventAttemptStarted getEventAttemptStarted() throws ClassCastException {
         return (EventAttemptStarted)super.getActualInstance();
-    }
-
-    /**
-     * Get the actual instance of `EventDebugPrompt`. If the actual instance is not `EventDebugPrompt`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `EventDebugPrompt`
-     * @throws ClassCastException if the instance is not `EventDebugPrompt`
-     */
-    public EventDebugPrompt getEventDebugPrompt() throws ClassCastException {
-        return (EventDebugPrompt)super.getActualInstance();
     }
 
     /**
@@ -545,14 +508,6 @@ public class StreamAiDecompilation200ResponseInner extends AbstractOpenApiSchema
             errorMessages.add(String.format(Locale.ROOT, "Deserialization for EventAttemptStarted failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with EventDebugPrompt
-        try {
-            EventDebugPrompt.validateJsonElement(jsonElement);
-            validCount++;
-        } catch (Exception e) {
-            errorMessages.add(String.format(Locale.ROOT, "Deserialization for EventDebugPrompt failed with `%s`.", e.getMessage()));
-            // continue to the next one
-        }
         // validate the json string with EventDecompFailed
         try {
             EventDecompFailed.validateJsonElement(jsonElement);
@@ -610,7 +565,7 @@ public class StreamAiDecompilation200ResponseInner extends AbstractOpenApiSchema
             // continue to the next one
         }
         if (validCount != 1) {
-            throw new IOException(String.format(Locale.ROOT, "The JSON string is invalid for StreamAiDecompilation200ResponseInner with oneOf schemas: EventAttemptFailed, EventAttemptStarted, EventDebugPrompt, EventDecompFailed, EventDecompFinished, EventProse, EventRenameApplied, EventSourceDelta, EventSourceReset, EventWarning. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            throw new IOException(String.format(Locale.ROOT, "The JSON string is invalid for StreamAiDecompilation200ResponseInner with oneOf schemas: EventAttemptFailed, EventAttemptStarted, EventDecompFailed, EventDecompFinished, EventProse, EventRenameApplied, EventSourceDelta, EventSourceReset, EventWarning. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 

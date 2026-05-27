@@ -86,6 +86,11 @@ public class ELFRelocation {
   @javax.annotation.Nonnull
   private Boolean isPltgot;
 
+  public static final String SERIALIZED_NAME_IS_UNICODE_SYMBOL_NAME = "is_unicode_symbol_name";
+  @SerializedName(SERIALIZED_NAME_IS_UNICODE_SYMBOL_NAME)
+  @javax.annotation.Nullable
+  private Boolean isUnicodeSymbolName = true;
+
   public ELFRelocation() {
   }
 
@@ -221,6 +226,25 @@ public class ELFRelocation {
     this.isPltgot = isPltgot;
   }
 
+
+  public ELFRelocation isUnicodeSymbolName(@javax.annotation.Nullable Boolean isUnicodeSymbolName) {
+    this.isUnicodeSymbolName = isUnicodeSymbolName;
+    return this;
+  }
+
+  /**
+   * Get isUnicodeSymbolName
+   * @return isUnicodeSymbolName
+   */
+  @javax.annotation.Nullable
+  public Boolean getIsUnicodeSymbolName() {
+    return isUnicodeSymbolName;
+  }
+
+  public void setIsUnicodeSymbolName(@javax.annotation.Nullable Boolean isUnicodeSymbolName) {
+    this.isUnicodeSymbolName = isUnicodeSymbolName;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -282,13 +306,14 @@ public class ELFRelocation {
         Objects.equals(this.addend, elFRelocation.addend) &&
         Objects.equals(this.symbolName, elFRelocation.symbolName) &&
         Objects.equals(this.isDynamic, elFRelocation.isDynamic) &&
-        Objects.equals(this.isPltgot, elFRelocation.isPltgot)&&
+        Objects.equals(this.isPltgot, elFRelocation.isPltgot) &&
+        Objects.equals(this.isUnicodeSymbolName, elFRelocation.isUnicodeSymbolName)&&
         Objects.equals(this.additionalProperties, elFRelocation.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, type, size, addend, symbolName, isDynamic, isPltgot, additionalProperties);
+    return Objects.hash(address, type, size, addend, symbolName, isDynamic, isPltgot, isUnicodeSymbolName, additionalProperties);
   }
 
   @Override
@@ -302,6 +327,7 @@ public class ELFRelocation {
     sb.append("    symbolName: ").append(toIndentedString(symbolName)).append("\n");
     sb.append("    isDynamic: ").append(toIndentedString(isDynamic)).append("\n");
     sb.append("    isPltgot: ").append(toIndentedString(isPltgot)).append("\n");
+    sb.append("    isUnicodeSymbolName: ").append(toIndentedString(isUnicodeSymbolName)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -324,7 +350,7 @@ public class ELFRelocation {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("address", "type", "size", "addend", "symbol_name", "is_dynamic", "is_pltgot"));
+    openapiFields = new HashSet<String>(Arrays.asList("address", "type", "size", "addend", "symbol_name", "is_dynamic", "is_pltgot", "is_unicode_symbol_name"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("address", "type", "size", "addend", "symbol_name", "is_dynamic", "is_pltgot"));

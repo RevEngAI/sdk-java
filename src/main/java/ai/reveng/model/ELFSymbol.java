@@ -86,6 +86,11 @@ public class ELFSymbol {
   @javax.annotation.Nonnull
   private Integer sectionIndex;
 
+  public static final String SERIALIZED_NAME_IS_UNICODE_NAME = "is_unicode_name";
+  @SerializedName(SERIALIZED_NAME_IS_UNICODE_NAME)
+  @javax.annotation.Nullable
+  private Boolean isUnicodeName = true;
+
   public ELFSymbol() {
   }
 
@@ -221,6 +226,25 @@ public class ELFSymbol {
     this.sectionIndex = sectionIndex;
   }
 
+
+  public ELFSymbol isUnicodeName(@javax.annotation.Nullable Boolean isUnicodeName) {
+    this.isUnicodeName = isUnicodeName;
+    return this;
+  }
+
+  /**
+   * Get isUnicodeName
+   * @return isUnicodeName
+   */
+  @javax.annotation.Nullable
+  public Boolean getIsUnicodeName() {
+    return isUnicodeName;
+  }
+
+  public void setIsUnicodeName(@javax.annotation.Nullable Boolean isUnicodeName) {
+    this.isUnicodeName = isUnicodeName;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -282,13 +306,14 @@ public class ELFSymbol {
         Objects.equals(this.type, elFSymbol.type) &&
         Objects.equals(this.binding, elFSymbol.binding) &&
         Objects.equals(this.visibility, elFSymbol.visibility) &&
-        Objects.equals(this.sectionIndex, elFSymbol.sectionIndex)&&
+        Objects.equals(this.sectionIndex, elFSymbol.sectionIndex) &&
+        Objects.equals(this.isUnicodeName, elFSymbol.isUnicodeName)&&
         Objects.equals(this.additionalProperties, elFSymbol.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, value, size, type, binding, visibility, sectionIndex, additionalProperties);
+    return Objects.hash(name, value, size, type, binding, visibility, sectionIndex, isUnicodeName, additionalProperties);
   }
 
   @Override
@@ -302,6 +327,7 @@ public class ELFSymbol {
     sb.append("    binding: ").append(toIndentedString(binding)).append("\n");
     sb.append("    visibility: ").append(toIndentedString(visibility)).append("\n");
     sb.append("    sectionIndex: ").append(toIndentedString(sectionIndex)).append("\n");
+    sb.append("    isUnicodeName: ").append(toIndentedString(isUnicodeName)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -324,7 +350,7 @@ public class ELFSymbol {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("name", "value", "size", "type", "binding", "visibility", "section_index"));
+    openapiFields = new HashSet<String>(Arrays.asList("name", "value", "size", "type", "binding", "visibility", "section_index", "is_unicode_name"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "value", "size", "type", "binding", "visibility", "section_index"));
