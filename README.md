@@ -16,7 +16,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>ai.reveng</groupId>
     <artifactId>sdk</artifactId>
-    <version>3.86.1</version>
+    <version>3.86.3</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -31,7 +31,7 @@ repositories {
 }
 
 dependencies {
-    implementation "ai.reveng:sdk:3.86.1"
+    implementation "ai.reveng:sdk:3.86.3"
 }
 ```
 
@@ -415,6 +415,7 @@ Class | Method | HTTP request | Description
  - [EventWarning](docs/EventWarning.md)
  - [ExportModel](docs/ExportModel.md)
  - [ExternalResponse](docs/ExternalResponse.md)
+ - [ExtractedFileEntry](docs/ExtractedFileEntry.md)
  - [ExtractedURL](docs/ExtractedURL.md)
  - [FileActivityEntry](docs/FileActivityEntry.md)
  - [FileFormat](docs/FileFormat.md)
@@ -500,6 +501,7 @@ Class | Method | HTTP request | Description
  - [PatchCommentBody](docs/PatchCommentBody.md)
  - [Platform](docs/Platform.md)
  - [ProcessActivityEntry](docs/ProcessActivityEntry.md)
+ - [ProcessExtractedFiles](docs/ProcessExtractedFiles.md)
  - [ProcessMemdumps](docs/ProcessMemdumps.md)
  - [ProcessNode](docs/ProcessNode.md)
  - [ProcessTree](docs/ProcessTree.md)
