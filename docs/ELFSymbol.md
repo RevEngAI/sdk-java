@@ -14,6 +14,7 @@
 |**binding** | **String** |  |  |
 |**visibility** | **String** |  |  |
 |**sectionIndex** | **Integer** |  |  |
+|**isUnicodeName** | **Boolean** |  |  [optional] |
 
 
 

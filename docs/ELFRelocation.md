@@ -14,6 +14,7 @@
 |**symbolName** | **String** |  |  |
 |**isDynamic** | **Boolean** |  |  |
 |**isPltgot** | **Boolean** |  |  |
+|**isUnicodeSymbolName** | **Boolean** |  |  [optional] |
 
 
 

@@ -16,7 +16,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>ai.reveng</groupId>
     <artifactId>sdk</artifactId>
-    <version>3.85.0</version>
+    <version>3.86.1</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -31,7 +31,7 @@ repositories {
 }
 
 dependencies {
-    implementation "ai.reveng:sdk:3.85.0"
+    implementation "ai.reveng:sdk:3.86.1"
 }
 ```
 
@@ -115,10 +115,8 @@ Class | Method | HTTP request | Description
 *AnalysesResultsMetadataApi* | [**getTags**](docs/AnalysesResultsMetadataApi.md#getTags) | **GET** /v2/analyses/{analysis_id}/tags | Get function tags with maliciousness score
 *AnalysesResultsMetadataApi* | [**getVulnerabilities**](docs/AnalysesResultsMetadataApi.md#getVulnerabilities) | **GET** /v2/analyses/{analysis_id}/vulnerabilities | Gets the vulnerabilities found in the analysis
 *AnalysesXRefsApi* | [**getXrefByVaddr**](docs/AnalysesXRefsApi.md#getXrefByVaddr) | **GET** /v2/analyses/{analysis_id}/xrefs/{vaddr} | [Beta] Look up xrefs by virtual address
-*AuthenticationUsersApi* | [**getRequesterUserInfo**](docs/AuthenticationUsersApi.md#getRequesterUserInfo) | **GET** /v2/users/me | Get the requesters user information
 *AuthenticationUsersApi* | [**getUser**](docs/AuthenticationUsersApi.md#getUser) | **GET** /v2/users/{user_id} | Get a user&#39;s public information
 *AuthenticationUsersApi* | [**getUserActivity**](docs/AuthenticationUsersApi.md#getUserActivity) | **GET** /v2/users/activity | Get auth user activity
-*AuthenticationUsersApi* | [**getUserComments**](docs/AuthenticationUsersApi.md#getUserComments) | **GET** /v2/users/me/comments | Get comments by user
 *AuthenticationUsersApi* | [**submitUserFeedback**](docs/AuthenticationUsersApi.md#submitUserFeedback) | **POST** /v2/users/feedback | Submit feedback about the application
 *BinariesApi* | [**downloadZippedBinary**](docs/BinariesApi.md#downloadZippedBinary) | **GET** /v2/binaries/{binary_id}/download-zipped | Downloads a zipped binary with password protection
 *BinariesApi* | [**getBinaryAdditionalDetails**](docs/BinariesApi.md#getBinaryAdditionalDetails) | **GET** /v2/binaries/{binary_id}/additional-details | Gets the additional details of a binary
@@ -295,7 +293,6 @@ Class | Method | HTTP request | Description
  - [BaseResponseGenerateFunctionDataTypes](docs/BaseResponseGenerateFunctionDataTypes.md)
  - [BaseResponseGenerationStatusList](docs/BaseResponseGenerationStatusList.md)
  - [BaseResponseGetAiDecompilationTask](docs/BaseResponseGetAiDecompilationTask.md)
- - [BaseResponseGetMeResponse](docs/BaseResponseGetMeResponse.md)
  - [BaseResponseGetPublicUserResponse](docs/BaseResponseGetPublicUserResponse.md)
  - [BaseResponseListCalleesCallerFunctionsResponse](docs/BaseResponseListCalleesCallerFunctionsResponse.md)
  - [BaseResponseListCollectionResults](docs/BaseResponseListCollectionResults.md)
@@ -369,7 +366,6 @@ Class | Method | HTTP request | Description
  - [CreateAIDecompOutputBody](docs/CreateAIDecompOutputBody.md)
  - [CreateConversationRequest](docs/CreateConversationRequest.md)
  - [Created](docs/Created.md)
- - [DebugPromptEvent](docs/DebugPromptEvent.md)
  - [DecompFailedEvent](docs/DecompFailedEvent.md)
  - [DecompFinishedEvent](docs/DecompFinishedEvent.md)
  - [DecompilationCommentContext](docs/DecompilationCommentContext.md)
@@ -395,7 +391,6 @@ Class | Method | HTTP request | Description
  - [EventAttemptFailed](docs/EventAttemptFailed.md)
  - [EventAttemptStarted](docs/EventAttemptStarted.md)
  - [EventCONTEXTCOMPACTED](docs/EventCONTEXTCOMPACTED.md)
- - [EventDebugPrompt](docs/EventDebugPrompt.md)
  - [EventDecompFailed](docs/EventDecompFailed.md)
  - [EventDecompFinished](docs/EventDecompFinished.md)
  - [EventProse](docs/EventProse.md)
@@ -469,7 +464,6 @@ Class | Method | HTTP request | Description
  - [GenerationStatusList](docs/GenerationStatusList.md)
  - [GetAiDecompilationRatingResponse](docs/GetAiDecompilationRatingResponse.md)
  - [GetAiDecompilationTask](docs/GetAiDecompilationTask.md)
- - [GetMeResponse](docs/GetMeResponse.md)
  - [GetPublicUserResponse](docs/GetPublicUserResponse.md)
  - [GlobalVariable](docs/GlobalVariable.md)
  - [HistoryEntry](docs/HistoryEntry.md)
