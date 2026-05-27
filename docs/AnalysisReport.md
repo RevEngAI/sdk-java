@@ -7,6 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**extractedFiles** | **List&lt;ProcessExtractedFiles&gt;** |  |  [optional] |
 |**fileActivity** | **List&lt;FileActivityEntry&gt;** |  |  [optional] |
 |**info** | **ReportInfo** |  |  |
 |**memdumps** | **List&lt;ProcessMemdumps&gt;** |  |  [optional] |

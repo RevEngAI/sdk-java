@@ -1220,7 +1220,7 @@ public class Example {
 
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
     UploadFileType uploadFileType = UploadFileType.fromValue("BINARY"); // UploadFileType | 
-    String _file = "_file_example"; // String | 
+    File _file = new File("/path/to/file"); // File | 
     String packedPassword = "packedPassword_example"; // String | 
     Boolean forceOverwrite = false; // Boolean | 
     try {
@@ -1242,7 +1242,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **uploadFileType** | [**UploadFileType**](UploadFileType.md)|  | [enum: BINARY, DEBUG, PACKED, FIRMWARE] |
-| **_file** | **String**|  | |
+| **_file** | **File**|  | |
 | **packedPassword** | **String**|  | [optional] |
 | **forceOverwrite** | **Boolean**|  | [optional] [default to false] |
 

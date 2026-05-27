@@ -19,6 +19,7 @@ import ai.reveng.model.ModuleLoadEntry;
 import ai.reveng.model.MutexEntry;
 import ai.reveng.model.NetworkActivity;
 import ai.reveng.model.ProcessActivityEntry;
+import ai.reveng.model.ProcessExtractedFiles;
 import ai.reveng.model.ProcessMemdumps;
 import ai.reveng.model.ProcessTree;
 import ai.reveng.model.RegistryOperation;
@@ -67,6 +68,11 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AnalysisReport {
+  public static final String SERIALIZED_NAME_EXTRACTED_FILES = "extracted_files";
+  @SerializedName(SERIALIZED_NAME_EXTRACTED_FILES)
+  @javax.annotation.Nullable
+  private List<ProcessExtractedFiles> extractedFiles;
+
   public static final String SERIALIZED_NAME_FILE_ACTIVITY = "file_activity";
   @SerializedName(SERIALIZED_NAME_FILE_ACTIVITY)
   @javax.annotation.Nullable
@@ -139,6 +145,33 @@ public class AnalysisReport {
 
   public AnalysisReport() {
   }
+
+  public AnalysisReport extractedFiles(@javax.annotation.Nullable List<ProcessExtractedFiles> extractedFiles) {
+    this.extractedFiles = extractedFiles;
+    return this;
+  }
+
+  public AnalysisReport addExtractedFilesItem(ProcessExtractedFiles extractedFilesItem) {
+    if (this.extractedFiles == null) {
+      this.extractedFiles = new ArrayList<>();
+    }
+    this.extractedFiles.add(extractedFilesItem);
+    return this;
+  }
+
+  /**
+   * Get extractedFiles
+   * @return extractedFiles
+   */
+  @javax.annotation.Nullable
+  public List<ProcessExtractedFiles> getExtractedFiles() {
+    return extractedFiles;
+  }
+
+  public void setExtractedFiles(@javax.annotation.Nullable List<ProcessExtractedFiles> extractedFiles) {
+    this.extractedFiles = extractedFiles;
+  }
+
 
   public AnalysisReport fileActivity(@javax.annotation.Nullable List<FileActivityEntry> fileActivity) {
     this.fileActivity = fileActivity;
@@ -532,7 +565,8 @@ public class AnalysisReport {
       return false;
     }
     AnalysisReport analysisReport = (AnalysisReport) o;
-    return Objects.equals(this.fileActivity, analysisReport.fileActivity) &&
+    return Objects.equals(this.extractedFiles, analysisReport.extractedFiles) &&
+        Objects.equals(this.fileActivity, analysisReport.fileActivity) &&
         Objects.equals(this.info, analysisReport.info) &&
         Objects.equals(this.memdumps, analysisReport.memdumps) &&
         Objects.equals(this.moduleLoadAddresses, analysisReport.moduleLoadAddresses) &&
@@ -555,7 +589,7 @@ public class AnalysisReport {
 
   @Override
   public int hashCode() {
-    return Objects.hash(fileActivity, info, memdumps, moduleLoadAddresses, mutexes, networkActivity, processActivity, processTree, registryOperations, scheduledTasks, services, startup, threatScore, ttps, additionalProperties);
+    return Objects.hash(extractedFiles, fileActivity, info, memdumps, moduleLoadAddresses, mutexes, networkActivity, processActivity, processTree, registryOperations, scheduledTasks, services, startup, threatScore, ttps, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -569,6 +603,7 @@ public class AnalysisReport {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AnalysisReport {\n");
+    sb.append("    extractedFiles: ").append(toIndentedString(extractedFiles)).append("\n");
     sb.append("    fileActivity: ").append(toIndentedString(fileActivity)).append("\n");
     sb.append("    info: ").append(toIndentedString(info)).append("\n");
     sb.append("    memdumps: ").append(toIndentedString(memdumps)).append("\n");
@@ -605,7 +640,7 @@ public class AnalysisReport {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("file_activity", "info", "memdumps", "module_load_addresses", "mutexes", "network_activity", "process_activity", "process_tree", "registry_operations", "scheduled_tasks", "services", "startup", "threat_score", "ttps"));
+    openapiFields = new HashSet<String>(Arrays.asList("extracted_files", "file_activity", "info", "memdumps", "module_load_addresses", "mutexes", "network_activity", "process_activity", "process_tree", "registry_operations", "scheduled_tasks", "services", "startup", "threat_score", "ttps"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("info", "threat_score"));
@@ -631,6 +666,10 @@ public class AnalysisReport {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("extracted_files") != null && !jsonObj.get("extracted_files").isJsonNull() && !jsonObj.get("extracted_files").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `extracted_files` to be an array in the JSON string but got `%s`", jsonObj.get("extracted_files").toString()));
+      }
       // ensure the optional json data is an array if present
       if (jsonObj.get("file_activity") != null && !jsonObj.get("file_activity").isJsonNull() && !jsonObj.get("file_activity").isJsonArray()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `file_activity` to be an array in the JSON string but got `%s`", jsonObj.get("file_activity").toString()));
