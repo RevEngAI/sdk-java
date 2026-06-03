@@ -14,14 +14,16 @@ package ai.reveng.model;
 
 import java.util.Objects;
 import java.util.Locale;
-import ai.reveng.model.AnalysisLogs;
+import ai.reveng.model.AnalysisLogMessage;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -48,82 +50,66 @@ import java.util.Locale;
 import ai.reveng.invoker.JSON;
 
 /**
- * DynamicExecutionStatusResponse
+ * AnalysisLogs
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class DynamicExecutionStatusResponse {
-  public static final String SERIALIZED_NAME_ERROR_MESSAGE = "error_message";
-  @SerializedName(SERIALIZED_NAME_ERROR_MESSAGE)
+public class AnalysisLogs {
+  public static final String SERIALIZED_NAME_MESSAGE_COUNT = "message_count";
+  @SerializedName(SERIALIZED_NAME_MESSAGE_COUNT)
+  @javax.annotation.Nonnull
+  private Long messageCount;
+
+  public static final String SERIALIZED_NAME_MESSAGES = "messages";
+  @SerializedName(SERIALIZED_NAME_MESSAGES)
   @javax.annotation.Nullable
-  private String errorMessage;
+  private List<AnalysisLogMessage> messages;
 
-  public static final String SERIALIZED_NAME_LOGS = "logs";
-  @SerializedName(SERIALIZED_NAME_LOGS)
-  @javax.annotation.Nonnull
-  private AnalysisLogs logs;
-
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
-  @javax.annotation.Nonnull
-  private String status;
-
-  public DynamicExecutionStatusResponse() {
+  public AnalysisLogs() {
   }
 
-  public DynamicExecutionStatusResponse errorMessage(@javax.annotation.Nullable String errorMessage) {
-    this.errorMessage = errorMessage;
+  public AnalysisLogs messageCount(@javax.annotation.Nonnull Long messageCount) {
+    this.messageCount = messageCount;
     return this;
   }
 
   /**
-   * Error detail, set when status is ERROR
-   * @return errorMessage
+   * Get messageCount
+   * @return messageCount
+   */
+  @javax.annotation.Nonnull
+  public Long getMessageCount() {
+    return messageCount;
+  }
+
+  public void setMessageCount(@javax.annotation.Nonnull Long messageCount) {
+    this.messageCount = messageCount;
+  }
+
+
+  public AnalysisLogs messages(@javax.annotation.Nullable List<AnalysisLogMessage> messages) {
+    this.messages = messages;
+    return this;
+  }
+
+  public AnalysisLogs addMessagesItem(AnalysisLogMessage messagesItem) {
+    if (this.messages == null) {
+      this.messages = new ArrayList<>();
+    }
+    this.messages.add(messagesItem);
+    return this;
+  }
+
+  /**
+   * Get messages
+   * @return messages
    */
   @javax.annotation.Nullable
-  public String getErrorMessage() {
-    return errorMessage;
+  public List<AnalysisLogMessage> getMessages() {
+    return messages;
   }
 
-  public void setErrorMessage(@javax.annotation.Nullable String errorMessage) {
-    this.errorMessage = errorMessage;
-  }
-
-
-  public DynamicExecutionStatusResponse logs(@javax.annotation.Nonnull AnalysisLogs logs) {
-    this.logs = logs;
-    return this;
-  }
-
-  /**
-   * Sandbox status log messages captured during the run. Contains a single \&quot;No logs available\&quot; message when none have been captured yet.
-   * @return logs
-   */
-  @javax.annotation.Nonnull
-  public AnalysisLogs getLogs() {
-    return logs;
-  }
-
-  public void setLogs(@javax.annotation.Nonnull AnalysisLogs logs) {
-    this.logs = logs;
-  }
-
-
-  public DynamicExecutionStatusResponse status(@javax.annotation.Nonnull String status) {
-    this.status = status;
-    return this;
-  }
-
-  /**
-   * Task status: UNINITIALISED, PENDING, RUNNING, COMPLETED, or ERROR
-   * @return status
-   */
-  @javax.annotation.Nonnull
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(@javax.annotation.Nonnull String status) {
-    this.status = status;
+  public void setMessages(@javax.annotation.Nullable List<AnalysisLogMessage> messages) {
+    this.messages = messages;
   }
 
   /**
@@ -139,9 +125,9 @@ public class DynamicExecutionStatusResponse {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the DynamicExecutionStatusResponse instance itself
+   * @return the AnalysisLogs instance itself
    */
-  public DynamicExecutionStatusResponse putAdditionalProperty(String key, Object value) {
+  public AnalysisLogs putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -180,25 +166,23 @@ public class DynamicExecutionStatusResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DynamicExecutionStatusResponse dynamicExecutionStatusResponse = (DynamicExecutionStatusResponse) o;
-    return Objects.equals(this.errorMessage, dynamicExecutionStatusResponse.errorMessage) &&
-        Objects.equals(this.logs, dynamicExecutionStatusResponse.logs) &&
-        Objects.equals(this.status, dynamicExecutionStatusResponse.status)&&
-        Objects.equals(this.additionalProperties, dynamicExecutionStatusResponse.additionalProperties);
+    AnalysisLogs analysisLogs = (AnalysisLogs) o;
+    return Objects.equals(this.messageCount, analysisLogs.messageCount) &&
+        Objects.equals(this.messages, analysisLogs.messages)&&
+        Objects.equals(this.additionalProperties, analysisLogs.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(errorMessage, logs, status, additionalProperties);
+    return Objects.hash(messageCount, messages, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DynamicExecutionStatusResponse {\n");
-    sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
-    sb.append("    logs: ").append(toIndentedString(logs)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("class AnalysisLogs {\n");
+    sb.append("    messageCount: ").append(toIndentedString(messageCount)).append("\n");
+    sb.append("    messages: ").append(toIndentedString(messages)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -221,37 +205,37 @@ public class DynamicExecutionStatusResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("error_message", "logs", "status"));
+    openapiFields = new HashSet<String>(Arrays.asList("message_count", "messages"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("logs", "status"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("message_count", "messages"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to DynamicExecutionStatusResponse
+   * @throws IOException if the JSON Element is invalid with respect to AnalysisLogs
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!DynamicExecutionStatusResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in DynamicExecutionStatusResponse is not found in the empty JSON string", DynamicExecutionStatusResponse.openapiRequiredFields.toString()));
+        if (!AnalysisLogs.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in AnalysisLogs is not found in the empty JSON string", AnalysisLogs.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : DynamicExecutionStatusResponse.openapiRequiredFields) {
+      for (String requiredField : AnalysisLogs.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("error_message") != null && !jsonObj.get("error_message").isJsonNull()) && !jsonObj.get("error_message").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `error_message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("error_message").toString()));
-      }
-      if (!jsonObj.get("status").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
+      // ensure the required json array is present
+      if (jsonObj.get("messages") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("messages").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `messages` to be an array in the JSON string but got `%s`", jsonObj.get("messages").toString()));
       }
   }
 
@@ -259,16 +243,16 @@ public class DynamicExecutionStatusResponse {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!DynamicExecutionStatusResponse.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'DynamicExecutionStatusResponse' and its subtypes
+       if (!AnalysisLogs.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'AnalysisLogs' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<DynamicExecutionStatusResponse> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(DynamicExecutionStatusResponse.class));
+       final TypeAdapter<AnalysisLogs> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(AnalysisLogs.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<DynamicExecutionStatusResponse>() {
+       return (TypeAdapter<T>) new TypeAdapter<AnalysisLogs>() {
            @Override
-           public void write(JsonWriter out, DynamicExecutionStatusResponse value) throws IOException {
+           public void write(JsonWriter out, AnalysisLogs value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -296,12 +280,12 @@ public class DynamicExecutionStatusResponse {
            }
 
            @Override
-           public DynamicExecutionStatusResponse read(JsonReader in) throws IOException {
+           public AnalysisLogs read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             DynamicExecutionStatusResponse instance = thisAdapter.fromJsonTree(jsonObj);
+             AnalysisLogs instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -328,18 +312,18 @@ public class DynamicExecutionStatusResponse {
   }
 
   /**
-   * Create an instance of DynamicExecutionStatusResponse given an JSON string
+   * Create an instance of AnalysisLogs given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of DynamicExecutionStatusResponse
-   * @throws IOException if the JSON string is invalid with respect to DynamicExecutionStatusResponse
+   * @return An instance of AnalysisLogs
+   * @throws IOException if the JSON string is invalid with respect to AnalysisLogs
    */
-  public static DynamicExecutionStatusResponse fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, DynamicExecutionStatusResponse.class);
+  public static AnalysisLogs fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, AnalysisLogs.class);
   }
 
   /**
-   * Convert an instance of DynamicExecutionStatusResponse to an JSON string
+   * Convert an instance of AnalysisLogs to an JSON string
    *
    * @return JSON string
    */
