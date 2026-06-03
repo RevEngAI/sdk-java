@@ -14,7 +14,6 @@ package ai.reveng.model;
 
 import java.util.Objects;
 import java.util.Locale;
-import ai.reveng.model.AnalysisLogs;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -48,82 +47,132 @@ import java.util.Locale;
 import ai.reveng.invoker.JSON;
 
 /**
- * DynamicExecutionStatusResponse
+ * AddCalleeInputBody
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class DynamicExecutionStatusResponse {
-  public static final String SERIALIZED_NAME_ERROR_MESSAGE = "error_message";
-  @SerializedName(SERIALIZED_NAME_ERROR_MESSAGE)
+public class AddCalleeInputBody {
+  public static final String SERIALIZED_NAME_CALLEE_FUNCTION_ID = "callee_function_id";
+  @SerializedName(SERIALIZED_NAME_CALLEE_FUNCTION_ID)
   @javax.annotation.Nullable
-  private String errorMessage;
+  private Long calleeFunctionId;
 
-  public static final String SERIALIZED_NAME_LOGS = "logs";
-  @SerializedName(SERIALIZED_NAME_LOGS)
+  public static final String SERIALIZED_NAME_CALLEE_NAME = "callee_name";
+  @SerializedName(SERIALIZED_NAME_CALLEE_NAME)
+  @javax.annotation.Nullable
+  private String calleeName;
+
+  public static final String SERIALIZED_NAME_CALLEE_VADDR = "callee_vaddr";
+  @SerializedName(SERIALIZED_NAME_CALLEE_VADDR)
   @javax.annotation.Nonnull
-  private AnalysisLogs logs;
+  private Long calleeVaddr;
 
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
+  public static final String SERIALIZED_NAME_IS_EXTERNAL = "is_external";
+  @SerializedName(SERIALIZED_NAME_IS_EXTERNAL)
   @javax.annotation.Nonnull
-  private String status;
+  private Boolean isExternal;
 
-  public DynamicExecutionStatusResponse() {
+  public static final String SERIALIZED_NAME_THUNKED_VADDR = "thunked_vaddr";
+  @SerializedName(SERIALIZED_NAME_THUNKED_VADDR)
+  @javax.annotation.Nullable
+  private Long thunkedVaddr;
+
+  public AddCalleeInputBody() {
   }
 
-  public DynamicExecutionStatusResponse errorMessage(@javax.annotation.Nullable String errorMessage) {
-    this.errorMessage = errorMessage;
+  public AddCalleeInputBody calleeFunctionId(@javax.annotation.Nullable Long calleeFunctionId) {
+    this.calleeFunctionId = calleeFunctionId;
     return this;
   }
 
   /**
-   * Error detail, set when status is ERROR
-   * @return errorMessage
+   * Internal callee function ID; 0 means not provided
+   * minimum: 0
+   * @return calleeFunctionId
    */
   @javax.annotation.Nullable
-  public String getErrorMessage() {
-    return errorMessage;
+  public Long getCalleeFunctionId() {
+    return calleeFunctionId;
   }
 
-  public void setErrorMessage(@javax.annotation.Nullable String errorMessage) {
-    this.errorMessage = errorMessage;
+  public void setCalleeFunctionId(@javax.annotation.Nullable Long calleeFunctionId) {
+    this.calleeFunctionId = calleeFunctionId;
   }
 
 
-  public DynamicExecutionStatusResponse logs(@javax.annotation.Nonnull AnalysisLogs logs) {
-    this.logs = logs;
+  public AddCalleeInputBody calleeName(@javax.annotation.Nullable String calleeName) {
+    this.calleeName = calleeName;
     return this;
   }
 
   /**
-   * Sandbox status log messages captured during the run. Contains a single \&quot;No logs available\&quot; message when none have been captured yet.
-   * @return logs
+   * Callee name (for external calls)
+   * @return calleeName
    */
-  @javax.annotation.Nonnull
-  public AnalysisLogs getLogs() {
-    return logs;
+  @javax.annotation.Nullable
+  public String getCalleeName() {
+    return calleeName;
   }
 
-  public void setLogs(@javax.annotation.Nonnull AnalysisLogs logs) {
-    this.logs = logs;
+  public void setCalleeName(@javax.annotation.Nullable String calleeName) {
+    this.calleeName = calleeName;
   }
 
 
-  public DynamicExecutionStatusResponse status(@javax.annotation.Nonnull String status) {
-    this.status = status;
+  public AddCalleeInputBody calleeVaddr(@javax.annotation.Nonnull Long calleeVaddr) {
+    this.calleeVaddr = calleeVaddr;
     return this;
   }
 
   /**
-   * Task status: UNINITIALISED, PENDING, RUNNING, COMPLETED, or ERROR
-   * @return status
+   * Virtual address of the callee
+   * @return calleeVaddr
    */
   @javax.annotation.Nonnull
-  public String getStatus() {
-    return status;
+  public Long getCalleeVaddr() {
+    return calleeVaddr;
   }
 
-  public void setStatus(@javax.annotation.Nonnull String status) {
-    this.status = status;
+  public void setCalleeVaddr(@javax.annotation.Nonnull Long calleeVaddr) {
+    this.calleeVaddr = calleeVaddr;
+  }
+
+
+  public AddCalleeInputBody isExternal(@javax.annotation.Nonnull Boolean isExternal) {
+    this.isExternal = isExternal;
+    return this;
+  }
+
+  /**
+   * Whether the callee is outside the binary
+   * @return isExternal
+   */
+  @javax.annotation.Nonnull
+  public Boolean getIsExternal() {
+    return isExternal;
+  }
+
+  public void setIsExternal(@javax.annotation.Nonnull Boolean isExternal) {
+    this.isExternal = isExternal;
+  }
+
+
+  public AddCalleeInputBody thunkedVaddr(@javax.annotation.Nullable Long thunkedVaddr) {
+    this.thunkedVaddr = thunkedVaddr;
+    return this;
+  }
+
+  /**
+   * Thunked virtual address
+   * minimum: 0
+   * @return thunkedVaddr
+   */
+  @javax.annotation.Nullable
+  public Long getThunkedVaddr() {
+    return thunkedVaddr;
+  }
+
+  public void setThunkedVaddr(@javax.annotation.Nullable Long thunkedVaddr) {
+    this.thunkedVaddr = thunkedVaddr;
   }
 
   /**
@@ -139,9 +188,9 @@ public class DynamicExecutionStatusResponse {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the DynamicExecutionStatusResponse instance itself
+   * @return the AddCalleeInputBody instance itself
    */
-  public DynamicExecutionStatusResponse putAdditionalProperty(String key, Object value) {
+  public AddCalleeInputBody putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -180,25 +229,29 @@ public class DynamicExecutionStatusResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DynamicExecutionStatusResponse dynamicExecutionStatusResponse = (DynamicExecutionStatusResponse) o;
-    return Objects.equals(this.errorMessage, dynamicExecutionStatusResponse.errorMessage) &&
-        Objects.equals(this.logs, dynamicExecutionStatusResponse.logs) &&
-        Objects.equals(this.status, dynamicExecutionStatusResponse.status)&&
-        Objects.equals(this.additionalProperties, dynamicExecutionStatusResponse.additionalProperties);
+    AddCalleeInputBody addCalleeInputBody = (AddCalleeInputBody) o;
+    return Objects.equals(this.calleeFunctionId, addCalleeInputBody.calleeFunctionId) &&
+        Objects.equals(this.calleeName, addCalleeInputBody.calleeName) &&
+        Objects.equals(this.calleeVaddr, addCalleeInputBody.calleeVaddr) &&
+        Objects.equals(this.isExternal, addCalleeInputBody.isExternal) &&
+        Objects.equals(this.thunkedVaddr, addCalleeInputBody.thunkedVaddr)&&
+        Objects.equals(this.additionalProperties, addCalleeInputBody.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(errorMessage, logs, status, additionalProperties);
+    return Objects.hash(calleeFunctionId, calleeName, calleeVaddr, isExternal, thunkedVaddr, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DynamicExecutionStatusResponse {\n");
-    sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
-    sb.append("    logs: ").append(toIndentedString(logs)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("class AddCalleeInputBody {\n");
+    sb.append("    calleeFunctionId: ").append(toIndentedString(calleeFunctionId)).append("\n");
+    sb.append("    calleeName: ").append(toIndentedString(calleeName)).append("\n");
+    sb.append("    calleeVaddr: ").append(toIndentedString(calleeVaddr)).append("\n");
+    sb.append("    isExternal: ").append(toIndentedString(isExternal)).append("\n");
+    sb.append("    thunkedVaddr: ").append(toIndentedString(thunkedVaddr)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -221,37 +274,34 @@ public class DynamicExecutionStatusResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("error_message", "logs", "status"));
+    openapiFields = new HashSet<String>(Arrays.asList("callee_function_id", "callee_name", "callee_vaddr", "is_external", "thunked_vaddr"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("logs", "status"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("callee_vaddr", "is_external"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to DynamicExecutionStatusResponse
+   * @throws IOException if the JSON Element is invalid with respect to AddCalleeInputBody
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!DynamicExecutionStatusResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in DynamicExecutionStatusResponse is not found in the empty JSON string", DynamicExecutionStatusResponse.openapiRequiredFields.toString()));
+        if (!AddCalleeInputBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in AddCalleeInputBody is not found in the empty JSON string", AddCalleeInputBody.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : DynamicExecutionStatusResponse.openapiRequiredFields) {
+      for (String requiredField : AddCalleeInputBody.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("error_message") != null && !jsonObj.get("error_message").isJsonNull()) && !jsonObj.get("error_message").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `error_message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("error_message").toString()));
-      }
-      if (!jsonObj.get("status").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
+      if ((jsonObj.get("callee_name") != null && !jsonObj.get("callee_name").isJsonNull()) && !jsonObj.get("callee_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `callee_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("callee_name").toString()));
       }
   }
 
@@ -259,16 +309,16 @@ public class DynamicExecutionStatusResponse {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!DynamicExecutionStatusResponse.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'DynamicExecutionStatusResponse' and its subtypes
+       if (!AddCalleeInputBody.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'AddCalleeInputBody' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<DynamicExecutionStatusResponse> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(DynamicExecutionStatusResponse.class));
+       final TypeAdapter<AddCalleeInputBody> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(AddCalleeInputBody.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<DynamicExecutionStatusResponse>() {
+       return (TypeAdapter<T>) new TypeAdapter<AddCalleeInputBody>() {
            @Override
-           public void write(JsonWriter out, DynamicExecutionStatusResponse value) throws IOException {
+           public void write(JsonWriter out, AddCalleeInputBody value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -296,12 +346,12 @@ public class DynamicExecutionStatusResponse {
            }
 
            @Override
-           public DynamicExecutionStatusResponse read(JsonReader in) throws IOException {
+           public AddCalleeInputBody read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             DynamicExecutionStatusResponse instance = thisAdapter.fromJsonTree(jsonObj);
+             AddCalleeInputBody instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -328,18 +378,18 @@ public class DynamicExecutionStatusResponse {
   }
 
   /**
-   * Create an instance of DynamicExecutionStatusResponse given an JSON string
+   * Create an instance of AddCalleeInputBody given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of DynamicExecutionStatusResponse
-   * @throws IOException if the JSON string is invalid with respect to DynamicExecutionStatusResponse
+   * @return An instance of AddCalleeInputBody
+   * @throws IOException if the JSON string is invalid with respect to AddCalleeInputBody
    */
-  public static DynamicExecutionStatusResponse fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, DynamicExecutionStatusResponse.class);
+  public static AddCalleeInputBody fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, AddCalleeInputBody.class);
   }
 
   /**
-   * Convert an instance of DynamicExecutionStatusResponse to an JSON string
+   * Convert an instance of AddCalleeInputBody to an JSON string
    *
    * @return JSON string
    */

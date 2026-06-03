@@ -14,7 +14,6 @@ package ai.reveng.model;
 
 import java.util.Objects;
 import java.util.Locale;
-import ai.reveng.model.AnalysisLogs;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -48,82 +47,82 @@ import java.util.Locale;
 import ai.reveng.invoker.JSON;
 
 /**
- * DynamicExecutionStatusResponse
+ * FunctionStringItem
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class DynamicExecutionStatusResponse {
-  public static final String SERIALIZED_NAME_ERROR_MESSAGE = "error_message";
-  @SerializedName(SERIALIZED_NAME_ERROR_MESSAGE)
-  @javax.annotation.Nullable
-  private String errorMessage;
-
-  public static final String SERIALIZED_NAME_LOGS = "logs";
-  @SerializedName(SERIALIZED_NAME_LOGS)
+public class FunctionStringItem {
+  public static final String SERIALIZED_NAME_SOURCE = "source";
+  @SerializedName(SERIALIZED_NAME_SOURCE)
   @javax.annotation.Nonnull
-  private AnalysisLogs logs;
+  private String source;
 
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
+  public static final String SERIALIZED_NAME_VADDR = "vaddr";
+  @SerializedName(SERIALIZED_NAME_VADDR)
   @javax.annotation.Nonnull
-  private String status;
+  private Long vaddr;
 
-  public DynamicExecutionStatusResponse() {
+  public static final String SERIALIZED_NAME_VALUE = "value";
+  @SerializedName(SERIALIZED_NAME_VALUE)
+  @javax.annotation.Nonnull
+  private String value;
+
+  public FunctionStringItem() {
   }
 
-  public DynamicExecutionStatusResponse errorMessage(@javax.annotation.Nullable String errorMessage) {
-    this.errorMessage = errorMessage;
+  public FunctionStringItem source(@javax.annotation.Nonnull String source) {
+    this.source = source;
     return this;
   }
 
   /**
-   * Error detail, set when status is ERROR
-   * @return errorMessage
+   * Get source
+   * @return source
    */
-  @javax.annotation.Nullable
-  public String getErrorMessage() {
-    return errorMessage;
+  @javax.annotation.Nonnull
+  public String getSource() {
+    return source;
   }
 
-  public void setErrorMessage(@javax.annotation.Nullable String errorMessage) {
-    this.errorMessage = errorMessage;
+  public void setSource(@javax.annotation.Nonnull String source) {
+    this.source = source;
   }
 
 
-  public DynamicExecutionStatusResponse logs(@javax.annotation.Nonnull AnalysisLogs logs) {
-    this.logs = logs;
+  public FunctionStringItem vaddr(@javax.annotation.Nonnull Long vaddr) {
+    this.vaddr = vaddr;
     return this;
   }
 
   /**
-   * Sandbox status log messages captured during the run. Contains a single \&quot;No logs available\&quot; message when none have been captured yet.
-   * @return logs
+   * Get vaddr
+   * @return vaddr
    */
   @javax.annotation.Nonnull
-  public AnalysisLogs getLogs() {
-    return logs;
+  public Long getVaddr() {
+    return vaddr;
   }
 
-  public void setLogs(@javax.annotation.Nonnull AnalysisLogs logs) {
-    this.logs = logs;
+  public void setVaddr(@javax.annotation.Nonnull Long vaddr) {
+    this.vaddr = vaddr;
   }
 
 
-  public DynamicExecutionStatusResponse status(@javax.annotation.Nonnull String status) {
-    this.status = status;
+  public FunctionStringItem value(@javax.annotation.Nonnull String value) {
+    this.value = value;
     return this;
   }
 
   /**
-   * Task status: UNINITIALISED, PENDING, RUNNING, COMPLETED, or ERROR
-   * @return status
+   * Get value
+   * @return value
    */
   @javax.annotation.Nonnull
-  public String getStatus() {
-    return status;
+  public String getValue() {
+    return value;
   }
 
-  public void setStatus(@javax.annotation.Nonnull String status) {
-    this.status = status;
+  public void setValue(@javax.annotation.Nonnull String value) {
+    this.value = value;
   }
 
   /**
@@ -139,9 +138,9 @@ public class DynamicExecutionStatusResponse {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the DynamicExecutionStatusResponse instance itself
+   * @return the FunctionStringItem instance itself
    */
-  public DynamicExecutionStatusResponse putAdditionalProperty(String key, Object value) {
+  public FunctionStringItem putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -180,25 +179,25 @@ public class DynamicExecutionStatusResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DynamicExecutionStatusResponse dynamicExecutionStatusResponse = (DynamicExecutionStatusResponse) o;
-    return Objects.equals(this.errorMessage, dynamicExecutionStatusResponse.errorMessage) &&
-        Objects.equals(this.logs, dynamicExecutionStatusResponse.logs) &&
-        Objects.equals(this.status, dynamicExecutionStatusResponse.status)&&
-        Objects.equals(this.additionalProperties, dynamicExecutionStatusResponse.additionalProperties);
+    FunctionStringItem functionStringItem = (FunctionStringItem) o;
+    return Objects.equals(this.source, functionStringItem.source) &&
+        Objects.equals(this.vaddr, functionStringItem.vaddr) &&
+        Objects.equals(this.value, functionStringItem.value)&&
+        Objects.equals(this.additionalProperties, functionStringItem.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(errorMessage, logs, status, additionalProperties);
+    return Objects.hash(source, vaddr, value, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DynamicExecutionStatusResponse {\n");
-    sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
-    sb.append("    logs: ").append(toIndentedString(logs)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("class FunctionStringItem {\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
+    sb.append("    vaddr: ").append(toIndentedString(vaddr)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -221,37 +220,37 @@ public class DynamicExecutionStatusResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("error_message", "logs", "status"));
+    openapiFields = new HashSet<String>(Arrays.asList("source", "vaddr", "value"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("logs", "status"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("source", "vaddr", "value"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to DynamicExecutionStatusResponse
+   * @throws IOException if the JSON Element is invalid with respect to FunctionStringItem
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!DynamicExecutionStatusResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in DynamicExecutionStatusResponse is not found in the empty JSON string", DynamicExecutionStatusResponse.openapiRequiredFields.toString()));
+        if (!FunctionStringItem.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in FunctionStringItem is not found in the empty JSON string", FunctionStringItem.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : DynamicExecutionStatusResponse.openapiRequiredFields) {
+      for (String requiredField : FunctionStringItem.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("error_message") != null && !jsonObj.get("error_message").isJsonNull()) && !jsonObj.get("error_message").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `error_message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("error_message").toString()));
+      if (!jsonObj.get("source").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `source` to be a primitive type in the JSON string but got `%s`", jsonObj.get("source").toString()));
       }
-      if (!jsonObj.get("status").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
+      if (!jsonObj.get("value").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
       }
   }
 
@@ -259,16 +258,16 @@ public class DynamicExecutionStatusResponse {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!DynamicExecutionStatusResponse.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'DynamicExecutionStatusResponse' and its subtypes
+       if (!FunctionStringItem.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'FunctionStringItem' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<DynamicExecutionStatusResponse> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(DynamicExecutionStatusResponse.class));
+       final TypeAdapter<FunctionStringItem> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(FunctionStringItem.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<DynamicExecutionStatusResponse>() {
+       return (TypeAdapter<T>) new TypeAdapter<FunctionStringItem>() {
            @Override
-           public void write(JsonWriter out, DynamicExecutionStatusResponse value) throws IOException {
+           public void write(JsonWriter out, FunctionStringItem value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -296,12 +295,12 @@ public class DynamicExecutionStatusResponse {
            }
 
            @Override
-           public DynamicExecutionStatusResponse read(JsonReader in) throws IOException {
+           public FunctionStringItem read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             DynamicExecutionStatusResponse instance = thisAdapter.fromJsonTree(jsonObj);
+             FunctionStringItem instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -328,18 +327,18 @@ public class DynamicExecutionStatusResponse {
   }
 
   /**
-   * Create an instance of DynamicExecutionStatusResponse given an JSON string
+   * Create an instance of FunctionStringItem given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of DynamicExecutionStatusResponse
-   * @throws IOException if the JSON string is invalid with respect to DynamicExecutionStatusResponse
+   * @return An instance of FunctionStringItem
+   * @throws IOException if the JSON string is invalid with respect to FunctionStringItem
    */
-  public static DynamicExecutionStatusResponse fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, DynamicExecutionStatusResponse.class);
+  public static FunctionStringItem fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, FunctionStringItem.class);
   }
 
   /**
-   * Convert an instance of DynamicExecutionStatusResponse to an JSON string
+   * Convert an instance of FunctionStringItem to an JSON string
    *
    * @return JSON string
    */
