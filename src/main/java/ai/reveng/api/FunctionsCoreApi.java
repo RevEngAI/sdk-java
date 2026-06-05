@@ -1234,7 +1234,9 @@ public class FunctionsCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getAnalysisStringsCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String functionSearch, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String sortOrder, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1304,6 +1306,7 @@ public class FunctionsCoreApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getAnalysisStringsValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String functionSearch, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String sortOrder, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
@@ -1334,7 +1337,9 @@ public class FunctionsCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BaseResponseAnalysisStringsResponse getAnalysisStrings(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String functionSearch, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String sortOrder) throws ApiException {
         ApiResponse<BaseResponseAnalysisStringsResponse> localVarResp = getAnalysisStringsWithHttpInfo(analysisId, page, pageSize, search, functionSearch, orderBy, sortOrder);
         return localVarResp.getData();
@@ -1359,7 +1364,9 @@ public class FunctionsCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BaseResponseAnalysisStringsResponse> getAnalysisStringsWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String functionSearch, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String sortOrder) throws ApiException {
         okhttp3.Call localVarCall = getAnalysisStringsValidateBeforeCall(analysisId, page, pageSize, search, functionSearch, orderBy, sortOrder, null);
         Type localVarReturnType = new TypeToken<BaseResponseAnalysisStringsResponse>(){}.getType();
@@ -1386,7 +1393,9 @@ public class FunctionsCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getAnalysisStringsAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String functionSearch, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String sortOrder, final ApiCallback<BaseResponseAnalysisStringsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getAnalysisStringsValidateBeforeCall(analysisId, page, pageSize, search, functionSearch, orderBy, sortOrder, _callback);
@@ -1407,7 +1416,9 @@ public class FunctionsCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getAnalysisStringsStatusCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1453,6 +1464,7 @@ public class FunctionsCoreApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getAnalysisStringsStatusValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
@@ -1477,7 +1489,9 @@ public class FunctionsCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BaseResponseAnalysisStringsStatusResponse getAnalysisStringsStatus(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
         ApiResponse<BaseResponseAnalysisStringsStatusResponse> localVarResp = getAnalysisStringsStatusWithHttpInfo(analysisId);
         return localVarResp.getData();
@@ -1496,7 +1510,9 @@ public class FunctionsCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BaseResponseAnalysisStringsStatusResponse> getAnalysisStringsStatusWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
         okhttp3.Call localVarCall = getAnalysisStringsStatusValidateBeforeCall(analysisId, null);
         Type localVarReturnType = new TypeToken<BaseResponseAnalysisStringsStatusResponse>(){}.getType();
@@ -1517,7 +1533,9 @@ public class FunctionsCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getAnalysisStringsStatusAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<BaseResponseAnalysisStringsStatusResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getAnalysisStringsStatusValidateBeforeCall(analysisId, _callback);
@@ -2207,7 +2225,9 @@ public class FunctionsCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getFunctionStringsCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -2265,6 +2285,7 @@ public class FunctionsCoreApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getFunctionStringsValidateBeforeCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'functionId' is set
@@ -2292,7 +2313,9 @@ public class FunctionsCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BaseResponseFunctionStringsResponse getFunctionStrings(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search) throws ApiException {
         ApiResponse<BaseResponseFunctionStringsResponse> localVarResp = getFunctionStringsWithHttpInfo(functionId, page, pageSize, search);
         return localVarResp.getData();
@@ -2314,7 +2337,9 @@ public class FunctionsCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BaseResponseFunctionStringsResponse> getFunctionStringsWithHttpInfo(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search) throws ApiException {
         okhttp3.Call localVarCall = getFunctionStringsValidateBeforeCall(functionId, page, pageSize, search, null);
         Type localVarReturnType = new TypeToken<BaseResponseFunctionStringsResponse>(){}.getType();
@@ -2338,7 +2363,9 @@ public class FunctionsCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getFunctionStringsAsync(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search, final ApiCallback<BaseResponseFunctionStringsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getFunctionStringsValidateBeforeCall(functionId, page, pageSize, search, _callback);
