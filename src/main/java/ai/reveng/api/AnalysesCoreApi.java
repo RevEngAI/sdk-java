@@ -556,7 +556,9 @@ public class AnalysesCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getAnalysisBasicInfoCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -602,6 +604,7 @@ public class AnalysesCoreApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getAnalysisBasicInfoValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
@@ -626,7 +629,9 @@ public class AnalysesCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BaseResponseBasic getAnalysisBasicInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
         ApiResponse<BaseResponseBasic> localVarResp = getAnalysisBasicInfoWithHttpInfo(analysisId);
         return localVarResp.getData();
@@ -645,7 +650,9 @@ public class AnalysesCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BaseResponseBasic> getAnalysisBasicInfoWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
         okhttp3.Call localVarCall = getAnalysisBasicInfoValidateBeforeCall(analysisId, null);
         Type localVarReturnType = new TypeToken<BaseResponseBasic>(){}.getType();
@@ -666,7 +673,9 @@ public class AnalysesCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getAnalysisBasicInfoAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<BaseResponseBasic> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getAnalysisBasicInfoValidateBeforeCall(analysisId, _callback);
