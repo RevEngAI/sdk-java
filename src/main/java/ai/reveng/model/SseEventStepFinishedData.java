@@ -61,6 +61,11 @@ public class SseEventStepFinishedData {
   @javax.annotation.Nonnull
   private Long eventId;
 
+  public static final String SERIALIZED_NAME_SOURCE_RUN_ID = "source_run_id";
+  @SerializedName(SERIALIZED_NAME_SOURCE_RUN_ID)
+  @javax.annotation.Nullable
+  private String sourceRunId;
+
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
   @javax.annotation.Nonnull
@@ -104,6 +109,25 @@ public class SseEventStepFinishedData {
 
   public void setEventId(@javax.annotation.Nonnull Long eventId) {
     this.eventId = eventId;
+  }
+
+
+  public SseEventStepFinishedData sourceRunId(@javax.annotation.Nullable String sourceRunId) {
+    this.sourceRunId = sourceRunId;
+    return this;
+  }
+
+  /**
+   * Get sourceRunId
+   * @return sourceRunId
+   */
+  @javax.annotation.Nullable
+  public String getSourceRunId() {
+    return sourceRunId;
+  }
+
+  public void setSourceRunId(@javax.annotation.Nullable String sourceRunId) {
+    this.sourceRunId = sourceRunId;
   }
 
 
@@ -182,13 +206,14 @@ public class SseEventStepFinishedData {
     SseEventStepFinishedData sseEventStepFinishedData = (SseEventStepFinishedData) o;
     return Objects.equals(this.data, sseEventStepFinishedData.data) &&
         Objects.equals(this.eventId, sseEventStepFinishedData.eventId) &&
+        Objects.equals(this.sourceRunId, sseEventStepFinishedData.sourceRunId) &&
         Objects.equals(this.type, sseEventStepFinishedData.type)&&
         Objects.equals(this.additionalProperties, sseEventStepFinishedData.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, eventId, type, additionalProperties);
+    return Objects.hash(data, eventId, sourceRunId, type, additionalProperties);
   }
 
   @Override
@@ -197,6 +222,7 @@ public class SseEventStepFinishedData {
     sb.append("class SseEventStepFinishedData {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    eventId: ").append(toIndentedString(eventId)).append("\n");
+    sb.append("    sourceRunId: ").append(toIndentedString(sourceRunId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -220,7 +246,7 @@ public class SseEventStepFinishedData {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("data", "event_id", "type"));
+    openapiFields = new HashSet<String>(Arrays.asList("data", "event_id", "source_run_id", "type"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("data", "event_id", "type"));
@@ -246,6 +272,9 @@ public class SseEventStepFinishedData {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("source_run_id") != null && !jsonObj.get("source_run_id").isJsonNull()) && !jsonObj.get("source_run_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `source_run_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("source_run_id").toString()));
+      }
       if (!jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
