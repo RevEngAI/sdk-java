@@ -34,7 +34,7 @@
 |---- | -----|
 | ENTHUSIAST | &quot;ENTHUSIAST&quot; |
 | REVERSER | &quot;REVERSER&quot; |
-| VULNERABILITY_HUNTER | &quot;VULNERABILITY_HUNTER&quot; |
+| BUG_HUNTER | &quot;BUG_HUNTER&quot; |
 | MALWARE_ANALYST | &quot;MALWARE_ANALYST&quot; |
 | SECURITY_RESEARCHER | &quot;SECURITY_RESEARCHER&quot; |
 | UNKNOWN_DEFAULT_OPEN_API | &quot;unknown_default_open_api&quot; |
