@@ -146,7 +146,7 @@ public class GetSubscriptionOutputBody {
     
     REVERSER("REVERSER"),
     
-    VULNERABILITY_HUNTER("VULNERABILITY_HUNTER"),
+    BUG_HUNTER("BUG_HUNTER"),
     
     MALWARE_ANALYST("MALWARE_ANALYST"),
     
