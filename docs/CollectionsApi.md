@@ -5,6 +5,7 @@ All URIs are relative to *https://api.reveng.ai*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**createCollection**](CollectionsApi.md#createCollection) | **POST** /v2/collections | Creates new collection information |
+| [**createCollection_0**](CollectionsApi.md#createCollection_0) | **POST** /v3/collections | Create a collection. |
 | [**deleteCollection**](CollectionsApi.md#deleteCollection) | **DELETE** /v2/collections/{collection_id} | Deletes a collection |
 | [**getCollection**](CollectionsApi.md#getCollection) | **GET** /v2/collections/{collection_id} | Returns a collection |
 | [**listCollections**](CollectionsApi.md#listCollections) | **GET** /v2/collections | Gets basic collections information |
@@ -82,6 +83,78 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Successful Response |  -  |
 | **422** | Invalid request parameters |  -  |
+
+<a id="createCollection_0"></a>
+# **createCollection_0**
+> CreateCollectionOutputBody createCollection_0(createCollectionInputBody)
+
+Create a collection.
+
+Creates a new collection, optionally tagging it and linking binary IDs to it. Tags and binaries are returned in the response only when they were supplied in the request.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;422&#x60; [&#x60;VALIDATION_FAILED&#x60;](/errors/VALIDATION_FAILED) — Validation Failed
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.CollectionsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    CollectionsApi apiInstance = new CollectionsApi(defaultClient);
+    CreateCollectionInputBody createCollectionInputBody = new CreateCollectionInputBody(); // CreateCollectionInputBody | 
+    try {
+      CreateCollectionOutputBody result = apiInstance.createCollection_0(createCollectionInputBody);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling CollectionsApi#createCollection_0");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createCollectionInputBody** | [**CreateCollectionInputBody**](CreateCollectionInputBody.md)|  | |
+
+### Return type
+
+[**CreateCollectionOutputBody**](CreateCollectionOutputBody.md)
+
+### Authorization
+
+[APIKey](../README.md#APIKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Created |  -  |
+| **404** | Not Found |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **500** | Internal Server Error |  -  |
 
 <a id="deleteCollection"></a>
 # **deleteCollection**

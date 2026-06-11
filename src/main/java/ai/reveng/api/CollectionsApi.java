@@ -26,6 +26,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import ai.reveng.model.APIError;
 import ai.reveng.model.AppApiRestV2CollectionsEnumsOrderBy;
 import ai.reveng.model.BaseResponse;
 import ai.reveng.model.BaseResponseBool;
@@ -37,6 +38,8 @@ import ai.reveng.model.CollectionBinariesUpdateRequest;
 import ai.reveng.model.CollectionCreateRequest;
 import ai.reveng.model.CollectionTagsUpdateRequest;
 import ai.reveng.model.CollectionUpdateRequest;
+import ai.reveng.model.CreateCollectionInputBody;
+import ai.reveng.model.CreateCollectionOutputBody;
 import ai.reveng.model.Filters;
 import ai.reveng.model.Order;
 
@@ -211,6 +214,145 @@ public class CollectionsApi {
 
         okhttp3.Call localVarCall = createCollectionValidateBeforeCall(collectionCreateRequest, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseCollectionResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createCollection_0
+     * @param createCollectionInputBody  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createCollection_0Call(@javax.annotation.Nonnull CreateCollectionInputBody createCollectionInputBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = createCollectionInputBody;
+
+        // create path and map variables
+        String localVarPath = "/v3/collections";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createCollection_0ValidateBeforeCall(@javax.annotation.Nonnull CreateCollectionInputBody createCollectionInputBody, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'createCollectionInputBody' is set
+        if (createCollectionInputBody == null) {
+            throw new ApiException("Missing the required parameter 'createCollectionInputBody' when calling createCollection_0(Async)");
+        }
+
+        return createCollection_0Call(createCollectionInputBody, _callback);
+
+    }
+
+    /**
+     * Create a collection.
+     * Creates a new collection, optionally tagging it and linking binary IDs to it. Tags and binaries are returned in the response only when they were supplied in the request.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;422&#x60; [&#x60;VALIDATION_FAILED&#x60;](/errors/VALIDATION_FAILED) — Validation Failed
+     * @param createCollectionInputBody  (required)
+     * @return CreateCollectionOutputBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public CreateCollectionOutputBody createCollection_0(@javax.annotation.Nonnull CreateCollectionInputBody createCollectionInputBody) throws ApiException {
+        ApiResponse<CreateCollectionOutputBody> localVarResp = createCollection_0WithHttpInfo(createCollectionInputBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create a collection.
+     * Creates a new collection, optionally tagging it and linking binary IDs to it. Tags and binaries are returned in the response only when they were supplied in the request.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;422&#x60; [&#x60;VALIDATION_FAILED&#x60;](/errors/VALIDATION_FAILED) — Validation Failed
+     * @param createCollectionInputBody  (required)
+     * @return ApiResponse&lt;CreateCollectionOutputBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CreateCollectionOutputBody> createCollection_0WithHttpInfo(@javax.annotation.Nonnull CreateCollectionInputBody createCollectionInputBody) throws ApiException {
+        okhttp3.Call localVarCall = createCollection_0ValidateBeforeCall(createCollectionInputBody, null);
+        Type localVarReturnType = new TypeToken<CreateCollectionOutputBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create a collection. (asynchronously)
+     * Creates a new collection, optionally tagging it and linking binary IDs to it. Tags and binaries are returned in the response only when they were supplied in the request.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;422&#x60; [&#x60;VALIDATION_FAILED&#x60;](/errors/VALIDATION_FAILED) — Validation Failed
+     * @param createCollectionInputBody  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createCollection_0Async(@javax.annotation.Nonnull CreateCollectionInputBody createCollectionInputBody, final ApiCallback<CreateCollectionOutputBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createCollection_0ValidateBeforeCall(createCollectionInputBody, _callback);
+        Type localVarReturnType = new TypeToken<CreateCollectionOutputBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

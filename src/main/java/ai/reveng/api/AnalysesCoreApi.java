@@ -1645,340 +1645,6 @@ public class AnalysesCoreApi {
         return localVarCall;
     }
     /**
-     * Build call for getAnalysisStrings
-     * @param analysisId Analysis ID (required)
-     * @param page Page number (1-indexed). (optional, default to 1)
-     * @param pageSize Number of results per page. (optional, default to 100)
-     * @param search Filter by string value (case-insensitive substring match). (optional)
-     * @param functionSearch Filter by function name (case-insensitive substring match). (optional)
-     * @param orderBy Field to order results by. (optional, default to value)
-     * @param sortOrder Sort direction. (optional, default to ASC)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getAnalysisStringsCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable Long page, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String functionSearch, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String sortOrder, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v3/analyses/{analysis_id}/functions/strings"
-            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (page != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
-        }
-
-        if (pageSize != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page_size", pageSize));
-        }
-
-        if (search != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("search", search));
-        }
-
-        if (functionSearch != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("function_search", functionSearch));
-        }
-
-        if (orderBy != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("order_by", orderBy));
-        }
-
-        if (sortOrder != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sort_order", sortOrder));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "APIKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAnalysisStringsValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable Long page, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String functionSearch, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String sortOrder, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'analysisId' is set
-        if (analysisId == null) {
-            throw new ApiException("Missing the required parameter 'analysisId' when calling getAnalysisStrings(Async)");
-        }
-
-        return getAnalysisStringsCall(analysisId, page, pageSize, search, functionSearch, orderBy, sortOrder, _callback);
-
-    }
-
-    /**
-     * List strings for an analysis.
-     * Returns the strings discovered in an analysis, combining function-level and analysis-level strings. Supports value/function-name search, sorting and pagination.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
-     * @param analysisId Analysis ID (required)
-     * @param page Page number (1-indexed). (optional, default to 1)
-     * @param pageSize Number of results per page. (optional, default to 100)
-     * @param search Filter by string value (case-insensitive substring match). (optional)
-     * @param functionSearch Filter by function name (case-insensitive substring match). (optional)
-     * @param orderBy Field to order results by. (optional, default to value)
-     * @param sortOrder Sort direction. (optional, default to ASC)
-     * @return ListAnalysisStringsOutputBody
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public ListAnalysisStringsOutputBody getAnalysisStrings(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable Long page, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String functionSearch, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String sortOrder) throws ApiException {
-        ApiResponse<ListAnalysisStringsOutputBody> localVarResp = getAnalysisStringsWithHttpInfo(analysisId, page, pageSize, search, functionSearch, orderBy, sortOrder);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List strings for an analysis.
-     * Returns the strings discovered in an analysis, combining function-level and analysis-level strings. Supports value/function-name search, sorting and pagination.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
-     * @param analysisId Analysis ID (required)
-     * @param page Page number (1-indexed). (optional, default to 1)
-     * @param pageSize Number of results per page. (optional, default to 100)
-     * @param search Filter by string value (case-insensitive substring match). (optional)
-     * @param functionSearch Filter by function name (case-insensitive substring match). (optional)
-     * @param orderBy Field to order results by. (optional, default to value)
-     * @param sortOrder Sort direction. (optional, default to ASC)
-     * @return ApiResponse&lt;ListAnalysisStringsOutputBody&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<ListAnalysisStringsOutputBody> getAnalysisStringsWithHttpInfo(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable Long page, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String functionSearch, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String sortOrder) throws ApiException {
-        okhttp3.Call localVarCall = getAnalysisStringsValidateBeforeCall(analysisId, page, pageSize, search, functionSearch, orderBy, sortOrder, null);
-        Type localVarReturnType = new TypeToken<ListAnalysisStringsOutputBody>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * List strings for an analysis. (asynchronously)
-     * Returns the strings discovered in an analysis, combining function-level and analysis-level strings. Supports value/function-name search, sorting and pagination.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
-     * @param analysisId Analysis ID (required)
-     * @param page Page number (1-indexed). (optional, default to 1)
-     * @param pageSize Number of results per page. (optional, default to 100)
-     * @param search Filter by string value (case-insensitive substring match). (optional)
-     * @param functionSearch Filter by function name (case-insensitive substring match). (optional)
-     * @param orderBy Field to order results by. (optional, default to value)
-     * @param sortOrder Sort direction. (optional, default to ASC)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getAnalysisStringsAsync(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable Long page, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String functionSearch, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String sortOrder, final ApiCallback<ListAnalysisStringsOutputBody> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = getAnalysisStringsValidateBeforeCall(analysisId, page, pageSize, search, functionSearch, orderBy, sortOrder, _callback);
-        Type localVarReturnType = new TypeToken<ListAnalysisStringsOutputBody>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for getAnalysisStringsStatus
-     * @param analysisId Analysis ID (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getAnalysisStringsStatusCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v3/analyses/{analysis_id}/functions/strings/status"
-            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "APIKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAnalysisStringsStatusValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'analysisId' is set
-        if (analysisId == null) {
-            throw new ApiException("Missing the required parameter 'analysisId' when calling getAnalysisStringsStatus(Async)");
-        }
-
-        return getAnalysisStringsStatusCall(analysisId, _callback);
-
-    }
-
-    /**
-     * Get the string-extraction status for an analysis.
-     * Returns the status of the string-extraction task for the binary backing the analysis. One of UNINITIALISED, PENDING, RUNNING, COMPLETED, FAILED.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
-     * @param analysisId Analysis ID (required)
-     * @return GetAnalysisStringsStatusOutputBody
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public GetAnalysisStringsStatusOutputBody getAnalysisStringsStatus(@javax.annotation.Nonnull Long analysisId) throws ApiException {
-        ApiResponse<GetAnalysisStringsStatusOutputBody> localVarResp = getAnalysisStringsStatusWithHttpInfo(analysisId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get the string-extraction status for an analysis.
-     * Returns the status of the string-extraction task for the binary backing the analysis. One of UNINITIALISED, PENDING, RUNNING, COMPLETED, FAILED.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
-     * @param analysisId Analysis ID (required)
-     * @return ApiResponse&lt;GetAnalysisStringsStatusOutputBody&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<GetAnalysisStringsStatusOutputBody> getAnalysisStringsStatusWithHttpInfo(@javax.annotation.Nonnull Long analysisId) throws ApiException {
-        okhttp3.Call localVarCall = getAnalysisStringsStatusValidateBeforeCall(analysisId, null);
-        Type localVarReturnType = new TypeToken<GetAnalysisStringsStatusOutputBody>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Get the string-extraction status for an analysis. (asynchronously)
-     * Returns the status of the string-extraction task for the binary backing the analysis. One of UNINITIALISED, PENDING, RUNNING, COMPLETED, FAILED.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
-     * @param analysisId Analysis ID (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getAnalysisStringsStatusAsync(@javax.annotation.Nonnull Long analysisId, final ApiCallback<GetAnalysisStringsStatusOutputBody> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = getAnalysisStringsStatusValidateBeforeCall(analysisId, _callback);
-        Type localVarReturnType = new TypeToken<GetAnalysisStringsStatusOutputBody>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
      * Build call for insertAnalysisLog
      * @param analysisId  (required)
      * @param insertAnalysisLogRequest  (required)
@@ -3201,6 +2867,340 @@ public class AnalysesCoreApi {
 
         okhttp3.Call localVarCall = uploadFileValidateBeforeCall(uploadFileType, _file, packedPassword, forceOverwrite, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseUploadResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for v3GetAnalysisStrings
+     * @param analysisId Analysis ID (required)
+     * @param page Page number (1-indexed). (optional, default to 1)
+     * @param pageSize Number of results per page. (optional, default to 100)
+     * @param search Filter by string value (case-insensitive substring match). (optional)
+     * @param functionSearch Filter by function name (case-insensitive substring match). (optional)
+     * @param orderBy Field to order results by. (optional, default to value)
+     * @param sortOrder Sort direction. (optional, default to ASC)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3GetAnalysisStringsCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable Long page, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String functionSearch, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String sortOrder, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/analyses/{analysis_id}/functions/strings"
+            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (pageSize != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page_size", pageSize));
+        }
+
+        if (search != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("search", search));
+        }
+
+        if (functionSearch != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("function_search", functionSearch));
+        }
+
+        if (orderBy != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("order_by", orderBy));
+        }
+
+        if (sortOrder != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sort_order", sortOrder));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call v3GetAnalysisStringsValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable Long page, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String functionSearch, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String sortOrder, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'analysisId' is set
+        if (analysisId == null) {
+            throw new ApiException("Missing the required parameter 'analysisId' when calling v3GetAnalysisStrings(Async)");
+        }
+
+        return v3GetAnalysisStringsCall(analysisId, page, pageSize, search, functionSearch, orderBy, sortOrder, _callback);
+
+    }
+
+    /**
+     * List strings for an analysis.
+     * Returns the strings discovered in an analysis, combining function-level and analysis-level strings. Supports value/function-name search, sorting and pagination.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param analysisId Analysis ID (required)
+     * @param page Page number (1-indexed). (optional, default to 1)
+     * @param pageSize Number of results per page. (optional, default to 100)
+     * @param search Filter by string value (case-insensitive substring match). (optional)
+     * @param functionSearch Filter by function name (case-insensitive substring match). (optional)
+     * @param orderBy Field to order results by. (optional, default to value)
+     * @param sortOrder Sort direction. (optional, default to ASC)
+     * @return ListAnalysisStringsOutputBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListAnalysisStringsOutputBody v3GetAnalysisStrings(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable Long page, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String functionSearch, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String sortOrder) throws ApiException {
+        ApiResponse<ListAnalysisStringsOutputBody> localVarResp = v3GetAnalysisStringsWithHttpInfo(analysisId, page, pageSize, search, functionSearch, orderBy, sortOrder);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List strings for an analysis.
+     * Returns the strings discovered in an analysis, combining function-level and analysis-level strings. Supports value/function-name search, sorting and pagination.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param analysisId Analysis ID (required)
+     * @param page Page number (1-indexed). (optional, default to 1)
+     * @param pageSize Number of results per page. (optional, default to 100)
+     * @param search Filter by string value (case-insensitive substring match). (optional)
+     * @param functionSearch Filter by function name (case-insensitive substring match). (optional)
+     * @param orderBy Field to order results by. (optional, default to value)
+     * @param sortOrder Sort direction. (optional, default to ASC)
+     * @return ApiResponse&lt;ListAnalysisStringsOutputBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListAnalysisStringsOutputBody> v3GetAnalysisStringsWithHttpInfo(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable Long page, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String functionSearch, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String sortOrder) throws ApiException {
+        okhttp3.Call localVarCall = v3GetAnalysisStringsValidateBeforeCall(analysisId, page, pageSize, search, functionSearch, orderBy, sortOrder, null);
+        Type localVarReturnType = new TypeToken<ListAnalysisStringsOutputBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List strings for an analysis. (asynchronously)
+     * Returns the strings discovered in an analysis, combining function-level and analysis-level strings. Supports value/function-name search, sorting and pagination.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param analysisId Analysis ID (required)
+     * @param page Page number (1-indexed). (optional, default to 1)
+     * @param pageSize Number of results per page. (optional, default to 100)
+     * @param search Filter by string value (case-insensitive substring match). (optional)
+     * @param functionSearch Filter by function name (case-insensitive substring match). (optional)
+     * @param orderBy Field to order results by. (optional, default to value)
+     * @param sortOrder Sort direction. (optional, default to ASC)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3GetAnalysisStringsAsync(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable Long page, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String functionSearch, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String sortOrder, final ApiCallback<ListAnalysisStringsOutputBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = v3GetAnalysisStringsValidateBeforeCall(analysisId, page, pageSize, search, functionSearch, orderBy, sortOrder, _callback);
+        Type localVarReturnType = new TypeToken<ListAnalysisStringsOutputBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for v3GetAnalysisStringsStatus
+     * @param analysisId Analysis ID (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3GetAnalysisStringsStatusCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/analyses/{analysis_id}/functions/strings/status"
+            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call v3GetAnalysisStringsStatusValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'analysisId' is set
+        if (analysisId == null) {
+            throw new ApiException("Missing the required parameter 'analysisId' when calling v3GetAnalysisStringsStatus(Async)");
+        }
+
+        return v3GetAnalysisStringsStatusCall(analysisId, _callback);
+
+    }
+
+    /**
+     * Get the string-extraction status for an analysis.
+     * Returns the status of the string-extraction task for the binary backing the analysis. One of UNINITIALISED, PENDING, RUNNING, COMPLETED, FAILED.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param analysisId Analysis ID (required)
+     * @return GetAnalysisStringsStatusOutputBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public GetAnalysisStringsStatusOutputBody v3GetAnalysisStringsStatus(@javax.annotation.Nonnull Long analysisId) throws ApiException {
+        ApiResponse<GetAnalysisStringsStatusOutputBody> localVarResp = v3GetAnalysisStringsStatusWithHttpInfo(analysisId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get the string-extraction status for an analysis.
+     * Returns the status of the string-extraction task for the binary backing the analysis. One of UNINITIALISED, PENDING, RUNNING, COMPLETED, FAILED.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param analysisId Analysis ID (required)
+     * @return ApiResponse&lt;GetAnalysisStringsStatusOutputBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<GetAnalysisStringsStatusOutputBody> v3GetAnalysisStringsStatusWithHttpInfo(@javax.annotation.Nonnull Long analysisId) throws ApiException {
+        okhttp3.Call localVarCall = v3GetAnalysisStringsStatusValidateBeforeCall(analysisId, null);
+        Type localVarReturnType = new TypeToken<GetAnalysisStringsStatusOutputBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get the string-extraction status for an analysis. (asynchronously)
+     * Returns the status of the string-extraction task for the binary backing the analysis. One of UNINITIALISED, PENDING, RUNNING, COMPLETED, FAILED.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param analysisId Analysis ID (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3GetAnalysisStringsStatusAsync(@javax.annotation.Nonnull Long analysisId, final ApiCallback<GetAnalysisStringsStatusOutputBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = v3GetAnalysisStringsStatusValidateBeforeCall(analysisId, _callback);
+        Type localVarReturnType = new TypeToken<GetAnalysisStringsStatusOutputBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
