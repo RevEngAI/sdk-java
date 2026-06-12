@@ -5,13 +5,15 @@ All URIs are relative to *https://api.reveng.ai*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**createCollection**](CollectionsApi.md#createCollection) | **POST** /v2/collections | Creates new collection information |
-| [**createCollection_0**](CollectionsApi.md#createCollection_0) | **POST** /v3/collections | Create a collection. |
 | [**deleteCollection**](CollectionsApi.md#deleteCollection) | **DELETE** /v2/collections/{collection_id} | Deletes a collection |
 | [**getCollection**](CollectionsApi.md#getCollection) | **GET** /v2/collections/{collection_id} | Returns a collection |
 | [**listCollections**](CollectionsApi.md#listCollections) | **GET** /v2/collections | Gets basic collections information |
 | [**updateCollection**](CollectionsApi.md#updateCollection) | **PATCH** /v2/collections/{collection_id} | Updates a collection |
 | [**updateCollectionBinaries**](CollectionsApi.md#updateCollectionBinaries) | **PATCH** /v2/collections/{collection_id}/binaries | Updates a collection binaries |
 | [**updateCollectionTags**](CollectionsApi.md#updateCollectionTags) | **PATCH** /v2/collections/{collection_id}/tags | Updates a collection tags |
+| [**v3CreateCollection**](CollectionsApi.md#v3CreateCollection) | **POST** /v3/collections | Create a collection. |
+| [**v3GetCollection**](CollectionsApi.md#v3GetCollection) | **GET** /v3/collections/{collection_id} | Get a collection. |
+| [**v3ListCollections**](CollectionsApi.md#v3ListCollections) | **GET** /v3/collections | List collections. |
 
 
 <a id="createCollection"></a>
@@ -83,78 +85,6 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Successful Response |  -  |
 | **422** | Invalid request parameters |  -  |
-
-<a id="createCollection_0"></a>
-# **createCollection_0**
-> CreateCollectionOutputBody createCollection_0(createCollectionInputBody)
-
-Create a collection.
-
-Creates a new collection, optionally tagging it and linking binary IDs to it. Tags and binaries are returned in the response only when they were supplied in the request.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;422&#x60; [&#x60;VALIDATION_FAILED&#x60;](/errors/VALIDATION_FAILED) — Validation Failed
-
-### Example
-```java
-// Import classes:
-import ai.reveng.invoker.ApiClient;
-import ai.reveng.invoker.ApiException;
-import ai.reveng.invoker.Configuration;
-import ai.reveng.invoker.auth.*;
-import ai.reveng.invoker.models.*;
-import ai.reveng.api.CollectionsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.reveng.ai");
-    
-    // Configure API key authorization: APIKey
-    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
-    APIKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //APIKey.setApiKeyPrefix("Token");
-
-    CollectionsApi apiInstance = new CollectionsApi(defaultClient);
-    CreateCollectionInputBody createCollectionInputBody = new CreateCollectionInputBody(); // CreateCollectionInputBody | 
-    try {
-      CreateCollectionOutputBody result = apiInstance.createCollection_0(createCollectionInputBody);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling CollectionsApi#createCollection_0");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **createCollectionInputBody** | [**CreateCollectionInputBody**](CreateCollectionInputBody.md)|  | |
-
-### Return type
-
-[**CreateCollectionOutputBody**](CreateCollectionOutputBody.md)
-
-### Authorization
-
-[APIKey](../README.md#APIKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **201** | Created |  -  |
-| **404** | Not Found |  -  |
-| **422** | Unprocessable Entity |  -  |
-| **500** | Internal Server Error |  -  |
 
 <a id="deleteCollection"></a>
 # **deleteCollection**
@@ -601,4 +531,239 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Successful Response |  -  |
 | **422** | Invalid request parameters |  -  |
+
+<a id="v3CreateCollection"></a>
+# **v3CreateCollection**
+> CreateCollectionOutputBody v3CreateCollection(createCollectionInputBody)
+
+Create a collection.
+
+Creates a new collection, optionally tagging it and linking binary IDs to it. Tags and binaries are returned in the response only when they were supplied in the request.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;422&#x60; [&#x60;VALIDATION_FAILED&#x60;](/errors/VALIDATION_FAILED) — Validation Failed
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.CollectionsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    CollectionsApi apiInstance = new CollectionsApi(defaultClient);
+    CreateCollectionInputBody createCollectionInputBody = new CreateCollectionInputBody(); // CreateCollectionInputBody | 
+    try {
+      CreateCollectionOutputBody result = apiInstance.v3CreateCollection(createCollectionInputBody);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling CollectionsApi#v3CreateCollection");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createCollectionInputBody** | [**CreateCollectionInputBody**](CreateCollectionInputBody.md)|  | |
+
+### Return type
+
+[**CreateCollectionOutputBody**](CreateCollectionOutputBody.md)
+
+### Authorization
+
+[APIKey](../README.md#APIKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Created |  -  |
+| **404** | Not Found |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **500** | Internal Server Error |  -  |
+
+<a id="v3GetCollection"></a>
+# **v3GetCollection**
+> GetCollectionOutputBody v3GetCollection(collectionId, includeTags, includeBinaries, pageSize, pageNumber, binarySearchStr)
+
+Get a collection.
+
+Gets a single collection by ID. Optionally include tags and paginated binaries.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.CollectionsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    CollectionsApi apiInstance = new CollectionsApi(defaultClient);
+    Long collectionId = 56L; // Long | 
+    Boolean includeTags = true; // Boolean | 
+    Boolean includeBinaries = true; // Boolean | 
+    Long pageSize = 10L; // Long | 
+    Long pageNumber = 1L; // Long | 
+    String binarySearchStr = "binarySearchStr_example"; // String | 
+    try {
+      GetCollectionOutputBody result = apiInstance.v3GetCollection(collectionId, includeTags, includeBinaries, pageSize, pageNumber, binarySearchStr);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling CollectionsApi#v3GetCollection");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **collectionId** | **Long**|  | |
+| **includeTags** | **Boolean**|  | [optional] |
+| **includeBinaries** | **Boolean**|  | [optional] |
+| **pageSize** | **Long**|  | [optional] [default to 10] |
+| **pageNumber** | **Long**|  | [optional] [default to 1] |
+| **binarySearchStr** | **String**|  | [optional] |
+
+### Return type
+
+[**GetCollectionOutputBody**](GetCollectionOutputBody.md)
+
+### Authorization
+
+[APIKey](../README.md#APIKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **404** | Not Found |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **500** | Internal Server Error |  -  |
+
+<a id="v3ListCollections"></a>
+# **v3ListCollections**
+> ListCollectionsOutputBody v3ListCollections(searchTerm, filters, limit, offset, orderBy, order)
+
+List collections.
+
+Lists collections accessible to the authenticated user. Supports search, filtering, ordering, and pagination.  **Error codes:** - &#x60;422&#x60; [&#x60;VALIDATION_FAILED&#x60;](/errors/VALIDATION_FAILED) — Validation Failed
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.CollectionsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    CollectionsApi apiInstance = new CollectionsApi(defaultClient);
+    String searchTerm = "searchTerm_example"; // String | 
+    List<String> filters = Arrays.asList(); // List<String> | 
+    Long limit = 20L; // Long | 
+    Long offset = 0L; // Long | 
+    String orderBy = "created"; // String | 
+    String order = "ASC"; // String | 
+    try {
+      ListCollectionsOutputBody result = apiInstance.v3ListCollections(searchTerm, filters, limit, offset, orderBy, order);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling CollectionsApi#v3ListCollections");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **searchTerm** | **String**|  | [optional] |
+| **filters** | [**List&lt;String&gt;**](String.md)|  | [optional] [enum: official_only, user_only, team_only, public_only, hide_empty] |
+| **limit** | **Long**|  | [optional] [default to 20] |
+| **offset** | **Long**|  | [optional] [default to 0] |
+| **orderBy** | **String**|  | [optional] [default to collection] [enum: created, collection, model, collection_size, updated] |
+| **order** | **String**|  | [optional] [default to ASC] [enum: ASC, DESC] |
+
+### Return type
+
+[**ListCollectionsOutputBody**](ListCollectionsOutputBody.md)
+
+### Authorization
+
+[APIKey](../README.md#APIKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **500** | Internal Server Error |  -  |
 
