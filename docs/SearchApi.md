@@ -12,7 +12,7 @@ All URIs are relative to *https://api.reveng.ai*
 
 <a id="searchBinaries"></a>
 # **searchBinaries**
-> BaseResponseBinarySearchResponse searchBinaries(page, pageSize, partialName, partialSha256, tags, modelName, userFilesOnly)
+> BaseResponseBinarySearchResponse searchBinaries(page, pageSize, partialName, partialSha256, tags, modelName, userFilesOnly, excludeBinaryId)
 
 Binaries search
 
@@ -47,8 +47,9 @@ public class Example {
     List<String> tags = Arrays.asList(); // List<String> | The tags to be searched for
     String modelName = "modelName_example"; // String | The name of the model used to analyze the binary the function belongs to
     Boolean userFilesOnly = false; // Boolean | Whether to only search user's uploaded files
+    Integer excludeBinaryId = 56; // Integer | A binary ID to exclude from the results
     try {
-      BaseResponseBinarySearchResponse result = apiInstance.searchBinaries(page, pageSize, partialName, partialSha256, tags, modelName, userFilesOnly);
+      BaseResponseBinarySearchResponse result = apiInstance.searchBinaries(page, pageSize, partialName, partialSha256, tags, modelName, userFilesOnly, excludeBinaryId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SearchApi#searchBinaries");
@@ -72,6 +73,7 @@ public class Example {
 | **tags** | [**List&lt;String&gt;**](String.md)| The tags to be searched for | [optional] |
 | **modelName** | **String**| The name of the model used to analyze the binary the function belongs to | [optional] |
 | **userFilesOnly** | **Boolean**| Whether to only search user&#39;s uploaded files | [optional] [default to false] |
+| **excludeBinaryId** | **Integer**| A binary ID to exclude from the results | [optional] |
 
 ### Return type
 

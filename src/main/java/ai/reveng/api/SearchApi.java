@@ -87,6 +87,7 @@ public class SearchApi {
      * @param tags The tags to be searched for (optional)
      * @param modelName The name of the model used to analyze the binary the function belongs to (optional)
      * @param userFilesOnly Whether to only search user&#39;s uploaded files (optional, default to false)
+     * @param excludeBinaryId A binary ID to exclude from the results (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -98,7 +99,7 @@ public class SearchApi {
         <tr><td> 422 </td><td> You must provide at least one of the filters; partial_name, partial_sha256, tags or model_name to search </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchBinariesCall(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialName, @javax.annotation.Nullable String partialSha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable Boolean userFilesOnly, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchBinariesCall(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialName, @javax.annotation.Nullable String partialSha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable Boolean userFilesOnly, @javax.annotation.Nullable Integer excludeBinaryId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -151,6 +152,10 @@ public class SearchApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("user_files_only", userFilesOnly));
         }
 
+        if (excludeBinaryId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("exclude_binary_id", excludeBinaryId));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -171,8 +176,8 @@ public class SearchApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchBinariesValidateBeforeCall(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialName, @javax.annotation.Nullable String partialSha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable Boolean userFilesOnly, final ApiCallback _callback) throws ApiException {
-        return searchBinariesCall(page, pageSize, partialName, partialSha256, tags, modelName, userFilesOnly, _callback);
+    private okhttp3.Call searchBinariesValidateBeforeCall(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialName, @javax.annotation.Nullable String partialSha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable Boolean userFilesOnly, @javax.annotation.Nullable Integer excludeBinaryId, final ApiCallback _callback) throws ApiException {
+        return searchBinariesCall(page, pageSize, partialName, partialSha256, tags, modelName, userFilesOnly, excludeBinaryId, _callback);
 
     }
 
@@ -186,6 +191,7 @@ public class SearchApi {
      * @param tags The tags to be searched for (optional)
      * @param modelName The name of the model used to analyze the binary the function belongs to (optional)
      * @param userFilesOnly Whether to only search user&#39;s uploaded files (optional, default to false)
+     * @param excludeBinaryId A binary ID to exclude from the results (optional)
      * @return BaseResponseBinarySearchResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -196,8 +202,8 @@ public class SearchApi {
         <tr><td> 422 </td><td> You must provide at least one of the filters; partial_name, partial_sha256, tags or model_name to search </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseBinarySearchResponse searchBinaries(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialName, @javax.annotation.Nullable String partialSha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable Boolean userFilesOnly) throws ApiException {
-        ApiResponse<BaseResponseBinarySearchResponse> localVarResp = searchBinariesWithHttpInfo(page, pageSize, partialName, partialSha256, tags, modelName, userFilesOnly);
+    public BaseResponseBinarySearchResponse searchBinaries(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialName, @javax.annotation.Nullable String partialSha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable Boolean userFilesOnly, @javax.annotation.Nullable Integer excludeBinaryId) throws ApiException {
+        ApiResponse<BaseResponseBinarySearchResponse> localVarResp = searchBinariesWithHttpInfo(page, pageSize, partialName, partialSha256, tags, modelName, userFilesOnly, excludeBinaryId);
         return localVarResp.getData();
     }
 
@@ -211,6 +217,7 @@ public class SearchApi {
      * @param tags The tags to be searched for (optional)
      * @param modelName The name of the model used to analyze the binary the function belongs to (optional)
      * @param userFilesOnly Whether to only search user&#39;s uploaded files (optional, default to false)
+     * @param excludeBinaryId A binary ID to exclude from the results (optional)
      * @return ApiResponse&lt;BaseResponseBinarySearchResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -221,8 +228,8 @@ public class SearchApi {
         <tr><td> 422 </td><td> You must provide at least one of the filters; partial_name, partial_sha256, tags or model_name to search </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseBinarySearchResponse> searchBinariesWithHttpInfo(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialName, @javax.annotation.Nullable String partialSha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable Boolean userFilesOnly) throws ApiException {
-        okhttp3.Call localVarCall = searchBinariesValidateBeforeCall(page, pageSize, partialName, partialSha256, tags, modelName, userFilesOnly, null);
+    public ApiResponse<BaseResponseBinarySearchResponse> searchBinariesWithHttpInfo(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialName, @javax.annotation.Nullable String partialSha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable Boolean userFilesOnly, @javax.annotation.Nullable Integer excludeBinaryId) throws ApiException {
+        okhttp3.Call localVarCall = searchBinariesValidateBeforeCall(page, pageSize, partialName, partialSha256, tags, modelName, userFilesOnly, excludeBinaryId, null);
         Type localVarReturnType = new TypeToken<BaseResponseBinarySearchResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -237,6 +244,7 @@ public class SearchApi {
      * @param tags The tags to be searched for (optional)
      * @param modelName The name of the model used to analyze the binary the function belongs to (optional)
      * @param userFilesOnly Whether to only search user&#39;s uploaded files (optional, default to false)
+     * @param excludeBinaryId A binary ID to exclude from the results (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -248,9 +256,9 @@ public class SearchApi {
         <tr><td> 422 </td><td> You must provide at least one of the filters; partial_name, partial_sha256, tags or model_name to search </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchBinariesAsync(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialName, @javax.annotation.Nullable String partialSha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable Boolean userFilesOnly, final ApiCallback<BaseResponseBinarySearchResponse> _callback) throws ApiException {
+    public okhttp3.Call searchBinariesAsync(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialName, @javax.annotation.Nullable String partialSha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable Boolean userFilesOnly, @javax.annotation.Nullable Integer excludeBinaryId, final ApiCallback<BaseResponseBinarySearchResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchBinariesValidateBeforeCall(page, pageSize, partialName, partialSha256, tags, modelName, userFilesOnly, _callback);
+        okhttp3.Call localVarCall = searchBinariesValidateBeforeCall(page, pageSize, partialName, partialSha256, tags, modelName, userFilesOnly, excludeBinaryId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseBinarySearchResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
