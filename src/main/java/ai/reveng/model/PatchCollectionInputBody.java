@@ -47,34 +47,82 @@ import java.util.Locale;
 import ai.reveng.invoker.JSON;
 
 /**
- * ReplacementValue
+ * PatchCollectionInputBody
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class ReplacementValue {
-  public static final String SERIALIZED_NAME_VALUE = "value";
-  @SerializedName(SERIALIZED_NAME_VALUE)
-  @javax.annotation.Nonnull
-  private String value;
+public class PatchCollectionInputBody {
+  public static final String SERIALIZED_NAME_COLLECTION_NAME = "collection_name";
+  @SerializedName(SERIALIZED_NAME_COLLECTION_NAME)
+  @javax.annotation.Nullable
+  private String collectionName;
 
-  public ReplacementValue() {
+  public static final String SERIALIZED_NAME_COLLECTION_SCOPE = "collection_scope";
+  @SerializedName(SERIALIZED_NAME_COLLECTION_SCOPE)
+  @javax.annotation.Nullable
+  private String collectionScope;
+
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  @javax.annotation.Nullable
+  private String description;
+
+  public PatchCollectionInputBody() {
   }
 
-  public ReplacementValue value(@javax.annotation.Nonnull String value) {
-    this.value = value;
+  public PatchCollectionInputBody collectionName(@javax.annotation.Nullable String collectionName) {
+    this.collectionName = collectionName;
     return this;
   }
 
   /**
-   * Get value
-   * @return value
+   * New collection name. Omit, null, or empty string to keep existing.
+   * @return collectionName
    */
-  @javax.annotation.Nonnull
-  public String getValue() {
-    return value;
+  @javax.annotation.Nullable
+  public String getCollectionName() {
+    return collectionName;
   }
 
-  public void setValue(@javax.annotation.Nonnull String value) {
-    this.value = value;
+  public void setCollectionName(@javax.annotation.Nullable String collectionName) {
+    this.collectionName = collectionName;
+  }
+
+
+  public PatchCollectionInputBody collectionScope(@javax.annotation.Nullable String collectionScope) {
+    this.collectionScope = collectionScope;
+    return this;
+  }
+
+  /**
+   * New scope (PUBLIC, PRIVATE, PROTECTED, TEAM). Omit or send null to keep existing. Empty string returns 422 UNPROCESSABLE ENTITY.
+   * @return collectionScope
+   */
+  @javax.annotation.Nullable
+  public String getCollectionScope() {
+    return collectionScope;
+  }
+
+  public void setCollectionScope(@javax.annotation.Nullable String collectionScope) {
+    this.collectionScope = collectionScope;
+  }
+
+
+  public PatchCollectionInputBody description(@javax.annotation.Nullable String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * New description. Omit, null, or empty string to keep existing.
+   * @return description
+   */
+  @javax.annotation.Nullable
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(@javax.annotation.Nullable String description) {
+    this.description = description;
   }
 
   /**
@@ -90,9 +138,9 @@ public class ReplacementValue {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the ReplacementValue instance itself
+   * @return the PatchCollectionInputBody instance itself
    */
-  public ReplacementValue putAdditionalProperty(String key, Object value) {
+  public PatchCollectionInputBody putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -131,21 +179,25 @@ public class ReplacementValue {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ReplacementValue replacementValue = (ReplacementValue) o;
-    return Objects.equals(this.value, replacementValue.value)&&
-        Objects.equals(this.additionalProperties, replacementValue.additionalProperties);
+    PatchCollectionInputBody patchCollectionInputBody = (PatchCollectionInputBody) o;
+    return Objects.equals(this.collectionName, patchCollectionInputBody.collectionName) &&
+        Objects.equals(this.collectionScope, patchCollectionInputBody.collectionScope) &&
+        Objects.equals(this.description, patchCollectionInputBody.description)&&
+        Objects.equals(this.additionalProperties, patchCollectionInputBody.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(value, additionalProperties);
+    return Objects.hash(collectionName, collectionScope, description, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ReplacementValue {\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("class PatchCollectionInputBody {\n");
+    sb.append("    collectionName: ").append(toIndentedString(collectionName)).append("\n");
+    sb.append("    collectionScope: ").append(toIndentedString(collectionScope)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -168,34 +220,33 @@ public class ReplacementValue {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("value"));
+    openapiFields = new HashSet<String>(Arrays.asList("collection_name", "collection_scope", "description"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("value"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to ReplacementValue
+   * @throws IOException if the JSON Element is invalid with respect to PatchCollectionInputBody
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!ReplacementValue.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in ReplacementValue is not found in the empty JSON string", ReplacementValue.openapiRequiredFields.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : ReplacementValue.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (!PatchCollectionInputBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in PatchCollectionInputBody is not found in the empty JSON string", PatchCollectionInputBody.openapiRequiredFields.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("value").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
+      if ((jsonObj.get("collection_name") != null && !jsonObj.get("collection_name").isJsonNull()) && !jsonObj.get("collection_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `collection_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("collection_name").toString()));
+      }
+      if ((jsonObj.get("collection_scope") != null && !jsonObj.get("collection_scope").isJsonNull()) && !jsonObj.get("collection_scope").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `collection_scope` to be a primitive type in the JSON string but got `%s`", jsonObj.get("collection_scope").toString()));
+      }
+      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
   }
 
@@ -203,16 +254,16 @@ public class ReplacementValue {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ReplacementValue.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ReplacementValue' and its subtypes
+       if (!PatchCollectionInputBody.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'PatchCollectionInputBody' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ReplacementValue> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ReplacementValue.class));
+       final TypeAdapter<PatchCollectionInputBody> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(PatchCollectionInputBody.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<ReplacementValue>() {
+       return (TypeAdapter<T>) new TypeAdapter<PatchCollectionInputBody>() {
            @Override
-           public void write(JsonWriter out, ReplacementValue value) throws IOException {
+           public void write(JsonWriter out, PatchCollectionInputBody value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -240,12 +291,12 @@ public class ReplacementValue {
            }
 
            @Override
-           public ReplacementValue read(JsonReader in) throws IOException {
+           public PatchCollectionInputBody read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             ReplacementValue instance = thisAdapter.fromJsonTree(jsonObj);
+             PatchCollectionInputBody instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -272,18 +323,18 @@ public class ReplacementValue {
   }
 
   /**
-   * Create an instance of ReplacementValue given an JSON string
+   * Create an instance of PatchCollectionInputBody given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of ReplacementValue
-   * @throws IOException if the JSON string is invalid with respect to ReplacementValue
+   * @return An instance of PatchCollectionInputBody
+   * @throws IOException if the JSON string is invalid with respect to PatchCollectionInputBody
    */
-  public static ReplacementValue fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ReplacementValue.class);
+  public static PatchCollectionInputBody fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, PatchCollectionInputBody.class);
   }
 
   /**
-   * Convert an instance of ReplacementValue to an JSON string
+   * Convert an instance of PatchCollectionInputBody to an JSON string
    *
    * @return JSON string
    */

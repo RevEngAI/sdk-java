@@ -14,7 +14,7 @@ package ai.reveng.model;
 
 import java.util.Objects;
 import java.util.Locale;
-import ai.reveng.model.AIDecompFunctionMapping;
+import ai.reveng.model.NumericAddr;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -48,166 +48,58 @@ import java.util.Locale;
 import ai.reveng.invoker.JSON;
 
 /**
- * TokenisedData
+ * AIDecompInverseStringMapItem
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class TokenisedData {
-  public static final String SERIALIZED_NAME_FUNCTION_MAPPING = "function_mapping";
-  @SerializedName(SERIALIZED_NAME_FUNCTION_MAPPING)
-  @javax.annotation.Nullable
-  private AIDecompFunctionMapping functionMapping;
-
-  public static final String SERIALIZED_NAME_PREDICTED_FUNCTION_NAME = "predicted_function_name";
-  @SerializedName(SERIALIZED_NAME_PREDICTED_FUNCTION_NAME)
-  @javax.annotation.Nullable
-  private String predictedFunctionName;
-
-  /**
-   * Task status
-   */
-  @JsonAdapter(StatusEnum.Adapter.class)
-  public enum StatusEnum {
-    UNINITIALISED("UNINITIALISED"),
-    
-    PENDING("PENDING"),
-    
-    RUNNING("RUNNING"),
-    
-    COMPLETED("COMPLETED"),
-    
-    FAILED("FAILED"),
-    
-    UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
-
-    private String value;
-
-    StatusEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static StatusEnum fromValue(String value) {
-      for (StatusEnum b : StatusEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      return UNKNOWN_DEFAULT_OPEN_API;
-    }
-
-    public static class Adapter extends TypeAdapter<StatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public StatusEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return StatusEnum.fromValue(value);
-      }
-    }
-
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      String value = jsonElement.getAsString();
-      StatusEnum.fromValue(value);
-    }
-  }
-
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
+public class AIDecompInverseStringMapItem {
+  public static final String SERIALIZED_NAME_ADDR = "addr";
+  @SerializedName(SERIALIZED_NAME_ADDR)
   @javax.annotation.Nonnull
-  private StatusEnum status;
+  private NumericAddr addr;
 
-  public static final String SERIALIZED_NAME_TOKENISED_DECOMPILATION = "tokenised_decompilation";
-  @SerializedName(SERIALIZED_NAME_TOKENISED_DECOMPILATION)
-  @javax.annotation.Nullable
-  private String tokenisedDecompilation;
+  public static final String SERIALIZED_NAME_STRING = "string";
+  @SerializedName(SERIALIZED_NAME_STRING)
+  @javax.annotation.Nonnull
+  private String string;
 
-  public TokenisedData() {
+  public AIDecompInverseStringMapItem() {
   }
 
-  public TokenisedData functionMapping(@javax.annotation.Nullable AIDecompFunctionMapping functionMapping) {
-    this.functionMapping = functionMapping;
+  public AIDecompInverseStringMapItem addr(@javax.annotation.Nonnull NumericAddr addr) {
+    this.addr = addr;
     return this;
   }
 
   /**
-   * Complete mapping data for token resolution
-   * @return functionMapping
-   */
-  @javax.annotation.Nullable
-  public AIDecompFunctionMapping getFunctionMapping() {
-    return functionMapping;
-  }
-
-  public void setFunctionMapping(@javax.annotation.Nullable AIDecompFunctionMapping functionMapping) {
-    this.functionMapping = functionMapping;
-  }
-
-
-  public TokenisedData predictedFunctionName(@javax.annotation.Nullable String predictedFunctionName) {
-    this.predictedFunctionName = predictedFunctionName;
-    return this;
-  }
-
-  /**
-   * Predicted function name from the AI model
-   * @return predictedFunctionName
-   */
-  @javax.annotation.Nullable
-  public String getPredictedFunctionName() {
-    return predictedFunctionName;
-  }
-
-  public void setPredictedFunctionName(@javax.annotation.Nullable String predictedFunctionName) {
-    this.predictedFunctionName = predictedFunctionName;
-  }
-
-
-  public TokenisedData status(@javax.annotation.Nonnull StatusEnum status) {
-    this.status = status;
-    return this;
-  }
-
-  /**
-   * Task status
-   * @return status
+   * Get addr
+   * @return addr
    */
   @javax.annotation.Nonnull
-  public StatusEnum getStatus() {
-    return status;
+  public NumericAddr getAddr() {
+    return addr;
   }
 
-  public void setStatus(@javax.annotation.Nonnull StatusEnum status) {
-    this.status = status;
+  public void setAddr(@javax.annotation.Nonnull NumericAddr addr) {
+    this.addr = addr;
   }
 
 
-  public TokenisedData tokenisedDecompilation(@javax.annotation.Nullable String tokenisedDecompilation) {
-    this.tokenisedDecompilation = tokenisedDecompilation;
+  public AIDecompInverseStringMapItem string(@javax.annotation.Nonnull String string) {
+    this.string = string;
     return this;
   }
 
   /**
-   * Source code with placeholder tokens
-   * @return tokenisedDecompilation
+   * Get string
+   * @return string
    */
-  @javax.annotation.Nullable
-  public String getTokenisedDecompilation() {
-    return tokenisedDecompilation;
+  @javax.annotation.Nonnull
+  public String getString() {
+    return string;
   }
 
-  public void setTokenisedDecompilation(@javax.annotation.Nullable String tokenisedDecompilation) {
-    this.tokenisedDecompilation = tokenisedDecompilation;
+  public void setString(@javax.annotation.Nonnull String string) {
+    this.string = string;
   }
 
   /**
@@ -223,9 +115,9 @@ public class TokenisedData {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the TokenisedData instance itself
+   * @return the AIDecompInverseStringMapItem instance itself
    */
-  public TokenisedData putAdditionalProperty(String key, Object value) {
+  public AIDecompInverseStringMapItem putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -264,27 +156,23 @@ public class TokenisedData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TokenisedData tokenisedData = (TokenisedData) o;
-    return Objects.equals(this.functionMapping, tokenisedData.functionMapping) &&
-        Objects.equals(this.predictedFunctionName, tokenisedData.predictedFunctionName) &&
-        Objects.equals(this.status, tokenisedData.status) &&
-        Objects.equals(this.tokenisedDecompilation, tokenisedData.tokenisedDecompilation)&&
-        Objects.equals(this.additionalProperties, tokenisedData.additionalProperties);
+    AIDecompInverseStringMapItem aiDecompInverseStringMapItem = (AIDecompInverseStringMapItem) o;
+    return Objects.equals(this.addr, aiDecompInverseStringMapItem.addr) &&
+        Objects.equals(this.string, aiDecompInverseStringMapItem.string)&&
+        Objects.equals(this.additionalProperties, aiDecompInverseStringMapItem.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(functionMapping, predictedFunctionName, status, tokenisedDecompilation, additionalProperties);
+    return Objects.hash(addr, string, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TokenisedData {\n");
-    sb.append("    functionMapping: ").append(toIndentedString(functionMapping)).append("\n");
-    sb.append("    predictedFunctionName: ").append(toIndentedString(predictedFunctionName)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    tokenisedDecompilation: ").append(toIndentedString(tokenisedDecompilation)).append("\n");
+    sb.append("class AIDecompInverseStringMapItem {\n");
+    sb.append("    addr: ").append(toIndentedString(addr)).append("\n");
+    sb.append("    string: ").append(toIndentedString(string)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -307,42 +195,34 @@ public class TokenisedData {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("function_mapping", "predicted_function_name", "status", "tokenised_decompilation"));
+    openapiFields = new HashSet<String>(Arrays.asList("addr", "string"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("status"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("addr", "string"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to TokenisedData
+   * @throws IOException if the JSON Element is invalid with respect to AIDecompInverseStringMapItem
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!TokenisedData.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in TokenisedData is not found in the empty JSON string", TokenisedData.openapiRequiredFields.toString()));
+        if (!AIDecompInverseStringMapItem.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in AIDecompInverseStringMapItem is not found in the empty JSON string", AIDecompInverseStringMapItem.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : TokenisedData.openapiRequiredFields) {
+      for (String requiredField : AIDecompInverseStringMapItem.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("predicted_function_name") != null && !jsonObj.get("predicted_function_name").isJsonNull()) && !jsonObj.get("predicted_function_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `predicted_function_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("predicted_function_name").toString()));
-      }
-      if (!jsonObj.get("status").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
-      }
-      // validate the required field `status`
-      StatusEnum.validateJsonElement(jsonObj.get("status"));
-      if ((jsonObj.get("tokenised_decompilation") != null && !jsonObj.get("tokenised_decompilation").isJsonNull()) && !jsonObj.get("tokenised_decompilation").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `tokenised_decompilation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tokenised_decompilation").toString()));
+      if (!jsonObj.get("string").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `string` to be a primitive type in the JSON string but got `%s`", jsonObj.get("string").toString()));
       }
   }
 
@@ -350,16 +230,16 @@ public class TokenisedData {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TokenisedData.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TokenisedData' and its subtypes
+       if (!AIDecompInverseStringMapItem.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'AIDecompInverseStringMapItem' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TokenisedData> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TokenisedData.class));
+       final TypeAdapter<AIDecompInverseStringMapItem> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(AIDecompInverseStringMapItem.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<TokenisedData>() {
+       return (TypeAdapter<T>) new TypeAdapter<AIDecompInverseStringMapItem>() {
            @Override
-           public void write(JsonWriter out, TokenisedData value) throws IOException {
+           public void write(JsonWriter out, AIDecompInverseStringMapItem value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -387,12 +267,12 @@ public class TokenisedData {
            }
 
            @Override
-           public TokenisedData read(JsonReader in) throws IOException {
+           public AIDecompInverseStringMapItem read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             TokenisedData instance = thisAdapter.fromJsonTree(jsonObj);
+             AIDecompInverseStringMapItem instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -419,18 +299,18 @@ public class TokenisedData {
   }
 
   /**
-   * Create an instance of TokenisedData given an JSON string
+   * Create an instance of AIDecompInverseStringMapItem given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of TokenisedData
-   * @throws IOException if the JSON string is invalid with respect to TokenisedData
+   * @return An instance of AIDecompInverseStringMapItem
+   * @throws IOException if the JSON string is invalid with respect to AIDecompInverseStringMapItem
    */
-  public static TokenisedData fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TokenisedData.class);
+  public static AIDecompInverseStringMapItem fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, AIDecompInverseStringMapItem.class);
   }
 
   /**
-   * Convert an instance of TokenisedData to an JSON string
+   * Convert an instance of AIDecompInverseStringMapItem to an JSON string
    *
    * @return JSON string
    */
