@@ -44,6 +44,10 @@ import ai.reveng.model.Filters;
 import ai.reveng.model.GetCollectionOutputBody;
 import ai.reveng.model.ListCollectionsOutputBody;
 import ai.reveng.model.Order;
+import ai.reveng.model.PatchCollectionBinariesInputBody;
+import ai.reveng.model.PatchCollectionBinariesOutputBody;
+import ai.reveng.model.PatchCollectionTagsInputBody;
+import ai.reveng.model.PatchCollectionTagsOutputBody;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -1601,6 +1605,312 @@ public class CollectionsApi {
 
         okhttp3.Call localVarCall = v3ListCollectionsValidateBeforeCall(searchTerm, filters, limit, offset, orderBy, order, _callback);
         Type localVarReturnType = new TypeToken<ListCollectionsOutputBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for v3PatchCollectionBinaries
+     * @param collectionId  (required)
+     * @param patchCollectionBinariesInputBody  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3PatchCollectionBinariesCall(@javax.annotation.Nonnull Long collectionId, @javax.annotation.Nonnull PatchCollectionBinariesInputBody patchCollectionBinariesInputBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = patchCollectionBinariesInputBody;
+
+        // create path and map variables
+        String localVarPath = "/v3/collections/{collection_id}/binaries"
+            .replace("{" + "collection_id" + "}", localVarApiClient.escapeString(collectionId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call v3PatchCollectionBinariesValidateBeforeCall(@javax.annotation.Nonnull Long collectionId, @javax.annotation.Nonnull PatchCollectionBinariesInputBody patchCollectionBinariesInputBody, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'collectionId' is set
+        if (collectionId == null) {
+            throw new ApiException("Missing the required parameter 'collectionId' when calling v3PatchCollectionBinaries(Async)");
+        }
+
+        // verify the required parameter 'patchCollectionBinariesInputBody' is set
+        if (patchCollectionBinariesInputBody == null) {
+            throw new ApiException("Missing the required parameter 'patchCollectionBinariesInputBody' when calling v3PatchCollectionBinaries(Async)");
+        }
+
+        return v3PatchCollectionBinariesCall(collectionId, patchCollectionBinariesInputBody, _callback);
+
+    }
+
+    /**
+     * Replace the binaries in a collection.
+     * Replaces the binaries linked to a collection with the supplied list. Binaries not present in the request are removed. All supplied binary IDs must belong to the same model as the collection.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;422&#x60; [&#x60;VALIDATION_FAILED&#x60;](/errors/VALIDATION_FAILED) — Validation Failed
+     * @param collectionId  (required)
+     * @param patchCollectionBinariesInputBody  (required)
+     * @return PatchCollectionBinariesOutputBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public PatchCollectionBinariesOutputBody v3PatchCollectionBinaries(@javax.annotation.Nonnull Long collectionId, @javax.annotation.Nonnull PatchCollectionBinariesInputBody patchCollectionBinariesInputBody) throws ApiException {
+        ApiResponse<PatchCollectionBinariesOutputBody> localVarResp = v3PatchCollectionBinariesWithHttpInfo(collectionId, patchCollectionBinariesInputBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Replace the binaries in a collection.
+     * Replaces the binaries linked to a collection with the supplied list. Binaries not present in the request are removed. All supplied binary IDs must belong to the same model as the collection.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;422&#x60; [&#x60;VALIDATION_FAILED&#x60;](/errors/VALIDATION_FAILED) — Validation Failed
+     * @param collectionId  (required)
+     * @param patchCollectionBinariesInputBody  (required)
+     * @return ApiResponse&lt;PatchCollectionBinariesOutputBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<PatchCollectionBinariesOutputBody> v3PatchCollectionBinariesWithHttpInfo(@javax.annotation.Nonnull Long collectionId, @javax.annotation.Nonnull PatchCollectionBinariesInputBody patchCollectionBinariesInputBody) throws ApiException {
+        okhttp3.Call localVarCall = v3PatchCollectionBinariesValidateBeforeCall(collectionId, patchCollectionBinariesInputBody, null);
+        Type localVarReturnType = new TypeToken<PatchCollectionBinariesOutputBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Replace the binaries in a collection. (asynchronously)
+     * Replaces the binaries linked to a collection with the supplied list. Binaries not present in the request are removed. All supplied binary IDs must belong to the same model as the collection.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;422&#x60; [&#x60;VALIDATION_FAILED&#x60;](/errors/VALIDATION_FAILED) — Validation Failed
+     * @param collectionId  (required)
+     * @param patchCollectionBinariesInputBody  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3PatchCollectionBinariesAsync(@javax.annotation.Nonnull Long collectionId, @javax.annotation.Nonnull PatchCollectionBinariesInputBody patchCollectionBinariesInputBody, final ApiCallback<PatchCollectionBinariesOutputBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = v3PatchCollectionBinariesValidateBeforeCall(collectionId, patchCollectionBinariesInputBody, _callback);
+        Type localVarReturnType = new TypeToken<PatchCollectionBinariesOutputBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for v3PatchCollectionTags
+     * @param collectionId  (required)
+     * @param patchCollectionTagsInputBody  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3PatchCollectionTagsCall(@javax.annotation.Nonnull Long collectionId, @javax.annotation.Nonnull PatchCollectionTagsInputBody patchCollectionTagsInputBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = patchCollectionTagsInputBody;
+
+        // create path and map variables
+        String localVarPath = "/v3/collections/{collection_id}/tags"
+            .replace("{" + "collection_id" + "}", localVarApiClient.escapeString(collectionId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call v3PatchCollectionTagsValidateBeforeCall(@javax.annotation.Nonnull Long collectionId, @javax.annotation.Nonnull PatchCollectionTagsInputBody patchCollectionTagsInputBody, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'collectionId' is set
+        if (collectionId == null) {
+            throw new ApiException("Missing the required parameter 'collectionId' when calling v3PatchCollectionTags(Async)");
+        }
+
+        // verify the required parameter 'patchCollectionTagsInputBody' is set
+        if (patchCollectionTagsInputBody == null) {
+            throw new ApiException("Missing the required parameter 'patchCollectionTagsInputBody' when calling v3PatchCollectionTags(Async)");
+        }
+
+        return v3PatchCollectionTagsCall(collectionId, patchCollectionTagsInputBody, _callback);
+
+    }
+
+    /**
+     * Replace the tags on a collection.
+     * Replaces the tags on a collection with the supplied list. Tags not present in the request are removed. Empty or whitespace-only tags are filtered; duplicates are deduplicated.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param collectionId  (required)
+     * @param patchCollectionTagsInputBody  (required)
+     * @return PatchCollectionTagsOutputBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public PatchCollectionTagsOutputBody v3PatchCollectionTags(@javax.annotation.Nonnull Long collectionId, @javax.annotation.Nonnull PatchCollectionTagsInputBody patchCollectionTagsInputBody) throws ApiException {
+        ApiResponse<PatchCollectionTagsOutputBody> localVarResp = v3PatchCollectionTagsWithHttpInfo(collectionId, patchCollectionTagsInputBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Replace the tags on a collection.
+     * Replaces the tags on a collection with the supplied list. Tags not present in the request are removed. Empty or whitespace-only tags are filtered; duplicates are deduplicated.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param collectionId  (required)
+     * @param patchCollectionTagsInputBody  (required)
+     * @return ApiResponse&lt;PatchCollectionTagsOutputBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<PatchCollectionTagsOutputBody> v3PatchCollectionTagsWithHttpInfo(@javax.annotation.Nonnull Long collectionId, @javax.annotation.Nonnull PatchCollectionTagsInputBody patchCollectionTagsInputBody) throws ApiException {
+        okhttp3.Call localVarCall = v3PatchCollectionTagsValidateBeforeCall(collectionId, patchCollectionTagsInputBody, null);
+        Type localVarReturnType = new TypeToken<PatchCollectionTagsOutputBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Replace the tags on a collection. (asynchronously)
+     * Replaces the tags on a collection with the supplied list. Tags not present in the request are removed. Empty or whitespace-only tags are filtered; duplicates are deduplicated.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param collectionId  (required)
+     * @param patchCollectionTagsInputBody  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3PatchCollectionTagsAsync(@javax.annotation.Nonnull Long collectionId, @javax.annotation.Nonnull PatchCollectionTagsInputBody patchCollectionTagsInputBody, final ApiCallback<PatchCollectionTagsOutputBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = v3PatchCollectionTagsValidateBeforeCall(collectionId, patchCollectionTagsInputBody, _callback);
+        Type localVarReturnType = new TypeToken<PatchCollectionTagsOutputBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
