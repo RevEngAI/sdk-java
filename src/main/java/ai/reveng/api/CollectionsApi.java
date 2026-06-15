@@ -46,6 +46,8 @@ import ai.reveng.model.ListCollectionsOutputBody;
 import ai.reveng.model.Order;
 import ai.reveng.model.PatchCollectionBinariesInputBody;
 import ai.reveng.model.PatchCollectionBinariesOutputBody;
+import ai.reveng.model.PatchCollectionInputBody;
+import ai.reveng.model.PatchCollectionOutputBody;
 import ai.reveng.model.PatchCollectionTagsInputBody;
 import ai.reveng.model.PatchCollectionTagsOutputBody;
 
@@ -105,7 +107,9 @@ public class CollectionsApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call createCollectionCall(@javax.annotation.Nonnull CollectionCreateRequest collectionCreateRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -151,6 +155,7 @@ public class CollectionsApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createCollectionValidateBeforeCall(@javax.annotation.Nonnull CollectionCreateRequest collectionCreateRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'collectionCreateRequest' is set
@@ -175,7 +180,9 @@ public class CollectionsApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BaseResponseCollectionResponse createCollection(@javax.annotation.Nonnull CollectionCreateRequest collectionCreateRequest) throws ApiException {
         ApiResponse<BaseResponseCollectionResponse> localVarResp = createCollectionWithHttpInfo(collectionCreateRequest);
         return localVarResp.getData();
@@ -194,7 +201,9 @@ public class CollectionsApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BaseResponseCollectionResponse> createCollectionWithHttpInfo(@javax.annotation.Nonnull CollectionCreateRequest collectionCreateRequest) throws ApiException {
         okhttp3.Call localVarCall = createCollectionValidateBeforeCall(collectionCreateRequest, null);
         Type localVarReturnType = new TypeToken<BaseResponseCollectionResponse>(){}.getType();
@@ -215,7 +224,9 @@ public class CollectionsApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call createCollectionAsync(@javax.annotation.Nonnull CollectionCreateRequest collectionCreateRequest, final ApiCallback<BaseResponseCollectionResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createCollectionValidateBeforeCall(collectionCreateRequest, _callback);
@@ -236,7 +247,9 @@ public class CollectionsApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call deleteCollectionCall(@javax.annotation.Nonnull Integer collectionId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -282,6 +295,7 @@ public class CollectionsApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteCollectionValidateBeforeCall(@javax.annotation.Nonnull Integer collectionId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'collectionId' is set
@@ -306,7 +320,9 @@ public class CollectionsApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BaseResponseBool deleteCollection(@javax.annotation.Nonnull Integer collectionId) throws ApiException {
         ApiResponse<BaseResponseBool> localVarResp = deleteCollectionWithHttpInfo(collectionId);
         return localVarResp.getData();
@@ -325,7 +341,9 @@ public class CollectionsApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BaseResponseBool> deleteCollectionWithHttpInfo(@javax.annotation.Nonnull Integer collectionId) throws ApiException {
         okhttp3.Call localVarCall = deleteCollectionValidateBeforeCall(collectionId, null);
         Type localVarReturnType = new TypeToken<BaseResponseBool>(){}.getType();
@@ -346,7 +364,9 @@ public class CollectionsApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call deleteCollectionAsync(@javax.annotation.Nonnull Integer collectionId, final ApiCallback<BaseResponseBool> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteCollectionValidateBeforeCall(collectionId, _callback);
@@ -372,7 +392,9 @@ public class CollectionsApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getCollectionCall(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nullable Boolean includeTags, @javax.annotation.Nullable Boolean includeBinaries, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable Integer pageNumber, @javax.annotation.Nullable String binarySearchStr, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -438,6 +460,7 @@ public class CollectionsApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getCollectionValidateBeforeCall(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nullable Boolean includeTags, @javax.annotation.Nullable Boolean includeBinaries, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable Integer pageNumber, @javax.annotation.Nullable String binarySearchStr, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'collectionId' is set
@@ -467,7 +490,9 @@ public class CollectionsApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BaseResponseCollectionResponse getCollection(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nullable Boolean includeTags, @javax.annotation.Nullable Boolean includeBinaries, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable Integer pageNumber, @javax.annotation.Nullable String binarySearchStr) throws ApiException {
         ApiResponse<BaseResponseCollectionResponse> localVarResp = getCollectionWithHttpInfo(collectionId, includeTags, includeBinaries, pageSize, pageNumber, binarySearchStr);
         return localVarResp.getData();
@@ -491,7 +516,9 @@ public class CollectionsApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BaseResponseCollectionResponse> getCollectionWithHttpInfo(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nullable Boolean includeTags, @javax.annotation.Nullable Boolean includeBinaries, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable Integer pageNumber, @javax.annotation.Nullable String binarySearchStr) throws ApiException {
         okhttp3.Call localVarCall = getCollectionValidateBeforeCall(collectionId, includeTags, includeBinaries, pageSize, pageNumber, binarySearchStr, null);
         Type localVarReturnType = new TypeToken<BaseResponseCollectionResponse>(){}.getType();
@@ -517,7 +544,9 @@ public class CollectionsApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getCollectionAsync(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nullable Boolean includeTags, @javax.annotation.Nullable Boolean includeBinaries, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable Integer pageNumber, @javax.annotation.Nullable String binarySearchStr, final ApiCallback<BaseResponseCollectionResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getCollectionValidateBeforeCall(collectionId, includeTags, includeBinaries, pageSize, pageNumber, binarySearchStr, _callback);
@@ -543,7 +572,9 @@ public class CollectionsApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listCollectionsCall(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<Filters> filters, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable AppApiRestV2CollectionsEnumsOrderBy orderBy, @javax.annotation.Nullable Order order, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -612,6 +643,7 @@ public class CollectionsApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listCollectionsValidateBeforeCall(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<Filters> filters, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable AppApiRestV2CollectionsEnumsOrderBy orderBy, @javax.annotation.Nullable Order order, final ApiCallback _callback) throws ApiException {
         return listCollectionsCall(searchTerm, filters, limit, offset, orderBy, order, _callback);
@@ -636,7 +668,9 @@ public class CollectionsApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BaseResponseListCollectionResults listCollections(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<Filters> filters, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable AppApiRestV2CollectionsEnumsOrderBy orderBy, @javax.annotation.Nullable Order order) throws ApiException {
         ApiResponse<BaseResponseListCollectionResults> localVarResp = listCollectionsWithHttpInfo(searchTerm, filters, limit, offset, orderBy, order);
         return localVarResp.getData();
@@ -660,7 +694,9 @@ public class CollectionsApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BaseResponseListCollectionResults> listCollectionsWithHttpInfo(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<Filters> filters, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable AppApiRestV2CollectionsEnumsOrderBy orderBy, @javax.annotation.Nullable Order order) throws ApiException {
         okhttp3.Call localVarCall = listCollectionsValidateBeforeCall(searchTerm, filters, limit, offset, orderBy, order, null);
         Type localVarReturnType = new TypeToken<BaseResponseListCollectionResults>(){}.getType();
@@ -686,7 +722,9 @@ public class CollectionsApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listCollectionsAsync(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<Filters> filters, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable AppApiRestV2CollectionsEnumsOrderBy orderBy, @javax.annotation.Nullable Order order, final ApiCallback<BaseResponseListCollectionResults> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listCollectionsValidateBeforeCall(searchTerm, filters, limit, offset, orderBy, order, _callback);
@@ -708,7 +746,9 @@ public class CollectionsApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call updateCollectionCall(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nonnull CollectionUpdateRequest collectionUpdateRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -755,6 +795,7 @@ public class CollectionsApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateCollectionValidateBeforeCall(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nonnull CollectionUpdateRequest collectionUpdateRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'collectionId' is set
@@ -785,7 +826,9 @@ public class CollectionsApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BaseResponseCollectionResponse updateCollection(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nonnull CollectionUpdateRequest collectionUpdateRequest) throws ApiException {
         ApiResponse<BaseResponseCollectionResponse> localVarResp = updateCollectionWithHttpInfo(collectionId, collectionUpdateRequest);
         return localVarResp.getData();
@@ -805,7 +848,9 @@ public class CollectionsApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BaseResponseCollectionResponse> updateCollectionWithHttpInfo(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nonnull CollectionUpdateRequest collectionUpdateRequest) throws ApiException {
         okhttp3.Call localVarCall = updateCollectionValidateBeforeCall(collectionId, collectionUpdateRequest, null);
         Type localVarReturnType = new TypeToken<BaseResponseCollectionResponse>(){}.getType();
@@ -827,7 +872,9 @@ public class CollectionsApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call updateCollectionAsync(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nonnull CollectionUpdateRequest collectionUpdateRequest, final ApiCallback<BaseResponseCollectionResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateCollectionValidateBeforeCall(collectionId, collectionUpdateRequest, _callback);
@@ -849,7 +896,9 @@ public class CollectionsApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call updateCollectionBinariesCall(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nonnull CollectionBinariesUpdateRequest collectionBinariesUpdateRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -896,6 +945,7 @@ public class CollectionsApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateCollectionBinariesValidateBeforeCall(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nonnull CollectionBinariesUpdateRequest collectionBinariesUpdateRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'collectionId' is set
@@ -926,7 +976,9 @@ public class CollectionsApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BaseResponseCollectionBinariesUpdateResponse updateCollectionBinaries(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nonnull CollectionBinariesUpdateRequest collectionBinariesUpdateRequest) throws ApiException {
         ApiResponse<BaseResponseCollectionBinariesUpdateResponse> localVarResp = updateCollectionBinariesWithHttpInfo(collectionId, collectionBinariesUpdateRequest);
         return localVarResp.getData();
@@ -946,7 +998,9 @@ public class CollectionsApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BaseResponseCollectionBinariesUpdateResponse> updateCollectionBinariesWithHttpInfo(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nonnull CollectionBinariesUpdateRequest collectionBinariesUpdateRequest) throws ApiException {
         okhttp3.Call localVarCall = updateCollectionBinariesValidateBeforeCall(collectionId, collectionBinariesUpdateRequest, null);
         Type localVarReturnType = new TypeToken<BaseResponseCollectionBinariesUpdateResponse>(){}.getType();
@@ -968,7 +1022,9 @@ public class CollectionsApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call updateCollectionBinariesAsync(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nonnull CollectionBinariesUpdateRequest collectionBinariesUpdateRequest, final ApiCallback<BaseResponseCollectionBinariesUpdateResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateCollectionBinariesValidateBeforeCall(collectionId, collectionBinariesUpdateRequest, _callback);
@@ -990,7 +1046,9 @@ public class CollectionsApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call updateCollectionTagsCall(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nonnull CollectionTagsUpdateRequest collectionTagsUpdateRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1037,6 +1095,7 @@ public class CollectionsApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateCollectionTagsValidateBeforeCall(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nonnull CollectionTagsUpdateRequest collectionTagsUpdateRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'collectionId' is set
@@ -1067,7 +1126,9 @@ public class CollectionsApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BaseResponseCollectionTagsUpdateResponse updateCollectionTags(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nonnull CollectionTagsUpdateRequest collectionTagsUpdateRequest) throws ApiException {
         ApiResponse<BaseResponseCollectionTagsUpdateResponse> localVarResp = updateCollectionTagsWithHttpInfo(collectionId, collectionTagsUpdateRequest);
         return localVarResp.getData();
@@ -1087,7 +1148,9 @@ public class CollectionsApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BaseResponseCollectionTagsUpdateResponse> updateCollectionTagsWithHttpInfo(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nonnull CollectionTagsUpdateRequest collectionTagsUpdateRequest) throws ApiException {
         okhttp3.Call localVarCall = updateCollectionTagsValidateBeforeCall(collectionId, collectionTagsUpdateRequest, null);
         Type localVarReturnType = new TypeToken<BaseResponseCollectionTagsUpdateResponse>(){}.getType();
@@ -1109,7 +1172,9 @@ public class CollectionsApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call updateCollectionTagsAsync(@javax.annotation.Nonnull Integer collectionId, @javax.annotation.Nonnull CollectionTagsUpdateRequest collectionTagsUpdateRequest, final ApiCallback<BaseResponseCollectionTagsUpdateResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateCollectionTagsValidateBeforeCall(collectionId, collectionTagsUpdateRequest, _callback);
@@ -1254,6 +1319,149 @@ public class CollectionsApi {
         okhttp3.Call localVarCall = v3CreateCollectionValidateBeforeCall(createCollectionInputBody, _callback);
         Type localVarReturnType = new TypeToken<CreateCollectionOutputBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for v3DeleteCollection
+     * @param collectionId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3DeleteCollectionCall(@javax.annotation.Nonnull Long collectionId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/collections/{collection_id}"
+            .replace("{" + "collection_id" + "}", localVarApiClient.escapeString(collectionId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call v3DeleteCollectionValidateBeforeCall(@javax.annotation.Nonnull Long collectionId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'collectionId' is set
+        if (collectionId == null) {
+            throw new ApiException("Missing the required parameter 'collectionId' when calling v3DeleteCollection(Async)");
+        }
+
+        return v3DeleteCollectionCall(collectionId, _callback);
+
+    }
+
+    /**
+     * Delete a collection.
+     * Deletes a collection. The collection must not have any linked binaries (call PATCH /v3/collections/{collection_id}/binaries with an empty list first).  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict
+     * @param collectionId  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public void v3DeleteCollection(@javax.annotation.Nonnull Long collectionId) throws ApiException {
+        v3DeleteCollectionWithHttpInfo(collectionId);
+    }
+
+    /**
+     * Delete a collection.
+     * Deletes a collection. The collection must not have any linked binaries (call PATCH /v3/collections/{collection_id}/binaries with an empty list first).  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict
+     * @param collectionId  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> v3DeleteCollectionWithHttpInfo(@javax.annotation.Nonnull Long collectionId) throws ApiException {
+        okhttp3.Call localVarCall = v3DeleteCollectionValidateBeforeCall(collectionId, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Delete a collection. (asynchronously)
+     * Deletes a collection. The collection must not have any linked binaries (call PATCH /v3/collections/{collection_id}/binaries with an empty list first).  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict
+     * @param collectionId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3DeleteCollectionAsync(@javax.annotation.Nonnull Long collectionId, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = v3DeleteCollectionValidateBeforeCall(collectionId, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
@@ -1605,6 +1813,159 @@ public class CollectionsApi {
 
         okhttp3.Call localVarCall = v3ListCollectionsValidateBeforeCall(searchTerm, filters, limit, offset, orderBy, order, _callback);
         Type localVarReturnType = new TypeToken<ListCollectionsOutputBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for v3PatchCollection
+     * @param collectionId  (required)
+     * @param patchCollectionInputBody  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3PatchCollectionCall(@javax.annotation.Nonnull Long collectionId, @javax.annotation.Nonnull PatchCollectionInputBody patchCollectionInputBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = patchCollectionInputBody;
+
+        // create path and map variables
+        String localVarPath = "/v3/collections/{collection_id}"
+            .replace("{" + "collection_id" + "}", localVarApiClient.escapeString(collectionId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call v3PatchCollectionValidateBeforeCall(@javax.annotation.Nonnull Long collectionId, @javax.annotation.Nonnull PatchCollectionInputBody patchCollectionInputBody, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'collectionId' is set
+        if (collectionId == null) {
+            throw new ApiException("Missing the required parameter 'collectionId' when calling v3PatchCollection(Async)");
+        }
+
+        // verify the required parameter 'patchCollectionInputBody' is set
+        if (patchCollectionInputBody == null) {
+            throw new ApiException("Missing the required parameter 'patchCollectionInputBody' when calling v3PatchCollection(Async)");
+        }
+
+        return v3PatchCollectionCall(collectionId, patchCollectionInputBody, _callback);
+
+    }
+
+    /**
+     * Update a collection.
+     * Updates a collection&#39;s name, description, and/or scope. Omitted fields keep their existing values.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;422&#x60; [&#x60;VALIDATION_FAILED&#x60;](/errors/VALIDATION_FAILED) — Validation Failed
+     * @param collectionId  (required)
+     * @param patchCollectionInputBody  (required)
+     * @return PatchCollectionOutputBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public PatchCollectionOutputBody v3PatchCollection(@javax.annotation.Nonnull Long collectionId, @javax.annotation.Nonnull PatchCollectionInputBody patchCollectionInputBody) throws ApiException {
+        ApiResponse<PatchCollectionOutputBody> localVarResp = v3PatchCollectionWithHttpInfo(collectionId, patchCollectionInputBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update a collection.
+     * Updates a collection&#39;s name, description, and/or scope. Omitted fields keep their existing values.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;422&#x60; [&#x60;VALIDATION_FAILED&#x60;](/errors/VALIDATION_FAILED) — Validation Failed
+     * @param collectionId  (required)
+     * @param patchCollectionInputBody  (required)
+     * @return ApiResponse&lt;PatchCollectionOutputBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<PatchCollectionOutputBody> v3PatchCollectionWithHttpInfo(@javax.annotation.Nonnull Long collectionId, @javax.annotation.Nonnull PatchCollectionInputBody patchCollectionInputBody) throws ApiException {
+        okhttp3.Call localVarCall = v3PatchCollectionValidateBeforeCall(collectionId, patchCollectionInputBody, null);
+        Type localVarReturnType = new TypeToken<PatchCollectionOutputBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update a collection. (asynchronously)
+     * Updates a collection&#39;s name, description, and/or scope. Omitted fields keep their existing values.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;422&#x60; [&#x60;VALIDATION_FAILED&#x60;](/errors/VALIDATION_FAILED) — Validation Failed
+     * @param collectionId  (required)
+     * @param patchCollectionInputBody  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3PatchCollectionAsync(@javax.annotation.Nonnull Long collectionId, @javax.annotation.Nonnull PatchCollectionInputBody patchCollectionInputBody, final ApiCallback<PatchCollectionOutputBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = v3PatchCollectionValidateBeforeCall(collectionId, patchCollectionInputBody, _callback);
+        Type localVarReturnType = new TypeToken<PatchCollectionOutputBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

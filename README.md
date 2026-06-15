@@ -16,7 +16,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>ai.reveng</groupId>
     <artifactId>sdk</artifactId>
-    <version>3.92.0</version>
+    <version>3.93.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -31,7 +31,7 @@ repositories {
 }
 
 dependencies {
-    implementation "ai.reveng:sdk:3.92.0"
+    implementation "ai.reveng:sdk:3.93.0"
 }
 ```
 
@@ -139,8 +139,10 @@ Class | Method | HTTP request | Description
 *CollectionsApi* | [**updateCollectionBinaries**](docs/CollectionsApi.md#updateCollectionBinaries) | **PATCH** /v2/collections/{collection_id}/binaries | Updates a collection binaries
 *CollectionsApi* | [**updateCollectionTags**](docs/CollectionsApi.md#updateCollectionTags) | **PATCH** /v2/collections/{collection_id}/tags | Updates a collection tags
 *CollectionsApi* | [**v3CreateCollection**](docs/CollectionsApi.md#v3CreateCollection) | **POST** /v3/collections | Create a collection.
+*CollectionsApi* | [**v3DeleteCollection**](docs/CollectionsApi.md#v3DeleteCollection) | **DELETE** /v3/collections/{collection_id} | Delete a collection.
 *CollectionsApi* | [**v3GetCollection**](docs/CollectionsApi.md#v3GetCollection) | **GET** /v3/collections/{collection_id} | Get a collection.
 *CollectionsApi* | [**v3ListCollections**](docs/CollectionsApi.md#v3ListCollections) | **GET** /v3/collections | List collections.
+*CollectionsApi* | [**v3PatchCollection**](docs/CollectionsApi.md#v3PatchCollection) | **PATCH** /v3/collections/{collection_id} | Update a collection.
 *CollectionsApi* | [**v3PatchCollectionBinaries**](docs/CollectionsApi.md#v3PatchCollectionBinaries) | **PATCH** /v3/collections/{collection_id}/binaries | Replace the binaries in a collection.
 *CollectionsApi* | [**v3PatchCollectionTags**](docs/CollectionsApi.md#v3PatchCollectionTags) | **PATCH** /v3/collections/{collection_id}/tags | Replace the tags on a collection.
 *ConfigApi* | [**getConfig**](docs/ConfigApi.md#getConfig) | **GET** /v2/config | Get Config
@@ -222,6 +224,9 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
+ - [AIDecompFunctionMapping](docs/AIDecompFunctionMapping.md)
+ - [AIDecompInverseFunctionMapItem](docs/AIDecompInverseFunctionMapItem.md)
+ - [AIDecompInverseStringMapItem](docs/AIDecompInverseStringMapItem.md)
  - [APIError](docs/APIError.md)
  - [AddCalleeInputBody](docs/AddCalleeInputBody.md)
  - [AddUserStringInputBody](docs/AddUserStringInputBody.md)
@@ -537,6 +542,8 @@ Class | Method | HTTP request | Description
  - [Params](docs/Params.md)
  - [PatchCollectionBinariesInputBody](docs/PatchCollectionBinariesInputBody.md)
  - [PatchCollectionBinariesOutputBody](docs/PatchCollectionBinariesOutputBody.md)
+ - [PatchCollectionInputBody](docs/PatchCollectionInputBody.md)
+ - [PatchCollectionOutputBody](docs/PatchCollectionOutputBody.md)
  - [PatchCollectionTagsInputBody](docs/PatchCollectionTagsInputBody.md)
  - [PatchCollectionTagsOutputBody](docs/PatchCollectionTagsOutputBody.md)
  - [PatchCommentBody](docs/PatchCommentBody.md)
