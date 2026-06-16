@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**addr** | **NumericAddr** |  |  |
+|**addr** | **Long** |  |  |
 |**string** | **String** |  |  |
 
 
