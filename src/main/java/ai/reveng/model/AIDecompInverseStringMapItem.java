@@ -14,7 +14,6 @@ package ai.reveng.model;
 
 import java.util.Objects;
 import java.util.Locale;
-import ai.reveng.model.NumericAddr;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -54,8 +53,8 @@ import ai.reveng.invoker.JSON;
 public class AIDecompInverseStringMapItem {
   public static final String SERIALIZED_NAME_ADDR = "addr";
   @SerializedName(SERIALIZED_NAME_ADDR)
-  @javax.annotation.Nonnull
-  private NumericAddr addr;
+  @javax.annotation.Nullable
+  private Long addr;
 
   public static final String SERIALIZED_NAME_STRING = "string";
   @SerializedName(SERIALIZED_NAME_STRING)
@@ -65,7 +64,7 @@ public class AIDecompInverseStringMapItem {
   public AIDecompInverseStringMapItem() {
   }
 
-  public AIDecompInverseStringMapItem addr(@javax.annotation.Nonnull NumericAddr addr) {
+  public AIDecompInverseStringMapItem addr(@javax.annotation.Nullable Long addr) {
     this.addr = addr;
     return this;
   }
@@ -74,12 +73,12 @@ public class AIDecompInverseStringMapItem {
    * Get addr
    * @return addr
    */
-  @javax.annotation.Nonnull
-  public NumericAddr getAddr() {
+  @javax.annotation.Nullable
+  public Long getAddr() {
     return addr;
   }
 
-  public void setAddr(@javax.annotation.Nonnull NumericAddr addr) {
+  public void setAddr(@javax.annotation.Nullable Long addr) {
     this.addr = addr;
   }
 
