@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**content** | **String** |  |  |
-|**context** | **ConversationContext** |  |  [optional] |
+|**context** | [**ConversationContext**](ConversationContext.md) |  |  [optional] |
 
 
 

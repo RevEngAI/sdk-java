@@ -7,9 +7,9 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**_file** | **DrakvufFileMetadata** |  |  [optional] |
+|**_file** | [**DrakvufFileMetadata**](DrakvufFileMetadata.md) |  |  [optional] |
 |**id** | **String** |  |  |
-|**options** | **ReportOptions** |  |  [optional] |
+|**options** | [**ReportOptions**](ReportOptions.md) |  |  [optional] |
 |**osProfile** | **String** |  |  [optional] |
 |**status** | **String** |  |  [optional] |
 |**timeAnalysisFinished** | **String** |  |  [optional] |

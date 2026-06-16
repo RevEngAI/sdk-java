@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**debugHash** | **String** |  |  |
+|**debugHash** | **String** | The debug hash, if one was supplied |  |
 |**binarySize** | **Integer** | The size of the binary data |  |
 |**architecture** | **String** | The architecture of the binary data |  |
 |**binaryType** | **String** | The type of binary data |  |

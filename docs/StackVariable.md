@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**lastChange** | **String** |  |  [optional] |
+|**lastChange** | **String** | Timestamp of the last change to this stack variable |  [optional] |
 |**offset** | **Integer** | Offset of the stack variable |  |
 |**name** | **String** | Name of the stack variable |  |
 |**type** | **String** | Data type of the stack variable |  |

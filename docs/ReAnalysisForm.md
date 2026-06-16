@@ -12,7 +12,7 @@ Form Model for receiving the analysis request
 |**commandLineArgs** | **String** | Command line arguments for dynamic execution |  [optional] |
 |**priority** | **Integer** | Priority of the analysis |  [optional] |
 |**essential** | **Boolean** | Only runs essential parts of the analysis, skips tags/sbom/cves etc. |  [optional] |
-|**modelName** | **String** |  |  [optional] |
+|**modelName** | **String** | Model name allows reprocessing using a different model |  [optional] |
 |**noCache** | **Boolean** | When enabled, skips using cached data within the processing. |  [optional] |
 
 

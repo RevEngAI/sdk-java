@@ -8,9 +8,9 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**status** | **Boolean** | Response status on whether the request succeeded |  [optional] |
-|**data** | [**FunctionStringsResponse**](FunctionStringsResponse.md) |  |  [optional] |
-|**message** | **String** |  |  [optional] |
-|**errors** | [**List&lt;ErrorModel&gt;**](ErrorModel.md) |  |  [optional] |
+|**data** | [**FunctionStringsResponse**](FunctionStringsResponse.md) | Response data |  [optional] |
+|**message** | **String** | Response message |  [optional] |
+|**errors** | [**List&lt;ErrorModel&gt;**](ErrorModel.md) | List of errors |  [optional] |
 |**meta** | [**MetaModel**](MetaModel.md) | Metadata |  [optional] |
 
 

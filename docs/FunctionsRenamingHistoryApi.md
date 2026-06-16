@@ -521,7 +521,7 @@ public class Example {
 
 <a id="revertFunctionName_0"></a>
 # **revertFunctionName_0**
-> Map&lt;String, Object&gt; revertFunctionName_0(functionId, historyId)
+> Object revertFunctionName_0(functionId, historyId)
 
 Revert function name
 
@@ -552,7 +552,7 @@ public class Example {
     Long functionId = 56L; // Long | Function ID
     Long historyId = 56L; // Long | History ID to revert to
     try {
-      Map<String, Object> result = apiInstance.revertFunctionName_0(functionId, historyId);
+      Object result = apiInstance.revertFunctionName_0(functionId, historyId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsRenamingHistoryApi#revertFunctionName_0");
@@ -574,7 +574,7 @@ public class Example {
 
 ### Return type
 
-**Map&lt;String, Object&gt;**
+**Object**
 
 ### Authorization
 

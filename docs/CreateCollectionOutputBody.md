@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**binaries** | **List&lt;Binary&gt;** |  |  [optional] |
+|**binaries** | [**List&lt;Binary&gt;**](Binary.md) |  |  [optional] |
 |**collectionId** | **Long** |  |  |
 |**collectionName** | **String** |  |  |
 |**collectionScope** | **String** |  |  |

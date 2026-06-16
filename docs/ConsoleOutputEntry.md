@@ -1,13 +1,13 @@
 
 
-# ProcessExtractedFiles
+# ConsoleOutputEntry
 
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**files** | **List&lt;ExtractedFileEntry&gt;** |  |  [optional] |
+|**output** | **String** |  |  |
 |**processSeqid** | **Long** |  |  |
 
 

@@ -108,7 +108,7 @@ public class Example {
     //APIKey.setApiKeyPrefix("Token");
 
     FirmwareApi apiInstance = new FirmwareApi(defaultClient);
-    String _file = "_file_example"; // String | 
+    File _file = new File("/path/to/file"); // File | 
     String password = "password_example"; // String | 
     try {
       Object result = apiInstance.uploadFirmware(_file, password);
@@ -128,7 +128,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **_file** | **String**|  | |
+| **_file** | **File**|  | |
 | **password** | **String**|  | [optional] |
 
 ### Return type

@@ -13,7 +13,6 @@
 package ai.reveng.model;
 
 import java.util.Objects;
-import java.util.Locale;
 import ai.reveng.model.MatchedFunctionSuggestion;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -46,7 +45,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.Locale;
 
 import ai.reveng.invoker.JSON;
 
@@ -118,7 +116,7 @@ public class AutoUnstripResponse {
   }
 
   /**
-   * Get status
+   * Status of the function matching operation
    * @return status
    */
   @javax.annotation.Nullable
@@ -137,7 +135,7 @@ public class AutoUnstripResponse {
   }
 
   /**
-   * Get totalTime
+   * Total time taken for the auto-unstrip operation in seconds
    * @return totalTime
    */
   @javax.annotation.Nullable
@@ -164,7 +162,7 @@ public class AutoUnstripResponse {
   }
 
   /**
-   * Get matches
+   * Map of function IDs to their matching results with best match information
    * @return matches
    */
   @javax.annotation.Nullable
@@ -183,7 +181,7 @@ public class AutoUnstripResponse {
   }
 
   /**
-   * Get applied
+   * Indicates whether the matched function names were applied to the target binary
    * @return applied
    */
   @javax.annotation.Nullable
@@ -202,7 +200,7 @@ public class AutoUnstripResponse {
   }
 
   /**
-   * Get errorMessage
+   * Error message if the operation failed
    * @return errorMessage
    */
   @javax.annotation.Nullable
@@ -314,10 +312,7 @@ public class AutoUnstripResponse {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -341,19 +336,19 @@ public class AutoUnstripResponse {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!AutoUnstripResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in AutoUnstripResponse is not found in the empty JSON string", AutoUnstripResponse.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in AutoUnstripResponse is not found in the empty JSON string", AutoUnstripResponse.openapiRequiredFields.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) && !jsonObj.get("status").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
       }
       if (jsonObj.get("matches") != null && !jsonObj.get("matches").isJsonNull()) {
         JsonArray jsonArraymatches = jsonObj.getAsJsonArray("matches");
         if (jsonArraymatches != null) {
           // ensure the json data is an array
           if (!jsonObj.get("matches").isJsonArray()) {
-            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `matches` to be an array in the JSON string but got `%s`", jsonObj.get("matches").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `matches` to be an array in the JSON string but got `%s`", jsonObj.get("matches").toString()));
           }
 
           // validate the optional field `matches` (array)
@@ -363,7 +358,7 @@ public class AutoUnstripResponse {
         }
       }
       if ((jsonObj.get("error_message") != null && !jsonObj.get("error_message").isJsonNull()) && !jsonObj.get("error_message").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `error_message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("error_message").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `error_message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("error_message").toString()));
       }
   }
 
@@ -424,7 +419,7 @@ public class AutoUnstripResponse {
                    else if (entry.getValue().getAsJsonPrimitive().isBoolean())
                      instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
                    else
-                     throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
+                     throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
                  } else if (entry.getValue().isJsonArray()) {
                      instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
                  } else { // JSON object

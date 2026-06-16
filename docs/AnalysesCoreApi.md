@@ -28,7 +28,7 @@ All URIs are relative to *https://api.reveng.ai*
 
 <a id="addUserStringToAnalysis"></a>
 # **addUserStringToAnalysis**
-> Map&lt;String, Object&gt; addUserStringToAnalysis(analysisId, addUserStringInputBody)
+> Object addUserStringToAnalysis(analysisId, addUserStringInputBody)
 
 Add a user-provided string to an analysis.
 
@@ -59,7 +59,7 @@ public class Example {
     Long analysisId = 56L; // Long | Analysis ID
     AddUserStringInputBody addUserStringInputBody = new AddUserStringInputBody(); // AddUserStringInputBody | 
     try {
-      Map<String, Object> result = apiInstance.addUserStringToAnalysis(analysisId, addUserStringInputBody);
+      Object result = apiInstance.addUserStringToAnalysis(analysisId, addUserStringInputBody);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCoreApi#addUserStringToAnalysis");
@@ -81,7 +81,7 @@ public class Example {
 
 ### Return type
 
-**Map&lt;String, Object&gt;**
+**Object**
 
 ### Authorization
 
@@ -885,8 +885,8 @@ public class Example {
 | **sha256Hash** | **String**|  | [optional] |
 | **limit** | **Integer**|  | [optional] [default to 20] |
 | **offset** | **Integer**|  | [optional] [default to 0] |
-| **orderBy** | [**AppApiRestV2AnalysesEnumsOrderBy**](.md)|  | [optional] [enum: created, name, size] |
-| **order** | [**Order**](.md)|  | [optional] [enum: ASC, DESC] |
+| **orderBy** | [**AppApiRestV2AnalysesEnumsOrderBy**](.md)|  | [optional] [default to created] [enum: created, name, size] |
+| **order** | [**Order**](.md)|  | [optional] [default to DESC] [enum: ASC, DESC] |
 
 ### Return type
 

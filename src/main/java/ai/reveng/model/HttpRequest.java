@@ -13,7 +13,7 @@
 package ai.reveng.model;
 
 import java.util.Objects;
-import java.util.Locale;
+import ai.reveng.model.PcapBodyInfo;
 import ai.reveng.model.ReportEvent;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -46,7 +46,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.Locale;
 
 import ai.reveng.invoker.JSON;
 
@@ -55,6 +54,16 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class HttpRequest {
+  public static final String SERIALIZED_NAME_BYTES_RECEIVED = "bytes_received";
+  @SerializedName(SERIALIZED_NAME_BYTES_RECEIVED)
+  @javax.annotation.Nullable
+  private Long bytesReceived;
+
+  public static final String SERIALIZED_NAME_BYTES_SENT = "bytes_sent";
+  @SerializedName(SERIALIZED_NAME_BYTES_SENT)
+  @javax.annotation.Nullable
+  private Long bytesSent;
+
   public static final String SERIALIZED_NAME_EVENTS = "events";
   @SerializedName(SERIALIZED_NAME_EVENTS)
   @javax.annotation.Nullable
@@ -80,6 +89,11 @@ public class HttpRequest {
   @javax.annotation.Nullable
   private String path;
 
+  public static final String SERIALIZED_NAME_PCAP_STREAM_ID = "pcap_stream_id";
+  @SerializedName(SERIALIZED_NAME_PCAP_STREAM_ID)
+  @javax.annotation.Nullable
+  private Long pcapStreamId;
+
   public static final String SERIALIZED_NAME_POST_DATA = "post_data";
   @SerializedName(SERIALIZED_NAME_POST_DATA)
   @javax.annotation.Nullable
@@ -99,6 +113,26 @@ public class HttpRequest {
   @SerializedName(SERIALIZED_NAME_REFERER)
   @javax.annotation.Nullable
   private String referer;
+
+  public static final String SERIALIZED_NAME_REQUEST_BODY = "request_body";
+  @SerializedName(SERIALIZED_NAME_REQUEST_BODY)
+  @javax.annotation.Nullable
+  private PcapBodyInfo requestBody;
+
+  public static final String SERIALIZED_NAME_RESPONSE_BODY = "response_body";
+  @SerializedName(SERIALIZED_NAME_RESPONSE_BODY)
+  @javax.annotation.Nullable
+  private PcapBodyInfo responseBody;
+
+  public static final String SERIALIZED_NAME_RESPONSE_STATUS = "response_status";
+  @SerializedName(SERIALIZED_NAME_RESPONSE_STATUS)
+  @javax.annotation.Nullable
+  private Long responseStatus;
+
+  public static final String SERIALIZED_NAME_SERVER_IP = "server_ip";
+  @SerializedName(SERIALIZED_NAME_SERVER_IP)
+  @javax.annotation.Nullable
+  private String serverIp;
 
   public static final String SERIALIZED_NAME_SERVER_NAME = "server_name";
   @SerializedName(SERIALIZED_NAME_SERVER_NAME)
@@ -137,6 +171,44 @@ public class HttpRequest {
 
   public HttpRequest() {
   }
+
+  public HttpRequest bytesReceived(@javax.annotation.Nullable Long bytesReceived) {
+    this.bytesReceived = bytesReceived;
+    return this;
+  }
+
+  /**
+   * Get bytesReceived
+   * @return bytesReceived
+   */
+  @javax.annotation.Nullable
+  public Long getBytesReceived() {
+    return bytesReceived;
+  }
+
+  public void setBytesReceived(@javax.annotation.Nullable Long bytesReceived) {
+    this.bytesReceived = bytesReceived;
+  }
+
+
+  public HttpRequest bytesSent(@javax.annotation.Nullable Long bytesSent) {
+    this.bytesSent = bytesSent;
+    return this;
+  }
+
+  /**
+   * Get bytesSent
+   * @return bytesSent
+   */
+  @javax.annotation.Nullable
+  public Long getBytesSent() {
+    return bytesSent;
+  }
+
+  public void setBytesSent(@javax.annotation.Nullable Long bytesSent) {
+    this.bytesSent = bytesSent;
+  }
+
 
   public HttpRequest events(@javax.annotation.Nullable List<ReportEvent> events) {
     this.events = events;
@@ -249,6 +321,25 @@ public class HttpRequest {
   }
 
 
+  public HttpRequest pcapStreamId(@javax.annotation.Nullable Long pcapStreamId) {
+    this.pcapStreamId = pcapStreamId;
+    return this;
+  }
+
+  /**
+   * Get pcapStreamId
+   * @return pcapStreamId
+   */
+  @javax.annotation.Nullable
+  public Long getPcapStreamId() {
+    return pcapStreamId;
+  }
+
+  public void setPcapStreamId(@javax.annotation.Nullable Long pcapStreamId) {
+    this.pcapStreamId = pcapStreamId;
+  }
+
+
   public HttpRequest postData(@javax.annotation.Nullable String postData) {
     this.postData = postData;
     return this;
@@ -322,6 +413,82 @@ public class HttpRequest {
 
   public void setReferer(@javax.annotation.Nullable String referer) {
     this.referer = referer;
+  }
+
+
+  public HttpRequest requestBody(@javax.annotation.Nullable PcapBodyInfo requestBody) {
+    this.requestBody = requestBody;
+    return this;
+  }
+
+  /**
+   * Get requestBody
+   * @return requestBody
+   */
+  @javax.annotation.Nullable
+  public PcapBodyInfo getRequestBody() {
+    return requestBody;
+  }
+
+  public void setRequestBody(@javax.annotation.Nullable PcapBodyInfo requestBody) {
+    this.requestBody = requestBody;
+  }
+
+
+  public HttpRequest responseBody(@javax.annotation.Nullable PcapBodyInfo responseBody) {
+    this.responseBody = responseBody;
+    return this;
+  }
+
+  /**
+   * Get responseBody
+   * @return responseBody
+   */
+  @javax.annotation.Nullable
+  public PcapBodyInfo getResponseBody() {
+    return responseBody;
+  }
+
+  public void setResponseBody(@javax.annotation.Nullable PcapBodyInfo responseBody) {
+    this.responseBody = responseBody;
+  }
+
+
+  public HttpRequest responseStatus(@javax.annotation.Nullable Long responseStatus) {
+    this.responseStatus = responseStatus;
+    return this;
+  }
+
+  /**
+   * Get responseStatus
+   * @return responseStatus
+   */
+  @javax.annotation.Nullable
+  public Long getResponseStatus() {
+    return responseStatus;
+  }
+
+  public void setResponseStatus(@javax.annotation.Nullable Long responseStatus) {
+    this.responseStatus = responseStatus;
+  }
+
+
+  public HttpRequest serverIp(@javax.annotation.Nullable String serverIp) {
+    this.serverIp = serverIp;
+    return this;
+  }
+
+  /**
+   * Get serverIp
+   * @return serverIp
+   */
+  @javax.annotation.Nullable
+  public String getServerIp() {
+    return serverIp;
+  }
+
+  public void setServerIp(@javax.annotation.Nullable String serverIp) {
+    this.serverIp = serverIp;
   }
 
 
@@ -457,50 +624,6 @@ public class HttpRequest {
     this.version = version;
   }
 
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
-
-  /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
-   *
-   * @param key name of the property
-   * @param value value of the property
-   * @return the HttpRequest instance itself
-   */
-  public HttpRequest putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
-    }
-    this.additionalProperties.put(key, value);
-    return this;
-  }
-
-  /**
-   * Return the additional (undeclared) property.
-   *
-   * @return a map of objects
-   */
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
-  }
-
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   *
-   * @param key name of the property
-   * @return an object
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-        return null;
-    }
-    return this.additionalProperties.get(key);
-  }
 
 
   @Override
@@ -512,23 +635,29 @@ public class HttpRequest {
       return false;
     }
     HttpRequest httpRequest = (HttpRequest) o;
-    return Objects.equals(this.events, httpRequest.events) &&
+    return Objects.equals(this.bytesReceived, httpRequest.bytesReceived) &&
+        Objects.equals(this.bytesSent, httpRequest.bytesSent) &&
+        Objects.equals(this.events, httpRequest.events) &&
         Objects.equals(this.extraHeaders, httpRequest.extraHeaders) &&
         Objects.equals(this.flags, httpRequest.flags) &&
         Objects.equals(this.password, httpRequest.password) &&
         Objects.equals(this.path, httpRequest.path) &&
+        Objects.equals(this.pcapStreamId, httpRequest.pcapStreamId) &&
         Objects.equals(this.postData, httpRequest.postData) &&
         Objects.equals(this.proxy, httpRequest.proxy) &&
         Objects.equals(this.proxyBypass, httpRequest.proxyBypass) &&
         Objects.equals(this.referer, httpRequest.referer) &&
+        Objects.equals(this.requestBody, httpRequest.requestBody) &&
+        Objects.equals(this.responseBody, httpRequest.responseBody) &&
+        Objects.equals(this.responseStatus, httpRequest.responseStatus) &&
+        Objects.equals(this.serverIp, httpRequest.serverIp) &&
         Objects.equals(this.serverName, httpRequest.serverName) &&
         Objects.equals(this.serverPort, httpRequest.serverPort) &&
         Objects.equals(this.service, httpRequest.service) &&
         Objects.equals(this.userAgent, httpRequest.userAgent) &&
         Objects.equals(this.username, httpRequest.username) &&
         Objects.equals(this.verb, httpRequest.verb) &&
-        Objects.equals(this.version, httpRequest.version)&&
-        Objects.equals(this.additionalProperties, httpRequest.additionalProperties);
+        Objects.equals(this.version, httpRequest.version);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -537,7 +666,7 @@ public class HttpRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(events, extraHeaders, flags, password, path, postData, proxy, proxyBypass, referer, serverName, serverPort, service, userAgent, username, verb, version, additionalProperties);
+    return Objects.hash(bytesReceived, bytesSent, events, extraHeaders, flags, password, path, pcapStreamId, postData, proxy, proxyBypass, referer, requestBody, responseBody, responseStatus, serverIp, serverName, serverPort, service, userAgent, username, verb, version);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -551,15 +680,22 @@ public class HttpRequest {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HttpRequest {\n");
+    sb.append("    bytesReceived: ").append(toIndentedString(bytesReceived)).append("\n");
+    sb.append("    bytesSent: ").append(toIndentedString(bytesSent)).append("\n");
     sb.append("    events: ").append(toIndentedString(events)).append("\n");
     sb.append("    extraHeaders: ").append(toIndentedString(extraHeaders)).append("\n");
     sb.append("    flags: ").append(toIndentedString(flags)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
+    sb.append("    pcapStreamId: ").append(toIndentedString(pcapStreamId)).append("\n");
     sb.append("    postData: ").append(toIndentedString(postData)).append("\n");
     sb.append("    proxy: ").append(toIndentedString(proxy)).append("\n");
     sb.append("    proxyBypass: ").append(toIndentedString(proxyBypass)).append("\n");
     sb.append("    referer: ").append(toIndentedString(referer)).append("\n");
+    sb.append("    requestBody: ").append(toIndentedString(requestBody)).append("\n");
+    sb.append("    responseBody: ").append(toIndentedString(responseBody)).append("\n");
+    sb.append("    responseStatus: ").append(toIndentedString(responseStatus)).append("\n");
+    sb.append("    serverIp: ").append(toIndentedString(serverIp)).append("\n");
     sb.append("    serverName: ").append(toIndentedString(serverName)).append("\n");
     sb.append("    serverPort: ").append(toIndentedString(serverPort)).append("\n");
     sb.append("    service: ").append(toIndentedString(service)).append("\n");
@@ -567,7 +703,6 @@ public class HttpRequest {
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    verb: ").append(toIndentedString(verb)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
-    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -577,10 +712,7 @@ public class HttpRequest {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -589,7 +721,7 @@ public class HttpRequest {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("events", "extra_headers", "flags", "password", "path", "post_data", "proxy", "proxy_bypass", "referer", "server_name", "server_port", "service", "user_agent", "username", "verb", "version"));
+    openapiFields = new HashSet<String>(Arrays.asList("bytes_received", "bytes_sent", "events", "extra_headers", "flags", "password", "path", "pcap_stream_id", "post_data", "proxy", "proxy_bypass", "referer", "request_body", "response_body", "response_status", "server_ip", "server_name", "server_port", "service", "user_agent", "username", "verb", "version"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -604,50 +736,79 @@ public class HttpRequest {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!HttpRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in HttpRequest is not found in the empty JSON string", HttpRequest.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in HttpRequest is not found in the empty JSON string", HttpRequest.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!HttpRequest.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `HttpRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("events") != null && !jsonObj.get("events").isJsonNull() && !jsonObj.get("events").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `events` to be an array in the JSON string but got `%s`", jsonObj.get("events").toString()));
+      if (jsonObj.get("events") != null && !jsonObj.get("events").isJsonNull()) {
+        JsonArray jsonArrayevents = jsonObj.getAsJsonArray("events");
+        if (jsonArrayevents != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("events").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `events` to be an array in the JSON string but got `%s`", jsonObj.get("events").toString()));
+          }
+
+          // validate the optional field `events` (array)
+          for (int i = 0; i < jsonArrayevents.size(); i++) {
+            ReportEvent.validateJsonElement(jsonArrayevents.get(i));
+          };
+        }
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("extra_headers") != null && !jsonObj.get("extra_headers").isJsonNull() && !jsonObj.get("extra_headers").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `extra_headers` to be an array in the JSON string but got `%s`", jsonObj.get("extra_headers").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `extra_headers` to be an array in the JSON string but got `%s`", jsonObj.get("extra_headers").toString()));
       }
       if ((jsonObj.get("password") != null && !jsonObj.get("password").isJsonNull()) && !jsonObj.get("password").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password").toString()));
       }
       if ((jsonObj.get("path") != null && !jsonObj.get("path").isJsonNull()) && !jsonObj.get("path").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("path").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("path").toString()));
       }
       if ((jsonObj.get("post_data") != null && !jsonObj.get("post_data").isJsonNull()) && !jsonObj.get("post_data").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `post_data` to be a primitive type in the JSON string but got `%s`", jsonObj.get("post_data").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `post_data` to be a primitive type in the JSON string but got `%s`", jsonObj.get("post_data").toString()));
       }
       if ((jsonObj.get("proxy") != null && !jsonObj.get("proxy").isJsonNull()) && !jsonObj.get("proxy").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `proxy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("proxy").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `proxy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("proxy").toString()));
       }
       if ((jsonObj.get("proxy_bypass") != null && !jsonObj.get("proxy_bypass").isJsonNull()) && !jsonObj.get("proxy_bypass").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `proxy_bypass` to be a primitive type in the JSON string but got `%s`", jsonObj.get("proxy_bypass").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `proxy_bypass` to be a primitive type in the JSON string but got `%s`", jsonObj.get("proxy_bypass").toString()));
       }
       if ((jsonObj.get("referer") != null && !jsonObj.get("referer").isJsonNull()) && !jsonObj.get("referer").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `referer` to be a primitive type in the JSON string but got `%s`", jsonObj.get("referer").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `referer` to be a primitive type in the JSON string but got `%s`", jsonObj.get("referer").toString()));
+      }
+      // validate the optional field `request_body`
+      if (jsonObj.get("request_body") != null && !jsonObj.get("request_body").isJsonNull()) {
+        PcapBodyInfo.validateJsonElement(jsonObj.get("request_body"));
+      }
+      // validate the optional field `response_body`
+      if (jsonObj.get("response_body") != null && !jsonObj.get("response_body").isJsonNull()) {
+        PcapBodyInfo.validateJsonElement(jsonObj.get("response_body"));
+      }
+      if ((jsonObj.get("server_ip") != null && !jsonObj.get("server_ip").isJsonNull()) && !jsonObj.get("server_ip").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `server_ip` to be a primitive type in the JSON string but got `%s`", jsonObj.get("server_ip").toString()));
       }
       if ((jsonObj.get("server_name") != null && !jsonObj.get("server_name").isJsonNull()) && !jsonObj.get("server_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `server_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("server_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `server_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("server_name").toString()));
       }
       if ((jsonObj.get("user_agent") != null && !jsonObj.get("user_agent").isJsonNull()) && !jsonObj.get("user_agent").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `user_agent` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_agent").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `user_agent` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_agent").toString()));
       }
       if ((jsonObj.get("username") != null && !jsonObj.get("username").isJsonNull()) && !jsonObj.get("username").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("username").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("username").toString()));
       }
       if ((jsonObj.get("verb") != null && !jsonObj.get("verb").isJsonNull()) && !jsonObj.get("verb").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `verb` to be a primitive type in the JSON string but got `%s`", jsonObj.get("verb").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `verb` to be a primitive type in the JSON string but got `%s`", jsonObj.get("verb").toString()));
       }
       if ((jsonObj.get("version") != null && !jsonObj.get("version").isJsonNull()) && !jsonObj.get("version").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("version").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("version").toString()));
       }
   }
 
@@ -666,28 +827,6 @@ public class HttpRequest {
            @Override
            public void write(JsonWriter out, HttpRequest value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             obj.remove("additionalProperties");
-             // serialize additional properties
-             if (value.getAdditionalProperties() != null) {
-               for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
-               }
-             }
              elementAdapter.write(out, obj);
            }
 
@@ -695,28 +834,7 @@ public class HttpRequest {
            public HttpRequest read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
-             JsonObject jsonObj = jsonElement.getAsJsonObject();
-             // store additional fields in the deserialized instance
-             HttpRequest instance = thisAdapter.fromJsonTree(jsonObj);
-             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
-               if (!openapiFields.contains(entry.getKey())) {
-                 if (entry.getValue().isJsonPrimitive()) { // primitive type
-                   if (entry.getValue().getAsJsonPrimitive().isString())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsString());
-                   else if (entry.getValue().getAsJsonPrimitive().isNumber())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsNumber());
-                   else if (entry.getValue().getAsJsonPrimitive().isBoolean())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
-                   else
-                     throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
-                 } else if (entry.getValue().isJsonArray()) {
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
-                 } else { // JSON object
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), HashMap.class));
-                 }
-               }
-             }
-             return instance;
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

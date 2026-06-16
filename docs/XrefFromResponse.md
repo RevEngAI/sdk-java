@@ -12,7 +12,7 @@
 |**isCall** | **Boolean** |  |  [optional] |
 |**isData** | **Boolean** |  |  [optional] |
 |**isString** | **Boolean** |  |  [optional] |
-|**rawData** | **String** |  |  [optional] |
+|**rawData** | **File** |  |  [optional] |
 |**segment** | [**SegmentInfo**](SegmentInfo.md) |  |  [optional] |
 |**origStrEncoding** | **String** |  |  [optional] |
 |**xrefTo** | **String** |  |  |

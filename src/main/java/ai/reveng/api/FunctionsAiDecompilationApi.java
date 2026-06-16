@@ -42,7 +42,7 @@ import ai.reveng.model.FunctionCommentCreateRequest;
 import ai.reveng.model.PatchCommentBody;
 import ai.reveng.model.RegenerateOutputBody;
 import ai.reveng.model.RegenerateTarget;
-import ai.reveng.model.StreamAiDecompilation200ResponseInner;
+import ai.reveng.model.ServerSentEventsInner1;
 import ai.reveng.model.SummaryData;
 import ai.reveng.model.TokenisedData;
 import ai.reveng.model.UpsertAiDecomplationRatingRequest;
@@ -2948,7 +2948,7 @@ public class FunctionsAiDecompilationApi {
      * Stream live AI decompilation output (SSE)
      * Opens a Server-Sent Events stream of incremental decompilation events for the given function. Each event has a &#x60;type&#x60; discriminator (also used as the SSE &#x60;event:&#x60; line) and a per-attempt monotonic &#x60;seq&#x60;. Terminal events: &#x60;decomp_finished&#x60; (success) or &#x60;decomp_failed&#x60; (all retries exhausted). &#x60;attempt_failed&#x60; is per-attempt and non-terminal — Temporal may retry the activity. Clients should treat &#x60;attempt&#x60; changes as a reset signal. &#x60;last_event_id&#x60; is not supported — clients fall back to polling the standard GET endpoint after the stream ends.
      * @param functionId Function ID (required)
-     * @return List&lt;StreamAiDecompilation200ResponseInner&gt;
+     * @return List&lt;ServerSentEventsInner1&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -2958,8 +2958,8 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public List<StreamAiDecompilation200ResponseInner> streamAiDecompilation(@javax.annotation.Nonnull Long functionId) throws ApiException {
-        ApiResponse<List<StreamAiDecompilation200ResponseInner>> localVarResp = streamAiDecompilationWithHttpInfo(functionId);
+    public List<ServerSentEventsInner1> streamAiDecompilation(@javax.annotation.Nonnull Long functionId) throws ApiException {
+        ApiResponse<List<ServerSentEventsInner1>> localVarResp = streamAiDecompilationWithHttpInfo(functionId);
         return localVarResp.getData();
     }
 
@@ -2967,7 +2967,7 @@ public class FunctionsAiDecompilationApi {
      * Stream live AI decompilation output (SSE)
      * Opens a Server-Sent Events stream of incremental decompilation events for the given function. Each event has a &#x60;type&#x60; discriminator (also used as the SSE &#x60;event:&#x60; line) and a per-attempt monotonic &#x60;seq&#x60;. Terminal events: &#x60;decomp_finished&#x60; (success) or &#x60;decomp_failed&#x60; (all retries exhausted). &#x60;attempt_failed&#x60; is per-attempt and non-terminal — Temporal may retry the activity. Clients should treat &#x60;attempt&#x60; changes as a reset signal. &#x60;last_event_id&#x60; is not supported — clients fall back to polling the standard GET endpoint after the stream ends.
      * @param functionId Function ID (required)
-     * @return ApiResponse&lt;List&lt;StreamAiDecompilation200ResponseInner&gt;&gt;
+     * @return ApiResponse&lt;List&lt;ServerSentEventsInner1&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -2977,9 +2977,9 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<StreamAiDecompilation200ResponseInner>> streamAiDecompilationWithHttpInfo(@javax.annotation.Nonnull Long functionId) throws ApiException {
+    public ApiResponse<List<ServerSentEventsInner1>> streamAiDecompilationWithHttpInfo(@javax.annotation.Nonnull Long functionId) throws ApiException {
         okhttp3.Call localVarCall = streamAiDecompilationValidateBeforeCall(functionId, null);
-        Type localVarReturnType = new TypeToken<List<StreamAiDecompilation200ResponseInner>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<ServerSentEventsInner1>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -2998,10 +2998,10 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call streamAiDecompilationAsync(@javax.annotation.Nonnull Long functionId, final ApiCallback<List<StreamAiDecompilation200ResponseInner>> _callback) throws ApiException {
+    public okhttp3.Call streamAiDecompilationAsync(@javax.annotation.Nonnull Long functionId, final ApiCallback<List<ServerSentEventsInner1>> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = streamAiDecompilationValidateBeforeCall(functionId, _callback);
-        Type localVarReturnType = new TypeToken<List<StreamAiDecompilation200ResponseInner>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<ServerSentEventsInner1>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

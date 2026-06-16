@@ -13,7 +13,6 @@
 package ai.reveng.model;
 
 import java.util.Objects;
-import java.util.Locale;
 import ai.reveng.model.MatchedFunction;
 import ai.reveng.model.NameConfidence;
 import com.google.gson.TypeAdapter;
@@ -47,7 +46,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.Locale;
 
 import ai.reveng.invoker.JSON;
 
@@ -240,10 +238,7 @@ public class FunctionMatch {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -267,33 +262,33 @@ public class FunctionMatch {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!FunctionMatch.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in FunctionMatch is not found in the empty JSON string", FunctionMatch.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in FunctionMatch is not found in the empty JSON string", FunctionMatch.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : FunctionMatch.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the json data is an array
-      if (!jsonObj.get("matched_functions").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `matched_functions` to be an array in the JSON string but got `%s`", jsonObj.get("matched_functions").toString()));
+      if (jsonObj.get("matched_functions") != null) {
+        if (!jsonObj.get("matched_functions").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `matched_functions` to be an array in the JSON string but got `%s`", jsonObj.get("matched_functions").toString()));
+        }
+        JsonArray jsonArraymatchedFunctions = jsonObj.getAsJsonArray("matched_functions");
+        // validate the required field `matched_functions` (array)
+        for (int i = 0; i < jsonArraymatchedFunctions.size(); i++) {
+          MatchedFunction.validateJsonElement(jsonArraymatchedFunctions.get(i));
+        }
       }
-
-      JsonArray jsonArraymatchedFunctions = jsonObj.getAsJsonArray("matched_functions");
-      // validate the required field `matched_functions` (array)
-      for (int i = 0; i < jsonArraymatchedFunctions.size(); i++) {
-        MatchedFunction.validateJsonElement(jsonArraymatchedFunctions.get(i));
-      };
       if (jsonObj.get("confidences") != null && !jsonObj.get("confidences").isJsonNull()) {
         JsonArray jsonArrayconfidences = jsonObj.getAsJsonArray("confidences");
         if (jsonArrayconfidences != null) {
           // ensure the json data is an array
           if (!jsonObj.get("confidences").isJsonArray()) {
-            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `confidences` to be an array in the JSON string but got `%s`", jsonObj.get("confidences").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `confidences` to be an array in the JSON string but got `%s`", jsonObj.get("confidences").toString()));
           }
 
           // validate the optional field `confidences` (array)
@@ -361,7 +356,7 @@ public class FunctionMatch {
                    else if (entry.getValue().getAsJsonPrimitive().isBoolean())
                      instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
                    else
-                     throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
+                     throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
                  } else if (entry.getValue().isJsonArray()) {
                      instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
                  } else { // JSON object

@@ -13,7 +13,6 @@
 package ai.reveng.model;
 
 import java.util.Objects;
-import java.util.Locale;
 import ai.reveng.model.EventCONTEXTCOMPACTED;
 import ai.reveng.model.EventRUNCANCELLED;
 import ai.reveng.model.EventRUNERROR;
@@ -51,7 +50,6 @@ import java.util.HashSet;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Locale;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -76,15 +74,15 @@ import com.google.gson.JsonParseException;
 import ai.reveng.invoker.JSON;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
-    private static final Logger log = Logger.getLogger(StreamEvents200ResponseInner.class.getName());
+public class ServerSentEventsInner extends AbstractOpenApiSchema {
+    private static final Logger log = Logger.getLogger(ServerSentEventsInner.class.getName());
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!StreamEvents200ResponseInner.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'StreamEvents200ResponseInner' and its subtypes
+            if (!ServerSentEventsInner.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'ServerSentEventsInner' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
             final TypeAdapter<EventCONTEXTCOMPACTED> adapterEventCONTEXTCOMPACTED = gson.getDelegateAdapter(this, TypeToken.get(EventCONTEXTCOMPACTED.class));
@@ -104,9 +102,9 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
             final TypeAdapter<EventTOOLCALLSTART> adapterEventTOOLCALLSTART = gson.getDelegateAdapter(this, TypeToken.get(EventTOOLCALLSTART.class));
             final TypeAdapter<EventTOOLCONFIRMATIONREQUIRED> adapterEventTOOLCONFIRMATIONREQUIRED = gson.getDelegateAdapter(this, TypeToken.get(EventTOOLCONFIRMATIONREQUIRED.class));
 
-            return (TypeAdapter<T>) new TypeAdapter<StreamEvents200ResponseInner>() {
+            return (TypeAdapter<T>) new TypeAdapter<ServerSentEventsInner>() {
                 @Override
-                public void write(JsonWriter out, StreamEvents200ResponseInner value) throws IOException {
+                public void write(JsonWriter out, ServerSentEventsInner value) throws IOException {
                     if (value == null || value.getActualInstance() == null) {
                         elementAdapter.write(out, null);
                         return;
@@ -212,7 +210,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
                 }
 
                 @Override
-                public StreamEvents200ResponseInner read(JsonReader in) throws IOException {
+                public ServerSentEventsInner read(JsonReader in) throws IOException {
                     Object deserialized = null;
                     JsonElement jsonElement = elementAdapter.read(in);
 
@@ -229,7 +227,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
                         log.log(Level.FINER, "Input data matches schema 'EventCONTEXTCOMPACTED'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format(Locale.ROOT, "Deserialization for EventCONTEXTCOMPACTED failed with `%s`.", e.getMessage()));
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EventCONTEXTCOMPACTED failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'EventCONTEXTCOMPACTED'", e);
                     }
                     // deserialize EventRUNCANCELLED
@@ -241,7 +239,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
                         log.log(Level.FINER, "Input data matches schema 'EventRUNCANCELLED'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format(Locale.ROOT, "Deserialization for EventRUNCANCELLED failed with `%s`.", e.getMessage()));
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EventRUNCANCELLED failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'EventRUNCANCELLED'", e);
                     }
                     // deserialize EventRUNERROR
@@ -253,7 +251,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
                         log.log(Level.FINER, "Input data matches schema 'EventRUNERROR'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format(Locale.ROOT, "Deserialization for EventRUNERROR failed with `%s`.", e.getMessage()));
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EventRUNERROR failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'EventRUNERROR'", e);
                     }
                     // deserialize EventRUNFINISHED
@@ -265,7 +263,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
                         log.log(Level.FINER, "Input data matches schema 'EventRUNFINISHED'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format(Locale.ROOT, "Deserialization for EventRUNFINISHED failed with `%s`.", e.getMessage()));
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EventRUNFINISHED failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'EventRUNFINISHED'", e);
                     }
                     // deserialize EventRUNSTARTED
@@ -277,7 +275,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
                         log.log(Level.FINER, "Input data matches schema 'EventRUNSTARTED'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format(Locale.ROOT, "Deserialization for EventRUNSTARTED failed with `%s`.", e.getMessage()));
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EventRUNSTARTED failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'EventRUNSTARTED'", e);
                     }
                     // deserialize EventSTEPFINISHED
@@ -289,7 +287,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
                         log.log(Level.FINER, "Input data matches schema 'EventSTEPFINISHED'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format(Locale.ROOT, "Deserialization for EventSTEPFINISHED failed with `%s`.", e.getMessage()));
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EventSTEPFINISHED failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'EventSTEPFINISHED'", e);
                     }
                     // deserialize EventSTEPSTARTED
@@ -301,7 +299,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
                         log.log(Level.FINER, "Input data matches schema 'EventSTEPSTARTED'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format(Locale.ROOT, "Deserialization for EventSTEPSTARTED failed with `%s`.", e.getMessage()));
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EventSTEPSTARTED failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'EventSTEPSTARTED'", e);
                     }
                     // deserialize EventTEXTMESSAGECONTENT
@@ -313,7 +311,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
                         log.log(Level.FINER, "Input data matches schema 'EventTEXTMESSAGECONTENT'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format(Locale.ROOT, "Deserialization for EventTEXTMESSAGECONTENT failed with `%s`.", e.getMessage()));
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EventTEXTMESSAGECONTENT failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'EventTEXTMESSAGECONTENT'", e);
                     }
                     // deserialize EventTEXTMESSAGEEND
@@ -325,7 +323,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
                         log.log(Level.FINER, "Input data matches schema 'EventTEXTMESSAGEEND'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format(Locale.ROOT, "Deserialization for EventTEXTMESSAGEEND failed with `%s`.", e.getMessage()));
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EventTEXTMESSAGEEND failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'EventTEXTMESSAGEEND'", e);
                     }
                     // deserialize EventTEXTMESSAGESTART
@@ -337,7 +335,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
                         log.log(Level.FINER, "Input data matches schema 'EventTEXTMESSAGESTART'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format(Locale.ROOT, "Deserialization for EventTEXTMESSAGESTART failed with `%s`.", e.getMessage()));
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EventTEXTMESSAGESTART failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'EventTEXTMESSAGESTART'", e);
                     }
                     // deserialize EventTITLEUPDATED
@@ -349,7 +347,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
                         log.log(Level.FINER, "Input data matches schema 'EventTITLEUPDATED'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format(Locale.ROOT, "Deserialization for EventTITLEUPDATED failed with `%s`.", e.getMessage()));
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EventTITLEUPDATED failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'EventTITLEUPDATED'", e);
                     }
                     // deserialize EventTOOLCALLARGSDELTA
@@ -361,7 +359,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
                         log.log(Level.FINER, "Input data matches schema 'EventTOOLCALLARGSDELTA'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format(Locale.ROOT, "Deserialization for EventTOOLCALLARGSDELTA failed with `%s`.", e.getMessage()));
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EventTOOLCALLARGSDELTA failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'EventTOOLCALLARGSDELTA'", e);
                     }
                     // deserialize EventTOOLCALLEND
@@ -373,7 +371,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
                         log.log(Level.FINER, "Input data matches schema 'EventTOOLCALLEND'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format(Locale.ROOT, "Deserialization for EventTOOLCALLEND failed with `%s`.", e.getMessage()));
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EventTOOLCALLEND failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'EventTOOLCALLEND'", e);
                     }
                     // deserialize EventTOOLCALLRESULT
@@ -385,7 +383,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
                         log.log(Level.FINER, "Input data matches schema 'EventTOOLCALLRESULT'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format(Locale.ROOT, "Deserialization for EventTOOLCALLRESULT failed with `%s`.", e.getMessage()));
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EventTOOLCALLRESULT failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'EventTOOLCALLRESULT'", e);
                     }
                     // deserialize EventTOOLCALLSTART
@@ -397,7 +395,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
                         log.log(Level.FINER, "Input data matches schema 'EventTOOLCALLSTART'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format(Locale.ROOT, "Deserialization for EventTOOLCALLSTART failed with `%s`.", e.getMessage()));
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EventTOOLCALLSTART failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'EventTOOLCALLSTART'", e);
                     }
                     // deserialize EventTOOLCONFIRMATIONREQUIRED
@@ -409,17 +407,17 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
                         log.log(Level.FINER, "Input data matches schema 'EventTOOLCONFIRMATIONREQUIRED'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format(Locale.ROOT, "Deserialization for EventTOOLCONFIRMATIONREQUIRED failed with `%s`.", e.getMessage()));
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EventTOOLCONFIRMATIONREQUIRED failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'EventTOOLCONFIRMATIONREQUIRED'", e);
                     }
 
                     if (match == 1) {
-                        StreamEvents200ResponseInner ret = new StreamEvents200ResponseInner();
+                        ServerSentEventsInner ret = new ServerSentEventsInner();
                         ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
                         return ret;
                     }
 
-                    throw new IOException(String.format(Locale.ROOT, "Failed deserialization for StreamEvents200ResponseInner: %d classes match result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", match, errorMessages, jsonElement.toString()));
+                    throw new IOException(String.format(java.util.Locale.ROOT, "Failed deserialization for ServerSentEventsInner: %d classes match result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", match, errorMessages, jsonElement.toString()));
                 }
             }.nullSafe();
         }
@@ -428,11 +426,11 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
     // store a list of schema names defined in oneOf
     public static final Map<String, Class<?>> schemas = new HashMap<String, Class<?>>();
 
-    public StreamEvents200ResponseInner() {
+    public ServerSentEventsInner() {
         super("oneOf", Boolean.FALSE);
     }
 
-    public StreamEvents200ResponseInner(Object o) {
+    public ServerSentEventsInner(Object o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
@@ -458,7 +456,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
 
     @Override
     public Map<String, Class<?>> getSchemas() {
-        return StreamEvents200ResponseInner.schemas;
+        return ServerSentEventsInner.schemas;
     }
 
     /**
@@ -572,6 +570,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
      * @return The actual instance of `EventCONTEXTCOMPACTED`
      * @throws ClassCastException if the instance is not `EventCONTEXTCOMPACTED`
      */
+    @SuppressWarnings("unchecked")
     public EventCONTEXTCOMPACTED getEventCONTEXTCOMPACTED() throws ClassCastException {
         return (EventCONTEXTCOMPACTED)super.getActualInstance();
     }
@@ -583,6 +582,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
      * @return The actual instance of `EventRUNCANCELLED`
      * @throws ClassCastException if the instance is not `EventRUNCANCELLED`
      */
+    @SuppressWarnings("unchecked")
     public EventRUNCANCELLED getEventRUNCANCELLED() throws ClassCastException {
         return (EventRUNCANCELLED)super.getActualInstance();
     }
@@ -594,6 +594,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
      * @return The actual instance of `EventRUNERROR`
      * @throws ClassCastException if the instance is not `EventRUNERROR`
      */
+    @SuppressWarnings("unchecked")
     public EventRUNERROR getEventRUNERROR() throws ClassCastException {
         return (EventRUNERROR)super.getActualInstance();
     }
@@ -605,6 +606,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
      * @return The actual instance of `EventRUNFINISHED`
      * @throws ClassCastException if the instance is not `EventRUNFINISHED`
      */
+    @SuppressWarnings("unchecked")
     public EventRUNFINISHED getEventRUNFINISHED() throws ClassCastException {
         return (EventRUNFINISHED)super.getActualInstance();
     }
@@ -616,6 +618,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
      * @return The actual instance of `EventRUNSTARTED`
      * @throws ClassCastException if the instance is not `EventRUNSTARTED`
      */
+    @SuppressWarnings("unchecked")
     public EventRUNSTARTED getEventRUNSTARTED() throws ClassCastException {
         return (EventRUNSTARTED)super.getActualInstance();
     }
@@ -627,6 +630,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
      * @return The actual instance of `EventSTEPFINISHED`
      * @throws ClassCastException if the instance is not `EventSTEPFINISHED`
      */
+    @SuppressWarnings("unchecked")
     public EventSTEPFINISHED getEventSTEPFINISHED() throws ClassCastException {
         return (EventSTEPFINISHED)super.getActualInstance();
     }
@@ -638,6 +642,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
      * @return The actual instance of `EventSTEPSTARTED`
      * @throws ClassCastException if the instance is not `EventSTEPSTARTED`
      */
+    @SuppressWarnings("unchecked")
     public EventSTEPSTARTED getEventSTEPSTARTED() throws ClassCastException {
         return (EventSTEPSTARTED)super.getActualInstance();
     }
@@ -649,6 +654,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
      * @return The actual instance of `EventTEXTMESSAGECONTENT`
      * @throws ClassCastException if the instance is not `EventTEXTMESSAGECONTENT`
      */
+    @SuppressWarnings("unchecked")
     public EventTEXTMESSAGECONTENT getEventTEXTMESSAGECONTENT() throws ClassCastException {
         return (EventTEXTMESSAGECONTENT)super.getActualInstance();
     }
@@ -660,6 +666,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
      * @return The actual instance of `EventTEXTMESSAGEEND`
      * @throws ClassCastException if the instance is not `EventTEXTMESSAGEEND`
      */
+    @SuppressWarnings("unchecked")
     public EventTEXTMESSAGEEND getEventTEXTMESSAGEEND() throws ClassCastException {
         return (EventTEXTMESSAGEEND)super.getActualInstance();
     }
@@ -671,6 +678,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
      * @return The actual instance of `EventTEXTMESSAGESTART`
      * @throws ClassCastException if the instance is not `EventTEXTMESSAGESTART`
      */
+    @SuppressWarnings("unchecked")
     public EventTEXTMESSAGESTART getEventTEXTMESSAGESTART() throws ClassCastException {
         return (EventTEXTMESSAGESTART)super.getActualInstance();
     }
@@ -682,6 +690,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
      * @return The actual instance of `EventTITLEUPDATED`
      * @throws ClassCastException if the instance is not `EventTITLEUPDATED`
      */
+    @SuppressWarnings("unchecked")
     public EventTITLEUPDATED getEventTITLEUPDATED() throws ClassCastException {
         return (EventTITLEUPDATED)super.getActualInstance();
     }
@@ -693,6 +702,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
      * @return The actual instance of `EventTOOLCALLARGSDELTA`
      * @throws ClassCastException if the instance is not `EventTOOLCALLARGSDELTA`
      */
+    @SuppressWarnings("unchecked")
     public EventTOOLCALLARGSDELTA getEventTOOLCALLARGSDELTA() throws ClassCastException {
         return (EventTOOLCALLARGSDELTA)super.getActualInstance();
     }
@@ -704,6 +714,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
      * @return The actual instance of `EventTOOLCALLEND`
      * @throws ClassCastException if the instance is not `EventTOOLCALLEND`
      */
+    @SuppressWarnings("unchecked")
     public EventTOOLCALLEND getEventTOOLCALLEND() throws ClassCastException {
         return (EventTOOLCALLEND)super.getActualInstance();
     }
@@ -715,6 +726,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
      * @return The actual instance of `EventTOOLCALLRESULT`
      * @throws ClassCastException if the instance is not `EventTOOLCALLRESULT`
      */
+    @SuppressWarnings("unchecked")
     public EventTOOLCALLRESULT getEventTOOLCALLRESULT() throws ClassCastException {
         return (EventTOOLCALLRESULT)super.getActualInstance();
     }
@@ -726,6 +738,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
      * @return The actual instance of `EventTOOLCALLSTART`
      * @throws ClassCastException if the instance is not `EventTOOLCALLSTART`
      */
+    @SuppressWarnings("unchecked")
     public EventTOOLCALLSTART getEventTOOLCALLSTART() throws ClassCastException {
         return (EventTOOLCALLSTART)super.getActualInstance();
     }
@@ -737,6 +750,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
      * @return The actual instance of `EventTOOLCONFIRMATIONREQUIRED`
      * @throws ClassCastException if the instance is not `EventTOOLCONFIRMATIONREQUIRED`
      */
+    @SuppressWarnings("unchecked")
     public EventTOOLCONFIRMATIONREQUIRED getEventTOOLCONFIRMATIONREQUIRED() throws ClassCastException {
         return (EventTOOLCONFIRMATIONREQUIRED)super.getActualInstance();
     }
@@ -745,7 +759,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to StreamEvents200ResponseInner
+     * @throws IOException if the JSON Element is invalid with respect to ServerSentEventsInner
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         // validate oneOf schemas one by one
@@ -756,7 +770,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
             EventCONTEXTCOMPACTED.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format(Locale.ROOT, "Deserialization for EventCONTEXTCOMPACTED failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EventCONTEXTCOMPACTED failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         // validate the json string with EventRUNCANCELLED
@@ -764,7 +778,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
             EventRUNCANCELLED.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format(Locale.ROOT, "Deserialization for EventRUNCANCELLED failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EventRUNCANCELLED failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         // validate the json string with EventRUNERROR
@@ -772,7 +786,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
             EventRUNERROR.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format(Locale.ROOT, "Deserialization for EventRUNERROR failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EventRUNERROR failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         // validate the json string with EventRUNFINISHED
@@ -780,7 +794,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
             EventRUNFINISHED.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format(Locale.ROOT, "Deserialization for EventRUNFINISHED failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EventRUNFINISHED failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         // validate the json string with EventRUNSTARTED
@@ -788,7 +802,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
             EventRUNSTARTED.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format(Locale.ROOT, "Deserialization for EventRUNSTARTED failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EventRUNSTARTED failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         // validate the json string with EventSTEPFINISHED
@@ -796,7 +810,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
             EventSTEPFINISHED.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format(Locale.ROOT, "Deserialization for EventSTEPFINISHED failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EventSTEPFINISHED failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         // validate the json string with EventSTEPSTARTED
@@ -804,7 +818,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
             EventSTEPSTARTED.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format(Locale.ROOT, "Deserialization for EventSTEPSTARTED failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EventSTEPSTARTED failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         // validate the json string with EventTEXTMESSAGECONTENT
@@ -812,7 +826,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
             EventTEXTMESSAGECONTENT.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format(Locale.ROOT, "Deserialization for EventTEXTMESSAGECONTENT failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EventTEXTMESSAGECONTENT failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         // validate the json string with EventTEXTMESSAGEEND
@@ -820,7 +834,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
             EventTEXTMESSAGEEND.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format(Locale.ROOT, "Deserialization for EventTEXTMESSAGEEND failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EventTEXTMESSAGEEND failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         // validate the json string with EventTEXTMESSAGESTART
@@ -828,7 +842,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
             EventTEXTMESSAGESTART.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format(Locale.ROOT, "Deserialization for EventTEXTMESSAGESTART failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EventTEXTMESSAGESTART failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         // validate the json string with EventTITLEUPDATED
@@ -836,7 +850,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
             EventTITLEUPDATED.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format(Locale.ROOT, "Deserialization for EventTITLEUPDATED failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EventTITLEUPDATED failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         // validate the json string with EventTOOLCALLARGSDELTA
@@ -844,7 +858,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
             EventTOOLCALLARGSDELTA.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format(Locale.ROOT, "Deserialization for EventTOOLCALLARGSDELTA failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EventTOOLCALLARGSDELTA failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         // validate the json string with EventTOOLCALLEND
@@ -852,7 +866,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
             EventTOOLCALLEND.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format(Locale.ROOT, "Deserialization for EventTOOLCALLEND failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EventTOOLCALLEND failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         // validate the json string with EventTOOLCALLRESULT
@@ -860,7 +874,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
             EventTOOLCALLRESULT.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format(Locale.ROOT, "Deserialization for EventTOOLCALLRESULT failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EventTOOLCALLRESULT failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         // validate the json string with EventTOOLCALLSTART
@@ -868,7 +882,7 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
             EventTOOLCALLSTART.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format(Locale.ROOT, "Deserialization for EventTOOLCALLSTART failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EventTOOLCALLSTART failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         // validate the json string with EventTOOLCONFIRMATIONREQUIRED
@@ -876,27 +890,27 @@ public class StreamEvents200ResponseInner extends AbstractOpenApiSchema {
             EventTOOLCONFIRMATIONREQUIRED.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format(Locale.ROOT, "Deserialization for EventTOOLCONFIRMATIONREQUIRED failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EventTOOLCONFIRMATIONREQUIRED failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         if (validCount != 1) {
-            throw new IOException(String.format(Locale.ROOT, "The JSON string is invalid for StreamEvents200ResponseInner with oneOf schemas: EventCONTEXTCOMPACTED, EventRUNCANCELLED, EventRUNERROR, EventRUNFINISHED, EventRUNSTARTED, EventSTEPFINISHED, EventSTEPSTARTED, EventTEXTMESSAGECONTENT, EventTEXTMESSAGEEND, EventTEXTMESSAGESTART, EventTITLEUPDATED, EventTOOLCALLARGSDELTA, EventTOOLCALLEND, EventTOOLCALLRESULT, EventTOOLCALLSTART, EventTOOLCONFIRMATIONREQUIRED. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for ServerSentEventsInner with oneOf schemas: EventCONTEXTCOMPACTED, EventRUNCANCELLED, EventRUNERROR, EventRUNFINISHED, EventRUNSTARTED, EventSTEPFINISHED, EventSTEPSTARTED, EventTEXTMESSAGECONTENT, EventTEXTMESSAGEEND, EventTEXTMESSAGESTART, EventTITLEUPDATED, EventTOOLCALLARGSDELTA, EventTOOLCALLEND, EventTOOLCALLRESULT, EventTOOLCALLSTART, EventTOOLCONFIRMATIONREQUIRED. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 
     /**
-     * Create an instance of StreamEvents200ResponseInner given an JSON string
+     * Create an instance of ServerSentEventsInner given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of StreamEvents200ResponseInner
-     * @throws IOException if the JSON string is invalid with respect to StreamEvents200ResponseInner
+     * @return An instance of ServerSentEventsInner
+     * @throws IOException if the JSON string is invalid with respect to ServerSentEventsInner
      */
-    public static StreamEvents200ResponseInner fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, StreamEvents200ResponseInner.class);
+    public static ServerSentEventsInner fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, ServerSentEventsInner.class);
     }
 
     /**
-     * Convert an instance of StreamEvents200ResponseInner to an JSON string
+     * Convert an instance of ServerSentEventsInner to an JSON string
      *
      * @return JSON string
      */

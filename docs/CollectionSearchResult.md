@@ -15,10 +15,10 @@
 |**modelId** | **Integer** | The model ID of the binary |  |
 |**modelName** | **String** | The name of the model |  |
 |**ownedBy** | **String** | The owner of the collection |  |
-|**tags** | **List&lt;String&gt;** |  |  [optional] |
-|**size** | **Integer** |  |  [optional] |
+|**tags** | **List&lt;String&gt;** | The tags of the collection |  [optional] |
+|**size** | **Integer** | The number of binaries in the collection |  [optional] |
 |**description** | **String** | The description of the collection |  |
-|**teamId** | **Integer** |  |  [optional] |
+|**teamId** | **Integer** | The team ID of the collection |  [optional] |
 
 
 

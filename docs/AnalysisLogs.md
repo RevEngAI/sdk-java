@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**messageCount** | **Long** |  |  |
-|**messages** | **List&lt;AnalysisLogMessage&gt;** |  |  |
+|**messages** | [**List&lt;AnalysisLogMessage&gt;**](AnalysisLogMessage.md) |  |  |
 
 
 

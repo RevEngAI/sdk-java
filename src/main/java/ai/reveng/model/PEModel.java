@@ -13,7 +13,6 @@
 package ai.reveng.model;
 
 import java.util.Objects;
-import java.util.Locale;
 import ai.reveng.model.CodeSignatureModel;
 import ai.reveng.model.EntrypointModel;
 import ai.reveng.model.ExportModel;
@@ -53,7 +52,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.Locale;
 
 import ai.reveng.invoker.JSON;
 
@@ -669,10 +667,7 @@ public class PEModel {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -696,50 +691,68 @@ public class PEModel {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!PEModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in PEModel is not found in the empty JSON string", PEModel.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in PEModel is not found in the empty JSON string", PEModel.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : PEModel.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
+      if (jsonObj.get("timestamps") != null && !jsonObj.get("timestamps").isJsonNull()) {
       // validate the required field `timestamps`
       TimestampModel.validateJsonElement(jsonObj.get("timestamps"));
-      if (!jsonObj.get("architecture").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `architecture` to be a primitive type in the JSON string but got `%s`", jsonObj.get("architecture").toString()));
       }
+      if (!jsonObj.get("architecture").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `architecture` to be a primitive type in the JSON string but got `%s`", jsonObj.get("architecture").toString()));
+      }
+      if (jsonObj.get("security") != null && !jsonObj.get("security").isJsonNull()) {
       // validate the required field `security`
       SecurityModel.validateJsonElement(jsonObj.get("security"));
+      }
+      if (jsonObj.get("debug_info") != null && !jsonObj.get("debug_info").isJsonNull()) {
       // validate the required field `debug_info`
       PDBDebugModel.validateJsonElement(jsonObj.get("debug_info"));
+      }
+      if (jsonObj.get("entry_point") != null && !jsonObj.get("entry_point").isJsonNull()) {
       // validate the required field `entry_point`
       EntrypointModel.validateJsonElement(jsonObj.get("entry_point"));
+      }
+      if (jsonObj.get("signature") != null && !jsonObj.get("signature").isJsonNull()) {
       // validate the required field `signature`
       CodeSignatureModel.validateJsonElement(jsonObj.get("signature"));
+      }
       if (!jsonObj.get("import_hash").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `import_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("import_hash").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `import_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("import_hash").toString()));
       }
       if (!jsonObj.get("export_hash").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `export_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("export_hash").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `export_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("export_hash").toString()));
       }
       if (!jsonObj.get("rich_header_hash").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `rich_header_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rich_header_hash").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rich_header_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rich_header_hash").toString()));
       }
+      if (jsonObj.get("sections") != null && !jsonObj.get("sections").isJsonNull()) {
       // validate the required field `sections`
       SectionModel.validateJsonElement(jsonObj.get("sections"));
+      }
+      if (jsonObj.get("imports") != null && !jsonObj.get("imports").isJsonNull()) {
       // validate the required field `imports`
       ImportModel.validateJsonElement(jsonObj.get("imports"));
+      }
+      if (jsonObj.get("exports") != null && !jsonObj.get("exports").isJsonNull()) {
       // validate the required field `exports`
       ExportModel.validateJsonElement(jsonObj.get("exports"));
+      }
+      if (jsonObj.get("icon_data") != null && !jsonObj.get("icon_data").isJsonNull()) {
       // validate the required field `icon_data`
       IconModel.validateJsonElement(jsonObj.get("icon_data"));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -799,7 +812,7 @@ public class PEModel {
                    else if (entry.getValue().getAsJsonPrimitive().isBoolean())
                      instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
                    else
-                     throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
+                     throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
                  } else if (entry.getValue().isJsonArray()) {
                      instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
                  } else { // JSON object

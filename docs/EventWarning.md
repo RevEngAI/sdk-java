@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**data** | **WarningEvent** |  |  |
+|**data** | [**WarningEvent**](WarningEvent.md) |  |  |
 |**event** | [**EventEnum**](#EventEnum) | The event name. |  |
 |**id** | **Integer** | The event ID. |  [optional] |
 |**retry** | **Integer** | The retry time in milliseconds. |  [optional] |

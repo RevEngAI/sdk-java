@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**lastChange** | **String** |  |  [optional] |
+|**lastChange** | **String** | Timestamp of the last change to this global variable |  [optional] |
 |**addr** | **Integer** | Memory address of the global variable |  |
 |**name** | **String** | Name of the global variable |  |
 |**type** | **String** | Data type of the global variable |  |

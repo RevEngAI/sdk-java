@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**dumps** | **List&lt;MemdumpEntry&gt;** |  |  [optional] |
+|**dumps** | [**List&lt;MemdumpEntry&gt;**](MemdumpEntry.md) |  |  [optional] |
 |**processSeqid** | **Long** |  |  |
 
 

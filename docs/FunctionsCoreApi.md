@@ -25,7 +25,7 @@ All URIs are relative to *https://api.reveng.ai*
 
 <a id="addFunctionCallee"></a>
 # **addFunctionCallee**
-> Map&lt;String, Object&gt; addFunctionCallee(functionId, addCalleeInputBody)
+> Object addFunctionCallee(functionId, addCalleeInputBody)
 
 Add a callee to a function
 
@@ -56,7 +56,7 @@ public class Example {
     Long functionId = 56L; // Long | Function ID
     AddCalleeInputBody addCalleeInputBody = new AddCalleeInputBody(); // AddCalleeInputBody | 
     try {
-      Map<String, Object> result = apiInstance.addFunctionCallee(functionId, addCalleeInputBody);
+      Object result = apiInstance.addFunctionCallee(functionId, addCalleeInputBody);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsCoreApi#addFunctionCallee");
@@ -78,7 +78,7 @@ public class Example {
 
 ### Return type
 
-**Map&lt;String, Object&gt;**
+**Object**
 
 ### Authorization
 
@@ -101,7 +101,7 @@ public class Example {
 
 <a id="addUserStringToFunction"></a>
 # **addUserStringToFunction**
-> Map&lt;String, Object&gt; addUserStringToFunction(functionId, addUserStringToFunctionInputBody)
+> Object addUserStringToFunction(functionId, addUserStringToFunctionInputBody)
 
 Add a user-provided string to a function.
 
@@ -132,7 +132,7 @@ public class Example {
     Long functionId = 56L; // Long | Function ID
     AddUserStringToFunctionInputBody addUserStringToFunctionInputBody = new AddUserStringToFunctionInputBody(); // AddUserStringToFunctionInputBody | 
     try {
-      Map<String, Object> result = apiInstance.addUserStringToFunction(functionId, addUserStringToFunctionInputBody);
+      Object result = apiInstance.addUserStringToFunction(functionId, addUserStringToFunctionInputBody);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsCoreApi#addUserStringToFunction");
@@ -154,7 +154,7 @@ public class Example {
 
 ### Return type
 
-**Map&lt;String, Object&gt;**
+**Object**
 
 ### Authorization
 

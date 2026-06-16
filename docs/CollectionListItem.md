@@ -17,7 +17,7 @@
 |**collectionId** | **Integer** | The ID of the collection |  |
 |**creation** | **OffsetDateTime** | The datetime of when the collection was created |  |
 |**modelName** | **String** | The model being used for the collection |  |
-|**teamId** | **Integer** |  |  [optional] |
+|**teamId** | **Integer** | The team ID for the collection |  [optional] |
 
 
 

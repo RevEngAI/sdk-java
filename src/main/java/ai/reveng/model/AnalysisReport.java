@@ -13,13 +13,13 @@
 package ai.reveng.model;
 
 import java.util.Objects;
-import java.util.Locale;
+import ai.reveng.model.Artifact;
+import ai.reveng.model.ConsoleOutputEntry;
 import ai.reveng.model.FileActivityEntry;
 import ai.reveng.model.ModuleLoadEntry;
 import ai.reveng.model.MutexEntry;
 import ai.reveng.model.NetworkActivity;
 import ai.reveng.model.ProcessActivityEntry;
-import ai.reveng.model.ProcessExtractedFiles;
 import ai.reveng.model.ProcessMemdumps;
 import ai.reveng.model.ProcessTree;
 import ai.reveng.model.RegistryOperation;
@@ -59,7 +59,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.Locale;
 
 import ai.reveng.invoker.JSON;
 
@@ -68,10 +67,15 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AnalysisReport {
-  public static final String SERIALIZED_NAME_EXTRACTED_FILES = "extracted_files";
-  @SerializedName(SERIALIZED_NAME_EXTRACTED_FILES)
+  public static final String SERIALIZED_NAME_ARTIFACTS = "artifacts";
+  @SerializedName(SERIALIZED_NAME_ARTIFACTS)
   @javax.annotation.Nullable
-  private List<ProcessExtractedFiles> extractedFiles;
+  private List<Artifact> artifacts;
+
+  public static final String SERIALIZED_NAME_CONSOLE_OUTPUT = "console_output";
+  @SerializedName(SERIALIZED_NAME_CONSOLE_OUTPUT)
+  @javax.annotation.Nullable
+  private List<ConsoleOutputEntry> consoleOutput;
 
   public static final String SERIALIZED_NAME_FILE_ACTIVITY = "file_activity";
   @SerializedName(SERIALIZED_NAME_FILE_ACTIVITY)
@@ -133,11 +137,6 @@ public class AnalysisReport {
   @javax.annotation.Nullable
   private StartupInfo startup;
 
-  public static final String SERIALIZED_NAME_THREAT_SCORE = "threat_score";
-  @SerializedName(SERIALIZED_NAME_THREAT_SCORE)
-  @javax.annotation.Nonnull
-  private Long threatScore;
-
   public static final String SERIALIZED_NAME_TTPS = "ttps";
   @SerializedName(SERIALIZED_NAME_TTPS)
   @javax.annotation.Nullable
@@ -146,30 +145,57 @@ public class AnalysisReport {
   public AnalysisReport() {
   }
 
-  public AnalysisReport extractedFiles(@javax.annotation.Nullable List<ProcessExtractedFiles> extractedFiles) {
-    this.extractedFiles = extractedFiles;
+  public AnalysisReport artifacts(@javax.annotation.Nullable List<Artifact> artifacts) {
+    this.artifacts = artifacts;
     return this;
   }
 
-  public AnalysisReport addExtractedFilesItem(ProcessExtractedFiles extractedFilesItem) {
-    if (this.extractedFiles == null) {
-      this.extractedFiles = new ArrayList<>();
+  public AnalysisReport addArtifactsItem(Artifact artifactsItem) {
+    if (this.artifacts == null) {
+      this.artifacts = new ArrayList<>();
     }
-    this.extractedFiles.add(extractedFilesItem);
+    this.artifacts.add(artifactsItem);
     return this;
   }
 
   /**
-   * Get extractedFiles
-   * @return extractedFiles
+   * Get artifacts
+   * @return artifacts
    */
   @javax.annotation.Nullable
-  public List<ProcessExtractedFiles> getExtractedFiles() {
-    return extractedFiles;
+  public List<Artifact> getArtifacts() {
+    return artifacts;
   }
 
-  public void setExtractedFiles(@javax.annotation.Nullable List<ProcessExtractedFiles> extractedFiles) {
-    this.extractedFiles = extractedFiles;
+  public void setArtifacts(@javax.annotation.Nullable List<Artifact> artifacts) {
+    this.artifacts = artifacts;
+  }
+
+
+  public AnalysisReport consoleOutput(@javax.annotation.Nullable List<ConsoleOutputEntry> consoleOutput) {
+    this.consoleOutput = consoleOutput;
+    return this;
+  }
+
+  public AnalysisReport addConsoleOutputItem(ConsoleOutputEntry consoleOutputItem) {
+    if (this.consoleOutput == null) {
+      this.consoleOutput = new ArrayList<>();
+    }
+    this.consoleOutput.add(consoleOutputItem);
+    return this;
+  }
+
+  /**
+   * Get consoleOutput
+   * @return consoleOutput
+   */
+  @javax.annotation.Nullable
+  public List<ConsoleOutputEntry> getConsoleOutput() {
+    return consoleOutput;
+  }
+
+  public void setConsoleOutput(@javax.annotation.Nullable List<ConsoleOutputEntry> consoleOutput) {
+    this.consoleOutput = consoleOutput;
   }
 
 
@@ -465,25 +491,6 @@ public class AnalysisReport {
   }
 
 
-  public AnalysisReport threatScore(@javax.annotation.Nonnull Long threatScore) {
-    this.threatScore = threatScore;
-    return this;
-  }
-
-  /**
-   * Get threatScore
-   * @return threatScore
-   */
-  @javax.annotation.Nonnull
-  public Long getThreatScore() {
-    return threatScore;
-  }
-
-  public void setThreatScore(@javax.annotation.Nonnull Long threatScore) {
-    this.threatScore = threatScore;
-  }
-
-
   public AnalysisReport ttps(@javax.annotation.Nullable List<Ttp> ttps) {
     this.ttps = ttps;
     return this;
@@ -565,7 +572,8 @@ public class AnalysisReport {
       return false;
     }
     AnalysisReport analysisReport = (AnalysisReport) o;
-    return Objects.equals(this.extractedFiles, analysisReport.extractedFiles) &&
+    return Objects.equals(this.artifacts, analysisReport.artifacts) &&
+        Objects.equals(this.consoleOutput, analysisReport.consoleOutput) &&
         Objects.equals(this.fileActivity, analysisReport.fileActivity) &&
         Objects.equals(this.info, analysisReport.info) &&
         Objects.equals(this.memdumps, analysisReport.memdumps) &&
@@ -578,7 +586,6 @@ public class AnalysisReport {
         Objects.equals(this.scheduledTasks, analysisReport.scheduledTasks) &&
         Objects.equals(this.services, analysisReport.services) &&
         Objects.equals(this.startup, analysisReport.startup) &&
-        Objects.equals(this.threatScore, analysisReport.threatScore) &&
         Objects.equals(this.ttps, analysisReport.ttps)&&
         Objects.equals(this.additionalProperties, analysisReport.additionalProperties);
   }
@@ -589,7 +596,7 @@ public class AnalysisReport {
 
   @Override
   public int hashCode() {
-    return Objects.hash(extractedFiles, fileActivity, info, memdumps, moduleLoadAddresses, mutexes, networkActivity, processActivity, processTree, registryOperations, scheduledTasks, services, startup, threatScore, ttps, additionalProperties);
+    return Objects.hash(artifacts, consoleOutput, fileActivity, info, memdumps, moduleLoadAddresses, mutexes, networkActivity, processActivity, processTree, registryOperations, scheduledTasks, services, startup, ttps, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -603,7 +610,8 @@ public class AnalysisReport {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AnalysisReport {\n");
-    sb.append("    extractedFiles: ").append(toIndentedString(extractedFiles)).append("\n");
+    sb.append("    artifacts: ").append(toIndentedString(artifacts)).append("\n");
+    sb.append("    consoleOutput: ").append(toIndentedString(consoleOutput)).append("\n");
     sb.append("    fileActivity: ").append(toIndentedString(fileActivity)).append("\n");
     sb.append("    info: ").append(toIndentedString(info)).append("\n");
     sb.append("    memdumps: ").append(toIndentedString(memdumps)).append("\n");
@@ -616,7 +624,6 @@ public class AnalysisReport {
     sb.append("    scheduledTasks: ").append(toIndentedString(scheduledTasks)).append("\n");
     sb.append("    services: ").append(toIndentedString(services)).append("\n");
     sb.append("    startup: ").append(toIndentedString(startup)).append("\n");
-    sb.append("    threatScore: ").append(toIndentedString(threatScore)).append("\n");
     sb.append("    ttps: ").append(toIndentedString(ttps)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -628,10 +635,7 @@ public class AnalysisReport {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -640,10 +644,10 @@ public class AnalysisReport {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("extracted_files", "file_activity", "info", "memdumps", "module_load_addresses", "mutexes", "network_activity", "process_activity", "process_tree", "registry_operations", "scheduled_tasks", "services", "startup", "threat_score", "ttps"));
+    openapiFields = new HashSet<String>(Arrays.asList("artifacts", "console_output", "file_activity", "info", "memdumps", "module_load_addresses", "mutexes", "network_activity", "process_activity", "process_tree", "registry_operations", "scheduled_tasks", "services", "startup", "ttps"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("info", "threat_score"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("info"));
   }
 
   /**
@@ -655,56 +659,184 @@ public class AnalysisReport {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!AnalysisReport.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in AnalysisReport is not found in the empty JSON string", AnalysisReport.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in AnalysisReport is not found in the empty JSON string", AnalysisReport.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : AnalysisReport.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("extracted_files") != null && !jsonObj.get("extracted_files").isJsonNull() && !jsonObj.get("extracted_files").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `extracted_files` to be an array in the JSON string but got `%s`", jsonObj.get("extracted_files").toString()));
+      if (jsonObj.get("artifacts") != null && !jsonObj.get("artifacts").isJsonNull()) {
+        JsonArray jsonArrayartifacts = jsonObj.getAsJsonArray("artifacts");
+        if (jsonArrayartifacts != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("artifacts").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `artifacts` to be an array in the JSON string but got `%s`", jsonObj.get("artifacts").toString()));
+          }
+
+          // validate the optional field `artifacts` (array)
+          for (int i = 0; i < jsonArrayartifacts.size(); i++) {
+            Artifact.validateJsonElement(jsonArrayartifacts.get(i));
+          };
+        }
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("file_activity") != null && !jsonObj.get("file_activity").isJsonNull() && !jsonObj.get("file_activity").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `file_activity` to be an array in the JSON string but got `%s`", jsonObj.get("file_activity").toString()));
+      if (jsonObj.get("console_output") != null && !jsonObj.get("console_output").isJsonNull()) {
+        JsonArray jsonArrayconsoleOutput = jsonObj.getAsJsonArray("console_output");
+        if (jsonArrayconsoleOutput != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("console_output").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `console_output` to be an array in the JSON string but got `%s`", jsonObj.get("console_output").toString()));
+          }
+
+          // validate the optional field `console_output` (array)
+          for (int i = 0; i < jsonArrayconsoleOutput.size(); i++) {
+            ConsoleOutputEntry.validateJsonElement(jsonArrayconsoleOutput.get(i));
+          };
+        }
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("memdumps") != null && !jsonObj.get("memdumps").isJsonNull() && !jsonObj.get("memdumps").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `memdumps` to be an array in the JSON string but got `%s`", jsonObj.get("memdumps").toString()));
+      if (jsonObj.get("file_activity") != null && !jsonObj.get("file_activity").isJsonNull()) {
+        JsonArray jsonArrayfileActivity = jsonObj.getAsJsonArray("file_activity");
+        if (jsonArrayfileActivity != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("file_activity").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `file_activity` to be an array in the JSON string but got `%s`", jsonObj.get("file_activity").toString()));
+          }
+
+          // validate the optional field `file_activity` (array)
+          for (int i = 0; i < jsonArrayfileActivity.size(); i++) {
+            FileActivityEntry.validateJsonElement(jsonArrayfileActivity.get(i));
+          };
+        }
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("module_load_addresses") != null && !jsonObj.get("module_load_addresses").isJsonNull() && !jsonObj.get("module_load_addresses").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `module_load_addresses` to be an array in the JSON string but got `%s`", jsonObj.get("module_load_addresses").toString()));
+      // validate the required field `info`
+      ReportInfo.validateJsonElement(jsonObj.get("info"));
+      if (jsonObj.get("memdumps") != null && !jsonObj.get("memdumps").isJsonNull()) {
+        JsonArray jsonArraymemdumps = jsonObj.getAsJsonArray("memdumps");
+        if (jsonArraymemdumps != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("memdumps").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `memdumps` to be an array in the JSON string but got `%s`", jsonObj.get("memdumps").toString()));
+          }
+
+          // validate the optional field `memdumps` (array)
+          for (int i = 0; i < jsonArraymemdumps.size(); i++) {
+            ProcessMemdumps.validateJsonElement(jsonArraymemdumps.get(i));
+          };
+        }
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("mutexes") != null && !jsonObj.get("mutexes").isJsonNull() && !jsonObj.get("mutexes").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `mutexes` to be an array in the JSON string but got `%s`", jsonObj.get("mutexes").toString()));
+      if (jsonObj.get("module_load_addresses") != null && !jsonObj.get("module_load_addresses").isJsonNull()) {
+        JsonArray jsonArraymoduleLoadAddresses = jsonObj.getAsJsonArray("module_load_addresses");
+        if (jsonArraymoduleLoadAddresses != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("module_load_addresses").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `module_load_addresses` to be an array in the JSON string but got `%s`", jsonObj.get("module_load_addresses").toString()));
+          }
+
+          // validate the optional field `module_load_addresses` (array)
+          for (int i = 0; i < jsonArraymoduleLoadAddresses.size(); i++) {
+            ModuleLoadEntry.validateJsonElement(jsonArraymoduleLoadAddresses.get(i));
+          };
+        }
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("process_activity") != null && !jsonObj.get("process_activity").isJsonNull() && !jsonObj.get("process_activity").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `process_activity` to be an array in the JSON string but got `%s`", jsonObj.get("process_activity").toString()));
+      if (jsonObj.get("mutexes") != null && !jsonObj.get("mutexes").isJsonNull()) {
+        JsonArray jsonArraymutexes = jsonObj.getAsJsonArray("mutexes");
+        if (jsonArraymutexes != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("mutexes").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mutexes` to be an array in the JSON string but got `%s`", jsonObj.get("mutexes").toString()));
+          }
+
+          // validate the optional field `mutexes` (array)
+          for (int i = 0; i < jsonArraymutexes.size(); i++) {
+            MutexEntry.validateJsonElement(jsonArraymutexes.get(i));
+          };
+        }
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("registry_operations") != null && !jsonObj.get("registry_operations").isJsonNull() && !jsonObj.get("registry_operations").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `registry_operations` to be an array in the JSON string but got `%s`", jsonObj.get("registry_operations").toString()));
+      // validate the optional field `network_activity`
+      if (jsonObj.get("network_activity") != null && !jsonObj.get("network_activity").isJsonNull()) {
+        NetworkActivity.validateJsonElement(jsonObj.get("network_activity"));
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("scheduled_tasks") != null && !jsonObj.get("scheduled_tasks").isJsonNull() && !jsonObj.get("scheduled_tasks").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `scheduled_tasks` to be an array in the JSON string but got `%s`", jsonObj.get("scheduled_tasks").toString()));
+      if (jsonObj.get("process_activity") != null && !jsonObj.get("process_activity").isJsonNull()) {
+        JsonArray jsonArrayprocessActivity = jsonObj.getAsJsonArray("process_activity");
+        if (jsonArrayprocessActivity != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("process_activity").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `process_activity` to be an array in the JSON string but got `%s`", jsonObj.get("process_activity").toString()));
+          }
+
+          // validate the optional field `process_activity` (array)
+          for (int i = 0; i < jsonArrayprocessActivity.size(); i++) {
+            ProcessActivityEntry.validateJsonElement(jsonArrayprocessActivity.get(i));
+          };
+        }
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("services") != null && !jsonObj.get("services").isJsonNull() && !jsonObj.get("services").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `services` to be an array in the JSON string but got `%s`", jsonObj.get("services").toString()));
+      // validate the optional field `process_tree`
+      if (jsonObj.get("process_tree") != null && !jsonObj.get("process_tree").isJsonNull()) {
+        ProcessTree.validateJsonElement(jsonObj.get("process_tree"));
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("ttps") != null && !jsonObj.get("ttps").isJsonNull() && !jsonObj.get("ttps").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `ttps` to be an array in the JSON string but got `%s`", jsonObj.get("ttps").toString()));
+      if (jsonObj.get("registry_operations") != null && !jsonObj.get("registry_operations").isJsonNull()) {
+        JsonArray jsonArrayregistryOperations = jsonObj.getAsJsonArray("registry_operations");
+        if (jsonArrayregistryOperations != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("registry_operations").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `registry_operations` to be an array in the JSON string but got `%s`", jsonObj.get("registry_operations").toString()));
+          }
+
+          // validate the optional field `registry_operations` (array)
+          for (int i = 0; i < jsonArrayregistryOperations.size(); i++) {
+            RegistryOperation.validateJsonElement(jsonArrayregistryOperations.get(i));
+          };
+        }
+      }
+      if (jsonObj.get("scheduled_tasks") != null && !jsonObj.get("scheduled_tasks").isJsonNull()) {
+        JsonArray jsonArrayscheduledTasks = jsonObj.getAsJsonArray("scheduled_tasks");
+        if (jsonArrayscheduledTasks != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("scheduled_tasks").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `scheduled_tasks` to be an array in the JSON string but got `%s`", jsonObj.get("scheduled_tasks").toString()));
+          }
+
+          // validate the optional field `scheduled_tasks` (array)
+          for (int i = 0; i < jsonArrayscheduledTasks.size(); i++) {
+            ScheduledTaskEntry.validateJsonElement(jsonArrayscheduledTasks.get(i));
+          };
+        }
+      }
+      if (jsonObj.get("services") != null && !jsonObj.get("services").isJsonNull()) {
+        JsonArray jsonArrayservices = jsonObj.getAsJsonArray("services");
+        if (jsonArrayservices != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("services").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `services` to be an array in the JSON string but got `%s`", jsonObj.get("services").toString()));
+          }
+
+          // validate the optional field `services` (array)
+          for (int i = 0; i < jsonArrayservices.size(); i++) {
+            ServiceEntry.validateJsonElement(jsonArrayservices.get(i));
+          };
+        }
+      }
+      // validate the optional field `startup`
+      if (jsonObj.get("startup") != null && !jsonObj.get("startup").isJsonNull()) {
+        StartupInfo.validateJsonElement(jsonObj.get("startup"));
+      }
+      if (jsonObj.get("ttps") != null && !jsonObj.get("ttps").isJsonNull()) {
+        JsonArray jsonArrayttps = jsonObj.getAsJsonArray("ttps");
+        if (jsonArrayttps != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("ttps").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ttps` to be an array in the JSON string but got `%s`", jsonObj.get("ttps").toString()));
+          }
+
+          // validate the optional field `ttps` (array)
+          for (int i = 0; i < jsonArrayttps.size(); i++) {
+            Ttp.validateJsonElement(jsonArrayttps.get(i));
+          };
+        }
       }
   }
 
@@ -765,7 +897,7 @@ public class AnalysisReport {
                    else if (entry.getValue().getAsJsonPrimitive().isBoolean())
                      instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
                    else
-                     throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
+                     throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
                  } else if (entry.getValue().isJsonArray()) {
                      instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
                  } else { // JSON object

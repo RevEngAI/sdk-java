@@ -13,7 +13,6 @@
 package ai.reveng.model;
 
 import java.util.Objects;
-import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -45,7 +44,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.Locale;
 
 import ai.reveng.invoker.JSON;
 
@@ -352,50 +350,6 @@ public class ReportOptions {
     this.timeout = timeout;
   }
 
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
-
-  /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
-   *
-   * @param key name of the property
-   * @param value value of the property
-   * @return the ReportOptions instance itself
-   */
-  public ReportOptions putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
-    }
-    this.additionalProperties.put(key, value);
-    return this;
-  }
-
-  /**
-   * Return the additional (undeclared) property.
-   *
-   * @return a map of objects
-   */
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
-  }
-
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   *
-   * @param key name of the property
-   * @return an object
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-        return null;
-    }
-    return this.additionalProperties.get(key);
-  }
 
 
   @Override
@@ -418,8 +372,7 @@ public class ReportOptions {
         Objects.equals(this.sampleFilename, reportOptions.sampleFilename) &&
         Objects.equals(this.startCommand, reportOptions.startCommand) &&
         Objects.equals(this.startMethod, reportOptions.startMethod) &&
-        Objects.equals(this.timeout, reportOptions.timeout)&&
-        Objects.equals(this.additionalProperties, reportOptions.additionalProperties);
+        Objects.equals(this.timeout, reportOptions.timeout);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -428,7 +381,7 @@ public class ReportOptions {
 
   @Override
   public int hashCode() {
-    return Objects.hash(archiveEntryPath, extractArchive, guestTargetDirectory, guestWorkingDirectory, netEnable, osProfile, plugins, preset, sampleFilename, startCommand, startMethod, timeout, additionalProperties);
+    return Objects.hash(archiveEntryPath, extractArchive, guestTargetDirectory, guestWorkingDirectory, netEnable, osProfile, plugins, preset, sampleFilename, startCommand, startMethod, timeout);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -454,7 +407,6 @@ public class ReportOptions {
     sb.append("    startCommand: ").append(toIndentedString(startCommand)).append("\n");
     sb.append("    startMethod: ").append(toIndentedString(startMethod)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
-    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -464,10 +416,7 @@ public class ReportOptions {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -491,37 +440,45 @@ public class ReportOptions {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ReportOptions.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in ReportOptions is not found in the empty JSON string", ReportOptions.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ReportOptions is not found in the empty JSON string", ReportOptions.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!ReportOptions.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ReportOptions` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("archive_entry_path") != null && !jsonObj.get("archive_entry_path").isJsonNull()) && !jsonObj.get("archive_entry_path").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `archive_entry_path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("archive_entry_path").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `archive_entry_path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("archive_entry_path").toString()));
       }
       if ((jsonObj.get("guest_target_directory") != null && !jsonObj.get("guest_target_directory").isJsonNull()) && !jsonObj.get("guest_target_directory").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `guest_target_directory` to be a primitive type in the JSON string but got `%s`", jsonObj.get("guest_target_directory").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `guest_target_directory` to be a primitive type in the JSON string but got `%s`", jsonObj.get("guest_target_directory").toString()));
       }
       if ((jsonObj.get("guest_working_directory") != null && !jsonObj.get("guest_working_directory").isJsonNull()) && !jsonObj.get("guest_working_directory").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `guest_working_directory` to be a primitive type in the JSON string but got `%s`", jsonObj.get("guest_working_directory").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `guest_working_directory` to be a primitive type in the JSON string but got `%s`", jsonObj.get("guest_working_directory").toString()));
       }
       if ((jsonObj.get("os_profile") != null && !jsonObj.get("os_profile").isJsonNull()) && !jsonObj.get("os_profile").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `os_profile` to be a primitive type in the JSON string but got `%s`", jsonObj.get("os_profile").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `os_profile` to be a primitive type in the JSON string but got `%s`", jsonObj.get("os_profile").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("plugins") != null && !jsonObj.get("plugins").isJsonNull() && !jsonObj.get("plugins").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `plugins` to be an array in the JSON string but got `%s`", jsonObj.get("plugins").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `plugins` to be an array in the JSON string but got `%s`", jsonObj.get("plugins").toString()));
       }
       if ((jsonObj.get("preset") != null && !jsonObj.get("preset").isJsonNull()) && !jsonObj.get("preset").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `preset` to be a primitive type in the JSON string but got `%s`", jsonObj.get("preset").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `preset` to be a primitive type in the JSON string but got `%s`", jsonObj.get("preset").toString()));
       }
       if ((jsonObj.get("sample_filename") != null && !jsonObj.get("sample_filename").isJsonNull()) && !jsonObj.get("sample_filename").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `sample_filename` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sample_filename").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sample_filename` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sample_filename").toString()));
       }
       if ((jsonObj.get("start_command") != null && !jsonObj.get("start_command").isJsonNull()) && !jsonObj.get("start_command").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `start_command` to be a primitive type in the JSON string but got `%s`", jsonObj.get("start_command").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `start_command` to be a primitive type in the JSON string but got `%s`", jsonObj.get("start_command").toString()));
       }
       if ((jsonObj.get("start_method") != null && !jsonObj.get("start_method").isJsonNull()) && !jsonObj.get("start_method").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `start_method` to be a primitive type in the JSON string but got `%s`", jsonObj.get("start_method").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `start_method` to be a primitive type in the JSON string but got `%s`", jsonObj.get("start_method").toString()));
       }
   }
 
@@ -540,28 +497,6 @@ public class ReportOptions {
            @Override
            public void write(JsonWriter out, ReportOptions value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             obj.remove("additionalProperties");
-             // serialize additional properties
-             if (value.getAdditionalProperties() != null) {
-               for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
-               }
-             }
              elementAdapter.write(out, obj);
            }
 
@@ -569,28 +504,7 @@ public class ReportOptions {
            public ReportOptions read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
-             JsonObject jsonObj = jsonElement.getAsJsonObject();
-             // store additional fields in the deserialized instance
-             ReportOptions instance = thisAdapter.fromJsonTree(jsonObj);
-             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
-               if (!openapiFields.contains(entry.getKey())) {
-                 if (entry.getValue().isJsonPrimitive()) { // primitive type
-                   if (entry.getValue().getAsJsonPrimitive().isString())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsString());
-                   else if (entry.getValue().getAsJsonPrimitive().isNumber())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsNumber());
-                   else if (entry.getValue().getAsJsonPrimitive().isBoolean())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
-                   else
-                     throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
-                 } else if (entry.getValue().isJsonArray()) {
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
-                 } else { // JSON object
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), HashMap.class));
-                 }
-               }
-             }
-             return instance;
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

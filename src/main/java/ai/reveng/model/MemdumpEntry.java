@@ -13,7 +13,6 @@
 package ai.reveng.model;
 
 import java.util.Objects;
-import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -21,7 +20,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -43,7 +41,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.Locale;
 
 import ai.reveng.invoker.JSON;
 
@@ -54,12 +51,12 @@ import ai.reveng.invoker.JSON;
 public class MemdumpEntry {
   public static final String SERIALIZED_NAME_ADDRESS = "address";
   @SerializedName(SERIALIZED_NAME_ADDRESS)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String address;
 
   public static final String SERIALIZED_NAME_DUMP_REASON = "dump_reason";
   @SerializedName(SERIALIZED_NAME_DUMP_REASON)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String dumpReason;
 
   public static final String SERIALIZED_NAME_FILE_TYPE = "file_type";
@@ -69,7 +66,7 @@ public class MemdumpEntry {
 
   public static final String SERIALIZED_NAME_FILENAME = "filename";
   @SerializedName(SERIALIZED_NAME_FILENAME)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String filename;
 
   public static final String SERIALIZED_NAME_INDEX = "index";
@@ -84,7 +81,7 @@ public class MemdumpEntry {
 
   public static final String SERIALIZED_NAME_METHOD = "method";
   @SerializedName(SERIALIZED_NAME_METHOD)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String method;
 
   public static final String SERIALIZED_NAME_MIME_TYPE = "mime_type";
@@ -115,7 +112,7 @@ public class MemdumpEntry {
   public MemdumpEntry() {
   }
 
-  public MemdumpEntry address(@javax.annotation.Nullable String address) {
+  public MemdumpEntry address(@javax.annotation.Nonnull String address) {
     this.address = address;
     return this;
   }
@@ -124,17 +121,17 @@ public class MemdumpEntry {
    * Get address
    * @return address
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getAddress() {
     return address;
   }
 
-  public void setAddress(@javax.annotation.Nullable String address) {
+  public void setAddress(@javax.annotation.Nonnull String address) {
     this.address = address;
   }
 
 
-  public MemdumpEntry dumpReason(@javax.annotation.Nullable String dumpReason) {
+  public MemdumpEntry dumpReason(@javax.annotation.Nonnull String dumpReason) {
     this.dumpReason = dumpReason;
     return this;
   }
@@ -143,12 +140,12 @@ public class MemdumpEntry {
    * Get dumpReason
    * @return dumpReason
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getDumpReason() {
     return dumpReason;
   }
 
-  public void setDumpReason(@javax.annotation.Nullable String dumpReason) {
+  public void setDumpReason(@javax.annotation.Nonnull String dumpReason) {
     this.dumpReason = dumpReason;
   }
 
@@ -172,7 +169,7 @@ public class MemdumpEntry {
   }
 
 
-  public MemdumpEntry filename(@javax.annotation.Nullable String filename) {
+  public MemdumpEntry filename(@javax.annotation.Nonnull String filename) {
     this.filename = filename;
     return this;
   }
@@ -181,12 +178,12 @@ public class MemdumpEntry {
    * Get filename
    * @return filename
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getFilename() {
     return filename;
   }
 
-  public void setFilename(@javax.annotation.Nullable String filename) {
+  public void setFilename(@javax.annotation.Nonnull String filename) {
     this.filename = filename;
   }
 
@@ -229,7 +226,7 @@ public class MemdumpEntry {
   }
 
 
-  public MemdumpEntry method(@javax.annotation.Nullable String method) {
+  public MemdumpEntry method(@javax.annotation.Nonnull String method) {
     this.method = method;
     return this;
   }
@@ -238,12 +235,12 @@ public class MemdumpEntry {
    * Get method
    * @return method
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getMethod() {
     return method;
   }
 
-  public void setMethod(@javax.annotation.Nullable String method) {
+  public void setMethod(@javax.annotation.Nonnull String method) {
     this.method = method;
   }
 
@@ -342,50 +339,6 @@ public class MemdumpEntry {
     this.targetProcess = targetProcess;
   }
 
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
-
-  /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
-   *
-   * @param key name of the property
-   * @param value value of the property
-   * @return the MemdumpEntry instance itself
-   */
-  public MemdumpEntry putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
-    }
-    this.additionalProperties.put(key, value);
-    return this;
-  }
-
-  /**
-   * Return the additional (undeclared) property.
-   *
-   * @return a map of objects
-   */
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
-  }
-
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   *
-   * @param key name of the property
-   * @return an object
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-        return null;
-    }
-    return this.additionalProperties.get(key);
-  }
 
 
   @Override
@@ -408,24 +361,12 @@ public class MemdumpEntry {
         Objects.equals(this.sha256, memdumpEntry.sha256) &&
         Objects.equals(this.size, memdumpEntry.size) &&
         Objects.equals(this.targetAddr, memdumpEntry.targetAddr) &&
-        Objects.equals(this.targetProcess, memdumpEntry.targetProcess)&&
-        Objects.equals(this.additionalProperties, memdumpEntry.additionalProperties);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+        Objects.equals(this.targetProcess, memdumpEntry.targetProcess);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, dumpReason, fileType, filename, index, isPe, method, mimeType, sha256, size, targetAddr, targetProcess, additionalProperties);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(address, dumpReason, fileType, filename, index, isPe, method, mimeType, sha256, size, targetAddr, targetProcess);
   }
 
   @Override
@@ -444,7 +385,6 @@ public class MemdumpEntry {
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    targetAddr: ").append(toIndentedString(targetAddr)).append("\n");
     sb.append("    targetProcess: ").append(toIndentedString(targetProcess)).append("\n");
-    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -454,10 +394,7 @@ public class MemdumpEntry {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -481,40 +418,48 @@ public class MemdumpEntry {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!MemdumpEntry.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in MemdumpEntry is not found in the empty JSON string", MemdumpEntry.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in MemdumpEntry is not found in the empty JSON string", MemdumpEntry.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!MemdumpEntry.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `MemdumpEntry` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : MemdumpEntry.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("address") != null && !jsonObj.get("address").isJsonNull()) && !jsonObj.get("address").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address").toString()));
+      if (!jsonObj.get("address").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address").toString()));
       }
-      if ((jsonObj.get("dump_reason") != null && !jsonObj.get("dump_reason").isJsonNull()) && !jsonObj.get("dump_reason").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `dump_reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dump_reason").toString()));
+      if (!jsonObj.get("dump_reason").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `dump_reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dump_reason").toString()));
       }
       if ((jsonObj.get("file_type") != null && !jsonObj.get("file_type").isJsonNull()) && !jsonObj.get("file_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `file_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("file_type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `file_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("file_type").toString()));
       }
-      if ((jsonObj.get("filename") != null && !jsonObj.get("filename").isJsonNull()) && !jsonObj.get("filename").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `filename` to be a primitive type in the JSON string but got `%s`", jsonObj.get("filename").toString()));
+      if (!jsonObj.get("filename").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `filename` to be a primitive type in the JSON string but got `%s`", jsonObj.get("filename").toString()));
       }
-      if ((jsonObj.get("method") != null && !jsonObj.get("method").isJsonNull()) && !jsonObj.get("method").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `method` to be a primitive type in the JSON string but got `%s`", jsonObj.get("method").toString()));
+      if (!jsonObj.get("method").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `method` to be a primitive type in the JSON string but got `%s`", jsonObj.get("method").toString()));
       }
       if ((jsonObj.get("mime_type") != null && !jsonObj.get("mime_type").isJsonNull()) && !jsonObj.get("mime_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `mime_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mime_type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mime_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mime_type").toString()));
       }
       if ((jsonObj.get("sha256") != null && !jsonObj.get("sha256").isJsonNull()) && !jsonObj.get("sha256").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `sha256` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sha256").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sha256` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sha256").toString()));
       }
       if ((jsonObj.get("target_addr") != null && !jsonObj.get("target_addr").isJsonNull()) && !jsonObj.get("target_addr").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `target_addr` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target_addr").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `target_addr` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target_addr").toString()));
       }
   }
 
@@ -533,28 +478,6 @@ public class MemdumpEntry {
            @Override
            public void write(JsonWriter out, MemdumpEntry value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             obj.remove("additionalProperties");
-             // serialize additional properties
-             if (value.getAdditionalProperties() != null) {
-               for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
-               }
-             }
              elementAdapter.write(out, obj);
            }
 
@@ -562,28 +485,7 @@ public class MemdumpEntry {
            public MemdumpEntry read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
-             JsonObject jsonObj = jsonElement.getAsJsonObject();
-             // store additional fields in the deserialized instance
-             MemdumpEntry instance = thisAdapter.fromJsonTree(jsonObj);
-             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
-               if (!openapiFields.contains(entry.getKey())) {
-                 if (entry.getValue().isJsonPrimitive()) { // primitive type
-                   if (entry.getValue().getAsJsonPrimitive().isString())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsString());
-                   else if (entry.getValue().getAsJsonPrimitive().isNumber())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsNumber());
-                   else if (entry.getValue().getAsJsonPrimitive().isBoolean())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
-                   else
-                     throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
-                 } else if (entry.getValue().isJsonArray()) {
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
-                 } else { // JSON object
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), HashMap.class));
-                 }
-               }
-             }
-             return instance;
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

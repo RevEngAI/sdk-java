@@ -13,7 +13,6 @@
 package ai.reveng.model;
 
 import java.util.Objects;
-import java.util.Locale;
 import ai.reveng.model.ELFImportModel;
 import ai.reveng.model.ELFRelocation;
 import ai.reveng.model.ELFSection;
@@ -53,7 +52,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.Locale;
 
 import ai.reveng.invoker.JSON;
 
@@ -741,10 +739,7 @@ public class ELFModel {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -768,113 +763,113 @@ public class ELFModel {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ELFModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in ELFModel is not found in the empty JSON string", ELFModel.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ELFModel is not found in the empty JSON string", ELFModel.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : ELFModel.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("file_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `file_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("file_type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `file_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("file_type").toString()));
       }
       if (!jsonObj.get("architecture").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `architecture` to be a primitive type in the JSON string but got `%s`", jsonObj.get("architecture").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `architecture` to be a primitive type in the JSON string but got `%s`", jsonObj.get("architecture").toString()));
       }
       if (!jsonObj.get("endianness").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `endianness` to be a primitive type in the JSON string but got `%s`", jsonObj.get("endianness").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `endianness` to be a primitive type in the JSON string but got `%s`", jsonObj.get("endianness").toString()));
       }
       if (!jsonObj.get("entry_point_bytes").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `entry_point_bytes` to be a primitive type in the JSON string but got `%s`", jsonObj.get("entry_point_bytes").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `entry_point_bytes` to be a primitive type in the JSON string but got `%s`", jsonObj.get("entry_point_bytes").toString()));
       }
       if (!jsonObj.get("import_hash").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `import_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("import_hash").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `import_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("import_hash").toString()));
       }
       if (!jsonObj.get("export_hash").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `export_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("export_hash").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `export_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("export_hash").toString()));
       }
       if (!jsonObj.get("build_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `build_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("build_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `build_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("build_id").toString()));
       }
       // validate the required field `security`
       ELFSecurity.validateJsonElement(jsonObj.get("security"));
-      // ensure the json data is an array
-      if (!jsonObj.get("sections").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `sections` to be an array in the JSON string but got `%s`", jsonObj.get("sections").toString()));
+      if (jsonObj.get("sections") != null) {
+        if (!jsonObj.get("sections").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sections` to be an array in the JSON string but got `%s`", jsonObj.get("sections").toString()));
+        }
+        JsonArray jsonArraysections = jsonObj.getAsJsonArray("sections");
+        // validate the required field `sections` (array)
+        for (int i = 0; i < jsonArraysections.size(); i++) {
+          ELFSection.validateJsonElement(jsonArraysections.get(i));
+        }
       }
-
-      JsonArray jsonArraysections = jsonObj.getAsJsonArray("sections");
-      // validate the required field `sections` (array)
-      for (int i = 0; i < jsonArraysections.size(); i++) {
-        ELFSection.validateJsonElement(jsonArraysections.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("segments").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `segments` to be an array in the JSON string but got `%s`", jsonObj.get("segments").toString()));
+      if (jsonObj.get("segments") != null) {
+        if (!jsonObj.get("segments").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `segments` to be an array in the JSON string but got `%s`", jsonObj.get("segments").toString()));
+        }
+        JsonArray jsonArraysegments = jsonObj.getAsJsonArray("segments");
+        // validate the required field `segments` (array)
+        for (int i = 0; i < jsonArraysegments.size(); i++) {
+          ELFSegment.validateJsonElement(jsonArraysegments.get(i));
+        }
       }
-
-      JsonArray jsonArraysegments = jsonObj.getAsJsonArray("segments");
-      // validate the required field `segments` (array)
-      for (int i = 0; i < jsonArraysegments.size(); i++) {
-        ELFSegment.validateJsonElement(jsonArraysegments.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("symbols").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `symbols` to be an array in the JSON string but got `%s`", jsonObj.get("symbols").toString()));
+      if (jsonObj.get("symbols") != null) {
+        if (!jsonObj.get("symbols").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `symbols` to be an array in the JSON string but got `%s`", jsonObj.get("symbols").toString()));
+        }
+        JsonArray jsonArraysymbols = jsonObj.getAsJsonArray("symbols");
+        // validate the required field `symbols` (array)
+        for (int i = 0; i < jsonArraysymbols.size(); i++) {
+          ELFSymbol.validateJsonElement(jsonArraysymbols.get(i));
+        }
       }
-
-      JsonArray jsonArraysymbols = jsonObj.getAsJsonArray("symbols");
-      // validate the required field `symbols` (array)
-      for (int i = 0; i < jsonArraysymbols.size(); i++) {
-        ELFSymbol.validateJsonElement(jsonArraysymbols.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("dynamic_symbols").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `dynamic_symbols` to be an array in the JSON string but got `%s`", jsonObj.get("dynamic_symbols").toString()));
+      if (jsonObj.get("dynamic_symbols") != null) {
+        if (!jsonObj.get("dynamic_symbols").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `dynamic_symbols` to be an array in the JSON string but got `%s`", jsonObj.get("dynamic_symbols").toString()));
+        }
+        JsonArray jsonArraydynamicSymbols = jsonObj.getAsJsonArray("dynamic_symbols");
+        // validate the required field `dynamic_symbols` (array)
+        for (int i = 0; i < jsonArraydynamicSymbols.size(); i++) {
+          ELFSymbol.validateJsonElement(jsonArraydynamicSymbols.get(i));
+        }
       }
-
-      JsonArray jsonArraydynamicSymbols = jsonObj.getAsJsonArray("dynamic_symbols");
-      // validate the required field `dynamic_symbols` (array)
-      for (int i = 0; i < jsonArraydynamicSymbols.size(); i++) {
-        ELFSymbol.validateJsonElement(jsonArraydynamicSymbols.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("relocations").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `relocations` to be an array in the JSON string but got `%s`", jsonObj.get("relocations").toString()));
+      if (jsonObj.get("relocations") != null) {
+        if (!jsonObj.get("relocations").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `relocations` to be an array in the JSON string but got `%s`", jsonObj.get("relocations").toString()));
+        }
+        JsonArray jsonArrayrelocations = jsonObj.getAsJsonArray("relocations");
+        // validate the required field `relocations` (array)
+        for (int i = 0; i < jsonArrayrelocations.size(); i++) {
+          ELFRelocation.validateJsonElement(jsonArrayrelocations.get(i));
+        }
       }
-
-      JsonArray jsonArrayrelocations = jsonObj.getAsJsonArray("relocations");
-      // validate the required field `relocations` (array)
-      for (int i = 0; i < jsonArrayrelocations.size(); i++) {
-        ELFRelocation.validateJsonElement(jsonArrayrelocations.get(i));
-      };
       // validate the required field `imports`
       ELFImportModel.validateJsonElement(jsonObj.get("imports"));
       // ensure the required json array is present
       if (jsonObj.get("exported_functions") == null) {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
       } else if (!jsonObj.get("exported_functions").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `exported_functions` to be an array in the JSON string but got `%s`", jsonObj.get("exported_functions").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `exported_functions` to be an array in the JSON string but got `%s`", jsonObj.get("exported_functions").toString()));
       }
-      // ensure the json data is an array
-      if (!jsonObj.get("dynamic_entries").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `dynamic_entries` to be an array in the JSON string but got `%s`", jsonObj.get("dynamic_entries").toString()));
+      if (jsonObj.get("dynamic_entries") != null) {
+        if (!jsonObj.get("dynamic_entries").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `dynamic_entries` to be an array in the JSON string but got `%s`", jsonObj.get("dynamic_entries").toString()));
+        }
+        JsonArray jsonArraydynamicEntries = jsonObj.getAsJsonArray("dynamic_entries");
+        // validate the required field `dynamic_entries` (array)
+        for (int i = 0; i < jsonArraydynamicEntries.size(); i++) {
+          ElfDynamicEntry.validateJsonElement(jsonArraydynamicEntries.get(i));
+        }
       }
-
-      JsonArray jsonArraydynamicEntries = jsonObj.getAsJsonArray("dynamic_entries");
-      // validate the required field `dynamic_entries` (array)
-      for (int i = 0; i < jsonArraydynamicEntries.size(); i++) {
-        ElfDynamicEntry.validateJsonElement(jsonArraydynamicEntries.get(i));
-      };
       // ensure the required json array is present
       if (jsonObj.get("notes") == null) {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
       } else if (!jsonObj.get("notes").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `notes` to be an array in the JSON string but got `%s`", jsonObj.get("notes").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `notes` to be an array in the JSON string but got `%s`", jsonObj.get("notes").toString()));
       }
   }
 
@@ -935,7 +930,7 @@ public class ELFModel {
                    else if (entry.getValue().getAsJsonPrimitive().isBoolean())
                      instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
                    else
-                     throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
+                     throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
                  } else if (entry.getValue().isJsonArray()) {
                      instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
                  } else { // JSON object
