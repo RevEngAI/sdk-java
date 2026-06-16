@@ -113,7 +113,7 @@ jobs:
       uses: openapi-generators/openapitools-generator-action@b729d184e6b3459572c37c0e37f88a832e69b552 # v1.5.0
       with:
         generator: java
-        generator-tag: 'v7.17.0'
+        generator-tag: 'v7.23.0'
         openapi-url: https://docs.reveng.ai/openapi.json
         config-file: config.yml
         template-dir: templates
