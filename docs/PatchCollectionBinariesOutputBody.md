@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**binaries** | **List&lt;Binary&gt;** |  |  |
+|**binaries** | [**List&lt;Binary&gt;**](Binary.md) |  |  |
 
 
 

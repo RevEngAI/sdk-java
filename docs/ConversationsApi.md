@@ -452,7 +452,7 @@ public class Example {
 
 <a id="streamEvents"></a>
 # **streamEvents**
-> List&lt;StreamEvents200ResponseInner&gt; streamEvents(id, lastEventId)
+> List&lt;ServerSentEventsInner&gt; streamEvents(id, lastEventId)
 
 Stream conversation events (SSE)
 
@@ -483,7 +483,7 @@ public class Example {
     UUID id = UUID.randomUUID(); // UUID | Conversation UUID
     Long lastEventId = 56L; // Long | Replay events after this ID
     try {
-      List<StreamEvents200ResponseInner> result = apiInstance.streamEvents(id, lastEventId);
+      List<ServerSentEventsInner> result = apiInstance.streamEvents(id, lastEventId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ConversationsApi#streamEvents");
@@ -505,7 +505,7 @@ public class Example {
 
 ### Return type
 
-[**List&lt;StreamEvents200ResponseInner&gt;**](StreamEvents200ResponseInner.md)
+[**List&lt;ServerSentEventsInner&gt;**](ServerSentEventsInner.md)
 
 ### Authorization
 

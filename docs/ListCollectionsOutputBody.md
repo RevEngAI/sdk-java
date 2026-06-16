@@ -10,7 +10,7 @@
 |**hasNextPage** | **Boolean** |  |  |
 |**pageNumber** | **Long** |  |  |
 |**pageSize** | **Long** |  |  |
-|**results** | **List&lt;CollectionListItemBody&gt;** |  |  |
+|**results** | [**List&lt;CollectionListItemBody&gt;**](CollectionListItemBody.md) |  |  |
 
 
 

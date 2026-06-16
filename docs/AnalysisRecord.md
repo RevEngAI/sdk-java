@@ -20,8 +20,8 @@
 |**functionBoundariesHash** | **String** | The hash of the function boundaries |  |
 |**binarySize** | **Integer** | The size of the binary |  |
 |**username** | **String** | The username of the analysis owner |  |
-|**dynamicExecutionStatus** | **DynamicExecutionStatus** |  |  [optional] |
-|**dynamicExecutionTaskId** | **Integer** |  |  [optional] |
+|**dynamicExecutionStatus** | **DynamicExecutionStatus** | If searching for dynamic execution, the status of the task |  [optional] |
+|**dynamicExecutionTaskId** | **Integer** | If searching for dynamic execution, the task ID of the task |  [optional] |
 |**baseAddress** | **BigInteger** | The base address of the binary |  |
 |**tags** | [**List&lt;TagItem&gt;**](TagItem.md) | List of tags associated with the analysis |  [optional] |
 

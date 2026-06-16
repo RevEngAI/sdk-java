@@ -12,7 +12,7 @@
 |**minAddr** | **Integer** | The minimum vaddr of the block |  |
 |**maxAddr** | **Integer** | The maximum vaddr of the block |  |
 |**destinations** | [**List&lt;FunctionBlockDestinationResponse&gt;**](FunctionBlockDestinationResponse.md) | The potential execution flow destinations from this block |  |
-|**comment** | **String** |  |  [optional] |
+|**comment** | **String** | An optional comment associated with this block, if any |  [optional] |
 
 
 

@@ -21,9 +21,9 @@
 |**debug** | **Boolean** | Whether the current analysis was analysed with debug symbols |  |
 |**functionCount** | **Integer** | The number of functions in the binary |  |
 |**isAdvanced** | **Boolean** | Whether the analysis was advanced |  |
-|**baseAddress** | **Integer** |  |  |
-|**binaryUuid** | **String** |  |  [optional] |
-|**sequencerVersion** | **String** |  |  [optional] |
+|**baseAddress** | **Integer** | The base address of the binary |  |
+|**binaryUuid** | **String** | The UUID of the binary |  [optional] |
+|**sequencerVersion** | **String** | The sequencer version used for analysis |  [optional] |
 |**teamId** | **Integer** | The team ID of the analysis |  |
 
 

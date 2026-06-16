@@ -7,10 +7,10 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**connections** | **List&lt;Connection&gt;** |  |  [optional] |
-|**dnsQueries** | **List&lt;DnsQuery&gt;** |  |  [optional] |
-|**extractedUrls** | **List&lt;ExtractedURL&gt;** |  |  [optional] |
-|**httpRequests** | **List&lt;HttpRequest&gt;** |  |  [optional] |
+|**connections** | [**List&lt;Connection&gt;**](Connection.md) |  |  [optional] |
+|**dnsQueries** | [**List&lt;DnsQuery&gt;**](DnsQuery.md) |  |  [optional] |
+|**extractedUrls** | [**List&lt;ExtractedURL&gt;**](ExtractedURL.md) |  |  [optional] |
+|**httpRequests** | [**List&lt;HttpRequest&gt;**](HttpRequest.md) |  |  [optional] |
 
 
 

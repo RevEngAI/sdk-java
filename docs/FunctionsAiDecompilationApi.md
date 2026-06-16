@@ -1421,7 +1421,7 @@ public class Example {
 
 <a id="streamAiDecompilation"></a>
 # **streamAiDecompilation**
-> List&lt;StreamAiDecompilation200ResponseInner&gt; streamAiDecompilation(functionId)
+> List&lt;ServerSentEventsInner1&gt; streamAiDecompilation(functionId)
 
 Stream live AI decompilation output (SSE)
 
@@ -1451,7 +1451,7 @@ public class Example {
     FunctionsAiDecompilationApi apiInstance = new FunctionsAiDecompilationApi(defaultClient);
     Long functionId = 56L; // Long | Function ID
     try {
-      List<StreamAiDecompilation200ResponseInner> result = apiInstance.streamAiDecompilation(functionId);
+      List<ServerSentEventsInner1> result = apiInstance.streamAiDecompilation(functionId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsAiDecompilationApi#streamAiDecompilation");
@@ -1472,7 +1472,7 @@ public class Example {
 
 ### Return type
 
-[**List&lt;StreamAiDecompilation200ResponseInner&gt;**](StreamAiDecompilation200ResponseInner.md)
+[**List&lt;ServerSentEventsInner1&gt;**](ServerSentEventsInner1.md)
 
 ### Authorization
 

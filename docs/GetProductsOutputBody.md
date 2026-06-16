@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**products** | **List&lt;ProductOutput&gt;** | List of available products |  |
+|**products** | [**List&lt;ProductOutput&gt;**](ProductOutput.md) | List of available products |  |
 
 
 

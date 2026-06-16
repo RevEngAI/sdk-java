@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**args** | **List&lt;String&gt;** |  |  [optional] |
 |**attributed** | **Boolean** |  |  |
-|**children** | **List&lt;ProcessNode&gt;** |  |  [optional] |
+|**children** | [**List&lt;ProcessNode&gt;**](ProcessNode.md) |  |  [optional] |
 |**exitCode** | **Long** |  |  [optional] |
 |**exitCodeStr** | **String** |  |  [optional] |
 |**exitedAt** | **Double** |  |  [optional] |

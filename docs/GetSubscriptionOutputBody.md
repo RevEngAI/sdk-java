@@ -8,8 +8,8 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**endsAt** | **OffsetDateTime** | Date access ends (CANCELING only). |  [optional] |
-|**price** | **PriceSummary** | Current price (ACTIVE / CANCELING / PAYMENT_ISSUE only). |  [optional] |
-|**product** | **ProductSummary** | Subscribed product (ACTIVE / CANCELING / PAYMENT_ISSUE only). |  [optional] |
+|**price** | [**PriceSummary**](PriceSummary.md) | Current price (ACTIVE / CANCELING / PAYMENT_ISSUE only). |  [optional] |
+|**product** | [**ProductSummary**](ProductSummary.md) | Subscribed product (ACTIVE / CANCELING / PAYMENT_ISSUE only). |  [optional] |
 |**renewsAt** | **OffsetDateTime** | Next billing date (ACTIVE only). |  [optional] |
 |**status** | [**StatusEnum**](#StatusEnum) | Subscription state. |  |
 |**tier** | [**TierEnum**](#TierEnum) | User&#39;s effective tier. |  |

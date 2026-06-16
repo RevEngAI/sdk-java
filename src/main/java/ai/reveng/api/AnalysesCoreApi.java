@@ -187,7 +187,7 @@ public class AnalysesCoreApi {
      * Attaches a user-provided string to an analysis at the given virtual address. The string is stored with source &#x60;USER&#x60; and complements strings discovered automatically during analysis.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
      * @param analysisId Analysis ID (required)
      * @param addUserStringInputBody  (required)
-     * @return Map&lt;String, Object&gt;
+     * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -200,8 +200,8 @@ public class AnalysesCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public Map<String, Object> addUserStringToAnalysis(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull AddUserStringInputBody addUserStringInputBody) throws ApiException {
-        ApiResponse<Map<String, Object>> localVarResp = addUserStringToAnalysisWithHttpInfo(analysisId, addUserStringInputBody);
+    public Object addUserStringToAnalysis(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull AddUserStringInputBody addUserStringInputBody) throws ApiException {
+        ApiResponse<Object> localVarResp = addUserStringToAnalysisWithHttpInfo(analysisId, addUserStringInputBody);
         return localVarResp.getData();
     }
 
@@ -210,7 +210,7 @@ public class AnalysesCoreApi {
      * Attaches a user-provided string to an analysis at the given virtual address. The string is stored with source &#x60;USER&#x60; and complements strings discovered automatically during analysis.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
      * @param analysisId Analysis ID (required)
      * @param addUserStringInputBody  (required)
-     * @return ApiResponse&lt;Map&lt;String, Object&gt;&gt;
+     * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -223,9 +223,9 @@ public class AnalysesCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Map<String, Object>> addUserStringToAnalysisWithHttpInfo(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull AddUserStringInputBody addUserStringInputBody) throws ApiException {
+    public ApiResponse<Object> addUserStringToAnalysisWithHttpInfo(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull AddUserStringInputBody addUserStringInputBody) throws ApiException {
         okhttp3.Call localVarCall = addUserStringToAnalysisValidateBeforeCall(analysisId, addUserStringInputBody, null);
-        Type localVarReturnType = new TypeToken<Map<String, Object>>(){}.getType();
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -248,10 +248,10 @@ public class AnalysesCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addUserStringToAnalysisAsync(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull AddUserStringInputBody addUserStringInputBody, final ApiCallback<Map<String, Object>> _callback) throws ApiException {
+    public okhttp3.Call addUserStringToAnalysisAsync(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull AddUserStringInputBody addUserStringInputBody, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = addUserStringToAnalysisValidateBeforeCall(analysisId, addUserStringInputBody, _callback);
-        Type localVarReturnType = new TypeToken<Map<String, Object>>(){}.getType();
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1652,8 +1652,8 @@ public class AnalysesCoreApi {
      * @param sha256Hash  (optional)
      * @param limit  (optional, default to 20)
      * @param offset  (optional, default to 0)
-     * @param orderBy  (optional)
-     * @param order  (optional)
+     * @param orderBy  (optional, default to created)
+     * @param order  (optional, default to DESC)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1771,8 +1771,8 @@ public class AnalysesCoreApi {
      * @param sha256Hash  (optional)
      * @param limit  (optional, default to 20)
      * @param offset  (optional, default to 0)
-     * @param orderBy  (optional)
-     * @param order  (optional)
+     * @param orderBy  (optional, default to created)
+     * @param order  (optional, default to DESC)
      * @return BaseResponseRecent
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1800,8 +1800,8 @@ public class AnalysesCoreApi {
      * @param sha256Hash  (optional)
      * @param limit  (optional, default to 20)
      * @param offset  (optional, default to 0)
-     * @param orderBy  (optional)
-     * @param order  (optional)
+     * @param orderBy  (optional, default to created)
+     * @param order  (optional, default to DESC)
      * @return ApiResponse&lt;BaseResponseRecent&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1830,8 +1830,8 @@ public class AnalysesCoreApi {
      * @param sha256Hash  (optional)
      * @param limit  (optional, default to 20)
      * @param offset  (optional, default to 0)
-     * @param orderBy  (optional)
-     * @param order  (optional)
+     * @param orderBy  (optional, default to created)
+     * @param order  (optional, default to DESC)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

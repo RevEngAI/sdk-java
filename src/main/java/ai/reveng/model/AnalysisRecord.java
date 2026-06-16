@@ -13,7 +13,6 @@
 package ai.reveng.model;
 
 import java.util.Objects;
-import java.util.Locale;
 import ai.reveng.model.DynamicExecutionStatus;
 import ai.reveng.model.TagItem;
 import com.google.gson.TypeAdapter;
@@ -49,7 +48,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.Locale;
 
 import ai.reveng.invoker.JSON;
 
@@ -399,7 +397,7 @@ public class AnalysisRecord {
   }
 
   /**
-   * Get dynamicExecutionStatus
+   * If searching for dynamic execution, the status of the task
    * @return dynamicExecutionStatus
    */
   @javax.annotation.Nullable
@@ -418,7 +416,7 @@ public class AnalysisRecord {
   }
 
   /**
-   * Get dynamicExecutionTaskId
+   * If searching for dynamic execution, the task ID of the task
    * @return dynamicExecutionTaskId
    */
   @javax.annotation.Nullable
@@ -598,10 +596,7 @@ public class AnalysisRecord {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -625,37 +620,37 @@ public class AnalysisRecord {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!AnalysisRecord.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in AnalysisRecord is not found in the empty JSON string", AnalysisRecord.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in AnalysisRecord is not found in the empty JSON string", AnalysisRecord.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : AnalysisRecord.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("analysis_scope").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `analysis_scope` to be a primitive type in the JSON string but got `%s`", jsonObj.get("analysis_scope").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `analysis_scope` to be a primitive type in the JSON string but got `%s`", jsonObj.get("analysis_scope").toString()));
       }
       if (!jsonObj.get("model_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `model_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("model_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `model_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("model_name").toString()));
       }
       if (!jsonObj.get("status").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
       }
       if (!jsonObj.get("binary_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `binary_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("binary_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `binary_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("binary_name").toString()));
       }
       if (!jsonObj.get("sha_256_hash").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `sha_256_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sha_256_hash").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sha_256_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sha_256_hash").toString()));
       }
       if (!jsonObj.get("function_boundaries_hash").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `function_boundaries_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("function_boundaries_hash").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `function_boundaries_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("function_boundaries_hash").toString()));
       }
       if (!jsonObj.get("username").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("username").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("username").toString()));
       }
       // validate the optional field `dynamic_execution_status`
       if (jsonObj.get("dynamic_execution_status") != null && !jsonObj.get("dynamic_execution_status").isJsonNull()) {
@@ -666,7 +661,7 @@ public class AnalysisRecord {
         if (jsonArraytags != null) {
           // ensure the json data is an array
           if (!jsonObj.get("tags").isJsonArray()) {
-            throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
           }
 
           // validate the optional field `tags` (array)
@@ -734,7 +729,7 @@ public class AnalysisRecord {
                    else if (entry.getValue().getAsJsonPrimitive().isBoolean())
                      instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
                    else
-                     throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
+                     throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
                  } else if (entry.getValue().isJsonArray()) {
                      instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
                  } else { // JSON object

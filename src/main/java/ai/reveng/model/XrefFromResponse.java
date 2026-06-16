@@ -13,13 +13,13 @@
 package ai.reveng.model;
 
 import java.util.Objects;
-import java.util.Locale;
 import ai.reveng.model.SegmentInfo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -44,7 +44,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.Locale;
 
 import ai.reveng.invoker.JSON;
 
@@ -81,7 +80,7 @@ public class XrefFromResponse {
   public static final String SERIALIZED_NAME_RAW_DATA = "raw_data";
   @SerializedName(SERIALIZED_NAME_RAW_DATA)
   @javax.annotation.Nullable
-  private String rawData;
+  private File rawData;
 
   public static final String SERIALIZED_NAME_SEGMENT = "segment";
   @SerializedName(SERIALIZED_NAME_SEGMENT)
@@ -196,7 +195,7 @@ public class XrefFromResponse {
   }
 
 
-  public XrefFromResponse rawData(@javax.annotation.Nullable String rawData) {
+  public XrefFromResponse rawData(@javax.annotation.Nullable File rawData) {
     this.rawData = rawData;
     return this;
   }
@@ -206,11 +205,11 @@ public class XrefFromResponse {
    * @return rawData
    */
   @javax.annotation.Nullable
-  public String getRawData() {
+  public File getRawData() {
     return rawData;
   }
 
-  public void setRawData(@javax.annotation.Nullable String rawData) {
+  public void setRawData(@javax.annotation.Nullable File rawData) {
     this.rawData = rawData;
   }
 
@@ -377,10 +376,7 @@ public class XrefFromResponse {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -404,32 +400,29 @@ public class XrefFromResponse {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!XrefFromResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in XrefFromResponse is not found in the empty JSON string", XrefFromResponse.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in XrefFromResponse is not found in the empty JSON string", XrefFromResponse.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : XrefFromResponse.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("value") != null && !jsonObj.get("value").isJsonNull()) && !jsonObj.get("value").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
-      }
-      if ((jsonObj.get("raw_data") != null && !jsonObj.get("raw_data").isJsonNull()) && !jsonObj.get("raw_data").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `raw_data` to be a primitive type in the JSON string but got `%s`", jsonObj.get("raw_data").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
       }
       // validate the optional field `segment`
       if (jsonObj.get("segment") != null && !jsonObj.get("segment").isJsonNull()) {
         SegmentInfo.validateJsonElement(jsonObj.get("segment"));
       }
       if ((jsonObj.get("orig_str_encoding") != null && !jsonObj.get("orig_str_encoding").isJsonNull()) && !jsonObj.get("orig_str_encoding").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `orig_str_encoding` to be a primitive type in the JSON string but got `%s`", jsonObj.get("orig_str_encoding").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `orig_str_encoding` to be a primitive type in the JSON string but got `%s`", jsonObj.get("orig_str_encoding").toString()));
       }
       if ((jsonObj.get("xref_to") != null && !jsonObj.get("xref_to").isJsonNull()) && !jsonObj.get("xref_to").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `xref_to` to be a primitive type in the JSON string but got `%s`", jsonObj.get("xref_to").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `xref_to` to be a primitive type in the JSON string but got `%s`", jsonObj.get("xref_to").toString()));
       }
   }
 
@@ -490,7 +483,7 @@ public class XrefFromResponse {
                    else if (entry.getValue().getAsJsonPrimitive().isBoolean())
                      instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
                    else
-                     throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
+                     throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
                  } else if (entry.getValue().isJsonArray()) {
                      instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
                  } else { // JSON object

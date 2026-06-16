@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**lastChange** | **String** |  |  [optional] |
+|**lastChange** | **String** | Timestamp of the last change to this function header |  [optional] |
 |**name** | **String** | Name of the function |  |
 |**addr** | **Integer** | Memory address of the function |  |
 |**type** | **String** | Return type of the function |  |

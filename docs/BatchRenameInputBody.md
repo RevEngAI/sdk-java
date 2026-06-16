@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**functions** | **List&lt;BatchRenameItem&gt;** | List of functions to rename |  |
+|**functions** | [**List&lt;BatchRenameItem&gt;**](BatchRenameItem.md) | List of functions to rename |  |
 
 
 

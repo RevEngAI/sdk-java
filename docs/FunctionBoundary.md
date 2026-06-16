@@ -10,7 +10,7 @@
 |**mangledName** | **String** |  |  |
 |**startAddress** | **Long** |  |  |
 |**endAddress** | **Long** |  |  |
-|**includeInAnalysis** | **Boolean** |  |  [optional] |
+|**includeInAnalysis** | **Boolean** | Indicates whether the function should be included in the analysis |  [optional] |
 
 
 

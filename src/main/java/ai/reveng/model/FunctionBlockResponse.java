@@ -13,7 +13,6 @@
 package ai.reveng.model;
 
 import java.util.Objects;
-import java.util.Locale;
 import ai.reveng.model.FunctionBlockDestinationResponse;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -46,7 +45,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.Locale;
 
 import ai.reveng.invoker.JSON;
 
@@ -205,7 +203,7 @@ public class FunctionBlockResponse {
   }
 
   /**
-   * Get comment
+   * An optional comment associated with this block, if any
    * @return comment
    */
   @javax.annotation.Nullable
@@ -317,10 +315,7 @@ public class FunctionBlockResponse {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -344,14 +339,14 @@ public class FunctionBlockResponse {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!FunctionBlockResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in FunctionBlockResponse is not found in the empty JSON string", FunctionBlockResponse.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in FunctionBlockResponse is not found in the empty JSON string", FunctionBlockResponse.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : FunctionBlockResponse.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -359,20 +354,20 @@ public class FunctionBlockResponse {
       if (jsonObj.get("asm") == null) {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
       } else if (!jsonObj.get("asm").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `asm` to be an array in the JSON string but got `%s`", jsonObj.get("asm").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `asm` to be an array in the JSON string but got `%s`", jsonObj.get("asm").toString()));
       }
-      // ensure the json data is an array
-      if (!jsonObj.get("destinations").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `destinations` to be an array in the JSON string but got `%s`", jsonObj.get("destinations").toString()));
+      if (jsonObj.get("destinations") != null) {
+        if (!jsonObj.get("destinations").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `destinations` to be an array in the JSON string but got `%s`", jsonObj.get("destinations").toString()));
+        }
+        JsonArray jsonArraydestinations = jsonObj.getAsJsonArray("destinations");
+        // validate the required field `destinations` (array)
+        for (int i = 0; i < jsonArraydestinations.size(); i++) {
+          FunctionBlockDestinationResponse.validateJsonElement(jsonArraydestinations.get(i));
+        }
       }
-
-      JsonArray jsonArraydestinations = jsonObj.getAsJsonArray("destinations");
-      // validate the required field `destinations` (array)
-      for (int i = 0; i < jsonArraydestinations.size(); i++) {
-        FunctionBlockDestinationResponse.validateJsonElement(jsonArraydestinations.get(i));
-      };
       if ((jsonObj.get("comment") != null && !jsonObj.get("comment").isJsonNull()) && !jsonObj.get("comment").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `comment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("comment").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `comment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("comment").toString()));
       }
   }
 
@@ -433,7 +428,7 @@ public class FunctionBlockResponse {
                    else if (entry.getValue().getAsJsonPrimitive().isBoolean())
                      instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
                    else
-                     throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
+                     throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
                  } else if (entry.getValue().isJsonArray()) {
                      instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
                  } else { // JSON object

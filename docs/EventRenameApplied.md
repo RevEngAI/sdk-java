@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**data** | **RenameAppliedEvent** |  |  |
+|**data** | [**RenameAppliedEvent**](RenameAppliedEvent.md) |  |  |
 |**event** | [**EventEnum**](#EventEnum) | The event name. |  |
 |**id** | **Integer** | The event ID. |  [optional] |
 |**retry** | **Integer** | The retry time in milliseconds. |  [optional] |

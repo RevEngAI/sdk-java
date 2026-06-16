@@ -7,13 +7,14 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**apiCalls** | **List&lt;ApiCall&gt;** |  |  [optional] |
+|**apiCalls** | [**List&lt;ApiCall&gt;**](ApiCall.md) |  |  [optional] |
+|**count** | **Long** |  |  [optional] |
+|**desiredAccess** | **List&lt;String&gt;** |  |  [optional] |
 |**processSeqid** | **Long** |  |  [optional] |
-|**totalBytesRequested** | **Long** |  |  [optional] |
+|**totalBytes** | **Long** |  |  [optional] |
 |**type** | **String** |  |  |
 |**value** | **String** |  |  [optional] |
 |**valueName** | **String** |  |  [optional] |
-|**writeCount** | **Long** |  |  [optional] |
 
 
 

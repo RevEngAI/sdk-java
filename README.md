@@ -16,7 +16,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>ai.reveng</groupId>
     <artifactId>sdk</artifactId>
-    <version>3.93.1</version>
+    <version>3.93.2</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -31,7 +31,7 @@ repositories {
 }
 
 dependencies {
-    implementation "ai.reveng:sdk:3.93.1"
+    implementation "ai.reveng:sdk:3.93.2"
 }
 ```
 
@@ -271,6 +271,7 @@ Class | Method | HTTP request | Description
  - [AppApiRestV2FunctionsTypesFunction](docs/AppApiRestV2FunctionsTypesFunction.md)
  - [AppApiRestV2InfoTypesCapability](docs/AppApiRestV2InfoTypesCapability.md)
  - [Argument](docs/Argument.md)
+ - [Artifact](docs/Artifact.md)
  - [AttemptFailedEvent](docs/AttemptFailedEvent.md)
  - [AttemptStartedEvent](docs/AttemptStartedEvent.md)
  - [AutoRunAgents](docs/AutoRunAgents.md)
@@ -387,6 +388,7 @@ Class | Method | HTTP request | Description
  - [ConfigResponse](docs/ConfigResponse.md)
  - [ConfirmToolInputBody](docs/ConfirmToolInputBody.md)
  - [Connection](docs/Connection.md)
+ - [ConsoleOutputEntry](docs/ConsoleOutputEntry.md)
  - [Context](docs/Context.md)
  - [Conversation](docs/Conversation.md)
  - [ConversationContext](docs/ConversationContext.md)
@@ -447,13 +449,13 @@ Class | Method | HTTP request | Description
  - [EventWarning](docs/EventWarning.md)
  - [ExportModel](docs/ExportModel.md)
  - [ExternalResponse](docs/ExternalResponse.md)
- - [ExtractedFileEntry](docs/ExtractedFileEntry.md)
  - [ExtractedURL](docs/ExtractedURL.md)
  - [FileActivityEntry](docs/FileActivityEntry.md)
  - [FileFormat](docs/FileFormat.md)
  - [FileHashes](docs/FileHashes.md)
  - [FileMetadata](docs/FileMetadata.md)
  - [Filters](docs/Filters.md)
+ - [FuncDepsInner](docs/FuncDepsInner.md)
  - [FunctionBlockDestinationResponse](docs/FunctionBlockDestinationResponse.md)
  - [FunctionBlockResponse](docs/FunctionBlockResponse.md)
  - [FunctionBlocksResponse](docs/FunctionBlocksResponse.md)
@@ -467,7 +469,6 @@ Class | Method | HTTP request | Description
  - [FunctionDataTypesStatus](docs/FunctionDataTypesStatus.md)
  - [FunctionHeader](docs/FunctionHeader.md)
  - [FunctionInfoInput](docs/FunctionInfoInput.md)
- - [FunctionInfoInputFuncDepsInner](docs/FunctionInfoInputFuncDepsInner.md)
  - [FunctionInfoOutput](docs/FunctionInfoOutput.md)
  - [FunctionListItem](docs/FunctionListItem.md)
  - [FunctionLocalVariableResponse](docs/FunctionLocalVariableResponse.md)
@@ -490,7 +491,6 @@ Class | Method | HTTP request | Description
  - [FunctionTaskResponse](docs/FunctionTaskResponse.md)
  - [FunctionTaskStatus](docs/FunctionTaskStatus.md)
  - [FunctionTypeInput](docs/FunctionTypeInput.md)
- - [FunctionTypeOutput](docs/FunctionTypeOutput.md)
  - [FunctionsDetailResponse](docs/FunctionsDetailResponse.md)
  - [FunctionsListRename](docs/FunctionsListRename.md)
  - [GenerateFunctionDataTypes](docs/GenerateFunctionDataTypes.md)
@@ -546,11 +546,11 @@ Class | Method | HTTP request | Description
  - [PatchCollectionTagsInputBody](docs/PatchCollectionTagsInputBody.md)
  - [PatchCollectionTagsOutputBody](docs/PatchCollectionTagsOutputBody.md)
  - [PatchCommentBody](docs/PatchCommentBody.md)
+ - [PcapBodyInfo](docs/PcapBodyInfo.md)
  - [Platform](docs/Platform.md)
  - [PriceOutput](docs/PriceOutput.md)
  - [PriceSummary](docs/PriceSummary.md)
  - [ProcessActivityEntry](docs/ProcessActivityEntry.md)
- - [ProcessExtractedFiles](docs/ProcessExtractedFiles.md)
  - [ProcessMemdumps](docs/ProcessMemdumps.md)
  - [ProcessNode](docs/ProcessNode.md)
  - [ProcessTree](docs/ProcessTree.md)
@@ -585,6 +585,8 @@ Class | Method | HTTP request | Description
  - [SecurityModel](docs/SecurityModel.md)
  - [SegmentInfo](docs/SegmentInfo.md)
  - [SendMessageRequest](docs/SendMessageRequest.md)
+ - [ServerSentEventsInner](docs/ServerSentEventsInner.md)
+ - [ServerSentEventsInner1](docs/ServerSentEventsInner1.md)
  - [ServiceEntry](docs/ServiceEntry.md)
  - [SessionOutputBody](docs/SessionOutputBody.md)
  - [SingleCodeCertificateModel](docs/SingleCodeCertificateModel.md)
@@ -614,8 +616,6 @@ Class | Method | HTTP request | Description
  - [StatusInput](docs/StatusInput.md)
  - [StatusOutput](docs/StatusOutput.md)
  - [StatusResponse](docs/StatusResponse.md)
- - [StreamAiDecompilation200ResponseInner](docs/StreamAiDecompilation200ResponseInner.md)
- - [StreamEvents200ResponseInner](docs/StreamEvents200ResponseInner.md)
  - [StringFunctions](docs/StringFunctions.md)
  - [StringSource](docs/StringSource.md)
  - [Structure](docs/Structure.md)
@@ -631,6 +631,7 @@ Class | Method | HTTP request | Description
  - [TaskResponse](docs/TaskResponse.md)
  - [TaskStatus](docs/TaskStatus.md)
  - [TaskStatusResponse](docs/TaskStatusResponse.md)
+ - [TcpCarvedFile](docs/TcpCarvedFile.md)
  - [TimestampModel](docs/TimestampModel.md)
  - [TokenisedData](docs/TokenisedData.md)
  - [TriageFunctionResponse](docs/TriageFunctionResponse.md)

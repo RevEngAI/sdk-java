@@ -175,7 +175,7 @@ public class FunctionsCoreApi {
      * Records an outgoing call edge from the given function to a callee.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
      * @param functionId Function ID (required)
      * @param addCalleeInputBody  (required)
-     * @return Map&lt;String, Object&gt;
+     * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -189,8 +189,8 @@ public class FunctionsCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public Map<String, Object> addFunctionCallee(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull AddCalleeInputBody addCalleeInputBody) throws ApiException {
-        ApiResponse<Map<String, Object>> localVarResp = addFunctionCalleeWithHttpInfo(functionId, addCalleeInputBody);
+    public Object addFunctionCallee(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull AddCalleeInputBody addCalleeInputBody) throws ApiException {
+        ApiResponse<Object> localVarResp = addFunctionCalleeWithHttpInfo(functionId, addCalleeInputBody);
         return localVarResp.getData();
     }
 
@@ -199,7 +199,7 @@ public class FunctionsCoreApi {
      * Records an outgoing call edge from the given function to a callee.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
      * @param functionId Function ID (required)
      * @param addCalleeInputBody  (required)
-     * @return ApiResponse&lt;Map&lt;String, Object&gt;&gt;
+     * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -213,9 +213,9 @@ public class FunctionsCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Map<String, Object>> addFunctionCalleeWithHttpInfo(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull AddCalleeInputBody addCalleeInputBody) throws ApiException {
+    public ApiResponse<Object> addFunctionCalleeWithHttpInfo(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull AddCalleeInputBody addCalleeInputBody) throws ApiException {
         okhttp3.Call localVarCall = addFunctionCalleeValidateBeforeCall(functionId, addCalleeInputBody, null);
-        Type localVarReturnType = new TypeToken<Map<String, Object>>(){}.getType();
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -239,10 +239,10 @@ public class FunctionsCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addFunctionCalleeAsync(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull AddCalleeInputBody addCalleeInputBody, final ApiCallback<Map<String, Object>> _callback) throws ApiException {
+    public okhttp3.Call addFunctionCalleeAsync(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull AddCalleeInputBody addCalleeInputBody, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = addFunctionCalleeValidateBeforeCall(functionId, addCalleeInputBody, _callback);
-        Type localVarReturnType = new TypeToken<Map<String, Object>>(){}.getType();
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -331,7 +331,7 @@ public class FunctionsCoreApi {
      * Attaches a user-provided string to a function at the given virtual address. The string is stored with source &#x60;USER&#x60; and complements strings discovered automatically during analysis.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
      * @param functionId Function ID (required)
      * @param addUserStringToFunctionInputBody  (required)
-     * @return Map&lt;String, Object&gt;
+     * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -344,8 +344,8 @@ public class FunctionsCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public Map<String, Object> addUserStringToFunction(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull AddUserStringToFunctionInputBody addUserStringToFunctionInputBody) throws ApiException {
-        ApiResponse<Map<String, Object>> localVarResp = addUserStringToFunctionWithHttpInfo(functionId, addUserStringToFunctionInputBody);
+    public Object addUserStringToFunction(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull AddUserStringToFunctionInputBody addUserStringToFunctionInputBody) throws ApiException {
+        ApiResponse<Object> localVarResp = addUserStringToFunctionWithHttpInfo(functionId, addUserStringToFunctionInputBody);
         return localVarResp.getData();
     }
 
@@ -354,7 +354,7 @@ public class FunctionsCoreApi {
      * Attaches a user-provided string to a function at the given virtual address. The string is stored with source &#x60;USER&#x60; and complements strings discovered automatically during analysis.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
      * @param functionId Function ID (required)
      * @param addUserStringToFunctionInputBody  (required)
-     * @return ApiResponse&lt;Map&lt;String, Object&gt;&gt;
+     * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -367,9 +367,9 @@ public class FunctionsCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Map<String, Object>> addUserStringToFunctionWithHttpInfo(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull AddUserStringToFunctionInputBody addUserStringToFunctionInputBody) throws ApiException {
+    public ApiResponse<Object> addUserStringToFunctionWithHttpInfo(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull AddUserStringToFunctionInputBody addUserStringToFunctionInputBody) throws ApiException {
         okhttp3.Call localVarCall = addUserStringToFunctionValidateBeforeCall(functionId, addUserStringToFunctionInputBody, null);
-        Type localVarReturnType = new TypeToken<Map<String, Object>>(){}.getType();
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -392,10 +392,10 @@ public class FunctionsCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addUserStringToFunctionAsync(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull AddUserStringToFunctionInputBody addUserStringToFunctionInputBody, final ApiCallback<Map<String, Object>> _callback) throws ApiException {
+    public okhttp3.Call addUserStringToFunctionAsync(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull AddUserStringToFunctionInputBody addUserStringToFunctionInputBody, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = addUserStringToFunctionValidateBeforeCall(functionId, addUserStringToFunctionInputBody, _callback);
-        Type localVarReturnType = new TypeToken<Map<String, Object>>(){}.getType();
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

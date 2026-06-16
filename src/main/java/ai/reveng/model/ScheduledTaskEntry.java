@@ -13,7 +13,6 @@
 package ai.reveng.model;
 
 import java.util.Objects;
-import java.util.Locale;
 import ai.reveng.model.ReportEvent;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -46,7 +45,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.Locale;
 
 import ai.reveng.invoker.JSON;
 
@@ -329,50 +327,6 @@ public class ScheduledTaskEntry {
     this.taskName = taskName;
   }
 
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
-
-  /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
-   *
-   * @param key name of the property
-   * @param value value of the property
-   * @return the ScheduledTaskEntry instance itself
-   */
-  public ScheduledTaskEntry putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
-    }
-    this.additionalProperties.put(key, value);
-    return this;
-  }
-
-  /**
-   * Return the additional (undeclared) property.
-   *
-   * @return a map of objects
-   */
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
-  }
-
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   *
-   * @param key name of the property
-   * @return an object
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-        return null;
-    }
-    return this.additionalProperties.get(key);
-  }
 
 
   @Override
@@ -394,8 +348,7 @@ public class ScheduledTaskEntry {
         Objects.equals(this.scheduleType, scheduledTaskEntry.scheduleType) &&
         Objects.equals(this.startDate, scheduledTaskEntry.startDate) &&
         Objects.equals(this.startTime, scheduledTaskEntry.startTime) &&
-        Objects.equals(this.taskName, scheduledTaskEntry.taskName)&&
-        Objects.equals(this.additionalProperties, scheduledTaskEntry.additionalProperties);
+        Objects.equals(this.taskName, scheduledTaskEntry.taskName);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -404,7 +357,7 @@ public class ScheduledTaskEntry {
 
   @Override
   public int hashCode() {
-    return Objects.hash(command, day, endDate, events, executable, modifier, runAs, scheduleType, startDate, startTime, taskName, additionalProperties);
+    return Objects.hash(command, day, endDate, events, executable, modifier, runAs, scheduleType, startDate, startTime, taskName);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -429,7 +382,6 @@ public class ScheduledTaskEntry {
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("    taskName: ").append(toIndentedString(taskName)).append("\n");
-    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -439,10 +391,7 @@ public class ScheduledTaskEntry {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -466,43 +415,61 @@ public class ScheduledTaskEntry {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ScheduledTaskEntry.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in ScheduledTaskEntry is not found in the empty JSON string", ScheduledTaskEntry.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ScheduledTaskEntry is not found in the empty JSON string", ScheduledTaskEntry.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!ScheduledTaskEntry.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ScheduledTaskEntry` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("command") != null && !jsonObj.get("command").isJsonNull()) && !jsonObj.get("command").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `command` to be a primitive type in the JSON string but got `%s`", jsonObj.get("command").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `command` to be a primitive type in the JSON string but got `%s`", jsonObj.get("command").toString()));
       }
       if ((jsonObj.get("day") != null && !jsonObj.get("day").isJsonNull()) && !jsonObj.get("day").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `day` to be a primitive type in the JSON string but got `%s`", jsonObj.get("day").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `day` to be a primitive type in the JSON string but got `%s`", jsonObj.get("day").toString()));
       }
       if ((jsonObj.get("end_date") != null && !jsonObj.get("end_date").isJsonNull()) && !jsonObj.get("end_date").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `end_date` to be a primitive type in the JSON string but got `%s`", jsonObj.get("end_date").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `end_date` to be a primitive type in the JSON string but got `%s`", jsonObj.get("end_date").toString()));
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("events") != null && !jsonObj.get("events").isJsonNull() && !jsonObj.get("events").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `events` to be an array in the JSON string but got `%s`", jsonObj.get("events").toString()));
+      if (jsonObj.get("events") != null && !jsonObj.get("events").isJsonNull()) {
+        JsonArray jsonArrayevents = jsonObj.getAsJsonArray("events");
+        if (jsonArrayevents != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("events").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `events` to be an array in the JSON string but got `%s`", jsonObj.get("events").toString()));
+          }
+
+          // validate the optional field `events` (array)
+          for (int i = 0; i < jsonArrayevents.size(); i++) {
+            ReportEvent.validateJsonElement(jsonArrayevents.get(i));
+          };
+        }
       }
       if ((jsonObj.get("executable") != null && !jsonObj.get("executable").isJsonNull()) && !jsonObj.get("executable").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `executable` to be a primitive type in the JSON string but got `%s`", jsonObj.get("executable").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `executable` to be a primitive type in the JSON string but got `%s`", jsonObj.get("executable").toString()));
       }
       if ((jsonObj.get("modifier") != null && !jsonObj.get("modifier").isJsonNull()) && !jsonObj.get("modifier").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `modifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("modifier").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `modifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("modifier").toString()));
       }
       if ((jsonObj.get("run_as") != null && !jsonObj.get("run_as").isJsonNull()) && !jsonObj.get("run_as").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `run_as` to be a primitive type in the JSON string but got `%s`", jsonObj.get("run_as").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `run_as` to be a primitive type in the JSON string but got `%s`", jsonObj.get("run_as").toString()));
       }
       if ((jsonObj.get("schedule_type") != null && !jsonObj.get("schedule_type").isJsonNull()) && !jsonObj.get("schedule_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `schedule_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("schedule_type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `schedule_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("schedule_type").toString()));
       }
       if ((jsonObj.get("start_date") != null && !jsonObj.get("start_date").isJsonNull()) && !jsonObj.get("start_date").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `start_date` to be a primitive type in the JSON string but got `%s`", jsonObj.get("start_date").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `start_date` to be a primitive type in the JSON string but got `%s`", jsonObj.get("start_date").toString()));
       }
       if ((jsonObj.get("start_time") != null && !jsonObj.get("start_time").isJsonNull()) && !jsonObj.get("start_time").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `start_time` to be a primitive type in the JSON string but got `%s`", jsonObj.get("start_time").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `start_time` to be a primitive type in the JSON string but got `%s`", jsonObj.get("start_time").toString()));
       }
       if ((jsonObj.get("task_name") != null && !jsonObj.get("task_name").isJsonNull()) && !jsonObj.get("task_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `task_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("task_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `task_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("task_name").toString()));
       }
   }
 
@@ -521,28 +488,6 @@ public class ScheduledTaskEntry {
            @Override
            public void write(JsonWriter out, ScheduledTaskEntry value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             obj.remove("additionalProperties");
-             // serialize additional properties
-             if (value.getAdditionalProperties() != null) {
-               for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
-               }
-             }
              elementAdapter.write(out, obj);
            }
 
@@ -550,28 +495,7 @@ public class ScheduledTaskEntry {
            public ScheduledTaskEntry read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
-             JsonObject jsonObj = jsonElement.getAsJsonObject();
-             // store additional fields in the deserialized instance
-             ScheduledTaskEntry instance = thisAdapter.fromJsonTree(jsonObj);
-             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
-               if (!openapiFields.contains(entry.getKey())) {
-                 if (entry.getValue().isJsonPrimitive()) { // primitive type
-                   if (entry.getValue().getAsJsonPrimitive().isString())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsString());
-                   else if (entry.getValue().getAsJsonPrimitive().isNumber())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsNumber());
-                   else if (entry.getValue().getAsJsonPrimitive().isBoolean())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
-                   else
-                     throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
-                 } else if (entry.getValue().isJsonArray()) {
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
-                 } else { // JSON object
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), HashMap.class));
-                 }
-               }
-             }
-             return instance;
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

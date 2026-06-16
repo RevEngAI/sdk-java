@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**functionMapping** | **AIDecompFunctionMapping** | Complete mapping data for token resolution |  [optional] |
+|**functionMapping** | [**AIDecompFunctionMapping**](AIDecompFunctionMapping.md) | Complete mapping data for token resolution |  [optional] |
 |**predictedFunctionName** | **String** | Predicted function name from the AI model |  [optional] |
 |**status** | [**StatusEnum**](#StatusEnum) | Task status |  |
 |**tokenisedDecompilation** | **String** | Source code with placeholder tokens |  [optional] |

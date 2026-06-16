@@ -13,8 +13,8 @@
 package ai.reveng.model;
 
 import java.util.Objects;
-import java.util.Locale;
 import ai.reveng.model.ReportEvent;
+import ai.reveng.model.TcpCarvedFile;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -46,7 +46,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.Locale;
 
 import ai.reveng.invoker.JSON;
 
@@ -55,14 +54,34 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Connection {
+  public static final String SERIALIZED_NAME_BYTES_RECEIVED = "bytes_received";
+  @SerializedName(SERIALIZED_NAME_BYTES_RECEIVED)
+  @javax.annotation.Nullable
+  private Long bytesReceived;
+
+  public static final String SERIALIZED_NAME_BYTES_SENT = "bytes_sent";
+  @SerializedName(SERIALIZED_NAME_BYTES_SENT)
+  @javax.annotation.Nullable
+  private Long bytesSent;
+
   public static final String SERIALIZED_NAME_EVENTS = "events";
   @SerializedName(SERIALIZED_NAME_EVENTS)
   @javax.annotation.Nullable
   private List<ReportEvent> events;
 
+  public static final String SERIALIZED_NAME_JA3 = "ja3";
+  @SerializedName(SERIALIZED_NAME_JA3)
+  @javax.annotation.Nullable
+  private String ja3;
+
+  public static final String SERIALIZED_NAME_JA3S = "ja3s";
+  @SerializedName(SERIALIZED_NAME_JA3S)
+  @javax.annotation.Nullable
+  private String ja3s;
+
   public static final String SERIALIZED_NAME_LOCAL_IP = "local_ip";
   @SerializedName(SERIALIZED_NAME_LOCAL_IP)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String localIp;
 
   public static final String SERIALIZED_NAME_LOCAL_PORT = "local_port";
@@ -72,12 +91,12 @@ public class Connection {
 
   public static final String SERIALIZED_NAME_PROTOCOL = "protocol";
   @SerializedName(SERIALIZED_NAME_PROTOCOL)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String protocol;
 
   public static final String SERIALIZED_NAME_REMOTE_IP = "remote_ip";
   @SerializedName(SERIALIZED_NAME_REMOTE_IP)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String remoteIp;
 
   public static final String SERIALIZED_NAME_REMOTE_PORT = "remote_port";
@@ -85,8 +104,51 @@ public class Connection {
   @javax.annotation.Nullable
   private Object remotePort = null;
 
+  public static final String SERIALIZED_NAME_TCP_CARVED_FILES = "tcp_carved_files";
+  @SerializedName(SERIALIZED_NAME_TCP_CARVED_FILES)
+  @javax.annotation.Nullable
+  private List<TcpCarvedFile> tcpCarvedFiles;
+
   public Connection() {
   }
+
+  public Connection bytesReceived(@javax.annotation.Nullable Long bytesReceived) {
+    this.bytesReceived = bytesReceived;
+    return this;
+  }
+
+  /**
+   * Get bytesReceived
+   * @return bytesReceived
+   */
+  @javax.annotation.Nullable
+  public Long getBytesReceived() {
+    return bytesReceived;
+  }
+
+  public void setBytesReceived(@javax.annotation.Nullable Long bytesReceived) {
+    this.bytesReceived = bytesReceived;
+  }
+
+
+  public Connection bytesSent(@javax.annotation.Nullable Long bytesSent) {
+    this.bytesSent = bytesSent;
+    return this;
+  }
+
+  /**
+   * Get bytesSent
+   * @return bytesSent
+   */
+  @javax.annotation.Nullable
+  public Long getBytesSent() {
+    return bytesSent;
+  }
+
+  public void setBytesSent(@javax.annotation.Nullable Long bytesSent) {
+    this.bytesSent = bytesSent;
+  }
+
 
   public Connection events(@javax.annotation.Nullable List<ReportEvent> events) {
     this.events = events;
@@ -115,7 +177,45 @@ public class Connection {
   }
 
 
-  public Connection localIp(@javax.annotation.Nullable String localIp) {
+  public Connection ja3(@javax.annotation.Nullable String ja3) {
+    this.ja3 = ja3;
+    return this;
+  }
+
+  /**
+   * Get ja3
+   * @return ja3
+   */
+  @javax.annotation.Nullable
+  public String getJa3() {
+    return ja3;
+  }
+
+  public void setJa3(@javax.annotation.Nullable String ja3) {
+    this.ja3 = ja3;
+  }
+
+
+  public Connection ja3s(@javax.annotation.Nullable String ja3s) {
+    this.ja3s = ja3s;
+    return this;
+  }
+
+  /**
+   * Get ja3s
+   * @return ja3s
+   */
+  @javax.annotation.Nullable
+  public String getJa3s() {
+    return ja3s;
+  }
+
+  public void setJa3s(@javax.annotation.Nullable String ja3s) {
+    this.ja3s = ja3s;
+  }
+
+
+  public Connection localIp(@javax.annotation.Nonnull String localIp) {
     this.localIp = localIp;
     return this;
   }
@@ -124,12 +224,12 @@ public class Connection {
    * Get localIp
    * @return localIp
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getLocalIp() {
     return localIp;
   }
 
-  public void setLocalIp(@javax.annotation.Nullable String localIp) {
+  public void setLocalIp(@javax.annotation.Nonnull String localIp) {
     this.localIp = localIp;
   }
 
@@ -153,7 +253,7 @@ public class Connection {
   }
 
 
-  public Connection protocol(@javax.annotation.Nullable String protocol) {
+  public Connection protocol(@javax.annotation.Nonnull String protocol) {
     this.protocol = protocol;
     return this;
   }
@@ -162,17 +262,17 @@ public class Connection {
    * Get protocol
    * @return protocol
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getProtocol() {
     return protocol;
   }
 
-  public void setProtocol(@javax.annotation.Nullable String protocol) {
+  public void setProtocol(@javax.annotation.Nonnull String protocol) {
     this.protocol = protocol;
   }
 
 
-  public Connection remoteIp(@javax.annotation.Nullable String remoteIp) {
+  public Connection remoteIp(@javax.annotation.Nonnull String remoteIp) {
     this.remoteIp = remoteIp;
     return this;
   }
@@ -181,12 +281,12 @@ public class Connection {
    * Get remoteIp
    * @return remoteIp
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getRemoteIp() {
     return remoteIp;
   }
 
-  public void setRemoteIp(@javax.annotation.Nullable String remoteIp) {
+  public void setRemoteIp(@javax.annotation.Nonnull String remoteIp) {
     this.remoteIp = remoteIp;
   }
 
@@ -209,50 +309,33 @@ public class Connection {
     this.remotePort = remotePort;
   }
 
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
 
-  /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
-   *
-   * @param key name of the property
-   * @param value value of the property
-   * @return the Connection instance itself
-   */
-  public Connection putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
+  public Connection tcpCarvedFiles(@javax.annotation.Nullable List<TcpCarvedFile> tcpCarvedFiles) {
+    this.tcpCarvedFiles = tcpCarvedFiles;
+    return this;
+  }
+
+  public Connection addTcpCarvedFilesItem(TcpCarvedFile tcpCarvedFilesItem) {
+    if (this.tcpCarvedFiles == null) {
+      this.tcpCarvedFiles = new ArrayList<>();
     }
-    this.additionalProperties.put(key, value);
+    this.tcpCarvedFiles.add(tcpCarvedFilesItem);
     return this;
   }
 
   /**
-   * Return the additional (undeclared) property.
-   *
-   * @return a map of objects
+   * Get tcpCarvedFiles
+   * @return tcpCarvedFiles
    */
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
+  @javax.annotation.Nullable
+  public List<TcpCarvedFile> getTcpCarvedFiles() {
+    return tcpCarvedFiles;
   }
 
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   *
-   * @param key name of the property
-   * @return an object
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-        return null;
-    }
-    return this.additionalProperties.get(key);
+  public void setTcpCarvedFiles(@javax.annotation.Nullable List<TcpCarvedFile> tcpCarvedFiles) {
+    this.tcpCarvedFiles = tcpCarvedFiles;
   }
+
 
 
   @Override
@@ -264,13 +347,17 @@ public class Connection {
       return false;
     }
     Connection connection = (Connection) o;
-    return Objects.equals(this.events, connection.events) &&
+    return Objects.equals(this.bytesReceived, connection.bytesReceived) &&
+        Objects.equals(this.bytesSent, connection.bytesSent) &&
+        Objects.equals(this.events, connection.events) &&
+        Objects.equals(this.ja3, connection.ja3) &&
+        Objects.equals(this.ja3s, connection.ja3s) &&
         Objects.equals(this.localIp, connection.localIp) &&
         Objects.equals(this.localPort, connection.localPort) &&
         Objects.equals(this.protocol, connection.protocol) &&
         Objects.equals(this.remoteIp, connection.remoteIp) &&
-        Objects.equals(this.remotePort, connection.remotePort)&&
-        Objects.equals(this.additionalProperties, connection.additionalProperties);
+        Objects.equals(this.remotePort, connection.remotePort) &&
+        Objects.equals(this.tcpCarvedFiles, connection.tcpCarvedFiles);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -279,7 +366,7 @@ public class Connection {
 
   @Override
   public int hashCode() {
-    return Objects.hash(events, localIp, localPort, protocol, remoteIp, remotePort, additionalProperties);
+    return Objects.hash(bytesReceived, bytesSent, events, ja3, ja3s, localIp, localPort, protocol, remoteIp, remotePort, tcpCarvedFiles);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -293,13 +380,17 @@ public class Connection {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Connection {\n");
+    sb.append("    bytesReceived: ").append(toIndentedString(bytesReceived)).append("\n");
+    sb.append("    bytesSent: ").append(toIndentedString(bytesSent)).append("\n");
     sb.append("    events: ").append(toIndentedString(events)).append("\n");
+    sb.append("    ja3: ").append(toIndentedString(ja3)).append("\n");
+    sb.append("    ja3s: ").append(toIndentedString(ja3s)).append("\n");
     sb.append("    localIp: ").append(toIndentedString(localIp)).append("\n");
     sb.append("    localPort: ").append(toIndentedString(localPort)).append("\n");
     sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
     sb.append("    remoteIp: ").append(toIndentedString(remoteIp)).append("\n");
     sb.append("    remotePort: ").append(toIndentedString(remotePort)).append("\n");
-    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
+    sb.append("    tcpCarvedFiles: ").append(toIndentedString(tcpCarvedFiles)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -309,10 +400,7 @@ public class Connection {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -321,7 +409,7 @@ public class Connection {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("events", "local_ip", "local_port", "protocol", "remote_ip", "remote_port"));
+    openapiFields = new HashSet<String>(Arrays.asList("bytes_received", "bytes_sent", "events", "ja3", "ja3s", "local_ip", "local_port", "protocol", "remote_ip", "remote_port", "tcp_carved_files"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("local_ip", "local_port", "protocol", "remote_ip", "remote_port"));
@@ -336,29 +424,67 @@ public class Connection {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!Connection.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in Connection is not found in the empty JSON string", Connection.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in Connection is not found in the empty JSON string", Connection.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!Connection.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `Connection` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : Connection.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("events") != null && !jsonObj.get("events").isJsonNull() && !jsonObj.get("events").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `events` to be an array in the JSON string but got `%s`", jsonObj.get("events").toString()));
+      if (jsonObj.get("events") != null && !jsonObj.get("events").isJsonNull()) {
+        JsonArray jsonArrayevents = jsonObj.getAsJsonArray("events");
+        if (jsonArrayevents != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("events").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `events` to be an array in the JSON string but got `%s`", jsonObj.get("events").toString()));
+          }
+
+          // validate the optional field `events` (array)
+          for (int i = 0; i < jsonArrayevents.size(); i++) {
+            ReportEvent.validateJsonElement(jsonArrayevents.get(i));
+          };
+        }
       }
-      if ((jsonObj.get("local_ip") != null && !jsonObj.get("local_ip").isJsonNull()) && !jsonObj.get("local_ip").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `local_ip` to be a primitive type in the JSON string but got `%s`", jsonObj.get("local_ip").toString()));
+      if ((jsonObj.get("ja3") != null && !jsonObj.get("ja3").isJsonNull()) && !jsonObj.get("ja3").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ja3` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ja3").toString()));
       }
-      if ((jsonObj.get("protocol") != null && !jsonObj.get("protocol").isJsonNull()) && !jsonObj.get("protocol").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `protocol` to be a primitive type in the JSON string but got `%s`", jsonObj.get("protocol").toString()));
+      if ((jsonObj.get("ja3s") != null && !jsonObj.get("ja3s").isJsonNull()) && !jsonObj.get("ja3s").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ja3s` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ja3s").toString()));
       }
-      if ((jsonObj.get("remote_ip") != null && !jsonObj.get("remote_ip").isJsonNull()) && !jsonObj.get("remote_ip").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `remote_ip` to be a primitive type in the JSON string but got `%s`", jsonObj.get("remote_ip").toString()));
+      if (!jsonObj.get("local_ip").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `local_ip` to be a primitive type in the JSON string but got `%s`", jsonObj.get("local_ip").toString()));
+      }
+      if (!jsonObj.get("protocol").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `protocol` to be a primitive type in the JSON string but got `%s`", jsonObj.get("protocol").toString()));
+      }
+      if (!jsonObj.get("remote_ip").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `remote_ip` to be a primitive type in the JSON string but got `%s`", jsonObj.get("remote_ip").toString()));
+      }
+      if (jsonObj.get("tcp_carved_files") != null && !jsonObj.get("tcp_carved_files").isJsonNull()) {
+        JsonArray jsonArraytcpCarvedFiles = jsonObj.getAsJsonArray("tcp_carved_files");
+        if (jsonArraytcpCarvedFiles != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("tcp_carved_files").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tcp_carved_files` to be an array in the JSON string but got `%s`", jsonObj.get("tcp_carved_files").toString()));
+          }
+
+          // validate the optional field `tcp_carved_files` (array)
+          for (int i = 0; i < jsonArraytcpCarvedFiles.size(); i++) {
+            TcpCarvedFile.validateJsonElement(jsonArraytcpCarvedFiles.get(i));
+          };
+        }
       }
   }
 
@@ -377,28 +503,6 @@ public class Connection {
            @Override
            public void write(JsonWriter out, Connection value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             obj.remove("additionalProperties");
-             // serialize additional properties
-             if (value.getAdditionalProperties() != null) {
-               for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
-               }
-             }
              elementAdapter.write(out, obj);
            }
 
@@ -406,28 +510,7 @@ public class Connection {
            public Connection read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
-             JsonObject jsonObj = jsonElement.getAsJsonObject();
-             // store additional fields in the deserialized instance
-             Connection instance = thisAdapter.fromJsonTree(jsonObj);
-             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
-               if (!openapiFields.contains(entry.getKey())) {
-                 if (entry.getValue().isJsonPrimitive()) { // primitive type
-                   if (entry.getValue().getAsJsonPrimitive().isString())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsString());
-                   else if (entry.getValue().getAsJsonPrimitive().isNumber())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsNumber());
-                   else if (entry.getValue().getAsJsonPrimitive().isBoolean())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
-                   else
-                     throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
-                 } else if (entry.getValue().isJsonArray()) {
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
-                 } else { // JSON object
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), HashMap.class));
-                 }
-               }
-             }
-             return instance;
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

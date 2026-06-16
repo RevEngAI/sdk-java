@@ -1,13 +1,13 @@
 
 
-# FunctionInfoInputFuncDepsInner
+# FuncDepsInner
 
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**lastChange** | **String** |  |  [optional] |
+|**lastChange** | **String** | Timestamp of the last change to this global variable |  [optional] |
 |**name** | **String** | Name of the global variable |  |
 |**size** | **Integer** | Size of the global variable in bytes |  |
 |**members** | **Map&lt;String, Integer&gt;** | Dictionary of enumeration members and their values |  |

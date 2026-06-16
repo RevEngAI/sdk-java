@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**events** | **List&lt;ReportEvent&gt;** |  |  [optional] |
+|**events** | [**List&lt;ReportEvent&gt;**](ReportEvent.md) |  |  [optional] |
 |**name** | **String** |  |  |
 
 

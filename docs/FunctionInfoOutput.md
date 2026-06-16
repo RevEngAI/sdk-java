@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**funcTypes** | [**FunctionTypeOutput**](FunctionTypeOutput.md) |  |  [optional] |
-|**funcDeps** | [**List&lt;FunctionInfoInputFuncDepsInner&gt;**](FunctionInfoInputFuncDepsInner.md) | List of function dependencies |  |
+|**funcTypes** | [**FunctionTypeInput**](FunctionTypeInput.md) | Function type information |  [optional] |
+|**funcDeps** | [**List&lt;FuncDepsInner&gt;**](FuncDepsInner.md) | List of function dependencies |  |
 
 
 

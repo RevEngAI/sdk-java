@@ -10,9 +10,9 @@
 |**type** | [**TypeEnum**](#TypeEnum) | Type of the IOC |  |
 |**value** | **String** | Value of the IOC |  |
 |**description** | **String** | Description of the IOC |  |
-|**source** | **String** |  |  [optional] |
-|**functionId** | **Integer** |  |  [optional] |
-|**functionName** | **String** |  |  [optional] |
+|**source** | **String** | The source address where the IOC can be found in the binary if possible. |  [optional] |
+|**functionId** | **Integer** | Unique identifier of the function containing the IOC |  [optional] |
+|**functionName** | **String** | Name of the function containing the IOC |  [optional] |
 
 
 

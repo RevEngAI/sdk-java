@@ -13,7 +13,6 @@
 package ai.reveng.model;
 
 import java.util.Objects;
-import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -44,7 +43,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.Locale;
 
 import ai.reveng.invoker.JSON;
 
@@ -358,10 +356,7 @@ public class FunctionMatchingFilters {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -385,29 +380,29 @@ public class FunctionMatchingFilters {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!FunctionMatchingFilters.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in FunctionMatchingFilters is not found in the empty JSON string", FunctionMatchingFilters.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in FunctionMatchingFilters is not found in the empty JSON string", FunctionMatchingFilters.openapiRequiredFields.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
       if (jsonObj.get("binary_ids") != null && !jsonObj.get("binary_ids").isJsonNull() && !jsonObj.get("binary_ids").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `binary_ids` to be an array in the JSON string but got `%s`", jsonObj.get("binary_ids").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `binary_ids` to be an array in the JSON string but got `%s`", jsonObj.get("binary_ids").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("collection_ids") != null && !jsonObj.get("collection_ids").isJsonNull() && !jsonObj.get("collection_ids").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `collection_ids` to be an array in the JSON string but got `%s`", jsonObj.get("collection_ids").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `collection_ids` to be an array in the JSON string but got `%s`", jsonObj.get("collection_ids").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("function_ids") != null && !jsonObj.get("function_ids").isJsonNull() && !jsonObj.get("function_ids").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `function_ids` to be an array in the JSON string but got `%s`", jsonObj.get("function_ids").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `function_ids` to be an array in the JSON string but got `%s`", jsonObj.get("function_ids").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("user_ids") != null && !jsonObj.get("user_ids").isJsonNull() && !jsonObj.get("user_ids").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `user_ids` to be an array in the JSON string but got `%s`", jsonObj.get("user_ids").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `user_ids` to be an array in the JSON string but got `%s`", jsonObj.get("user_ids").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("debug_types") != null && !jsonObj.get("debug_types").isJsonNull() && !jsonObj.get("debug_types").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `debug_types` to be an array in the JSON string but got `%s`", jsonObj.get("debug_types").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `debug_types` to be an array in the JSON string but got `%s`", jsonObj.get("debug_types").toString()));
       }
   }
 
@@ -468,7 +463,7 @@ public class FunctionMatchingFilters {
                    else if (entry.getValue().getAsJsonPrimitive().isBoolean())
                      instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
                    else
-                     throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
+                     throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
                  } else if (entry.getValue().isJsonArray()) {
                      instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
                  } else { // JSON object

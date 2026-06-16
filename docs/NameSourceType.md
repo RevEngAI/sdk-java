@@ -8,9 +8,9 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**type** | [**TypeEnum**](#TypeEnum) | The source (process) the function name came from |  |
-|**functionId** | **Integer** |  |  [optional] |
-|**binaryId** | **Integer** |  |  [optional] |
-|**analysisId** | **Integer** |  |  [optional] |
+|**functionId** | **Integer** | The function id of the function the function name was copied from. |  [optional] |
+|**binaryId** | **Integer** | The binary id of the function that the function name was copied from. |  [optional] |
+|**analysisId** | **Integer** | The analysis id of the function that the function name was copied from. |  [optional] |
 
 
 

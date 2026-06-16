@@ -13,8 +13,7 @@
 package ai.reveng.model;
 
 import java.util.Objects;
-import java.util.Locale;
-import ai.reveng.model.FunctionInfoInputFuncDepsInner;
+import ai.reveng.model.FuncDepsInner;
 import ai.reveng.model.FunctionTypeInput;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -47,7 +46,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.Locale;
 
 import ai.reveng.invoker.JSON;
 
@@ -64,7 +62,7 @@ public class FunctionInfoInput {
   public static final String SERIALIZED_NAME_FUNC_DEPS = "func_deps";
   @SerializedName(SERIALIZED_NAME_FUNC_DEPS)
   @javax.annotation.Nonnull
-  private List<FunctionInfoInputFuncDepsInner> funcDeps = new ArrayList<>();
+  private List<FuncDepsInner> funcDeps = new ArrayList<>();
 
   public FunctionInfoInput() {
   }
@@ -75,7 +73,7 @@ public class FunctionInfoInput {
   }
 
   /**
-   * Get funcTypes
+   * Function type information
    * @return funcTypes
    */
   @javax.annotation.Nullable
@@ -88,12 +86,12 @@ public class FunctionInfoInput {
   }
 
 
-  public FunctionInfoInput funcDeps(@javax.annotation.Nonnull List<FunctionInfoInputFuncDepsInner> funcDeps) {
+  public FunctionInfoInput funcDeps(@javax.annotation.Nonnull List<FuncDepsInner> funcDeps) {
     this.funcDeps = funcDeps;
     return this;
   }
 
-  public FunctionInfoInput addFuncDepsItem(FunctionInfoInputFuncDepsInner funcDepsItem) {
+  public FunctionInfoInput addFuncDepsItem(FuncDepsInner funcDepsItem) {
     if (this.funcDeps == null) {
       this.funcDeps = new ArrayList<>();
     }
@@ -106,11 +104,11 @@ public class FunctionInfoInput {
    * @return funcDeps
    */
   @javax.annotation.Nonnull
-  public List<FunctionInfoInputFuncDepsInner> getFuncDeps() {
+  public List<FuncDepsInner> getFuncDeps() {
     return funcDeps;
   }
 
-  public void setFuncDeps(@javax.annotation.Nonnull List<FunctionInfoInputFuncDepsInner> funcDeps) {
+  public void setFuncDeps(@javax.annotation.Nonnull List<FuncDepsInner> funcDeps) {
     this.funcDeps = funcDeps;
   }
 
@@ -206,10 +204,7 @@ public class FunctionInfoInput {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -233,14 +228,14 @@ public class FunctionInfoInput {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!FunctionInfoInput.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in FunctionInfoInput is not found in the empty JSON string", FunctionInfoInput.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in FunctionInfoInput is not found in the empty JSON string", FunctionInfoInput.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : FunctionInfoInput.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -248,16 +243,16 @@ public class FunctionInfoInput {
       if (jsonObj.get("func_types") != null && !jsonObj.get("func_types").isJsonNull()) {
         FunctionTypeInput.validateJsonElement(jsonObj.get("func_types"));
       }
-      // ensure the json data is an array
-      if (!jsonObj.get("func_deps").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `func_deps` to be an array in the JSON string but got `%s`", jsonObj.get("func_deps").toString()));
+      if (jsonObj.get("func_deps") != null) {
+        if (!jsonObj.get("func_deps").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `func_deps` to be an array in the JSON string but got `%s`", jsonObj.get("func_deps").toString()));
+        }
+        JsonArray jsonArrayfuncDeps = jsonObj.getAsJsonArray("func_deps");
+        // validate the required field `func_deps` (array)
+        for (int i = 0; i < jsonArrayfuncDeps.size(); i++) {
+          FuncDepsInner.validateJsonElement(jsonArrayfuncDeps.get(i));
+        }
       }
-
-      JsonArray jsonArrayfuncDeps = jsonObj.getAsJsonArray("func_deps");
-      // validate the required field `func_deps` (array)
-      for (int i = 0; i < jsonArrayfuncDeps.size(); i++) {
-        FunctionInfoInputFuncDepsInner.validateJsonElement(jsonArrayfuncDeps.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -317,7 +312,7 @@ public class FunctionInfoInput {
                    else if (entry.getValue().getAsJsonPrimitive().isBoolean())
                      instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
                    else
-                     throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
+                     throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
                  } else if (entry.getValue().isJsonArray()) {
                      instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
                  } else { // JSON object

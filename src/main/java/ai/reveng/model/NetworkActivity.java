@@ -13,7 +13,6 @@
 package ai.reveng.model;
 
 import java.util.Objects;
-import java.util.Locale;
 import ai.reveng.model.Connection;
 import ai.reveng.model.DnsQuery;
 import ai.reveng.model.ExtractedURL;
@@ -49,7 +48,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.Locale;
 
 import ai.reveng.invoker.JSON;
 
@@ -188,50 +186,6 @@ public class NetworkActivity {
     this.httpRequests = httpRequests;
   }
 
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
-
-  /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
-   *
-   * @param key name of the property
-   * @param value value of the property
-   * @return the NetworkActivity instance itself
-   */
-  public NetworkActivity putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
-    }
-    this.additionalProperties.put(key, value);
-    return this;
-  }
-
-  /**
-   * Return the additional (undeclared) property.
-   *
-   * @return a map of objects
-   */
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
-  }
-
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   *
-   * @param key name of the property
-   * @return an object
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-        return null;
-    }
-    return this.additionalProperties.get(key);
-  }
 
 
   @Override
@@ -246,8 +200,7 @@ public class NetworkActivity {
     return Objects.equals(this.connections, networkActivity.connections) &&
         Objects.equals(this.dnsQueries, networkActivity.dnsQueries) &&
         Objects.equals(this.extractedUrls, networkActivity.extractedUrls) &&
-        Objects.equals(this.httpRequests, networkActivity.httpRequests)&&
-        Objects.equals(this.additionalProperties, networkActivity.additionalProperties);
+        Objects.equals(this.httpRequests, networkActivity.httpRequests);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -256,7 +209,7 @@ public class NetworkActivity {
 
   @Override
   public int hashCode() {
-    return Objects.hash(connections, dnsQueries, extractedUrls, httpRequests, additionalProperties);
+    return Objects.hash(connections, dnsQueries, extractedUrls, httpRequests);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -274,7 +227,6 @@ public class NetworkActivity {
     sb.append("    dnsQueries: ").append(toIndentedString(dnsQueries)).append("\n");
     sb.append("    extractedUrls: ").append(toIndentedString(extractedUrls)).append("\n");
     sb.append("    httpRequests: ").append(toIndentedString(httpRequests)).append("\n");
-    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -284,10 +236,7 @@ public class NetworkActivity {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -311,25 +260,73 @@ public class NetworkActivity {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!NetworkActivity.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in NetworkActivity is not found in the empty JSON string", NetworkActivity.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in NetworkActivity is not found in the empty JSON string", NetworkActivity.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!NetworkActivity.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `NetworkActivity` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("connections") != null && !jsonObj.get("connections").isJsonNull() && !jsonObj.get("connections").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `connections` to be an array in the JSON string but got `%s`", jsonObj.get("connections").toString()));
+      if (jsonObj.get("connections") != null && !jsonObj.get("connections").isJsonNull()) {
+        JsonArray jsonArrayconnections = jsonObj.getAsJsonArray("connections");
+        if (jsonArrayconnections != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("connections").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `connections` to be an array in the JSON string but got `%s`", jsonObj.get("connections").toString()));
+          }
+
+          // validate the optional field `connections` (array)
+          for (int i = 0; i < jsonArrayconnections.size(); i++) {
+            Connection.validateJsonElement(jsonArrayconnections.get(i));
+          };
+        }
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("dns_queries") != null && !jsonObj.get("dns_queries").isJsonNull() && !jsonObj.get("dns_queries").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `dns_queries` to be an array in the JSON string but got `%s`", jsonObj.get("dns_queries").toString()));
+      if (jsonObj.get("dns_queries") != null && !jsonObj.get("dns_queries").isJsonNull()) {
+        JsonArray jsonArraydnsQueries = jsonObj.getAsJsonArray("dns_queries");
+        if (jsonArraydnsQueries != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("dns_queries").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `dns_queries` to be an array in the JSON string but got `%s`", jsonObj.get("dns_queries").toString()));
+          }
+
+          // validate the optional field `dns_queries` (array)
+          for (int i = 0; i < jsonArraydnsQueries.size(); i++) {
+            DnsQuery.validateJsonElement(jsonArraydnsQueries.get(i));
+          };
+        }
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("extracted_urls") != null && !jsonObj.get("extracted_urls").isJsonNull() && !jsonObj.get("extracted_urls").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `extracted_urls` to be an array in the JSON string but got `%s`", jsonObj.get("extracted_urls").toString()));
+      if (jsonObj.get("extracted_urls") != null && !jsonObj.get("extracted_urls").isJsonNull()) {
+        JsonArray jsonArrayextractedUrls = jsonObj.getAsJsonArray("extracted_urls");
+        if (jsonArrayextractedUrls != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("extracted_urls").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `extracted_urls` to be an array in the JSON string but got `%s`", jsonObj.get("extracted_urls").toString()));
+          }
+
+          // validate the optional field `extracted_urls` (array)
+          for (int i = 0; i < jsonArrayextractedUrls.size(); i++) {
+            ExtractedURL.validateJsonElement(jsonArrayextractedUrls.get(i));
+          };
+        }
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("http_requests") != null && !jsonObj.get("http_requests").isJsonNull() && !jsonObj.get("http_requests").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `http_requests` to be an array in the JSON string but got `%s`", jsonObj.get("http_requests").toString()));
+      if (jsonObj.get("http_requests") != null && !jsonObj.get("http_requests").isJsonNull()) {
+        JsonArray jsonArrayhttpRequests = jsonObj.getAsJsonArray("http_requests");
+        if (jsonArrayhttpRequests != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("http_requests").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `http_requests` to be an array in the JSON string but got `%s`", jsonObj.get("http_requests").toString()));
+          }
+
+          // validate the optional field `http_requests` (array)
+          for (int i = 0; i < jsonArrayhttpRequests.size(); i++) {
+            HttpRequest.validateJsonElement(jsonArrayhttpRequests.get(i));
+          };
+        }
       }
   }
 
@@ -348,28 +345,6 @@ public class NetworkActivity {
            @Override
            public void write(JsonWriter out, NetworkActivity value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             obj.remove("additionalProperties");
-             // serialize additional properties
-             if (value.getAdditionalProperties() != null) {
-               for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
-               }
-             }
              elementAdapter.write(out, obj);
            }
 
@@ -377,28 +352,7 @@ public class NetworkActivity {
            public NetworkActivity read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
-             JsonObject jsonObj = jsonElement.getAsJsonObject();
-             // store additional fields in the deserialized instance
-             NetworkActivity instance = thisAdapter.fromJsonTree(jsonObj);
-             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
-               if (!openapiFields.contains(entry.getKey())) {
-                 if (entry.getValue().isJsonPrimitive()) { // primitive type
-                   if (entry.getValue().getAsJsonPrimitive().isString())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsString());
-                   else if (entry.getValue().getAsJsonPrimitive().isNumber())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsNumber());
-                   else if (entry.getValue().getAsJsonPrimitive().isBoolean())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
-                   else
-                     throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
-                 } else if (entry.getValue().isJsonArray()) {
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
-                 } else { // JSON object
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), HashMap.class));
-                 }
-               }
-             }
-             return instance;
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

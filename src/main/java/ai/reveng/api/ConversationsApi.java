@@ -32,8 +32,8 @@ import ai.reveng.model.Conversation;
 import ai.reveng.model.ConversationWithEvents;
 import ai.reveng.model.CreateConversationRequest;
 import ai.reveng.model.SendMessageRequest;
+import ai.reveng.model.ServerSentEventsInner;
 import ai.reveng.model.StatusResponse;
-import ai.reveng.model.StreamEvents200ResponseInner;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -1024,7 +1024,7 @@ public class ConversationsApi {
      * Opens a Server-Sent Events stream for the given conversation. Events include run lifecycle updates, streaming text deltas, tool call progress, and more. Use the &#x60;last_event_id&#x60; query parameter to replay missed events after a reconnection.
      * @param id Conversation UUID (required)
      * @param lastEventId Replay events after this ID (optional)
-     * @return List&lt;StreamEvents200ResponseInner&gt;
+     * @return List&lt;ServerSentEventsInner&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -1034,8 +1034,8 @@ public class ConversationsApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public List<StreamEvents200ResponseInner> streamEvents(@javax.annotation.Nonnull UUID id, @javax.annotation.Nullable Long lastEventId) throws ApiException {
-        ApiResponse<List<StreamEvents200ResponseInner>> localVarResp = streamEventsWithHttpInfo(id, lastEventId);
+    public List<ServerSentEventsInner> streamEvents(@javax.annotation.Nonnull UUID id, @javax.annotation.Nullable Long lastEventId) throws ApiException {
+        ApiResponse<List<ServerSentEventsInner>> localVarResp = streamEventsWithHttpInfo(id, lastEventId);
         return localVarResp.getData();
     }
 
@@ -1044,7 +1044,7 @@ public class ConversationsApi {
      * Opens a Server-Sent Events stream for the given conversation. Events include run lifecycle updates, streaming text deltas, tool call progress, and more. Use the &#x60;last_event_id&#x60; query parameter to replay missed events after a reconnection.
      * @param id Conversation UUID (required)
      * @param lastEventId Replay events after this ID (optional)
-     * @return ApiResponse&lt;List&lt;StreamEvents200ResponseInner&gt;&gt;
+     * @return ApiResponse&lt;List&lt;ServerSentEventsInner&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -1054,9 +1054,9 @@ public class ConversationsApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<StreamEvents200ResponseInner>> streamEventsWithHttpInfo(@javax.annotation.Nonnull UUID id, @javax.annotation.Nullable Long lastEventId) throws ApiException {
+    public ApiResponse<List<ServerSentEventsInner>> streamEventsWithHttpInfo(@javax.annotation.Nonnull UUID id, @javax.annotation.Nullable Long lastEventId) throws ApiException {
         okhttp3.Call localVarCall = streamEventsValidateBeforeCall(id, lastEventId, null);
-        Type localVarReturnType = new TypeToken<List<StreamEvents200ResponseInner>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<ServerSentEventsInner>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1076,10 +1076,10 @@ public class ConversationsApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call streamEventsAsync(@javax.annotation.Nonnull UUID id, @javax.annotation.Nullable Long lastEventId, final ApiCallback<List<StreamEvents200ResponseInner>> _callback) throws ApiException {
+    public okhttp3.Call streamEventsAsync(@javax.annotation.Nonnull UUID id, @javax.annotation.Nullable Long lastEventId, final ApiCallback<List<ServerSentEventsInner>> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = streamEventsValidateBeforeCall(id, lastEventId, _callback);
-        Type localVarReturnType = new TypeToken<List<StreamEvents200ResponseInner>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<ServerSentEventsInner>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

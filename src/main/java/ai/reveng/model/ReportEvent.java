@@ -13,7 +13,6 @@
 package ai.reveng.model;
 
 import java.util.Objects;
-import java.util.Locale;
 import ai.reveng.model.ApiCall;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -46,7 +45,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.Locale;
 
 import ai.reveng.invoker.JSON;
 
@@ -60,19 +58,29 @@ public class ReportEvent {
   @javax.annotation.Nullable
   private List<ApiCall> apiCalls;
 
+  public static final String SERIALIZED_NAME_COUNT = "count";
+  @SerializedName(SERIALIZED_NAME_COUNT)
+  @javax.annotation.Nullable
+  private Long count;
+
+  public static final String SERIALIZED_NAME_DESIRED_ACCESS = "desired_access";
+  @SerializedName(SERIALIZED_NAME_DESIRED_ACCESS)
+  @javax.annotation.Nullable
+  private List<String> desiredAccess;
+
   public static final String SERIALIZED_NAME_PROCESS_SEQID = "process_seqid";
   @SerializedName(SERIALIZED_NAME_PROCESS_SEQID)
   @javax.annotation.Nullable
   private Long processSeqid;
 
-  public static final String SERIALIZED_NAME_TOTAL_BYTES_REQUESTED = "total_bytes_requested";
-  @SerializedName(SERIALIZED_NAME_TOTAL_BYTES_REQUESTED)
+  public static final String SERIALIZED_NAME_TOTAL_BYTES = "total_bytes";
+  @SerializedName(SERIALIZED_NAME_TOTAL_BYTES)
   @javax.annotation.Nullable
-  private Long totalBytesRequested;
+  private Long totalBytes;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String type;
 
   public static final String SERIALIZED_NAME_VALUE = "value";
@@ -84,11 +92,6 @@ public class ReportEvent {
   @SerializedName(SERIALIZED_NAME_VALUE_NAME)
   @javax.annotation.Nullable
   private String valueName;
-
-  public static final String SERIALIZED_NAME_WRITE_COUNT = "write_count";
-  @SerializedName(SERIALIZED_NAME_WRITE_COUNT)
-  @javax.annotation.Nullable
-  private Long writeCount;
 
   public ReportEvent() {
   }
@@ -120,6 +123,52 @@ public class ReportEvent {
   }
 
 
+  public ReportEvent count(@javax.annotation.Nullable Long count) {
+    this.count = count;
+    return this;
+  }
+
+  /**
+   * Get count
+   * @return count
+   */
+  @javax.annotation.Nullable
+  public Long getCount() {
+    return count;
+  }
+
+  public void setCount(@javax.annotation.Nullable Long count) {
+    this.count = count;
+  }
+
+
+  public ReportEvent desiredAccess(@javax.annotation.Nullable List<String> desiredAccess) {
+    this.desiredAccess = desiredAccess;
+    return this;
+  }
+
+  public ReportEvent addDesiredAccessItem(String desiredAccessItem) {
+    if (this.desiredAccess == null) {
+      this.desiredAccess = new ArrayList<>();
+    }
+    this.desiredAccess.add(desiredAccessItem);
+    return this;
+  }
+
+  /**
+   * Get desiredAccess
+   * @return desiredAccess
+   */
+  @javax.annotation.Nullable
+  public List<String> getDesiredAccess() {
+    return desiredAccess;
+  }
+
+  public void setDesiredAccess(@javax.annotation.Nullable List<String> desiredAccess) {
+    this.desiredAccess = desiredAccess;
+  }
+
+
   public ReportEvent processSeqid(@javax.annotation.Nullable Long processSeqid) {
     this.processSeqid = processSeqid;
     return this;
@@ -139,26 +188,26 @@ public class ReportEvent {
   }
 
 
-  public ReportEvent totalBytesRequested(@javax.annotation.Nullable Long totalBytesRequested) {
-    this.totalBytesRequested = totalBytesRequested;
+  public ReportEvent totalBytes(@javax.annotation.Nullable Long totalBytes) {
+    this.totalBytes = totalBytes;
     return this;
   }
 
   /**
-   * Get totalBytesRequested
-   * @return totalBytesRequested
+   * Get totalBytes
+   * @return totalBytes
    */
   @javax.annotation.Nullable
-  public Long getTotalBytesRequested() {
-    return totalBytesRequested;
+  public Long getTotalBytes() {
+    return totalBytes;
   }
 
-  public void setTotalBytesRequested(@javax.annotation.Nullable Long totalBytesRequested) {
-    this.totalBytesRequested = totalBytesRequested;
+  public void setTotalBytes(@javax.annotation.Nullable Long totalBytes) {
+    this.totalBytes = totalBytes;
   }
 
 
-  public ReportEvent type(@javax.annotation.Nullable String type) {
+  public ReportEvent type(@javax.annotation.Nonnull String type) {
     this.type = type;
     return this;
   }
@@ -167,12 +216,12 @@ public class ReportEvent {
    * Get type
    * @return type
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getType() {
     return type;
   }
 
-  public void setType(@javax.annotation.Nullable String type) {
+  public void setType(@javax.annotation.Nonnull String type) {
     this.type = type;
   }
 
@@ -215,69 +264,6 @@ public class ReportEvent {
   }
 
 
-  public ReportEvent writeCount(@javax.annotation.Nullable Long writeCount) {
-    this.writeCount = writeCount;
-    return this;
-  }
-
-  /**
-   * Get writeCount
-   * @return writeCount
-   */
-  @javax.annotation.Nullable
-  public Long getWriteCount() {
-    return writeCount;
-  }
-
-  public void setWriteCount(@javax.annotation.Nullable Long writeCount) {
-    this.writeCount = writeCount;
-  }
-
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
-
-  /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
-   *
-   * @param key name of the property
-   * @param value value of the property
-   * @return the ReportEvent instance itself
-   */
-  public ReportEvent putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
-    }
-    this.additionalProperties.put(key, value);
-    return this;
-  }
-
-  /**
-   * Return the additional (undeclared) property.
-   *
-   * @return a map of objects
-   */
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
-  }
-
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   *
-   * @param key name of the property
-   * @return an object
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-        return null;
-    }
-    return this.additionalProperties.get(key);
-  }
-
 
   @Override
   public boolean equals(Object o) {
@@ -289,13 +275,13 @@ public class ReportEvent {
     }
     ReportEvent reportEvent = (ReportEvent) o;
     return Objects.equals(this.apiCalls, reportEvent.apiCalls) &&
+        Objects.equals(this.count, reportEvent.count) &&
+        Objects.equals(this.desiredAccess, reportEvent.desiredAccess) &&
         Objects.equals(this.processSeqid, reportEvent.processSeqid) &&
-        Objects.equals(this.totalBytesRequested, reportEvent.totalBytesRequested) &&
+        Objects.equals(this.totalBytes, reportEvent.totalBytes) &&
         Objects.equals(this.type, reportEvent.type) &&
         Objects.equals(this.value, reportEvent.value) &&
-        Objects.equals(this.valueName, reportEvent.valueName) &&
-        Objects.equals(this.writeCount, reportEvent.writeCount)&&
-        Objects.equals(this.additionalProperties, reportEvent.additionalProperties);
+        Objects.equals(this.valueName, reportEvent.valueName);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -304,7 +290,7 @@ public class ReportEvent {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiCalls, processSeqid, totalBytesRequested, type, value, valueName, writeCount, additionalProperties);
+    return Objects.hash(apiCalls, count, desiredAccess, processSeqid, totalBytes, type, value, valueName);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -319,13 +305,13 @@ public class ReportEvent {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReportEvent {\n");
     sb.append("    apiCalls: ").append(toIndentedString(apiCalls)).append("\n");
+    sb.append("    count: ").append(toIndentedString(count)).append("\n");
+    sb.append("    desiredAccess: ").append(toIndentedString(desiredAccess)).append("\n");
     sb.append("    processSeqid: ").append(toIndentedString(processSeqid)).append("\n");
-    sb.append("    totalBytesRequested: ").append(toIndentedString(totalBytesRequested)).append("\n");
+    sb.append("    totalBytes: ").append(toIndentedString(totalBytes)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    valueName: ").append(toIndentedString(valueName)).append("\n");
-    sb.append("    writeCount: ").append(toIndentedString(writeCount)).append("\n");
-    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -335,10 +321,7 @@ public class ReportEvent {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -347,7 +330,7 @@ public class ReportEvent {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("api_calls", "process_seqid", "total_bytes_requested", "type", "value", "value_name", "write_count"));
+    openapiFields = new HashSet<String>(Arrays.asList("api_calls", "count", "desired_access", "process_seqid", "total_bytes", "type", "value", "value_name"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("type"));
@@ -362,29 +345,51 @@ public class ReportEvent {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ReportEvent.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in ReportEvent is not found in the empty JSON string", ReportEvent.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ReportEvent is not found in the empty JSON string", ReportEvent.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!ReportEvent.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ReportEvent` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : ReportEvent.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("api_calls") != null && !jsonObj.get("api_calls").isJsonNull() && !jsonObj.get("api_calls").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `api_calls` to be an array in the JSON string but got `%s`", jsonObj.get("api_calls").toString()));
+      if (jsonObj.get("api_calls") != null && !jsonObj.get("api_calls").isJsonNull()) {
+        JsonArray jsonArrayapiCalls = jsonObj.getAsJsonArray("api_calls");
+        if (jsonArrayapiCalls != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("api_calls").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `api_calls` to be an array in the JSON string but got `%s`", jsonObj.get("api_calls").toString()));
+          }
+
+          // validate the optional field `api_calls` (array)
+          for (int i = 0; i < jsonArrayapiCalls.size(); i++) {
+            ApiCall.validateJsonElement(jsonArrayapiCalls.get(i));
+          };
+        }
       }
-      if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("desired_access") != null && !jsonObj.get("desired_access").isJsonNull() && !jsonObj.get("desired_access").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `desired_access` to be an array in the JSON string but got `%s`", jsonObj.get("desired_access").toString()));
+      }
+      if (!jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
       if ((jsonObj.get("value") != null && !jsonObj.get("value").isJsonNull()) && !jsonObj.get("value").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
       }
       if ((jsonObj.get("value_name") != null && !jsonObj.get("value_name").isJsonNull()) && !jsonObj.get("value_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `value_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `value_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value_name").toString()));
       }
   }
 
@@ -403,28 +408,6 @@ public class ReportEvent {
            @Override
            public void write(JsonWriter out, ReportEvent value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             obj.remove("additionalProperties");
-             // serialize additional properties
-             if (value.getAdditionalProperties() != null) {
-               for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
-               }
-             }
              elementAdapter.write(out, obj);
            }
 
@@ -432,28 +415,7 @@ public class ReportEvent {
            public ReportEvent read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
-             JsonObject jsonObj = jsonElement.getAsJsonObject();
-             // store additional fields in the deserialized instance
-             ReportEvent instance = thisAdapter.fromJsonTree(jsonObj);
-             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
-               if (!openapiFields.contains(entry.getKey())) {
-                 if (entry.getValue().isJsonPrimitive()) { // primitive type
-                   if (entry.getValue().getAsJsonPrimitive().isString())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsString());
-                   else if (entry.getValue().getAsJsonPrimitive().isNumber())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsNumber());
-                   else if (entry.getValue().getAsJsonPrimitive().isBoolean())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
-                   else
-                     throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
-                 } else if (entry.getValue().isJsonArray()) {
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
-                 } else { // JSON object
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), HashMap.class));
-                 }
-               }
-             }
-             return instance;
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

@@ -13,7 +13,6 @@
 package ai.reveng.model;
 
 import java.util.Objects;
-import java.util.Locale;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -42,7 +41,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.Locale;
 
 import ai.reveng.invoker.JSON;
 
@@ -390,10 +388,7 @@ public class MITRETechnique {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -417,43 +412,43 @@ public class MITRETechnique {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!MITRETechnique.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field(s) %s in MITRETechnique is not found in the empty JSON string", MITRETechnique.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in MITRETechnique is not found in the empty JSON string", MITRETechnique.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : MITRETechnique.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("start_addr").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `start_addr` to be a primitive type in the JSON string but got `%s`", jsonObj.get("start_addr").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `start_addr` to be a primitive type in the JSON string but got `%s`", jsonObj.get("start_addr").toString()));
       }
       if (!jsonObj.get("end_addr").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `end_addr` to be a primitive type in the JSON string but got `%s`", jsonObj.get("end_addr").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `end_addr` to be a primitive type in the JSON string but got `%s`", jsonObj.get("end_addr").toString()));
       }
       if (!jsonObj.get("function_addr").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `function_addr` to be a primitive type in the JSON string but got `%s`", jsonObj.get("function_addr").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `function_addr` to be a primitive type in the JSON string but got `%s`", jsonObj.get("function_addr").toString()));
       }
       if (!jsonObj.get("technique_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `technique_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("technique_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `technique_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("technique_id").toString()));
       }
       if (!jsonObj.get("technique_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `technique_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("technique_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `technique_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("technique_name").toString()));
       }
       if (!jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
       if (!jsonObj.get("function_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `function_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("function_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `function_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("function_name").toString()));
       }
       if (!jsonObj.get("technique_url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `technique_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("technique_url").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `technique_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("technique_url").toString()));
       }
       if (!jsonObj.get("technique_description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(Locale.ROOT, "Expected the field `technique_description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("technique_description").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `technique_description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("technique_description").toString()));
       }
   }
 
@@ -514,7 +509,7 @@ public class MITRETechnique {
                    else if (entry.getValue().getAsJsonPrimitive().isBoolean())
                      instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
                    else
-                     throw new IllegalArgumentException(String.format(Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
+                     throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
                  } else if (entry.getValue().isJsonArray()) {
                      instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
                  } else { // JSON object

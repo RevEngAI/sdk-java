@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**inlineComments** | **List&lt;InlineComment&gt;** | Structured inline comments with line numbers |  |
+|**inlineComments** | [**List&lt;InlineComment&gt;**](InlineComment.md) | Structured inline comments with line numbers |  |
 |**taskStatus** | [**TaskStatusEnum**](#TaskStatusEnum) | Task status |  |
 
 
