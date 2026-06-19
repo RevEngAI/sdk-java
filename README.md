@@ -16,7 +16,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>ai.reveng</groupId>
     <artifactId>sdk</artifactId>
-    <version>3.93.2</version>
+    <version>3.94.1</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -31,7 +31,7 @@ repositories {
 }
 
 dependencies {
-    implementation "ai.reveng:sdk:3.93.2"
+    implementation "ai.reveng:sdk:3.94.1"
 }
 ```
 
@@ -101,6 +101,8 @@ Class | Method | HTTP request | Description
 *AnalysesCoreApi* | [**getAnalysisLogs**](docs/AnalysesCoreApi.md#getAnalysisLogs) | **GET** /v2/analyses/{analysis_id}/logs | Gets the logs of an analysis
 *AnalysesCoreApi* | [**getAnalysisParams**](docs/AnalysesCoreApi.md#getAnalysisParams) | **GET** /v2/analyses/{analysis_id}/params | Gets analysis param information
 *AnalysesCoreApi* | [**getAnalysisStatus**](docs/AnalysesCoreApi.md#getAnalysisStatus) | **GET** /v2/analyses/{analysis_id}/status | Gets the status of an analysis
+*AnalysesCoreApi* | [**getDynamicExecutionReport**](docs/AnalysesCoreApi.md#getDynamicExecutionReport) | **GET** /v2/analyses/{analysis_id}/dynamic-execution/report | Get dynamic execution report
+*AnalysesCoreApi* | [**getDynamicExecutionStatus**](docs/AnalysesCoreApi.md#getDynamicExecutionStatus) | **GET** /v2/analyses/{analysis_id}/dynamic-execution/status | Get dynamic execution status
 *AnalysesCoreApi* | [**insertAnalysisLog**](docs/AnalysesCoreApi.md#insertAnalysisLog) | **POST** /v2/analyses/{analysis_id}/logs | Insert a log entry for an analysis
 *AnalysesCoreApi* | [**listAnalyses**](docs/AnalysesCoreApi.md#listAnalyses) | **GET** /v2/analyses/list | Gets the most recent analyses
 *AnalysesCoreApi* | [**lookupBinaryId**](docs/AnalysesCoreApi.md#lookupBinaryId) | **GET** /v2/analyses/lookup/{binary_id} | Gets the analysis ID from binary ID
@@ -159,26 +161,19 @@ Class | Method | HTTP request | Description
 *FirmwareApi* | [**getBinariesForFirmwareTask**](docs/FirmwareApi.md#getBinariesForFirmwareTask) | **GET** /v2/firmware/get-binaries/{task_id} | Upload firmware for unpacking
 *FirmwareApi* | [**uploadFirmware**](docs/FirmwareApi.md#uploadFirmware) | **POST** /v2/firmware | Upload firmware for unpacking
 *FunctionsAiDecompilationApi* | [**createAiDecompilation**](docs/FunctionsAiDecompilationApi.md#createAiDecompilation) | **POST** /v3/functions/{function_id}/ai-decompilation | Start AI decompilation
-*FunctionsAiDecompilationApi* | [**createAiDecompilationComment**](docs/FunctionsAiDecompilationApi.md#createAiDecompilationComment) | **POST** /v2/functions/{function_id}/ai-decompilation/comments | Create a comment for this function
-*FunctionsAiDecompilationApi* | [**createAiDecompilationTask**](docs/FunctionsAiDecompilationApi.md#createAiDecompilationTask) | **POST** /v2/functions/{function_id}/ai-decompilation | Begins AI Decompilation Process
-*FunctionsAiDecompilationApi* | [**deleteAiDecompilationComment**](docs/FunctionsAiDecompilationApi.md#deleteAiDecompilationComment) | **DELETE** /v2/functions/{function_id}/ai-decompilation/comments/{comment_id} | Delete a comment
 *FunctionsAiDecompilationApi* | [**deleteAiDecompilationInlineComment**](docs/FunctionsAiDecompilationApi.md#deleteAiDecompilationInlineComment) | **DELETE** /v3/functions/{function_id}/ai-decompilation/inline-comments/{line} | Delete a single inline comment
 *FunctionsAiDecompilationApi* | [**getAiDecompilation**](docs/FunctionsAiDecompilationApi.md#getAiDecompilation) | **GET** /v3/functions/{function_id}/ai-decompilation | Get AI decompilation result
-*FunctionsAiDecompilationApi* | [**getAiDecompilationComments**](docs/FunctionsAiDecompilationApi.md#getAiDecompilationComments) | **GET** /v2/functions/{function_id}/ai-decompilation/comments | Get comments for this function
 *FunctionsAiDecompilationApi* | [**getAiDecompilationInlineComments**](docs/FunctionsAiDecompilationApi.md#getAiDecompilationInlineComments) | **GET** /v3/functions/{function_id}/ai-decompilation/inline-comments | Get AI decompilation inline comments
 *FunctionsAiDecompilationApi* | [**getAiDecompilationInlineCommentsStatus**](docs/FunctionsAiDecompilationApi.md#getAiDecompilationInlineCommentsStatus) | **GET** /v3/functions/{function_id}/ai-decompilation/inline-comments/status | Get inline comments generation workflow status
 *FunctionsAiDecompilationApi* | [**getAiDecompilationRating**](docs/FunctionsAiDecompilationApi.md#getAiDecompilationRating) | **GET** /v2/functions/{function_id}/ai-decompilation/rating | Get rating for AI decompilation
 *FunctionsAiDecompilationApi* | [**getAiDecompilationStatus**](docs/FunctionsAiDecompilationApi.md#getAiDecompilationStatus) | **GET** /v3/functions/{function_id}/ai-decompilation/status | Get AI decompilation workflow status
 *FunctionsAiDecompilationApi* | [**getAiDecompilationSummary**](docs/FunctionsAiDecompilationApi.md#getAiDecompilationSummary) | **GET** /v3/functions/{function_id}/ai-decompilation/summary | Get AI decompilation summary
 *FunctionsAiDecompilationApi* | [**getAiDecompilationSummaryStatus**](docs/FunctionsAiDecompilationApi.md#getAiDecompilationSummaryStatus) | **GET** /v3/functions/{function_id}/ai-decompilation/summary/status | Get summary generation workflow status
-*FunctionsAiDecompilationApi* | [**getAiDecompilationTaskResult**](docs/FunctionsAiDecompilationApi.md#getAiDecompilationTaskResult) | **GET** /v2/functions/{function_id}/ai-decompilation | Polls AI Decompilation Process
-*FunctionsAiDecompilationApi* | [**getAiDecompilationTaskStatus**](docs/FunctionsAiDecompilationApi.md#getAiDecompilationTaskStatus) | **GET** /v2/functions/{function_id}/ai-decompilation/status | Check the status of a function ai decompilation
 *FunctionsAiDecompilationApi* | [**getAiDecompilationTokenised**](docs/FunctionsAiDecompilationApi.md#getAiDecompilationTokenised) | **GET** /v3/functions/{function_id}/ai-decompilation/tokenised | Get tokenised AI decompilation with function mapping
 *FunctionsAiDecompilationApi* | [**patchAiDecompilationInlineComment**](docs/FunctionsAiDecompilationApi.md#patchAiDecompilationInlineComment) | **PATCH** /v3/functions/{function_id}/ai-decompilation/inline-comments | Update a single inline comment
 *FunctionsAiDecompilationApi* | [**regenerateAiDecompilationInlineComments**](docs/FunctionsAiDecompilationApi.md#regenerateAiDecompilationInlineComments) | **POST** /v3/functions/{function_id}/ai-decompilation/inline-comments | Regenerate AI decompilation inline comments
 *FunctionsAiDecompilationApi* | [**regenerateAiDecompilationSummary**](docs/FunctionsAiDecompilationApi.md#regenerateAiDecompilationSummary) | **POST** /v3/functions/{function_id}/ai-decompilation/summary | Regenerate AI decompilation summary
 *FunctionsAiDecompilationApi* | [**streamAiDecompilation**](docs/FunctionsAiDecompilationApi.md#streamAiDecompilation) | **GET** /v3/functions/{function_id}/ai-decompilation/events | Stream live AI decompilation output (SSE)
-*FunctionsAiDecompilationApi* | [**updateAiDecompilationComment**](docs/FunctionsAiDecompilationApi.md#updateAiDecompilationComment) | **PATCH** /v2/functions/{function_id}/ai-decompilation/comments/{comment_id} | Update a comment
 *FunctionsAiDecompilationApi* | [**upsertAiDecompilationOverrides**](docs/FunctionsAiDecompilationApi.md#upsertAiDecompilationOverrides) | **PATCH** /v3/functions/{function_id}/ai-decompilation/overrides | Upsert variable/function name overrides
 *FunctionsAiDecompilationApi* | [**upsertAiDecompilationRating**](docs/FunctionsAiDecompilationApi.md#upsertAiDecompilationRating) | **PATCH** /v2/functions/{function_id}/ai-decompilation/rating | Upsert rating for AI decompilation
 *FunctionsCoreApi* | [**addFunctionCallee**](docs/FunctionsCoreApi.md#addFunctionCallee) | **POST** /v3/functions/{function_id}/callees | Add a callee to a function
@@ -232,9 +227,7 @@ Class | Method | HTTP request | Description
  - [AddUserStringInputBody](docs/AddUserStringInputBody.md)
  - [AddUserStringToFunctionInputBody](docs/AddUserStringToFunctionInputBody.md)
  - [AdditionalDetailsStatusResponse](docs/AdditionalDetailsStatusResponse.md)
- - [Addr](docs/Addr.md)
  - [AiDecompilationRating](docs/AiDecompilationRating.md)
- - [AiDecompilationTaskStatus](docs/AiDecompilationTaskStatus.md)
  - [AiUnstripRequest](docs/AiUnstripRequest.md)
  - [AnalysisAccessInfo](docs/AnalysisAccessInfo.md)
  - [AnalysisBasicInfoOutputBody](docs/AnalysisBasicInfoOutputBody.md)
@@ -315,11 +308,9 @@ Class | Method | HTTP request | Description
  - [BaseResponseFunctionDataTypesList](docs/BaseResponseFunctionDataTypesList.md)
  - [BaseResponseFunctionSearchResponse](docs/BaseResponseFunctionSearchResponse.md)
  - [BaseResponseFunctionStringsResponse](docs/BaseResponseFunctionStringsResponse.md)
- - [BaseResponseFunctionTaskResponse](docs/BaseResponseFunctionTaskResponse.md)
  - [BaseResponseFunctionsDetailResponse](docs/BaseResponseFunctionsDetailResponse.md)
  - [BaseResponseGenerateFunctionDataTypes](docs/BaseResponseGenerateFunctionDataTypes.md)
  - [BaseResponseGenerationStatusList](docs/BaseResponseGenerationStatusList.md)
- - [BaseResponseGetAiDecompilationTask](docs/BaseResponseGetAiDecompilationTask.md)
  - [BaseResponseGetPublicUserResponse](docs/BaseResponseGetPublicUserResponse.md)
  - [BaseResponseListCalleesCallerFunctionsResponse](docs/BaseResponseListCalleesCallerFunctionsResponse.md)
  - [BaseResponseListCollectionResults](docs/BaseResponseListCollectionResults.md)
@@ -461,7 +452,6 @@ Class | Method | HTTP request | Description
  - [FunctionBlocksResponse](docs/FunctionBlocksResponse.md)
  - [FunctionBoundary](docs/FunctionBoundary.md)
  - [FunctionCapabilityResponse](docs/FunctionCapabilityResponse.md)
- - [FunctionCommentCreateRequest](docs/FunctionCommentCreateRequest.md)
  - [FunctionDataTypes](docs/FunctionDataTypes.md)
  - [FunctionDataTypesList](docs/FunctionDataTypesList.md)
  - [FunctionDataTypesListItem](docs/FunctionDataTypesListItem.md)
@@ -473,7 +463,6 @@ Class | Method | HTTP request | Description
  - [FunctionListItem](docs/FunctionListItem.md)
  - [FunctionLocalVariableResponse](docs/FunctionLocalVariableResponse.md)
  - [FunctionMapping](docs/FunctionMapping.md)
- - [FunctionMappingFull](docs/FunctionMappingFull.md)
  - [FunctionMatch](docs/FunctionMatch.md)
  - [FunctionMatchingFilters](docs/FunctionMatchingFilters.md)
  - [FunctionMatchingRequest](docs/FunctionMatchingRequest.md)
@@ -488,8 +477,6 @@ Class | Method | HTTP request | Description
  - [FunctionString](docs/FunctionString.md)
  - [FunctionStringItem](docs/FunctionStringItem.md)
  - [FunctionStringsResponse](docs/FunctionStringsResponse.md)
- - [FunctionTaskResponse](docs/FunctionTaskResponse.md)
- - [FunctionTaskStatus](docs/FunctionTaskStatus.md)
  - [FunctionTypeInput](docs/FunctionTypeInput.md)
  - [FunctionsDetailResponse](docs/FunctionsDetailResponse.md)
  - [FunctionsListRename](docs/FunctionsListRename.md)
@@ -499,7 +486,6 @@ Class | Method | HTTP request | Description
  - [GetAdditionalDetailsOutputBody](docs/GetAdditionalDetailsOutputBody.md)
  - [GetAdditionalDetailsStatusOutputBody](docs/GetAdditionalDetailsStatusOutputBody.md)
  - [GetAiDecompilationRatingResponse](docs/GetAiDecompilationRatingResponse.md)
- - [GetAiDecompilationTask](docs/GetAiDecompilationTask.md)
  - [GetAnalysisStringsStatusOutputBody](docs/GetAnalysisStringsStatusOutputBody.md)
  - [GetCollectionOutputBody](docs/GetCollectionOutputBody.md)
  - [GetProductsOutputBody](docs/GetProductsOutputBody.md)
@@ -514,9 +500,6 @@ Class | Method | HTTP request | Description
  - [ImportModel](docs/ImportModel.md)
  - [InlineComment](docs/InlineComment.md)
  - [InsertAnalysisLogRequest](docs/InsertAnalysisLogRequest.md)
- - [InverseFunctionMapItem](docs/InverseFunctionMapItem.md)
- - [InverseStringMapItem](docs/InverseStringMapItem.md)
- - [InverseValue](docs/InverseValue.md)
  - [ListAnalysisStringsOutputBody](docs/ListAnalysisStringsOutputBody.md)
  - [ListCollectionResults](docs/ListCollectionResults.md)
  - [ListCollectionsOutputBody](docs/ListCollectionsOutputBody.md)
@@ -563,7 +546,6 @@ Class | Method | HTTP request | Description
  - [ReAnalysisForm](docs/ReAnalysisForm.md)
  - [Recent](docs/Recent.md)
  - [RegenerateOutputBody](docs/RegenerateOutputBody.md)
- - [RegenerateTarget](docs/RegenerateTarget.md)
  - [RegistryOperation](docs/RegistryOperation.md)
  - [RelativeBinaryResponse](docs/RelativeBinaryResponse.md)
  - [RenameAppliedEvent](docs/RenameAppliedEvent.md)
@@ -636,6 +618,7 @@ Class | Method | HTTP request | Description
  - [TokenisedData](docs/TokenisedData.md)
  - [TriageFunctionResponse](docs/TriageFunctionResponse.md)
  - [TriageReportResponse](docs/TriageReportResponse.md)
+ - [TriggerDynamicExecutionInputBody](docs/TriggerDynamicExecutionInputBody.md)
  - [Ttp](docs/Ttp.md)
  - [TypeDefinition](docs/TypeDefinition.md)
  - [UpdateFunctionDataTypes](docs/UpdateFunctionDataTypes.md)
