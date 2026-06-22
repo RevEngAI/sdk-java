@@ -13,7 +13,7 @@
 package ai.reveng.model;
 
 import java.util.Objects;
-import ai.reveng.model.FunctionInfoOutput;
+import ai.reveng.model.FunctionInfo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -64,7 +64,7 @@ public class FunctionDataTypes {
   public static final String SERIALIZED_NAME_DATA_TYPES = "data_types";
   @SerializedName(SERIALIZED_NAME_DATA_TYPES)
   @javax.annotation.Nullable
-  private FunctionInfoOutput dataTypes;
+  private FunctionInfo dataTypes;
 
   public static final String SERIALIZED_NAME_DATA_TYPES_VERSION = "data_types_version";
   @SerializedName(SERIALIZED_NAME_DATA_TYPES_VERSION)
@@ -112,7 +112,7 @@ public class FunctionDataTypes {
   }
 
 
-  public FunctionDataTypes dataTypes(@javax.annotation.Nullable FunctionInfoOutput dataTypes) {
+  public FunctionDataTypes dataTypes(@javax.annotation.Nullable FunctionInfo dataTypes) {
     this.dataTypes = dataTypes;
     return this;
   }
@@ -122,11 +122,11 @@ public class FunctionDataTypes {
    * @return dataTypes
    */
   @javax.annotation.Nullable
-  public FunctionInfoOutput getDataTypes() {
+  public FunctionInfo getDataTypes() {
     return dataTypes;
   }
 
-  public void setDataTypes(@javax.annotation.Nullable FunctionInfoOutput dataTypes) {
+  public void setDataTypes(@javax.annotation.Nullable FunctionInfo dataTypes) {
     this.dataTypes = dataTypes;
   }
 
@@ -285,7 +285,7 @@ public class FunctionDataTypes {
       }
       // validate the optional field `data_types`
       if (jsonObj.get("data_types") != null && !jsonObj.get("data_types").isJsonNull()) {
-        FunctionInfoOutput.validateJsonElement(jsonObj.get("data_types"));
+        FunctionInfo.validateJsonElement(jsonObj.get("data_types"));
       }
   }
 

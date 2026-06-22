@@ -14,7 +14,7 @@ package ai.reveng.model;
 
 import java.util.Objects;
 import ai.reveng.model.FuncDepsInner;
-import ai.reveng.model.FunctionTypeInput;
+import ai.reveng.model.FunctionType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -50,24 +50,24 @@ import java.util.Set;
 import ai.reveng.invoker.JSON;
 
 /**
- * FunctionInfoInput
+ * FunctionInfo
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class FunctionInfoInput {
+public class FunctionInfo {
   public static final String SERIALIZED_NAME_FUNC_TYPES = "func_types";
   @SerializedName(SERIALIZED_NAME_FUNC_TYPES)
   @javax.annotation.Nullable
-  private FunctionTypeInput funcTypes;
+  private FunctionType funcTypes;
 
   public static final String SERIALIZED_NAME_FUNC_DEPS = "func_deps";
   @SerializedName(SERIALIZED_NAME_FUNC_DEPS)
   @javax.annotation.Nonnull
   private List<FuncDepsInner> funcDeps = new ArrayList<>();
 
-  public FunctionInfoInput() {
+  public FunctionInfo() {
   }
 
-  public FunctionInfoInput funcTypes(@javax.annotation.Nullable FunctionTypeInput funcTypes) {
+  public FunctionInfo funcTypes(@javax.annotation.Nullable FunctionType funcTypes) {
     this.funcTypes = funcTypes;
     return this;
   }
@@ -77,21 +77,21 @@ public class FunctionInfoInput {
    * @return funcTypes
    */
   @javax.annotation.Nullable
-  public FunctionTypeInput getFuncTypes() {
+  public FunctionType getFuncTypes() {
     return funcTypes;
   }
 
-  public void setFuncTypes(@javax.annotation.Nullable FunctionTypeInput funcTypes) {
+  public void setFuncTypes(@javax.annotation.Nullable FunctionType funcTypes) {
     this.funcTypes = funcTypes;
   }
 
 
-  public FunctionInfoInput funcDeps(@javax.annotation.Nonnull List<FuncDepsInner> funcDeps) {
+  public FunctionInfo funcDeps(@javax.annotation.Nonnull List<FuncDepsInner> funcDeps) {
     this.funcDeps = funcDeps;
     return this;
   }
 
-  public FunctionInfoInput addFuncDepsItem(FuncDepsInner funcDepsItem) {
+  public FunctionInfo addFuncDepsItem(FuncDepsInner funcDepsItem) {
     if (this.funcDeps == null) {
       this.funcDeps = new ArrayList<>();
     }
@@ -125,9 +125,9 @@ public class FunctionInfoInput {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the FunctionInfoInput instance itself
+   * @return the FunctionInfo instance itself
    */
-  public FunctionInfoInput putAdditionalProperty(String key, Object value) {
+  public FunctionInfo putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -166,10 +166,10 @@ public class FunctionInfoInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FunctionInfoInput functionInfoInput = (FunctionInfoInput) o;
-    return Objects.equals(this.funcTypes, functionInfoInput.funcTypes) &&
-        Objects.equals(this.funcDeps, functionInfoInput.funcDeps)&&
-        Objects.equals(this.additionalProperties, functionInfoInput.additionalProperties);
+    FunctionInfo functionInfo = (FunctionInfo) o;
+    return Objects.equals(this.funcTypes, functionInfo.funcTypes) &&
+        Objects.equals(this.funcDeps, functionInfo.funcDeps)&&
+        Objects.equals(this.additionalProperties, functionInfo.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -191,7 +191,7 @@ public class FunctionInfoInput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FunctionInfoInput {\n");
+    sb.append("class FunctionInfo {\n");
     sb.append("    funcTypes: ").append(toIndentedString(funcTypes)).append("\n");
     sb.append("    funcDeps: ").append(toIndentedString(funcDeps)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -223,17 +223,17 @@ public class FunctionInfoInput {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to FunctionInfoInput
+   * @throws IOException if the JSON Element is invalid with respect to FunctionInfo
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!FunctionInfoInput.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in FunctionInfoInput is not found in the empty JSON string", FunctionInfoInput.openapiRequiredFields.toString()));
+        if (!FunctionInfo.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in FunctionInfo is not found in the empty JSON string", FunctionInfo.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : FunctionInfoInput.openapiRequiredFields) {
+      for (String requiredField : FunctionInfo.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
@@ -241,7 +241,7 @@ public class FunctionInfoInput {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the optional field `func_types`
       if (jsonObj.get("func_types") != null && !jsonObj.get("func_types").isJsonNull()) {
-        FunctionTypeInput.validateJsonElement(jsonObj.get("func_types"));
+        FunctionType.validateJsonElement(jsonObj.get("func_types"));
       }
       if (jsonObj.get("func_deps") != null) {
         if (!jsonObj.get("func_deps").isJsonArray()) {
@@ -259,16 +259,16 @@ public class FunctionInfoInput {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!FunctionInfoInput.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'FunctionInfoInput' and its subtypes
+       if (!FunctionInfo.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'FunctionInfo' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<FunctionInfoInput> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(FunctionInfoInput.class));
+       final TypeAdapter<FunctionInfo> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(FunctionInfo.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<FunctionInfoInput>() {
+       return (TypeAdapter<T>) new TypeAdapter<FunctionInfo>() {
            @Override
-           public void write(JsonWriter out, FunctionInfoInput value) throws IOException {
+           public void write(JsonWriter out, FunctionInfo value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -296,12 +296,12 @@ public class FunctionInfoInput {
            }
 
            @Override
-           public FunctionInfoInput read(JsonReader in) throws IOException {
+           public FunctionInfo read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             FunctionInfoInput instance = thisAdapter.fromJsonTree(jsonObj);
+             FunctionInfo instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -328,18 +328,18 @@ public class FunctionInfoInput {
   }
 
   /**
-   * Create an instance of FunctionInfoInput given an JSON string
+   * Create an instance of FunctionInfo given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of FunctionInfoInput
-   * @throws IOException if the JSON string is invalid with respect to FunctionInfoInput
+   * @return An instance of FunctionInfo
+   * @throws IOException if the JSON string is invalid with respect to FunctionInfo
    */
-  public static FunctionInfoInput fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, FunctionInfoInput.class);
+  public static FunctionInfo fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, FunctionInfo.class);
   }
 
   /**
-   * Convert an instance of FunctionInfoInput to an JSON string
+   * Convert an instance of FunctionInfo to an JSON string
    *
    * @return JSON string
    */

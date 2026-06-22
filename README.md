@@ -16,7 +16,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>ai.reveng</groupId>
     <artifactId>sdk</artifactId>
-    <version>3.94.1</version>
+    <version>3.95.1</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -31,7 +31,7 @@ repositories {
 }
 
 dependencies {
-    implementation "ai.reveng:sdk:3.94.1"
+    implementation "ai.reveng:sdk:3.95.1"
 }
 ```
 
@@ -193,12 +193,12 @@ Class | Method | HTTP request | Description
 *FunctionsCoreApi* | [**getFunctionDetails**](docs/FunctionsCoreApi.md#getFunctionDetails) | **GET** /v2/functions/{function_id} | Get function details
 *FunctionsCoreApi* | [**getFunctionStrings**](docs/FunctionsCoreApi.md#getFunctionStrings) | **GET** /v2/functions/{function_id}/strings | Get string information found in the function
 *FunctionsCoreApi* | [**getFunctionStrings_0**](docs/FunctionsCoreApi.md#getFunctionStrings_0) | **GET** /v3/functions/{function_id}/strings | List strings for a function.
+*FunctionsDataTypesApi* | [**batchUpdateFunctionDataTypes**](docs/FunctionsDataTypesApi.md#batchUpdateFunctionDataTypes) | **PUT** /v3/analyses/{analysis_id}/functions/data-types | Batch update function data types
 *FunctionsDataTypesApi* | [**generateFunctionDataTypesForAnalysis**](docs/FunctionsDataTypesApi.md#generateFunctionDataTypesForAnalysis) | **POST** /v2/analyses/{analysis_id}/functions/data_types | Generate Function Data Types
 *FunctionsDataTypesApi* | [**generateFunctionDataTypesForFunctions**](docs/FunctionsDataTypesApi.md#generateFunctionDataTypesForFunctions) | **POST** /v2/functions/data_types | Generate Function Data Types for an arbitrary list of functions
 *FunctionsDataTypesApi* | [**getFunctionDataTypes**](docs/FunctionsDataTypesApi.md#getFunctionDataTypes) | **GET** /v2/analyses/{analysis_id}/functions/{function_id}/data_types | Get Function Data Types
 *FunctionsDataTypesApi* | [**listFunctionDataTypesForAnalysis**](docs/FunctionsDataTypesApi.md#listFunctionDataTypesForAnalysis) | **GET** /v2/analyses/{analysis_id}/functions/data_types | List Function Data Types
 *FunctionsDataTypesApi* | [**listFunctionDataTypesForFunctions**](docs/FunctionsDataTypesApi.md#listFunctionDataTypesForFunctions) | **GET** /v2/functions/data_types | List Function Data Types
-*FunctionsDataTypesApi* | [**updateFunctionDataTypes**](docs/FunctionsDataTypesApi.md#updateFunctionDataTypes) | **PUT** /v2/analyses/{analysis_id}/functions/{function_id}/data_types | Update Function Data Types
 *FunctionsRenamingHistoryApi* | [**batchRenameFunction**](docs/FunctionsRenamingHistoryApi.md#batchRenameFunction) | **POST** /v2/functions/rename/batch | Batch Rename Functions
 *FunctionsRenamingHistoryApi* | [**batchRenameFunctions**](docs/FunctionsRenamingHistoryApi.md#batchRenameFunctions) | **POST** /v3/functions/rename | Batch rename functions
 *FunctionsRenamingHistoryApi* | [**getFunctionHistory**](docs/FunctionsRenamingHistoryApi.md#getFunctionHistory) | **GET** /v3/functions/{function_id}/history | Get function name history
@@ -339,6 +339,10 @@ Class | Method | HTTP request | Description
  - [BatchRenameInputBody](docs/BatchRenameInputBody.md)
  - [BatchRenameItem](docs/BatchRenameItem.md)
  - [BatchRenameOutputBody](docs/BatchRenameOutputBody.md)
+ - [BatchUpdateDataTypesInputBody](docs/BatchUpdateDataTypesInputBody.md)
+ - [BatchUpdateDataTypesItem](docs/BatchUpdateDataTypesItem.md)
+ - [BatchUpdateDataTypesOutputBody](docs/BatchUpdateDataTypesOutputBody.md)
+ - [BatchUpdateDataTypesResult](docs/BatchUpdateDataTypesResult.md)
  - [BinariesRelatedStatusResponse](docs/BinariesRelatedStatusResponse.md)
  - [BinariesTaskStatus](docs/BinariesTaskStatus.md)
  - [Binary](docs/Binary.md)
@@ -458,8 +462,7 @@ Class | Method | HTTP request | Description
  - [FunctionDataTypesParams](docs/FunctionDataTypesParams.md)
  - [FunctionDataTypesStatus](docs/FunctionDataTypesStatus.md)
  - [FunctionHeader](docs/FunctionHeader.md)
- - [FunctionInfoInput](docs/FunctionInfoInput.md)
- - [FunctionInfoOutput](docs/FunctionInfoOutput.md)
+ - [FunctionInfo](docs/FunctionInfo.md)
  - [FunctionListItem](docs/FunctionListItem.md)
  - [FunctionLocalVariableResponse](docs/FunctionLocalVariableResponse.md)
  - [FunctionMapping](docs/FunctionMapping.md)
@@ -477,7 +480,7 @@ Class | Method | HTTP request | Description
  - [FunctionString](docs/FunctionString.md)
  - [FunctionStringItem](docs/FunctionStringItem.md)
  - [FunctionStringsResponse](docs/FunctionStringsResponse.md)
- - [FunctionTypeInput](docs/FunctionTypeInput.md)
+ - [FunctionType](docs/FunctionType.md)
  - [FunctionsDetailResponse](docs/FunctionsDetailResponse.md)
  - [FunctionsListRename](docs/FunctionsListRename.md)
  - [GenerateFunctionDataTypes](docs/GenerateFunctionDataTypes.md)
@@ -621,7 +624,8 @@ Class | Method | HTTP request | Description
  - [TriggerDynamicExecutionInputBody](docs/TriggerDynamicExecutionInputBody.md)
  - [Ttp](docs/Ttp.md)
  - [TypeDefinition](docs/TypeDefinition.md)
- - [UpdateFunctionDataTypes](docs/UpdateFunctionDataTypes.md)
+ - [UpdateDataTypesInputBody](docs/UpdateDataTypesInputBody.md)
+ - [UpdateDataTypesOutputBody](docs/UpdateDataTypesOutputBody.md)
  - [UploadFileType](docs/UploadFileType.md)
  - [UploadResponse](docs/UploadResponse.md)
  - [UpsertAiDecomplationRatingRequest](docs/UpsertAiDecomplationRatingRequest.md)

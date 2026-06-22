@@ -13,18 +13,13 @@
 package ai.reveng.model;
 
 import java.util.Objects;
-import ai.reveng.model.FuncDepsInner;
-import ai.reveng.model.FunctionTypeInput;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -50,66 +45,59 @@ import java.util.Set;
 import ai.reveng.invoker.JSON;
 
 /**
- * FunctionInfoOutput
+ * UpdateDataTypesInputBody
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class FunctionInfoOutput {
-  public static final String SERIALIZED_NAME_FUNC_TYPES = "func_types";
-  @SerializedName(SERIALIZED_NAME_FUNC_TYPES)
+public class UpdateDataTypesInputBody {
+  public static final String SERIALIZED_NAME_DATA_TYPES = "data_types";
+  @SerializedName(SERIALIZED_NAME_DATA_TYPES)
   @javax.annotation.Nullable
-  private FunctionTypeInput funcTypes;
+  private Object dataTypes = null;
 
-  public static final String SERIALIZED_NAME_FUNC_DEPS = "func_deps";
-  @SerializedName(SERIALIZED_NAME_FUNC_DEPS)
+  public static final String SERIALIZED_NAME_DATA_TYPES_VERSION = "data_types_version";
+  @SerializedName(SERIALIZED_NAME_DATA_TYPES_VERSION)
   @javax.annotation.Nonnull
-  private List<FuncDepsInner> funcDeps = new ArrayList<>();
+  private Long dataTypesVersion;
 
-  public FunctionInfoOutput() {
+  public UpdateDataTypesInputBody() {
   }
 
-  public FunctionInfoOutput funcTypes(@javax.annotation.Nullable FunctionTypeInput funcTypes) {
-    this.funcTypes = funcTypes;
+  public UpdateDataTypesInputBody dataTypes(@javax.annotation.Nullable Object dataTypes) {
+    this.dataTypes = dataTypes;
     return this;
   }
 
   /**
-   * Function type information
-   * @return funcTypes
+   * Get dataTypes
+   * @return dataTypes
    */
   @javax.annotation.Nullable
-  public FunctionTypeInput getFuncTypes() {
-    return funcTypes;
+  public Object getDataTypes() {
+    return dataTypes;
   }
 
-  public void setFuncTypes(@javax.annotation.Nullable FunctionTypeInput funcTypes) {
-    this.funcTypes = funcTypes;
+  public void setDataTypes(@javax.annotation.Nullable Object dataTypes) {
+    this.dataTypes = dataTypes;
   }
 
 
-  public FunctionInfoOutput funcDeps(@javax.annotation.Nonnull List<FuncDepsInner> funcDeps) {
-    this.funcDeps = funcDeps;
-    return this;
-  }
-
-  public FunctionInfoOutput addFuncDepsItem(FuncDepsInner funcDepsItem) {
-    if (this.funcDeps == null) {
-      this.funcDeps = new ArrayList<>();
-    }
-    this.funcDeps.add(funcDepsItem);
+  public UpdateDataTypesInputBody dataTypesVersion(@javax.annotation.Nonnull Long dataTypesVersion) {
+    this.dataTypesVersion = dataTypesVersion;
     return this;
   }
 
   /**
-   * List of function dependencies
-   * @return funcDeps
+   * Current version of the function data types. The update is rejected if the stored version has moved on. Pass 0 on the first write.
+   * minimum: 0
+   * @return dataTypesVersion
    */
   @javax.annotation.Nonnull
-  public List<FuncDepsInner> getFuncDeps() {
-    return funcDeps;
+  public Long getDataTypesVersion() {
+    return dataTypesVersion;
   }
 
-  public void setFuncDeps(@javax.annotation.Nonnull List<FuncDepsInner> funcDeps) {
-    this.funcDeps = funcDeps;
+  public void setDataTypesVersion(@javax.annotation.Nonnull Long dataTypesVersion) {
+    this.dataTypesVersion = dataTypesVersion;
   }
 
   /**
@@ -125,9 +113,9 @@ public class FunctionInfoOutput {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the FunctionInfoOutput instance itself
+   * @return the UpdateDataTypesInputBody instance itself
    */
-  public FunctionInfoOutput putAdditionalProperty(String key, Object value) {
+  public UpdateDataTypesInputBody putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -166,34 +154,23 @@ public class FunctionInfoOutput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FunctionInfoOutput functionInfoOutput = (FunctionInfoOutput) o;
-    return Objects.equals(this.funcTypes, functionInfoOutput.funcTypes) &&
-        Objects.equals(this.funcDeps, functionInfoOutput.funcDeps)&&
-        Objects.equals(this.additionalProperties, functionInfoOutput.additionalProperties);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+    UpdateDataTypesInputBody updateDataTypesInputBody = (UpdateDataTypesInputBody) o;
+    return Objects.equals(this.dataTypes, updateDataTypesInputBody.dataTypes) &&
+        Objects.equals(this.dataTypesVersion, updateDataTypesInputBody.dataTypesVersion)&&
+        Objects.equals(this.additionalProperties, updateDataTypesInputBody.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(funcTypes, funcDeps, additionalProperties);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(dataTypes, dataTypesVersion, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FunctionInfoOutput {\n");
-    sb.append("    funcTypes: ").append(toIndentedString(funcTypes)).append("\n");
-    sb.append("    funcDeps: ").append(toIndentedString(funcDeps)).append("\n");
+    sb.append("class UpdateDataTypesInputBody {\n");
+    sb.append("    dataTypes: ").append(toIndentedString(dataTypes)).append("\n");
+    sb.append("    dataTypesVersion: ").append(toIndentedString(dataTypesVersion)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -213,62 +190,48 @@ public class FunctionInfoOutput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("func_types", "func_deps"));
+    openapiFields = new HashSet<String>(Arrays.asList("data_types", "data_types_version"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("func_deps"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("data_types", "data_types_version"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to FunctionInfoOutput
+   * @throws IOException if the JSON Element is invalid with respect to UpdateDataTypesInputBody
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!FunctionInfoOutput.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in FunctionInfoOutput is not found in the empty JSON string", FunctionInfoOutput.openapiRequiredFields.toString()));
+        if (!UpdateDataTypesInputBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in UpdateDataTypesInputBody is not found in the empty JSON string", UpdateDataTypesInputBody.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : FunctionInfoOutput.openapiRequiredFields) {
+      for (String requiredField : UpdateDataTypesInputBody.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the optional field `func_types`
-      if (jsonObj.get("func_types") != null && !jsonObj.get("func_types").isJsonNull()) {
-        FunctionTypeInput.validateJsonElement(jsonObj.get("func_types"));
-      }
-      if (jsonObj.get("func_deps") != null) {
-        if (!jsonObj.get("func_deps").isJsonArray()) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `func_deps` to be an array in the JSON string but got `%s`", jsonObj.get("func_deps").toString()));
-        }
-        JsonArray jsonArrayfuncDeps = jsonObj.getAsJsonArray("func_deps");
-        // validate the required field `func_deps` (array)
-        for (int i = 0; i < jsonArrayfuncDeps.size(); i++) {
-          FuncDepsInner.validateJsonElement(jsonArrayfuncDeps.get(i));
-        }
-      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!FunctionInfoOutput.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'FunctionInfoOutput' and its subtypes
+       if (!UpdateDataTypesInputBody.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'UpdateDataTypesInputBody' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<FunctionInfoOutput> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(FunctionInfoOutput.class));
+       final TypeAdapter<UpdateDataTypesInputBody> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(UpdateDataTypesInputBody.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<FunctionInfoOutput>() {
+       return (TypeAdapter<T>) new TypeAdapter<UpdateDataTypesInputBody>() {
            @Override
-           public void write(JsonWriter out, FunctionInfoOutput value) throws IOException {
+           public void write(JsonWriter out, UpdateDataTypesInputBody value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -296,12 +259,12 @@ public class FunctionInfoOutput {
            }
 
            @Override
-           public FunctionInfoOutput read(JsonReader in) throws IOException {
+           public UpdateDataTypesInputBody read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             FunctionInfoOutput instance = thisAdapter.fromJsonTree(jsonObj);
+             UpdateDataTypesInputBody instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -328,18 +291,18 @@ public class FunctionInfoOutput {
   }
 
   /**
-   * Create an instance of FunctionInfoOutput given an JSON string
+   * Create an instance of UpdateDataTypesInputBody given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of FunctionInfoOutput
-   * @throws IOException if the JSON string is invalid with respect to FunctionInfoOutput
+   * @return An instance of UpdateDataTypesInputBody
+   * @throws IOException if the JSON string is invalid with respect to UpdateDataTypesInputBody
    */
-  public static FunctionInfoOutput fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, FunctionInfoOutput.class);
+  public static UpdateDataTypesInputBody fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, UpdateDataTypesInputBody.class);
   }
 
   /**
-   * Convert an instance of FunctionInfoOutput to an JSON string
+   * Convert an instance of UpdateDataTypesInputBody to an JSON string
    *
    * @return JSON string
    */

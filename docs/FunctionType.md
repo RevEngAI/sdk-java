@@ -1,6 +1,6 @@
 
 
-# FunctionTypeInput
+# FunctionType
 
 
 ## Properties
