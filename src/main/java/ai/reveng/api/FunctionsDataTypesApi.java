@@ -26,13 +26,15 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import ai.reveng.model.APIError;
 import ai.reveng.model.BaseResponse;
 import ai.reveng.model.BaseResponseFunctionDataTypes;
 import ai.reveng.model.BaseResponseFunctionDataTypesList;
 import ai.reveng.model.BaseResponseGenerateFunctionDataTypes;
 import ai.reveng.model.BaseResponseGenerationStatusList;
+import ai.reveng.model.BatchUpdateDataTypesInputBody;
+import ai.reveng.model.BatchUpdateDataTypesOutputBody;
 import ai.reveng.model.FunctionDataTypesParams;
-import ai.reveng.model.UpdateFunctionDataTypes;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -77,6 +79,163 @@ public class FunctionsDataTypesApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
+    /**
+     * Build call for batchUpdateFunctionDataTypes
+     * @param analysisId Analysis ID (required)
+     * @param batchUpdateDataTypesInputBody  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call batchUpdateFunctionDataTypesCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull BatchUpdateDataTypesInputBody batchUpdateDataTypesInputBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = batchUpdateDataTypesInputBody;
+
+        // create path and map variables
+        String localVarPath = "/v3/analyses/{analysis_id}/functions/data-types"
+            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call batchUpdateFunctionDataTypesValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull BatchUpdateDataTypesInputBody batchUpdateDataTypesInputBody, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'analysisId' is set
+        if (analysisId == null) {
+            throw new ApiException("Missing the required parameter 'analysisId' when calling batchUpdateFunctionDataTypes(Async)");
+        }
+
+        // verify the required parameter 'batchUpdateDataTypesInputBody' is set
+        if (batchUpdateDataTypesInputBody == null) {
+            throw new ApiException("Missing the required parameter 'batchUpdateDataTypesInputBody' when calling batchUpdateFunctionDataTypes(Async)");
+        }
+
+        return batchUpdateFunctionDataTypesCall(analysisId, batchUpdateDataTypesInputBody, _callback);
+
+    }
+
+    /**
+     * Batch update function data types
+     * Updates data types for multiple functions in one analysis. All function IDs in the body must belong to the analysis. Each item is processed independently and reports its own outcome: a stale &#x60;data_types_version&#x60; yields &#x60;version_conflict&#x60; for that item without affecting the rest of the batch.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
+     * @param analysisId Analysis ID (required)
+     * @param batchUpdateDataTypesInputBody  (required)
+     * @return BatchUpdateDataTypesOutputBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public BatchUpdateDataTypesOutputBody batchUpdateFunctionDataTypes(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull BatchUpdateDataTypesInputBody batchUpdateDataTypesInputBody) throws ApiException {
+        ApiResponse<BatchUpdateDataTypesOutputBody> localVarResp = batchUpdateFunctionDataTypesWithHttpInfo(analysisId, batchUpdateDataTypesInputBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Batch update function data types
+     * Updates data types for multiple functions in one analysis. All function IDs in the body must belong to the analysis. Each item is processed independently and reports its own outcome: a stale &#x60;data_types_version&#x60; yields &#x60;version_conflict&#x60; for that item without affecting the rest of the batch.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
+     * @param analysisId Analysis ID (required)
+     * @param batchUpdateDataTypesInputBody  (required)
+     * @return ApiResponse&lt;BatchUpdateDataTypesOutputBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<BatchUpdateDataTypesOutputBody> batchUpdateFunctionDataTypesWithHttpInfo(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull BatchUpdateDataTypesInputBody batchUpdateDataTypesInputBody) throws ApiException {
+        okhttp3.Call localVarCall = batchUpdateFunctionDataTypesValidateBeforeCall(analysisId, batchUpdateDataTypesInputBody, null);
+        Type localVarReturnType = new TypeToken<BatchUpdateDataTypesOutputBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Batch update function data types (asynchronously)
+     * Updates data types for multiple functions in one analysis. All function IDs in the body must belong to the analysis. Each item is processed independently and reports its own outcome: a stale &#x60;data_types_version&#x60; yields &#x60;version_conflict&#x60; for that item without affecting the rest of the batch.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
+     * @param analysisId Analysis ID (required)
+     * @param batchUpdateDataTypesInputBody  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call batchUpdateFunctionDataTypesAsync(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull BatchUpdateDataTypesInputBody batchUpdateDataTypesInputBody, final ApiCallback<BatchUpdateDataTypesOutputBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = batchUpdateFunctionDataTypesValidateBeforeCall(analysisId, batchUpdateDataTypesInputBody, _callback);
+        Type localVarReturnType = new TypeToken<BatchUpdateDataTypesOutputBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
     /**
      * Build call for generateFunctionDataTypesForAnalysis
      * @param analysisId  (required)
@@ -755,157 +914,6 @@ public class FunctionsDataTypesApi {
 
         okhttp3.Call localVarCall = listFunctionDataTypesForFunctionsValidateBeforeCall(functionIds, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseFunctionDataTypesList>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for updateFunctionDataTypes
-     * @param analysisId  (required)
-     * @param functionId  (required)
-     * @param updateFunctionDataTypes  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call updateFunctionDataTypesCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull UpdateFunctionDataTypes updateFunctionDataTypes, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = updateFunctionDataTypes;
-
-        // create path and map variables
-        String localVarPath = "/v2/analyses/{analysis_id}/functions/{function_id}/data_types"
-            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()))
-            .replace("{" + "function_id" + "}", localVarApiClient.escapeString(functionId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "APIKey" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateFunctionDataTypesValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull UpdateFunctionDataTypes updateFunctionDataTypes, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'analysisId' is set
-        if (analysisId == null) {
-            throw new ApiException("Missing the required parameter 'analysisId' when calling updateFunctionDataTypes(Async)");
-        }
-
-        // verify the required parameter 'functionId' is set
-        if (functionId == null) {
-            throw new ApiException("Missing the required parameter 'functionId' when calling updateFunctionDataTypes(Async)");
-        }
-
-        // verify the required parameter 'updateFunctionDataTypes' is set
-        if (updateFunctionDataTypes == null) {
-            throw new ApiException("Missing the required parameter 'updateFunctionDataTypes' when calling updateFunctionDataTypes(Async)");
-        }
-
-        return updateFunctionDataTypesCall(analysisId, functionId, updateFunctionDataTypes, _callback);
-
-    }
-
-    /**
-     * Update Function Data Types
-     * Updates the function data types for a given function
-     * @param analysisId  (required)
-     * @param functionId  (required)
-     * @param updateFunctionDataTypes  (required)
-     * @return BaseResponseFunctionDataTypes
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-     </table>
-     */
-    public BaseResponseFunctionDataTypes updateFunctionDataTypes(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull UpdateFunctionDataTypes updateFunctionDataTypes) throws ApiException {
-        ApiResponse<BaseResponseFunctionDataTypes> localVarResp = updateFunctionDataTypesWithHttpInfo(analysisId, functionId, updateFunctionDataTypes);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Update Function Data Types
-     * Updates the function data types for a given function
-     * @param analysisId  (required)
-     * @param functionId  (required)
-     * @param updateFunctionDataTypes  (required)
-     * @return ApiResponse&lt;BaseResponseFunctionDataTypes&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<BaseResponseFunctionDataTypes> updateFunctionDataTypesWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull UpdateFunctionDataTypes updateFunctionDataTypes) throws ApiException {
-        okhttp3.Call localVarCall = updateFunctionDataTypesValidateBeforeCall(analysisId, functionId, updateFunctionDataTypes, null);
-        Type localVarReturnType = new TypeToken<BaseResponseFunctionDataTypes>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Update Function Data Types (asynchronously)
-     * Updates the function data types for a given function
-     * @param analysisId  (required)
-     * @param functionId  (required)
-     * @param updateFunctionDataTypes  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call updateFunctionDataTypesAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull UpdateFunctionDataTypes updateFunctionDataTypes, final ApiCallback<BaseResponseFunctionDataTypes> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = updateFunctionDataTypesValidateBeforeCall(analysisId, functionId, updateFunctionDataTypes, _callback);
-        Type localVarReturnType = new TypeToken<BaseResponseFunctionDataTypes>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

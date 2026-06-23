@@ -4,13 +4,89 @@ All URIs are relative to *https://api.reveng.ai*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
+| [**batchUpdateFunctionDataTypes**](FunctionsDataTypesApi.md#batchUpdateFunctionDataTypes) | **PUT** /v3/analyses/{analysis_id}/functions/data-types | Batch update function data types |
 | [**generateFunctionDataTypesForAnalysis**](FunctionsDataTypesApi.md#generateFunctionDataTypesForAnalysis) | **POST** /v2/analyses/{analysis_id}/functions/data_types | Generate Function Data Types |
 | [**generateFunctionDataTypesForFunctions**](FunctionsDataTypesApi.md#generateFunctionDataTypesForFunctions) | **POST** /v2/functions/data_types | Generate Function Data Types for an arbitrary list of functions |
 | [**getFunctionDataTypes**](FunctionsDataTypesApi.md#getFunctionDataTypes) | **GET** /v2/analyses/{analysis_id}/functions/{function_id}/data_types | Get Function Data Types |
 | [**listFunctionDataTypesForAnalysis**](FunctionsDataTypesApi.md#listFunctionDataTypesForAnalysis) | **GET** /v2/analyses/{analysis_id}/functions/data_types | List Function Data Types |
 | [**listFunctionDataTypesForFunctions**](FunctionsDataTypesApi.md#listFunctionDataTypesForFunctions) | **GET** /v2/functions/data_types | List Function Data Types |
-| [**updateFunctionDataTypes**](FunctionsDataTypesApi.md#updateFunctionDataTypes) | **PUT** /v2/analyses/{analysis_id}/functions/{function_id}/data_types | Update Function Data Types |
 
+
+<a id="batchUpdateFunctionDataTypes"></a>
+# **batchUpdateFunctionDataTypes**
+> BatchUpdateDataTypesOutputBody batchUpdateFunctionDataTypes(analysisId, batchUpdateDataTypesInputBody)
+
+Batch update function data types
+
+Updates data types for multiple functions in one analysis. All function IDs in the body must belong to the analysis. Each item is processed independently and reports its own outcome: a stale &#x60;data_types_version&#x60; yields &#x60;version_conflict&#x60; for that item without affecting the rest of the batch.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.FunctionsDataTypesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    FunctionsDataTypesApi apiInstance = new FunctionsDataTypesApi(defaultClient);
+    Long analysisId = 56L; // Long | Analysis ID
+    BatchUpdateDataTypesInputBody batchUpdateDataTypesInputBody = new BatchUpdateDataTypesInputBody(); // BatchUpdateDataTypesInputBody | 
+    try {
+      BatchUpdateDataTypesOutputBody result = apiInstance.batchUpdateFunctionDataTypes(analysisId, batchUpdateDataTypesInputBody);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling FunctionsDataTypesApi#batchUpdateFunctionDataTypes");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **analysisId** | **Long**| Analysis ID | |
+| **batchUpdateDataTypesInputBody** | [**BatchUpdateDataTypesInputBody**](BatchUpdateDataTypesInputBody.md)|  | |
+
+### Return type
+
+[**BatchUpdateDataTypesOutputBody**](BatchUpdateDataTypesOutputBody.md)
+
+### Authorization
+
+[APIKey](../README.md#APIKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **500** | Internal Server Error |  -  |
 
 <a id="generateFunctionDataTypesForAnalysis"></a>
 # **generateFunctionDataTypesForAnalysis**
@@ -360,80 +436,6 @@ public class Example {
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successful Response |  -  |
-| **422** | Invalid request parameters |  -  |
-
-<a id="updateFunctionDataTypes"></a>
-# **updateFunctionDataTypes**
-> BaseResponseFunctionDataTypes updateFunctionDataTypes(analysisId, functionId, updateFunctionDataTypes)
-
-Update Function Data Types
-
-Updates the function data types for a given function
-
-### Example
-```java
-// Import classes:
-import ai.reveng.invoker.ApiClient;
-import ai.reveng.invoker.ApiException;
-import ai.reveng.invoker.Configuration;
-import ai.reveng.invoker.auth.*;
-import ai.reveng.invoker.models.*;
-import ai.reveng.api.FunctionsDataTypesApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.reveng.ai");
-    
-    // Configure API key authorization: APIKey
-    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
-    APIKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //APIKey.setApiKeyPrefix("Token");
-
-    FunctionsDataTypesApi apiInstance = new FunctionsDataTypesApi(defaultClient);
-    Integer analysisId = 56; // Integer | 
-    Integer functionId = 56; // Integer | 
-    UpdateFunctionDataTypes updateFunctionDataTypes = new UpdateFunctionDataTypes(); // UpdateFunctionDataTypes | 
-    try {
-      BaseResponseFunctionDataTypes result = apiInstance.updateFunctionDataTypes(analysisId, functionId, updateFunctionDataTypes);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling FunctionsDataTypesApi#updateFunctionDataTypes");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **analysisId** | **Integer**|  | |
-| **functionId** | **Integer**|  | |
-| **updateFunctionDataTypes** | [**UpdateFunctionDataTypes**](UpdateFunctionDataTypes.md)|  | |
-
-### Return type
-
-[**BaseResponseFunctionDataTypes**](BaseResponseFunctionDataTypes.md)
-
-### Authorization
-
-[APIKey](../README.md#APIKey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details

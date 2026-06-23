@@ -50,10 +50,10 @@ import java.util.Set;
 import ai.reveng.invoker.JSON;
 
 /**
- * FunctionTypeInput
+ * FunctionType
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class FunctionTypeInput {
+public class FunctionType {
   public static final String SERIALIZED_NAME_LAST_CHANGE = "last_change";
   @SerializedName(SERIALIZED_NAME_LAST_CHANGE)
   @javax.annotation.Nullable
@@ -94,10 +94,10 @@ public class FunctionTypeInput {
   @javax.annotation.Nullable
   private String artifactType = "Function";
 
-  public FunctionTypeInput() {
+  public FunctionType() {
   }
 
-  public FunctionTypeInput lastChange(@javax.annotation.Nullable String lastChange) {
+  public FunctionType lastChange(@javax.annotation.Nullable String lastChange) {
     this.lastChange = lastChange;
     return this;
   }
@@ -116,7 +116,7 @@ public class FunctionTypeInput {
   }
 
 
-  public FunctionTypeInput addr(@javax.annotation.Nonnull Integer addr) {
+  public FunctionType addr(@javax.annotation.Nonnull Integer addr) {
     this.addr = addr;
     return this;
   }
@@ -135,7 +135,7 @@ public class FunctionTypeInput {
   }
 
 
-  public FunctionTypeInput size(@javax.annotation.Nonnull Integer size) {
+  public FunctionType size(@javax.annotation.Nonnull Integer size) {
     this.size = size;
     return this;
   }
@@ -154,7 +154,7 @@ public class FunctionTypeInput {
   }
 
 
-  public FunctionTypeInput header(@javax.annotation.Nonnull FunctionHeader header) {
+  public FunctionType header(@javax.annotation.Nonnull FunctionHeader header) {
     this.header = header;
     return this;
   }
@@ -173,12 +173,12 @@ public class FunctionTypeInput {
   }
 
 
-  public FunctionTypeInput stackVars(@javax.annotation.Nullable Map<String, StackVariable> stackVars) {
+  public FunctionType stackVars(@javax.annotation.Nullable Map<String, StackVariable> stackVars) {
     this.stackVars = stackVars;
     return this;
   }
 
-  public FunctionTypeInput putStackVarsItem(String key, StackVariable stackVarsItem) {
+  public FunctionType putStackVarsItem(String key, StackVariable stackVarsItem) {
     if (this.stackVars == null) {
       this.stackVars = new HashMap<>();
     }
@@ -200,7 +200,7 @@ public class FunctionTypeInput {
   }
 
 
-  public FunctionTypeInput name(@javax.annotation.Nonnull String name) {
+  public FunctionType name(@javax.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
@@ -219,7 +219,7 @@ public class FunctionTypeInput {
   }
 
 
-  public FunctionTypeInput type(@javax.annotation.Nonnull String type) {
+  public FunctionType type(@javax.annotation.Nonnull String type) {
     this.type = type;
     return this;
   }
@@ -238,7 +238,7 @@ public class FunctionTypeInput {
   }
 
 
-  public FunctionTypeInput artifactType(@javax.annotation.Nullable String artifactType) {
+  public FunctionType artifactType(@javax.annotation.Nullable String artifactType) {
     this.artifactType = artifactType;
     return this;
   }
@@ -269,9 +269,9 @@ public class FunctionTypeInput {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the FunctionTypeInput instance itself
+   * @return the FunctionType instance itself
    */
-  public FunctionTypeInput putAdditionalProperty(String key, Object value) {
+  public FunctionType putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -310,16 +310,16 @@ public class FunctionTypeInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FunctionTypeInput functionTypeInput = (FunctionTypeInput) o;
-    return Objects.equals(this.lastChange, functionTypeInput.lastChange) &&
-        Objects.equals(this.addr, functionTypeInput.addr) &&
-        Objects.equals(this.size, functionTypeInput.size) &&
-        Objects.equals(this.header, functionTypeInput.header) &&
-        Objects.equals(this.stackVars, functionTypeInput.stackVars) &&
-        Objects.equals(this.name, functionTypeInput.name) &&
-        Objects.equals(this.type, functionTypeInput.type) &&
-        Objects.equals(this.artifactType, functionTypeInput.artifactType)&&
-        Objects.equals(this.additionalProperties, functionTypeInput.additionalProperties);
+    FunctionType functionType = (FunctionType) o;
+    return Objects.equals(this.lastChange, functionType.lastChange) &&
+        Objects.equals(this.addr, functionType.addr) &&
+        Objects.equals(this.size, functionType.size) &&
+        Objects.equals(this.header, functionType.header) &&
+        Objects.equals(this.stackVars, functionType.stackVars) &&
+        Objects.equals(this.name, functionType.name) &&
+        Objects.equals(this.type, functionType.type) &&
+        Objects.equals(this.artifactType, functionType.artifactType)&&
+        Objects.equals(this.additionalProperties, functionType.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -341,7 +341,7 @@ public class FunctionTypeInput {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FunctionTypeInput {\n");
+    sb.append("class FunctionType {\n");
     sb.append("    lastChange: ").append(toIndentedString(lastChange)).append("\n");
     sb.append("    addr: ").append(toIndentedString(addr)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
@@ -379,17 +379,17 @@ public class FunctionTypeInput {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to FunctionTypeInput
+   * @throws IOException if the JSON Element is invalid with respect to FunctionType
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!FunctionTypeInput.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in FunctionTypeInput is not found in the empty JSON string", FunctionTypeInput.openapiRequiredFields.toString()));
+        if (!FunctionType.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in FunctionType is not found in the empty JSON string", FunctionType.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : FunctionTypeInput.openapiRequiredFields) {
+      for (String requiredField : FunctionType.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
@@ -415,16 +415,16 @@ public class FunctionTypeInput {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!FunctionTypeInput.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'FunctionTypeInput' and its subtypes
+       if (!FunctionType.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'FunctionType' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<FunctionTypeInput> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(FunctionTypeInput.class));
+       final TypeAdapter<FunctionType> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(FunctionType.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<FunctionTypeInput>() {
+       return (TypeAdapter<T>) new TypeAdapter<FunctionType>() {
            @Override
-           public void write(JsonWriter out, FunctionTypeInput value) throws IOException {
+           public void write(JsonWriter out, FunctionType value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -452,12 +452,12 @@ public class FunctionTypeInput {
            }
 
            @Override
-           public FunctionTypeInput read(JsonReader in) throws IOException {
+           public FunctionType read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             FunctionTypeInput instance = thisAdapter.fromJsonTree(jsonObj);
+             FunctionType instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -484,18 +484,18 @@ public class FunctionTypeInput {
   }
 
   /**
-   * Create an instance of FunctionTypeInput given an JSON string
+   * Create an instance of FunctionType given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of FunctionTypeInput
-   * @throws IOException if the JSON string is invalid with respect to FunctionTypeInput
+   * @return An instance of FunctionType
+   * @throws IOException if the JSON string is invalid with respect to FunctionType
    */
-  public static FunctionTypeInput fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, FunctionTypeInput.class);
+  public static FunctionType fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, FunctionType.class);
   }
 
   /**
-   * Convert an instance of FunctionTypeInput to an JSON string
+   * Convert an instance of FunctionType to an JSON string
    *
    * @return JSON string
    */
