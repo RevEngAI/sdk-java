@@ -5,7 +5,7 @@
     <artifactId>sdk</artifactId>
     <packaging>jar</packaging>
     <name>sdk</name>
-    <version>3.95.1</version>
+    <version>3.96.2</version>
     <url>https://github.com/RevEngAI/sdk-java</url>
     <description>Java SDK for the RevEng.AI API</description>
     <scm>

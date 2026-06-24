@@ -42,9 +42,18 @@ import ai.reveng.model.BaseResponseFunctionCapabilityResponse;
 import ai.reveng.model.BaseResponseFunctionStringsResponse;
 import ai.reveng.model.BaseResponseFunctionsDetailResponse;
 import ai.reveng.model.BaseResponseListCalleesCallerFunctionsResponse;
+import ai.reveng.model.CallEdgesOutputBody;
+import ai.reveng.model.CapabilitiesOutputBody;
+import ai.reveng.model.DisassemblyOutputBody;
+import ai.reveng.model.FunctionDetailsOutputBody;
 import ai.reveng.model.FunctionMatchingRequest;
 import ai.reveng.model.FunctionMatchingResponse;
+import ai.reveng.model.GetMatchesOutputBody;
+import ai.reveng.model.GetMatchesStatusOutputBody;
+import ai.reveng.model.ListAnalysisFunctionsOutputBody;
 import ai.reveng.model.ListFunctionStringsOutputBody;
+import ai.reveng.model.StartMatchingForFunctionsInputBody;
+import ai.reveng.model.StartMatchingOutputBody;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -413,7 +422,9 @@ public class FunctionsCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call aiUnstripCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AiUnstripRequest aiUnstripRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -460,6 +471,7 @@ public class FunctionsCoreApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call aiUnstripValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AiUnstripRequest aiUnstripRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
@@ -490,7 +502,9 @@ public class FunctionsCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public AutoUnstripResponse aiUnstrip(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AiUnstripRequest aiUnstripRequest) throws ApiException {
         ApiResponse<AutoUnstripResponse> localVarResp = aiUnstripWithHttpInfo(analysisId, aiUnstripRequest);
         return localVarResp.getData();
@@ -510,7 +524,9 @@ public class FunctionsCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<AutoUnstripResponse> aiUnstripWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AiUnstripRequest aiUnstripRequest) throws ApiException {
         okhttp3.Call localVarCall = aiUnstripValidateBeforeCall(analysisId, aiUnstripRequest, null);
         Type localVarReturnType = new TypeToken<AutoUnstripResponse>(){}.getType();
@@ -532,7 +548,9 @@ public class FunctionsCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call aiUnstripAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AiUnstripRequest aiUnstripRequest, final ApiCallback<AutoUnstripResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = aiUnstripValidateBeforeCall(analysisId, aiUnstripRequest, _callback);
@@ -554,7 +572,9 @@ public class FunctionsCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call analysisFunctionMatchingCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisFunctionMatchingRequest analysisFunctionMatchingRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -601,6 +621,7 @@ public class FunctionsCoreApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call analysisFunctionMatchingValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisFunctionMatchingRequest analysisFunctionMatchingRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
@@ -631,7 +652,9 @@ public class FunctionsCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public FunctionMatchingResponse analysisFunctionMatching(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisFunctionMatchingRequest analysisFunctionMatchingRequest) throws ApiException {
         ApiResponse<FunctionMatchingResponse> localVarResp = analysisFunctionMatchingWithHttpInfo(analysisId, analysisFunctionMatchingRequest);
         return localVarResp.getData();
@@ -651,7 +674,9 @@ public class FunctionsCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<FunctionMatchingResponse> analysisFunctionMatchingWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisFunctionMatchingRequest analysisFunctionMatchingRequest) throws ApiException {
         okhttp3.Call localVarCall = analysisFunctionMatchingValidateBeforeCall(analysisId, analysisFunctionMatchingRequest, null);
         Type localVarReturnType = new TypeToken<FunctionMatchingResponse>(){}.getType();
@@ -673,7 +698,9 @@ public class FunctionsCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call analysisFunctionMatchingAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisFunctionMatchingRequest analysisFunctionMatchingRequest, final ApiCallback<FunctionMatchingResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = analysisFunctionMatchingValidateBeforeCall(analysisId, analysisFunctionMatchingRequest, _callback);
@@ -695,7 +722,9 @@ public class FunctionsCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call autoUnstripCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AutoUnstripRequest autoUnstripRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -742,6 +771,7 @@ public class FunctionsCoreApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call autoUnstripValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AutoUnstripRequest autoUnstripRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
@@ -772,7 +802,9 @@ public class FunctionsCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public AutoUnstripResponse autoUnstrip(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AutoUnstripRequest autoUnstripRequest) throws ApiException {
         ApiResponse<AutoUnstripResponse> localVarResp = autoUnstripWithHttpInfo(analysisId, autoUnstripRequest);
         return localVarResp.getData();
@@ -792,7 +824,9 @@ public class FunctionsCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<AutoUnstripResponse> autoUnstripWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AutoUnstripRequest autoUnstripRequest) throws ApiException {
         okhttp3.Call localVarCall = autoUnstripValidateBeforeCall(analysisId, autoUnstripRequest, null);
         Type localVarReturnType = new TypeToken<AutoUnstripResponse>(){}.getType();
@@ -814,7 +848,9 @@ public class FunctionsCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call autoUnstripAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AutoUnstripRequest autoUnstripRequest, final ApiCallback<AutoUnstripResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = autoUnstripValidateBeforeCall(analysisId, autoUnstripRequest, _callback);
@@ -835,7 +871,9 @@ public class FunctionsCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call batchFunctionMatchingCall(@javax.annotation.Nonnull FunctionMatchingRequest functionMatchingRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -881,6 +919,7 @@ public class FunctionsCoreApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call batchFunctionMatchingValidateBeforeCall(@javax.annotation.Nonnull FunctionMatchingRequest functionMatchingRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'functionMatchingRequest' is set
@@ -905,7 +944,9 @@ public class FunctionsCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public FunctionMatchingResponse batchFunctionMatching(@javax.annotation.Nonnull FunctionMatchingRequest functionMatchingRequest) throws ApiException {
         ApiResponse<FunctionMatchingResponse> localVarResp = batchFunctionMatchingWithHttpInfo(functionMatchingRequest);
         return localVarResp.getData();
@@ -924,7 +965,9 @@ public class FunctionsCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<FunctionMatchingResponse> batchFunctionMatchingWithHttpInfo(@javax.annotation.Nonnull FunctionMatchingRequest functionMatchingRequest) throws ApiException {
         okhttp3.Call localVarCall = batchFunctionMatchingValidateBeforeCall(functionMatchingRequest, null);
         Type localVarReturnType = new TypeToken<FunctionMatchingResponse>(){}.getType();
@@ -945,7 +988,9 @@ public class FunctionsCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call batchFunctionMatchingAsync(@javax.annotation.Nonnull FunctionMatchingRequest functionMatchingRequest, final ApiCallback<FunctionMatchingResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = batchFunctionMatchingValidateBeforeCall(functionMatchingRequest, _callback);
@@ -966,7 +1011,9 @@ public class FunctionsCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call cancelAiUnstripCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1012,6 +1059,7 @@ public class FunctionsCoreApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call cancelAiUnstripValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
@@ -1036,7 +1084,9 @@ public class FunctionsCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public AutoUnstripResponse cancelAiUnstrip(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
         ApiResponse<AutoUnstripResponse> localVarResp = cancelAiUnstripWithHttpInfo(analysisId);
         return localVarResp.getData();
@@ -1055,7 +1105,9 @@ public class FunctionsCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<AutoUnstripResponse> cancelAiUnstripWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
         okhttp3.Call localVarCall = cancelAiUnstripValidateBeforeCall(analysisId, null);
         Type localVarReturnType = new TypeToken<AutoUnstripResponse>(){}.getType();
@@ -1076,7 +1128,9 @@ public class FunctionsCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call cancelAiUnstripAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<AutoUnstripResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = cancelAiUnstripValidateBeforeCall(analysisId, _callback);
@@ -1097,7 +1151,9 @@ public class FunctionsCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call cancelAutoUnstripCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1143,6 +1199,7 @@ public class FunctionsCoreApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call cancelAutoUnstripValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
@@ -1167,7 +1224,9 @@ public class FunctionsCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public AutoUnstripResponse cancelAutoUnstrip(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
         ApiResponse<AutoUnstripResponse> localVarResp = cancelAutoUnstripWithHttpInfo(analysisId);
         return localVarResp.getData();
@@ -1186,7 +1245,9 @@ public class FunctionsCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<AutoUnstripResponse> cancelAutoUnstripWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
         okhttp3.Call localVarCall = cancelAutoUnstripValidateBeforeCall(analysisId, null);
         Type localVarReturnType = new TypeToken<AutoUnstripResponse>(){}.getType();
@@ -1207,7 +1268,9 @@ public class FunctionsCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call cancelAutoUnstripAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<AutoUnstripResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = cancelAutoUnstripValidateBeforeCall(analysisId, _callback);
@@ -1557,7 +1620,9 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getFunctionBlocksCall(@javax.annotation.Nonnull Integer functionId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1603,6 +1668,7 @@ public class FunctionsCoreApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getFunctionBlocksValidateBeforeCall(@javax.annotation.Nonnull Integer functionId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'functionId' is set
@@ -1628,7 +1694,9 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BaseResponseFunctionBlocksResponse getFunctionBlocks(@javax.annotation.Nonnull Integer functionId) throws ApiException {
         ApiResponse<BaseResponseFunctionBlocksResponse> localVarResp = getFunctionBlocksWithHttpInfo(functionId);
         return localVarResp.getData();
@@ -1648,7 +1716,9 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BaseResponseFunctionBlocksResponse> getFunctionBlocksWithHttpInfo(@javax.annotation.Nonnull Integer functionId) throws ApiException {
         okhttp3.Call localVarCall = getFunctionBlocksValidateBeforeCall(functionId, null);
         Type localVarReturnType = new TypeToken<BaseResponseFunctionBlocksResponse>(){}.getType();
@@ -1670,11 +1740,156 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getFunctionBlocksAsync(@javax.annotation.Nonnull Integer functionId, final ApiCallback<BaseResponseFunctionBlocksResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getFunctionBlocksValidateBeforeCall(functionId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseFunctionBlocksResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getFunctionBlocks_0
+     * @param functionId Function ID (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getFunctionBlocks_0Call(@javax.annotation.Nonnull Long functionId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/functions/{function_id}/blocks"
+            .replace("{" + "function_id" + "}", localVarApiClient.escapeString(functionId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getFunctionBlocks_0ValidateBeforeCall(@javax.annotation.Nonnull Long functionId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'functionId' is set
+        if (functionId == null) {
+            throw new ApiException("Missing the required parameter 'functionId' when calling getFunctionBlocks_0(Async)");
+        }
+
+        return getFunctionBlocks_0Call(functionId, _callback);
+
+    }
+
+    /**
+     * Get function disassembly
+     * Returns the function&#39;s disassembly metadata (JSON blob containing basic blocks + local variables) along with parameter and return-type info.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * @param functionId Function ID (required)
+     * @return DisassemblyOutputBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public DisassemblyOutputBody getFunctionBlocks_0(@javax.annotation.Nonnull Long functionId) throws ApiException {
+        ApiResponse<DisassemblyOutputBody> localVarResp = getFunctionBlocks_0WithHttpInfo(functionId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get function disassembly
+     * Returns the function&#39;s disassembly metadata (JSON blob containing basic blocks + local variables) along with parameter and return-type info.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * @param functionId Function ID (required)
+     * @return ApiResponse&lt;DisassemblyOutputBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<DisassemblyOutputBody> getFunctionBlocks_0WithHttpInfo(@javax.annotation.Nonnull Long functionId) throws ApiException {
+        okhttp3.Call localVarCall = getFunctionBlocks_0ValidateBeforeCall(functionId, null);
+        Type localVarReturnType = new TypeToken<DisassemblyOutputBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get function disassembly (asynchronously)
+     * Returns the function&#39;s disassembly metadata (JSON blob containing basic blocks + local variables) along with parameter and return-type info.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * @param functionId Function ID (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getFunctionBlocks_0Async(@javax.annotation.Nonnull Long functionId, final ApiCallback<DisassemblyOutputBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getFunctionBlocks_0ValidateBeforeCall(functionId, _callback);
+        Type localVarReturnType = new TypeToken<DisassemblyOutputBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1691,7 +1906,9 @@ public class FunctionsCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getFunctionCalleesCallersCall(@javax.annotation.Nonnull Integer functionId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1737,6 +1954,7 @@ public class FunctionsCoreApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getFunctionCalleesCallersValidateBeforeCall(@javax.annotation.Nonnull Integer functionId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'functionId' is set
@@ -1761,7 +1979,9 @@ public class FunctionsCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BaseResponseCalleesCallerFunctionsResponse getFunctionCalleesCallers(@javax.annotation.Nonnull Integer functionId) throws ApiException {
         ApiResponse<BaseResponseCalleesCallerFunctionsResponse> localVarResp = getFunctionCalleesCallersWithHttpInfo(functionId);
         return localVarResp.getData();
@@ -1780,7 +2000,9 @@ public class FunctionsCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BaseResponseCalleesCallerFunctionsResponse> getFunctionCalleesCallersWithHttpInfo(@javax.annotation.Nonnull Integer functionId) throws ApiException {
         okhttp3.Call localVarCall = getFunctionCalleesCallersValidateBeforeCall(functionId, null);
         Type localVarReturnType = new TypeToken<BaseResponseCalleesCallerFunctionsResponse>(){}.getType();
@@ -1801,7 +2023,9 @@ public class FunctionsCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getFunctionCalleesCallersAsync(@javax.annotation.Nonnull Integer functionId, final ApiCallback<BaseResponseCalleesCallerFunctionsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getFunctionCalleesCallersValidateBeforeCall(functionId, _callback);
@@ -1822,7 +2046,9 @@ public class FunctionsCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getFunctionCalleesCallersBulkCall(@javax.annotation.Nonnull List<Integer> functionIds, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1871,6 +2097,7 @@ public class FunctionsCoreApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getFunctionCalleesCallersBulkValidateBeforeCall(@javax.annotation.Nonnull List<Integer> functionIds, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'functionIds' is set
@@ -1895,7 +2122,9 @@ public class FunctionsCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BaseResponseListCalleesCallerFunctionsResponse getFunctionCalleesCallersBulk(@javax.annotation.Nonnull List<Integer> functionIds) throws ApiException {
         ApiResponse<BaseResponseListCalleesCallerFunctionsResponse> localVarResp = getFunctionCalleesCallersBulkWithHttpInfo(functionIds);
         return localVarResp.getData();
@@ -1914,7 +2143,9 @@ public class FunctionsCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BaseResponseListCalleesCallerFunctionsResponse> getFunctionCalleesCallersBulkWithHttpInfo(@javax.annotation.Nonnull List<Integer> functionIds) throws ApiException {
         okhttp3.Call localVarCall = getFunctionCalleesCallersBulkValidateBeforeCall(functionIds, null);
         Type localVarReturnType = new TypeToken<BaseResponseListCalleesCallerFunctionsResponse>(){}.getType();
@@ -1935,11 +2166,156 @@ public class FunctionsCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getFunctionCalleesCallersBulkAsync(@javax.annotation.Nonnull List<Integer> functionIds, final ApiCallback<BaseResponseListCalleesCallerFunctionsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getFunctionCalleesCallersBulkValidateBeforeCall(functionIds, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseListCalleesCallerFunctionsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getFunctionCalleesCallers_0
+     * @param functionId Function ID (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getFunctionCalleesCallers_0Call(@javax.annotation.Nonnull Long functionId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/functions/{function_id}/callees-callers"
+            .replace("{" + "function_id" + "}", localVarApiClient.escapeString(functionId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getFunctionCalleesCallers_0ValidateBeforeCall(@javax.annotation.Nonnull Long functionId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'functionId' is set
+        if (functionId == null) {
+            throw new ApiException("Missing the required parameter 'functionId' when calling getFunctionCalleesCallers_0(Async)");
+        }
+
+        return getFunctionCalleesCallers_0Call(functionId, _callback);
+
+    }
+
+    /**
+     * Get callees and callers for a function
+     * Returns both the outgoing call edges (callees) and incoming call edges (callers) for a single function.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * @param functionId Function ID (required)
+     * @return CallEdgesOutputBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public CallEdgesOutputBody getFunctionCalleesCallers_0(@javax.annotation.Nonnull Long functionId) throws ApiException {
+        ApiResponse<CallEdgesOutputBody> localVarResp = getFunctionCalleesCallers_0WithHttpInfo(functionId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get callees and callers for a function
+     * Returns both the outgoing call edges (callees) and incoming call edges (callers) for a single function.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * @param functionId Function ID (required)
+     * @return ApiResponse&lt;CallEdgesOutputBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CallEdgesOutputBody> getFunctionCalleesCallers_0WithHttpInfo(@javax.annotation.Nonnull Long functionId) throws ApiException {
+        okhttp3.Call localVarCall = getFunctionCalleesCallers_0ValidateBeforeCall(functionId, null);
+        Type localVarReturnType = new TypeToken<CallEdgesOutputBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get callees and callers for a function (asynchronously)
+     * Returns both the outgoing call edges (callees) and incoming call edges (callers) for a single function.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * @param functionId Function ID (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getFunctionCalleesCallers_0Async(@javax.annotation.Nonnull Long functionId, final ApiCallback<CallEdgesOutputBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getFunctionCalleesCallers_0ValidateBeforeCall(functionId, _callback);
+        Type localVarReturnType = new TypeToken<CallEdgesOutputBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1957,7 +2333,9 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getFunctionCapabilitiesCall(@javax.annotation.Nonnull Integer functionId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -2003,6 +2381,7 @@ public class FunctionsCoreApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getFunctionCapabilitiesValidateBeforeCall(@javax.annotation.Nonnull Integer functionId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'functionId' is set
@@ -2028,7 +2407,9 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BaseResponseFunctionCapabilityResponse getFunctionCapabilities(@javax.annotation.Nonnull Integer functionId) throws ApiException {
         ApiResponse<BaseResponseFunctionCapabilityResponse> localVarResp = getFunctionCapabilitiesWithHttpInfo(functionId);
         return localVarResp.getData();
@@ -2048,7 +2429,9 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BaseResponseFunctionCapabilityResponse> getFunctionCapabilitiesWithHttpInfo(@javax.annotation.Nonnull Integer functionId) throws ApiException {
         okhttp3.Call localVarCall = getFunctionCapabilitiesValidateBeforeCall(functionId, null);
         Type localVarReturnType = new TypeToken<BaseResponseFunctionCapabilityResponse>(){}.getType();
@@ -2070,11 +2453,156 @@ public class FunctionsCoreApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getFunctionCapabilitiesAsync(@javax.annotation.Nonnull Integer functionId, final ApiCallback<BaseResponseFunctionCapabilityResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getFunctionCapabilitiesValidateBeforeCall(functionId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseFunctionCapabilityResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getFunctionCapabilities_0
+     * @param functionId Function ID (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getFunctionCapabilities_0Call(@javax.annotation.Nonnull Long functionId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/functions/{function_id}/capabilities"
+            .replace("{" + "function_id" + "}", localVarApiClient.escapeString(functionId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getFunctionCapabilities_0ValidateBeforeCall(@javax.annotation.Nonnull Long functionId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'functionId' is set
+        if (functionId == null) {
+            throw new ApiException("Missing the required parameter 'functionId' when calling getFunctionCapabilities_0(Async)");
+        }
+
+        return getFunctionCapabilities_0Call(functionId, _callback);
+
+    }
+
+    /**
+     * Get capabilities for a function
+     * Returns the capability findings (CAPA-style behaviour matches) associated with the given function.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * @param functionId Function ID (required)
+     * @return CapabilitiesOutputBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public CapabilitiesOutputBody getFunctionCapabilities_0(@javax.annotation.Nonnull Long functionId) throws ApiException {
+        ApiResponse<CapabilitiesOutputBody> localVarResp = getFunctionCapabilities_0WithHttpInfo(functionId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get capabilities for a function
+     * Returns the capability findings (CAPA-style behaviour matches) associated with the given function.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * @param functionId Function ID (required)
+     * @return ApiResponse&lt;CapabilitiesOutputBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CapabilitiesOutputBody> getFunctionCapabilities_0WithHttpInfo(@javax.annotation.Nonnull Long functionId) throws ApiException {
+        okhttp3.Call localVarCall = getFunctionCapabilities_0ValidateBeforeCall(functionId, null);
+        Type localVarReturnType = new TypeToken<CapabilitiesOutputBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get capabilities for a function (asynchronously)
+     * Returns the capability findings (CAPA-style behaviour matches) associated with the given function.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * @param functionId Function ID (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getFunctionCapabilities_0Async(@javax.annotation.Nonnull Long functionId, final ApiCallback<CapabilitiesOutputBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getFunctionCapabilities_0ValidateBeforeCall(functionId, _callback);
+        Type localVarReturnType = new TypeToken<CapabilitiesOutputBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2091,7 +2619,9 @@ public class FunctionsCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getFunctionDetailsCall(@javax.annotation.Nonnull Integer functionId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -2137,6 +2667,7 @@ public class FunctionsCoreApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getFunctionDetailsValidateBeforeCall(@javax.annotation.Nonnull Integer functionId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'functionId' is set
@@ -2161,7 +2692,9 @@ public class FunctionsCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BaseResponseFunctionsDetailResponse getFunctionDetails(@javax.annotation.Nonnull Integer functionId) throws ApiException {
         ApiResponse<BaseResponseFunctionsDetailResponse> localVarResp = getFunctionDetailsWithHttpInfo(functionId);
         return localVarResp.getData();
@@ -2180,7 +2713,9 @@ public class FunctionsCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BaseResponseFunctionsDetailResponse> getFunctionDetailsWithHttpInfo(@javax.annotation.Nonnull Integer functionId) throws ApiException {
         okhttp3.Call localVarCall = getFunctionDetailsValidateBeforeCall(functionId, null);
         Type localVarReturnType = new TypeToken<BaseResponseFunctionsDetailResponse>(){}.getType();
@@ -2201,11 +2736,156 @@ public class FunctionsCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getFunctionDetailsAsync(@javax.annotation.Nonnull Integer functionId, final ApiCallback<BaseResponseFunctionsDetailResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getFunctionDetailsValidateBeforeCall(functionId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseFunctionsDetailResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getFunctionDetails_0
+     * @param functionId Function ID (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getFunctionDetails_0Call(@javax.annotation.Nonnull Long functionId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/functions/{function_id}"
+            .replace("{" + "function_id" + "}", localVarApiClient.escapeString(functionId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getFunctionDetails_0ValidateBeforeCall(@javax.annotation.Nonnull Long functionId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'functionId' is set
+        if (functionId == null) {
+            throw new ApiException("Missing the required parameter 'functionId' when calling getFunctionDetails_0(Async)");
+        }
+
+        return getFunctionDetails_0Call(functionId, _callback);
+
+    }
+
+    /**
+     * Get function details
+     * Returns metadata for a single function — name, virtual address, size, debug status, binary it belongs to.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * @param functionId Function ID (required)
+     * @return FunctionDetailsOutputBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public FunctionDetailsOutputBody getFunctionDetails_0(@javax.annotation.Nonnull Long functionId) throws ApiException {
+        ApiResponse<FunctionDetailsOutputBody> localVarResp = getFunctionDetails_0WithHttpInfo(functionId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get function details
+     * Returns metadata for a single function — name, virtual address, size, debug status, binary it belongs to.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * @param functionId Function ID (required)
+     * @return ApiResponse&lt;FunctionDetailsOutputBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<FunctionDetailsOutputBody> getFunctionDetails_0WithHttpInfo(@javax.annotation.Nonnull Long functionId) throws ApiException {
+        okhttp3.Call localVarCall = getFunctionDetails_0ValidateBeforeCall(functionId, null);
+        Type localVarReturnType = new TypeToken<FunctionDetailsOutputBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get function details (asynchronously)
+     * Returns metadata for a single function — name, virtual address, size, debug status, binary it belongs to.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * @param functionId Function ID (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getFunctionDetails_0Async(@javax.annotation.Nonnull Long functionId, final ApiCallback<FunctionDetailsOutputBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getFunctionDetails_0ValidateBeforeCall(functionId, _callback);
+        Type localVarReturnType = new TypeToken<FunctionDetailsOutputBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2537,6 +3217,762 @@ public class FunctionsCoreApi {
 
         okhttp3.Call localVarCall = getFunctionStrings_0ValidateBeforeCall(functionId, page, pageSize, search, _callback);
         Type localVarReturnType = new TypeToken<ListFunctionStringsOutputBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getFunctionsCalleesCallers
+     * @param functionIds Function IDs to fetch edges for. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getFunctionsCalleesCallersCall(@javax.annotation.Nullable List<Long> functionIds, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/functions/callees-callers";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (functionIds != null) {
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("csv", "function_ids", functionIds));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getFunctionsCalleesCallersValidateBeforeCall(@javax.annotation.Nullable List<Long> functionIds, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'functionIds' is set
+        if (functionIds == null) {
+            throw new ApiException("Missing the required parameter 'functionIds' when calling getFunctionsCalleesCallers(Async)");
+        }
+
+        return getFunctionsCalleesCallersCall(functionIds, _callback);
+
+    }
+
+    /**
+     * Get callees and callers for many functions
+     * Bulk variant — pass &#x60;function_ids&#x60; as a query parameter (comma-separated or repeated). Caller must have access to every supplied function or the whole request is rejected.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
+     * @param functionIds Function IDs to fetch edges for. (required)
+     * @return CallEdgesOutputBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public CallEdgesOutputBody getFunctionsCalleesCallers(@javax.annotation.Nullable List<Long> functionIds) throws ApiException {
+        ApiResponse<CallEdgesOutputBody> localVarResp = getFunctionsCalleesCallersWithHttpInfo(functionIds);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get callees and callers for many functions
+     * Bulk variant — pass &#x60;function_ids&#x60; as a query parameter (comma-separated or repeated). Caller must have access to every supplied function or the whole request is rejected.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
+     * @param functionIds Function IDs to fetch edges for. (required)
+     * @return ApiResponse&lt;CallEdgesOutputBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CallEdgesOutputBody> getFunctionsCalleesCallersWithHttpInfo(@javax.annotation.Nullable List<Long> functionIds) throws ApiException {
+        okhttp3.Call localVarCall = getFunctionsCalleesCallersValidateBeforeCall(functionIds, null);
+        Type localVarReturnType = new TypeToken<CallEdgesOutputBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get callees and callers for many functions (asynchronously)
+     * Bulk variant — pass &#x60;function_ids&#x60; as a query parameter (comma-separated or repeated). Caller must have access to every supplied function or the whole request is rejected.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
+     * @param functionIds Function IDs to fetch edges for. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getFunctionsCalleesCallersAsync(@javax.annotation.Nullable List<Long> functionIds, final ApiCallback<CallEdgesOutputBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getFunctionsCalleesCallersValidateBeforeCall(functionIds, _callback);
+        Type localVarReturnType = new TypeToken<CallEdgesOutputBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getFunctionsMatches
+     * @param functionIds Source function IDs whose matches to fetch. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getFunctionsMatchesCall(@javax.annotation.Nullable List<Long> functionIds, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/functions/matches";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (functionIds != null) {
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("csv", "function_ids", functionIds));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getFunctionsMatchesValidateBeforeCall(@javax.annotation.Nullable List<Long> functionIds, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'functionIds' is set
+        if (functionIds == null) {
+            throw new ApiException("Missing the required parameter 'functionIds' when calling getFunctionsMatches(Async)");
+        }
+
+        return getFunctionsMatchesCall(functionIds, _callback);
+
+    }
+
+    /**
+     * Get function-matching results for an explicit set of functions
+     * Returns the matches blob when the matching workflow has completed. While the workflow is in progress this endpoint returns the current status with no matches; use /matches/status to poll progress.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
+     * @param functionIds Source function IDs whose matches to fetch. (required)
+     * @return GetMatchesOutputBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public GetMatchesOutputBody getFunctionsMatches(@javax.annotation.Nullable List<Long> functionIds) throws ApiException {
+        ApiResponse<GetMatchesOutputBody> localVarResp = getFunctionsMatchesWithHttpInfo(functionIds);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get function-matching results for an explicit set of functions
+     * Returns the matches blob when the matching workflow has completed. While the workflow is in progress this endpoint returns the current status with no matches; use /matches/status to poll progress.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
+     * @param functionIds Source function IDs whose matches to fetch. (required)
+     * @return ApiResponse&lt;GetMatchesOutputBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<GetMatchesOutputBody> getFunctionsMatchesWithHttpInfo(@javax.annotation.Nullable List<Long> functionIds) throws ApiException {
+        okhttp3.Call localVarCall = getFunctionsMatchesValidateBeforeCall(functionIds, null);
+        Type localVarReturnType = new TypeToken<GetMatchesOutputBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get function-matching results for an explicit set of functions (asynchronously)
+     * Returns the matches blob when the matching workflow has completed. While the workflow is in progress this endpoint returns the current status with no matches; use /matches/status to poll progress.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
+     * @param functionIds Source function IDs whose matches to fetch. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getFunctionsMatchesAsync(@javax.annotation.Nullable List<Long> functionIds, final ApiCallback<GetMatchesOutputBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getFunctionsMatchesValidateBeforeCall(functionIds, _callback);
+        Type localVarReturnType = new TypeToken<GetMatchesOutputBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getFunctionsMatchingStatus
+     * @param functionIds Source function IDs whose matches to fetch. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getFunctionsMatchingStatusCall(@javax.annotation.Nullable List<Long> functionIds, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/functions/matches/status";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (functionIds != null) {
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("csv", "function_ids", functionIds));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getFunctionsMatchingStatusValidateBeforeCall(@javax.annotation.Nullable List<Long> functionIds, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'functionIds' is set
+        if (functionIds == null) {
+            throw new ApiException("Missing the required parameter 'functionIds' when calling getFunctionsMatchingStatus(Async)");
+        }
+
+        return getFunctionsMatchingStatusCall(functionIds, _callback);
+
+    }
+
+    /**
+     * Get function-matching status for an explicit set of functions
+     * Returns the matching workflow&#39;s current status for the supplied function IDs. Does not include the matches blob — use GET /matches for that.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
+     * @param functionIds Source function IDs whose matches to fetch. (required)
+     * @return GetMatchesStatusOutputBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public GetMatchesStatusOutputBody getFunctionsMatchingStatus(@javax.annotation.Nullable List<Long> functionIds) throws ApiException {
+        ApiResponse<GetMatchesStatusOutputBody> localVarResp = getFunctionsMatchingStatusWithHttpInfo(functionIds);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get function-matching status for an explicit set of functions
+     * Returns the matching workflow&#39;s current status for the supplied function IDs. Does not include the matches blob — use GET /matches for that.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
+     * @param functionIds Source function IDs whose matches to fetch. (required)
+     * @return ApiResponse&lt;GetMatchesStatusOutputBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<GetMatchesStatusOutputBody> getFunctionsMatchingStatusWithHttpInfo(@javax.annotation.Nullable List<Long> functionIds) throws ApiException {
+        okhttp3.Call localVarCall = getFunctionsMatchingStatusValidateBeforeCall(functionIds, null);
+        Type localVarReturnType = new TypeToken<GetMatchesStatusOutputBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get function-matching status for an explicit set of functions (asynchronously)
+     * Returns the matching workflow&#39;s current status for the supplied function IDs. Does not include the matches blob — use GET /matches for that.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
+     * @param functionIds Source function IDs whose matches to fetch. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getFunctionsMatchingStatusAsync(@javax.annotation.Nullable List<Long> functionIds, final ApiCallback<GetMatchesStatusOutputBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getFunctionsMatchingStatusValidateBeforeCall(functionIds, _callback);
+        Type localVarReturnType = new TypeToken<GetMatchesStatusOutputBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listAnalysisFunctions
+     * @param analysisId Analysis ID (required)
+     * @param offset Pagination offset. Defaults to 0. (optional)
+     * @param limit Page size. Defaults to 100. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listAnalysisFunctionsCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable Long offset, @javax.annotation.Nullable Long limit, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/analyses/{analysis_id}/functions"
+            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (offset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listAnalysisFunctionsValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable Long offset, @javax.annotation.Nullable Long limit, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'analysisId' is set
+        if (analysisId == null) {
+            throw new ApiException("Missing the required parameter 'analysisId' when calling listAnalysisFunctions(Async)");
+        }
+
+        return listAnalysisFunctionsCall(analysisId, offset, limit, _callback);
+
+    }
+
+    /**
+     * List functions in an analysis
+     * Returns a paginated list of functions belonging to the analysis. &#x60;total_count&#x60; is the full population size, ignoring pagination.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * @param analysisId Analysis ID (required)
+     * @param offset Pagination offset. Defaults to 0. (optional)
+     * @param limit Page size. Defaults to 100. (optional)
+     * @return ListAnalysisFunctionsOutputBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListAnalysisFunctionsOutputBody listAnalysisFunctions(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable Long offset, @javax.annotation.Nullable Long limit) throws ApiException {
+        ApiResponse<ListAnalysisFunctionsOutputBody> localVarResp = listAnalysisFunctionsWithHttpInfo(analysisId, offset, limit);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List functions in an analysis
+     * Returns a paginated list of functions belonging to the analysis. &#x60;total_count&#x60; is the full population size, ignoring pagination.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * @param analysisId Analysis ID (required)
+     * @param offset Pagination offset. Defaults to 0. (optional)
+     * @param limit Page size. Defaults to 100. (optional)
+     * @return ApiResponse&lt;ListAnalysisFunctionsOutputBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListAnalysisFunctionsOutputBody> listAnalysisFunctionsWithHttpInfo(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable Long offset, @javax.annotation.Nullable Long limit) throws ApiException {
+        okhttp3.Call localVarCall = listAnalysisFunctionsValidateBeforeCall(analysisId, offset, limit, null);
+        Type localVarReturnType = new TypeToken<ListAnalysisFunctionsOutputBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List functions in an analysis (asynchronously)
+     * Returns a paginated list of functions belonging to the analysis. &#x60;total_count&#x60; is the full population size, ignoring pagination.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * @param analysisId Analysis ID (required)
+     * @param offset Pagination offset. Defaults to 0. (optional)
+     * @param limit Page size. Defaults to 100. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listAnalysisFunctionsAsync(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable Long offset, @javax.annotation.Nullable Long limit, final ApiCallback<ListAnalysisFunctionsOutputBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listAnalysisFunctionsValidateBeforeCall(analysisId, offset, limit, _callback);
+        Type localVarReturnType = new TypeToken<ListAnalysisFunctionsOutputBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for startFunctionsMatching
+     * @param startMatchingForFunctionsInputBody  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call startFunctionsMatchingCall(@javax.annotation.Nonnull StartMatchingForFunctionsInputBody startMatchingForFunctionsInputBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = startMatchingForFunctionsInputBody;
+
+        // create path and map variables
+        String localVarPath = "/v3/functions/matches";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call startFunctionsMatchingValidateBeforeCall(@javax.annotation.Nonnull StartMatchingForFunctionsInputBody startMatchingForFunctionsInputBody, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'startMatchingForFunctionsInputBody' is set
+        if (startMatchingForFunctionsInputBody == null) {
+            throw new ApiException("Missing the required parameter 'startMatchingForFunctionsInputBody' when calling startFunctionsMatching(Async)");
+        }
+
+        return startFunctionsMatchingCall(startMatchingForFunctionsInputBody, _callback);
+
+    }
+
+    /**
+     * Start function matching for an explicit set of functions
+     * Dispatches the function-matching workflow against the provided function IDs. Returns immediately. Poll the status endpoint for progress; fetch results from the matches endpoint when status&#x3D;COMPLETED.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
+     * @param startMatchingForFunctionsInputBody  (required)
+     * @return StartMatchingOutputBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public StartMatchingOutputBody startFunctionsMatching(@javax.annotation.Nonnull StartMatchingForFunctionsInputBody startMatchingForFunctionsInputBody) throws ApiException {
+        ApiResponse<StartMatchingOutputBody> localVarResp = startFunctionsMatchingWithHttpInfo(startMatchingForFunctionsInputBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Start function matching for an explicit set of functions
+     * Dispatches the function-matching workflow against the provided function IDs. Returns immediately. Poll the status endpoint for progress; fetch results from the matches endpoint when status&#x3D;COMPLETED.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
+     * @param startMatchingForFunctionsInputBody  (required)
+     * @return ApiResponse&lt;StartMatchingOutputBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<StartMatchingOutputBody> startFunctionsMatchingWithHttpInfo(@javax.annotation.Nonnull StartMatchingForFunctionsInputBody startMatchingForFunctionsInputBody) throws ApiException {
+        okhttp3.Call localVarCall = startFunctionsMatchingValidateBeforeCall(startMatchingForFunctionsInputBody, null);
+        Type localVarReturnType = new TypeToken<StartMatchingOutputBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Start function matching for an explicit set of functions (asynchronously)
+     * Dispatches the function-matching workflow against the provided function IDs. Returns immediately. Poll the status endpoint for progress; fetch results from the matches endpoint when status&#x3D;COMPLETED.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
+     * @param startMatchingForFunctionsInputBody  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call startFunctionsMatchingAsync(@javax.annotation.Nonnull StartMatchingForFunctionsInputBody startMatchingForFunctionsInputBody, final ApiCallback<StartMatchingOutputBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = startFunctionsMatchingValidateBeforeCall(startMatchingForFunctionsInputBody, _callback);
+        Type localVarReturnType = new TypeToken<StartMatchingOutputBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
