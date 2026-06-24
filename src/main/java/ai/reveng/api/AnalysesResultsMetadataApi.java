@@ -92,7 +92,9 @@ public class AnalysesResultsMetadataApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getAnalysisFunctionsPaginatedCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -146,6 +148,7 @@ public class AnalysesResultsMetadataApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getAnalysisFunctionsPaginatedValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
@@ -172,7 +175,9 @@ public class AnalysesResultsMetadataApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BaseResponseAnalysisFunctionsList getAnalysisFunctionsPaginated(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize) throws ApiException {
         ApiResponse<BaseResponseAnalysisFunctionsList> localVarResp = getAnalysisFunctionsPaginatedWithHttpInfo(analysisId, page, pageSize);
         return localVarResp.getData();
@@ -193,7 +198,9 @@ public class AnalysesResultsMetadataApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BaseResponseAnalysisFunctionsList> getAnalysisFunctionsPaginatedWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize) throws ApiException {
         okhttp3.Call localVarCall = getAnalysisFunctionsPaginatedValidateBeforeCall(analysisId, page, pageSize, null);
         Type localVarReturnType = new TypeToken<BaseResponseAnalysisFunctionsList>(){}.getType();
@@ -216,7 +223,9 @@ public class AnalysesResultsMetadataApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getAnalysisFunctionsPaginatedAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, final ApiCallback<BaseResponseAnalysisFunctionsList> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getAnalysisFunctionsPaginatedValidateBeforeCall(analysisId, page, pageSize, _callback);
