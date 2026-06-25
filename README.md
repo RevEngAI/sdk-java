@@ -16,7 +16,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>ai.reveng</groupId>
     <artifactId>sdk</artifactId>
-    <version>3.96.2</version>
+    <version>3.96.3</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -31,7 +31,7 @@ repositories {
 }
 
 dependencies {
-    implementation "ai.reveng:sdk:3.96.2"
+    implementation "ai.reveng:sdk:3.96.3"
 }
 ```
 
@@ -222,6 +222,8 @@ Class | Method | HTTP request | Description
 *FunctionsRenamingHistoryApi* | [**renameFunctionId**](docs/FunctionsRenamingHistoryApi.md#renameFunctionId) | **POST** /v2/functions/rename/{function_id} | Rename Function
 *FunctionsRenamingHistoryApi* | [**revertFunctionName**](docs/FunctionsRenamingHistoryApi.md#revertFunctionName) | **POST** /v2/functions/history/{function_id}/{history_id} | Revert the function name
 *FunctionsRenamingHistoryApi* | [**revertFunctionName_0**](docs/FunctionsRenamingHistoryApi.md#revertFunctionName_0) | **POST** /v3/functions/{function_id}/history/{history_id}/revert | Revert function name
+*IamUsersApi* | [**getMe**](docs/IamUsersApi.md#getMe) | **GET** /v2/iam/me | Get current user
+*IamUsersApi* | [**getMyPermissions**](docs/IamUsersApi.md#getMyPermissions) | **GET** /v2/iam/me/permissions | Get current user permissions
 *ModelsApi* | [**getModels**](docs/ModelsApi.md#getModels) | **GET** /v2/models | Gets models
 *ReportsApi* | [**createPdfReport**](docs/ReportsApi.md#createPdfReport) | **POST** /v3/analyses/{analysis_id}/pdf | Start PDF report generation
 *ReportsApi* | [**downloadPdfReport**](docs/ReportsApi.md#downloadPdfReport) | **GET** /v3/analyses/{analysis_id}/pdf | Download generated PDF report
@@ -239,6 +241,9 @@ Class | Method | HTTP request | Description
  - [AIDecompInverseStringMapItem](docs/AIDecompInverseStringMapItem.md)
  - [APIError](docs/APIError.md)
  - [AddCalleeInputBody](docs/AddCalleeInputBody.md)
+ - [AddIssuerDomainInputBody](docs/AddIssuerDomainInputBody.md)
+ - [AddOwnerInputBody](docs/AddOwnerInputBody.md)
+ - [AddTeamMemberInputBody](docs/AddTeamMemberInputBody.md)
  - [AddUserStringInputBody](docs/AddUserStringInputBody.md)
  - [AddUserStringToFunctionInputBody](docs/AddUserStringToFunctionInputBody.md)
  - [AdditionalDetailsStatusResponse](docs/AdditionalDetailsStatusResponse.md)
@@ -372,6 +377,8 @@ Class | Method | HTTP request | Description
  - [BinarySearchResponse](docs/BinarySearchResponse.md)
  - [BinarySearchResult](docs/BinarySearchResult.md)
  - [BinaryTaskStatus](docs/BinaryTaskStatus.md)
+ - [BulkCreateUserResult](docs/BulkCreateUserResult.md)
+ - [BulkCreateUsersOutputBody](docs/BulkCreateUsersOutputBody.md)
  - [BulkDeleteAnalysesRequest](docs/BulkDeleteAnalysesRequest.md)
  - [CallEdge](docs/CallEdge.md)
  - [CallEdgesOutputBody](docs/CallEdgesOutputBody.md)
@@ -415,7 +422,13 @@ Class | Method | HTTP request | Description
  - [CreateCollectionInputBody](docs/CreateCollectionInputBody.md)
  - [CreateCollectionOutputBody](docs/CreateCollectionOutputBody.md)
  - [CreateConversationRequest](docs/CreateConversationRequest.md)
+ - [CreateGroupInputBody](docs/CreateGroupInputBody.md)
+ - [CreateIdentityInputBody](docs/CreateIdentityInputBody.md)
+ - [CreateIssuerInputBody](docs/CreateIssuerInputBody.md)
+ - [CreateOrganisationInputBody](docs/CreateOrganisationInputBody.md)
  - [CreatePortalSessionInputBody](docs/CreatePortalSessionInputBody.md)
+ - [CreateTeamInputBody](docs/CreateTeamInputBody.md)
+ - [CreateUserInputBody](docs/CreateUserInputBody.md)
  - [Created](docs/Created.md)
  - [DataTypesEntry](docs/DataTypesEntry.md)
  - [DecompFailedEvent](docs/DecompFailedEvent.md)
@@ -474,6 +487,7 @@ Class | Method | HTTP request | Description
  - [FileHashes](docs/FileHashes.md)
  - [FileMetadata](docs/FileMetadata.md)
  - [Filters](docs/Filters.md)
+ - [FormFile](docs/FormFile.md)
  - [FuncDepsInner](docs/FuncDepsInner.md)
  - [FunctionArgument](docs/FunctionArgument.md)
  - [FunctionBlockDestinationResponse](docs/FunctionBlockDestinationResponse.md)
@@ -534,6 +548,8 @@ Class | Method | HTTP request | Description
  - [ImportModel](docs/ImportModel.md)
  - [InlineComment](docs/InlineComment.md)
  - [InsertAnalysisLogRequest](docs/InsertAnalysisLogRequest.md)
+ - [InviteUserInputBody](docs/InviteUserInputBody.md)
+ - [IssuerAllowedDomain](docs/IssuerAllowedDomain.md)
  - [ListAnalysisFunctionsDataTypesOutputBody](docs/ListAnalysisFunctionsDataTypesOutputBody.md)
  - [ListAnalysisFunctionsOutputBody](docs/ListAnalysisFunctionsOutputBody.md)
  - [ListAnalysisStringsOutputBody](docs/ListAnalysisStringsOutputBody.md)
@@ -541,12 +557,16 @@ Class | Method | HTTP request | Description
  - [ListCollectionsOutputBody](docs/ListCollectionsOutputBody.md)
  - [ListFunctionStringsOutputBody](docs/ListFunctionStringsOutputBody.md)
  - [ListFunctionsDataTypesOutputBody](docs/ListFunctionsDataTypesOutputBody.md)
+ - [ListTeamsOutputBody](docs/ListTeamsOutputBody.md)
+ - [ListUsersOutputBody](docs/ListUsersOutputBody.md)
+ - [LocationOutputBody](docs/LocationOutputBody.md)
  - [Logs](docs/Logs.md)
  - [MITRETechnique](docs/MITRETechnique.md)
  - [MatchFilters](docs/MatchFilters.md)
  - [MatchedFunction](docs/MatchedFunction.md)
  - [MatchedFunctionSuggestion](docs/MatchedFunctionSuggestion.md)
  - [MemdumpEntry](docs/MemdumpEntry.md)
+ - [MessageBody](docs/MessageBody.md)
  - [MetaModel](docs/MetaModel.md)
  - [ModelName](docs/ModelName.md)
  - [ModelsResponse](docs/ModelsResponse.md)
@@ -555,11 +575,17 @@ Class | Method | HTTP request | Description
  - [NameConfidence](docs/NameConfidence.md)
  - [NameSourceType](docs/NameSourceType.md)
  - [NetworkActivity](docs/NetworkActivity.md)
+ - [OIDCCallbackInputBody](docs/OIDCCallbackInputBody.md)
  - [Order](docs/Order.md)
+ - [Organisation](docs/Organisation.md)
+ - [OrganisationGroup](docs/OrganisationGroup.md)
+ - [OrganisationIssuer](docs/OrganisationIssuer.md)
+ - [OrganisationOwner](docs/OrganisationOwner.md)
  - [PDBDebugModel](docs/PDBDebugModel.md)
  - [PEModel](docs/PEModel.md)
  - [PaginationModel](docs/PaginationModel.md)
  - [Params](docs/Params.md)
+ - [PasswordResetInputBody](docs/PasswordResetInputBody.md)
  - [PatchCollectionBinariesInputBody](docs/PatchCollectionBinariesInputBody.md)
  - [PatchCollectionBinariesOutputBody](docs/PatchCollectionBinariesOutputBody.md)
  - [PatchCollectionInputBody](docs/PatchCollectionInputBody.md)
@@ -568,6 +594,7 @@ Class | Method | HTTP request | Description
  - [PatchCollectionTagsOutputBody](docs/PatchCollectionTagsOutputBody.md)
  - [PatchCommentBody](docs/PatchCommentBody.md)
  - [PcapBodyInfo](docs/PcapBodyInfo.md)
+ - [Permissions](docs/Permissions.md)
  - [Platform](docs/Platform.md)
  - [PriceOutput](docs/PriceOutput.md)
  - [PriceSummary](docs/PriceSummary.md)
@@ -583,7 +610,9 @@ Class | Method | HTTP request | Description
  - [QueuedWorkflowTaskResponse](docs/QueuedWorkflowTaskResponse.md)
  - [ReAnalysisForm](docs/ReAnalysisForm.md)
  - [Recent](docs/Recent.md)
+ - [RefreshBody](docs/RefreshBody.md)
  - [RegenerateOutputBody](docs/RegenerateOutputBody.md)
+ - [RegisterUserInputBody](docs/RegisterUserInputBody.md)
  - [RegistryOperation](docs/RegistryOperation.md)
  - [RelativeBinaryResponse](docs/RelativeBinaryResponse.md)
  - [RenameAppliedEvent](docs/RenameAppliedEvent.md)
@@ -594,8 +623,11 @@ Class | Method | HTTP request | Description
  - [ReportEvent](docs/ReportEvent.md)
  - [ReportInfo](docs/ReportInfo.md)
  - [ReportOptions](docs/ReportOptions.md)
+ - [RevokeBody](docs/RevokeBody.md)
  - [SBOM](docs/SBOM.md)
  - [SBOMPackage](docs/SBOMPackage.md)
+ - [SSOProvider](docs/SSOProvider.md)
+ - [SSOProvidersOutputBody](docs/SSOProvidersOutputBody.md)
  - [SandboxOptions](docs/SandboxOptions.md)
  - [SandboxStartMethod](docs/SandboxStartMethod.md)
  - [SandboxTimeout](docs/SandboxTimeout.md)
@@ -656,7 +688,11 @@ Class | Method | HTTP request | Description
  - [TaskStatus](docs/TaskStatus.md)
  - [TaskStatusResponse](docs/TaskStatusResponse.md)
  - [TcpCarvedFile](docs/TcpCarvedFile.md)
+ - [Team](docs/Team.md)
+ - [TeamMember](docs/TeamMember.md)
  - [TimestampModel](docs/TimestampModel.md)
+ - [TokenInputBody](docs/TokenInputBody.md)
+ - [TokenResponse](docs/TokenResponse.md)
  - [TokenisedData](docs/TokenisedData.md)
  - [TriageFunctionResponse](docs/TriageFunctionResponse.md)
  - [TriageReportResponse](docs/TriageReportResponse.md)
@@ -665,12 +701,24 @@ Class | Method | HTTP request | Description
  - [TypeDefinition](docs/TypeDefinition.md)
  - [UpdateDataTypesInputBody](docs/UpdateDataTypesInputBody.md)
  - [UpdateDataTypesOutputBody](docs/UpdateDataTypesOutputBody.md)
+ - [UpdateIssuerInputBody](docs/UpdateIssuerInputBody.md)
+ - [UpdateOrganisationInputBody](docs/UpdateOrganisationInputBody.md)
+ - [UpdatePasswordInputBody](docs/UpdatePasswordInputBody.md)
+ - [UpdateProfileInputBody](docs/UpdateProfileInputBody.md)
+ - [UpdateTeamInputBody](docs/UpdateTeamInputBody.md)
+ - [UpdateUserCreditsInputBody](docs/UpdateUserCreditsInputBody.md)
+ - [UpdateUserInputBody](docs/UpdateUserInputBody.md)
+ - [UpdateUserPasswordInputBody](docs/UpdateUserPasswordInputBody.md)
  - [UploadFileType](docs/UploadFileType.md)
  - [UploadResponse](docs/UploadResponse.md)
  - [UpsertAiDecomplationRatingRequest](docs/UpsertAiDecomplationRatingRequest.md)
  - [UpsertOverridesData](docs/UpsertOverridesData.md)
  - [UpsertOverridesInputBody](docs/UpsertOverridesInputBody.md)
+ - [User](docs/User.md)
  - [UserActivityResponse](docs/UserActivityResponse.md)
+ - [UserCredits](docs/UserCredits.md)
+ - [UserIdentity](docs/UserIdentity.md)
+ - [UserProfile](docs/UserProfile.md)
  - [Vulnerabilities](docs/Vulnerabilities.md)
  - [Vulnerability](docs/Vulnerability.md)
  - [WarningEvent](docs/WarningEvent.md)
