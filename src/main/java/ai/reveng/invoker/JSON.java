@@ -333,6 +333,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.EventTOOLCALLSTART.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.EventTOOLCONFIRMATIONREQUIRED.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.EventWarning.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.Example.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.ExportModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.ExternalResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.ExtractedURL.CustomTypeAdapterFactory());
@@ -405,6 +406,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.ListAnalysisStringsOutputBody.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.ListCollectionResults.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.ListCollectionsOutputBody.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.ListExampleAnalysesOutputBody.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.ListFunctionStringsOutputBody.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.ListFunctionsDataTypesOutputBody.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.ListTeamsOutputBody.CustomTypeAdapterFactory());

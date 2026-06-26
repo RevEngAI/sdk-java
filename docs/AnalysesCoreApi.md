@@ -29,6 +29,7 @@ All URIs are relative to *https://api.reveng.ai*
 | [**uploadFile**](AnalysesCoreApi.md#uploadFile) | **POST** /v2/upload | Upload File |
 | [**v3GetAnalysisStrings**](AnalysesCoreApi.md#v3GetAnalysisStrings) | **GET** /v3/analyses/{analysis_id}/functions/strings | List strings for an analysis. |
 | [**v3GetAnalysisStringsStatus**](AnalysesCoreApi.md#v3GetAnalysisStringsStatus) | **GET** /v3/analyses/{analysis_id}/functions/strings/status | Get the string-extraction status for an analysis. |
+| [**v3ListExampleAnalyses**](AnalysesCoreApi.md#v3ListExampleAnalyses) | **GET** /v3/analyses/examples | List example analyses |
 
 
 <a id="addUserStringToAnalysis"></a>
@@ -1872,4 +1873,70 @@ public class Example {
 | **404** | Not Found |  -  |
 | **422** | Unprocessable Entity |  -  |
 | **500** | Internal Server Error |  -  |
+
+<a id="v3ListExampleAnalyses"></a>
+# **v3ListExampleAnalyses**
+> ListExampleAnalysesOutputBody v3ListExampleAnalyses()
+
+List example analyses
+
+Returns the curated example Analyses.
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.AnalysesCoreApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
+    try {
+      ListExampleAnalysesOutputBody result = apiInstance.v3ListExampleAnalyses();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AnalysesCoreApi#v3ListExampleAnalyses");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ListExampleAnalysesOutputBody**](ListExampleAnalysesOutputBody.md)
+
+### Authorization
+
+[APIKey](../README.md#APIKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **0** | Error |  -  |
 

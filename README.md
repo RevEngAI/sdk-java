@@ -16,7 +16,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>ai.reveng</groupId>
     <artifactId>sdk</artifactId>
-    <version>3.96.3</version>
+    <version>3.97.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -31,7 +31,7 @@ repositories {
 }
 
 dependencies {
-    implementation "ai.reveng:sdk:3.96.3"
+    implementation "ai.reveng:sdk:3.97.0"
 }
 ```
 
@@ -116,6 +116,7 @@ Class | Method | HTTP request | Description
 *AnalysesCoreApi* | [**uploadFile**](docs/AnalysesCoreApi.md#uploadFile) | **POST** /v2/upload | Upload File
 *AnalysesCoreApi* | [**v3GetAnalysisStrings**](docs/AnalysesCoreApi.md#v3GetAnalysisStrings) | **GET** /v3/analyses/{analysis_id}/functions/strings | List strings for an analysis.
 *AnalysesCoreApi* | [**v3GetAnalysisStringsStatus**](docs/AnalysesCoreApi.md#v3GetAnalysisStringsStatus) | **GET** /v3/analyses/{analysis_id}/functions/strings/status | Get the string-extraction status for an analysis.
+*AnalysesCoreApi* | [**v3ListExampleAnalyses**](docs/AnalysesCoreApi.md#v3ListExampleAnalyses) | **GET** /v3/analyses/examples | List example analyses
 *AnalysesResultsMetadataApi* | [**getAnalysisFunctionsPaginated**](docs/AnalysesResultsMetadataApi.md#getAnalysisFunctionsPaginated) | **GET** /v2/analyses/{analysis_id}/functions | Get functions from analysis
 *AnalysesResultsMetadataApi* | [**getCapabilities**](docs/AnalysesResultsMetadataApi.md#getCapabilities) | **GET** /v2/analyses/{analysis_id}/capabilities | Gets the capabilities from the analysis
 *AnalysesResultsMetadataApi* | [**getFunctionsList**](docs/AnalysesResultsMetadataApi.md#getFunctionsList) | **GET** /v2/analyses/{analysis_id}/functions/list | Gets functions from analysis
@@ -479,6 +480,7 @@ Class | Method | HTTP request | Description
  - [EventTOOLCALLSTART](docs/EventTOOLCALLSTART.md)
  - [EventTOOLCONFIRMATIONREQUIRED](docs/EventTOOLCONFIRMATIONREQUIRED.md)
  - [EventWarning](docs/EventWarning.md)
+ - [Example](docs/Example.md)
  - [ExportModel](docs/ExportModel.md)
  - [ExternalResponse](docs/ExternalResponse.md)
  - [ExtractedURL](docs/ExtractedURL.md)
@@ -555,6 +557,7 @@ Class | Method | HTTP request | Description
  - [ListAnalysisStringsOutputBody](docs/ListAnalysisStringsOutputBody.md)
  - [ListCollectionResults](docs/ListCollectionResults.md)
  - [ListCollectionsOutputBody](docs/ListCollectionsOutputBody.md)
+ - [ListExampleAnalysesOutputBody](docs/ListExampleAnalysesOutputBody.md)
  - [ListFunctionStringsOutputBody](docs/ListFunctionStringsOutputBody.md)
  - [ListFunctionsDataTypesOutputBody](docs/ListFunctionsDataTypesOutputBody.md)
  - [ListTeamsOutputBody](docs/ListTeamsOutputBody.md)
