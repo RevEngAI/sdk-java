@@ -16,7 +16,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>ai.reveng</groupId>
     <artifactId>sdk</artifactId>
-    <version>3.97.0</version>
+    <version>3.99.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -31,7 +31,7 @@ repositories {
 }
 
 dependencies {
-    implementation "ai.reveng:sdk:3.97.0"
+    implementation "ai.reveng:sdk:3.99.0"
 }
 ```
 
@@ -256,6 +256,7 @@ Class | Method | HTTP request | Description
  - [AnalysisBulkAddTagsResponse](docs/AnalysisBulkAddTagsResponse.md)
  - [AnalysisBulkAddTagsResponseItem](docs/AnalysisBulkAddTagsResponseItem.md)
  - [AnalysisConfig](docs/AnalysisConfig.md)
+ - [AnalysisConfigSnapshot](docs/AnalysisConfigSnapshot.md)
  - [AnalysisCreateRequest](docs/AnalysisCreateRequest.md)
  - [AnalysisCreateResponse](docs/AnalysisCreateResponse.md)
  - [AnalysisDetailResponse](docs/AnalysisDetailResponse.md)

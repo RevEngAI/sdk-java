@@ -14,6 +14,7 @@ package ai.reveng.model;
 
 import java.util.Objects;
 import ai.reveng.model.AnalysisAccessInfo;
+import ai.reveng.model.AnalysisConfigSnapshot;
 import ai.reveng.model.AutoRunAgents;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -133,6 +134,11 @@ public class AnalysisDetailResponse {
   @SerializedName(SERIALIZED_NAME_AUTO_RUN_AGENTS)
   @javax.annotation.Nonnull
   private AutoRunAgents autoRunAgents;
+
+  public static final String SERIALIZED_NAME_REQUESTED_CONFIG = "requested_config";
+  @SerializedName(SERIALIZED_NAME_REQUESTED_CONFIG)
+  @javax.annotation.Nonnull
+  private AnalysisConfigSnapshot requestedConfig;
 
   public AnalysisDetailResponse() {
   }
@@ -448,6 +454,25 @@ public class AnalysisDetailResponse {
     this.autoRunAgents = autoRunAgents;
   }
 
+
+  public AnalysisDetailResponse requestedConfig(@javax.annotation.Nonnull AnalysisConfigSnapshot requestedConfig) {
+    this.requestedConfig = requestedConfig;
+    return this;
+  }
+
+  /**
+   * Snapshot of the configuration the analysis was submitted with.
+   * @return requestedConfig
+   */
+  @javax.annotation.Nonnull
+  public AnalysisConfigSnapshot getRequestedConfig() {
+    return requestedConfig;
+  }
+
+  public void setRequestedConfig(@javax.annotation.Nonnull AnalysisConfigSnapshot requestedConfig) {
+    this.requestedConfig = requestedConfig;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -518,7 +543,8 @@ public class AnalysisDetailResponse {
         Objects.equals(this.modelName, analysisDetailResponse.modelName) &&
         Objects.equals(this.sbom, analysisDetailResponse.sbom) &&
         Objects.equals(this.sha256Hash, analysisDetailResponse.sha256Hash) &&
-        Objects.equals(this.autoRunAgents, analysisDetailResponse.autoRunAgents)&&
+        Objects.equals(this.autoRunAgents, analysisDetailResponse.autoRunAgents) &&
+        Objects.equals(this.requestedConfig, analysisDetailResponse.requestedConfig)&&
         Objects.equals(this.additionalProperties, analysisDetailResponse.additionalProperties);
   }
 
@@ -528,7 +554,7 @@ public class AnalysisDetailResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(access, analysisId, analysisScope, architecture, binaryDynamic, binaryFormat, binaryName, binarySize, binaryType, creation, dashboardUrl, debug, modelName, sbom, sha256Hash, autoRunAgents, additionalProperties);
+    return Objects.hash(access, analysisId, analysisScope, architecture, binaryDynamic, binaryFormat, binaryName, binarySize, binaryType, creation, dashboardUrl, debug, modelName, sbom, sha256Hash, autoRunAgents, requestedConfig, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -558,6 +584,7 @@ public class AnalysisDetailResponse {
     sb.append("    sbom: ").append(toIndentedString(sbom)).append("\n");
     sb.append("    sha256Hash: ").append(toIndentedString(sha256Hash)).append("\n");
     sb.append("    autoRunAgents: ").append(toIndentedString(autoRunAgents)).append("\n");
+    sb.append("    requestedConfig: ").append(toIndentedString(requestedConfig)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -577,10 +604,10 @@ public class AnalysisDetailResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access", "analysis_id", "analysis_scope", "architecture", "binary_dynamic", "binary_format", "binary_name", "binary_size", "binary_type", "creation", "dashboard_url", "debug", "model_name", "sbom", "sha_256_hash", "auto_run_agents"));
+    openapiFields = new HashSet<String>(Arrays.asList("access", "analysis_id", "analysis_scope", "architecture", "binary_dynamic", "binary_format", "binary_name", "binary_size", "binary_type", "creation", "dashboard_url", "debug", "model_name", "sbom", "sha_256_hash", "auto_run_agents", "requested_config"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("access", "analysis_id", "analysis_scope", "architecture", "binary_dynamic", "binary_format", "binary_name", "binary_size", "binary_type", "creation", "dashboard_url", "debug", "model_name", "sha_256_hash", "auto_run_agents"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("access", "analysis_id", "analysis_scope", "architecture", "binary_dynamic", "binary_format", "binary_name", "binary_size", "binary_type", "creation", "dashboard_url", "debug", "model_name", "sha_256_hash", "auto_run_agents", "requested_config"));
   }
 
   /**
@@ -634,6 +661,8 @@ public class AnalysisDetailResponse {
       }
       // validate the required field `auto_run_agents`
       AutoRunAgents.validateJsonElement(jsonObj.get("auto_run_agents"));
+      // validate the required field `requested_config`
+      AnalysisConfigSnapshot.validateJsonElement(jsonObj.get("requested_config"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
