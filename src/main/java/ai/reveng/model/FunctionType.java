@@ -14,7 +14,7 @@ package ai.reveng.model;
 
 import java.util.Objects;
 import ai.reveng.model.FunctionHeader;
-import ai.reveng.model.StackVariable;
+import ai.reveng.model.FunctionStackVariable;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,7 +24,6 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -54,103 +53,89 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FunctionType {
-  public static final String SERIALIZED_NAME_LAST_CHANGE = "last_change";
-  @SerializedName(SERIALIZED_NAME_LAST_CHANGE)
-  @javax.annotation.Nullable
-  private String lastChange;
-
   public static final String SERIALIZED_NAME_ADDR = "addr";
   @SerializedName(SERIALIZED_NAME_ADDR)
   @javax.annotation.Nonnull
-  private Integer addr;
+  private Long addr;
 
-  public static final String SERIALIZED_NAME_SIZE = "size";
-  @SerializedName(SERIALIZED_NAME_SIZE)
-  @javax.annotation.Nonnull
-  private Integer size;
+  public static final String SERIALIZED_NAME_ARTIFACT_TYPE = "artifact_type";
+  @SerializedName(SERIALIZED_NAME_ARTIFACT_TYPE)
+  @javax.annotation.Nullable
+  private String artifactType;
 
   public static final String SERIALIZED_NAME_HEADER = "header";
   @SerializedName(SERIALIZED_NAME_HEADER)
   @javax.annotation.Nonnull
   private FunctionHeader header;
 
-  public static final String SERIALIZED_NAME_STACK_VARS = "stack_vars";
-  @SerializedName(SERIALIZED_NAME_STACK_VARS)
+  public static final String SERIALIZED_NAME_LAST_CHANGE = "last_change";
+  @SerializedName(SERIALIZED_NAME_LAST_CHANGE)
   @javax.annotation.Nullable
-  private Map<String, StackVariable> stackVars;
+  private String lastChange;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   @javax.annotation.Nonnull
   private String name;
 
+  public static final String SERIALIZED_NAME_SCOPE = "scope";
+  @SerializedName(SERIALIZED_NAME_SCOPE)
+  @javax.annotation.Nullable
+  private String scope;
+
+  public static final String SERIALIZED_NAME_SIZE = "size";
+  @SerializedName(SERIALIZED_NAME_SIZE)
+  @javax.annotation.Nonnull
+  private Long size;
+
+  public static final String SERIALIZED_NAME_STACK_VARS = "stack_vars";
+  @SerializedName(SERIALIZED_NAME_STACK_VARS)
+  @javax.annotation.Nullable
+  private Map<String, FunctionStackVariable> stackVars = new HashMap<>();
+
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
   @javax.annotation.Nonnull
   private String type;
 
-  public static final String SERIALIZED_NAME_ARTIFACT_TYPE = "artifact_type";
-  @SerializedName(SERIALIZED_NAME_ARTIFACT_TYPE)
-  @javax.annotation.Nullable
-  private String artifactType = "Function";
-
   public FunctionType() {
   }
 
-  public FunctionType lastChange(@javax.annotation.Nullable String lastChange) {
-    this.lastChange = lastChange;
-    return this;
-  }
-
-  /**
-   * Timestamp of the last change to this function type
-   * @return lastChange
-   */
-  @javax.annotation.Nullable
-  public String getLastChange() {
-    return lastChange;
-  }
-
-  public void setLastChange(@javax.annotation.Nullable String lastChange) {
-    this.lastChange = lastChange;
-  }
-
-
-  public FunctionType addr(@javax.annotation.Nonnull Integer addr) {
+  public FunctionType addr(@javax.annotation.Nonnull Long addr) {
     this.addr = addr;
     return this;
   }
 
   /**
-   * Memory address of the function
+   * Get addr
    * @return addr
    */
   @javax.annotation.Nonnull
-  public Integer getAddr() {
+  public Long getAddr() {
     return addr;
   }
 
-  public void setAddr(@javax.annotation.Nonnull Integer addr) {
+  public void setAddr(@javax.annotation.Nonnull Long addr) {
     this.addr = addr;
   }
 
 
-  public FunctionType size(@javax.annotation.Nonnull Integer size) {
-    this.size = size;
+  public FunctionType artifactType(@javax.annotation.Nullable String artifactType) {
+    this.artifactType = artifactType;
     return this;
   }
 
   /**
-   * Size of the function in bytes
-   * @return size
+   * Get artifactType
+   * @return artifactType
    */
-  @javax.annotation.Nonnull
-  public Integer getSize() {
-    return size;
+  @javax.annotation.Nullable
+  public String getArtifactType() {
+    return artifactType;
   }
 
-  public void setSize(@javax.annotation.Nonnull Integer size) {
-    this.size = size;
+  public void setArtifactType(@javax.annotation.Nullable String artifactType) {
+    this.artifactType = artifactType;
   }
 
 
@@ -160,7 +145,7 @@ public class FunctionType {
   }
 
   /**
-   * Function header information
+   * Get header
    * @return header
    */
   @javax.annotation.Nonnull
@@ -173,30 +158,22 @@ public class FunctionType {
   }
 
 
-  public FunctionType stackVars(@javax.annotation.Nullable Map<String, StackVariable> stackVars) {
-    this.stackVars = stackVars;
-    return this;
-  }
-
-  public FunctionType putStackVarsItem(String key, StackVariable stackVarsItem) {
-    if (this.stackVars == null) {
-      this.stackVars = new HashMap<>();
-    }
-    this.stackVars.put(key, stackVarsItem);
+  public FunctionType lastChange(@javax.annotation.Nullable String lastChange) {
+    this.lastChange = lastChange;
     return this;
   }
 
   /**
-   * Dictionary of stack variables
-   * @return stackVars
+   * Get lastChange
+   * @return lastChange
    */
   @javax.annotation.Nullable
-  public Map<String, StackVariable> getStackVars() {
-    return stackVars;
+  public String getLastChange() {
+    return lastChange;
   }
 
-  public void setStackVars(@javax.annotation.Nullable Map<String, StackVariable> stackVars) {
-    this.stackVars = stackVars;
+  public void setLastChange(@javax.annotation.Nullable String lastChange) {
+    this.lastChange = lastChange;
   }
 
 
@@ -206,7 +183,7 @@ public class FunctionType {
   }
 
   /**
-   * Name of the function
+   * Get name
    * @return name
    */
   @javax.annotation.Nonnull
@@ -219,13 +196,78 @@ public class FunctionType {
   }
 
 
+  public FunctionType scope(@javax.annotation.Nullable String scope) {
+    this.scope = scope;
+    return this;
+  }
+
+  /**
+   * Get scope
+   * @return scope
+   */
+  @javax.annotation.Nullable
+  public String getScope() {
+    return scope;
+  }
+
+  public void setScope(@javax.annotation.Nullable String scope) {
+    this.scope = scope;
+  }
+
+
+  public FunctionType size(@javax.annotation.Nonnull Long size) {
+    this.size = size;
+    return this;
+  }
+
+  /**
+   * Get size
+   * @return size
+   */
+  @javax.annotation.Nonnull
+  public Long getSize() {
+    return size;
+  }
+
+  public void setSize(@javax.annotation.Nonnull Long size) {
+    this.size = size;
+  }
+
+
+  public FunctionType stackVars(@javax.annotation.Nullable Map<String, FunctionStackVariable> stackVars) {
+    this.stackVars = stackVars;
+    return this;
+  }
+
+  public FunctionType putStackVarsItem(String key, FunctionStackVariable stackVarsItem) {
+    if (this.stackVars == null) {
+      this.stackVars = new HashMap<>();
+    }
+    this.stackVars.put(key, stackVarsItem);
+    return this;
+  }
+
+  /**
+   * Stack variables keyed by offset hex.
+   * @return stackVars
+   */
+  @javax.annotation.Nullable
+  public Map<String, FunctionStackVariable> getStackVars() {
+    return stackVars;
+  }
+
+  public void setStackVars(@javax.annotation.Nullable Map<String, FunctionStackVariable> stackVars) {
+    this.stackVars = stackVars;
+  }
+
+
   public FunctionType type(@javax.annotation.Nonnull String type) {
     this.type = type;
     return this;
   }
 
   /**
-   * Return type of the function
+   * Get type
    * @return type
    */
   @javax.annotation.Nonnull
@@ -238,69 +280,6 @@ public class FunctionType {
   }
 
 
-  public FunctionType artifactType(@javax.annotation.Nullable String artifactType) {
-    this.artifactType = artifactType;
-    return this;
-  }
-
-  /**
-   * Type of artifact that the structure is associated with
-   * @return artifactType
-   */
-  @javax.annotation.Nullable
-  public String getArtifactType() {
-    return artifactType;
-  }
-
-  public void setArtifactType(@javax.annotation.Nullable String artifactType) {
-    this.artifactType = artifactType;
-  }
-
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
-
-  /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
-   *
-   * @param key name of the property
-   * @param value value of the property
-   * @return the FunctionType instance itself
-   */
-  public FunctionType putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
-    }
-    this.additionalProperties.put(key, value);
-    return this;
-  }
-
-  /**
-   * Return the additional (undeclared) property.
-   *
-   * @return a map of objects
-   */
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
-  }
-
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   *
-   * @param key name of the property
-   * @return an object
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-        return null;
-    }
-    return this.additionalProperties.get(key);
-  }
-
 
   @Override
   public boolean equals(Object o) {
@@ -311,46 +290,35 @@ public class FunctionType {
       return false;
     }
     FunctionType functionType = (FunctionType) o;
-    return Objects.equals(this.lastChange, functionType.lastChange) &&
-        Objects.equals(this.addr, functionType.addr) &&
-        Objects.equals(this.size, functionType.size) &&
+    return Objects.equals(this.addr, functionType.addr) &&
+        Objects.equals(this.artifactType, functionType.artifactType) &&
         Objects.equals(this.header, functionType.header) &&
-        Objects.equals(this.stackVars, functionType.stackVars) &&
+        Objects.equals(this.lastChange, functionType.lastChange) &&
         Objects.equals(this.name, functionType.name) &&
-        Objects.equals(this.type, functionType.type) &&
-        Objects.equals(this.artifactType, functionType.artifactType)&&
-        Objects.equals(this.additionalProperties, functionType.additionalProperties);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+        Objects.equals(this.scope, functionType.scope) &&
+        Objects.equals(this.size, functionType.size) &&
+        Objects.equals(this.stackVars, functionType.stackVars) &&
+        Objects.equals(this.type, functionType.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(lastChange, addr, size, header, stackVars, name, type, artifactType, additionalProperties);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(addr, artifactType, header, lastChange, name, scope, size, stackVars, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FunctionType {\n");
-    sb.append("    lastChange: ").append(toIndentedString(lastChange)).append("\n");
     sb.append("    addr: ").append(toIndentedString(addr)).append("\n");
-    sb.append("    size: ").append(toIndentedString(size)).append("\n");
-    sb.append("    header: ").append(toIndentedString(header)).append("\n");
-    sb.append("    stackVars: ").append(toIndentedString(stackVars)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    artifactType: ").append(toIndentedString(artifactType)).append("\n");
-    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
+    sb.append("    header: ").append(toIndentedString(header)).append("\n");
+    sb.append("    lastChange: ").append(toIndentedString(lastChange)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
+    sb.append("    size: ").append(toIndentedString(size)).append("\n");
+    sb.append("    stackVars: ").append(toIndentedString(stackVars)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -369,10 +337,10 @@ public class FunctionType {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("last_change", "addr", "size", "header", "stack_vars", "name", "type", "artifact_type"));
+    openapiFields = new HashSet<String>(Arrays.asList("addr", "artifact_type", "header", "last_change", "name", "scope", "size", "stack_vars", "type"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("addr", "size", "header", "name", "type"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("addr", "header", "name", "size", "type"));
   }
 
   /**
@@ -388,6 +356,14 @@ public class FunctionType {
         }
       }
 
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!FunctionType.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `FunctionType` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : FunctionType.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
@@ -395,19 +371,22 @@ public class FunctionType {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("last_change") != null && !jsonObj.get("last_change").isJsonNull()) && !jsonObj.get("last_change").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `last_change` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_change").toString()));
+      if ((jsonObj.get("artifact_type") != null && !jsonObj.get("artifact_type").isJsonNull()) && !jsonObj.get("artifact_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `artifact_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("artifact_type").toString()));
       }
       // validate the required field `header`
       FunctionHeader.validateJsonElement(jsonObj.get("header"));
+      if ((jsonObj.get("last_change") != null && !jsonObj.get("last_change").isJsonNull()) && !jsonObj.get("last_change").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `last_change` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_change").toString()));
+      }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
+      if ((jsonObj.get("scope") != null && !jsonObj.get("scope").isJsonNull()) && !jsonObj.get("scope").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `scope` to be a primitive type in the JSON string but got `%s`", jsonObj.get("scope").toString()));
+      }
       if (!jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-      }
-      if ((jsonObj.get("artifact_type") != null && !jsonObj.get("artifact_type").isJsonNull()) && !jsonObj.get("artifact_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `artifact_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("artifact_type").toString()));
       }
   }
 
@@ -426,28 +405,6 @@ public class FunctionType {
            @Override
            public void write(JsonWriter out, FunctionType value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             obj.remove("additionalProperties");
-             // serialize additional properties
-             if (value.getAdditionalProperties() != null) {
-               for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
-               }
-             }
              elementAdapter.write(out, obj);
            }
 
@@ -455,28 +412,7 @@ public class FunctionType {
            public FunctionType read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
-             JsonObject jsonObj = jsonElement.getAsJsonObject();
-             // store additional fields in the deserialized instance
-             FunctionType instance = thisAdapter.fromJsonTree(jsonObj);
-             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
-               if (!openapiFields.contains(entry.getKey())) {
-                 if (entry.getValue().isJsonPrimitive()) { // primitive type
-                   if (entry.getValue().getAsJsonPrimitive().isString())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsString());
-                   else if (entry.getValue().getAsJsonPrimitive().isNumber())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsNumber());
-                   else if (entry.getValue().getAsJsonPrimitive().isBoolean())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
-                   else
-                     throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
-                 } else if (entry.getValue().isJsonArray()) {
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
-                 } else { // JSON object
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), HashMap.class));
-                 }
-               }
-             }
-             return instance;
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

@@ -13,7 +13,7 @@
 package ai.reveng.model;
 
 import java.util.Objects;
-import ai.reveng.model.Argument;
+import ai.reveng.model.FunctionArgument;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,7 +23,6 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -53,6 +52,16 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FunctionHeader {
+  public static final String SERIALIZED_NAME_ADDR = "addr";
+  @SerializedName(SERIALIZED_NAME_ADDR)
+  @javax.annotation.Nonnull
+  private Long addr;
+
+  public static final String SERIALIZED_NAME_ARGS = "args";
+  @SerializedName(SERIALIZED_NAME_ARGS)
+  @javax.annotation.Nonnull
+  private Map<String, FunctionArgument> args = new HashMap<>();
+
   public static final String SERIALIZED_NAME_LAST_CHANGE = "last_change";
   @SerializedName(SERIALIZED_NAME_LAST_CHANGE)
   @javax.annotation.Nullable
@@ -63,23 +72,64 @@ public class FunctionHeader {
   @javax.annotation.Nonnull
   private String name;
 
-  public static final String SERIALIZED_NAME_ADDR = "addr";
-  @SerializedName(SERIALIZED_NAME_ADDR)
-  @javax.annotation.Nonnull
-  private Integer addr;
+  public static final String SERIALIZED_NAME_SCOPE = "scope";
+  @SerializedName(SERIALIZED_NAME_SCOPE)
+  @javax.annotation.Nullable
+  private String scope;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
   @javax.annotation.Nonnull
   private String type;
 
-  public static final String SERIALIZED_NAME_ARGS = "args";
-  @SerializedName(SERIALIZED_NAME_ARGS)
-  @javax.annotation.Nonnull
-  private Map<String, Argument> args = new HashMap<>();
-
   public FunctionHeader() {
   }
+
+  public FunctionHeader addr(@javax.annotation.Nonnull Long addr) {
+    this.addr = addr;
+    return this;
+  }
+
+  /**
+   * Get addr
+   * @return addr
+   */
+  @javax.annotation.Nonnull
+  public Long getAddr() {
+    return addr;
+  }
+
+  public void setAddr(@javax.annotation.Nonnull Long addr) {
+    this.addr = addr;
+  }
+
+
+  public FunctionHeader args(@javax.annotation.Nonnull Map<String, FunctionArgument> args) {
+    this.args = args;
+    return this;
+  }
+
+  public FunctionHeader putArgsItem(String key, FunctionArgument argsItem) {
+    if (this.args == null) {
+      this.args = new HashMap<>();
+    }
+    this.args.put(key, argsItem);
+    return this;
+  }
+
+  /**
+   * Argument map keyed by ordinal hex (e.g. \&quot;0x0\&quot;, \&quot;0x1\&quot;).
+   * @return args
+   */
+  @javax.annotation.Nonnull
+  public Map<String, FunctionArgument> getArgs() {
+    return args;
+  }
+
+  public void setArgs(@javax.annotation.Nonnull Map<String, FunctionArgument> args) {
+    this.args = args;
+  }
+
 
   public FunctionHeader lastChange(@javax.annotation.Nullable String lastChange) {
     this.lastChange = lastChange;
@@ -87,7 +137,7 @@ public class FunctionHeader {
   }
 
   /**
-   * Timestamp of the last change to this function header
+   * Get lastChange
    * @return lastChange
    */
   @javax.annotation.Nullable
@@ -106,7 +156,7 @@ public class FunctionHeader {
   }
 
   /**
-   * Name of the function
+   * Get name
    * @return name
    */
   @javax.annotation.Nonnull
@@ -119,22 +169,22 @@ public class FunctionHeader {
   }
 
 
-  public FunctionHeader addr(@javax.annotation.Nonnull Integer addr) {
-    this.addr = addr;
+  public FunctionHeader scope(@javax.annotation.Nullable String scope) {
+    this.scope = scope;
     return this;
   }
 
   /**
-   * Memory address of the function
-   * @return addr
+   * Get scope
+   * @return scope
    */
-  @javax.annotation.Nonnull
-  public Integer getAddr() {
-    return addr;
+  @javax.annotation.Nullable
+  public String getScope() {
+    return scope;
   }
 
-  public void setAddr(@javax.annotation.Nonnull Integer addr) {
-    this.addr = addr;
+  public void setScope(@javax.annotation.Nullable String scope) {
+    this.scope = scope;
   }
 
 
@@ -144,7 +194,7 @@ public class FunctionHeader {
   }
 
   /**
-   * Return type of the function
+   * Get type
    * @return type
    */
   @javax.annotation.Nonnull
@@ -157,77 +207,6 @@ public class FunctionHeader {
   }
 
 
-  public FunctionHeader args(@javax.annotation.Nonnull Map<String, Argument> args) {
-    this.args = args;
-    return this;
-  }
-
-  public FunctionHeader putArgsItem(String key, Argument argsItem) {
-    if (this.args == null) {
-      this.args = new HashMap<>();
-    }
-    this.args.put(key, argsItem);
-    return this;
-  }
-
-  /**
-   * Dictionary of function arguments
-   * @return args
-   */
-  @javax.annotation.Nonnull
-  public Map<String, Argument> getArgs() {
-    return args;
-  }
-
-  public void setArgs(@javax.annotation.Nonnull Map<String, Argument> args) {
-    this.args = args;
-  }
-
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
-
-  /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
-   *
-   * @param key name of the property
-   * @param value value of the property
-   * @return the FunctionHeader instance itself
-   */
-  public FunctionHeader putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
-    }
-    this.additionalProperties.put(key, value);
-    return this;
-  }
-
-  /**
-   * Return the additional (undeclared) property.
-   *
-   * @return a map of objects
-   */
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
-  }
-
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   *
-   * @param key name of the property
-   * @return an object
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-        return null;
-    }
-    return this.additionalProperties.get(key);
-  }
-
 
   @Override
   public boolean equals(Object o) {
@@ -238,40 +217,29 @@ public class FunctionHeader {
       return false;
     }
     FunctionHeader functionHeader = (FunctionHeader) o;
-    return Objects.equals(this.lastChange, functionHeader.lastChange) &&
+    return Objects.equals(this.addr, functionHeader.addr) &&
+        Objects.equals(this.args, functionHeader.args) &&
+        Objects.equals(this.lastChange, functionHeader.lastChange) &&
         Objects.equals(this.name, functionHeader.name) &&
-        Objects.equals(this.addr, functionHeader.addr) &&
-        Objects.equals(this.type, functionHeader.type) &&
-        Objects.equals(this.args, functionHeader.args)&&
-        Objects.equals(this.additionalProperties, functionHeader.additionalProperties);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+        Objects.equals(this.scope, functionHeader.scope) &&
+        Objects.equals(this.type, functionHeader.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(lastChange, name, addr, type, args, additionalProperties);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(addr, args, lastChange, name, scope, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FunctionHeader {\n");
+    sb.append("    addr: ").append(toIndentedString(addr)).append("\n");
+    sb.append("    args: ").append(toIndentedString(args)).append("\n");
     sb.append("    lastChange: ").append(toIndentedString(lastChange)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    addr: ").append(toIndentedString(addr)).append("\n");
+    sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    args: ").append(toIndentedString(args)).append("\n");
-    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -290,10 +258,10 @@ public class FunctionHeader {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("last_change", "name", "addr", "type", "args"));
+    openapiFields = new HashSet<String>(Arrays.asList("addr", "args", "last_change", "name", "scope", "type"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "addr", "type", "args"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("addr", "args", "name", "type"));
   }
 
   /**
@@ -309,6 +277,14 @@ public class FunctionHeader {
         }
       }
 
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!FunctionHeader.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `FunctionHeader` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : FunctionHeader.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
@@ -321,6 +297,9 @@ public class FunctionHeader {
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("scope") != null && !jsonObj.get("scope").isJsonNull()) && !jsonObj.get("scope").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `scope` to be a primitive type in the JSON string but got `%s`", jsonObj.get("scope").toString()));
       }
       if (!jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
@@ -342,28 +321,6 @@ public class FunctionHeader {
            @Override
            public void write(JsonWriter out, FunctionHeader value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             obj.remove("additionalProperties");
-             // serialize additional properties
-             if (value.getAdditionalProperties() != null) {
-               for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
-               }
-             }
              elementAdapter.write(out, obj);
            }
 
@@ -371,28 +328,7 @@ public class FunctionHeader {
            public FunctionHeader read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
-             JsonObject jsonObj = jsonElement.getAsJsonObject();
-             // store additional fields in the deserialized instance
-             FunctionHeader instance = thisAdapter.fromJsonTree(jsonObj);
-             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
-               if (!openapiFields.contains(entry.getKey())) {
-                 if (entry.getValue().isJsonPrimitive()) { // primitive type
-                   if (entry.getValue().getAsJsonPrimitive().isString())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsString());
-                   else if (entry.getValue().getAsJsonPrimitive().isNumber())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsNumber());
-                   else if (entry.getValue().getAsJsonPrimitive().isBoolean())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
-                   else
-                     throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
-                 } else if (entry.getValue().isJsonArray()) {
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
-                 } else { // JSON object
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), HashMap.class));
-                 }
-               }
-             }
-             return instance;
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

@@ -59,6 +59,11 @@ public class UserProfile {
   @javax.annotation.Nonnull
   private String firstName;
 
+  public static final String SERIALIZED_NAME_HIDE_EXAMPLE_BINARIES = "hide_example_binaries";
+  @SerializedName(SERIALIZED_NAME_HIDE_EXAMPLE_BINARIES)
+  @javax.annotation.Nonnull
+  private Boolean hideExampleBinaries;
+
   public static final String SERIALIZED_NAME_LAST_NAME = "last_name";
   @SerializedName(SERIALIZED_NAME_LAST_NAME)
   @javax.annotation.Nonnull
@@ -112,6 +117,25 @@ public class UserProfile {
 
   public void setFirstName(@javax.annotation.Nonnull String firstName) {
     this.firstName = firstName;
+  }
+
+
+  public UserProfile hideExampleBinaries(@javax.annotation.Nonnull Boolean hideExampleBinaries) {
+    this.hideExampleBinaries = hideExampleBinaries;
+    return this;
+  }
+
+  /**
+   * Get hideExampleBinaries
+   * @return hideExampleBinaries
+   */
+  @javax.annotation.Nonnull
+  public Boolean getHideExampleBinaries() {
+    return hideExampleBinaries;
+  }
+
+  public void setHideExampleBinaries(@javax.annotation.Nonnull Boolean hideExampleBinaries) {
+    this.hideExampleBinaries = hideExampleBinaries;
   }
 
 
@@ -184,6 +208,7 @@ public class UserProfile {
     UserProfile userProfile = (UserProfile) o;
     return Objects.equals(this.defaultTeamId, userProfile.defaultTeamId) &&
         Objects.equals(this.firstName, userProfile.firstName) &&
+        Objects.equals(this.hideExampleBinaries, userProfile.hideExampleBinaries) &&
         Objects.equals(this.lastName, userProfile.lastName) &&
         Objects.equals(this.timeZone, userProfile.timeZone) &&
         Objects.equals(this.username, userProfile.username);
@@ -191,7 +216,7 @@ public class UserProfile {
 
   @Override
   public int hashCode() {
-    return Objects.hash(defaultTeamId, firstName, lastName, timeZone, username);
+    return Objects.hash(defaultTeamId, firstName, hideExampleBinaries, lastName, timeZone, username);
   }
 
   @Override
@@ -200,6 +225,7 @@ public class UserProfile {
     sb.append("class UserProfile {\n");
     sb.append("    defaultTeamId: ").append(toIndentedString(defaultTeamId)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
+    sb.append("    hideExampleBinaries: ").append(toIndentedString(hideExampleBinaries)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
     sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
@@ -221,10 +247,10 @@ public class UserProfile {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("default_team_id", "first_name", "last_name", "time_zone", "username"));
+    openapiFields = new HashSet<String>(Arrays.asList("default_team_id", "first_name", "hide_example_binaries", "last_name", "time_zone", "username"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("first_name", "last_name", "time_zone", "username"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("first_name", "hide_example_binaries", "last_name", "time_zone", "username"));
   }
 
   /**

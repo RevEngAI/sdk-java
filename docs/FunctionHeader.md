@@ -7,11 +7,12 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**lastChange** | **String** | Timestamp of the last change to this function header |  [optional] |
-|**name** | **String** | Name of the function |  |
-|**addr** | **Integer** | Memory address of the function |  |
-|**type** | **String** | Return type of the function |  |
-|**args** | [**Map&lt;String, Argument&gt;**](Argument.md) | Dictionary of function arguments |  |
+|**addr** | **Long** |  |  |
+|**args** | [**Map&lt;String, FunctionArgument&gt;**](FunctionArgument.md) | Argument map keyed by ordinal hex (e.g. \&quot;0x0\&quot;, \&quot;0x1\&quot;). |  |
+|**lastChange** | **String** |  |  [optional] |
+|**name** | **String** |  |  |
+|**scope** | **String** |  |  [optional] |
+|**type** | **String** |  |  |
 
 
 

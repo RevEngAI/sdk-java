@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**name** | **String** | The suggested function name |  |
-|**confidence** | **BigDecimal** | Confidence score as a percentage |  |
+|**confidence** | **Double** | Softmax-normalised confidence for this name |  |
+|**name** | **String** | Candidate name |  |
 
 
 
