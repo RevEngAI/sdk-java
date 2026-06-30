@@ -8,12 +8,12 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**addr** | **Long** |  |  |
-|**lastChange** | **String** | Search is applied to string value |  [optional] |
-|**name** | **String** | Search is applied to string value |  |
+|**lastChange** | **String** |  |  [optional] |
+|**name** | **String** |  |  |
 |**offset** | **Long** |  |  |
-|**scope** | **String** | Search is applied to string value |  [optional] |
+|**scope** | **String** |  |  [optional] |
 |**size** | **Long** |  |  |
-|**type** | **String** | Search is applied to string value |  |
+|**type** | **String** |  |  |
 
 
 

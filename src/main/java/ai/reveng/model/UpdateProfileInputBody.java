@@ -59,6 +59,11 @@ public class UpdateProfileInputBody {
   @javax.annotation.Nullable
   private String firstName;
 
+  public static final String SERIALIZED_NAME_HIDE_EXAMPLE_BINARIES = "hide_example_binaries";
+  @SerializedName(SERIALIZED_NAME_HIDE_EXAMPLE_BINARIES)
+  @javax.annotation.Nullable
+  private Boolean hideExampleBinaries;
+
   public static final String SERIALIZED_NAME_LAST_NAME = "last_name";
   @SerializedName(SERIALIZED_NAME_LAST_NAME)
   @javax.annotation.Nullable
@@ -113,6 +118,25 @@ public class UpdateProfileInputBody {
 
   public void setFirstName(@javax.annotation.Nullable String firstName) {
     this.firstName = firstName;
+  }
+
+
+  public UpdateProfileInputBody hideExampleBinaries(@javax.annotation.Nullable Boolean hideExampleBinaries) {
+    this.hideExampleBinaries = hideExampleBinaries;
+    return this;
+  }
+
+  /**
+   * Hide the Examples tab in the analyses listing
+   * @return hideExampleBinaries
+   */
+  @javax.annotation.Nullable
+  public Boolean getHideExampleBinaries() {
+    return hideExampleBinaries;
+  }
+
+  public void setHideExampleBinaries(@javax.annotation.Nullable Boolean hideExampleBinaries) {
+    this.hideExampleBinaries = hideExampleBinaries;
   }
 
 
@@ -229,6 +253,7 @@ public class UpdateProfileInputBody {
     UpdateProfileInputBody updateProfileInputBody = (UpdateProfileInputBody) o;
     return Objects.equals(this.defaultTeamId, updateProfileInputBody.defaultTeamId) &&
         Objects.equals(this.firstName, updateProfileInputBody.firstName) &&
+        Objects.equals(this.hideExampleBinaries, updateProfileInputBody.hideExampleBinaries) &&
         Objects.equals(this.lastName, updateProfileInputBody.lastName) &&
         Objects.equals(this.timeZone, updateProfileInputBody.timeZone) &&
         Objects.equals(this.username, updateProfileInputBody.username)&&
@@ -237,7 +262,7 @@ public class UpdateProfileInputBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(defaultTeamId, firstName, lastName, timeZone, username, additionalProperties);
+    return Objects.hash(defaultTeamId, firstName, hideExampleBinaries, lastName, timeZone, username, additionalProperties);
   }
 
   @Override
@@ -246,6 +271,7 @@ public class UpdateProfileInputBody {
     sb.append("class UpdateProfileInputBody {\n");
     sb.append("    defaultTeamId: ").append(toIndentedString(defaultTeamId)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
+    sb.append("    hideExampleBinaries: ").append(toIndentedString(hideExampleBinaries)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
     sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
@@ -268,7 +294,7 @@ public class UpdateProfileInputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("default_team_id", "first_name", "last_name", "time_zone", "username"));
+    openapiFields = new HashSet<String>(Arrays.asList("default_team_id", "first_name", "hide_example_binaries", "last_name", "time_zone", "username"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);

@@ -49,6 +49,10 @@ public class Example {
     // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
     //APIKey.setApiKeyPrefix("Token");
 
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
     CollectionsApi apiInstance = new CollectionsApi(defaultClient);
     CollectionCreateRequest collectionCreateRequest = new CollectionCreateRequest(); // CollectionCreateRequest | 
     try {
@@ -77,7 +81,7 @@ public class Example {
 
 ### Authorization
 
-[APIKey](../README.md#APIKey)
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -119,6 +123,10 @@ public class Example {
     // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
     //APIKey.setApiKeyPrefix("Token");
 
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
     CollectionsApi apiInstance = new CollectionsApi(defaultClient);
     Integer collectionId = 56; // Integer | 
     try {
@@ -147,7 +155,7 @@ public class Example {
 
 ### Authorization
 
-[APIKey](../README.md#APIKey)
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -189,6 +197,10 @@ public class Example {
     // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
     //APIKey.setApiKeyPrefix("Token");
 
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
     CollectionsApi apiInstance = new CollectionsApi(defaultClient);
     Integer collectionId = 56; // Integer | 
     Boolean includeTags = false; // Boolean | 
@@ -227,7 +239,7 @@ public class Example {
 
 ### Authorization
 
-[APIKey](../README.md#APIKey)
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -269,6 +281,10 @@ public class Example {
     // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
     //APIKey.setApiKeyPrefix("Token");
 
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
     CollectionsApi apiInstance = new CollectionsApi(defaultClient);
     String searchTerm = ""; // String | 
     List<Filters> filters = Arrays.asList(); // List<Filters> | 
@@ -307,7 +323,7 @@ public class Example {
 
 ### Authorization
 
-[APIKey](../README.md#APIKey)
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -349,6 +365,10 @@ public class Example {
     // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
     //APIKey.setApiKeyPrefix("Token");
 
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
     CollectionsApi apiInstance = new CollectionsApi(defaultClient);
     Integer collectionId = 56; // Integer | 
     CollectionUpdateRequest collectionUpdateRequest = new CollectionUpdateRequest(); // CollectionUpdateRequest | 
@@ -379,7 +399,7 @@ public class Example {
 
 ### Authorization
 
-[APIKey](../README.md#APIKey)
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -421,6 +441,10 @@ public class Example {
     // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
     //APIKey.setApiKeyPrefix("Token");
 
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
     CollectionsApi apiInstance = new CollectionsApi(defaultClient);
     Integer collectionId = 56; // Integer | 
     CollectionBinariesUpdateRequest collectionBinariesUpdateRequest = new CollectionBinariesUpdateRequest(); // CollectionBinariesUpdateRequest | 
@@ -451,7 +475,7 @@ public class Example {
 
 ### Authorization
 
-[APIKey](../README.md#APIKey)
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -493,6 +517,10 @@ public class Example {
     // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
     //APIKey.setApiKeyPrefix("Token");
 
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
     CollectionsApi apiInstance = new CollectionsApi(defaultClient);
     Integer collectionId = 56; // Integer | 
     CollectionTagsUpdateRequest collectionTagsUpdateRequest = new CollectionTagsUpdateRequest(); // CollectionTagsUpdateRequest | 
@@ -523,7 +551,7 @@ public class Example {
 
 ### Authorization
 
-[APIKey](../README.md#APIKey)
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -565,6 +593,10 @@ public class Example {
     // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
     //APIKey.setApiKeyPrefix("Token");
 
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
     CollectionsApi apiInstance = new CollectionsApi(defaultClient);
     CreateCollectionInputBody createCollectionInputBody = new CreateCollectionInputBody(); // CreateCollectionInputBody | 
     try {
@@ -593,7 +625,7 @@ public class Example {
 
 ### Authorization
 
-[APIKey](../README.md#APIKey)
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -637,6 +669,10 @@ public class Example {
     // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
     //APIKey.setApiKeyPrefix("Token");
 
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
     CollectionsApi apiInstance = new CollectionsApi(defaultClient);
     Long collectionId = 56L; // Long | 
     try {
@@ -664,7 +700,7 @@ null (empty response body)
 
 ### Authorization
 
-[APIKey](../README.md#APIKey)
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -710,6 +746,10 @@ public class Example {
     // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
     //APIKey.setApiKeyPrefix("Token");
 
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
     CollectionsApi apiInstance = new CollectionsApi(defaultClient);
     Long collectionId = 56L; // Long | 
     Boolean includeTags = true; // Boolean | 
@@ -748,7 +788,7 @@ public class Example {
 
 ### Authorization
 
-[APIKey](../README.md#APIKey)
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -792,6 +832,10 @@ public class Example {
     // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
     //APIKey.setApiKeyPrefix("Token");
 
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
     CollectionsApi apiInstance = new CollectionsApi(defaultClient);
     String searchTerm = "searchTerm_example"; // String | 
     List<String> filters = Arrays.asList(); // List<String> | 
@@ -830,7 +874,7 @@ public class Example {
 
 ### Authorization
 
-[APIKey](../README.md#APIKey)
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -873,6 +917,10 @@ public class Example {
     // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
     //APIKey.setApiKeyPrefix("Token");
 
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
     CollectionsApi apiInstance = new CollectionsApi(defaultClient);
     Long collectionId = 56L; // Long | 
     PatchCollectionInputBody patchCollectionInputBody = new PatchCollectionInputBody(); // PatchCollectionInputBody | 
@@ -903,7 +951,7 @@ public class Example {
 
 ### Authorization
 
-[APIKey](../README.md#APIKey)
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -948,6 +996,10 @@ public class Example {
     // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
     //APIKey.setApiKeyPrefix("Token");
 
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
     CollectionsApi apiInstance = new CollectionsApi(defaultClient);
     Long collectionId = 56L; // Long | 
     PatchCollectionBinariesInputBody patchCollectionBinariesInputBody = new PatchCollectionBinariesInputBody(); // PatchCollectionBinariesInputBody | 
@@ -978,7 +1030,7 @@ public class Example {
 
 ### Authorization
 
-[APIKey](../README.md#APIKey)
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -1023,6 +1075,10 @@ public class Example {
     // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
     //APIKey.setApiKeyPrefix("Token");
 
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
     CollectionsApi apiInstance = new CollectionsApi(defaultClient);
     Long collectionId = 56L; // Long | 
     PatchCollectionTagsInputBody patchCollectionTagsInputBody = new PatchCollectionTagsInputBody(); // PatchCollectionTagsInputBody | 
@@ -1053,7 +1109,7 @@ public class Example {
 
 ### Authorization
 
-[APIKey](../README.md#APIKey)
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 

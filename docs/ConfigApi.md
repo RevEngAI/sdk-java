@@ -36,6 +36,10 @@ public class Example {
     // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
     //APIKey.setApiKeyPrefix("Token");
 
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
     ConfigApi apiInstance = new ConfigApi(defaultClient);
     try {
       BaseResponseConfigResponse result = apiInstance.getConfig();
@@ -60,7 +64,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[APIKey](../README.md#APIKey)
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 

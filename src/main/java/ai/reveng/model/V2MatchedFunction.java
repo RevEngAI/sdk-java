@@ -19,7 +19,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.Arrays;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -45,39 +47,19 @@ import java.util.Set;
 import ai.reveng.invoker.JSON;
 
 /**
- * MatchedFunction
+ * V2MatchedFunction
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class MatchedFunction {
-  public static final String SERIALIZED_NAME_ANALYSIS_ID = "analysis_id";
-  @SerializedName(SERIALIZED_NAME_ANALYSIS_ID)
-  @javax.annotation.Nonnull
-  private Long analysisId;
-
-  public static final String SERIALIZED_NAME_BINARY_ID = "binary_id";
-  @SerializedName(SERIALIZED_NAME_BINARY_ID)
-  @javax.annotation.Nonnull
-  private Long binaryId;
-
-  public static final String SERIALIZED_NAME_BINARY_NAME = "binary_name";
-  @SerializedName(SERIALIZED_NAME_BINARY_NAME)
-  @javax.annotation.Nonnull
-  private String binaryName;
-
-  public static final String SERIALIZED_NAME_CONFIDENCE = "confidence";
-  @SerializedName(SERIALIZED_NAME_CONFIDENCE)
-  @javax.annotation.Nonnull
-  private Double confidence;
-
-  public static final String SERIALIZED_NAME_DEBUG = "debug";
-  @SerializedName(SERIALIZED_NAME_DEBUG)
-  @javax.annotation.Nonnull
-  private Boolean debug;
-
+public class V2MatchedFunction {
   public static final String SERIALIZED_NAME_FUNCTION_ID = "function_id";
   @SerializedName(SERIALIZED_NAME_FUNCTION_ID)
   @javax.annotation.Nonnull
   private Long functionId;
+
+  public static final String SERIALIZED_NAME_BINARY_ID = "binary_id";
+  @SerializedName(SERIALIZED_NAME_BINARY_ID)
+  @javax.annotation.Nonnull
+  private Integer binaryId;
 
   public static final String SERIALIZED_NAME_FUNCTION_NAME = "function_name";
   @SerializedName(SERIALIZED_NAME_FUNCTION_NAME)
@@ -94,121 +76,46 @@ public class MatchedFunction {
   @javax.annotation.Nonnull
   private String mangledName;
 
+  public static final String SERIALIZED_NAME_DEBUG = "debug";
+  @SerializedName(SERIALIZED_NAME_DEBUG)
+  @javax.annotation.Nonnull
+  private Boolean debug;
+
+  public static final String SERIALIZED_NAME_BINARY_NAME = "binary_name";
+  @SerializedName(SERIALIZED_NAME_BINARY_NAME)
+  @javax.annotation.Nonnull
+  private String binaryName;
+
   public static final String SERIALIZED_NAME_SHA256_HASH = "sha_256_hash";
   @SerializedName(SERIALIZED_NAME_SHA256_HASH)
   @javax.annotation.Nonnull
   private String sha256Hash;
 
+  public static final String SERIALIZED_NAME_ANALYSIS_ID = "analysis_id";
+  @SerializedName(SERIALIZED_NAME_ANALYSIS_ID)
+  @javax.annotation.Nonnull
+  private Integer analysisId;
+
   public static final String SERIALIZED_NAME_SIMILARITY = "similarity";
   @SerializedName(SERIALIZED_NAME_SIMILARITY)
-  @javax.annotation.Nonnull
-  private Double similarity;
+  @javax.annotation.Nullable
+  private BigDecimal similarity;
 
-  public MatchedFunction() {
+  public static final String SERIALIZED_NAME_CONFIDENCE = "confidence";
+  @SerializedName(SERIALIZED_NAME_CONFIDENCE)
+  @javax.annotation.Nullable
+  private BigDecimal confidence;
+
+  public V2MatchedFunction() {
   }
 
-  public MatchedFunction analysisId(@javax.annotation.Nonnull Long analysisId) {
-    this.analysisId = analysisId;
-    return this;
-  }
-
-  /**
-   * Analysis the candidate&#39;s binary belongs to
-   * @return analysisId
-   */
-  @javax.annotation.Nonnull
-  public Long getAnalysisId() {
-    return analysisId;
-  }
-
-  public void setAnalysisId(@javax.annotation.Nonnull Long analysisId) {
-    this.analysisId = analysisId;
-  }
-
-
-  public MatchedFunction binaryId(@javax.annotation.Nonnull Long binaryId) {
-    this.binaryId = binaryId;
-    return this;
-  }
-
-  /**
-   * Binary the candidate belongs to
-   * @return binaryId
-   */
-  @javax.annotation.Nonnull
-  public Long getBinaryId() {
-    return binaryId;
-  }
-
-  public void setBinaryId(@javax.annotation.Nonnull Long binaryId) {
-    this.binaryId = binaryId;
-  }
-
-
-  public MatchedFunction binaryName(@javax.annotation.Nonnull String binaryName) {
-    this.binaryName = binaryName;
-    return this;
-  }
-
-  /**
-   * Binary name
-   * @return binaryName
-   */
-  @javax.annotation.Nonnull
-  public String getBinaryName() {
-    return binaryName;
-  }
-
-  public void setBinaryName(@javax.annotation.Nonnull String binaryName) {
-    this.binaryName = binaryName;
-  }
-
-
-  public MatchedFunction confidence(@javax.annotation.Nonnull Double confidence) {
-    this.confidence = confidence;
-    return this;
-  }
-
-  /**
-   * Softmax-normalised confidence over the candidate pool
-   * @return confidence
-   */
-  @javax.annotation.Nonnull
-  public Double getConfidence() {
-    return confidence;
-  }
-
-  public void setConfidence(@javax.annotation.Nonnull Double confidence) {
-    this.confidence = confidence;
-  }
-
-
-  public MatchedFunction debug(@javax.annotation.Nonnull Boolean debug) {
-    this.debug = debug;
-    return this;
-  }
-
-  /**
-   * Whether the candidate&#39;s name came from debug info
-   * @return debug
-   */
-  @javax.annotation.Nonnull
-  public Boolean getDebug() {
-    return debug;
-  }
-
-  public void setDebug(@javax.annotation.Nonnull Boolean debug) {
-    this.debug = debug;
-  }
-
-
-  public MatchedFunction functionId(@javax.annotation.Nonnull Long functionId) {
+  public V2MatchedFunction functionId(@javax.annotation.Nonnull Long functionId) {
     this.functionId = functionId;
     return this;
   }
 
   /**
-   * Candidate function ID
+   * Unique identifier of the matched function
    * @return functionId
    */
   @javax.annotation.Nonnull
@@ -221,13 +128,32 @@ public class MatchedFunction {
   }
 
 
-  public MatchedFunction functionName(@javax.annotation.Nonnull String functionName) {
+  public V2MatchedFunction binaryId(@javax.annotation.Nonnull Integer binaryId) {
+    this.binaryId = binaryId;
+    return this;
+  }
+
+  /**
+   * Get binaryId
+   * @return binaryId
+   */
+  @javax.annotation.Nonnull
+  public Integer getBinaryId() {
+    return binaryId;
+  }
+
+  public void setBinaryId(@javax.annotation.Nonnull Integer binaryId) {
+    this.binaryId = binaryId;
+  }
+
+
+  public V2MatchedFunction functionName(@javax.annotation.Nonnull String functionName) {
     this.functionName = functionName;
     return this;
   }
 
   /**
-   * Candidate function name
+   * Get functionName
    * @return functionName
    */
   @javax.annotation.Nonnull
@@ -240,13 +166,13 @@ public class MatchedFunction {
   }
 
 
-  public MatchedFunction functionVaddr(@javax.annotation.Nonnull Long functionVaddr) {
+  public V2MatchedFunction functionVaddr(@javax.annotation.Nonnull Long functionVaddr) {
     this.functionVaddr = functionVaddr;
     return this;
   }
 
   /**
-   * Candidate&#39;s virtual address inside its binary
+   * Get functionVaddr
    * @return functionVaddr
    */
   @javax.annotation.Nonnull
@@ -259,13 +185,13 @@ public class MatchedFunction {
   }
 
 
-  public MatchedFunction mangledName(@javax.annotation.Nonnull String mangledName) {
+  public V2MatchedFunction mangledName(@javax.annotation.Nonnull String mangledName) {
     this.mangledName = mangledName;
     return this;
   }
 
   /**
-   * Mangled name when available
+   * Get mangledName
    * @return mangledName
    */
   @javax.annotation.Nonnull
@@ -278,13 +204,51 @@ public class MatchedFunction {
   }
 
 
-  public MatchedFunction sha256Hash(@javax.annotation.Nonnull String sha256Hash) {
+  public V2MatchedFunction debug(@javax.annotation.Nonnull Boolean debug) {
+    this.debug = debug;
+    return this;
+  }
+
+  /**
+   * Get debug
+   * @return debug
+   */
+  @javax.annotation.Nonnull
+  public Boolean getDebug() {
+    return debug;
+  }
+
+  public void setDebug(@javax.annotation.Nonnull Boolean debug) {
+    this.debug = debug;
+  }
+
+
+  public V2MatchedFunction binaryName(@javax.annotation.Nonnull String binaryName) {
+    this.binaryName = binaryName;
+    return this;
+  }
+
+  /**
+   * Get binaryName
+   * @return binaryName
+   */
+  @javax.annotation.Nonnull
+  public String getBinaryName() {
+    return binaryName;
+  }
+
+  public void setBinaryName(@javax.annotation.Nonnull String binaryName) {
+    this.binaryName = binaryName;
+  }
+
+
+  public V2MatchedFunction sha256Hash(@javax.annotation.Nonnull String sha256Hash) {
     this.sha256Hash = sha256Hash;
     return this;
   }
 
   /**
-   * SHA-256 of the candidate&#39;s binary
+   * Get sha256Hash
    * @return sha256Hash
    */
   @javax.annotation.Nonnull
@@ -297,22 +261,60 @@ public class MatchedFunction {
   }
 
 
-  public MatchedFunction similarity(@javax.annotation.Nonnull Double similarity) {
+  public V2MatchedFunction analysisId(@javax.annotation.Nonnull Integer analysisId) {
+    this.analysisId = analysisId;
+    return this;
+  }
+
+  /**
+   * Get analysisId
+   * @return analysisId
+   */
+  @javax.annotation.Nonnull
+  public Integer getAnalysisId() {
+    return analysisId;
+  }
+
+  public void setAnalysisId(@javax.annotation.Nonnull Integer analysisId) {
+    this.analysisId = analysisId;
+  }
+
+
+  public V2MatchedFunction similarity(@javax.annotation.Nullable BigDecimal similarity) {
     this.similarity = similarity;
     return this;
   }
 
   /**
-   * Cosine similarity scaled to a percentage
+   * Get similarity
    * @return similarity
    */
-  @javax.annotation.Nonnull
-  public Double getSimilarity() {
+  @javax.annotation.Nullable
+  public BigDecimal getSimilarity() {
     return similarity;
   }
 
-  public void setSimilarity(@javax.annotation.Nonnull Double similarity) {
+  public void setSimilarity(@javax.annotation.Nullable BigDecimal similarity) {
     this.similarity = similarity;
+  }
+
+
+  public V2MatchedFunction confidence(@javax.annotation.Nullable BigDecimal confidence) {
+    this.confidence = confidence;
+    return this;
+  }
+
+  /**
+   * Get confidence
+   * @return confidence
+   */
+  @javax.annotation.Nullable
+  public BigDecimal getConfidence() {
+    return confidence;
+  }
+
+  public void setConfidence(@javax.annotation.Nullable BigDecimal confidence) {
+    this.confidence = confidence;
   }
 
   /**
@@ -328,9 +330,9 @@ public class MatchedFunction {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the MatchedFunction instance itself
+   * @return the V2MatchedFunction instance itself
    */
-  public MatchedFunction putAdditionalProperty(String key, Object value) {
+  public V2MatchedFunction putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -369,41 +371,52 @@ public class MatchedFunction {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MatchedFunction matchedFunction = (MatchedFunction) o;
-    return Objects.equals(this.analysisId, matchedFunction.analysisId) &&
-        Objects.equals(this.binaryId, matchedFunction.binaryId) &&
-        Objects.equals(this.binaryName, matchedFunction.binaryName) &&
-        Objects.equals(this.confidence, matchedFunction.confidence) &&
-        Objects.equals(this.debug, matchedFunction.debug) &&
-        Objects.equals(this.functionId, matchedFunction.functionId) &&
-        Objects.equals(this.functionName, matchedFunction.functionName) &&
-        Objects.equals(this.functionVaddr, matchedFunction.functionVaddr) &&
-        Objects.equals(this.mangledName, matchedFunction.mangledName) &&
-        Objects.equals(this.sha256Hash, matchedFunction.sha256Hash) &&
-        Objects.equals(this.similarity, matchedFunction.similarity)&&
-        Objects.equals(this.additionalProperties, matchedFunction.additionalProperties);
+    V2MatchedFunction v2MatchedFunction = (V2MatchedFunction) o;
+    return Objects.equals(this.functionId, v2MatchedFunction.functionId) &&
+        Objects.equals(this.binaryId, v2MatchedFunction.binaryId) &&
+        Objects.equals(this.functionName, v2MatchedFunction.functionName) &&
+        Objects.equals(this.functionVaddr, v2MatchedFunction.functionVaddr) &&
+        Objects.equals(this.mangledName, v2MatchedFunction.mangledName) &&
+        Objects.equals(this.debug, v2MatchedFunction.debug) &&
+        Objects.equals(this.binaryName, v2MatchedFunction.binaryName) &&
+        Objects.equals(this.sha256Hash, v2MatchedFunction.sha256Hash) &&
+        Objects.equals(this.analysisId, v2MatchedFunction.analysisId) &&
+        Objects.equals(this.similarity, v2MatchedFunction.similarity) &&
+        Objects.equals(this.confidence, v2MatchedFunction.confidence)&&
+        Objects.equals(this.additionalProperties, v2MatchedFunction.additionalProperties);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(analysisId, binaryId, binaryName, confidence, debug, functionId, functionName, functionVaddr, mangledName, sha256Hash, similarity, additionalProperties);
+    return Objects.hash(functionId, binaryId, functionName, functionVaddr, mangledName, debug, binaryName, sha256Hash, analysisId, similarity, confidence, additionalProperties);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MatchedFunction {\n");
-    sb.append("    analysisId: ").append(toIndentedString(analysisId)).append("\n");
-    sb.append("    binaryId: ").append(toIndentedString(binaryId)).append("\n");
-    sb.append("    binaryName: ").append(toIndentedString(binaryName)).append("\n");
-    sb.append("    confidence: ").append(toIndentedString(confidence)).append("\n");
-    sb.append("    debug: ").append(toIndentedString(debug)).append("\n");
+    sb.append("class V2MatchedFunction {\n");
     sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
+    sb.append("    binaryId: ").append(toIndentedString(binaryId)).append("\n");
     sb.append("    functionName: ").append(toIndentedString(functionName)).append("\n");
     sb.append("    functionVaddr: ").append(toIndentedString(functionVaddr)).append("\n");
     sb.append("    mangledName: ").append(toIndentedString(mangledName)).append("\n");
+    sb.append("    debug: ").append(toIndentedString(debug)).append("\n");
+    sb.append("    binaryName: ").append(toIndentedString(binaryName)).append("\n");
     sb.append("    sha256Hash: ").append(toIndentedString(sha256Hash)).append("\n");
+    sb.append("    analysisId: ").append(toIndentedString(analysisId)).append("\n");
     sb.append("    similarity: ").append(toIndentedString(similarity)).append("\n");
+    sb.append("    confidence: ").append(toIndentedString(confidence)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -423,40 +436,40 @@ public class MatchedFunction {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("analysis_id", "binary_id", "binary_name", "confidence", "debug", "function_id", "function_name", "function_vaddr", "mangled_name", "sha_256_hash", "similarity"));
+    openapiFields = new HashSet<String>(Arrays.asList("function_id", "binary_id", "function_name", "function_vaddr", "mangled_name", "debug", "binary_name", "sha_256_hash", "analysis_id", "similarity", "confidence"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("analysis_id", "binary_id", "binary_name", "confidence", "debug", "function_id", "function_name", "function_vaddr", "mangled_name", "sha_256_hash", "similarity"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("function_id", "binary_id", "function_name", "function_vaddr", "mangled_name", "debug", "binary_name", "sha_256_hash", "analysis_id"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to MatchedFunction
+   * @throws IOException if the JSON Element is invalid with respect to V2MatchedFunction
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!MatchedFunction.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in MatchedFunction is not found in the empty JSON string", MatchedFunction.openapiRequiredFields.toString()));
+        if (!V2MatchedFunction.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in V2MatchedFunction is not found in the empty JSON string", V2MatchedFunction.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : MatchedFunction.openapiRequiredFields) {
+      for (String requiredField : V2MatchedFunction.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("binary_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `binary_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("binary_name").toString()));
-      }
       if (!jsonObj.get("function_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `function_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("function_name").toString()));
       }
       if (!jsonObj.get("mangled_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mangled_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mangled_name").toString()));
+      }
+      if (!jsonObj.get("binary_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `binary_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("binary_name").toString()));
       }
       if (!jsonObj.get("sha_256_hash").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sha_256_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sha_256_hash").toString()));
@@ -467,16 +480,16 @@ public class MatchedFunction {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!MatchedFunction.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'MatchedFunction' and its subtypes
+       if (!V2MatchedFunction.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V2MatchedFunction' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<MatchedFunction> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(MatchedFunction.class));
+       final TypeAdapter<V2MatchedFunction> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V2MatchedFunction.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<MatchedFunction>() {
+       return (TypeAdapter<T>) new TypeAdapter<V2MatchedFunction>() {
            @Override
-           public void write(JsonWriter out, MatchedFunction value) throws IOException {
+           public void write(JsonWriter out, V2MatchedFunction value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -504,12 +517,12 @@ public class MatchedFunction {
            }
 
            @Override
-           public MatchedFunction read(JsonReader in) throws IOException {
+           public V2MatchedFunction read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             MatchedFunction instance = thisAdapter.fromJsonTree(jsonObj);
+             V2MatchedFunction instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -536,18 +549,18 @@ public class MatchedFunction {
   }
 
   /**
-   * Create an instance of MatchedFunction given an JSON string
+   * Create an instance of V2MatchedFunction given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of MatchedFunction
-   * @throws IOException if the JSON string is invalid with respect to MatchedFunction
+   * @return An instance of V2MatchedFunction
+   * @throws IOException if the JSON string is invalid with respect to V2MatchedFunction
    */
-  public static MatchedFunction fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, MatchedFunction.class);
+  public static V2MatchedFunction fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V2MatchedFunction.class);
   }
 
   /**
-   * Convert an instance of MatchedFunction to an JSON string
+   * Convert an instance of V2MatchedFunction to an JSON string
    *
    * @return JSON string
    */

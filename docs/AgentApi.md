@@ -42,6 +42,10 @@ public class Example {
     // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
     //APIKey.setApiKeyPrefix("Token");
 
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
     AgentApi apiInstance = new AgentApi(defaultClient);
     Integer analysisId = 56; // Integer | 
     try {
@@ -70,7 +74,7 @@ public class Example {
 
 ### Authorization
 
-[APIKey](../README.md#APIKey)
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -110,6 +114,10 @@ public class Example {
     // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
     //APIKey.setApiKeyPrefix("Token");
 
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
     AgentApi apiInstance = new AgentApi(defaultClient);
     Integer analysisId = 56; // Integer | 
     try {
@@ -138,7 +146,7 @@ public class Example {
 
 ### Authorization
 
-[APIKey](../README.md#APIKey)
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -178,6 +186,10 @@ public class Example {
     // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
     //APIKey.setApiKeyPrefix("Token");
 
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
     AgentApi apiInstance = new AgentApi(defaultClient);
     Integer analysisId = 56; // Integer | 
     try {
@@ -206,7 +218,7 @@ public class Example {
 
 ### Authorization
 
-[APIKey](../README.md#APIKey)
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -246,6 +258,10 @@ public class Example {
     // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
     //APIKey.setApiKeyPrefix("Token");
 
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
     AgentApi apiInstance = new AgentApi(defaultClient);
     Integer analysisId = 56; // Integer | 
     try {
@@ -274,7 +290,7 @@ public class Example {
 
 ### Authorization
 
-[APIKey](../README.md#APIKey)
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -314,6 +330,10 @@ public class Example {
     // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
     //APIKey.setApiKeyPrefix("Token");
 
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
     AgentApi apiInstance = new AgentApi(defaultClient);
     Integer analysisId = 56; // Integer | 
     try {
@@ -342,7 +362,7 @@ public class Example {
 
 ### Authorization
 
-[APIKey](../README.md#APIKey)
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -383,6 +403,10 @@ public class Example {
     // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
     //APIKey.setApiKeyPrefix("Token");
 
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
     AgentApi apiInstance = new AgentApi(defaultClient);
     Integer analysisId = 56; // Integer | 
     try {
@@ -411,7 +435,7 @@ public class Example {
 
 ### Authorization
 
-[APIKey](../README.md#APIKey)
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -451,6 +475,10 @@ public class Example {
     // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
     //APIKey.setApiKeyPrefix("Token");
 
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
     AgentApi apiInstance = new AgentApi(defaultClient);
     Integer analysisId = 56; // Integer | 
     try {
@@ -479,7 +507,7 @@ public class Example {
 
 ### Authorization
 
-[APIKey](../README.md#APIKey)
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -521,6 +549,10 @@ public class Example {
     // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
     //APIKey.setApiKeyPrefix("Token");
 
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
     AgentApi apiInstance = new AgentApi(defaultClient);
     Integer analysisId = 56; // Integer | 
     try {
@@ -549,7 +581,7 @@ public class Example {
 
 ### Authorization
 
-[APIKey](../README.md#APIKey)
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -589,6 +621,10 @@ public class Example {
     // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
     //APIKey.setApiKeyPrefix("Token");
 
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
     AgentApi apiInstance = new AgentApi(defaultClient);
     Integer analysisId = 56; // Integer | 
     try {
@@ -617,7 +653,7 @@ public class Example {
 
 ### Authorization
 
-[APIKey](../README.md#APIKey)
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 

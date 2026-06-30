@@ -13,14 +13,17 @@
 package ai.reveng.model;
 
 import java.util.Objects;
-import ai.reveng.model.V2FunctionInfo;
+import ai.reveng.model.V2MatchedFunction;
+import ai.reveng.model.V2NameConfidence;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -47,121 +50,35 @@ import java.util.Set;
 import ai.reveng.invoker.JSON;
 
 /**
- * FunctionDataTypesListItem
+ * V2FunctionMatch
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class FunctionDataTypesListItem {
-  public static final String SERIALIZED_NAME_COMPLETED = "completed";
-  @SerializedName(SERIALIZED_NAME_COMPLETED)
-  @javax.annotation.Nonnull
-  private Boolean completed;
-
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
-  @javax.annotation.Nonnull
-  private String status;
-
-  public static final String SERIALIZED_NAME_DATA_TYPES = "data_types";
-  @SerializedName(SERIALIZED_NAME_DATA_TYPES)
-  @javax.annotation.Nullable
-  private V2FunctionInfo dataTypes;
-
-  public static final String SERIALIZED_NAME_DATA_TYPES_VERSION = "data_types_version";
-  @SerializedName(SERIALIZED_NAME_DATA_TYPES_VERSION)
-  @javax.annotation.Nullable
-  private Integer dataTypesVersion;
-
+public class V2FunctionMatch {
   public static final String SERIALIZED_NAME_FUNCTION_ID = "function_id";
   @SerializedName(SERIALIZED_NAME_FUNCTION_ID)
   @javax.annotation.Nonnull
   private Long functionId;
 
-  public FunctionDataTypesListItem() {
-  }
-
-  public FunctionDataTypesListItem completed(@javax.annotation.Nonnull Boolean completed) {
-    this.completed = completed;
-    return this;
-  }
-
-  /**
-   * Whether the service has completed data types generation
-   * @return completed
-   */
+  public static final String SERIALIZED_NAME_MATCHED_FUNCTIONS = "matched_functions";
+  @SerializedName(SERIALIZED_NAME_MATCHED_FUNCTIONS)
   @javax.annotation.Nonnull
-  public Boolean getCompleted() {
-    return completed;
-  }
+  private List<V2MatchedFunction> matchedFunctions = new ArrayList<>();
 
-  public void setCompleted(@javax.annotation.Nonnull Boolean completed) {
-    this.completed = completed;
-  }
-
-
-  public FunctionDataTypesListItem status(@javax.annotation.Nonnull String status) {
-    this.status = status;
-    return this;
-  }
-
-  /**
-   * The current status of the data types service
-   * @return status
-   */
-  @javax.annotation.Nonnull
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(@javax.annotation.Nonnull String status) {
-    this.status = status;
-  }
-
-
-  public FunctionDataTypesListItem dataTypes(@javax.annotation.Nullable V2FunctionInfo dataTypes) {
-    this.dataTypes = dataTypes;
-    return this;
-  }
-
-  /**
-   * Function data types information if available
-   * @return dataTypes
-   */
+  public static final String SERIALIZED_NAME_CONFIDENCES = "confidences";
+  @SerializedName(SERIALIZED_NAME_CONFIDENCES)
   @javax.annotation.Nullable
-  public V2FunctionInfo getDataTypes() {
-    return dataTypes;
+  private List<V2NameConfidence> confidences;
+
+  public V2FunctionMatch() {
   }
 
-  public void setDataTypes(@javax.annotation.Nullable V2FunctionInfo dataTypes) {
-    this.dataTypes = dataTypes;
-  }
-
-
-  public FunctionDataTypesListItem dataTypesVersion(@javax.annotation.Nullable Integer dataTypesVersion) {
-    this.dataTypesVersion = dataTypesVersion;
-    return this;
-  }
-
-  /**
-   * If the data types information has been updated by the user, this field will be populated
-   * @return dataTypesVersion
-   */
-  @javax.annotation.Nullable
-  public Integer getDataTypesVersion() {
-    return dataTypesVersion;
-  }
-
-  public void setDataTypesVersion(@javax.annotation.Nullable Integer dataTypesVersion) {
-    this.dataTypesVersion = dataTypesVersion;
-  }
-
-
-  public FunctionDataTypesListItem functionId(@javax.annotation.Nonnull Long functionId) {
+  public V2FunctionMatch functionId(@javax.annotation.Nonnull Long functionId) {
     this.functionId = functionId;
     return this;
   }
 
   /**
-   * Function id
+   * Unique identifier of the function
    * @return functionId
    */
   @javax.annotation.Nonnull
@@ -171,6 +88,60 @@ public class FunctionDataTypesListItem {
 
   public void setFunctionId(@javax.annotation.Nonnull Long functionId) {
     this.functionId = functionId;
+  }
+
+
+  public V2FunctionMatch matchedFunctions(@javax.annotation.Nonnull List<V2MatchedFunction> matchedFunctions) {
+    this.matchedFunctions = matchedFunctions;
+    return this;
+  }
+
+  public V2FunctionMatch addMatchedFunctionsItem(V2MatchedFunction matchedFunctionsItem) {
+    if (this.matchedFunctions == null) {
+      this.matchedFunctions = new ArrayList<>();
+    }
+    this.matchedFunctions.add(matchedFunctionsItem);
+    return this;
+  }
+
+  /**
+   * Get matchedFunctions
+   * @return matchedFunctions
+   */
+  @javax.annotation.Nonnull
+  public List<V2MatchedFunction> getMatchedFunctions() {
+    return matchedFunctions;
+  }
+
+  public void setMatchedFunctions(@javax.annotation.Nonnull List<V2MatchedFunction> matchedFunctions) {
+    this.matchedFunctions = matchedFunctions;
+  }
+
+
+  public V2FunctionMatch confidences(@javax.annotation.Nullable List<V2NameConfidence> confidences) {
+    this.confidences = confidences;
+    return this;
+  }
+
+  public V2FunctionMatch addConfidencesItem(V2NameConfidence confidencesItem) {
+    if (this.confidences == null) {
+      this.confidences = new ArrayList<>();
+    }
+    this.confidences.add(confidencesItem);
+    return this;
+  }
+
+  /**
+   * Get confidences
+   * @return confidences
+   */
+  @javax.annotation.Nullable
+  public List<V2NameConfidence> getConfidences() {
+    return confidences;
+  }
+
+  public void setConfidences(@javax.annotation.Nullable List<V2NameConfidence> confidences) {
+    this.confidences = confidences;
   }
 
   /**
@@ -186,9 +157,9 @@ public class FunctionDataTypesListItem {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the FunctionDataTypesListItem instance itself
+   * @return the V2FunctionMatch instance itself
    */
-  public FunctionDataTypesListItem putAdditionalProperty(String key, Object value) {
+  public V2FunctionMatch putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -227,13 +198,11 @@ public class FunctionDataTypesListItem {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FunctionDataTypesListItem functionDataTypesListItem = (FunctionDataTypesListItem) o;
-    return Objects.equals(this.completed, functionDataTypesListItem.completed) &&
-        Objects.equals(this.status, functionDataTypesListItem.status) &&
-        Objects.equals(this.dataTypes, functionDataTypesListItem.dataTypes) &&
-        Objects.equals(this.dataTypesVersion, functionDataTypesListItem.dataTypesVersion) &&
-        Objects.equals(this.functionId, functionDataTypesListItem.functionId)&&
-        Objects.equals(this.additionalProperties, functionDataTypesListItem.additionalProperties);
+    V2FunctionMatch v2FunctionMatch = (V2FunctionMatch) o;
+    return Objects.equals(this.functionId, v2FunctionMatch.functionId) &&
+        Objects.equals(this.matchedFunctions, v2FunctionMatch.matchedFunctions) &&
+        Objects.equals(this.confidences, v2FunctionMatch.confidences)&&
+        Objects.equals(this.additionalProperties, v2FunctionMatch.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -242,7 +211,7 @@ public class FunctionDataTypesListItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(completed, status, dataTypes, dataTypesVersion, functionId, additionalProperties);
+    return Objects.hash(functionId, matchedFunctions, confidences, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -255,12 +224,10 @@ public class FunctionDataTypesListItem {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FunctionDataTypesListItem {\n");
-    sb.append("    completed: ").append(toIndentedString(completed)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    dataTypes: ").append(toIndentedString(dataTypes)).append("\n");
-    sb.append("    dataTypesVersion: ").append(toIndentedString(dataTypesVersion)).append("\n");
+    sb.append("class V2FunctionMatch {\n");
     sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
+    sb.append("    matchedFunctions: ").append(toIndentedString(matchedFunctions)).append("\n");
+    sb.append("    confidences: ").append(toIndentedString(confidences)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -280,38 +247,55 @@ public class FunctionDataTypesListItem {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("completed", "status", "data_types", "data_types_version", "function_id"));
+    openapiFields = new HashSet<String>(Arrays.asList("function_id", "matched_functions", "confidences"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("completed", "status", "function_id"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("function_id", "matched_functions"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to FunctionDataTypesListItem
+   * @throws IOException if the JSON Element is invalid with respect to V2FunctionMatch
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!FunctionDataTypesListItem.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in FunctionDataTypesListItem is not found in the empty JSON string", FunctionDataTypesListItem.openapiRequiredFields.toString()));
+        if (!V2FunctionMatch.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in V2FunctionMatch is not found in the empty JSON string", V2FunctionMatch.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : FunctionDataTypesListItem.openapiRequiredFields) {
+      for (String requiredField : V2FunctionMatch.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("status").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
+      if (jsonObj.get("matched_functions") != null) {
+        if (!jsonObj.get("matched_functions").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `matched_functions` to be an array in the JSON string but got `%s`", jsonObj.get("matched_functions").toString()));
+        }
+        JsonArray jsonArraymatchedFunctions = jsonObj.getAsJsonArray("matched_functions");
+        // validate the required field `matched_functions` (array)
+        for (int i = 0; i < jsonArraymatchedFunctions.size(); i++) {
+          V2MatchedFunction.validateJsonElement(jsonArraymatchedFunctions.get(i));
+        }
       }
-      // validate the optional field `data_types`
-      if (jsonObj.get("data_types") != null && !jsonObj.get("data_types").isJsonNull()) {
-        V2FunctionInfo.validateJsonElement(jsonObj.get("data_types"));
+      if (jsonObj.get("confidences") != null && !jsonObj.get("confidences").isJsonNull()) {
+        JsonArray jsonArrayconfidences = jsonObj.getAsJsonArray("confidences");
+        if (jsonArrayconfidences != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("confidences").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `confidences` to be an array in the JSON string but got `%s`", jsonObj.get("confidences").toString()));
+          }
+
+          // validate the optional field `confidences` (array)
+          for (int i = 0; i < jsonArrayconfidences.size(); i++) {
+            V2NameConfidence.validateJsonElement(jsonArrayconfidences.get(i));
+          };
+        }
       }
   }
 
@@ -319,16 +303,16 @@ public class FunctionDataTypesListItem {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!FunctionDataTypesListItem.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'FunctionDataTypesListItem' and its subtypes
+       if (!V2FunctionMatch.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V2FunctionMatch' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<FunctionDataTypesListItem> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(FunctionDataTypesListItem.class));
+       final TypeAdapter<V2FunctionMatch> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V2FunctionMatch.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<FunctionDataTypesListItem>() {
+       return (TypeAdapter<T>) new TypeAdapter<V2FunctionMatch>() {
            @Override
-           public void write(JsonWriter out, FunctionDataTypesListItem value) throws IOException {
+           public void write(JsonWriter out, V2FunctionMatch value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -356,12 +340,12 @@ public class FunctionDataTypesListItem {
            }
 
            @Override
-           public FunctionDataTypesListItem read(JsonReader in) throws IOException {
+           public V2FunctionMatch read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             FunctionDataTypesListItem instance = thisAdapter.fromJsonTree(jsonObj);
+             V2FunctionMatch instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -388,18 +372,18 @@ public class FunctionDataTypesListItem {
   }
 
   /**
-   * Create an instance of FunctionDataTypesListItem given an JSON string
+   * Create an instance of V2FunctionMatch given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of FunctionDataTypesListItem
-   * @throws IOException if the JSON string is invalid with respect to FunctionDataTypesListItem
+   * @return An instance of V2FunctionMatch
+   * @throws IOException if the JSON string is invalid with respect to V2FunctionMatch
    */
-  public static FunctionDataTypesListItem fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, FunctionDataTypesListItem.class);
+  public static V2FunctionMatch fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V2FunctionMatch.class);
   }
 
   /**
-   * Convert an instance of FunctionDataTypesListItem to an JSON string
+   * Convert an instance of V2FunctionMatch to an JSON string
    *
    * @return JSON string
    */

@@ -13,14 +13,17 @@
 package ai.reveng.model;
 
 import java.util.Objects;
-import ai.reveng.model.V2FunctionInfo;
+import ai.reveng.model.FuncDepsInner;
+import ai.reveng.model.V2FunctionType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -47,130 +50,66 @@ import java.util.Set;
 import ai.reveng.invoker.JSON;
 
 /**
- * FunctionDataTypesListItem
+ * V2FunctionInfo
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class FunctionDataTypesListItem {
-  public static final String SERIALIZED_NAME_COMPLETED = "completed";
-  @SerializedName(SERIALIZED_NAME_COMPLETED)
-  @javax.annotation.Nonnull
-  private Boolean completed;
-
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
-  @javax.annotation.Nonnull
-  private String status;
-
-  public static final String SERIALIZED_NAME_DATA_TYPES = "data_types";
-  @SerializedName(SERIALIZED_NAME_DATA_TYPES)
+public class V2FunctionInfo {
+  public static final String SERIALIZED_NAME_FUNC_TYPES = "func_types";
+  @SerializedName(SERIALIZED_NAME_FUNC_TYPES)
   @javax.annotation.Nullable
-  private V2FunctionInfo dataTypes;
+  private V2FunctionType funcTypes;
 
-  public static final String SERIALIZED_NAME_DATA_TYPES_VERSION = "data_types_version";
-  @SerializedName(SERIALIZED_NAME_DATA_TYPES_VERSION)
-  @javax.annotation.Nullable
-  private Integer dataTypesVersion;
-
-  public static final String SERIALIZED_NAME_FUNCTION_ID = "function_id";
-  @SerializedName(SERIALIZED_NAME_FUNCTION_ID)
+  public static final String SERIALIZED_NAME_FUNC_DEPS = "func_deps";
+  @SerializedName(SERIALIZED_NAME_FUNC_DEPS)
   @javax.annotation.Nonnull
-  private Long functionId;
+  private List<FuncDepsInner> funcDeps = new ArrayList<>();
 
-  public FunctionDataTypesListItem() {
+  public V2FunctionInfo() {
   }
 
-  public FunctionDataTypesListItem completed(@javax.annotation.Nonnull Boolean completed) {
-    this.completed = completed;
+  public V2FunctionInfo funcTypes(@javax.annotation.Nullable V2FunctionType funcTypes) {
+    this.funcTypes = funcTypes;
     return this;
   }
 
   /**
-   * Whether the service has completed data types generation
-   * @return completed
-   */
-  @javax.annotation.Nonnull
-  public Boolean getCompleted() {
-    return completed;
-  }
-
-  public void setCompleted(@javax.annotation.Nonnull Boolean completed) {
-    this.completed = completed;
-  }
-
-
-  public FunctionDataTypesListItem status(@javax.annotation.Nonnull String status) {
-    this.status = status;
-    return this;
-  }
-
-  /**
-   * The current status of the data types service
-   * @return status
-   */
-  @javax.annotation.Nonnull
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(@javax.annotation.Nonnull String status) {
-    this.status = status;
-  }
-
-
-  public FunctionDataTypesListItem dataTypes(@javax.annotation.Nullable V2FunctionInfo dataTypes) {
-    this.dataTypes = dataTypes;
-    return this;
-  }
-
-  /**
-   * Function data types information if available
-   * @return dataTypes
+   * Function type information
+   * @return funcTypes
    */
   @javax.annotation.Nullable
-  public V2FunctionInfo getDataTypes() {
-    return dataTypes;
+  public V2FunctionType getFuncTypes() {
+    return funcTypes;
   }
 
-  public void setDataTypes(@javax.annotation.Nullable V2FunctionInfo dataTypes) {
-    this.dataTypes = dataTypes;
+  public void setFuncTypes(@javax.annotation.Nullable V2FunctionType funcTypes) {
+    this.funcTypes = funcTypes;
   }
 
 
-  public FunctionDataTypesListItem dataTypesVersion(@javax.annotation.Nullable Integer dataTypesVersion) {
-    this.dataTypesVersion = dataTypesVersion;
+  public V2FunctionInfo funcDeps(@javax.annotation.Nonnull List<FuncDepsInner> funcDeps) {
+    this.funcDeps = funcDeps;
+    return this;
+  }
+
+  public V2FunctionInfo addFuncDepsItem(FuncDepsInner funcDepsItem) {
+    if (this.funcDeps == null) {
+      this.funcDeps = new ArrayList<>();
+    }
+    this.funcDeps.add(funcDepsItem);
     return this;
   }
 
   /**
-   * If the data types information has been updated by the user, this field will be populated
-   * @return dataTypesVersion
-   */
-  @javax.annotation.Nullable
-  public Integer getDataTypesVersion() {
-    return dataTypesVersion;
-  }
-
-  public void setDataTypesVersion(@javax.annotation.Nullable Integer dataTypesVersion) {
-    this.dataTypesVersion = dataTypesVersion;
-  }
-
-
-  public FunctionDataTypesListItem functionId(@javax.annotation.Nonnull Long functionId) {
-    this.functionId = functionId;
-    return this;
-  }
-
-  /**
-   * Function id
-   * @return functionId
+   * List of function dependencies
+   * @return funcDeps
    */
   @javax.annotation.Nonnull
-  public Long getFunctionId() {
-    return functionId;
+  public List<FuncDepsInner> getFuncDeps() {
+    return funcDeps;
   }
 
-  public void setFunctionId(@javax.annotation.Nonnull Long functionId) {
-    this.functionId = functionId;
+  public void setFuncDeps(@javax.annotation.Nonnull List<FuncDepsInner> funcDeps) {
+    this.funcDeps = funcDeps;
   }
 
   /**
@@ -186,9 +125,9 @@ public class FunctionDataTypesListItem {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the FunctionDataTypesListItem instance itself
+   * @return the V2FunctionInfo instance itself
    */
-  public FunctionDataTypesListItem putAdditionalProperty(String key, Object value) {
+  public V2FunctionInfo putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -227,13 +166,10 @@ public class FunctionDataTypesListItem {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FunctionDataTypesListItem functionDataTypesListItem = (FunctionDataTypesListItem) o;
-    return Objects.equals(this.completed, functionDataTypesListItem.completed) &&
-        Objects.equals(this.status, functionDataTypesListItem.status) &&
-        Objects.equals(this.dataTypes, functionDataTypesListItem.dataTypes) &&
-        Objects.equals(this.dataTypesVersion, functionDataTypesListItem.dataTypesVersion) &&
-        Objects.equals(this.functionId, functionDataTypesListItem.functionId)&&
-        Objects.equals(this.additionalProperties, functionDataTypesListItem.additionalProperties);
+    V2FunctionInfo v2FunctionInfo = (V2FunctionInfo) o;
+    return Objects.equals(this.funcTypes, v2FunctionInfo.funcTypes) &&
+        Objects.equals(this.funcDeps, v2FunctionInfo.funcDeps)&&
+        Objects.equals(this.additionalProperties, v2FunctionInfo.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -242,7 +178,7 @@ public class FunctionDataTypesListItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(completed, status, dataTypes, dataTypesVersion, functionId, additionalProperties);
+    return Objects.hash(funcTypes, funcDeps, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -255,12 +191,9 @@ public class FunctionDataTypesListItem {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FunctionDataTypesListItem {\n");
-    sb.append("    completed: ").append(toIndentedString(completed)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    dataTypes: ").append(toIndentedString(dataTypes)).append("\n");
-    sb.append("    dataTypesVersion: ").append(toIndentedString(dataTypesVersion)).append("\n");
-    sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
+    sb.append("class V2FunctionInfo {\n");
+    sb.append("    funcTypes: ").append(toIndentedString(funcTypes)).append("\n");
+    sb.append("    funcDeps: ").append(toIndentedString(funcDeps)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -280,38 +213,45 @@ public class FunctionDataTypesListItem {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("completed", "status", "data_types", "data_types_version", "function_id"));
+    openapiFields = new HashSet<String>(Arrays.asList("func_types", "func_deps"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("completed", "status", "function_id"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("func_deps"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to FunctionDataTypesListItem
+   * @throws IOException if the JSON Element is invalid with respect to V2FunctionInfo
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!FunctionDataTypesListItem.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in FunctionDataTypesListItem is not found in the empty JSON string", FunctionDataTypesListItem.openapiRequiredFields.toString()));
+        if (!V2FunctionInfo.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in V2FunctionInfo is not found in the empty JSON string", V2FunctionInfo.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : FunctionDataTypesListItem.openapiRequiredFields) {
+      for (String requiredField : V2FunctionInfo.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("status").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
+      // validate the optional field `func_types`
+      if (jsonObj.get("func_types") != null && !jsonObj.get("func_types").isJsonNull()) {
+        V2FunctionType.validateJsonElement(jsonObj.get("func_types"));
       }
-      // validate the optional field `data_types`
-      if (jsonObj.get("data_types") != null && !jsonObj.get("data_types").isJsonNull()) {
-        V2FunctionInfo.validateJsonElement(jsonObj.get("data_types"));
+      if (jsonObj.get("func_deps") != null) {
+        if (!jsonObj.get("func_deps").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `func_deps` to be an array in the JSON string but got `%s`", jsonObj.get("func_deps").toString()));
+        }
+        JsonArray jsonArrayfuncDeps = jsonObj.getAsJsonArray("func_deps");
+        // validate the required field `func_deps` (array)
+        for (int i = 0; i < jsonArrayfuncDeps.size(); i++) {
+          FuncDepsInner.validateJsonElement(jsonArrayfuncDeps.get(i));
+        }
       }
   }
 
@@ -319,16 +259,16 @@ public class FunctionDataTypesListItem {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!FunctionDataTypesListItem.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'FunctionDataTypesListItem' and its subtypes
+       if (!V2FunctionInfo.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V2FunctionInfo' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<FunctionDataTypesListItem> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(FunctionDataTypesListItem.class));
+       final TypeAdapter<V2FunctionInfo> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V2FunctionInfo.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<FunctionDataTypesListItem>() {
+       return (TypeAdapter<T>) new TypeAdapter<V2FunctionInfo>() {
            @Override
-           public void write(JsonWriter out, FunctionDataTypesListItem value) throws IOException {
+           public void write(JsonWriter out, V2FunctionInfo value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -356,12 +296,12 @@ public class FunctionDataTypesListItem {
            }
 
            @Override
-           public FunctionDataTypesListItem read(JsonReader in) throws IOException {
+           public V2FunctionInfo read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             FunctionDataTypesListItem instance = thisAdapter.fromJsonTree(jsonObj);
+             V2FunctionInfo instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -388,18 +328,18 @@ public class FunctionDataTypesListItem {
   }
 
   /**
-   * Create an instance of FunctionDataTypesListItem given an JSON string
+   * Create an instance of V2FunctionInfo given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of FunctionDataTypesListItem
-   * @throws IOException if the JSON string is invalid with respect to FunctionDataTypesListItem
+   * @return An instance of V2FunctionInfo
+   * @throws IOException if the JSON string is invalid with respect to V2FunctionInfo
    */
-  public static FunctionDataTypesListItem fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, FunctionDataTypesListItem.class);
+  public static V2FunctionInfo fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V2FunctionInfo.class);
   }
 
   /**
-   * Convert an instance of FunctionDataTypesListItem to an JSON string
+   * Convert an instance of V2FunctionInfo to an JSON string
    *
    * @return JSON string
    */

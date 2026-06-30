@@ -100,6 +100,7 @@ public class ApiClient {
 
         // Setup authentications (key: authentication name, value: authentication).
         authentications.put("APIKey", new ApiKeyAuth("header", "Authorization"));
+        authentications.put("bearerAuth", new HttpBearerAuth("bearer"));
         // Prevent the authentications from being modified.
         authentications = Collections.unmodifiableMap(authentications);
     }
@@ -116,6 +117,7 @@ public class ApiClient {
 
         // Setup authentications (key: authentication name, value: authentication).
         authentications.put("APIKey", new ApiKeyAuth("header", "Authorization"));
+        authentications.put("bearerAuth", new HttpBearerAuth("bearer"));
         // Prevent the authentications from being modified.
         authentications = Collections.unmodifiableMap(authentications);
     }
@@ -146,7 +148,7 @@ public class ApiClient {
         json = new JSON();
 
         // Set default User-Agent.
-        setUserAgent("OpenAPI-Generator/3.99.0/java");
+        setUserAgent("OpenAPI-Generator/3.100.0/java");
 
         authentications = new HashMap<String, Authentication>();
     }
@@ -390,6 +392,28 @@ public class ApiClient {
         return authentications.get(authName);
     }
 
+    /**
+     * Helper method to set access token for the first Bearer authentication.
+     * @param bearerToken Bearer token
+     */
+    public void setBearerToken(String bearerToken) {
+        setBearerToken(() -> bearerToken);
+    }
+
+    /**
+     * Helper method to set the supplier of access tokens for Bearer authentication.
+     *
+     * @param tokenSupplier The supplier of bearer tokens
+     */
+    public void setBearerToken(Supplier<String> tokenSupplier) {
+        for (Authentication auth : authentications.values()) {
+            if (auth instanceof HttpBearerAuth) {
+                ((HttpBearerAuth) auth).setBearerToken(tokenSupplier);
+                return;
+            }
+        }
+        throw new RuntimeException("No Bearer authentication configured!");
+    }
 
     /**
      * Helper method to set username for the first HTTP basic authentication.

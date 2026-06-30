@@ -7,9 +7,9 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**functionId** | **Long** | Unique identifier of the function |  |
-|**matchedFunctions** | [**List&lt;MatchedFunction&gt;**](MatchedFunction.md) |  |  |
-|**confidences** | [**List&lt;NameConfidence&gt;**](NameConfidence.md) |  |  [optional] |
+|**confidences** | [**List&lt;NameConfidence&gt;**](NameConfidence.md) | Per-name confidences when canonify was requested |  [optional] |
+|**functionId** | **Long** | Source function ID |  |
+|**matchedFunctions** | [**List&lt;MatchedFunction&gt;**](MatchedFunction.md) | Top candidate matches in similarity-descending order |  |
 
 
 

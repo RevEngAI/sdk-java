@@ -13,7 +13,7 @@
 package ai.reveng.model;
 
 import java.util.Objects;
-import ai.reveng.model.FunctionMatch;
+import ai.reveng.model.V2FunctionMatch;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -86,7 +86,7 @@ public class FunctionMatchingResponse {
   public static final String SERIALIZED_NAME_MATCHES = "matches";
   @SerializedName(SERIALIZED_NAME_MATCHES)
   @javax.annotation.Nullable
-  private List<FunctionMatch> matches;
+  private List<V2FunctionMatch> matches;
 
   public static final String SERIALIZED_NAME_NUM_MATCHES = "num_matches";
   @SerializedName(SERIALIZED_NAME_NUM_MATCHES)
@@ -220,12 +220,12 @@ public class FunctionMatchingResponse {
   }
 
 
-  public FunctionMatchingResponse matches(@javax.annotation.Nullable List<FunctionMatch> matches) {
+  public FunctionMatchingResponse matches(@javax.annotation.Nullable List<V2FunctionMatch> matches) {
     this.matches = matches;
     return this;
   }
 
-  public FunctionMatchingResponse addMatchesItem(FunctionMatch matchesItem) {
+  public FunctionMatchingResponse addMatchesItem(V2FunctionMatch matchesItem) {
     if (this.matches == null) {
       this.matches = new ArrayList<>();
     }
@@ -238,11 +238,11 @@ public class FunctionMatchingResponse {
    * @return matches
    */
   @javax.annotation.Nullable
-  public List<FunctionMatch> getMatches() {
+  public List<V2FunctionMatch> getMatches() {
     return matches;
   }
 
-  public void setMatches(@javax.annotation.Nullable List<FunctionMatch> matches) {
+  public void setMatches(@javax.annotation.Nullable List<V2FunctionMatch> matches) {
     this.matches = matches;
   }
 
@@ -455,7 +455,7 @@ public class FunctionMatchingResponse {
 
           // validate the optional field `matches` (array)
           for (int i = 0; i < jsonArraymatches.size(); i++) {
-            FunctionMatch.validateJsonElement(jsonArraymatches.get(i));
+            V2FunctionMatch.validateJsonElement(jsonArraymatches.get(i));
           };
         }
       }
