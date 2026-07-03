@@ -12,7 +12,7 @@
 |**binaryId** | **Long** | Binary ID |  |
 |**binaryName** | **String** | Binary filename |  |
 |**binarySize** | **Long** | Binary size in bytes |  |
-|**binaryUuid** | **String** | UUID of the binary, omitted when not set |  [optional] |
+|**binaryUuid** | **String** | UUID of the binary, omitted when not set |  |
 |**creation** | **OffsetDateTime** | When the binary was uploaded |  |
 |**debug** | **Boolean** | True when the binary was analysed with debug symbols |  |
 |**functionCount** | **Long** | Number of functions in the binary |  |

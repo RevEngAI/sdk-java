@@ -55,6 +55,11 @@ public class DataTypesEntry {
   @javax.annotation.Nullable
   private FunctionInfo dataTypes;
 
+  public static final String SERIALIZED_NAME_DATA_TYPES_VERSION = "data_types_version";
+  @SerializedName(SERIALIZED_NAME_DATA_TYPES_VERSION)
+  @javax.annotation.Nonnull
+  private Long dataTypesVersion;
+
   public static final String SERIALIZED_NAME_FUNCTION_ID = "function_id";
   @SerializedName(SERIALIZED_NAME_FUNCTION_ID)
   @javax.annotation.Nonnull
@@ -79,6 +84,25 @@ public class DataTypesEntry {
 
   public void setDataTypes(@javax.annotation.Nullable FunctionInfo dataTypes) {
     this.dataTypes = dataTypes;
+  }
+
+
+  public DataTypesEntry dataTypesVersion(@javax.annotation.Nonnull Long dataTypesVersion) {
+    this.dataTypesVersion = dataTypesVersion;
+    return this;
+  }
+
+  /**
+   * Current version of the function data types. Pass this back on the next write to satisfy the CAS check.
+   * @return dataTypesVersion
+   */
+  @javax.annotation.Nonnull
+  public Long getDataTypesVersion() {
+    return dataTypesVersion;
+  }
+
+  public void setDataTypesVersion(@javax.annotation.Nonnull Long dataTypesVersion) {
+    this.dataTypesVersion = dataTypesVersion;
   }
 
 
@@ -112,12 +136,13 @@ public class DataTypesEntry {
     }
     DataTypesEntry dataTypesEntry = (DataTypesEntry) o;
     return Objects.equals(this.dataTypes, dataTypesEntry.dataTypes) &&
+        Objects.equals(this.dataTypesVersion, dataTypesEntry.dataTypesVersion) &&
         Objects.equals(this.functionId, dataTypesEntry.functionId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataTypes, functionId);
+    return Objects.hash(dataTypes, dataTypesVersion, functionId);
   }
 
   @Override
@@ -125,6 +150,7 @@ public class DataTypesEntry {
     StringBuilder sb = new StringBuilder();
     sb.append("class DataTypesEntry {\n");
     sb.append("    dataTypes: ").append(toIndentedString(dataTypes)).append("\n");
+    sb.append("    dataTypesVersion: ").append(toIndentedString(dataTypesVersion)).append("\n");
     sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -144,10 +170,10 @@ public class DataTypesEntry {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("data_types", "function_id"));
+    openapiFields = new HashSet<String>(Arrays.asList("data_types", "data_types_version", "function_id"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("function_id"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("data_types_version", "function_id"));
   }
 
   /**

@@ -7,6 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**analysisId** | **Long** |  |  |
 |**binaryId** | **Long** |  |  |
 |**creation** | **OffsetDateTime** |  |  |
 |**debug** | **Boolean** |  |  |

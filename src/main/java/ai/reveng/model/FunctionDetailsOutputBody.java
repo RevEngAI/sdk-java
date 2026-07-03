@@ -50,6 +50,11 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FunctionDetailsOutputBody {
+  public static final String SERIALIZED_NAME_ANALYSIS_ID = "analysis_id";
+  @SerializedName(SERIALIZED_NAME_ANALYSIS_ID)
+  @javax.annotation.Nonnull
+  private Long analysisId;
+
   public static final String SERIALIZED_NAME_BINARY_ID = "binary_id";
   @SerializedName(SERIALIZED_NAME_BINARY_ID)
   @javax.annotation.Nonnull
@@ -97,6 +102,25 @@ public class FunctionDetailsOutputBody {
 
   public FunctionDetailsOutputBody() {
   }
+
+  public FunctionDetailsOutputBody analysisId(@javax.annotation.Nonnull Long analysisId) {
+    this.analysisId = analysisId;
+    return this;
+  }
+
+  /**
+   * Get analysisId
+   * @return analysisId
+   */
+  @javax.annotation.Nonnull
+  public Long getAnalysisId() {
+    return analysisId;
+  }
+
+  public void setAnalysisId(@javax.annotation.Nonnull Long analysisId) {
+    this.analysisId = analysisId;
+  }
+
 
   public FunctionDetailsOutputBody binaryId(@javax.annotation.Nonnull Long binaryId) {
     this.binaryId = binaryId;
@@ -279,7 +303,8 @@ public class FunctionDetailsOutputBody {
       return false;
     }
     FunctionDetailsOutputBody functionDetailsOutputBody = (FunctionDetailsOutputBody) o;
-    return Objects.equals(this.binaryId, functionDetailsOutputBody.binaryId) &&
+    return Objects.equals(this.analysisId, functionDetailsOutputBody.analysisId) &&
+        Objects.equals(this.binaryId, functionDetailsOutputBody.binaryId) &&
         Objects.equals(this.creation, functionDetailsOutputBody.creation) &&
         Objects.equals(this.debug, functionDetailsOutputBody.debug) &&
         Objects.equals(this.functionId, functionDetailsOutputBody.functionId) &&
@@ -292,13 +317,14 @@ public class FunctionDetailsOutputBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(binaryId, creation, debug, functionId, functionName, functionSize, functionVaddr, mangledName, sourceFunctionId);
+    return Objects.hash(analysisId, binaryId, creation, debug, functionId, functionName, functionSize, functionVaddr, mangledName, sourceFunctionId);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FunctionDetailsOutputBody {\n");
+    sb.append("    analysisId: ").append(toIndentedString(analysisId)).append("\n");
     sb.append("    binaryId: ").append(toIndentedString(binaryId)).append("\n");
     sb.append("    creation: ").append(toIndentedString(creation)).append("\n");
     sb.append("    debug: ").append(toIndentedString(debug)).append("\n");
@@ -326,10 +352,10 @@ public class FunctionDetailsOutputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("binary_id", "creation", "debug", "function_id", "function_name", "function_size", "function_vaddr", "mangled_name", "source_function_id"));
+    openapiFields = new HashSet<String>(Arrays.asList("analysis_id", "binary_id", "creation", "debug", "function_id", "function_name", "function_size", "function_vaddr", "mangled_name", "source_function_id"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("binary_id", "creation", "debug", "function_id", "function_name", "function_size", "function_vaddr"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("analysis_id", "binary_id", "creation", "debug", "function_id", "function_name", "function_size", "function_vaddr"));
   }
 
   /**
