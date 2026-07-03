@@ -133,7 +133,7 @@ public class AnalysisBasicInfoOutputBody {
 
   public static final String SERIALIZED_NAME_BINARY_UUID = "binary_uuid";
   @SerializedName(SERIALIZED_NAME_BINARY_UUID)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String binaryUuid;
 
   public static final String SERIALIZED_NAME_CREATION = "creation";
@@ -294,7 +294,7 @@ public class AnalysisBasicInfoOutputBody {
   }
 
 
-  public AnalysisBasicInfoOutputBody binaryUuid(@javax.annotation.Nullable String binaryUuid) {
+  public AnalysisBasicInfoOutputBody binaryUuid(@javax.annotation.Nonnull String binaryUuid) {
     this.binaryUuid = binaryUuid;
     return this;
   }
@@ -303,12 +303,12 @@ public class AnalysisBasicInfoOutputBody {
    * UUID of the binary, omitted when not set
    * @return binaryUuid
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getBinaryUuid() {
     return binaryUuid;
   }
 
-  public void setBinaryUuid(@javax.annotation.Nullable String binaryUuid) {
+  public void setBinaryUuid(@javax.annotation.Nonnull String binaryUuid) {
     this.binaryUuid = binaryUuid;
   }
 
@@ -619,7 +619,7 @@ public class AnalysisBasicInfoOutputBody {
     openapiFields = new HashSet<String>(Arrays.asList("analysis_scope", "base_address", "binary_id", "binary_name", "binary_size", "binary_uuid", "creation", "debug", "function_count", "is_advanced", "is_owner", "is_system", "model_id", "model_name", "owner_username", "sequencer_version", "sha_256_hash", "team_id"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("analysis_scope", "base_address", "binary_id", "binary_name", "binary_size", "creation", "debug", "function_count", "is_advanced", "is_owner", "is_system", "model_id", "model_name", "owner_username", "sha_256_hash", "team_id"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("analysis_scope", "base_address", "binary_id", "binary_name", "binary_size", "binary_uuid", "creation", "debug", "function_count", "is_advanced", "is_owner", "is_system", "model_id", "model_name", "owner_username", "sha_256_hash", "team_id"));
   }
 
   /**
@@ -658,7 +658,7 @@ public class AnalysisBasicInfoOutputBody {
       if (!jsonObj.get("binary_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `binary_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("binary_name").toString()));
       }
-      if ((jsonObj.get("binary_uuid") != null && !jsonObj.get("binary_uuid").isJsonNull()) && !jsonObj.get("binary_uuid").isJsonPrimitive()) {
+      if (!jsonObj.get("binary_uuid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `binary_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("binary_uuid").toString()));
       }
       if (!jsonObj.get("model_name").isJsonPrimitive()) {
