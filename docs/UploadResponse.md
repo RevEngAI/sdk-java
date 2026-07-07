@@ -10,6 +10,10 @@
 |**sha256Hash** | **String** |  |  |
 |**fileType** | **UploadFileType** |  |  |
 |**filename** | **String** |  |  |
+|**mime** | **String** |  |  |
+|**isArchive** | **Boolean** |  |  |
+|**canSandbox** | **Boolean** |  |  |
+|**canExtract** | **Boolean** |  |  |
 
 
 

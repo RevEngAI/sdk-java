@@ -65,6 +65,26 @@ public class UploadResponse {
   @javax.annotation.Nonnull
   private String filename;
 
+  public static final String SERIALIZED_NAME_MIME = "mime";
+  @SerializedName(SERIALIZED_NAME_MIME)
+  @javax.annotation.Nonnull
+  private String mime;
+
+  public static final String SERIALIZED_NAME_IS_ARCHIVE = "is_archive";
+  @SerializedName(SERIALIZED_NAME_IS_ARCHIVE)
+  @javax.annotation.Nonnull
+  private Boolean isArchive;
+
+  public static final String SERIALIZED_NAME_CAN_SANDBOX = "can_sandbox";
+  @SerializedName(SERIALIZED_NAME_CAN_SANDBOX)
+  @javax.annotation.Nonnull
+  private Boolean canSandbox;
+
+  public static final String SERIALIZED_NAME_CAN_EXTRACT = "can_extract";
+  @SerializedName(SERIALIZED_NAME_CAN_EXTRACT)
+  @javax.annotation.Nonnull
+  private Boolean canExtract;
+
   public UploadResponse() {
   }
 
@@ -124,6 +144,82 @@ public class UploadResponse {
     this.filename = filename;
   }
 
+
+  public UploadResponse mime(@javax.annotation.Nonnull String mime) {
+    this.mime = mime;
+    return this;
+  }
+
+  /**
+   * Get mime
+   * @return mime
+   */
+  @javax.annotation.Nonnull
+  public String getMime() {
+    return mime;
+  }
+
+  public void setMime(@javax.annotation.Nonnull String mime) {
+    this.mime = mime;
+  }
+
+
+  public UploadResponse isArchive(@javax.annotation.Nonnull Boolean isArchive) {
+    this.isArchive = isArchive;
+    return this;
+  }
+
+  /**
+   * Get isArchive
+   * @return isArchive
+   */
+  @javax.annotation.Nonnull
+  public Boolean getIsArchive() {
+    return isArchive;
+  }
+
+  public void setIsArchive(@javax.annotation.Nonnull Boolean isArchive) {
+    this.isArchive = isArchive;
+  }
+
+
+  public UploadResponse canSandbox(@javax.annotation.Nonnull Boolean canSandbox) {
+    this.canSandbox = canSandbox;
+    return this;
+  }
+
+  /**
+   * Get canSandbox
+   * @return canSandbox
+   */
+  @javax.annotation.Nonnull
+  public Boolean getCanSandbox() {
+    return canSandbox;
+  }
+
+  public void setCanSandbox(@javax.annotation.Nonnull Boolean canSandbox) {
+    this.canSandbox = canSandbox;
+  }
+
+
+  public UploadResponse canExtract(@javax.annotation.Nonnull Boolean canExtract) {
+    this.canExtract = canExtract;
+    return this;
+  }
+
+  /**
+   * Get canExtract
+   * @return canExtract
+   */
+  @javax.annotation.Nonnull
+  public Boolean getCanExtract() {
+    return canExtract;
+  }
+
+  public void setCanExtract(@javax.annotation.Nonnull Boolean canExtract) {
+    this.canExtract = canExtract;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -181,13 +277,17 @@ public class UploadResponse {
     UploadResponse uploadResponse = (UploadResponse) o;
     return Objects.equals(this.sha256Hash, uploadResponse.sha256Hash) &&
         Objects.equals(this.fileType, uploadResponse.fileType) &&
-        Objects.equals(this.filename, uploadResponse.filename)&&
+        Objects.equals(this.filename, uploadResponse.filename) &&
+        Objects.equals(this.mime, uploadResponse.mime) &&
+        Objects.equals(this.isArchive, uploadResponse.isArchive) &&
+        Objects.equals(this.canSandbox, uploadResponse.canSandbox) &&
+        Objects.equals(this.canExtract, uploadResponse.canExtract)&&
         Objects.equals(this.additionalProperties, uploadResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sha256Hash, fileType, filename, additionalProperties);
+    return Objects.hash(sha256Hash, fileType, filename, mime, isArchive, canSandbox, canExtract, additionalProperties);
   }
 
   @Override
@@ -197,6 +297,10 @@ public class UploadResponse {
     sb.append("    sha256Hash: ").append(toIndentedString(sha256Hash)).append("\n");
     sb.append("    fileType: ").append(toIndentedString(fileType)).append("\n");
     sb.append("    filename: ").append(toIndentedString(filename)).append("\n");
+    sb.append("    mime: ").append(toIndentedString(mime)).append("\n");
+    sb.append("    isArchive: ").append(toIndentedString(isArchive)).append("\n");
+    sb.append("    canSandbox: ").append(toIndentedString(canSandbox)).append("\n");
+    sb.append("    canExtract: ").append(toIndentedString(canExtract)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -216,10 +320,10 @@ public class UploadResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("sha_256_hash", "file_type", "filename"));
+    openapiFields = new HashSet<String>(Arrays.asList("sha_256_hash", "file_type", "filename", "mime", "is_archive", "can_sandbox", "can_extract"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("sha_256_hash", "file_type", "filename"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("sha_256_hash", "file_type", "filename", "mime", "is_archive", "can_sandbox", "can_extract"));
   }
 
   /**
@@ -249,6 +353,9 @@ public class UploadResponse {
       UploadFileType.validateJsonElement(jsonObj.get("file_type"));
       if (!jsonObj.get("filename").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `filename` to be a primitive type in the JSON string but got `%s`", jsonObj.get("filename").toString()));
+      }
+      if (!jsonObj.get("mime").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mime` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mime").toString()));
       }
   }
 

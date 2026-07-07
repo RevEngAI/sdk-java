@@ -11,6 +11,9 @@
 |**commandLineArgs** | **String** | The command line parameters to pass to the dynamic execution sandbox. Requires &#x60;sandbox&#x60; to be True. |  [optional] |
 |**startMethod** | **SandboxStartMethod** | The method used by the sandbox to launch the sample. |  [optional] |
 |**timeout** | **SandboxTimeout** | Maximum execution time for the sandbox run, in seconds. Allowed values: 120 (2m), 180 (3m), 300 (5m), 600 (10m). |  [optional] |
+|**archiveSha256Hash** | **String** | Hash of the uploaded archive to run in the sandbox. Set this when submitting an archive. |  [optional] |
+|**archiveEntryPath** | **String** | Path of the file inside the archive to execute. |  [optional] |
+|**archivePassword** | **String** | Password required to extract the archive, if any. |  [optional] |
 
 
 
