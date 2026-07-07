@@ -53,7 +53,7 @@ import ai.reveng.invoker.JSON;
 public class User {
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private OffsetDateTime createdAt;
 
   public static final String SERIALIZED_NAME_EMAIL = "email";
@@ -202,7 +202,7 @@ public class User {
   public User() {
   }
 
-  public User createdAt(@javax.annotation.Nullable OffsetDateTime createdAt) {
+  public User createdAt(@javax.annotation.Nonnull OffsetDateTime createdAt) {
     this.createdAt = createdAt;
     return this;
   }
@@ -211,12 +211,12 @@ public class User {
    * Get createdAt
    * @return createdAt
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
 
-  public void setCreatedAt(@javax.annotation.Nullable OffsetDateTime createdAt) {
+  public void setCreatedAt(@javax.annotation.Nonnull OffsetDateTime createdAt) {
     this.createdAt = createdAt;
   }
 
@@ -370,7 +370,7 @@ public class User {
     openapiFields = new HashSet<String>(Arrays.asList("created_at", "email", "profile", "role", "tier", "user_id"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("email", "profile", "role", "user_id"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("created_at", "email", "profile", "role", "user_id"));
   }
 
   /**

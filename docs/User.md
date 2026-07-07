@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**createdAt** | **OffsetDateTime** |  |  [optional] |
+|**createdAt** | **OffsetDateTime** |  |  |
 |**email** | **String** |  |  |
 |**profile** | [**UserProfile**](UserProfile.md) |  |  |
 |**role** | [**RoleEnum**](#RoleEnum) |  |  |

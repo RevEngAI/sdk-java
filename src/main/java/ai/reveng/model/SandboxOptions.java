@@ -72,6 +72,21 @@ public class SandboxOptions {
   @javax.annotation.Nullable
   private SandboxTimeout timeout = SandboxTimeout.NUMBER_120;
 
+  public static final String SERIALIZED_NAME_ARCHIVE_SHA256_HASH = "archive_sha_256_hash";
+  @SerializedName(SERIALIZED_NAME_ARCHIVE_SHA256_HASH)
+  @javax.annotation.Nullable
+  private String archiveSha256Hash;
+
+  public static final String SERIALIZED_NAME_ARCHIVE_ENTRY_PATH = "archive_entry_path";
+  @SerializedName(SERIALIZED_NAME_ARCHIVE_ENTRY_PATH)
+  @javax.annotation.Nullable
+  private String archiveEntryPath;
+
+  public static final String SERIALIZED_NAME_ARCHIVE_PASSWORD = "archive_password";
+  @SerializedName(SERIALIZED_NAME_ARCHIVE_PASSWORD)
+  @javax.annotation.Nullable
+  private String archivePassword;
+
   public SandboxOptions() {
   }
 
@@ -150,6 +165,63 @@ public class SandboxOptions {
     this.timeout = timeout;
   }
 
+
+  public SandboxOptions archiveSha256Hash(@javax.annotation.Nullable String archiveSha256Hash) {
+    this.archiveSha256Hash = archiveSha256Hash;
+    return this;
+  }
+
+  /**
+   * Hash of the uploaded archive to run in the sandbox. Set this when submitting an archive.
+   * @return archiveSha256Hash
+   */
+  @javax.annotation.Nullable
+  public String getArchiveSha256Hash() {
+    return archiveSha256Hash;
+  }
+
+  public void setArchiveSha256Hash(@javax.annotation.Nullable String archiveSha256Hash) {
+    this.archiveSha256Hash = archiveSha256Hash;
+  }
+
+
+  public SandboxOptions archiveEntryPath(@javax.annotation.Nullable String archiveEntryPath) {
+    this.archiveEntryPath = archiveEntryPath;
+    return this;
+  }
+
+  /**
+   * Path of the file inside the archive to execute.
+   * @return archiveEntryPath
+   */
+  @javax.annotation.Nullable
+  public String getArchiveEntryPath() {
+    return archiveEntryPath;
+  }
+
+  public void setArchiveEntryPath(@javax.annotation.Nullable String archiveEntryPath) {
+    this.archiveEntryPath = archiveEntryPath;
+  }
+
+
+  public SandboxOptions archivePassword(@javax.annotation.Nullable String archivePassword) {
+    this.archivePassword = archivePassword;
+    return this;
+  }
+
+  /**
+   * Password required to extract the archive, if any.
+   * @return archivePassword
+   */
+  @javax.annotation.Nullable
+  public String getArchivePassword() {
+    return archivePassword;
+  }
+
+  public void setArchivePassword(@javax.annotation.Nullable String archivePassword) {
+    this.archivePassword = archivePassword;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -208,7 +280,10 @@ public class SandboxOptions {
     return Objects.equals(this.enabled, sandboxOptions.enabled) &&
         Objects.equals(this.commandLineArgs, sandboxOptions.commandLineArgs) &&
         Objects.equals(this.startMethod, sandboxOptions.startMethod) &&
-        Objects.equals(this.timeout, sandboxOptions.timeout)&&
+        Objects.equals(this.timeout, sandboxOptions.timeout) &&
+        Objects.equals(this.archiveSha256Hash, sandboxOptions.archiveSha256Hash) &&
+        Objects.equals(this.archiveEntryPath, sandboxOptions.archiveEntryPath) &&
+        Objects.equals(this.archivePassword, sandboxOptions.archivePassword)&&
         Objects.equals(this.additionalProperties, sandboxOptions.additionalProperties);
   }
 
@@ -218,7 +293,7 @@ public class SandboxOptions {
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled, commandLineArgs, startMethod, timeout, additionalProperties);
+    return Objects.hash(enabled, commandLineArgs, startMethod, timeout, archiveSha256Hash, archiveEntryPath, archivePassword, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -236,6 +311,9 @@ public class SandboxOptions {
     sb.append("    commandLineArgs: ").append(toIndentedString(commandLineArgs)).append("\n");
     sb.append("    startMethod: ").append(toIndentedString(startMethod)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
+    sb.append("    archiveSha256Hash: ").append(toIndentedString(archiveSha256Hash)).append("\n");
+    sb.append("    archiveEntryPath: ").append(toIndentedString(archiveEntryPath)).append("\n");
+    sb.append("    archivePassword: ").append(toIndentedString(archivePassword)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -255,7 +333,7 @@ public class SandboxOptions {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("enabled", "command_line_args", "start_method", "timeout"));
+    openapiFields = new HashSet<String>(Arrays.asList("enabled", "command_line_args", "start_method", "timeout", "archive_sha_256_hash", "archive_entry_path", "archive_password"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -284,6 +362,15 @@ public class SandboxOptions {
       // validate the optional field `timeout`
       if (jsonObj.get("timeout") != null && !jsonObj.get("timeout").isJsonNull()) {
         SandboxTimeout.validateJsonElement(jsonObj.get("timeout"));
+      }
+      if ((jsonObj.get("archive_sha_256_hash") != null && !jsonObj.get("archive_sha_256_hash").isJsonNull()) && !jsonObj.get("archive_sha_256_hash").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `archive_sha_256_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("archive_sha_256_hash").toString()));
+      }
+      if ((jsonObj.get("archive_entry_path") != null && !jsonObj.get("archive_entry_path").isJsonNull()) && !jsonObj.get("archive_entry_path").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `archive_entry_path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("archive_entry_path").toString()));
+      }
+      if ((jsonObj.get("archive_password") != null && !jsonObj.get("archive_password").isJsonNull()) && !jsonObj.get("archive_password").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `archive_password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("archive_password").toString()));
       }
   }
 
