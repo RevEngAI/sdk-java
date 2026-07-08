@@ -9,6 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**binaryId** | **Long** | Target binary |  |
 |**errorMessage** | **String** | Error description when status&#x3D;FAILED. |  [optional] |
+|**matchId** | **String** | Opaque token for this binary&#39;s matching run. Present on dispatch and when statuses were fetched by token. |  [optional] |
 |**matchedFunctionCount** | **Long** | Number of source functions that received at least one candidate match. Only meaningful when status&#x3D;COMPLETED. |  |
 |**status** | [**StatusEnum**](#StatusEnum) | Per-binary workflow status |  |
 

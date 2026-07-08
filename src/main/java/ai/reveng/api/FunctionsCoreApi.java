@@ -50,8 +50,10 @@ import ai.reveng.model.FunctionMatchingRequest;
 import ai.reveng.model.FunctionMatchingResponse;
 import ai.reveng.model.GetMatchesOutputBody;
 import ai.reveng.model.GetMatchesStatusOutputBody;
+import ai.reveng.model.ImportedFunctionDetailOutputBody;
 import ai.reveng.model.ListAnalysisFunctionsOutputBody;
 import ai.reveng.model.ListFunctionStringsOutputBody;
+import ai.reveng.model.ListImportedFunctionsOutputBody;
 import ai.reveng.model.StartMatchingForFunctionsInputBody;
 import ai.reveng.model.StartMatchingOutputBody;
 
@@ -3372,7 +3374,8 @@ public class FunctionsCoreApi {
     }
     /**
      * Build call for getFunctionsMatches
-     * @param functionIds Source function IDs whose matches to fetch. (required)
+     * @param matchId Opaque token from a start-matching response. When supplied, returns that specific run instead of the latest. (optional)
+     * @param functionIds Source function IDs whose matches to fetch. Required unless match_id is supplied. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3388,7 +3391,7 @@ public class FunctionsCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFunctionsMatchesCall(@javax.annotation.Nullable List<Long> functionIds, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getFunctionsMatchesCall(@javax.annotation.Nullable String matchId, @javax.annotation.Nullable List<Long> functionIds, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3413,6 +3416,10 @@ public class FunctionsCoreApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (matchId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("match_id", matchId));
+        }
+
         if (functionIds != null) {
             localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("csv", "function_ids", functionIds));
         }
@@ -3437,20 +3444,16 @@ public class FunctionsCoreApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getFunctionsMatchesValidateBeforeCall(@javax.annotation.Nullable List<Long> functionIds, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'functionIds' is set
-        if (functionIds == null) {
-            throw new ApiException("Missing the required parameter 'functionIds' when calling getFunctionsMatches(Async)");
-        }
-
-        return getFunctionsMatchesCall(functionIds, _callback);
+    private okhttp3.Call getFunctionsMatchesValidateBeforeCall(@javax.annotation.Nullable String matchId, @javax.annotation.Nullable List<Long> functionIds, final ApiCallback _callback) throws ApiException {
+        return getFunctionsMatchesCall(matchId, functionIds, _callback);
 
     }
 
     /**
      * Get function-matching results for an explicit set of functions
      * Returns the matches blob when the matching workflow has completed. While the workflow is in progress this endpoint returns the current status with no matches; use /matches/status to poll progress.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
-     * @param functionIds Source function IDs whose matches to fetch. (required)
+     * @param matchId Opaque token from a start-matching response. When supplied, returns that specific run instead of the latest. (optional)
+     * @param functionIds Source function IDs whose matches to fetch. Required unless match_id is supplied. (optional)
      * @return GetMatchesOutputBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3465,15 +3468,16 @@ public class FunctionsCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public GetMatchesOutputBody getFunctionsMatches(@javax.annotation.Nullable List<Long> functionIds) throws ApiException {
-        ApiResponse<GetMatchesOutputBody> localVarResp = getFunctionsMatchesWithHttpInfo(functionIds);
+    public GetMatchesOutputBody getFunctionsMatches(@javax.annotation.Nullable String matchId, @javax.annotation.Nullable List<Long> functionIds) throws ApiException {
+        ApiResponse<GetMatchesOutputBody> localVarResp = getFunctionsMatchesWithHttpInfo(matchId, functionIds);
         return localVarResp.getData();
     }
 
     /**
      * Get function-matching results for an explicit set of functions
      * Returns the matches blob when the matching workflow has completed. While the workflow is in progress this endpoint returns the current status with no matches; use /matches/status to poll progress.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
-     * @param functionIds Source function IDs whose matches to fetch. (required)
+     * @param matchId Opaque token from a start-matching response. When supplied, returns that specific run instead of the latest. (optional)
+     * @param functionIds Source function IDs whose matches to fetch. Required unless match_id is supplied. (optional)
      * @return ApiResponse&lt;GetMatchesOutputBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3488,8 +3492,8 @@ public class FunctionsCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetMatchesOutputBody> getFunctionsMatchesWithHttpInfo(@javax.annotation.Nullable List<Long> functionIds) throws ApiException {
-        okhttp3.Call localVarCall = getFunctionsMatchesValidateBeforeCall(functionIds, null);
+    public ApiResponse<GetMatchesOutputBody> getFunctionsMatchesWithHttpInfo(@javax.annotation.Nullable String matchId, @javax.annotation.Nullable List<Long> functionIds) throws ApiException {
+        okhttp3.Call localVarCall = getFunctionsMatchesValidateBeforeCall(matchId, functionIds, null);
         Type localVarReturnType = new TypeToken<GetMatchesOutputBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3497,7 +3501,8 @@ public class FunctionsCoreApi {
     /**
      * Get function-matching results for an explicit set of functions (asynchronously)
      * Returns the matches blob when the matching workflow has completed. While the workflow is in progress this endpoint returns the current status with no matches; use /matches/status to poll progress.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
-     * @param functionIds Source function IDs whose matches to fetch. (required)
+     * @param matchId Opaque token from a start-matching response. When supplied, returns that specific run instead of the latest. (optional)
+     * @param functionIds Source function IDs whose matches to fetch. Required unless match_id is supplied. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3513,16 +3518,17 @@ public class FunctionsCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFunctionsMatchesAsync(@javax.annotation.Nullable List<Long> functionIds, final ApiCallback<GetMatchesOutputBody> _callback) throws ApiException {
+    public okhttp3.Call getFunctionsMatchesAsync(@javax.annotation.Nullable String matchId, @javax.annotation.Nullable List<Long> functionIds, final ApiCallback<GetMatchesOutputBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getFunctionsMatchesValidateBeforeCall(functionIds, _callback);
+        okhttp3.Call localVarCall = getFunctionsMatchesValidateBeforeCall(matchId, functionIds, _callback);
         Type localVarReturnType = new TypeToken<GetMatchesOutputBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getFunctionsMatchingStatus
-     * @param functionIds Source function IDs whose matches to fetch. (required)
+     * @param matchId Opaque token from a start-matching response. When supplied, returns that specific run instead of the latest. (optional)
+     * @param functionIds Source function IDs whose matches to fetch. Required unless match_id is supplied. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3538,7 +3544,7 @@ public class FunctionsCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFunctionsMatchingStatusCall(@javax.annotation.Nullable List<Long> functionIds, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getFunctionsMatchingStatusCall(@javax.annotation.Nullable String matchId, @javax.annotation.Nullable List<Long> functionIds, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3563,6 +3569,10 @@ public class FunctionsCoreApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (matchId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("match_id", matchId));
+        }
+
         if (functionIds != null) {
             localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("csv", "function_ids", functionIds));
         }
@@ -3587,20 +3597,16 @@ public class FunctionsCoreApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getFunctionsMatchingStatusValidateBeforeCall(@javax.annotation.Nullable List<Long> functionIds, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'functionIds' is set
-        if (functionIds == null) {
-            throw new ApiException("Missing the required parameter 'functionIds' when calling getFunctionsMatchingStatus(Async)");
-        }
-
-        return getFunctionsMatchingStatusCall(functionIds, _callback);
+    private okhttp3.Call getFunctionsMatchingStatusValidateBeforeCall(@javax.annotation.Nullable String matchId, @javax.annotation.Nullable List<Long> functionIds, final ApiCallback _callback) throws ApiException {
+        return getFunctionsMatchingStatusCall(matchId, functionIds, _callback);
 
     }
 
     /**
      * Get function-matching status for an explicit set of functions
      * Returns the matching workflow&#39;s current status for the supplied function IDs. Does not include the matches blob — use GET /matches for that.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
-     * @param functionIds Source function IDs whose matches to fetch. (required)
+     * @param matchId Opaque token from a start-matching response. When supplied, returns that specific run instead of the latest. (optional)
+     * @param functionIds Source function IDs whose matches to fetch. Required unless match_id is supplied. (optional)
      * @return GetMatchesStatusOutputBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3615,15 +3621,16 @@ public class FunctionsCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public GetMatchesStatusOutputBody getFunctionsMatchingStatus(@javax.annotation.Nullable List<Long> functionIds) throws ApiException {
-        ApiResponse<GetMatchesStatusOutputBody> localVarResp = getFunctionsMatchingStatusWithHttpInfo(functionIds);
+    public GetMatchesStatusOutputBody getFunctionsMatchingStatus(@javax.annotation.Nullable String matchId, @javax.annotation.Nullable List<Long> functionIds) throws ApiException {
+        ApiResponse<GetMatchesStatusOutputBody> localVarResp = getFunctionsMatchingStatusWithHttpInfo(matchId, functionIds);
         return localVarResp.getData();
     }
 
     /**
      * Get function-matching status for an explicit set of functions
      * Returns the matching workflow&#39;s current status for the supplied function IDs. Does not include the matches blob — use GET /matches for that.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
-     * @param functionIds Source function IDs whose matches to fetch. (required)
+     * @param matchId Opaque token from a start-matching response. When supplied, returns that specific run instead of the latest. (optional)
+     * @param functionIds Source function IDs whose matches to fetch. Required unless match_id is supplied. (optional)
      * @return ApiResponse&lt;GetMatchesStatusOutputBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3638,8 +3645,8 @@ public class FunctionsCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetMatchesStatusOutputBody> getFunctionsMatchingStatusWithHttpInfo(@javax.annotation.Nullable List<Long> functionIds) throws ApiException {
-        okhttp3.Call localVarCall = getFunctionsMatchingStatusValidateBeforeCall(functionIds, null);
+    public ApiResponse<GetMatchesStatusOutputBody> getFunctionsMatchingStatusWithHttpInfo(@javax.annotation.Nullable String matchId, @javax.annotation.Nullable List<Long> functionIds) throws ApiException {
+        okhttp3.Call localVarCall = getFunctionsMatchingStatusValidateBeforeCall(matchId, functionIds, null);
         Type localVarReturnType = new TypeToken<GetMatchesStatusOutputBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3647,7 +3654,8 @@ public class FunctionsCoreApi {
     /**
      * Get function-matching status for an explicit set of functions (asynchronously)
      * Returns the matching workflow&#39;s current status for the supplied function IDs. Does not include the matches blob — use GET /matches for that.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
-     * @param functionIds Source function IDs whose matches to fetch. (required)
+     * @param matchId Opaque token from a start-matching response. When supplied, returns that specific run instead of the latest. (optional)
+     * @param functionIds Source function IDs whose matches to fetch. Required unless match_id is supplied. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3663,10 +3671,163 @@ public class FunctionsCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFunctionsMatchingStatusAsync(@javax.annotation.Nullable List<Long> functionIds, final ApiCallback<GetMatchesStatusOutputBody> _callback) throws ApiException {
+    public okhttp3.Call getFunctionsMatchingStatusAsync(@javax.annotation.Nullable String matchId, @javax.annotation.Nullable List<Long> functionIds, final ApiCallback<GetMatchesStatusOutputBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getFunctionsMatchingStatusValidateBeforeCall(functionIds, _callback);
+        okhttp3.Call localVarCall = getFunctionsMatchingStatusValidateBeforeCall(matchId, functionIds, _callback);
         Type localVarReturnType = new TypeToken<GetMatchesStatusOutputBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getImportedFunction
+     * @param analysisId Analysis ID (required)
+     * @param importedFunctionId Imported function ID (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getImportedFunctionCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull Long importedFunctionId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/analyses/{analysis_id}/imported-functions/{imported_function_id}"
+            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()))
+            .replace("{" + "imported_function_id" + "}", localVarApiClient.escapeString(importedFunctionId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getImportedFunctionValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull Long importedFunctionId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'analysisId' is set
+        if (analysisId == null) {
+            throw new ApiException("Missing the required parameter 'analysisId' when calling getImportedFunction(Async)");
+        }
+
+        // verify the required parameter 'importedFunctionId' is set
+        if (importedFunctionId == null) {
+            throw new ApiException("Missing the required parameter 'importedFunctionId' when calling getImportedFunction(Async)");
+        }
+
+        return getImportedFunctionCall(analysisId, importedFunctionId, _callback);
+
+    }
+
+    /**
+     * Get an imported function with its callers
+     * Returns a single imported symbol plus the internal functions that call it, resolved via the import&#39;s PLT/stub addresses within the binary. Answers \&quot;which functions call &#x60;free&#x60;?\&quot; for binary navigation.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * @param analysisId Analysis ID (required)
+     * @param importedFunctionId Imported function ID (required)
+     * @return ImportedFunctionDetailOutputBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ImportedFunctionDetailOutputBody getImportedFunction(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull Long importedFunctionId) throws ApiException {
+        ApiResponse<ImportedFunctionDetailOutputBody> localVarResp = getImportedFunctionWithHttpInfo(analysisId, importedFunctionId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get an imported function with its callers
+     * Returns a single imported symbol plus the internal functions that call it, resolved via the import&#39;s PLT/stub addresses within the binary. Answers \&quot;which functions call &#x60;free&#x60;?\&quot; for binary navigation.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * @param analysisId Analysis ID (required)
+     * @param importedFunctionId Imported function ID (required)
+     * @return ApiResponse&lt;ImportedFunctionDetailOutputBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ImportedFunctionDetailOutputBody> getImportedFunctionWithHttpInfo(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull Long importedFunctionId) throws ApiException {
+        okhttp3.Call localVarCall = getImportedFunctionValidateBeforeCall(analysisId, importedFunctionId, null);
+        Type localVarReturnType = new TypeToken<ImportedFunctionDetailOutputBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get an imported function with its callers (asynchronously)
+     * Returns a single imported symbol plus the internal functions that call it, resolved via the import&#39;s PLT/stub addresses within the binary. Answers \&quot;which functions call &#x60;free&#x60;?\&quot; for binary navigation.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * @param analysisId Analysis ID (required)
+     * @param importedFunctionId Imported function ID (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getImportedFunctionAsync(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull Long importedFunctionId, final ApiCallback<ImportedFunctionDetailOutputBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getImportedFunctionValidateBeforeCall(analysisId, importedFunctionId, _callback);
+        Type localVarReturnType = new TypeToken<ImportedFunctionDetailOutputBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -3826,6 +3987,165 @@ public class FunctionsCoreApi {
 
         okhttp3.Call localVarCall = listAnalysisFunctionsValidateBeforeCall(analysisId, offset, limit, _callback);
         Type localVarReturnType = new TypeToken<ListAnalysisFunctionsOutputBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listImportedFunctions
+     * @param analysisId Analysis ID (required)
+     * @param offset Pagination offset. Defaults to 0. (optional)
+     * @param limit Page size. Defaults to 100. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listImportedFunctionsCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable Long offset, @javax.annotation.Nullable Long limit, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/analyses/{analysis_id}/imported-functions"
+            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (offset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listImportedFunctionsValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable Long offset, @javax.annotation.Nullable Long limit, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'analysisId' is set
+        if (analysisId == null) {
+            throw new ApiException("Missing the required parameter 'analysisId' when calling listImportedFunctions(Async)");
+        }
+
+        return listImportedFunctionsCall(analysisId, offset, limit, _callback);
+
+    }
+
+    /**
+     * List imported functions in an analysis
+     * Returns a paginated list of external/imported symbols (e.g. libc&#39;s &#x60;free&#x60;) linked by the analysis&#39;s binary. These are display-only: they carry no embeddings, cannot be renamed, and never participate in match/diff. &#x60;total_count&#x60; is the full population size, ignoring pagination.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * @param analysisId Analysis ID (required)
+     * @param offset Pagination offset. Defaults to 0. (optional)
+     * @param limit Page size. Defaults to 100. (optional)
+     * @return ListImportedFunctionsOutputBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListImportedFunctionsOutputBody listImportedFunctions(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable Long offset, @javax.annotation.Nullable Long limit) throws ApiException {
+        ApiResponse<ListImportedFunctionsOutputBody> localVarResp = listImportedFunctionsWithHttpInfo(analysisId, offset, limit);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List imported functions in an analysis
+     * Returns a paginated list of external/imported symbols (e.g. libc&#39;s &#x60;free&#x60;) linked by the analysis&#39;s binary. These are display-only: they carry no embeddings, cannot be renamed, and never participate in match/diff. &#x60;total_count&#x60; is the full population size, ignoring pagination.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * @param analysisId Analysis ID (required)
+     * @param offset Pagination offset. Defaults to 0. (optional)
+     * @param limit Page size. Defaults to 100. (optional)
+     * @return ApiResponse&lt;ListImportedFunctionsOutputBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListImportedFunctionsOutputBody> listImportedFunctionsWithHttpInfo(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable Long offset, @javax.annotation.Nullable Long limit) throws ApiException {
+        okhttp3.Call localVarCall = listImportedFunctionsValidateBeforeCall(analysisId, offset, limit, null);
+        Type localVarReturnType = new TypeToken<ListImportedFunctionsOutputBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List imported functions in an analysis (asynchronously)
+     * Returns a paginated list of external/imported symbols (e.g. libc&#39;s &#x60;free&#x60;) linked by the analysis&#39;s binary. These are display-only: they carry no embeddings, cannot be renamed, and never participate in match/diff. &#x60;total_count&#x60; is the full population size, ignoring pagination.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * @param analysisId Analysis ID (required)
+     * @param offset Pagination offset. Defaults to 0. (optional)
+     * @param limit Page size. Defaults to 100. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listImportedFunctionsAsync(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable Long offset, @javax.annotation.Nullable Long limit, final ApiCallback<ListImportedFunctionsOutputBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listImportedFunctionsValidateBeforeCall(analysisId, offset, limit, _callback);
+        Type localVarReturnType = new TypeToken<ListImportedFunctionsOutputBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

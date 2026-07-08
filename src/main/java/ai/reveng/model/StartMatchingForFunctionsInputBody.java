@@ -67,6 +67,11 @@ public class StartMatchingForFunctionsInputBody {
   @javax.annotation.Nullable
   private Double minSimilarity;
 
+  public static final String SERIALIZED_NAME_NO_CACHE = "no_cache";
+  @SerializedName(SERIALIZED_NAME_NO_CACHE)
+  @javax.annotation.Nullable
+  private Boolean noCache;
+
   public static final String SERIALIZED_NAME_RESULTS_PER_FUNCTION = "results_per_function";
   @SerializedName(SERIALIZED_NAME_RESULTS_PER_FUNCTION)
   @javax.annotation.Nullable
@@ -144,6 +149,25 @@ public class StartMatchingForFunctionsInputBody {
 
   public void setMinSimilarity(@javax.annotation.Nullable Double minSimilarity) {
     this.minSimilarity = minSimilarity;
+  }
+
+
+  public StartMatchingForFunctionsInputBody noCache(@javax.annotation.Nullable Boolean noCache) {
+    this.noCache = noCache;
+    return this;
+  }
+
+  /**
+   * By default a completed matching run for the same request is reused (response status&#x3D;COMPLETED, no new run). Set true to force a fresh run.
+   * @return noCache
+   */
+  @javax.annotation.Nullable
+  public Boolean getNoCache() {
+    return noCache;
+  }
+
+  public void setNoCache(@javax.annotation.Nullable Boolean noCache) {
+    this.noCache = noCache;
   }
 
 
@@ -244,6 +268,7 @@ public class StartMatchingForFunctionsInputBody {
     return Objects.equals(this.filters, startMatchingForFunctionsInputBody.filters) &&
         Objects.equals(this.functionIds, startMatchingForFunctionsInputBody.functionIds) &&
         Objects.equals(this.minSimilarity, startMatchingForFunctionsInputBody.minSimilarity) &&
+        Objects.equals(this.noCache, startMatchingForFunctionsInputBody.noCache) &&
         Objects.equals(this.resultsPerFunction, startMatchingForFunctionsInputBody.resultsPerFunction) &&
         Objects.equals(this.useCanonicalNames, startMatchingForFunctionsInputBody.useCanonicalNames)&&
         Objects.equals(this.additionalProperties, startMatchingForFunctionsInputBody.additionalProperties);
@@ -251,7 +276,7 @@ public class StartMatchingForFunctionsInputBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(filters, functionIds, minSimilarity, resultsPerFunction, useCanonicalNames, additionalProperties);
+    return Objects.hash(filters, functionIds, minSimilarity, noCache, resultsPerFunction, useCanonicalNames, additionalProperties);
   }
 
   @Override
@@ -261,6 +286,7 @@ public class StartMatchingForFunctionsInputBody {
     sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
     sb.append("    functionIds: ").append(toIndentedString(functionIds)).append("\n");
     sb.append("    minSimilarity: ").append(toIndentedString(minSimilarity)).append("\n");
+    sb.append("    noCache: ").append(toIndentedString(noCache)).append("\n");
     sb.append("    resultsPerFunction: ").append(toIndentedString(resultsPerFunction)).append("\n");
     sb.append("    useCanonicalNames: ").append(toIndentedString(useCanonicalNames)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -282,7 +308,7 @@ public class StartMatchingForFunctionsInputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("filters", "function_ids", "min_similarity", "results_per_function", "use_canonical_names"));
+    openapiFields = new HashSet<String>(Arrays.asList("filters", "function_ids", "min_similarity", "no_cache", "results_per_function", "use_canonical_names"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("function_ids"));

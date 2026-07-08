@@ -28,7 +28,9 @@ All URIs are relative to *https://api.reveng.ai*
 | [**getFunctionsCalleesCallers**](FunctionsCoreApi.md#getFunctionsCalleesCallers) | **GET** /v3/functions/callees-callers | Get callees and callers for many functions |
 | [**getFunctionsMatches**](FunctionsCoreApi.md#getFunctionsMatches) | **GET** /v3/functions/matches | Get function-matching results for an explicit set of functions |
 | [**getFunctionsMatchingStatus**](FunctionsCoreApi.md#getFunctionsMatchingStatus) | **GET** /v3/functions/matches/status | Get function-matching status for an explicit set of functions |
+| [**getImportedFunction**](FunctionsCoreApi.md#getImportedFunction) | **GET** /v3/analyses/{analysis_id}/imported-functions/{imported_function_id} | Get an imported function with its callers |
 | [**listAnalysisFunctions**](FunctionsCoreApi.md#listAnalysisFunctions) | **GET** /v3/analyses/{analysis_id}/functions | List functions in an analysis |
+| [**listImportedFunctions**](FunctionsCoreApi.md#listImportedFunctions) | **GET** /v3/analyses/{analysis_id}/imported-functions | List imported functions in an analysis |
 | [**startFunctionsMatching**](FunctionsCoreApi.md#startFunctionsMatching) | **POST** /v3/functions/matches | Start function matching for an explicit set of functions |
 
 
@@ -1716,7 +1718,7 @@ public class Example {
 
 <a id="getFunctionsMatches"></a>
 # **getFunctionsMatches**
-> GetMatchesOutputBody getFunctionsMatches(functionIds)
+> GetMatchesOutputBody getFunctionsMatches(matchId, functionIds)
 
 Get function-matching results for an explicit set of functions
 
@@ -1748,9 +1750,10 @@ public class Example {
     bearerAuth.setBearerToken("BEARER TOKEN");
 
     FunctionsCoreApi apiInstance = new FunctionsCoreApi(defaultClient);
-    List<Long> functionIds = Arrays.asList(); // List<Long> | Source function IDs whose matches to fetch.
+    String matchId = "matchId_example"; // String | Opaque token from a start-matching response. When supplied, returns that specific run instead of the latest.
+    List<Long> functionIds = Arrays.asList(); // List<Long> | Source function IDs whose matches to fetch. Required unless match_id is supplied.
     try {
-      GetMatchesOutputBody result = apiInstance.getFunctionsMatches(functionIds);
+      GetMatchesOutputBody result = apiInstance.getFunctionsMatches(matchId, functionIds);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsCoreApi#getFunctionsMatches");
@@ -1767,7 +1770,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **functionIds** | [**List&lt;Long&gt;**](Long.md)| Source function IDs whose matches to fetch. | |
+| **matchId** | **String**| Opaque token from a start-matching response. When supplied, returns that specific run instead of the latest. | [optional] |
+| **functionIds** | [**List&lt;Long&gt;**](Long.md)| Source function IDs whose matches to fetch. Required unless match_id is supplied. | [optional] |
 
 ### Return type
 
@@ -1794,7 +1798,7 @@ public class Example {
 
 <a id="getFunctionsMatchingStatus"></a>
 # **getFunctionsMatchingStatus**
-> GetMatchesStatusOutputBody getFunctionsMatchingStatus(functionIds)
+> GetMatchesStatusOutputBody getFunctionsMatchingStatus(matchId, functionIds)
 
 Get function-matching status for an explicit set of functions
 
@@ -1826,9 +1830,10 @@ public class Example {
     bearerAuth.setBearerToken("BEARER TOKEN");
 
     FunctionsCoreApi apiInstance = new FunctionsCoreApi(defaultClient);
-    List<Long> functionIds = Arrays.asList(); // List<Long> | Source function IDs whose matches to fetch.
+    String matchId = "matchId_example"; // String | Opaque token from a start-matching response. When supplied, returns that specific run instead of the latest.
+    List<Long> functionIds = Arrays.asList(); // List<Long> | Source function IDs whose matches to fetch. Required unless match_id is supplied.
     try {
-      GetMatchesStatusOutputBody result = apiInstance.getFunctionsMatchingStatus(functionIds);
+      GetMatchesStatusOutputBody result = apiInstance.getFunctionsMatchingStatus(matchId, functionIds);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsCoreApi#getFunctionsMatchingStatus");
@@ -1845,7 +1850,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **functionIds** | [**List&lt;Long&gt;**](Long.md)| Source function IDs whose matches to fetch. | |
+| **matchId** | **String**| Opaque token from a start-matching response. When supplied, returns that specific run instead of the latest. | [optional] |
+| **functionIds** | [**List&lt;Long&gt;**](Long.md)| Source function IDs whose matches to fetch. Required unless match_id is supplied. | [optional] |
 
 ### Return type
 
@@ -1865,6 +1871,85 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **500** | Internal Server Error |  -  |
+
+<a id="getImportedFunction"></a>
+# **getImportedFunction**
+> ImportedFunctionDetailOutputBody getImportedFunction(analysisId, importedFunctionId)
+
+Get an imported function with its callers
+
+Returns a single imported symbol plus the internal functions that call it, resolved via the import&#39;s PLT/stub addresses within the binary. Answers \&quot;which functions call &#x60;free&#x60;?\&quot; for binary navigation.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.FunctionsCoreApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    FunctionsCoreApi apiInstance = new FunctionsCoreApi(defaultClient);
+    Long analysisId = 56L; // Long | Analysis ID
+    Long importedFunctionId = 56L; // Long | Imported function ID
+    try {
+      ImportedFunctionDetailOutputBody result = apiInstance.getImportedFunction(analysisId, importedFunctionId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling FunctionsCoreApi#getImportedFunction");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **analysisId** | **Long**| Analysis ID | |
+| **importedFunctionId** | **Long**| Imported function ID | |
+
+### Return type
+
+[**ImportedFunctionDetailOutputBody**](ImportedFunctionDetailOutputBody.md)
+
+### Authorization
+
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 | **422** | Unprocessable Entity |  -  |
@@ -1932,6 +2017,87 @@ public class Example {
 ### Return type
 
 [**ListAnalysisFunctionsOutputBody**](ListAnalysisFunctionsOutputBody.md)
+
+### Authorization
+
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **500** | Internal Server Error |  -  |
+
+<a id="listImportedFunctions"></a>
+# **listImportedFunctions**
+> ListImportedFunctionsOutputBody listImportedFunctions(analysisId, offset, limit)
+
+List imported functions in an analysis
+
+Returns a paginated list of external/imported symbols (e.g. libc&#39;s &#x60;free&#x60;) linked by the analysis&#39;s binary. These are display-only: they carry no embeddings, cannot be renamed, and never participate in match/diff. &#x60;total_count&#x60; is the full population size, ignoring pagination.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.FunctionsCoreApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    FunctionsCoreApi apiInstance = new FunctionsCoreApi(defaultClient);
+    Long analysisId = 56L; // Long | Analysis ID
+    Long offset = 56L; // Long | Pagination offset. Defaults to 0.
+    Long limit = 56L; // Long | Page size. Defaults to 100.
+    try {
+      ListImportedFunctionsOutputBody result = apiInstance.listImportedFunctions(analysisId, offset, limit);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling FunctionsCoreApi#listImportedFunctions");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **analysisId** | **Long**| Analysis ID | |
+| **offset** | **Long**| Pagination offset. Defaults to 0. | [optional] |
+| **limit** | **Long**| Page size. Defaults to 100. | [optional] |
+
+### Return type
+
+[**ListImportedFunctionsOutputBody**](ListImportedFunctionsOutputBody.md)
 
 ### Authorization
 

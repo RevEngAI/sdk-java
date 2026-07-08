@@ -52,6 +52,11 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class StartMatchingOutputBody {
+  public static final String SERIALIZED_NAME_MATCH_ID = "match_id";
+  @SerializedName(SERIALIZED_NAME_MATCH_ID)
+  @javax.annotation.Nonnull
+  private String matchId;
+
   public static final String SERIALIZED_NAME_MESSAGES = "messages";
   @SerializedName(SERIALIZED_NAME_MESSAGES)
   @javax.annotation.Nullable
@@ -139,6 +144,25 @@ public class StartMatchingOutputBody {
 
   public StartMatchingOutputBody() {
   }
+
+  public StartMatchingOutputBody matchId(@javax.annotation.Nonnull String matchId) {
+    this.matchId = matchId;
+    return this;
+  }
+
+  /**
+   * Opaque token for this matching run. Pass it to the GET/status endpoints&#39; match_id query parameter to fetch this exact run.
+   * @return matchId
+   */
+  @javax.annotation.Nonnull
+  public String getMatchId() {
+    return matchId;
+  }
+
+  public void setMatchId(@javax.annotation.Nonnull String matchId) {
+    this.matchId = matchId;
+  }
+
 
   public StartMatchingOutputBody messages(@javax.annotation.Nullable List<ProgressMessage> messages) {
     this.messages = messages;
@@ -253,7 +277,8 @@ public class StartMatchingOutputBody {
       return false;
     }
     StartMatchingOutputBody startMatchingOutputBody = (StartMatchingOutputBody) o;
-    return Objects.equals(this.messages, startMatchingOutputBody.messages) &&
+    return Objects.equals(this.matchId, startMatchingOutputBody.matchId) &&
+        Objects.equals(this.messages, startMatchingOutputBody.messages) &&
         Objects.equals(this.status, startMatchingOutputBody.status) &&
         Objects.equals(this.step, startMatchingOutputBody.step) &&
         Objects.equals(this.stepIndex, startMatchingOutputBody.stepIndex) &&
@@ -262,13 +287,14 @@ public class StartMatchingOutputBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(messages, status, step, stepIndex, stepsTotal);
+    return Objects.hash(matchId, messages, status, step, stepIndex, stepsTotal);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class StartMatchingOutputBody {\n");
+    sb.append("    matchId: ").append(toIndentedString(matchId)).append("\n");
     sb.append("    messages: ").append(toIndentedString(messages)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    step: ").append(toIndentedString(step)).append("\n");
@@ -292,10 +318,10 @@ public class StartMatchingOutputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("messages", "status", "step", "step_index", "steps_total"));
+    openapiFields = new HashSet<String>(Arrays.asList("match_id", "messages", "status", "step", "step_index", "steps_total"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("messages", "status", "step", "step_index", "steps_total"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("match_id", "messages", "status", "step", "step_index", "steps_total"));
   }
 
   /**
@@ -326,6 +352,9 @@ public class StartMatchingOutputBody {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("match_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `match_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("match_id").toString()));
+      }
       if (jsonObj.get("messages") != null && !jsonObj.get("messages").isJsonNull()) {
         if (!jsonObj.get("messages").isJsonArray()) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `messages` to be an array in the JSON string but got `%s`", jsonObj.get("messages").toString()));

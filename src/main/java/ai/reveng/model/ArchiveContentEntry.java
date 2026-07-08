@@ -13,7 +13,6 @@
 package ai.reveng.model;
 
 import java.util.Objects;
-import ai.reveng.model.MatchFilters;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -46,110 +45,82 @@ import java.util.Set;
 import ai.reveng.invoker.JSON;
 
 /**
- * StartMatchingForAnalysisInputBody
+ * ArchiveContentEntry
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class StartMatchingForAnalysisInputBody {
-  public static final String SERIALIZED_NAME_FILTERS = "filters";
-  @SerializedName(SERIALIZED_NAME_FILTERS)
-  @javax.annotation.Nullable
-  private MatchFilters filters;
+public class ArchiveContentEntry {
+  public static final String SERIALIZED_NAME_ENCRYPTED = "encrypted";
+  @SerializedName(SERIALIZED_NAME_ENCRYPTED)
+  @javax.annotation.Nonnull
+  private Boolean encrypted;
 
-  public static final String SERIALIZED_NAME_MIN_SIMILARITY = "min_similarity";
-  @SerializedName(SERIALIZED_NAME_MIN_SIMILARITY)
-  @javax.annotation.Nullable
-  private Double minSimilarity;
+  public static final String SERIALIZED_NAME_PATH = "path";
+  @SerializedName(SERIALIZED_NAME_PATH)
+  @javax.annotation.Nonnull
+  private String path;
 
-  public static final String SERIALIZED_NAME_NO_CACHE = "no_cache";
-  @SerializedName(SERIALIZED_NAME_NO_CACHE)
-  @javax.annotation.Nullable
-  private Boolean noCache;
+  public static final String SERIALIZED_NAME_SIZE = "size";
+  @SerializedName(SERIALIZED_NAME_SIZE)
+  @javax.annotation.Nonnull
+  private Long size;
 
-  public static final String SERIALIZED_NAME_RESULTS_PER_FUNCTION = "results_per_function";
-  @SerializedName(SERIALIZED_NAME_RESULTS_PER_FUNCTION)
-  @javax.annotation.Nullable
-  private Long resultsPerFunction;
-
-  public StartMatchingForAnalysisInputBody() {
+  public ArchiveContentEntry() {
   }
 
-  public StartMatchingForAnalysisInputBody filters(@javax.annotation.Nullable MatchFilters filters) {
-    this.filters = filters;
+  public ArchiveContentEntry encrypted(@javax.annotation.Nonnull Boolean encrypted) {
+    this.encrypted = encrypted;
     return this;
   }
 
   /**
-   * Narrow the candidate pool.
-   * @return filters
+   * Whether this entry is password-protected
+   * @return encrypted
    */
-  @javax.annotation.Nullable
-  public MatchFilters getFilters() {
-    return filters;
+  @javax.annotation.Nonnull
+  public Boolean getEncrypted() {
+    return encrypted;
   }
 
-  public void setFilters(@javax.annotation.Nullable MatchFilters filters) {
-    this.filters = filters;
+  public void setEncrypted(@javax.annotation.Nonnull Boolean encrypted) {
+    this.encrypted = encrypted;
   }
 
 
-  public StartMatchingForAnalysisInputBody minSimilarity(@javax.annotation.Nullable Double minSimilarity) {
-    this.minSimilarity = minSimilarity;
+  public ArchiveContentEntry path(@javax.annotation.Nonnull String path) {
+    this.path = path;
     return this;
   }
 
   /**
-   * Similarity floor as a percentage. Defaults to 90.
-   * minimum: 0
-   * maximum: 100
-   * @return minSimilarity
+   * Path relative to the archive root
+   * @return path
    */
-  @javax.annotation.Nullable
-  public Double getMinSimilarity() {
-    return minSimilarity;
+  @javax.annotation.Nonnull
+  public String getPath() {
+    return path;
   }
 
-  public void setMinSimilarity(@javax.annotation.Nullable Double minSimilarity) {
-    this.minSimilarity = minSimilarity;
+  public void setPath(@javax.annotation.Nonnull String path) {
+    this.path = path;
   }
 
 
-  public StartMatchingForAnalysisInputBody noCache(@javax.annotation.Nullable Boolean noCache) {
-    this.noCache = noCache;
+  public ArchiveContentEntry size(@javax.annotation.Nonnull Long size) {
+    this.size = size;
     return this;
   }
 
   /**
-   * By default a completed matching run for the same request is reused (response status&#x3D;COMPLETED, no new run). Set true to force a fresh run.
-   * @return noCache
+   * Uncompressed size in bytes
+   * @return size
    */
-  @javax.annotation.Nullable
-  public Boolean getNoCache() {
-    return noCache;
+  @javax.annotation.Nonnull
+  public Long getSize() {
+    return size;
   }
 
-  public void setNoCache(@javax.annotation.Nullable Boolean noCache) {
-    this.noCache = noCache;
-  }
-
-
-  public StartMatchingForAnalysisInputBody resultsPerFunction(@javax.annotation.Nullable Long resultsPerFunction) {
-    this.resultsPerFunction = resultsPerFunction;
-    return this;
-  }
-
-  /**
-   * Max matches returned per source function. Defaults to 1.
-   * minimum: 1
-   * maximum: 30
-   * @return resultsPerFunction
-   */
-  @javax.annotation.Nullable
-  public Long getResultsPerFunction() {
-    return resultsPerFunction;
-  }
-
-  public void setResultsPerFunction(@javax.annotation.Nullable Long resultsPerFunction) {
-    this.resultsPerFunction = resultsPerFunction;
+  public void setSize(@javax.annotation.Nonnull Long size) {
+    this.size = size;
   }
 
   /**
@@ -165,9 +136,9 @@ public class StartMatchingForAnalysisInputBody {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the StartMatchingForAnalysisInputBody instance itself
+   * @return the ArchiveContentEntry instance itself
    */
-  public StartMatchingForAnalysisInputBody putAdditionalProperty(String key, Object value) {
+  public ArchiveContentEntry putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -206,27 +177,25 @@ public class StartMatchingForAnalysisInputBody {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    StartMatchingForAnalysisInputBody startMatchingForAnalysisInputBody = (StartMatchingForAnalysisInputBody) o;
-    return Objects.equals(this.filters, startMatchingForAnalysisInputBody.filters) &&
-        Objects.equals(this.minSimilarity, startMatchingForAnalysisInputBody.minSimilarity) &&
-        Objects.equals(this.noCache, startMatchingForAnalysisInputBody.noCache) &&
-        Objects.equals(this.resultsPerFunction, startMatchingForAnalysisInputBody.resultsPerFunction)&&
-        Objects.equals(this.additionalProperties, startMatchingForAnalysisInputBody.additionalProperties);
+    ArchiveContentEntry archiveContentEntry = (ArchiveContentEntry) o;
+    return Objects.equals(this.encrypted, archiveContentEntry.encrypted) &&
+        Objects.equals(this.path, archiveContentEntry.path) &&
+        Objects.equals(this.size, archiveContentEntry.size)&&
+        Objects.equals(this.additionalProperties, archiveContentEntry.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(filters, minSimilarity, noCache, resultsPerFunction, additionalProperties);
+    return Objects.hash(encrypted, path, size, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class StartMatchingForAnalysisInputBody {\n");
-    sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
-    sb.append("    minSimilarity: ").append(toIndentedString(minSimilarity)).append("\n");
-    sb.append("    noCache: ").append(toIndentedString(noCache)).append("\n");
-    sb.append("    resultsPerFunction: ").append(toIndentedString(resultsPerFunction)).append("\n");
+    sb.append("class ArchiveContentEntry {\n");
+    sb.append("    encrypted: ").append(toIndentedString(encrypted)).append("\n");
+    sb.append("    path: ").append(toIndentedString(path)).append("\n");
+    sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -246,28 +215,34 @@ public class StartMatchingForAnalysisInputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("filters", "min_similarity", "no_cache", "results_per_function"));
+    openapiFields = new HashSet<String>(Arrays.asList("encrypted", "path", "size"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(0);
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("encrypted", "path", "size"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to StartMatchingForAnalysisInputBody
+   * @throws IOException if the JSON Element is invalid with respect to ArchiveContentEntry
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!StartMatchingForAnalysisInputBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in StartMatchingForAnalysisInputBody is not found in the empty JSON string", StartMatchingForAnalysisInputBody.openapiRequiredFields.toString()));
+        if (!ArchiveContentEntry.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ArchiveContentEntry is not found in the empty JSON string", ArchiveContentEntry.openapiRequiredFields.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : ArchiveContentEntry.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the optional field `filters`
-      if (jsonObj.get("filters") != null && !jsonObj.get("filters").isJsonNull()) {
-        MatchFilters.validateJsonElement(jsonObj.get("filters"));
+      if (!jsonObj.get("path").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("path").toString()));
       }
   }
 
@@ -275,16 +250,16 @@ public class StartMatchingForAnalysisInputBody {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!StartMatchingForAnalysisInputBody.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'StartMatchingForAnalysisInputBody' and its subtypes
+       if (!ArchiveContentEntry.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ArchiveContentEntry' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<StartMatchingForAnalysisInputBody> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(StartMatchingForAnalysisInputBody.class));
+       final TypeAdapter<ArchiveContentEntry> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ArchiveContentEntry.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<StartMatchingForAnalysisInputBody>() {
+       return (TypeAdapter<T>) new TypeAdapter<ArchiveContentEntry>() {
            @Override
-           public void write(JsonWriter out, StartMatchingForAnalysisInputBody value) throws IOException {
+           public void write(JsonWriter out, ArchiveContentEntry value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -312,12 +287,12 @@ public class StartMatchingForAnalysisInputBody {
            }
 
            @Override
-           public StartMatchingForAnalysisInputBody read(JsonReader in) throws IOException {
+           public ArchiveContentEntry read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             StartMatchingForAnalysisInputBody instance = thisAdapter.fromJsonTree(jsonObj);
+             ArchiveContentEntry instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -344,18 +319,18 @@ public class StartMatchingForAnalysisInputBody {
   }
 
   /**
-   * Create an instance of StartMatchingForAnalysisInputBody given an JSON string
+   * Create an instance of ArchiveContentEntry given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of StartMatchingForAnalysisInputBody
-   * @throws IOException if the JSON string is invalid with respect to StartMatchingForAnalysisInputBody
+   * @return An instance of ArchiveContentEntry
+   * @throws IOException if the JSON string is invalid with respect to ArchiveContentEntry
    */
-  public static StartMatchingForAnalysisInputBody fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, StartMatchingForAnalysisInputBody.class);
+  public static ArchiveContentEntry fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ArchiveContentEntry.class);
   }
 
   /**
-   * Convert an instance of StartMatchingForAnalysisInputBody to an JSON string
+   * Convert an instance of ArchiveContentEntry to an JSON string
    *
    * @return JSON string
    */

@@ -59,6 +59,11 @@ public class BatchBinaryMatchResult {
   @javax.annotation.Nullable
   private String errorMessage;
 
+  public static final String SERIALIZED_NAME_MATCH_ID = "match_id";
+  @SerializedName(SERIALIZED_NAME_MATCH_ID)
+  @javax.annotation.Nullable
+  private String matchId;
+
   public static final String SERIALIZED_NAME_MATCHED_FUNCTION_COUNT = "matched_function_count";
   @SerializedName(SERIALIZED_NAME_MATCHED_FUNCTION_COUNT)
   @javax.annotation.Nonnull
@@ -170,6 +175,25 @@ public class BatchBinaryMatchResult {
   }
 
 
+  public BatchBinaryMatchResult matchId(@javax.annotation.Nullable String matchId) {
+    this.matchId = matchId;
+    return this;
+  }
+
+  /**
+   * Opaque token for this binary&#39;s matching run. Present on dispatch and when statuses were fetched by token.
+   * @return matchId
+   */
+  @javax.annotation.Nullable
+  public String getMatchId() {
+    return matchId;
+  }
+
+  public void setMatchId(@javax.annotation.Nullable String matchId) {
+    this.matchId = matchId;
+  }
+
+
   public BatchBinaryMatchResult matchedFunctionCount(@javax.annotation.Nonnull Long matchedFunctionCount) {
     this.matchedFunctionCount = matchedFunctionCount;
     return this;
@@ -264,6 +288,7 @@ public class BatchBinaryMatchResult {
     BatchBinaryMatchResult batchBinaryMatchResult = (BatchBinaryMatchResult) o;
     return Objects.equals(this.binaryId, batchBinaryMatchResult.binaryId) &&
         Objects.equals(this.errorMessage, batchBinaryMatchResult.errorMessage) &&
+        Objects.equals(this.matchId, batchBinaryMatchResult.matchId) &&
         Objects.equals(this.matchedFunctionCount, batchBinaryMatchResult.matchedFunctionCount) &&
         Objects.equals(this.status, batchBinaryMatchResult.status)&&
         Objects.equals(this.additionalProperties, batchBinaryMatchResult.additionalProperties);
@@ -271,7 +296,7 @@ public class BatchBinaryMatchResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(binaryId, errorMessage, matchedFunctionCount, status, additionalProperties);
+    return Objects.hash(binaryId, errorMessage, matchId, matchedFunctionCount, status, additionalProperties);
   }
 
   @Override
@@ -280,6 +305,7 @@ public class BatchBinaryMatchResult {
     sb.append("class BatchBinaryMatchResult {\n");
     sb.append("    binaryId: ").append(toIndentedString(binaryId)).append("\n");
     sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
+    sb.append("    matchId: ").append(toIndentedString(matchId)).append("\n");
     sb.append("    matchedFunctionCount: ").append(toIndentedString(matchedFunctionCount)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -301,7 +327,7 @@ public class BatchBinaryMatchResult {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("binary_id", "error_message", "matched_function_count", "status"));
+    openapiFields = new HashSet<String>(Arrays.asList("binary_id", "error_message", "match_id", "matched_function_count", "status"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("binary_id", "matched_function_count", "status"));
@@ -329,6 +355,9 @@ public class BatchBinaryMatchResult {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("error_message") != null && !jsonObj.get("error_message").isJsonNull()) && !jsonObj.get("error_message").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `error_message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("error_message").toString()));
+      }
+      if ((jsonObj.get("match_id") != null && !jsonObj.get("match_id").isJsonNull()) && !jsonObj.get("match_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `match_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("match_id").toString()));
       }
       if (!jsonObj.get("status").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
