@@ -1117,6 +1117,7 @@ public class AnalysesCoreApi {
     /**
      * Build call for getAnalysisFunctionMatches
      * @param analysisId Analysis ID (required)
+     * @param matchId Opaque token from a start-matching response. When supplied, returns that specific run instead of the latest. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1125,13 +1126,14 @@ public class AnalysesCoreApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAnalysisFunctionMatchesCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAnalysisFunctionMatchesCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable String matchId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1157,6 +1159,10 @@ public class AnalysesCoreApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (matchId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("match_id", matchId));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -1177,20 +1183,21 @@ public class AnalysesCoreApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAnalysisFunctionMatchesValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAnalysisFunctionMatchesValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable String matchId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling getAnalysisFunctionMatches(Async)");
         }
 
-        return getAnalysisFunctionMatchesCall(analysisId, _callback);
+        return getAnalysisFunctionMatchesCall(analysisId, matchId, _callback);
 
     }
 
     /**
      * Get function-matching results for an analysis
-     * Returns the matches blob when the matching workflow has completed. While the workflow is in progress this endpoint returns the current status with no matches; use /matches/status to poll progress.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * Returns the matches blob when the matching workflow has completed. While the workflow is in progress this endpoint returns the current status with no matches; use /matches/status to poll progress.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
      * @param analysisId Analysis ID (required)
+     * @param matchId Opaque token from a start-matching response. When supplied, returns that specific run instead of the latest. (optional)
      * @return GetMatchesOutputBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1198,21 +1205,23 @@ public class AnalysesCoreApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public GetMatchesOutputBody getAnalysisFunctionMatches(@javax.annotation.Nonnull Long analysisId) throws ApiException {
-        ApiResponse<GetMatchesOutputBody> localVarResp = getAnalysisFunctionMatchesWithHttpInfo(analysisId);
+    public GetMatchesOutputBody getAnalysisFunctionMatches(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable String matchId) throws ApiException {
+        ApiResponse<GetMatchesOutputBody> localVarResp = getAnalysisFunctionMatchesWithHttpInfo(analysisId, matchId);
         return localVarResp.getData();
     }
 
     /**
      * Get function-matching results for an analysis
-     * Returns the matches blob when the matching workflow has completed. While the workflow is in progress this endpoint returns the current status with no matches; use /matches/status to poll progress.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * Returns the matches blob when the matching workflow has completed. While the workflow is in progress this endpoint returns the current status with no matches; use /matches/status to poll progress.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
      * @param analysisId Analysis ID (required)
+     * @param matchId Opaque token from a start-matching response. When supplied, returns that specific run instead of the latest. (optional)
      * @return ApiResponse&lt;GetMatchesOutputBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1220,22 +1229,24 @@ public class AnalysesCoreApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetMatchesOutputBody> getAnalysisFunctionMatchesWithHttpInfo(@javax.annotation.Nonnull Long analysisId) throws ApiException {
-        okhttp3.Call localVarCall = getAnalysisFunctionMatchesValidateBeforeCall(analysisId, null);
+    public ApiResponse<GetMatchesOutputBody> getAnalysisFunctionMatchesWithHttpInfo(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable String matchId) throws ApiException {
+        okhttp3.Call localVarCall = getAnalysisFunctionMatchesValidateBeforeCall(analysisId, matchId, null);
         Type localVarReturnType = new TypeToken<GetMatchesOutputBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Get function-matching results for an analysis (asynchronously)
-     * Returns the matches blob when the matching workflow has completed. While the workflow is in progress this endpoint returns the current status with no matches; use /matches/status to poll progress.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * Returns the matches blob when the matching workflow has completed. While the workflow is in progress this endpoint returns the current status with no matches; use /matches/status to poll progress.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
      * @param analysisId Analysis ID (required)
+     * @param matchId Opaque token from a start-matching response. When supplied, returns that specific run instead of the latest. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1244,15 +1255,16 @@ public class AnalysesCoreApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAnalysisFunctionMatchesAsync(@javax.annotation.Nonnull Long analysisId, final ApiCallback<GetMatchesOutputBody> _callback) throws ApiException {
+    public okhttp3.Call getAnalysisFunctionMatchesAsync(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable String matchId, final ApiCallback<GetMatchesOutputBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAnalysisFunctionMatchesValidateBeforeCall(analysisId, _callback);
+        okhttp3.Call localVarCall = getAnalysisFunctionMatchesValidateBeforeCall(analysisId, matchId, _callback);
         Type localVarReturnType = new TypeToken<GetMatchesOutputBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1260,6 +1272,7 @@ public class AnalysesCoreApi {
     /**
      * Build call for getAnalysisFunctionMatchingStatus
      * @param analysisId Analysis ID (required)
+     * @param matchId Opaque token from a start-matching response. When supplied, returns that specific run instead of the latest. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1268,13 +1281,14 @@ public class AnalysesCoreApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAnalysisFunctionMatchingStatusCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAnalysisFunctionMatchingStatusCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable String matchId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1300,6 +1314,10 @@ public class AnalysesCoreApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (matchId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("match_id", matchId));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -1320,20 +1338,21 @@ public class AnalysesCoreApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAnalysisFunctionMatchingStatusValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAnalysisFunctionMatchingStatusValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable String matchId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling getAnalysisFunctionMatchingStatus(Async)");
         }
 
-        return getAnalysisFunctionMatchingStatusCall(analysisId, _callback);
+        return getAnalysisFunctionMatchingStatusCall(analysisId, matchId, _callback);
 
     }
 
     /**
      * Get function-matching status for an analysis
-     * Returns the matching workflow&#39;s current status. Does not include the matches blob — use GET /matches for that.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * Returns the matching workflow&#39;s current status. Does not include the matches blob — use GET /matches for that.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
      * @param analysisId Analysis ID (required)
+     * @param matchId Opaque token from a start-matching response. When supplied, returns that specific run instead of the latest. (optional)
      * @return GetMatchesStatusOutputBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1341,21 +1360,23 @@ public class AnalysesCoreApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public GetMatchesStatusOutputBody getAnalysisFunctionMatchingStatus(@javax.annotation.Nonnull Long analysisId) throws ApiException {
-        ApiResponse<GetMatchesStatusOutputBody> localVarResp = getAnalysisFunctionMatchingStatusWithHttpInfo(analysisId);
+    public GetMatchesStatusOutputBody getAnalysisFunctionMatchingStatus(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable String matchId) throws ApiException {
+        ApiResponse<GetMatchesStatusOutputBody> localVarResp = getAnalysisFunctionMatchingStatusWithHttpInfo(analysisId, matchId);
         return localVarResp.getData();
     }
 
     /**
      * Get function-matching status for an analysis
-     * Returns the matching workflow&#39;s current status. Does not include the matches blob — use GET /matches for that.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * Returns the matching workflow&#39;s current status. Does not include the matches blob — use GET /matches for that.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
      * @param analysisId Analysis ID (required)
+     * @param matchId Opaque token from a start-matching response. When supplied, returns that specific run instead of the latest. (optional)
      * @return ApiResponse&lt;GetMatchesStatusOutputBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1363,22 +1384,24 @@ public class AnalysesCoreApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetMatchesStatusOutputBody> getAnalysisFunctionMatchingStatusWithHttpInfo(@javax.annotation.Nonnull Long analysisId) throws ApiException {
-        okhttp3.Call localVarCall = getAnalysisFunctionMatchingStatusValidateBeforeCall(analysisId, null);
+    public ApiResponse<GetMatchesStatusOutputBody> getAnalysisFunctionMatchingStatusWithHttpInfo(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable String matchId) throws ApiException {
+        okhttp3.Call localVarCall = getAnalysisFunctionMatchingStatusValidateBeforeCall(analysisId, matchId, null);
         Type localVarReturnType = new TypeToken<GetMatchesStatusOutputBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Get function-matching status for an analysis (asynchronously)
-     * Returns the matching workflow&#39;s current status. Does not include the matches blob — use GET /matches for that.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * Returns the matching workflow&#39;s current status. Does not include the matches blob — use GET /matches for that.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
      * @param analysisId Analysis ID (required)
+     * @param matchId Opaque token from a start-matching response. When supplied, returns that specific run instead of the latest. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1387,15 +1410,16 @@ public class AnalysesCoreApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAnalysisFunctionMatchingStatusAsync(@javax.annotation.Nonnull Long analysisId, final ApiCallback<GetMatchesStatusOutputBody> _callback) throws ApiException {
+    public okhttp3.Call getAnalysisFunctionMatchingStatusAsync(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable String matchId, final ApiCallback<GetMatchesStatusOutputBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAnalysisFunctionMatchingStatusValidateBeforeCall(analysisId, _callback);
+        okhttp3.Call localVarCall = getAnalysisFunctionMatchingStatusValidateBeforeCall(analysisId, matchId, _callback);
         Type localVarReturnType = new TypeToken<GetMatchesStatusOutputBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

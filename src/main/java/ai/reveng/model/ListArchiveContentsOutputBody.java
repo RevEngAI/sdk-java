@@ -13,14 +13,16 @@
 package ai.reveng.model;
 
 import java.util.Objects;
-import ai.reveng.model.MatchFilters;
+import ai.reveng.model.ArchiveContentEntry;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,110 +48,138 @@ import java.util.Set;
 import ai.reveng.invoker.JSON;
 
 /**
- * StartMatchingForAnalysisInputBody
+ * ListArchiveContentsOutputBody
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class StartMatchingForAnalysisInputBody {
-  public static final String SERIALIZED_NAME_FILTERS = "filters";
-  @SerializedName(SERIALIZED_NAME_FILTERS)
+public class ListArchiveContentsOutputBody {
+  public static final String SERIALIZED_NAME_ENTRIES = "entries";
+  @SerializedName(SERIALIZED_NAME_ENTRIES)
   @javax.annotation.Nullable
-  private MatchFilters filters;
+  private List<ArchiveContentEntry> entries;
 
-  public static final String SERIALIZED_NAME_MIN_SIMILARITY = "min_similarity";
-  @SerializedName(SERIALIZED_NAME_MIN_SIMILARITY)
-  @javax.annotation.Nullable
-  private Double minSimilarity;
+  public static final String SERIALIZED_NAME_HAS_NEXT = "has_next";
+  @SerializedName(SERIALIZED_NAME_HAS_NEXT)
+  @javax.annotation.Nonnull
+  private Boolean hasNext;
 
-  public static final String SERIALIZED_NAME_NO_CACHE = "no_cache";
-  @SerializedName(SERIALIZED_NAME_NO_CACHE)
-  @javax.annotation.Nullable
-  private Boolean noCache;
+  public static final String SERIALIZED_NAME_PAGE = "page";
+  @SerializedName(SERIALIZED_NAME_PAGE)
+  @javax.annotation.Nonnull
+  private Long page;
 
-  public static final String SERIALIZED_NAME_RESULTS_PER_FUNCTION = "results_per_function";
-  @SerializedName(SERIALIZED_NAME_RESULTS_PER_FUNCTION)
-  @javax.annotation.Nullable
-  private Long resultsPerFunction;
+  public static final String SERIALIZED_NAME_PAGE_SIZE = "page_size";
+  @SerializedName(SERIALIZED_NAME_PAGE_SIZE)
+  @javax.annotation.Nonnull
+  private Long pageSize;
 
-  public StartMatchingForAnalysisInputBody() {
+  public static final String SERIALIZED_NAME_TOTAL_COUNT = "total_count";
+  @SerializedName(SERIALIZED_NAME_TOTAL_COUNT)
+  @javax.annotation.Nonnull
+  private Long totalCount;
+
+  public ListArchiveContentsOutputBody() {
   }
 
-  public StartMatchingForAnalysisInputBody filters(@javax.annotation.Nullable MatchFilters filters) {
-    this.filters = filters;
+  public ListArchiveContentsOutputBody entries(@javax.annotation.Nullable List<ArchiveContentEntry> entries) {
+    this.entries = entries;
+    return this;
+  }
+
+  public ListArchiveContentsOutputBody addEntriesItem(ArchiveContentEntry entriesItem) {
+    if (this.entries == null) {
+      this.entries = new ArrayList<>();
+    }
+    this.entries.add(entriesItem);
     return this;
   }
 
   /**
-   * Narrow the candidate pool.
-   * @return filters
+   * Files inside the archive, with paths relative to the archive root
+   * @return entries
    */
   @javax.annotation.Nullable
-  public MatchFilters getFilters() {
-    return filters;
+  public List<ArchiveContentEntry> getEntries() {
+    return entries;
   }
 
-  public void setFilters(@javax.annotation.Nullable MatchFilters filters) {
-    this.filters = filters;
+  public void setEntries(@javax.annotation.Nullable List<ArchiveContentEntry> entries) {
+    this.entries = entries;
   }
 
 
-  public StartMatchingForAnalysisInputBody minSimilarity(@javax.annotation.Nullable Double minSimilarity) {
-    this.minSimilarity = minSimilarity;
+  public ListArchiveContentsOutputBody hasNext(@javax.annotation.Nonnull Boolean hasNext) {
+    this.hasNext = hasNext;
     return this;
   }
 
   /**
-   * Similarity floor as a percentage. Defaults to 90.
-   * minimum: 0
-   * maximum: 100
-   * @return minSimilarity
+   * Whether a further page of entries follows this one.
+   * @return hasNext
    */
-  @javax.annotation.Nullable
-  public Double getMinSimilarity() {
-    return minSimilarity;
+  @javax.annotation.Nonnull
+  public Boolean getHasNext() {
+    return hasNext;
   }
 
-  public void setMinSimilarity(@javax.annotation.Nullable Double minSimilarity) {
-    this.minSimilarity = minSimilarity;
+  public void setHasNext(@javax.annotation.Nonnull Boolean hasNext) {
+    this.hasNext = hasNext;
   }
 
 
-  public StartMatchingForAnalysisInputBody noCache(@javax.annotation.Nullable Boolean noCache) {
-    this.noCache = noCache;
+  public ListArchiveContentsOutputBody page(@javax.annotation.Nonnull Long page) {
+    this.page = page;
     return this;
   }
 
   /**
-   * By default a completed matching run for the same request is reused (response status&#x3D;COMPLETED, no new run). Set true to force a fresh run.
-   * @return noCache
+   * Page number of this response (1-indexed).
+   * @return page
    */
-  @javax.annotation.Nullable
-  public Boolean getNoCache() {
-    return noCache;
+  @javax.annotation.Nonnull
+  public Long getPage() {
+    return page;
   }
 
-  public void setNoCache(@javax.annotation.Nullable Boolean noCache) {
-    this.noCache = noCache;
+  public void setPage(@javax.annotation.Nonnull Long page) {
+    this.page = page;
   }
 
 
-  public StartMatchingForAnalysisInputBody resultsPerFunction(@javax.annotation.Nullable Long resultsPerFunction) {
-    this.resultsPerFunction = resultsPerFunction;
+  public ListArchiveContentsOutputBody pageSize(@javax.annotation.Nonnull Long pageSize) {
+    this.pageSize = pageSize;
     return this;
   }
 
   /**
-   * Max matches returned per source function. Defaults to 1.
-   * minimum: 1
-   * maximum: 30
-   * @return resultsPerFunction
+   * Number of entries per page.
+   * @return pageSize
    */
-  @javax.annotation.Nullable
-  public Long getResultsPerFunction() {
-    return resultsPerFunction;
+  @javax.annotation.Nonnull
+  public Long getPageSize() {
+    return pageSize;
   }
 
-  public void setResultsPerFunction(@javax.annotation.Nullable Long resultsPerFunction) {
-    this.resultsPerFunction = resultsPerFunction;
+  public void setPageSize(@javax.annotation.Nonnull Long pageSize) {
+    this.pageSize = pageSize;
+  }
+
+
+  public ListArchiveContentsOutputBody totalCount(@javax.annotation.Nonnull Long totalCount) {
+    this.totalCount = totalCount;
+    return this;
+  }
+
+  /**
+   * Total number of file entries in the archive, ignoring pagination.
+   * @return totalCount
+   */
+  @javax.annotation.Nonnull
+  public Long getTotalCount() {
+    return totalCount;
+  }
+
+  public void setTotalCount(@javax.annotation.Nonnull Long totalCount) {
+    this.totalCount = totalCount;
   }
 
   /**
@@ -165,9 +195,9 @@ public class StartMatchingForAnalysisInputBody {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the StartMatchingForAnalysisInputBody instance itself
+   * @return the ListArchiveContentsOutputBody instance itself
    */
-  public StartMatchingForAnalysisInputBody putAdditionalProperty(String key, Object value) {
+  public ListArchiveContentsOutputBody putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -206,27 +236,29 @@ public class StartMatchingForAnalysisInputBody {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    StartMatchingForAnalysisInputBody startMatchingForAnalysisInputBody = (StartMatchingForAnalysisInputBody) o;
-    return Objects.equals(this.filters, startMatchingForAnalysisInputBody.filters) &&
-        Objects.equals(this.minSimilarity, startMatchingForAnalysisInputBody.minSimilarity) &&
-        Objects.equals(this.noCache, startMatchingForAnalysisInputBody.noCache) &&
-        Objects.equals(this.resultsPerFunction, startMatchingForAnalysisInputBody.resultsPerFunction)&&
-        Objects.equals(this.additionalProperties, startMatchingForAnalysisInputBody.additionalProperties);
+    ListArchiveContentsOutputBody listArchiveContentsOutputBody = (ListArchiveContentsOutputBody) o;
+    return Objects.equals(this.entries, listArchiveContentsOutputBody.entries) &&
+        Objects.equals(this.hasNext, listArchiveContentsOutputBody.hasNext) &&
+        Objects.equals(this.page, listArchiveContentsOutputBody.page) &&
+        Objects.equals(this.pageSize, listArchiveContentsOutputBody.pageSize) &&
+        Objects.equals(this.totalCount, listArchiveContentsOutputBody.totalCount)&&
+        Objects.equals(this.additionalProperties, listArchiveContentsOutputBody.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(filters, minSimilarity, noCache, resultsPerFunction, additionalProperties);
+    return Objects.hash(entries, hasNext, page, pageSize, totalCount, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class StartMatchingForAnalysisInputBody {\n");
-    sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
-    sb.append("    minSimilarity: ").append(toIndentedString(minSimilarity)).append("\n");
-    sb.append("    noCache: ").append(toIndentedString(noCache)).append("\n");
-    sb.append("    resultsPerFunction: ").append(toIndentedString(resultsPerFunction)).append("\n");
+    sb.append("class ListArchiveContentsOutputBody {\n");
+    sb.append("    entries: ").append(toIndentedString(entries)).append("\n");
+    sb.append("    hasNext: ").append(toIndentedString(hasNext)).append("\n");
+    sb.append("    page: ").append(toIndentedString(page)).append("\n");
+    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -246,28 +278,41 @@ public class StartMatchingForAnalysisInputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("filters", "min_similarity", "no_cache", "results_per_function"));
+    openapiFields = new HashSet<String>(Arrays.asList("entries", "has_next", "page", "page_size", "total_count"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(0);
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("entries", "has_next", "page", "page_size", "total_count"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to StartMatchingForAnalysisInputBody
+   * @throws IOException if the JSON Element is invalid with respect to ListArchiveContentsOutputBody
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!StartMatchingForAnalysisInputBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in StartMatchingForAnalysisInputBody is not found in the empty JSON string", StartMatchingForAnalysisInputBody.openapiRequiredFields.toString()));
+        if (!ListArchiveContentsOutputBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ListArchiveContentsOutputBody is not found in the empty JSON string", ListArchiveContentsOutputBody.openapiRequiredFields.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : ListArchiveContentsOutputBody.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the optional field `filters`
-      if (jsonObj.get("filters") != null && !jsonObj.get("filters").isJsonNull()) {
-        MatchFilters.validateJsonElement(jsonObj.get("filters"));
+      if (jsonObj.get("entries") != null && !jsonObj.get("entries").isJsonNull()) {
+        if (!jsonObj.get("entries").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `entries` to be an array in the JSON string but got `%s`", jsonObj.get("entries").toString()));
+        }
+        JsonArray jsonArrayentries = jsonObj.getAsJsonArray("entries");
+        // validate the required field `entries` (array)
+        for (int i = 0; i < jsonArrayentries.size(); i++) {
+          ArchiveContentEntry.validateJsonElement(jsonArrayentries.get(i));
+        }
       }
   }
 
@@ -275,16 +320,16 @@ public class StartMatchingForAnalysisInputBody {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!StartMatchingForAnalysisInputBody.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'StartMatchingForAnalysisInputBody' and its subtypes
+       if (!ListArchiveContentsOutputBody.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ListArchiveContentsOutputBody' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<StartMatchingForAnalysisInputBody> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(StartMatchingForAnalysisInputBody.class));
+       final TypeAdapter<ListArchiveContentsOutputBody> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ListArchiveContentsOutputBody.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<StartMatchingForAnalysisInputBody>() {
+       return (TypeAdapter<T>) new TypeAdapter<ListArchiveContentsOutputBody>() {
            @Override
-           public void write(JsonWriter out, StartMatchingForAnalysisInputBody value) throws IOException {
+           public void write(JsonWriter out, ListArchiveContentsOutputBody value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -312,12 +357,12 @@ public class StartMatchingForAnalysisInputBody {
            }
 
            @Override
-           public StartMatchingForAnalysisInputBody read(JsonReader in) throws IOException {
+           public ListArchiveContentsOutputBody read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             StartMatchingForAnalysisInputBody instance = thisAdapter.fromJsonTree(jsonObj);
+             ListArchiveContentsOutputBody instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -344,18 +389,18 @@ public class StartMatchingForAnalysisInputBody {
   }
 
   /**
-   * Create an instance of StartMatchingForAnalysisInputBody given an JSON string
+   * Create an instance of ListArchiveContentsOutputBody given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of StartMatchingForAnalysisInputBody
-   * @throws IOException if the JSON string is invalid with respect to StartMatchingForAnalysisInputBody
+   * @return An instance of ListArchiveContentsOutputBody
+   * @throws IOException if the JSON string is invalid with respect to ListArchiveContentsOutputBody
    */
-  public static StartMatchingForAnalysisInputBody fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, StartMatchingForAnalysisInputBody.class);
+  public static ListArchiveContentsOutputBody fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ListArchiveContentsOutputBody.class);
   }
 
   /**
-   * Convert an instance of StartMatchingForAnalysisInputBody to an JSON string
+   * Convert an instance of ListArchiveContentsOutputBody to an JSON string
    *
    * @return JSON string
    */

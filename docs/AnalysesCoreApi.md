@@ -571,11 +571,11 @@ public class Example {
 
 <a id="getAnalysisFunctionMatches"></a>
 # **getAnalysisFunctionMatches**
-> GetMatchesOutputBody getAnalysisFunctionMatches(analysisId)
+> GetMatchesOutputBody getAnalysisFunctionMatches(analysisId, matchId)
 
 Get function-matching results for an analysis
 
-Returns the matches blob when the matching workflow has completed. While the workflow is in progress this endpoint returns the current status with no matches; use /matches/status to poll progress.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+Returns the matches blob when the matching workflow has completed. While the workflow is in progress this endpoint returns the current status with no matches; use /matches/status to poll progress.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
 
 ### Example
 ```java
@@ -604,8 +604,9 @@ public class Example {
 
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
     Long analysisId = 56L; // Long | Analysis ID
+    String matchId = "matchId_example"; // String | Opaque token from a start-matching response. When supplied, returns that specific run instead of the latest.
     try {
-      GetMatchesOutputBody result = apiInstance.getAnalysisFunctionMatches(analysisId);
+      GetMatchesOutputBody result = apiInstance.getAnalysisFunctionMatches(analysisId, matchId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCoreApi#getAnalysisFunctionMatches");
@@ -623,6 +624,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Long**| Analysis ID | |
+| **matchId** | **String**| Opaque token from a start-matching response. When supplied, returns that specific run instead of the latest. | [optional] |
 
 ### Return type
 
@@ -641,6 +643,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 | **422** | Unprocessable Entity |  -  |
@@ -648,11 +651,11 @@ public class Example {
 
 <a id="getAnalysisFunctionMatchingStatus"></a>
 # **getAnalysisFunctionMatchingStatus**
-> GetMatchesStatusOutputBody getAnalysisFunctionMatchingStatus(analysisId)
+> GetMatchesStatusOutputBody getAnalysisFunctionMatchingStatus(analysisId, matchId)
 
 Get function-matching status for an analysis
 
-Returns the matching workflow&#39;s current status. Does not include the matches blob — use GET /matches for that.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+Returns the matching workflow&#39;s current status. Does not include the matches blob — use GET /matches for that.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
 
 ### Example
 ```java
@@ -681,8 +684,9 @@ public class Example {
 
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
     Long analysisId = 56L; // Long | Analysis ID
+    String matchId = "matchId_example"; // String | Opaque token from a start-matching response. When supplied, returns that specific run instead of the latest.
     try {
-      GetMatchesStatusOutputBody result = apiInstance.getAnalysisFunctionMatchingStatus(analysisId);
+      GetMatchesStatusOutputBody result = apiInstance.getAnalysisFunctionMatchingStatus(analysisId, matchId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCoreApi#getAnalysisFunctionMatchingStatus");
@@ -700,6 +704,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Long**| Analysis ID | |
+| **matchId** | **String**| Opaque token from a start-matching response. When supplied, returns that specific run instead of the latest. | [optional] |
 
 ### Return type
 
@@ -718,6 +723,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 | **422** | Unprocessable Entity |  -  |

@@ -49,6 +49,21 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TriggerDynamicExecutionInputBody {
+  public static final String SERIALIZED_NAME_ARCHIVE_ENTRY_PATH = "archive_entry_path";
+  @SerializedName(SERIALIZED_NAME_ARCHIVE_ENTRY_PATH)
+  @javax.annotation.Nullable
+  private String archiveEntryPath;
+
+  public static final String SERIALIZED_NAME_ARCHIVE_PASSWORD = "archive_password";
+  @SerializedName(SERIALIZED_NAME_ARCHIVE_PASSWORD)
+  @javax.annotation.Nullable
+  private String archivePassword;
+
+  public static final String SERIALIZED_NAME_ARCHIVE_SHA256_HASH = "archive_sha_256_hash";
+  @SerializedName(SERIALIZED_NAME_ARCHIVE_SHA256_HASH)
+  @javax.annotation.Nullable
+  private String archiveSha256Hash;
+
   public static final String SERIALIZED_NAME_COMMAND_LINE_ARGS = "command_line_args";
   @SerializedName(SERIALIZED_NAME_COMMAND_LINE_ARGS)
   @javax.annotation.Nullable
@@ -179,6 +194,63 @@ public class TriggerDynamicExecutionInputBody {
   public TriggerDynamicExecutionInputBody() {
   }
 
+  public TriggerDynamicExecutionInputBody archiveEntryPath(@javax.annotation.Nullable String archiveEntryPath) {
+    this.archiveEntryPath = archiveEntryPath;
+    return this;
+  }
+
+  /**
+   * Relative path of the entry inside the archive to execute
+   * @return archiveEntryPath
+   */
+  @javax.annotation.Nullable
+  public String getArchiveEntryPath() {
+    return archiveEntryPath;
+  }
+
+  public void setArchiveEntryPath(@javax.annotation.Nullable String archiveEntryPath) {
+    this.archiveEntryPath = archiveEntryPath;
+  }
+
+
+  public TriggerDynamicExecutionInputBody archivePassword(@javax.annotation.Nullable String archivePassword) {
+    this.archivePassword = archivePassword;
+    return this;
+  }
+
+  /**
+   * Password for an encrypted archive
+   * @return archivePassword
+   */
+  @javax.annotation.Nullable
+  public String getArchivePassword() {
+    return archivePassword;
+  }
+
+  public void setArchivePassword(@javax.annotation.Nullable String archivePassword) {
+    this.archivePassword = archivePassword;
+  }
+
+
+  public TriggerDynamicExecutionInputBody archiveSha256Hash(@javax.annotation.Nullable String archiveSha256Hash) {
+    this.archiveSha256Hash = archiveSha256Hash;
+    return this;
+  }
+
+  /**
+   * SHA-256 of the archive object to send to the sandbox instead of the analysed binary
+   * @return archiveSha256Hash
+   */
+  @javax.annotation.Nullable
+  public String getArchiveSha256Hash() {
+    return archiveSha256Hash;
+  }
+
+  public void setArchiveSha256Hash(@javax.annotation.Nullable String archiveSha256Hash) {
+    this.archiveSha256Hash = archiveSha256Hash;
+  }
+
+
   public TriggerDynamicExecutionInputBody commandLineArgs(@javax.annotation.Nullable String commandLineArgs) {
     this.commandLineArgs = commandLineArgs;
     return this;
@@ -290,7 +362,10 @@ public class TriggerDynamicExecutionInputBody {
       return false;
     }
     TriggerDynamicExecutionInputBody triggerDynamicExecutionInputBody = (TriggerDynamicExecutionInputBody) o;
-    return Objects.equals(this.commandLineArgs, triggerDynamicExecutionInputBody.commandLineArgs) &&
+    return Objects.equals(this.archiveEntryPath, triggerDynamicExecutionInputBody.archiveEntryPath) &&
+        Objects.equals(this.archivePassword, triggerDynamicExecutionInputBody.archivePassword) &&
+        Objects.equals(this.archiveSha256Hash, triggerDynamicExecutionInputBody.archiveSha256Hash) &&
+        Objects.equals(this.commandLineArgs, triggerDynamicExecutionInputBody.commandLineArgs) &&
         Objects.equals(this.startMethod, triggerDynamicExecutionInputBody.startMethod) &&
         Objects.equals(this.timeout, triggerDynamicExecutionInputBody.timeout)&&
         Objects.equals(this.additionalProperties, triggerDynamicExecutionInputBody.additionalProperties);
@@ -298,13 +373,16 @@ public class TriggerDynamicExecutionInputBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(commandLineArgs, startMethod, timeout, additionalProperties);
+    return Objects.hash(archiveEntryPath, archivePassword, archiveSha256Hash, commandLineArgs, startMethod, timeout, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TriggerDynamicExecutionInputBody {\n");
+    sb.append("    archiveEntryPath: ").append(toIndentedString(archiveEntryPath)).append("\n");
+    sb.append("    archivePassword: ").append(toIndentedString(archivePassword)).append("\n");
+    sb.append("    archiveSha256Hash: ").append(toIndentedString(archiveSha256Hash)).append("\n");
     sb.append("    commandLineArgs: ").append(toIndentedString(commandLineArgs)).append("\n");
     sb.append("    startMethod: ").append(toIndentedString(startMethod)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
@@ -327,7 +405,7 @@ public class TriggerDynamicExecutionInputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("command_line_args", "start_method", "timeout"));
+    openapiFields = new HashSet<String>(Arrays.asList("archive_entry_path", "archive_password", "archive_sha_256_hash", "command_line_args", "start_method", "timeout"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -346,6 +424,15 @@ public class TriggerDynamicExecutionInputBody {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("archive_entry_path") != null && !jsonObj.get("archive_entry_path").isJsonNull()) && !jsonObj.get("archive_entry_path").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `archive_entry_path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("archive_entry_path").toString()));
+      }
+      if ((jsonObj.get("archive_password") != null && !jsonObj.get("archive_password").isJsonNull()) && !jsonObj.get("archive_password").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `archive_password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("archive_password").toString()));
+      }
+      if ((jsonObj.get("archive_sha_256_hash") != null && !jsonObj.get("archive_sha_256_hash").isJsonNull()) && !jsonObj.get("archive_sha_256_hash").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `archive_sha_256_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("archive_sha_256_hash").toString()));
+      }
       if ((jsonObj.get("command_line_args") != null && !jsonObj.get("command_line_args").isJsonNull()) && !jsonObj.get("command_line_args").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `command_line_args` to be a primitive type in the JSON string but got `%s`", jsonObj.get("command_line_args").toString()));
       }
