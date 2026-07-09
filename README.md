@@ -16,7 +16,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>ai.reveng</groupId>
     <artifactId>sdk</artifactId>
-    <version>3.110.0</version>
+    <version>3.113.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -31,7 +31,7 @@ repositories {
 }
 
 dependencies {
-    implementation "ai.reveng:sdk:3.110.0"
+    implementation "ai.reveng:sdk:3.113.0"
 }
 ```
 
@@ -114,8 +114,10 @@ Class | Method | HTTP request | Description
 *AnalysesCoreApi* | [**updateAnalysis**](docs/AnalysesCoreApi.md#updateAnalysis) | **PATCH** /v2/analyses/{analysis_id} | Update Analysis
 *AnalysesCoreApi* | [**updateAnalysisTags**](docs/AnalysesCoreApi.md#updateAnalysisTags) | **PATCH** /v2/analyses/{analysis_id}/tags | Update Analysis Tags
 *AnalysesCoreApi* | [**uploadFile**](docs/AnalysesCoreApi.md#uploadFile) | **POST** /v2/upload | Upload File
+*AnalysesCoreApi* | [**v3GetAnalysisAutoUnstripStatus**](docs/AnalysesCoreApi.md#v3GetAnalysisAutoUnstripStatus) | **GET** /v3/analyses/{analysis_id}/auto-unstrip/status | Get the auto-unstrip status for an analysis.
 *AnalysesCoreApi* | [**v3GetAnalysisStrings**](docs/AnalysesCoreApi.md#v3GetAnalysisStrings) | **GET** /v3/analyses/{analysis_id}/functions/strings | List strings for an analysis.
 *AnalysesCoreApi* | [**v3GetAnalysisStringsStatus**](docs/AnalysesCoreApi.md#v3GetAnalysisStringsStatus) | **GET** /v3/analyses/{analysis_id}/functions/strings/status | Get the string-extraction status for an analysis.
+*AnalysesCoreApi* | [**v3ListAnalyses**](docs/AnalysesCoreApi.md#v3ListAnalyses) | **GET** /v3/analyses | List analyses
 *AnalysesCoreApi* | [**v3ListExampleAnalyses**](docs/AnalysesCoreApi.md#v3ListExampleAnalyses) | **GET** /v3/analyses/examples | List example analyses
 *AnalysesResultsMetadataApi* | [**getAnalysisFunctionsPaginated**](docs/AnalysesResultsMetadataApi.md#getAnalysisFunctionsPaginated) | **GET** /v2/analyses/{analysis_id}/functions | Get functions from analysis
 *AnalysesResultsMetadataApi* | [**getCapabilities**](docs/AnalysesResultsMetadataApi.md#getCapabilities) | **GET** /v2/analyses/{analysis_id}/capabilities | Gets the capabilities from the analysis
@@ -199,6 +201,7 @@ Class | Method | HTTP request | Description
 *FunctionsCoreApi* | [**getFunctionCapabilities_0**](docs/FunctionsCoreApi.md#getFunctionCapabilities_0) | **GET** /v3/functions/{function_id}/capabilities | Get capabilities for a function
 *FunctionsCoreApi* | [**getFunctionDetails**](docs/FunctionsCoreApi.md#getFunctionDetails) | **GET** /v2/functions/{function_id} | Get function details
 *FunctionsCoreApi* | [**getFunctionDetails_0**](docs/FunctionsCoreApi.md#getFunctionDetails_0) | **GET** /v3/functions/{function_id} | Get function details
+*FunctionsCoreApi* | [**getFunctionIndirectCallSites**](docs/FunctionsCoreApi.md#getFunctionIndirectCallSites) | **GET** /v3/functions/{function_id}/indirect-call-sites | Get indirect call sites for a function
 *FunctionsCoreApi* | [**getFunctionStrings**](docs/FunctionsCoreApi.md#getFunctionStrings) | **GET** /v2/functions/{function_id}/strings | Get string information found in the function
 *FunctionsCoreApi* | [**getFunctionStrings_0**](docs/FunctionsCoreApi.md#getFunctionStrings_0) | **GET** /v3/functions/{function_id}/strings | List strings for a function.
 *FunctionsCoreApi* | [**getFunctionsCalleesCallers**](docs/FunctionsCoreApi.md#getFunctionsCalleesCallers) | **GET** /v3/functions/callees-callers | Get callees and callers for many functions
@@ -208,6 +211,7 @@ Class | Method | HTTP request | Description
 *FunctionsCoreApi* | [**listAnalysisFunctions**](docs/FunctionsCoreApi.md#listAnalysisFunctions) | **GET** /v3/analyses/{analysis_id}/functions | List functions in an analysis
 *FunctionsCoreApi* | [**listImportedFunctions**](docs/FunctionsCoreApi.md#listImportedFunctions) | **GET** /v3/analyses/{analysis_id}/imported-functions | List imported functions in an analysis
 *FunctionsCoreApi* | [**startFunctionsMatching**](docs/FunctionsCoreApi.md#startFunctionsMatching) | **POST** /v3/functions/matches | Start function matching for an explicit set of functions
+*FunctionsCoreApi* | [**v3CanonicalizeFunctionNames**](docs/FunctionsCoreApi.md#v3CanonicalizeFunctionNames) | **POST** /v3/functions/canonical-names | Canonicalize a batch of function names
 *FunctionsDataTypesApi* | [**batchUpdateFunctionDataTypes**](docs/FunctionsDataTypesApi.md#batchUpdateFunctionDataTypes) | **PUT** /v3/analyses/{analysis_id}/functions/data-types | Batch update function data types
 *FunctionsDataTypesApi* | [**generateFunctionDataTypesForAnalysis**](docs/FunctionsDataTypesApi.md#generateFunctionDataTypesForAnalysis) | **POST** /v2/analyses/{analysis_id}/functions/data_types | Generate Function Data Types
 *FunctionsDataTypesApi* | [**generateFunctionDataTypesForFunctions**](docs/FunctionsDataTypesApi.md#generateFunctionDataTypesForFunctions) | **POST** /v2/functions/data_types | Generate Function Data Types for an arbitrary list of functions
@@ -270,6 +274,7 @@ Class | Method | HTTP request | Description
  - [AnalysisLogMessage](docs/AnalysisLogMessage.md)
  - [AnalysisLogs](docs/AnalysisLogs.md)
  - [AnalysisRecord](docs/AnalysisRecord.md)
+ - [AnalysisRecordBody](docs/AnalysisRecordBody.md)
  - [AnalysisReport](docs/AnalysisReport.md)
  - [AnalysisScope](docs/AnalysisScope.md)
  - [AnalysisStringFunction](docs/AnalysisStringFunction.md)
@@ -277,6 +282,7 @@ Class | Method | HTTP request | Description
  - [AnalysisStringItem](docs/AnalysisStringItem.md)
  - [AnalysisStringsResponse](docs/AnalysisStringsResponse.md)
  - [AnalysisStringsStatusResponse](docs/AnalysisStringsStatusResponse.md)
+ - [AnalysisTagBody](docs/AnalysisTagBody.md)
  - [AnalysisTags](docs/AnalysisTags.md)
  - [AnalysisUpdateRequest](docs/AnalysisUpdateRequest.md)
  - [AnalysisUpdateTagsRequest](docs/AnalysisUpdateTagsRequest.md)
@@ -296,6 +302,7 @@ Class | Method | HTTP request | Description
  - [AutoRunAgents](docs/AutoRunAgents.md)
  - [AutoUnstripRequest](docs/AutoUnstripRequest.md)
  - [AutoUnstripResponse](docs/AutoUnstripResponse.md)
+ - [AutoUnstripStatusOutputBody](docs/AutoUnstripStatusOutputBody.md)
  - [BaseResponse](docs/BaseResponse.md)
  - [BaseResponseAdditionalDetailsStatusResponse](docs/BaseResponseAdditionalDetailsStatusResponse.md)
  - [BaseResponseAnalysisBulkAddTagsResponse](docs/BaseResponseAnalysisBulkAddTagsResponse.md)
@@ -390,6 +397,9 @@ Class | Method | HTTP request | Description
  - [CalleeFunctionInfo](docs/CalleeFunctionInfo.md)
  - [CalleesCallerFunctionsResponse](docs/CalleesCallerFunctionsResponse.md)
  - [CallerFunctionInfo](docs/CallerFunctionInfo.md)
+ - [CanonicalName](docs/CanonicalName.md)
+ - [CanonicalizeNamesInputBody](docs/CanonicalizeNamesInputBody.md)
+ - [CanonicalizeNamesOutputBody](docs/CanonicalizeNamesOutputBody.md)
  - [Capabilities](docs/Capabilities.md)
  - [CapabilitiesAgentResponse](docs/CapabilitiesAgentResponse.md)
  - [CapabilitiesOutputBody](docs/CapabilitiesOutputBody.md)
@@ -555,10 +565,13 @@ Class | Method | HTTP request | Description
  - [ImportedFunctionCallerEntry](docs/ImportedFunctionCallerEntry.md)
  - [ImportedFunctionDetailOutputBody](docs/ImportedFunctionDetailOutputBody.md)
  - [ImportedFunctionEntry](docs/ImportedFunctionEntry.md)
+ - [IndirectCallSite](docs/IndirectCallSite.md)
+ - [IndirectCallSitesOutputBody](docs/IndirectCallSitesOutputBody.md)
  - [InlineComment](docs/InlineComment.md)
  - [InsertAnalysisLogRequest](docs/InsertAnalysisLogRequest.md)
  - [InviteUserInputBody](docs/InviteUserInputBody.md)
  - [IssuerAllowedDomain](docs/IssuerAllowedDomain.md)
+ - [ListAnalysesOutputBody](docs/ListAnalysesOutputBody.md)
  - [ListAnalysisFunctionsDataTypesOutputBody](docs/ListAnalysisFunctionsDataTypesOutputBody.md)
  - [ListAnalysisFunctionsOutputBody](docs/ListAnalysisFunctionsOutputBody.md)
  - [ListAnalysisStringsOutputBody](docs/ListAnalysisStringsOutputBody.md)

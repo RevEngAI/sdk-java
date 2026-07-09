@@ -43,6 +43,8 @@ import ai.reveng.model.BaseResponseFunctionStringsResponse;
 import ai.reveng.model.BaseResponseFunctionsDetailResponse;
 import ai.reveng.model.BaseResponseListCalleesCallerFunctionsResponse;
 import ai.reveng.model.CallEdgesOutputBody;
+import ai.reveng.model.CanonicalizeNamesInputBody;
+import ai.reveng.model.CanonicalizeNamesOutputBody;
 import ai.reveng.model.CapabilitiesOutputBody;
 import ai.reveng.model.DisassemblyOutputBody;
 import ai.reveng.model.FunctionDetailsOutputBody;
@@ -51,6 +53,7 @@ import ai.reveng.model.FunctionMatchingResponse;
 import ai.reveng.model.GetMatchesOutputBody;
 import ai.reveng.model.GetMatchesStatusOutputBody;
 import ai.reveng.model.ImportedFunctionDetailOutputBody;
+import ai.reveng.model.IndirectCallSitesOutputBody;
 import ai.reveng.model.ListAnalysisFunctionsOutputBody;
 import ai.reveng.model.ListFunctionStringsOutputBody;
 import ai.reveng.model.ListImportedFunctionsOutputBody;
@@ -2892,6 +2895,149 @@ public class FunctionsCoreApi {
         return localVarCall;
     }
     /**
+     * Build call for getFunctionIndirectCallSites
+     * @param functionId Function ID (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getFunctionIndirectCallSitesCall(@javax.annotation.Nonnull Long functionId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/functions/{function_id}/indirect-call-sites"
+            .replace("{" + "function_id" + "}", localVarApiClient.escapeString(functionId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getFunctionIndirectCallSitesValidateBeforeCall(@javax.annotation.Nonnull Long functionId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'functionId' is set
+        if (functionId == null) {
+            throw new ApiException("Missing the required parameter 'functionId' when calling getFunctionIndirectCallSites(Async)");
+        }
+
+        return getFunctionIndirectCallSitesCall(functionId, _callback);
+
+    }
+
+    /**
+     * Get indirect call sites for a function
+     * Returns the function&#39;s indirect call instructions with their resolved call target.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * @param functionId Function ID (required)
+     * @return IndirectCallSitesOutputBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public IndirectCallSitesOutputBody getFunctionIndirectCallSites(@javax.annotation.Nonnull Long functionId) throws ApiException {
+        ApiResponse<IndirectCallSitesOutputBody> localVarResp = getFunctionIndirectCallSitesWithHttpInfo(functionId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get indirect call sites for a function
+     * Returns the function&#39;s indirect call instructions with their resolved call target.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * @param functionId Function ID (required)
+     * @return ApiResponse&lt;IndirectCallSitesOutputBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<IndirectCallSitesOutputBody> getFunctionIndirectCallSitesWithHttpInfo(@javax.annotation.Nonnull Long functionId) throws ApiException {
+        okhttp3.Call localVarCall = getFunctionIndirectCallSitesValidateBeforeCall(functionId, null);
+        Type localVarReturnType = new TypeToken<IndirectCallSitesOutputBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get indirect call sites for a function (asynchronously)
+     * Returns the function&#39;s indirect call instructions with their resolved call target.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * @param functionId Function ID (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getFunctionIndirectCallSitesAsync(@javax.annotation.Nonnull Long functionId, final ApiCallback<IndirectCallSitesOutputBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getFunctionIndirectCallSitesValidateBeforeCall(functionId, _callback);
+        Type localVarReturnType = new TypeToken<IndirectCallSitesOutputBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for getFunctionStrings
      * @param functionId  (required)
      * @param page The page number to retrieve. (optional, default to 1)
@@ -4293,6 +4439,149 @@ public class FunctionsCoreApi {
 
         okhttp3.Call localVarCall = startFunctionsMatchingValidateBeforeCall(startMatchingForFunctionsInputBody, _callback);
         Type localVarReturnType = new TypeToken<StartMatchingOutputBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for v3CanonicalizeFunctionNames
+     * @param canonicalizeNamesInputBody  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Service Unavailable </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3CanonicalizeFunctionNamesCall(@javax.annotation.Nonnull CanonicalizeNamesInputBody canonicalizeNamesInputBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = canonicalizeNamesInputBody;
+
+        // create path and map variables
+        String localVarPath = "/v3/functions/canonical-names";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call v3CanonicalizeFunctionNamesValidateBeforeCall(@javax.annotation.Nonnull CanonicalizeNamesInputBody canonicalizeNamesInputBody, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'canonicalizeNamesInputBody' is set
+        if (canonicalizeNamesInputBody == null) {
+            throw new ApiException("Missing the required parameter 'canonicalizeNamesInputBody' when calling v3CanonicalizeFunctionNames(Async)");
+        }
+
+        return v3CanonicalizeFunctionNamesCall(canonicalizeNamesInputBody, _callback);
+
+    }
+
+    /**
+     * Canonicalize a batch of function names
+     * Accepts up to 25 raw function names and returns their canonical forms in the same order. A name with no canonical form is returned unchanged.  **Error codes:** - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;503&#x60; [&#x60;SERVICE_UNAVAILABLE&#x60;](/errors/SERVICE_UNAVAILABLE) — Service Unavailable
+     * @param canonicalizeNamesInputBody  (required)
+     * @return CanonicalizeNamesOutputBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Service Unavailable </td><td>  -  </td></tr>
+     </table>
+     */
+    public CanonicalizeNamesOutputBody v3CanonicalizeFunctionNames(@javax.annotation.Nonnull CanonicalizeNamesInputBody canonicalizeNamesInputBody) throws ApiException {
+        ApiResponse<CanonicalizeNamesOutputBody> localVarResp = v3CanonicalizeFunctionNamesWithHttpInfo(canonicalizeNamesInputBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Canonicalize a batch of function names
+     * Accepts up to 25 raw function names and returns their canonical forms in the same order. A name with no canonical form is returned unchanged.  **Error codes:** - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;503&#x60; [&#x60;SERVICE_UNAVAILABLE&#x60;](/errors/SERVICE_UNAVAILABLE) — Service Unavailable
+     * @param canonicalizeNamesInputBody  (required)
+     * @return ApiResponse&lt;CanonicalizeNamesOutputBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Service Unavailable </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CanonicalizeNamesOutputBody> v3CanonicalizeFunctionNamesWithHttpInfo(@javax.annotation.Nonnull CanonicalizeNamesInputBody canonicalizeNamesInputBody) throws ApiException {
+        okhttp3.Call localVarCall = v3CanonicalizeFunctionNamesValidateBeforeCall(canonicalizeNamesInputBody, null);
+        Type localVarReturnType = new TypeToken<CanonicalizeNamesOutputBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Canonicalize a batch of function names (asynchronously)
+     * Accepts up to 25 raw function names and returns their canonical forms in the same order. A name with no canonical form is returned unchanged.  **Error codes:** - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;503&#x60; [&#x60;SERVICE_UNAVAILABLE&#x60;](/errors/SERVICE_UNAVAILABLE) — Service Unavailable
+     * @param canonicalizeNamesInputBody  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Service Unavailable </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3CanonicalizeFunctionNamesAsync(@javax.annotation.Nonnull CanonicalizeNamesInputBody canonicalizeNamesInputBody, final ApiCallback<CanonicalizeNamesOutputBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = v3CanonicalizeFunctionNamesValidateBeforeCall(canonicalizeNamesInputBody, _callback);
+        Type localVarReturnType = new TypeToken<CanonicalizeNamesOutputBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

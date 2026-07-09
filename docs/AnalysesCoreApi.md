@@ -27,8 +27,10 @@ All URIs are relative to *https://api.reveng.ai*
 | [**updateAnalysis**](AnalysesCoreApi.md#updateAnalysis) | **PATCH** /v2/analyses/{analysis_id} | Update Analysis |
 | [**updateAnalysisTags**](AnalysesCoreApi.md#updateAnalysisTags) | **PATCH** /v2/analyses/{analysis_id}/tags | Update Analysis Tags |
 | [**uploadFile**](AnalysesCoreApi.md#uploadFile) | **POST** /v2/upload | Upload File |
+| [**v3GetAnalysisAutoUnstripStatus**](AnalysesCoreApi.md#v3GetAnalysisAutoUnstripStatus) | **GET** /v3/analyses/{analysis_id}/auto-unstrip/status | Get the auto-unstrip status for an analysis. |
 | [**v3GetAnalysisStrings**](AnalysesCoreApi.md#v3GetAnalysisStrings) | **GET** /v3/analyses/{analysis_id}/functions/strings | List strings for an analysis. |
 | [**v3GetAnalysisStringsStatus**](AnalysesCoreApi.md#v3GetAnalysisStringsStatus) | **GET** /v3/analyses/{analysis_id}/functions/strings/status | Get the string-extraction status for an analysis. |
+| [**v3ListAnalyses**](AnalysesCoreApi.md#v3ListAnalyses) | **GET** /v3/analyses | List analyses |
 | [**v3ListExampleAnalyses**](AnalysesCoreApi.md#v3ListExampleAnalyses) | **GET** /v3/analyses/examples | List example analyses |
 
 
@@ -1814,6 +1816,83 @@ public class Example {
 | **200** | Successful Response |  -  |
 | **422** | Invalid request parameters |  -  |
 
+<a id="v3GetAnalysisAutoUnstripStatus"></a>
+# **v3GetAnalysisAutoUnstripStatus**
+> AutoUnstripStatusOutputBody v3GetAnalysisAutoUnstripStatus(analysisId)
+
+Get the auto-unstrip status for an analysis.
+
+Returns the status of the auto-unstrip task for the binary backing the analysis. One of &#x60;UNINITIALISED&#x60;, &#x60;PENDING&#x60;, &#x60;RUNNING&#x60;, &#x60;COMPLETED&#x60;, &#x60;FAILED&#x60;.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.AnalysesCoreApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
+    Long analysisId = 56L; // Long | Analysis ID
+    try {
+      AutoUnstripStatusOutputBody result = apiInstance.v3GetAnalysisAutoUnstripStatus(analysisId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AnalysesCoreApi#v3GetAnalysisAutoUnstripStatus");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **analysisId** | **Long**| Analysis ID | |
+
+### Return type
+
+[**AutoUnstripStatusOutputBody**](AutoUnstripStatusOutputBody.md)
+
+### Authorization
+
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **500** | Internal Server Error |  -  |
+
 <a id="v3GetAnalysisStrings"></a>
 # **v3GetAnalysisStrings**
 > ListAnalysisStringsOutputBody v3GetAnalysisStrings(analysisId, page, pageSize, search, functionSearch, orderBy, sortOrder)
@@ -1977,6 +2056,100 @@ public class Example {
 | **200** | OK |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **500** | Internal Server Error |  -  |
+
+<a id="v3ListAnalyses"></a>
+# **v3ListAnalyses**
+> ListAnalysesOutputBody v3ListAnalyses(searchTerm, analysisScope, status, modelName, usernames, sha256Hash, pageSize, nextPageToken, orderBy, order)
+
+List analyses
+
+Returns a page of analyses visible to the caller, filtered and ordered by the query parameters.  **Error codes:** - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.AnalysesCoreApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
+    String searchTerm = "searchTerm_example"; // String | 
+    List<String> analysisScope = Arrays.asList(); // List<String> | Leave empty for no filter
+    List<String> status = Arrays.asList(); // List<String> | 
+    List<String> modelName = Arrays.asList(); // List<String> | 
+    List<String> usernames = Arrays.asList(); // List<String> | 
+    String sha256Hash = "sha256Hash_example"; // String | 
+    Long pageSize = 20L; // Long | 
+    String nextPageToken = "nextPageToken_example"; // String | Forward-pagination cursor from a prior response. When set, order_by/order are taken from the token (the sort cannot change mid-pagination).
+    String orderBy = "created"; // String | 
+    String order = "ASC"; // String | 
+    try {
+      ListAnalysesOutputBody result = apiInstance.v3ListAnalyses(searchTerm, analysisScope, status, modelName, usernames, sha256Hash, pageSize, nextPageToken, orderBy, order);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AnalysesCoreApi#v3ListAnalyses");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **searchTerm** | **String**|  | [optional] |
+| **analysisScope** | [**List&lt;String&gt;**](String.md)| Leave empty for no filter | [optional] [enum: PRIVATE, PUBLIC, TEAM] |
+| **status** | [**List&lt;String&gt;**](String.md)|  | [optional] [enum: Uploaded, Queued, Complete, Error, Processing] |
+| **modelName** | [**List&lt;String&gt;**](String.md)|  | [optional] |
+| **usernames** | [**List&lt;String&gt;**](String.md)|  | [optional] |
+| **sha256Hash** | **String**|  | [optional] |
+| **pageSize** | **Long**|  | [optional] [default to 20] |
+| **nextPageToken** | **String**| Forward-pagination cursor from a prior response. When set, order_by/order are taken from the token (the sort cannot change mid-pagination). | [optional] |
+| **orderBy** | **String**|  | [optional] [default to created] [enum: created, binary_name, binary_size] |
+| **order** | **String**|  | [optional] [default to DESC] [enum: ASC, DESC] |
+
+### Return type
+
+[**ListAnalysesOutputBody**](ListAnalysesOutputBody.md)
+
+### Authorization
+
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 | **422** | Unprocessable Entity |  -  |
 | **500** | Internal Server Error |  -  |
 
