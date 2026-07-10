@@ -23,6 +23,7 @@ All URIs are relative to *https://api.reveng.ai*
 | [**getFunctionCapabilities_0**](FunctionsCoreApi.md#getFunctionCapabilities_0) | **GET** /v3/functions/{function_id}/capabilities | Get capabilities for a function |
 | [**getFunctionDetails**](FunctionsCoreApi.md#getFunctionDetails) | **GET** /v2/functions/{function_id} | Get function details |
 | [**getFunctionDetails_0**](FunctionsCoreApi.md#getFunctionDetails_0) | **GET** /v3/functions/{function_id} | Get function details |
+| [**getFunctionIndirectCallSites**](FunctionsCoreApi.md#getFunctionIndirectCallSites) | **GET** /v3/functions/{function_id}/indirect-call-sites | Get indirect call sites for a function |
 | [**getFunctionStrings**](FunctionsCoreApi.md#getFunctionStrings) | **GET** /v2/functions/{function_id}/strings | Get string information found in the function |
 | [**getFunctionStrings_0**](FunctionsCoreApi.md#getFunctionStrings_0) | **GET** /v3/functions/{function_id}/strings | List strings for a function. |
 | [**getFunctionsCalleesCallers**](FunctionsCoreApi.md#getFunctionsCalleesCallers) | **GET** /v3/functions/callees-callers | Get callees and callers for many functions |
@@ -32,6 +33,7 @@ All URIs are relative to *https://api.reveng.ai*
 | [**listAnalysisFunctions**](FunctionsCoreApi.md#listAnalysisFunctions) | **GET** /v3/analyses/{analysis_id}/functions | List functions in an analysis |
 | [**listImportedFunctions**](FunctionsCoreApi.md#listImportedFunctions) | **GET** /v3/analyses/{analysis_id}/imported-functions | List imported functions in an analysis |
 | [**startFunctionsMatching**](FunctionsCoreApi.md#startFunctionsMatching) | **POST** /v3/functions/matches | Start function matching for an explicit set of functions |
+| [**v3CanonicalizeFunctionNames**](FunctionsCoreApi.md#v3CanonicalizeFunctionNames) | **POST** /v3/functions/canonical-names | Canonicalize a batch of function names |
 
 
 <a id="addFunctionCallee"></a>
@@ -1475,6 +1477,83 @@ public class Example {
 | **422** | Unprocessable Entity |  -  |
 | **500** | Internal Server Error |  -  |
 
+<a id="getFunctionIndirectCallSites"></a>
+# **getFunctionIndirectCallSites**
+> IndirectCallSitesOutputBody getFunctionIndirectCallSites(functionId)
+
+Get indirect call sites for a function
+
+Returns the function&#39;s indirect call instructions with their resolved call target.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.FunctionsCoreApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    FunctionsCoreApi apiInstance = new FunctionsCoreApi(defaultClient);
+    Long functionId = 56L; // Long | Function ID
+    try {
+      IndirectCallSitesOutputBody result = apiInstance.getFunctionIndirectCallSites(functionId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling FunctionsCoreApi#getFunctionIndirectCallSites");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **functionId** | **Long**| Function ID | |
+
+### Return type
+
+[**IndirectCallSitesOutputBody**](IndirectCallSitesOutputBody.md)
+
+### Authorization
+
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **500** | Internal Server Error |  -  |
+
 <a id="getFunctionStrings"></a>
 # **getFunctionStrings**
 > BaseResponseFunctionStringsResponse getFunctionStrings(functionId, page, pageSize, search)
@@ -2194,4 +2273,81 @@ public class Example {
 | **404** | Not Found |  -  |
 | **422** | Unprocessable Entity |  -  |
 | **500** | Internal Server Error |  -  |
+
+<a id="v3CanonicalizeFunctionNames"></a>
+# **v3CanonicalizeFunctionNames**
+> CanonicalizeNamesOutputBody v3CanonicalizeFunctionNames(canonicalizeNamesInputBody)
+
+Canonicalize a batch of function names
+
+Accepts up to 25 raw function names and returns their canonical forms in the same order. A name with no canonical form is returned unchanged.  **Error codes:** - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;503&#x60; [&#x60;SERVICE_UNAVAILABLE&#x60;](/errors/SERVICE_UNAVAILABLE) — Service Unavailable
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.FunctionsCoreApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    FunctionsCoreApi apiInstance = new FunctionsCoreApi(defaultClient);
+    CanonicalizeNamesInputBody canonicalizeNamesInputBody = new CanonicalizeNamesInputBody(); // CanonicalizeNamesInputBody | 
+    try {
+      CanonicalizeNamesOutputBody result = apiInstance.v3CanonicalizeFunctionNames(canonicalizeNamesInputBody);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling FunctionsCoreApi#v3CanonicalizeFunctionNames");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **canonicalizeNamesInputBody** | [**CanonicalizeNamesInputBody**](CanonicalizeNamesInputBody.md)|  | |
+
+### Return type
+
+[**CanonicalizeNamesOutputBody**](CanonicalizeNamesOutputBody.md)
+
+### Authorization
+
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **500** | Internal Server Error |  -  |
+| **503** | Service Unavailable |  -  |
 

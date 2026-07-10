@@ -34,6 +34,7 @@ import ai.reveng.model.AnalysisReport;
 import ai.reveng.model.AnalysisUpdateRequest;
 import ai.reveng.model.AnalysisUpdateTagsRequest;
 import ai.reveng.model.AppApiRestV2AnalysesEnumsOrderBy;
+import ai.reveng.model.AutoUnstripStatusOutputBody;
 import ai.reveng.model.BaseResponse;
 import ai.reveng.model.BaseResponseAnalysisCreateResponse;
 import ai.reveng.model.BaseResponseAnalysisDetailResponse;
@@ -54,6 +55,7 @@ import ai.reveng.model.GetAnalysisStringsStatusOutputBody;
 import ai.reveng.model.GetMatchesOutputBody;
 import ai.reveng.model.GetMatchesStatusOutputBody;
 import ai.reveng.model.InsertAnalysisLogRequest;
+import ai.reveng.model.ListAnalysesOutputBody;
 import ai.reveng.model.ListAnalysisStringsOutputBody;
 import ai.reveng.model.ListExampleAnalysesOutputBody;
 import ai.reveng.model.ModelName;
@@ -3483,6 +3485,149 @@ public class AnalysesCoreApi {
         return localVarCall;
     }
     /**
+     * Build call for v3GetAnalysisAutoUnstripStatus
+     * @param analysisId Analysis ID (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3GetAnalysisAutoUnstripStatusCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/analyses/{analysis_id}/auto-unstrip/status"
+            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call v3GetAnalysisAutoUnstripStatusValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'analysisId' is set
+        if (analysisId == null) {
+            throw new ApiException("Missing the required parameter 'analysisId' when calling v3GetAnalysisAutoUnstripStatus(Async)");
+        }
+
+        return v3GetAnalysisAutoUnstripStatusCall(analysisId, _callback);
+
+    }
+
+    /**
+     * Get the auto-unstrip status for an analysis.
+     * Returns the status of the auto-unstrip task for the binary backing the analysis. One of &#x60;UNINITIALISED&#x60;, &#x60;PENDING&#x60;, &#x60;RUNNING&#x60;, &#x60;COMPLETED&#x60;, &#x60;FAILED&#x60;.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param analysisId Analysis ID (required)
+     * @return AutoUnstripStatusOutputBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public AutoUnstripStatusOutputBody v3GetAnalysisAutoUnstripStatus(@javax.annotation.Nonnull Long analysisId) throws ApiException {
+        ApiResponse<AutoUnstripStatusOutputBody> localVarResp = v3GetAnalysisAutoUnstripStatusWithHttpInfo(analysisId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get the auto-unstrip status for an analysis.
+     * Returns the status of the auto-unstrip task for the binary backing the analysis. One of &#x60;UNINITIALISED&#x60;, &#x60;PENDING&#x60;, &#x60;RUNNING&#x60;, &#x60;COMPLETED&#x60;, &#x60;FAILED&#x60;.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param analysisId Analysis ID (required)
+     * @return ApiResponse&lt;AutoUnstripStatusOutputBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<AutoUnstripStatusOutputBody> v3GetAnalysisAutoUnstripStatusWithHttpInfo(@javax.annotation.Nonnull Long analysisId) throws ApiException {
+        okhttp3.Call localVarCall = v3GetAnalysisAutoUnstripStatusValidateBeforeCall(analysisId, null);
+        Type localVarReturnType = new TypeToken<AutoUnstripStatusOutputBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get the auto-unstrip status for an analysis. (asynchronously)
+     * Returns the status of the auto-unstrip task for the binary backing the analysis. One of &#x60;UNINITIALISED&#x60;, &#x60;PENDING&#x60;, &#x60;RUNNING&#x60;, &#x60;COMPLETED&#x60;, &#x60;FAILED&#x60;.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param analysisId Analysis ID (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3GetAnalysisAutoUnstripStatusAsync(@javax.annotation.Nonnull Long analysisId, final ApiCallback<AutoUnstripStatusOutputBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = v3GetAnalysisAutoUnstripStatusValidateBeforeCall(analysisId, _callback);
+        Type localVarReturnType = new TypeToken<AutoUnstripStatusOutputBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for v3GetAnalysisStrings
      * @param analysisId Analysis ID (required)
      * @param page Page number (1-indexed). (optional, default to 1)
@@ -3813,6 +3958,215 @@ public class AnalysesCoreApi {
 
         okhttp3.Call localVarCall = v3GetAnalysisStringsStatusValidateBeforeCall(analysisId, _callback);
         Type localVarReturnType = new TypeToken<GetAnalysisStringsStatusOutputBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for v3ListAnalyses
+     * @param searchTerm  (optional)
+     * @param analysisScope Leave empty for no filter (optional)
+     * @param status  (optional)
+     * @param modelName  (optional)
+     * @param usernames  (optional)
+     * @param sha256Hash  (optional)
+     * @param pageSize  (optional, default to 20)
+     * @param nextPageToken Forward-pagination cursor from a prior response. When set, order_by/order are taken from the token (the sort cannot change mid-pagination). (optional)
+     * @param orderBy  (optional, default to created)
+     * @param order  (optional, default to DESC)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3ListAnalysesCall(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<String> analysisScope, @javax.annotation.Nullable List<String> status, @javax.annotation.Nullable List<String> modelName, @javax.annotation.Nullable List<String> usernames, @javax.annotation.Nullable String sha256Hash, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String nextPageToken, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String order, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/analyses";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (searchTerm != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("search_term", searchTerm));
+        }
+
+        if (analysisScope != null) {
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "analysis_scope", analysisScope));
+        }
+
+        if (status != null) {
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "status", status));
+        }
+
+        if (modelName != null) {
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("csv", "model_name", modelName));
+        }
+
+        if (usernames != null) {
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("csv", "usernames", usernames));
+        }
+
+        if (sha256Hash != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sha256_hash", sha256Hash));
+        }
+
+        if (pageSize != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page_size", pageSize));
+        }
+
+        if (nextPageToken != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("next_page_token", nextPageToken));
+        }
+
+        if (orderBy != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("order_by", orderBy));
+        }
+
+        if (order != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("order", order));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call v3ListAnalysesValidateBeforeCall(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<String> analysisScope, @javax.annotation.Nullable List<String> status, @javax.annotation.Nullable List<String> modelName, @javax.annotation.Nullable List<String> usernames, @javax.annotation.Nullable String sha256Hash, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String nextPageToken, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String order, final ApiCallback _callback) throws ApiException {
+        return v3ListAnalysesCall(searchTerm, analysisScope, status, modelName, usernames, sha256Hash, pageSize, nextPageToken, orderBy, order, _callback);
+
+    }
+
+    /**
+     * List analyses
+     * Returns a page of analyses visible to the caller, filtered and ordered by the query parameters.  **Error codes:** - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
+     * @param searchTerm  (optional)
+     * @param analysisScope Leave empty for no filter (optional)
+     * @param status  (optional)
+     * @param modelName  (optional)
+     * @param usernames  (optional)
+     * @param sha256Hash  (optional)
+     * @param pageSize  (optional, default to 20)
+     * @param nextPageToken Forward-pagination cursor from a prior response. When set, order_by/order are taken from the token (the sort cannot change mid-pagination). (optional)
+     * @param orderBy  (optional, default to created)
+     * @param order  (optional, default to DESC)
+     * @return ListAnalysesOutputBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListAnalysesOutputBody v3ListAnalyses(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<String> analysisScope, @javax.annotation.Nullable List<String> status, @javax.annotation.Nullable List<String> modelName, @javax.annotation.Nullable List<String> usernames, @javax.annotation.Nullable String sha256Hash, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String nextPageToken, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String order) throws ApiException {
+        ApiResponse<ListAnalysesOutputBody> localVarResp = v3ListAnalysesWithHttpInfo(searchTerm, analysisScope, status, modelName, usernames, sha256Hash, pageSize, nextPageToken, orderBy, order);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List analyses
+     * Returns a page of analyses visible to the caller, filtered and ordered by the query parameters.  **Error codes:** - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
+     * @param searchTerm  (optional)
+     * @param analysisScope Leave empty for no filter (optional)
+     * @param status  (optional)
+     * @param modelName  (optional)
+     * @param usernames  (optional)
+     * @param sha256Hash  (optional)
+     * @param pageSize  (optional, default to 20)
+     * @param nextPageToken Forward-pagination cursor from a prior response. When set, order_by/order are taken from the token (the sort cannot change mid-pagination). (optional)
+     * @param orderBy  (optional, default to created)
+     * @param order  (optional, default to DESC)
+     * @return ApiResponse&lt;ListAnalysesOutputBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListAnalysesOutputBody> v3ListAnalysesWithHttpInfo(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<String> analysisScope, @javax.annotation.Nullable List<String> status, @javax.annotation.Nullable List<String> modelName, @javax.annotation.Nullable List<String> usernames, @javax.annotation.Nullable String sha256Hash, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String nextPageToken, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String order) throws ApiException {
+        okhttp3.Call localVarCall = v3ListAnalysesValidateBeforeCall(searchTerm, analysisScope, status, modelName, usernames, sha256Hash, pageSize, nextPageToken, orderBy, order, null);
+        Type localVarReturnType = new TypeToken<ListAnalysesOutputBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List analyses (asynchronously)
+     * Returns a page of analyses visible to the caller, filtered and ordered by the query parameters.  **Error codes:** - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
+     * @param searchTerm  (optional)
+     * @param analysisScope Leave empty for no filter (optional)
+     * @param status  (optional)
+     * @param modelName  (optional)
+     * @param usernames  (optional)
+     * @param sha256Hash  (optional)
+     * @param pageSize  (optional, default to 20)
+     * @param nextPageToken Forward-pagination cursor from a prior response. When set, order_by/order are taken from the token (the sort cannot change mid-pagination). (optional)
+     * @param orderBy  (optional, default to created)
+     * @param order  (optional, default to DESC)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3ListAnalysesAsync(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<String> analysisScope, @javax.annotation.Nullable List<String> status, @javax.annotation.Nullable List<String> modelName, @javax.annotation.Nullable List<String> usernames, @javax.annotation.Nullable String sha256Hash, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String nextPageToken, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String order, final ApiCallback<ListAnalysesOutputBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = v3ListAnalysesValidateBeforeCall(searchTerm, analysisScope, status, modelName, usernames, sha256Hash, pageSize, nextPageToken, orderBy, order, _callback);
+        Type localVarReturnType = new TypeToken<ListAnalysesOutputBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
