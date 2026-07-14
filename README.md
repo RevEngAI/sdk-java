@@ -16,7 +16,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>ai.reveng</groupId>
     <artifactId>sdk</artifactId>
-    <version>3.113.0</version>
+    <version>3.114.2</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -31,7 +31,7 @@ repositories {
 }
 
 dependencies {
-    implementation "ai.reveng:sdk:3.113.0"
+    implementation "ai.reveng:sdk:3.114.2"
 }
 ```
 
@@ -490,6 +490,7 @@ Class | Method | HTTP request | Description
  - [EventTITLEUPDATED](docs/EventTITLEUPDATED.md)
  - [EventTOOLCALLARGSDELTA](docs/EventTOOLCALLARGSDELTA.md)
  - [EventTOOLCALLEND](docs/EventTOOLCALLEND.md)
+ - [EventTOOLCALLPROGRESS](docs/EventTOOLCALLPROGRESS.md)
  - [EventTOOLCALLRESULT](docs/EventTOOLCALLRESULT.md)
  - [EventTOOLCALLSTART](docs/EventTOOLCALLSTART.md)
  - [EventTOOLCONFIRMATIONREQUIRED](docs/EventTOOLCONFIRMATIONREQUIRED.md)
@@ -685,6 +686,7 @@ Class | Method | HTTP request | Description
  - [SseEventTitleUpdatedData](docs/SseEventTitleUpdatedData.md)
  - [SseEventToolCallArgsDeltaData](docs/SseEventToolCallArgsDeltaData.md)
  - [SseEventToolCallEndData](docs/SseEventToolCallEndData.md)
+ - [SseEventToolCallProgressData](docs/SseEventToolCallProgressData.md)
  - [SseEventToolCallResultData](docs/SseEventToolCallResultData.md)
  - [SseEventToolCallStartData](docs/SseEventToolCallStartData.md)
  - [SseEventToolConfirmationRequiredData](docs/SseEventToolConfirmationRequiredData.md)
