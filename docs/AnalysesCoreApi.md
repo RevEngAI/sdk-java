@@ -1895,7 +1895,7 @@ public class Example {
 
 <a id="v3GetAnalysisStrings"></a>
 # **v3GetAnalysisStrings**
-> ListAnalysisStringsOutputBody v3GetAnalysisStrings(analysisId, page, pageSize, search, functionSearch, orderBy, sortOrder)
+> ListAnalysisStringsOutputBody v3GetAnalysisStrings(analysisId, page, pageSize, search, searchOperator, functionSearch, orderBy, sortOrder)
 
 List strings for an analysis.
 
@@ -1931,11 +1931,12 @@ public class Example {
     Long page = 1L; // Long | Page number (1-indexed).
     Long pageSize = 100L; // Long | Number of results per page.
     String search = "search_example"; // String | Filter by string value (case-insensitive substring match).
+    String searchOperator = "CONTAINS"; // String | How the search term matches string values.
     String functionSearch = "functionSearch_example"; // String | Filter by function name (case-insensitive substring match).
     String orderBy = "value"; // String | Field to order results by.
     String sortOrder = "ASC"; // String | Sort direction.
     try {
-      ListAnalysisStringsOutputBody result = apiInstance.v3GetAnalysisStrings(analysisId, page, pageSize, search, functionSearch, orderBy, sortOrder);
+      ListAnalysisStringsOutputBody result = apiInstance.v3GetAnalysisStrings(analysisId, page, pageSize, search, searchOperator, functionSearch, orderBy, sortOrder);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCoreApi#v3GetAnalysisStrings");
@@ -1956,6 +1957,7 @@ public class Example {
 | **page** | **Long**| Page number (1-indexed). | [optional] [default to 1] |
 | **pageSize** | **Long**| Number of results per page. | [optional] [default to 100] |
 | **search** | **String**| Filter by string value (case-insensitive substring match). | [optional] |
+| **searchOperator** | **String**| How the search term matches string values. | [optional] [default to CONTAINS] [enum: CONTAINS, STARTS_WITH] |
 | **functionSearch** | **String**| Filter by function name (case-insensitive substring match). | [optional] |
 | **orderBy** | **String**| Field to order results by. | [optional] [default to value] [enum: value, length] |
 | **sortOrder** | **String**| Sort direction. | [optional] [default to ASC] [enum: ASC, DESC] |
