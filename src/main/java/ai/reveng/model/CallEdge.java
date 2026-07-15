@@ -79,6 +79,11 @@ public class CallEdge {
   @javax.annotation.Nonnull
   private Long callerVaddr;
 
+  public static final String SERIALIZED_NAME_IMPORTED_FUNCTION_ID = "imported_function_id";
+  @SerializedName(SERIALIZED_NAME_IMPORTED_FUNCTION_ID)
+  @javax.annotation.Nullable
+  private Long importedFunctionId;
+
   public static final String SERIALIZED_NAME_IS_EXTERNAL = "is_external";
   @SerializedName(SERIALIZED_NAME_IS_EXTERNAL)
   @javax.annotation.Nonnull
@@ -206,6 +211,25 @@ public class CallEdge {
   }
 
 
+  public CallEdge importedFunctionId(@javax.annotation.Nullable Long importedFunctionId) {
+    this.importedFunctionId = importedFunctionId;
+    return this;
+  }
+
+  /**
+   * Imported function ID for an external callee, resolved via the thunk/stub address.
+   * @return importedFunctionId
+   */
+  @javax.annotation.Nullable
+  public Long getImportedFunctionId() {
+    return importedFunctionId;
+  }
+
+  public void setImportedFunctionId(@javax.annotation.Nullable Long importedFunctionId) {
+    this.importedFunctionId = importedFunctionId;
+  }
+
+
   public CallEdge isExternal(@javax.annotation.Nonnull Boolean isExternal) {
     this.isExternal = isExternal;
     return this;
@@ -260,13 +284,14 @@ public class CallEdge {
         Objects.equals(this.callerFunctionId, callEdge.callerFunctionId) &&
         Objects.equals(this.callerName, callEdge.callerName) &&
         Objects.equals(this.callerVaddr, callEdge.callerVaddr) &&
+        Objects.equals(this.importedFunctionId, callEdge.importedFunctionId) &&
         Objects.equals(this.isExternal, callEdge.isExternal) &&
         Objects.equals(this.thunkedVaddr, callEdge.thunkedVaddr);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(calleeFunctionId, calleeName, calleeVaddr, callerFunctionId, callerName, callerVaddr, isExternal, thunkedVaddr);
+    return Objects.hash(calleeFunctionId, calleeName, calleeVaddr, callerFunctionId, callerName, callerVaddr, importedFunctionId, isExternal, thunkedVaddr);
   }
 
   @Override
@@ -279,6 +304,7 @@ public class CallEdge {
     sb.append("    callerFunctionId: ").append(toIndentedString(callerFunctionId)).append("\n");
     sb.append("    callerName: ").append(toIndentedString(callerName)).append("\n");
     sb.append("    callerVaddr: ").append(toIndentedString(callerVaddr)).append("\n");
+    sb.append("    importedFunctionId: ").append(toIndentedString(importedFunctionId)).append("\n");
     sb.append("    isExternal: ").append(toIndentedString(isExternal)).append("\n");
     sb.append("    thunkedVaddr: ").append(toIndentedString(thunkedVaddr)).append("\n");
     sb.append("}");
@@ -299,7 +325,7 @@ public class CallEdge {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("callee_function_id", "callee_name", "callee_vaddr", "caller_function_id", "caller_name", "caller_vaddr", "is_external", "thunked_vaddr"));
+    openapiFields = new HashSet<String>(Arrays.asList("callee_function_id", "callee_name", "callee_vaddr", "caller_function_id", "caller_name", "caller_vaddr", "imported_function_id", "is_external", "thunked_vaddr"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("callee_vaddr", "caller_function_id", "caller_vaddr", "is_external"));

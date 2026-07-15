@@ -3633,6 +3633,7 @@ public class AnalysesCoreApi {
      * @param page Page number (1-indexed). (optional, default to 1)
      * @param pageSize Number of results per page. (optional, default to 100)
      * @param search Filter by string value (case-insensitive substring match). (optional)
+     * @param searchOperator How the search term matches string values. (optional, default to CONTAINS)
      * @param functionSearch Filter by function name (case-insensitive substring match). (optional)
      * @param orderBy Field to order results by. (optional, default to value)
      * @param sortOrder Sort direction. (optional, default to ASC)
@@ -3650,7 +3651,7 @@ public class AnalysesCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call v3GetAnalysisStringsCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable Long page, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String functionSearch, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String sortOrder, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call v3GetAnalysisStringsCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable Long page, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String searchOperator, @javax.annotation.Nullable String functionSearch, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String sortOrder, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3688,6 +3689,10 @@ public class AnalysesCoreApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("search", search));
         }
 
+        if (searchOperator != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("search_operator", searchOperator));
+        }
+
         if (functionSearch != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("function_search", functionSearch));
         }
@@ -3720,13 +3725,13 @@ public class AnalysesCoreApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call v3GetAnalysisStringsValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable Long page, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String functionSearch, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String sortOrder, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call v3GetAnalysisStringsValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable Long page, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String searchOperator, @javax.annotation.Nullable String functionSearch, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String sortOrder, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
             throw new ApiException("Missing the required parameter 'analysisId' when calling v3GetAnalysisStrings(Async)");
         }
 
-        return v3GetAnalysisStringsCall(analysisId, page, pageSize, search, functionSearch, orderBy, sortOrder, _callback);
+        return v3GetAnalysisStringsCall(analysisId, page, pageSize, search, searchOperator, functionSearch, orderBy, sortOrder, _callback);
 
     }
 
@@ -3737,6 +3742,7 @@ public class AnalysesCoreApi {
      * @param page Page number (1-indexed). (optional, default to 1)
      * @param pageSize Number of results per page. (optional, default to 100)
      * @param search Filter by string value (case-insensitive substring match). (optional)
+     * @param searchOperator How the search term matches string values. (optional, default to CONTAINS)
      * @param functionSearch Filter by function name (case-insensitive substring match). (optional)
      * @param orderBy Field to order results by. (optional, default to value)
      * @param sortOrder Sort direction. (optional, default to ASC)
@@ -3753,8 +3759,8 @@ public class AnalysesCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ListAnalysisStringsOutputBody v3GetAnalysisStrings(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable Long page, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String functionSearch, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String sortOrder) throws ApiException {
-        ApiResponse<ListAnalysisStringsOutputBody> localVarResp = v3GetAnalysisStringsWithHttpInfo(analysisId, page, pageSize, search, functionSearch, orderBy, sortOrder);
+    public ListAnalysisStringsOutputBody v3GetAnalysisStrings(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable Long page, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String searchOperator, @javax.annotation.Nullable String functionSearch, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String sortOrder) throws ApiException {
+        ApiResponse<ListAnalysisStringsOutputBody> localVarResp = v3GetAnalysisStringsWithHttpInfo(analysisId, page, pageSize, search, searchOperator, functionSearch, orderBy, sortOrder);
         return localVarResp.getData();
     }
 
@@ -3765,6 +3771,7 @@ public class AnalysesCoreApi {
      * @param page Page number (1-indexed). (optional, default to 1)
      * @param pageSize Number of results per page. (optional, default to 100)
      * @param search Filter by string value (case-insensitive substring match). (optional)
+     * @param searchOperator How the search term matches string values. (optional, default to CONTAINS)
      * @param functionSearch Filter by function name (case-insensitive substring match). (optional)
      * @param orderBy Field to order results by. (optional, default to value)
      * @param sortOrder Sort direction. (optional, default to ASC)
@@ -3781,8 +3788,8 @@ public class AnalysesCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListAnalysisStringsOutputBody> v3GetAnalysisStringsWithHttpInfo(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable Long page, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String functionSearch, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String sortOrder) throws ApiException {
-        okhttp3.Call localVarCall = v3GetAnalysisStringsValidateBeforeCall(analysisId, page, pageSize, search, functionSearch, orderBy, sortOrder, null);
+    public ApiResponse<ListAnalysisStringsOutputBody> v3GetAnalysisStringsWithHttpInfo(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable Long page, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String searchOperator, @javax.annotation.Nullable String functionSearch, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String sortOrder) throws ApiException {
+        okhttp3.Call localVarCall = v3GetAnalysisStringsValidateBeforeCall(analysisId, page, pageSize, search, searchOperator, functionSearch, orderBy, sortOrder, null);
         Type localVarReturnType = new TypeToken<ListAnalysisStringsOutputBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3794,6 +3801,7 @@ public class AnalysesCoreApi {
      * @param page Page number (1-indexed). (optional, default to 1)
      * @param pageSize Number of results per page. (optional, default to 100)
      * @param search Filter by string value (case-insensitive substring match). (optional)
+     * @param searchOperator How the search term matches string values. (optional, default to CONTAINS)
      * @param functionSearch Filter by function name (case-insensitive substring match). (optional)
      * @param orderBy Field to order results by. (optional, default to value)
      * @param sortOrder Sort direction. (optional, default to ASC)
@@ -3811,9 +3819,9 @@ public class AnalysesCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call v3GetAnalysisStringsAsync(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable Long page, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String functionSearch, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String sortOrder, final ApiCallback<ListAnalysisStringsOutputBody> _callback) throws ApiException {
+    public okhttp3.Call v3GetAnalysisStringsAsync(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable Long page, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String searchOperator, @javax.annotation.Nullable String functionSearch, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String sortOrder, final ApiCallback<ListAnalysisStringsOutputBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = v3GetAnalysisStringsValidateBeforeCall(analysisId, page, pageSize, search, functionSearch, orderBy, sortOrder, _callback);
+        okhttp3.Call localVarCall = v3GetAnalysisStringsValidateBeforeCall(analysisId, page, pageSize, search, searchOperator, functionSearch, orderBy, sortOrder, _callback);
         Type localVarReturnType = new TypeToken<ListAnalysisStringsOutputBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
