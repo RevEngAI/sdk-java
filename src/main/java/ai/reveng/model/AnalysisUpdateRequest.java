@@ -13,6 +13,7 @@
 package ai.reveng.model;
 
 import java.util.Objects;
+import ai.reveng.model.AnalysisScope;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -55,64 +56,10 @@ public class AnalysisUpdateRequest {
   @javax.annotation.Nullable
   private String binaryName;
 
-  /**
-   * Gets or Sets analysisScope
-   */
-  @JsonAdapter(AnalysisScopeEnum.Adapter.class)
-  public enum AnalysisScopeEnum {
-    PUBLIC("PUBLIC"),
-    
-    PRIVATE("PRIVATE"),
-    
-    UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
-
-    private String value;
-
-    AnalysisScopeEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static AnalysisScopeEnum fromValue(String value) {
-      for (AnalysisScopeEnum b : AnalysisScopeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      return null;
-    }
-
-    public static class Adapter extends TypeAdapter<AnalysisScopeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final AnalysisScopeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public AnalysisScopeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return AnalysisScopeEnum.fromValue(value);
-      }
-    }
-
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      String value = jsonElement.getAsString();
-      AnalysisScopeEnum.fromValue(value);
-    }
-  }
-
   public static final String SERIALIZED_NAME_ANALYSIS_SCOPE = "analysis_scope";
   @SerializedName(SERIALIZED_NAME_ANALYSIS_SCOPE)
   @javax.annotation.Nullable
-  private AnalysisScopeEnum analysisScope;
+  private AnalysisScope analysisScope;
 
   public AnalysisUpdateRequest() {
   }
@@ -136,21 +83,21 @@ public class AnalysisUpdateRequest {
   }
 
 
-  public AnalysisUpdateRequest analysisScope(@javax.annotation.Nullable AnalysisScopeEnum analysisScope) {
+  public AnalysisUpdateRequest analysisScope(@javax.annotation.Nullable AnalysisScope analysisScope) {
     this.analysisScope = analysisScope;
     return this;
   }
 
   /**
-   * Get analysisScope
+   * The scope of the analysis determines who can access it
    * @return analysisScope
    */
   @javax.annotation.Nullable
-  public AnalysisScopeEnum getAnalysisScope() {
+  public AnalysisScope getAnalysisScope() {
     return analysisScope;
   }
 
-  public void setAnalysisScope(@javax.annotation.Nullable AnalysisScopeEnum analysisScope) {
+  public void setAnalysisScope(@javax.annotation.Nullable AnalysisScope analysisScope) {
     this.analysisScope = analysisScope;
   }
 
@@ -277,12 +224,9 @@ public class AnalysisUpdateRequest {
       if ((jsonObj.get("binary_name") != null && !jsonObj.get("binary_name").isJsonNull()) && !jsonObj.get("binary_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `binary_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("binary_name").toString()));
       }
-      if ((jsonObj.get("analysis_scope") != null && !jsonObj.get("analysis_scope").isJsonNull()) && !jsonObj.get("analysis_scope").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `analysis_scope` to be a primitive type in the JSON string but got `%s`", jsonObj.get("analysis_scope").toString()));
-      }
       // validate the optional field `analysis_scope`
       if (jsonObj.get("analysis_scope") != null && !jsonObj.get("analysis_scope").isJsonNull()) {
-        AnalysisScopeEnum.validateJsonElement(jsonObj.get("analysis_scope"));
+        AnalysisScope.validateJsonElement(jsonObj.get("analysis_scope"));
       }
   }
 
