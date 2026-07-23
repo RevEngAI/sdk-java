@@ -98,11 +98,6 @@ public class CollectionListItem {
   @javax.annotation.Nonnull
   private OffsetDateTime creation;
 
-  public static final String SERIALIZED_NAME_MODEL_NAME = "model_name";
-  @SerializedName(SERIALIZED_NAME_MODEL_NAME)
-  @javax.annotation.Nonnull
-  private String modelName;
-
   public static final String SERIALIZED_NAME_TEAM_ID = "team_id";
   @SerializedName(SERIALIZED_NAME_TEAM_ID)
   @javax.annotation.Nullable
@@ -290,25 +285,6 @@ public class CollectionListItem {
   }
 
 
-  public CollectionListItem modelName(@javax.annotation.Nonnull String modelName) {
-    this.modelName = modelName;
-    return this;
-  }
-
-  /**
-   * The model being used for the collection
-   * @return modelName
-   */
-  @javax.annotation.Nonnull
-  public String getModelName() {
-    return modelName;
-  }
-
-  public void setModelName(@javax.annotation.Nonnull String modelName) {
-    this.modelName = modelName;
-  }
-
-
   public CollectionListItem teamId(@javax.annotation.Nullable Integer teamId) {
     this.teamId = teamId;
     return this;
@@ -391,7 +367,6 @@ public class CollectionListItem {
         Objects.equals(this.collectionSize, collectionListItem.collectionSize) &&
         Objects.equals(this.collectionId, collectionListItem.collectionId) &&
         Objects.equals(this.creation, collectionListItem.creation) &&
-        Objects.equals(this.modelName, collectionListItem.modelName) &&
         Objects.equals(this.teamId, collectionListItem.teamId)&&
         Objects.equals(this.additionalProperties, collectionListItem.additionalProperties);
   }
@@ -402,7 +377,7 @@ public class CollectionListItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(collectionName, description, collectionScope, collectionOwner, officialCollection, collectionTags, collectionSize, collectionId, creation, modelName, teamId, additionalProperties);
+    return Objects.hash(collectionName, description, collectionScope, collectionOwner, officialCollection, collectionTags, collectionSize, collectionId, creation, teamId, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -425,7 +400,6 @@ public class CollectionListItem {
     sb.append("    collectionSize: ").append(toIndentedString(collectionSize)).append("\n");
     sb.append("    collectionId: ").append(toIndentedString(collectionId)).append("\n");
     sb.append("    creation: ").append(toIndentedString(creation)).append("\n");
-    sb.append("    modelName: ").append(toIndentedString(modelName)).append("\n");
     sb.append("    teamId: ").append(toIndentedString(teamId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -446,10 +420,10 @@ public class CollectionListItem {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("collection_name", "description", "collection_scope", "collection_owner", "official_collection", "collection_tags", "collection_size", "collection_id", "creation", "model_name", "team_id"));
+    openapiFields = new HashSet<String>(Arrays.asList("collection_name", "description", "collection_scope", "collection_owner", "official_collection", "collection_tags", "collection_size", "collection_id", "creation", "team_id"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("collection_name", "description", "collection_scope", "collection_owner", "official_collection", "collection_size", "collection_id", "creation", "model_name"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("collection_name", "description", "collection_scope", "collection_owner", "official_collection", "collection_size", "collection_id", "creation"));
   }
 
   /**
@@ -487,9 +461,6 @@ public class CollectionListItem {
       // ensure the optional json data is an array if present
       if (jsonObj.get("collection_tags") != null && !jsonObj.get("collection_tags").isJsonNull() && !jsonObj.get("collection_tags").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `collection_tags` to be an array in the JSON string but got `%s`", jsonObj.get("collection_tags").toString()));
-      }
-      if (!jsonObj.get("model_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `model_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("model_name").toString()));
       }
   }
 

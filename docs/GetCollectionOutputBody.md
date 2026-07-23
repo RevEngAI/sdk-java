@@ -14,7 +14,6 @@
 |**createdAt** | **OffsetDateTime** |  |  |
 |**description** | **String** |  |  |
 |**hasNextPage** | **Boolean** |  |  [optional] |
-|**modelId** | **Long** |  |  |
 |**pageNumber** | **Long** |  |  [optional] |
 |**pageSize** | **Long** |  |  [optional] |
 |**tags** | **List&lt;String&gt;** |  |  [optional] |

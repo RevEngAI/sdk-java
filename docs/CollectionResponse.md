@@ -10,7 +10,6 @@
 |**collectionId** | **Integer** | Collection ID |  |
 |**collectionName** | **String** | Collection name |  |
 |**description** | **String** | Collection description |  |
-|**modelId** | **Integer** | Collection model ID |  |
 |**userId** | **Integer** | Collection user ID |  |
 |**teamId** | **Integer** | Collection team ID |  [optional] |
 |**collectionScope** | **CollectionScope** | Collection public status |  |

@@ -32,8 +32,6 @@ public enum AppApiRestV2CollectionsEnumsOrderBy {
   
   COLLECTION("collection"),
   
-  MODEL("model"),
-  
   OWNER("owner"),
   
   COLLECTION_SIZE("collection_size"),

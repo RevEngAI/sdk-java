@@ -80,6 +80,16 @@ public class HistoryEntry {
   @javax.annotation.Nullable
   private String mangledName;
 
+  public static final String SERIALIZED_NAME_SOURCE_ANALYSIS_ID = "source_analysis_id";
+  @SerializedName(SERIALIZED_NAME_SOURCE_ANALYSIS_ID)
+  @javax.annotation.Nullable
+  private Long sourceAnalysisId;
+
+  public static final String SERIALIZED_NAME_SOURCE_FUNCTION_ID = "source_function_id";
+  @SerializedName(SERIALIZED_NAME_SOURCE_FUNCTION_ID)
+  @javax.annotation.Nullable
+  private Long sourceFunctionId;
+
   public static final String SERIALIZED_NAME_SOURCE_TYPE = "source_type";
   @SerializedName(SERIALIZED_NAME_SOURCE_TYPE)
   @javax.annotation.Nonnull
@@ -202,6 +212,44 @@ public class HistoryEntry {
   }
 
 
+  public HistoryEntry sourceAnalysisId(@javax.annotation.Nullable Long sourceAnalysisId) {
+    this.sourceAnalysisId = sourceAnalysisId;
+    return this;
+  }
+
+  /**
+   * ID of the analysis the source function belongs to, if any
+   * @return sourceAnalysisId
+   */
+  @javax.annotation.Nullable
+  public Long getSourceAnalysisId() {
+    return sourceAnalysisId;
+  }
+
+  public void setSourceAnalysisId(@javax.annotation.Nullable Long sourceAnalysisId) {
+    this.sourceAnalysisId = sourceAnalysisId;
+  }
+
+
+  public HistoryEntry sourceFunctionId(@javax.annotation.Nullable Long sourceFunctionId) {
+    this.sourceFunctionId = sourceFunctionId;
+    return this;
+  }
+
+  /**
+   * ID of the source function this name was transferred from, if any
+   * @return sourceFunctionId
+   */
+  @javax.annotation.Nullable
+  public Long getSourceFunctionId() {
+    return sourceFunctionId;
+  }
+
+  public void setSourceFunctionId(@javax.annotation.Nullable Long sourceFunctionId) {
+    this.sourceFunctionId = sourceFunctionId;
+  }
+
+
   public HistoryEntry sourceType(@javax.annotation.Nonnull String sourceType) {
     this.sourceType = sourceType;
     return this;
@@ -237,12 +285,14 @@ public class HistoryEntry {
         Objects.equals(this.historyId, historyEntry.historyId) &&
         Objects.equals(this.isDebug, historyEntry.isDebug) &&
         Objects.equals(this.mangledName, historyEntry.mangledName) &&
+        Objects.equals(this.sourceAnalysisId, historyEntry.sourceAnalysisId) &&
+        Objects.equals(this.sourceFunctionId, historyEntry.sourceFunctionId) &&
         Objects.equals(this.sourceType, historyEntry.sourceType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(changeMadeBy, createdAt, functionName, historyId, isDebug, mangledName, sourceType);
+    return Objects.hash(changeMadeBy, createdAt, functionName, historyId, isDebug, mangledName, sourceAnalysisId, sourceFunctionId, sourceType);
   }
 
   @Override
@@ -255,6 +305,8 @@ public class HistoryEntry {
     sb.append("    historyId: ").append(toIndentedString(historyId)).append("\n");
     sb.append("    isDebug: ").append(toIndentedString(isDebug)).append("\n");
     sb.append("    mangledName: ").append(toIndentedString(mangledName)).append("\n");
+    sb.append("    sourceAnalysisId: ").append(toIndentedString(sourceAnalysisId)).append("\n");
+    sb.append("    sourceFunctionId: ").append(toIndentedString(sourceFunctionId)).append("\n");
     sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -274,7 +326,7 @@ public class HistoryEntry {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("change_made_by", "created_at", "function_name", "history_id", "is_debug", "mangled_name", "source_type"));
+    openapiFields = new HashSet<String>(Arrays.asList("change_made_by", "created_at", "function_name", "history_id", "is_debug", "mangled_name", "source_analysis_id", "source_function_id", "source_type"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("change_made_by", "created_at", "function_name", "history_id", "is_debug", "source_type"));

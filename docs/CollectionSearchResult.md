@@ -12,8 +12,6 @@
 |**scope** | **String** | The scope of the collection |  |
 |**lastUpdatedAt** | **OffsetDateTime** | The last update date of the collection |  |
 |**createdAt** | **OffsetDateTime** | The creation date of the collection |  |
-|**modelId** | **Integer** | The model ID of the binary |  |
-|**modelName** | **String** | The name of the model |  |
 |**ownedBy** | **String** | The owner of the collection |  |
 |**tags** | **List&lt;String&gt;** | The tags of the collection |  [optional] |
 |**size** | **Integer** | The number of binaries in the collection |  [optional] |
