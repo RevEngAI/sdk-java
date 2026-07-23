@@ -314,7 +314,7 @@ public class Example {
 | **filters** | [**List&lt;Filters&gt;**](Filters.md)|  | [optional] |
 | **limit** | **Integer**|  | [optional] [default to 20] |
 | **offset** | **Integer**|  | [optional] [default to 0] |
-| **orderBy** | [**AppApiRestV2CollectionsEnumsOrderBy**](.md)|  | [optional] [default to collection] [enum: created, collection, model, owner, collection_size, updated] |
+| **orderBy** | [**AppApiRestV2CollectionsEnumsOrderBy**](.md)|  | [optional] [default to collection] [enum: created, collection, owner, collection_size, updated] |
 | **order** | [**Order**](.md)|  | [optional] [default to ASC] [enum: ASC, DESC] |
 
 ### Return type
@@ -865,7 +865,7 @@ public class Example {
 | **filters** | [**List&lt;String&gt;**](String.md)|  | [optional] [enum: official_only, user_only, team_only, public_only, hide_empty] |
 | **limit** | **Long**|  | [optional] [default to 20] |
 | **offset** | **Long**|  | [optional] [default to 0] |
-| **orderBy** | **String**|  | [optional] [default to collection] [enum: created, collection, model, collection_size, updated] |
+| **orderBy** | **String**|  | [optional] [default to collection] [enum: created, collection, collection_size, updated, owner] |
 | **order** | **String**|  | [optional] [default to ASC] [enum: ASC, DESC] |
 
 ### Return type

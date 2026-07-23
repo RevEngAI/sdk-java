@@ -89,11 +89,6 @@ public class GetCollectionOutputBody {
   @javax.annotation.Nullable
   private Boolean hasNextPage;
 
-  public static final String SERIALIZED_NAME_MODEL_ID = "model_id";
-  @SerializedName(SERIALIZED_NAME_MODEL_ID)
-  @javax.annotation.Nonnull
-  private Long modelId;
-
   public static final String SERIALIZED_NAME_PAGE_NUMBER = "page_number";
   @SerializedName(SERIALIZED_NAME_PAGE_NUMBER)
   @javax.annotation.Nullable
@@ -268,25 +263,6 @@ public class GetCollectionOutputBody {
   }
 
 
-  public GetCollectionOutputBody modelId(@javax.annotation.Nonnull Long modelId) {
-    this.modelId = modelId;
-    return this;
-  }
-
-  /**
-   * Get modelId
-   * @return modelId
-   */
-  @javax.annotation.Nonnull
-  public Long getModelId() {
-    return modelId;
-  }
-
-  public void setModelId(@javax.annotation.Nonnull Long modelId) {
-    this.modelId = modelId;
-  }
-
-
   public GetCollectionOutputBody pageNumber(@javax.annotation.Nullable Long pageNumber) {
     this.pageNumber = pageNumber;
     return this;
@@ -426,7 +402,6 @@ public class GetCollectionOutputBody {
         Objects.equals(this.createdAt, getCollectionOutputBody.createdAt) &&
         Objects.equals(this.description, getCollectionOutputBody.description) &&
         Objects.equals(this.hasNextPage, getCollectionOutputBody.hasNextPage) &&
-        Objects.equals(this.modelId, getCollectionOutputBody.modelId) &&
         Objects.equals(this.pageNumber, getCollectionOutputBody.pageNumber) &&
         Objects.equals(this.pageSize, getCollectionOutputBody.pageSize) &&
         Objects.equals(this.tags, getCollectionOutputBody.tags) &&
@@ -441,7 +416,7 @@ public class GetCollectionOutputBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(binaries, collectionId, collectionName, collectionScope, createdAt, description, hasNextPage, modelId, pageNumber, pageSize, tags, teamId, updatedAt, userId);
+    return Objects.hash(binaries, collectionId, collectionName, collectionScope, createdAt, description, hasNextPage, pageNumber, pageSize, tags, teamId, updatedAt, userId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -462,7 +437,6 @@ public class GetCollectionOutputBody {
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    hasNextPage: ").append(toIndentedString(hasNextPage)).append("\n");
-    sb.append("    modelId: ").append(toIndentedString(modelId)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
@@ -487,10 +461,10 @@ public class GetCollectionOutputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("binaries", "collection_id", "collection_name", "collection_scope", "created_at", "description", "has_next_page", "model_id", "page_number", "page_size", "tags", "team_id", "updated_at", "user_id"));
+    openapiFields = new HashSet<String>(Arrays.asList("binaries", "collection_id", "collection_name", "collection_scope", "created_at", "description", "has_next_page", "page_number", "page_size", "tags", "team_id", "updated_at", "user_id"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("collection_id", "collection_name", "collection_scope", "created_at", "description", "model_id", "team_id", "updated_at", "user_id"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("collection_id", "collection_name", "collection_scope", "created_at", "description", "team_id", "updated_at", "user_id"));
   }
 
   /**

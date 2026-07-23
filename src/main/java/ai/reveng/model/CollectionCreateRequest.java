@@ -78,11 +78,6 @@ public class CollectionCreateRequest {
   @javax.annotation.Nullable
   private List<Integer> binaries;
 
-  public static final String SERIALIZED_NAME_MODEL_ID = "model_id";
-  @SerializedName(SERIALIZED_NAME_MODEL_ID)
-  @javax.annotation.Nonnull
-  private Integer modelId;
-
   public CollectionCreateRequest() {
   }
 
@@ -196,25 +191,6 @@ public class CollectionCreateRequest {
     this.binaries = binaries;
   }
 
-
-  public CollectionCreateRequest modelId(@javax.annotation.Nonnull Integer modelId) {
-    this.modelId = modelId;
-    return this;
-  }
-
-  /**
-   * Get modelId
-   * @return modelId
-   */
-  @javax.annotation.Nonnull
-  public Integer getModelId() {
-    return modelId;
-  }
-
-  public void setModelId(@javax.annotation.Nonnull Integer modelId) {
-    this.modelId = modelId;
-  }
-
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -274,8 +250,7 @@ public class CollectionCreateRequest {
         Objects.equals(this.description, collectionCreateRequest.description) &&
         Objects.equals(this.collectionScope, collectionCreateRequest.collectionScope) &&
         Objects.equals(this.tags, collectionCreateRequest.tags) &&
-        Objects.equals(this.binaries, collectionCreateRequest.binaries) &&
-        Objects.equals(this.modelId, collectionCreateRequest.modelId)&&
+        Objects.equals(this.binaries, collectionCreateRequest.binaries)&&
         Objects.equals(this.additionalProperties, collectionCreateRequest.additionalProperties);
   }
 
@@ -285,7 +260,7 @@ public class CollectionCreateRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(collectionName, description, collectionScope, tags, binaries, modelId, additionalProperties);
+    return Objects.hash(collectionName, description, collectionScope, tags, binaries, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -304,7 +279,6 @@ public class CollectionCreateRequest {
     sb.append("    collectionScope: ").append(toIndentedString(collectionScope)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    binaries: ").append(toIndentedString(binaries)).append("\n");
-    sb.append("    modelId: ").append(toIndentedString(modelId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -324,10 +298,10 @@ public class CollectionCreateRequest {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("collection_name", "description", "collection_scope", "tags", "binaries", "model_id"));
+    openapiFields = new HashSet<String>(Arrays.asList("collection_name", "description", "collection_scope", "tags", "binaries"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("collection_name", "description", "model_id"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("collection_name", "description"));
   }
 
   /**

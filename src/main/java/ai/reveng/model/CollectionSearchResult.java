@@ -78,16 +78,6 @@ public class CollectionSearchResult {
   @javax.annotation.Nonnull
   private OffsetDateTime createdAt;
 
-  public static final String SERIALIZED_NAME_MODEL_ID = "model_id";
-  @SerializedName(SERIALIZED_NAME_MODEL_ID)
-  @javax.annotation.Nonnull
-  private Integer modelId;
-
-  public static final String SERIALIZED_NAME_MODEL_NAME = "model_name";
-  @SerializedName(SERIALIZED_NAME_MODEL_NAME)
-  @javax.annotation.Nonnull
-  private String modelName;
-
   public static final String SERIALIZED_NAME_OWNED_BY = "owned_by";
   @SerializedName(SERIALIZED_NAME_OWNED_BY)
   @javax.annotation.Nonnull
@@ -208,44 +198,6 @@ public class CollectionSearchResult {
 
   public void setCreatedAt(@javax.annotation.Nonnull OffsetDateTime createdAt) {
     this.createdAt = createdAt;
-  }
-
-
-  public CollectionSearchResult modelId(@javax.annotation.Nonnull Integer modelId) {
-    this.modelId = modelId;
-    return this;
-  }
-
-  /**
-   * The model ID of the binary
-   * @return modelId
-   */
-  @javax.annotation.Nonnull
-  public Integer getModelId() {
-    return modelId;
-  }
-
-  public void setModelId(@javax.annotation.Nonnull Integer modelId) {
-    this.modelId = modelId;
-  }
-
-
-  public CollectionSearchResult modelName(@javax.annotation.Nonnull String modelName) {
-    this.modelName = modelName;
-    return this;
-  }
-
-  /**
-   * The name of the model
-   * @return modelName
-   */
-  @javax.annotation.Nonnull
-  public String getModelName() {
-    return modelName;
-  }
-
-  public void setModelName(@javax.annotation.Nonnull String modelName) {
-    this.modelName = modelName;
   }
 
 
@@ -411,8 +363,6 @@ public class CollectionSearchResult {
         Objects.equals(this.scope, collectionSearchResult.scope) &&
         Objects.equals(this.lastUpdatedAt, collectionSearchResult.lastUpdatedAt) &&
         Objects.equals(this.createdAt, collectionSearchResult.createdAt) &&
-        Objects.equals(this.modelId, collectionSearchResult.modelId) &&
-        Objects.equals(this.modelName, collectionSearchResult.modelName) &&
         Objects.equals(this.ownedBy, collectionSearchResult.ownedBy) &&
         Objects.equals(this.tags, collectionSearchResult.tags) &&
         Objects.equals(this.size, collectionSearchResult.size) &&
@@ -427,7 +377,7 @@ public class CollectionSearchResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(collectionId, collectionName, scope, lastUpdatedAt, createdAt, modelId, modelName, ownedBy, tags, size, description, teamId, additionalProperties);
+    return Objects.hash(collectionId, collectionName, scope, lastUpdatedAt, createdAt, ownedBy, tags, size, description, teamId, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -446,8 +396,6 @@ public class CollectionSearchResult {
     sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
     sb.append("    lastUpdatedAt: ").append(toIndentedString(lastUpdatedAt)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    modelId: ").append(toIndentedString(modelId)).append("\n");
-    sb.append("    modelName: ").append(toIndentedString(modelName)).append("\n");
     sb.append("    ownedBy: ").append(toIndentedString(ownedBy)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
@@ -472,10 +420,10 @@ public class CollectionSearchResult {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("collection_id", "collection_name", "scope", "last_updated_at", "created_at", "model_id", "model_name", "owned_by", "tags", "size", "description", "team_id"));
+    openapiFields = new HashSet<String>(Arrays.asList("collection_id", "collection_name", "scope", "last_updated_at", "created_at", "owned_by", "tags", "size", "description", "team_id"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("collection_id", "collection_name", "scope", "last_updated_at", "created_at", "model_id", "model_name", "owned_by", "description"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("collection_id", "collection_name", "scope", "last_updated_at", "created_at", "owned_by", "description"));
   }
 
   /**
@@ -503,9 +451,6 @@ public class CollectionSearchResult {
       }
       if (!jsonObj.get("scope").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `scope` to be a primitive type in the JSON string but got `%s`", jsonObj.get("scope").toString()));
-      }
-      if (!jsonObj.get("model_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `model_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("model_name").toString()));
       }
       if (!jsonObj.get("owned_by").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `owned_by` to be a primitive type in the JSON string but got `%s`", jsonObj.get("owned_by").toString()));

@@ -85,10 +85,20 @@ public class AnalysisFunctionEntry {
   @javax.annotation.Nullable
   private String mangledName;
 
+  public static final String SERIALIZED_NAME_SOURCE_ANALYSIS_ID = "source_analysis_id";
+  @SerializedName(SERIALIZED_NAME_SOURCE_ANALYSIS_ID)
+  @javax.annotation.Nullable
+  private Long sourceAnalysisId;
+
   public static final String SERIALIZED_NAME_SOURCE_BINARY_ID = "source_binary_id";
   @SerializedName(SERIALIZED_NAME_SOURCE_BINARY_ID)
   @javax.annotation.Nullable
   private Long sourceBinaryId;
+
+  public static final String SERIALIZED_NAME_SOURCE_FUNCTION_ID = "source_function_id";
+  @SerializedName(SERIALIZED_NAME_SOURCE_FUNCTION_ID)
+  @javax.annotation.Nullable
+  private Long sourceFunctionId;
 
   public static final String SERIALIZED_NAME_SOURCE_TYPE = "source_type";
   @SerializedName(SERIALIZED_NAME_SOURCE_TYPE)
@@ -231,6 +241,25 @@ public class AnalysisFunctionEntry {
   }
 
 
+  public AnalysisFunctionEntry sourceAnalysisId(@javax.annotation.Nullable Long sourceAnalysisId) {
+    this.sourceAnalysisId = sourceAnalysisId;
+    return this;
+  }
+
+  /**
+   * ID of the analysis the source function belongs to, if any
+   * @return sourceAnalysisId
+   */
+  @javax.annotation.Nullable
+  public Long getSourceAnalysisId() {
+    return sourceAnalysisId;
+  }
+
+  public void setSourceAnalysisId(@javax.annotation.Nullable Long sourceAnalysisId) {
+    this.sourceAnalysisId = sourceAnalysisId;
+  }
+
+
   public AnalysisFunctionEntry sourceBinaryId(@javax.annotation.Nullable Long sourceBinaryId) {
     this.sourceBinaryId = sourceBinaryId;
     return this;
@@ -247,6 +276,25 @@ public class AnalysisFunctionEntry {
 
   public void setSourceBinaryId(@javax.annotation.Nullable Long sourceBinaryId) {
     this.sourceBinaryId = sourceBinaryId;
+  }
+
+
+  public AnalysisFunctionEntry sourceFunctionId(@javax.annotation.Nullable Long sourceFunctionId) {
+    this.sourceFunctionId = sourceFunctionId;
+    return this;
+  }
+
+  /**
+   * ID of the source function this name was transferred from, if any
+   * @return sourceFunctionId
+   */
+  @javax.annotation.Nullable
+  public Long getSourceFunctionId() {
+    return sourceFunctionId;
+  }
+
+  public void setSourceFunctionId(@javax.annotation.Nullable Long sourceFunctionId) {
+    this.sourceFunctionId = sourceFunctionId;
   }
 
 
@@ -330,7 +378,9 @@ public class AnalysisFunctionEntry {
         Objects.equals(this.functionSize, analysisFunctionEntry.functionSize) &&
         Objects.equals(this.functionVaddr, analysisFunctionEntry.functionVaddr) &&
         Objects.equals(this.mangledName, analysisFunctionEntry.mangledName) &&
+        Objects.equals(this.sourceAnalysisId, analysisFunctionEntry.sourceAnalysisId) &&
         Objects.equals(this.sourceBinaryId, analysisFunctionEntry.sourceBinaryId) &&
+        Objects.equals(this.sourceFunctionId, analysisFunctionEntry.sourceFunctionId) &&
         Objects.equals(this.sourceType, analysisFunctionEntry.sourceType)&&
         Objects.equals(this.additionalProperties, analysisFunctionEntry.additionalProperties);
   }
@@ -341,7 +391,7 @@ public class AnalysisFunctionEntry {
 
   @Override
   public int hashCode() {
-    return Objects.hash(binaryId, debug, functionId, functionName, functionSize, functionVaddr, mangledName, sourceBinaryId, sourceType, additionalProperties);
+    return Objects.hash(binaryId, debug, functionId, functionName, functionSize, functionVaddr, mangledName, sourceAnalysisId, sourceBinaryId, sourceFunctionId, sourceType, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -362,7 +412,9 @@ public class AnalysisFunctionEntry {
     sb.append("    functionSize: ").append(toIndentedString(functionSize)).append("\n");
     sb.append("    functionVaddr: ").append(toIndentedString(functionVaddr)).append("\n");
     sb.append("    mangledName: ").append(toIndentedString(mangledName)).append("\n");
+    sb.append("    sourceAnalysisId: ").append(toIndentedString(sourceAnalysisId)).append("\n");
     sb.append("    sourceBinaryId: ").append(toIndentedString(sourceBinaryId)).append("\n");
+    sb.append("    sourceFunctionId: ").append(toIndentedString(sourceFunctionId)).append("\n");
     sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -383,7 +435,7 @@ public class AnalysisFunctionEntry {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("binary_id", "debug", "function_id", "function_name", "function_size", "function_vaddr", "mangled_name", "source_binary_id", "source_type"));
+    openapiFields = new HashSet<String>(Arrays.asList("binary_id", "debug", "function_id", "function_name", "function_size", "function_vaddr", "mangled_name", "source_analysis_id", "source_binary_id", "source_function_id", "source_type"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("binary_id", "debug", "function_id", "function_name", "function_size", "function_vaddr", "source_type"));

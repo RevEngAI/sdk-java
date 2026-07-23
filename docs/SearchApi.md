@@ -100,7 +100,7 @@ public class Example {
 
 <a id="searchCollections"></a>
 # **searchCollections**
-> BaseResponseCollectionSearchResponse searchCollections(page, pageSize, partialCollectionName, partialBinaryName, partialBinarySha256, tags, modelName, filters, orderBy, orderByDirection)
+> BaseResponseCollectionSearchResponse searchCollections(page, pageSize, partialCollectionName, partialBinaryName, partialBinarySha256, tags, filters, orderBy, orderByDirection)
 
 Collections search
 
@@ -138,12 +138,11 @@ public class Example {
     String partialBinaryName = "partialBinaryName_example"; // String | The partial or full name of the binary belonging to the collection
     String partialBinarySha256 = "partialBinarySha256_example"; // String | The partial or full sha256 of the binary belonging to the collection
     List<String> tags = Arrays.asList(); // List<String> | The tags to be searched for
-    String modelName = "modelName_example"; // String | The name of the model used to analyze the binary the function belongs to
     List<Filters> filters = Arrays.asList(); // List<Filters> | The filters to be used for the search
     AppApiRestV2CollectionsEnumsOrderBy orderBy = AppApiRestV2CollectionsEnumsOrderBy.fromValue("created"); // AppApiRestV2CollectionsEnumsOrderBy | The field to sort the order by in the results
     Order orderByDirection = Order.fromValue("ASC"); // Order | The order direction in which to return results
     try {
-      BaseResponseCollectionSearchResponse result = apiInstance.searchCollections(page, pageSize, partialCollectionName, partialBinaryName, partialBinarySha256, tags, modelName, filters, orderBy, orderByDirection);
+      BaseResponseCollectionSearchResponse result = apiInstance.searchCollections(page, pageSize, partialCollectionName, partialBinaryName, partialBinarySha256, tags, filters, orderBy, orderByDirection);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SearchApi#searchCollections");
@@ -166,9 +165,8 @@ public class Example {
 | **partialBinaryName** | **String**| The partial or full name of the binary belonging to the collection | [optional] |
 | **partialBinarySha256** | **String**| The partial or full sha256 of the binary belonging to the collection | [optional] |
 | **tags** | [**List&lt;String&gt;**](String.md)| The tags to be searched for | [optional] |
-| **modelName** | **String**| The name of the model used to analyze the binary the function belongs to | [optional] |
 | **filters** | [**List&lt;Filters&gt;**](Filters.md)| The filters to be used for the search | [optional] |
-| **orderBy** | [**AppApiRestV2CollectionsEnumsOrderBy**](.md)| The field to sort the order by in the results | [optional] [default to created] [enum: created, collection, model, owner, collection_size, updated] |
+| **orderBy** | [**AppApiRestV2CollectionsEnumsOrderBy**](.md)| The field to sort the order by in the results | [optional] [default to created] [enum: created, collection, owner, collection_size, updated] |
 | **orderByDirection** | [**Order**](.md)| The order direction in which to return results | [optional] [default to DESC] [enum: ASC, DESC] |
 
 ### Return type
@@ -188,8 +186,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful Response |  -  |
-| **422** | You must provide at least one of the filters; partial_collection_name, partial_binary_name, partial_binary_sha256, tags or model_name to search |  -  |
-| **404** | The model name provided does not exist |  -  |
+| **422** | You must provide at least one of the filters; partial_collection_name, partial_binary_name, partial_binary_sha256 or tags to search |  -  |
 
 <a id="searchFunctions"></a>
 # **searchFunctions**

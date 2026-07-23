@@ -92,11 +92,6 @@ public class CollectionListItemBody {
   @javax.annotation.Nonnull
   private String description;
 
-  public static final String SERIALIZED_NAME_MODEL_NAME = "model_name";
-  @SerializedName(SERIALIZED_NAME_MODEL_NAME)
-  @javax.annotation.Nonnull
-  private String modelName;
-
   public static final String SERIALIZED_NAME_OFFICIAL_COLLECTION = "official_collection";
   @SerializedName(SERIALIZED_NAME_OFFICIAL_COLLECTION)
   @javax.annotation.Nonnull
@@ -106,6 +101,11 @@ public class CollectionListItemBody {
   @SerializedName(SERIALIZED_NAME_TEAM_ID)
   @javax.annotation.Nonnull
   private Long teamId;
+
+  public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
+  @SerializedName(SERIALIZED_NAME_UPDATED_AT)
+  @javax.annotation.Nonnull
+  private OffsetDateTime updatedAt;
 
   public CollectionListItemBody() {
   }
@@ -270,25 +270,6 @@ public class CollectionListItemBody {
   }
 
 
-  public CollectionListItemBody modelName(@javax.annotation.Nonnull String modelName) {
-    this.modelName = modelName;
-    return this;
-  }
-
-  /**
-   * Get modelName
-   * @return modelName
-   */
-  @javax.annotation.Nonnull
-  public String getModelName() {
-    return modelName;
-  }
-
-  public void setModelName(@javax.annotation.Nonnull String modelName) {
-    this.modelName = modelName;
-  }
-
-
   public CollectionListItemBody officialCollection(@javax.annotation.Nonnull Boolean officialCollection) {
     this.officialCollection = officialCollection;
     return this;
@@ -327,6 +308,25 @@ public class CollectionListItemBody {
   }
 
 
+  public CollectionListItemBody updatedAt(@javax.annotation.Nonnull OffsetDateTime updatedAt) {
+    this.updatedAt = updatedAt;
+    return this;
+  }
+
+  /**
+   * Get updatedAt
+   * @return updatedAt
+   */
+  @javax.annotation.Nonnull
+  public OffsetDateTime getUpdatedAt() {
+    return updatedAt;
+  }
+
+  public void setUpdatedAt(@javax.annotation.Nonnull OffsetDateTime updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -345,14 +345,14 @@ public class CollectionListItemBody {
         Objects.equals(this.collectionTags, collectionListItemBody.collectionTags) &&
         Objects.equals(this.creation, collectionListItemBody.creation) &&
         Objects.equals(this.description, collectionListItemBody.description) &&
-        Objects.equals(this.modelName, collectionListItemBody.modelName) &&
         Objects.equals(this.officialCollection, collectionListItemBody.officialCollection) &&
-        Objects.equals(this.teamId, collectionListItemBody.teamId);
+        Objects.equals(this.teamId, collectionListItemBody.teamId) &&
+        Objects.equals(this.updatedAt, collectionListItemBody.updatedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(collectionId, collectionName, collectionOwner, collectionScope, collectionSize, collectionTags, creation, description, modelName, officialCollection, teamId);
+    return Objects.hash(collectionId, collectionName, collectionOwner, collectionScope, collectionSize, collectionTags, creation, description, officialCollection, teamId, updatedAt);
   }
 
   @Override
@@ -367,9 +367,9 @@ public class CollectionListItemBody {
     sb.append("    collectionTags: ").append(toIndentedString(collectionTags)).append("\n");
     sb.append("    creation: ").append(toIndentedString(creation)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    modelName: ").append(toIndentedString(modelName)).append("\n");
     sb.append("    officialCollection: ").append(toIndentedString(officialCollection)).append("\n");
     sb.append("    teamId: ").append(toIndentedString(teamId)).append("\n");
+    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -388,10 +388,10 @@ public class CollectionListItemBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("collection_id", "collection_name", "collection_owner", "collection_scope", "collection_size", "collection_tags", "creation", "description", "model_name", "official_collection", "team_id"));
+    openapiFields = new HashSet<String>(Arrays.asList("collection_id", "collection_name", "collection_owner", "collection_scope", "collection_size", "collection_tags", "creation", "description", "official_collection", "team_id", "updated_at"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("collection_id", "collection_name", "collection_owner", "collection_scope", "collection_size", "collection_tags", "creation", "description", "model_name", "official_collection", "team_id"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("collection_id", "collection_name", "collection_owner", "collection_scope", "collection_size", "collection_tags", "creation", "description", "official_collection", "team_id", "updated_at"));
   }
 
   /**
@@ -439,9 +439,6 @@ public class CollectionListItemBody {
       }
       if (!jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
-      if (!jsonObj.get("model_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `model_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("model_name").toString()));
       }
   }
 

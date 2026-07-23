@@ -15,9 +15,9 @@
 |**collectionTags** | **List&lt;String&gt;** |  |  |
 |**creation** | **OffsetDateTime** |  |  |
 |**description** | **String** |  |  |
-|**modelName** | **String** |  |  |
 |**officialCollection** | **Boolean** |  |  |
 |**teamId** | **Long** |  |  |
+|**updatedAt** | **OffsetDateTime** |  |  |
 
 
 

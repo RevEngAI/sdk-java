@@ -13,7 +13,6 @@
 |**collectionScope** | **String** |  |  |
 |**createdAt** | **OffsetDateTime** |  |  |
 |**description** | **String** |  |  |
-|**modelId** | **Long** |  |  |
 |**teamId** | **Long** |  |  |
 |**updatedAt** | **OffsetDateTime** |  |  |
 |**userId** | **Long** |  |  |

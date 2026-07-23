@@ -70,11 +70,6 @@ public class CollectionResponse {
   @javax.annotation.Nonnull
   private String description;
 
-  public static final String SERIALIZED_NAME_MODEL_ID = "model_id";
-  @SerializedName(SERIALIZED_NAME_MODEL_ID)
-  @javax.annotation.Nonnull
-  private Integer modelId;
-
   public static final String SERIALIZED_NAME_USER_ID = "user_id";
   @SerializedName(SERIALIZED_NAME_USER_ID)
   @javax.annotation.Nonnull
@@ -167,25 +162,6 @@ public class CollectionResponse {
 
   public void setDescription(@javax.annotation.Nonnull String description) {
     this.description = description;
-  }
-
-
-  public CollectionResponse modelId(@javax.annotation.Nonnull Integer modelId) {
-    this.modelId = modelId;
-    return this;
-  }
-
-  /**
-   * Collection model ID
-   * @return modelId
-   */
-  @javax.annotation.Nonnull
-  public Integer getModelId() {
-    return modelId;
-  }
-
-  public void setModelId(@javax.annotation.Nonnull Integer modelId) {
-    this.modelId = modelId;
   }
 
 
@@ -395,7 +371,6 @@ public class CollectionResponse {
     return Objects.equals(this.collectionId, collectionResponse.collectionId) &&
         Objects.equals(this.collectionName, collectionResponse.collectionName) &&
         Objects.equals(this.description, collectionResponse.description) &&
-        Objects.equals(this.modelId, collectionResponse.modelId) &&
         Objects.equals(this.userId, collectionResponse.userId) &&
         Objects.equals(this.teamId, collectionResponse.teamId) &&
         Objects.equals(this.collectionScope, collectionResponse.collectionScope) &&
@@ -412,7 +387,7 @@ public class CollectionResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(collectionId, collectionName, description, modelId, userId, teamId, collectionScope, createdAt, updatedAt, tags, binaries, additionalProperties);
+    return Objects.hash(collectionId, collectionName, description, userId, teamId, collectionScope, createdAt, updatedAt, tags, binaries, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -429,7 +404,6 @@ public class CollectionResponse {
     sb.append("    collectionId: ").append(toIndentedString(collectionId)).append("\n");
     sb.append("    collectionName: ").append(toIndentedString(collectionName)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    modelId: ").append(toIndentedString(modelId)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    teamId: ").append(toIndentedString(teamId)).append("\n");
     sb.append("    collectionScope: ").append(toIndentedString(collectionScope)).append("\n");
@@ -456,10 +430,10 @@ public class CollectionResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("collection_id", "collection_name", "description", "model_id", "user_id", "team_id", "collection_scope", "created_at", "updated_at", "tags", "binaries"));
+    openapiFields = new HashSet<String>(Arrays.asList("collection_id", "collection_name", "description", "user_id", "team_id", "collection_scope", "created_at", "updated_at", "tags", "binaries"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("collection_id", "collection_name", "description", "model_id", "user_id", "collection_scope", "created_at", "updated_at"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("collection_id", "collection_name", "description", "user_id", "collection_scope", "created_at", "updated_at"));
   }
 
   /**

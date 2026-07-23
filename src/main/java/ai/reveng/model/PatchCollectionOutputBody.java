@@ -80,11 +80,6 @@ public class PatchCollectionOutputBody {
   @javax.annotation.Nonnull
   private String description;
 
-  public static final String SERIALIZED_NAME_MODEL_ID = "model_id";
-  @SerializedName(SERIALIZED_NAME_MODEL_ID)
-  @javax.annotation.Nonnull
-  private Long modelId;
-
   public static final String SERIALIZED_NAME_TEAM_ID = "team_id";
   @SerializedName(SERIALIZED_NAME_TEAM_ID)
   @javax.annotation.Nonnull
@@ -217,25 +212,6 @@ public class PatchCollectionOutputBody {
   }
 
 
-  public PatchCollectionOutputBody modelId(@javax.annotation.Nonnull Long modelId) {
-    this.modelId = modelId;
-    return this;
-  }
-
-  /**
-   * Get modelId
-   * @return modelId
-   */
-  @javax.annotation.Nonnull
-  public Long getModelId() {
-    return modelId;
-  }
-
-  public void setModelId(@javax.annotation.Nonnull Long modelId) {
-    this.modelId = modelId;
-  }
-
-
   public PatchCollectionOutputBody teamId(@javax.annotation.Nonnull Long teamId) {
     this.teamId = teamId;
     return this;
@@ -309,7 +285,6 @@ public class PatchCollectionOutputBody {
         Objects.equals(this.collectionScope, patchCollectionOutputBody.collectionScope) &&
         Objects.equals(this.createdAt, patchCollectionOutputBody.createdAt) &&
         Objects.equals(this.description, patchCollectionOutputBody.description) &&
-        Objects.equals(this.modelId, patchCollectionOutputBody.modelId) &&
         Objects.equals(this.teamId, patchCollectionOutputBody.teamId) &&
         Objects.equals(this.updatedAt, patchCollectionOutputBody.updatedAt) &&
         Objects.equals(this.userId, patchCollectionOutputBody.userId);
@@ -317,7 +292,7 @@ public class PatchCollectionOutputBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(binaryCount, collectionId, collectionName, collectionScope, createdAt, description, modelId, teamId, updatedAt, userId);
+    return Objects.hash(binaryCount, collectionId, collectionName, collectionScope, createdAt, description, teamId, updatedAt, userId);
   }
 
   @Override
@@ -330,7 +305,6 @@ public class PatchCollectionOutputBody {
     sb.append("    collectionScope: ").append(toIndentedString(collectionScope)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    modelId: ").append(toIndentedString(modelId)).append("\n");
     sb.append("    teamId: ").append(toIndentedString(teamId)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
@@ -352,10 +326,10 @@ public class PatchCollectionOutputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("binary_count", "collection_id", "collection_name", "collection_scope", "created_at", "description", "model_id", "team_id", "updated_at", "user_id"));
+    openapiFields = new HashSet<String>(Arrays.asList("binary_count", "collection_id", "collection_name", "collection_scope", "created_at", "description", "team_id", "updated_at", "user_id"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("binary_count", "collection_id", "collection_name", "collection_scope", "created_at", "description", "model_id", "team_id", "updated_at", "user_id"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("binary_count", "collection_id", "collection_name", "collection_scope", "created_at", "description", "team_id", "updated_at", "user_id"));
   }
 
   /**

@@ -84,11 +84,6 @@ public class CreateCollectionOutputBody {
   @javax.annotation.Nonnull
   private String description;
 
-  public static final String SERIALIZED_NAME_MODEL_ID = "model_id";
-  @SerializedName(SERIALIZED_NAME_MODEL_ID)
-  @javax.annotation.Nonnull
-  private Long modelId;
-
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   @javax.annotation.Nullable
@@ -234,25 +229,6 @@ public class CreateCollectionOutputBody {
   }
 
 
-  public CreateCollectionOutputBody modelId(@javax.annotation.Nonnull Long modelId) {
-    this.modelId = modelId;
-    return this;
-  }
-
-  /**
-   * Get modelId
-   * @return modelId
-   */
-  @javax.annotation.Nonnull
-  public Long getModelId() {
-    return modelId;
-  }
-
-  public void setModelId(@javax.annotation.Nonnull Long modelId) {
-    this.modelId = modelId;
-  }
-
-
   public CreateCollectionOutputBody tags(@javax.annotation.Nullable List<String> tags) {
     this.tags = tags;
     return this;
@@ -353,7 +329,6 @@ public class CreateCollectionOutputBody {
         Objects.equals(this.collectionScope, createCollectionOutputBody.collectionScope) &&
         Objects.equals(this.createdAt, createCollectionOutputBody.createdAt) &&
         Objects.equals(this.description, createCollectionOutputBody.description) &&
-        Objects.equals(this.modelId, createCollectionOutputBody.modelId) &&
         Objects.equals(this.tags, createCollectionOutputBody.tags) &&
         Objects.equals(this.teamId, createCollectionOutputBody.teamId) &&
         Objects.equals(this.updatedAt, createCollectionOutputBody.updatedAt) &&
@@ -366,7 +341,7 @@ public class CreateCollectionOutputBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(binaries, collectionId, collectionName, collectionScope, createdAt, description, modelId, tags, teamId, updatedAt, userId);
+    return Objects.hash(binaries, collectionId, collectionName, collectionScope, createdAt, description, tags, teamId, updatedAt, userId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -386,7 +361,6 @@ public class CreateCollectionOutputBody {
     sb.append("    collectionScope: ").append(toIndentedString(collectionScope)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    modelId: ").append(toIndentedString(modelId)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    teamId: ").append(toIndentedString(teamId)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
@@ -409,10 +383,10 @@ public class CreateCollectionOutputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("binaries", "collection_id", "collection_name", "collection_scope", "created_at", "description", "model_id", "tags", "team_id", "updated_at", "user_id"));
+    openapiFields = new HashSet<String>(Arrays.asList("binaries", "collection_id", "collection_name", "collection_scope", "created_at", "description", "tags", "team_id", "updated_at", "user_id"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("collection_id", "collection_name", "collection_scope", "created_at", "description", "model_id", "team_id", "updated_at", "user_id"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("collection_id", "collection_name", "collection_scope", "created_at", "description", "team_id", "updated_at", "user_id"));
   }
 
   /**

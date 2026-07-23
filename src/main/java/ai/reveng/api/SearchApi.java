@@ -271,7 +271,6 @@ public class SearchApi {
      * @param partialBinaryName The partial or full name of the binary belonging to the collection (optional)
      * @param partialBinarySha256 The partial or full sha256 of the binary belonging to the collection (optional)
      * @param tags The tags to be searched for (optional)
-     * @param modelName The name of the model used to analyze the binary the function belongs to (optional)
      * @param filters The filters to be used for the search (optional)
      * @param orderBy The field to sort the order by in the results (optional, default to created)
      * @param orderByDirection The order direction in which to return results (optional, default to DESC)
@@ -283,11 +282,10 @@ public class SearchApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> You must provide at least one of the filters; partial_collection_name, partial_binary_name, partial_binary_sha256, tags or model_name to search </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> The model name provided does not exist </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> You must provide at least one of the filters; partial_collection_name, partial_binary_name, partial_binary_sha256 or tags to search </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchCollectionsCall(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialCollectionName, @javax.annotation.Nullable String partialBinaryName, @javax.annotation.Nullable String partialBinarySha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable List<Filters> filters, @javax.annotation.Nullable AppApiRestV2CollectionsEnumsOrderBy orderBy, @javax.annotation.Nullable Order orderByDirection, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchCollectionsCall(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialCollectionName, @javax.annotation.Nullable String partialBinaryName, @javax.annotation.Nullable String partialBinarySha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable List<Filters> filters, @javax.annotation.Nullable AppApiRestV2CollectionsEnumsOrderBy orderBy, @javax.annotation.Nullable Order orderByDirection, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -336,10 +334,6 @@ public class SearchApi {
             localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "tags", tags));
         }
 
-        if (modelName != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("model_name", modelName));
-        }
-
         if (filters != null) {
             localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "filters", filters));
         }
@@ -372,8 +366,8 @@ public class SearchApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchCollectionsValidateBeforeCall(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialCollectionName, @javax.annotation.Nullable String partialBinaryName, @javax.annotation.Nullable String partialBinarySha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable List<Filters> filters, @javax.annotation.Nullable AppApiRestV2CollectionsEnumsOrderBy orderBy, @javax.annotation.Nullable Order orderByDirection, final ApiCallback _callback) throws ApiException {
-        return searchCollectionsCall(page, pageSize, partialCollectionName, partialBinaryName, partialBinarySha256, tags, modelName, filters, orderBy, orderByDirection, _callback);
+    private okhttp3.Call searchCollectionsValidateBeforeCall(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialCollectionName, @javax.annotation.Nullable String partialBinaryName, @javax.annotation.Nullable String partialBinarySha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable List<Filters> filters, @javax.annotation.Nullable AppApiRestV2CollectionsEnumsOrderBy orderBy, @javax.annotation.Nullable Order orderByDirection, final ApiCallback _callback) throws ApiException {
+        return searchCollectionsCall(page, pageSize, partialCollectionName, partialBinaryName, partialBinarySha256, tags, filters, orderBy, orderByDirection, _callback);
 
     }
 
@@ -386,7 +380,6 @@ public class SearchApi {
      * @param partialBinaryName The partial or full name of the binary belonging to the collection (optional)
      * @param partialBinarySha256 The partial or full sha256 of the binary belonging to the collection (optional)
      * @param tags The tags to be searched for (optional)
-     * @param modelName The name of the model used to analyze the binary the function belongs to (optional)
      * @param filters The filters to be used for the search (optional)
      * @param orderBy The field to sort the order by in the results (optional, default to created)
      * @param orderByDirection The order direction in which to return results (optional, default to DESC)
@@ -397,12 +390,11 @@ public class SearchApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> You must provide at least one of the filters; partial_collection_name, partial_binary_name, partial_binary_sha256, tags or model_name to search </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> The model name provided does not exist </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> You must provide at least one of the filters; partial_collection_name, partial_binary_name, partial_binary_sha256 or tags to search </td><td>  -  </td></tr>
      </table>
      */
-    public BaseResponseCollectionSearchResponse searchCollections(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialCollectionName, @javax.annotation.Nullable String partialBinaryName, @javax.annotation.Nullable String partialBinarySha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable List<Filters> filters, @javax.annotation.Nullable AppApiRestV2CollectionsEnumsOrderBy orderBy, @javax.annotation.Nullable Order orderByDirection) throws ApiException {
-        ApiResponse<BaseResponseCollectionSearchResponse> localVarResp = searchCollectionsWithHttpInfo(page, pageSize, partialCollectionName, partialBinaryName, partialBinarySha256, tags, modelName, filters, orderBy, orderByDirection);
+    public BaseResponseCollectionSearchResponse searchCollections(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialCollectionName, @javax.annotation.Nullable String partialBinaryName, @javax.annotation.Nullable String partialBinarySha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable List<Filters> filters, @javax.annotation.Nullable AppApiRestV2CollectionsEnumsOrderBy orderBy, @javax.annotation.Nullable Order orderByDirection) throws ApiException {
+        ApiResponse<BaseResponseCollectionSearchResponse> localVarResp = searchCollectionsWithHttpInfo(page, pageSize, partialCollectionName, partialBinaryName, partialBinarySha256, tags, filters, orderBy, orderByDirection);
         return localVarResp.getData();
     }
 
@@ -415,7 +407,6 @@ public class SearchApi {
      * @param partialBinaryName The partial or full name of the binary belonging to the collection (optional)
      * @param partialBinarySha256 The partial or full sha256 of the binary belonging to the collection (optional)
      * @param tags The tags to be searched for (optional)
-     * @param modelName The name of the model used to analyze the binary the function belongs to (optional)
      * @param filters The filters to be used for the search (optional)
      * @param orderBy The field to sort the order by in the results (optional, default to created)
      * @param orderByDirection The order direction in which to return results (optional, default to DESC)
@@ -426,12 +417,11 @@ public class SearchApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> You must provide at least one of the filters; partial_collection_name, partial_binary_name, partial_binary_sha256, tags or model_name to search </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> The model name provided does not exist </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> You must provide at least one of the filters; partial_collection_name, partial_binary_name, partial_binary_sha256 or tags to search </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BaseResponseCollectionSearchResponse> searchCollectionsWithHttpInfo(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialCollectionName, @javax.annotation.Nullable String partialBinaryName, @javax.annotation.Nullable String partialBinarySha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable List<Filters> filters, @javax.annotation.Nullable AppApiRestV2CollectionsEnumsOrderBy orderBy, @javax.annotation.Nullable Order orderByDirection) throws ApiException {
-        okhttp3.Call localVarCall = searchCollectionsValidateBeforeCall(page, pageSize, partialCollectionName, partialBinaryName, partialBinarySha256, tags, modelName, filters, orderBy, orderByDirection, null);
+    public ApiResponse<BaseResponseCollectionSearchResponse> searchCollectionsWithHttpInfo(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialCollectionName, @javax.annotation.Nullable String partialBinaryName, @javax.annotation.Nullable String partialBinarySha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable List<Filters> filters, @javax.annotation.Nullable AppApiRestV2CollectionsEnumsOrderBy orderBy, @javax.annotation.Nullable Order orderByDirection) throws ApiException {
+        okhttp3.Call localVarCall = searchCollectionsValidateBeforeCall(page, pageSize, partialCollectionName, partialBinaryName, partialBinarySha256, tags, filters, orderBy, orderByDirection, null);
         Type localVarReturnType = new TypeToken<BaseResponseCollectionSearchResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -445,7 +435,6 @@ public class SearchApi {
      * @param partialBinaryName The partial or full name of the binary belonging to the collection (optional)
      * @param partialBinarySha256 The partial or full sha256 of the binary belonging to the collection (optional)
      * @param tags The tags to be searched for (optional)
-     * @param modelName The name of the model used to analyze the binary the function belongs to (optional)
      * @param filters The filters to be used for the search (optional)
      * @param orderBy The field to sort the order by in the results (optional, default to created)
      * @param orderByDirection The order direction in which to return results (optional, default to DESC)
@@ -457,13 +446,12 @@ public class SearchApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> You must provide at least one of the filters; partial_collection_name, partial_binary_name, partial_binary_sha256, tags or model_name to search </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> The model name provided does not exist </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> You must provide at least one of the filters; partial_collection_name, partial_binary_name, partial_binary_sha256 or tags to search </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchCollectionsAsync(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialCollectionName, @javax.annotation.Nullable String partialBinaryName, @javax.annotation.Nullable String partialBinarySha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable List<Filters> filters, @javax.annotation.Nullable AppApiRestV2CollectionsEnumsOrderBy orderBy, @javax.annotation.Nullable Order orderByDirection, final ApiCallback<BaseResponseCollectionSearchResponse> _callback) throws ApiException {
+    public okhttp3.Call searchCollectionsAsync(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialCollectionName, @javax.annotation.Nullable String partialBinaryName, @javax.annotation.Nullable String partialBinarySha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable List<Filters> filters, @javax.annotation.Nullable AppApiRestV2CollectionsEnumsOrderBy orderBy, @javax.annotation.Nullable Order orderByDirection, final ApiCallback<BaseResponseCollectionSearchResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchCollectionsValidateBeforeCall(page, pageSize, partialCollectionName, partialBinaryName, partialBinarySha256, tags, modelName, filters, orderBy, orderByDirection, _callback);
+        okhttp3.Call localVarCall = searchCollectionsValidateBeforeCall(page, pageSize, partialCollectionName, partialBinaryName, partialBinarySha256, tags, filters, orderBy, orderByDirection, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseCollectionSearchResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -130,11 +130,6 @@ public class CreateCollectionInputBody {
   @javax.annotation.Nonnull
   private String description;
 
-  public static final String SERIALIZED_NAME_MODEL_ID = "model_id";
-  @SerializedName(SERIALIZED_NAME_MODEL_ID)
-  @javax.annotation.Nonnull
-  private Long modelId;
-
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   @javax.annotation.Nullable
@@ -227,26 +222,6 @@ public class CreateCollectionInputBody {
   }
 
 
-  public CreateCollectionInputBody modelId(@javax.annotation.Nonnull Long modelId) {
-    this.modelId = modelId;
-    return this;
-  }
-
-  /**
-   * Model ID the collection is associated with.
-   * minimum: 1
-   * @return modelId
-   */
-  @javax.annotation.Nonnull
-  public Long getModelId() {
-    return modelId;
-  }
-
-  public void setModelId(@javax.annotation.Nonnull Long modelId) {
-    this.modelId = modelId;
-  }
-
-
   public CreateCollectionInputBody tags(@javax.annotation.Nullable List<String> tags) {
     this.tags = tags;
     return this;
@@ -288,7 +263,6 @@ public class CreateCollectionInputBody {
         Objects.equals(this.collectionName, createCollectionInputBody.collectionName) &&
         Objects.equals(this.collectionScope, createCollectionInputBody.collectionScope) &&
         Objects.equals(this.description, createCollectionInputBody.description) &&
-        Objects.equals(this.modelId, createCollectionInputBody.modelId) &&
         Objects.equals(this.tags, createCollectionInputBody.tags);
   }
 
@@ -298,7 +272,7 @@ public class CreateCollectionInputBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(binaries, collectionName, collectionScope, description, modelId, tags);
+    return Objects.hash(binaries, collectionName, collectionScope, description, tags);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -316,7 +290,6 @@ public class CreateCollectionInputBody {
     sb.append("    collectionName: ").append(toIndentedString(collectionName)).append("\n");
     sb.append("    collectionScope: ").append(toIndentedString(collectionScope)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    modelId: ").append(toIndentedString(modelId)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -336,10 +309,10 @@ public class CreateCollectionInputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("binaries", "collection_name", "collection_scope", "description", "model_id", "tags"));
+    openapiFields = new HashSet<String>(Arrays.asList("binaries", "collection_name", "collection_scope", "description", "tags"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("collection_name", "collection_scope", "description", "model_id"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("collection_name", "collection_scope", "description"));
   }
 
   /**
