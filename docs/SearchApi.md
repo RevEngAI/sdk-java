@@ -12,7 +12,7 @@ All URIs are relative to *https://api.reveng.ai*
 
 <a id="searchBinaries"></a>
 # **searchBinaries**
-> BaseResponseBinarySearchResponse searchBinaries(page, pageSize, partialName, partialSha256, tags, modelName, userFilesOnly, excludeBinaryId)
+> BaseResponseBinarySearchResponse searchBinaries(page, pageSize, partialName, partialSha256, tags, modelName, userFilesOnly, excludeBinaryId, userIds)
 
 Binaries search
 
@@ -52,8 +52,9 @@ public class Example {
     String modelName = "modelName_example"; // String | The name of the model used to analyze the binary the function belongs to
     Boolean userFilesOnly = false; // Boolean | Whether to only search user's uploaded files
     Integer excludeBinaryId = 56; // Integer | A binary ID to exclude from the results
+    List<Integer> userIds = Arrays.asList(); // List<Integer> | Restrict the search to binaries owned by these user IDs
     try {
-      BaseResponseBinarySearchResponse result = apiInstance.searchBinaries(page, pageSize, partialName, partialSha256, tags, modelName, userFilesOnly, excludeBinaryId);
+      BaseResponseBinarySearchResponse result = apiInstance.searchBinaries(page, pageSize, partialName, partialSha256, tags, modelName, userFilesOnly, excludeBinaryId, userIds);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SearchApi#searchBinaries");
@@ -78,6 +79,7 @@ public class Example {
 | **modelName** | **String**| The name of the model used to analyze the binary the function belongs to | [optional] |
 | **userFilesOnly** | **Boolean**| Whether to only search user&#39;s uploaded files | [optional] [default to false] |
 | **excludeBinaryId** | **Integer**| A binary ID to exclude from the results | [optional] |
+| **userIds** | [**List&lt;Integer&gt;**](Integer.md)| Restrict the search to binaries owned by these user IDs | [optional] |
 
 ### Return type
 
@@ -100,7 +102,7 @@ public class Example {
 
 <a id="searchCollections"></a>
 # **searchCollections**
-> BaseResponseCollectionSearchResponse searchCollections(page, pageSize, partialCollectionName, partialBinaryName, partialBinarySha256, tags, filters, orderBy, orderByDirection)
+> BaseResponseCollectionSearchResponse searchCollections(page, pageSize, partialCollectionName, partialBinaryName, partialBinarySha256, tags, filters, orderBy, orderByDirection, userIds)
 
 Collections search
 
@@ -141,8 +143,9 @@ public class Example {
     List<Filters> filters = Arrays.asList(); // List<Filters> | The filters to be used for the search
     AppApiRestV2CollectionsEnumsOrderBy orderBy = AppApiRestV2CollectionsEnumsOrderBy.fromValue("created"); // AppApiRestV2CollectionsEnumsOrderBy | The field to sort the order by in the results
     Order orderByDirection = Order.fromValue("ASC"); // Order | The order direction in which to return results
+    List<Integer> userIds = Arrays.asList(); // List<Integer> | Restrict the search to collections owned by these user IDs
     try {
-      BaseResponseCollectionSearchResponse result = apiInstance.searchCollections(page, pageSize, partialCollectionName, partialBinaryName, partialBinarySha256, tags, filters, orderBy, orderByDirection);
+      BaseResponseCollectionSearchResponse result = apiInstance.searchCollections(page, pageSize, partialCollectionName, partialBinaryName, partialBinarySha256, tags, filters, orderBy, orderByDirection, userIds);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SearchApi#searchCollections");
@@ -168,6 +171,7 @@ public class Example {
 | **filters** | [**List&lt;Filters&gt;**](Filters.md)| The filters to be used for the search | [optional] |
 | **orderBy** | [**AppApiRestV2CollectionsEnumsOrderBy**](.md)| The field to sort the order by in the results | [optional] [default to created] [enum: created, collection, owner, collection_size, updated] |
 | **orderByDirection** | [**Order**](.md)| The order direction in which to return results | [optional] [default to DESC] [enum: ASC, DESC] |
+| **userIds** | [**List&lt;Integer&gt;**](Integer.md)| Restrict the search to collections owned by these user IDs | [optional] |
 
 ### Return type
 

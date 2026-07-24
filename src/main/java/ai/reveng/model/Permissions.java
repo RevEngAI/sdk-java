@@ -64,6 +64,11 @@ public class Permissions {
   @javax.annotation.Nonnull
   private Boolean canUseAiMalwareAnalysis;
 
+  public static final String SERIALIZED_NAME_CAN_USE_COMPOSITION_ANALYSIS = "can_use_composition_analysis";
+  @SerializedName(SERIALIZED_NAME_CAN_USE_COMPOSITION_ANALYSIS)
+  @javax.annotation.Nonnull
+  private Boolean canUseCompositionAnalysis;
+
   public static final String SERIALIZED_NAME_CAN_USE_MALWARE_SANDBOX = "can_use_malware_sandbox";
   @SerializedName(SERIALIZED_NAME_CAN_USE_MALWARE_SANDBOX)
   @javax.annotation.Nonnull
@@ -134,6 +139,25 @@ public class Permissions {
   }
 
 
+  public Permissions canUseCompositionAnalysis(@javax.annotation.Nonnull Boolean canUseCompositionAnalysis) {
+    this.canUseCompositionAnalysis = canUseCompositionAnalysis;
+    return this;
+  }
+
+  /**
+   * Get canUseCompositionAnalysis
+   * @return canUseCompositionAnalysis
+   */
+  @javax.annotation.Nonnull
+  public Boolean getCanUseCompositionAnalysis() {
+    return canUseCompositionAnalysis;
+  }
+
+  public void setCanUseCompositionAnalysis(@javax.annotation.Nonnull Boolean canUseCompositionAnalysis) {
+    this.canUseCompositionAnalysis = canUseCompositionAnalysis;
+  }
+
+
   public Permissions canUseMalwareSandbox(@javax.annotation.Nonnull Boolean canUseMalwareSandbox) {
     this.canUseMalwareSandbox = canUseMalwareSandbox;
     return this;
@@ -185,13 +209,14 @@ public class Permissions {
     return Objects.equals(this.canExportSymbols, permissions.canExportSymbols) &&
         Objects.equals(this.canGeneratePdfReports, permissions.canGeneratePdfReports) &&
         Objects.equals(this.canUseAiMalwareAnalysis, permissions.canUseAiMalwareAnalysis) &&
+        Objects.equals(this.canUseCompositionAnalysis, permissions.canUseCompositionAnalysis) &&
         Objects.equals(this.canUseMalwareSandbox, permissions.canUseMalwareSandbox) &&
         Objects.equals(this.canUsePrivateAnalyses, permissions.canUsePrivateAnalyses);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(canExportSymbols, canGeneratePdfReports, canUseAiMalwareAnalysis, canUseMalwareSandbox, canUsePrivateAnalyses);
+    return Objects.hash(canExportSymbols, canGeneratePdfReports, canUseAiMalwareAnalysis, canUseCompositionAnalysis, canUseMalwareSandbox, canUsePrivateAnalyses);
   }
 
   @Override
@@ -201,6 +226,7 @@ public class Permissions {
     sb.append("    canExportSymbols: ").append(toIndentedString(canExportSymbols)).append("\n");
     sb.append("    canGeneratePdfReports: ").append(toIndentedString(canGeneratePdfReports)).append("\n");
     sb.append("    canUseAiMalwareAnalysis: ").append(toIndentedString(canUseAiMalwareAnalysis)).append("\n");
+    sb.append("    canUseCompositionAnalysis: ").append(toIndentedString(canUseCompositionAnalysis)).append("\n");
     sb.append("    canUseMalwareSandbox: ").append(toIndentedString(canUseMalwareSandbox)).append("\n");
     sb.append("    canUsePrivateAnalyses: ").append(toIndentedString(canUsePrivateAnalyses)).append("\n");
     sb.append("}");
@@ -221,10 +247,10 @@ public class Permissions {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("can_export_symbols", "can_generate_pdf_reports", "can_use_ai_malware_analysis", "can_use_malware_sandbox", "can_use_private_analyses"));
+    openapiFields = new HashSet<String>(Arrays.asList("can_export_symbols", "can_generate_pdf_reports", "can_use_ai_malware_analysis", "can_use_composition_analysis", "can_use_malware_sandbox", "can_use_private_analyses"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("can_export_symbols", "can_generate_pdf_reports", "can_use_ai_malware_analysis", "can_use_malware_sandbox", "can_use_private_analyses"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("can_export_symbols", "can_generate_pdf_reports", "can_use_ai_malware_analysis", "can_use_composition_analysis", "can_use_malware_sandbox", "can_use_private_analyses"));
   }
 
   /**
