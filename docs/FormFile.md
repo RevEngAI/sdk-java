@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**contentType** | **String** | Search is applied to string value |  |
-|**filename** | **String** | Search is applied to string value |  |
+|**contentType** | **String** |  |  |
+|**filename** | **String** |  |  |
 |**isSet** | **Boolean** |  |  |
 |**size** | **Long** |  |  |
 

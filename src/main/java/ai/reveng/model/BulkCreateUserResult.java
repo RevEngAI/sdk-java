@@ -52,7 +52,7 @@ import ai.reveng.invoker.JSON;
 public class BulkCreateUserResult {
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String email;
 
   public static final String SERIALIZED_NAME_ERROR = "error";
@@ -77,27 +77,27 @@ public class BulkCreateUserResult {
 
   public static final String SERIALIZED_NAME_USERNAME = "username";
   @SerializedName(SERIALIZED_NAME_USERNAME)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String username;
 
   public BulkCreateUserResult() {
   }
 
-  public BulkCreateUserResult email(@javax.annotation.Nullable String email) {
+  public BulkCreateUserResult email(@javax.annotation.Nonnull String email) {
     this.email = email;
     return this;
   }
 
   /**
-   * Search is applied to string value
+   * Get email
    * @return email
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getEmail() {
     return email;
   }
 
-  public void setEmail(@javax.annotation.Nullable String email) {
+  public void setEmail(@javax.annotation.Nonnull String email) {
     this.email = email;
   }
 
@@ -178,21 +178,21 @@ public class BulkCreateUserResult {
   }
 
 
-  public BulkCreateUserResult username(@javax.annotation.Nullable String username) {
+  public BulkCreateUserResult username(@javax.annotation.Nonnull String username) {
     this.username = username;
     return this;
   }
 
   /**
-   * Search is applied to string value
+   * Get username
    * @return username
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getUsername() {
     return username;
   }
 
-  public void setUsername(@javax.annotation.Nullable String username) {
+  public void setUsername(@javax.annotation.Nonnull String username) {
     this.username = username;
   }
 
@@ -320,7 +320,7 @@ public class BulkCreateUserResult {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()) && !jsonObj.get("email").isJsonPrimitive()) {
+      if (!jsonObj.get("email").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
       }
       if ((jsonObj.get("error") != null && !jsonObj.get("error").isJsonNull()) && !jsonObj.get("error").isJsonPrimitive()) {
@@ -330,7 +330,7 @@ public class BulkCreateUserResult {
       if (jsonObj.get("user") != null && !jsonObj.get("user").isJsonNull()) {
         User.validateJsonElement(jsonObj.get("user"));
       }
-      if ((jsonObj.get("username") != null && !jsonObj.get("username").isJsonNull()) && !jsonObj.get("username").isJsonPrimitive()) {
+      if (!jsonObj.get("username").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("username").toString()));
       }
   }

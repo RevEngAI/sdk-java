@@ -57,7 +57,7 @@ public class Organisation {
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_ORGANISATION_ID = "organisation_id";
@@ -92,21 +92,21 @@ public class Organisation {
   }
 
 
-  public Organisation name(@javax.annotation.Nullable String name) {
+  public Organisation name(@javax.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * Search is applied to string value
+   * Get name
    * @return name
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getName() {
     return name;
   }
 
-  public void setName(@javax.annotation.Nullable String name) {
+  public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
   }
 
@@ -268,7 +268,7 @@ public class Organisation {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+      if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
   }

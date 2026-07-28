@@ -27,12 +27,8 @@ import java.io.IOException;
 
 
 import ai.reveng.model.APIError;
-import ai.reveng.model.BaseResponse;
-import ai.reveng.model.BaseResponseListFunctionNameHistory;
 import ai.reveng.model.BatchRenameInputBody;
 import ai.reveng.model.BatchRenameOutputBody;
-import ai.reveng.model.FunctionRename;
-import ai.reveng.model.FunctionsListRename;
 import ai.reveng.model.HistoryEntry;
 import ai.reveng.model.RenameInputBody;
 import ai.reveng.model.RenameOutputBody;
@@ -80,146 +76,6 @@ public class FunctionsRenamingHistoryApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for batchRenameFunction
-     * @param functionsListRename  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public okhttp3.Call batchRenameFunctionCall(@javax.annotation.Nonnull FunctionsListRename functionsListRename, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = functionsListRename;
-
-        // create path and map variables
-        String localVarPath = "/v2/functions/rename/batch";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @Deprecated
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call batchRenameFunctionValidateBeforeCall(@javax.annotation.Nonnull FunctionsListRename functionsListRename, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'functionsListRename' is set
-        if (functionsListRename == null) {
-            throw new ApiException("Missing the required parameter 'functionsListRename' when calling batchRenameFunction(Async)");
-        }
-
-        return batchRenameFunctionCall(functionsListRename, _callback);
-
-    }
-
-    /**
-     * Batch Rename Functions
-     * Renames a list of functions using the function IDs   Will record name changes in history
-     * @param functionsListRename  (required)
-     * @return BaseResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public BaseResponse batchRenameFunction(@javax.annotation.Nonnull FunctionsListRename functionsListRename) throws ApiException {
-        ApiResponse<BaseResponse> localVarResp = batchRenameFunctionWithHttpInfo(functionsListRename);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Batch Rename Functions
-     * Renames a list of functions using the function IDs   Will record name changes in history
-     * @param functionsListRename  (required)
-     * @return ApiResponse&lt;BaseResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public ApiResponse<BaseResponse> batchRenameFunctionWithHttpInfo(@javax.annotation.Nonnull FunctionsListRename functionsListRename) throws ApiException {
-        okhttp3.Call localVarCall = batchRenameFunctionValidateBeforeCall(functionsListRename, null);
-        Type localVarReturnType = new TypeToken<BaseResponse>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Batch Rename Functions (asynchronously)
-     * Renames a list of functions using the function IDs   Will record name changes in history
-     * @param functionsListRename  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public okhttp3.Call batchRenameFunctionAsync(@javax.annotation.Nonnull FunctionsListRename functionsListRename, final ApiCallback<BaseResponse> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = batchRenameFunctionValidateBeforeCall(functionsListRename, _callback);
-        Type localVarReturnType = new TypeToken<BaseResponse>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
     /**
      * Build call for batchRenameFunctions
      * @param batchRenameInputBody  (required)
@@ -507,146 +363,6 @@ public class FunctionsRenamingHistoryApi {
         return localVarCall;
     }
     /**
-     * Build call for getFunctionNameHistory
-     * @param functionId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public okhttp3.Call getFunctionNameHistoryCall(@javax.annotation.Nonnull Integer functionId, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v2/functions/history/{function_id}"
-            .replace("{" + "function_id" + "}", localVarApiClient.escapeString(functionId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @Deprecated
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call getFunctionNameHistoryValidateBeforeCall(@javax.annotation.Nonnull Integer functionId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'functionId' is set
-        if (functionId == null) {
-            throw new ApiException("Missing the required parameter 'functionId' when calling getFunctionNameHistory(Async)");
-        }
-
-        return getFunctionNameHistoryCall(functionId, _callback);
-
-    }
-
-    /**
-     * Get Function Name History
-     * Gets the name history of a function using the function ID
-     * @param functionId  (required)
-     * @return BaseResponseListFunctionNameHistory
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public BaseResponseListFunctionNameHistory getFunctionNameHistory(@javax.annotation.Nonnull Integer functionId) throws ApiException {
-        ApiResponse<BaseResponseListFunctionNameHistory> localVarResp = getFunctionNameHistoryWithHttpInfo(functionId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get Function Name History
-     * Gets the name history of a function using the function ID
-     * @param functionId  (required)
-     * @return ApiResponse&lt;BaseResponseListFunctionNameHistory&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public ApiResponse<BaseResponseListFunctionNameHistory> getFunctionNameHistoryWithHttpInfo(@javax.annotation.Nonnull Integer functionId) throws ApiException {
-        okhttp3.Call localVarCall = getFunctionNameHistoryValidateBeforeCall(functionId, null);
-        Type localVarReturnType = new TypeToken<BaseResponseListFunctionNameHistory>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Get Function Name History (asynchronously)
-     * Gets the name history of a function using the function ID
-     * @param functionId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public okhttp3.Call getFunctionNameHistoryAsync(@javax.annotation.Nonnull Integer functionId, final ApiCallback<BaseResponseListFunctionNameHistory> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = getFunctionNameHistoryValidateBeforeCall(functionId, _callback);
-        Type localVarReturnType = new TypeToken<BaseResponseListFunctionNameHistory>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
      * Build call for renameFunction
      * @param functionId Function ID (required)
      * @param renameInputBody  (required)
@@ -800,307 +516,7 @@ public class FunctionsRenamingHistoryApi {
         return localVarCall;
     }
     /**
-     * Build call for renameFunctionId
-     * @param functionId  (required)
-     * @param functionRename  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public okhttp3.Call renameFunctionIdCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull FunctionRename functionRename, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = functionRename;
-
-        // create path and map variables
-        String localVarPath = "/v2/functions/rename/{function_id}"
-            .replace("{" + "function_id" + "}", localVarApiClient.escapeString(functionId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @Deprecated
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call renameFunctionIdValidateBeforeCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull FunctionRename functionRename, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'functionId' is set
-        if (functionId == null) {
-            throw new ApiException("Missing the required parameter 'functionId' when calling renameFunctionId(Async)");
-        }
-
-        // verify the required parameter 'functionRename' is set
-        if (functionRename == null) {
-            throw new ApiException("Missing the required parameter 'functionRename' when calling renameFunctionId(Async)");
-        }
-
-        return renameFunctionIdCall(functionId, functionRename, _callback);
-
-    }
-
-    /**
-     * Rename Function
-     * Renames a function using the function ID   Will record name change history
-     * @param functionId  (required)
-     * @param functionRename  (required)
-     * @return BaseResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public BaseResponse renameFunctionId(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull FunctionRename functionRename) throws ApiException {
-        ApiResponse<BaseResponse> localVarResp = renameFunctionIdWithHttpInfo(functionId, functionRename);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Rename Function
-     * Renames a function using the function ID   Will record name change history
-     * @param functionId  (required)
-     * @param functionRename  (required)
-     * @return ApiResponse&lt;BaseResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public ApiResponse<BaseResponse> renameFunctionIdWithHttpInfo(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull FunctionRename functionRename) throws ApiException {
-        okhttp3.Call localVarCall = renameFunctionIdValidateBeforeCall(functionId, functionRename, null);
-        Type localVarReturnType = new TypeToken<BaseResponse>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Rename Function (asynchronously)
-     * Renames a function using the function ID   Will record name change history
-     * @param functionId  (required)
-     * @param functionRename  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public okhttp3.Call renameFunctionIdAsync(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull FunctionRename functionRename, final ApiCallback<BaseResponse> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = renameFunctionIdValidateBeforeCall(functionId, functionRename, _callback);
-        Type localVarReturnType = new TypeToken<BaseResponse>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
      * Build call for revertFunctionName
-     * @param functionId  (required)
-     * @param historyId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public okhttp3.Call revertFunctionNameCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull Integer historyId, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v2/functions/history/{function_id}/{history_id}"
-            .replace("{" + "function_id" + "}", localVarApiClient.escapeString(functionId.toString()))
-            .replace("{" + "history_id" + "}", localVarApiClient.escapeString(historyId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @Deprecated
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call revertFunctionNameValidateBeforeCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull Integer historyId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'functionId' is set
-        if (functionId == null) {
-            throw new ApiException("Missing the required parameter 'functionId' when calling revertFunctionName(Async)");
-        }
-
-        // verify the required parameter 'historyId' is set
-        if (historyId == null) {
-            throw new ApiException("Missing the required parameter 'historyId' when calling revertFunctionName(Async)");
-        }
-
-        return revertFunctionNameCall(functionId, historyId, _callback);
-
-    }
-
-    /**
-     * Revert the function name
-     * Reverts the function name to a previous name using the function ID and history ID
-     * @param functionId  (required)
-     * @param historyId  (required)
-     * @return BaseResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public BaseResponse revertFunctionName(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull Integer historyId) throws ApiException {
-        ApiResponse<BaseResponse> localVarResp = revertFunctionNameWithHttpInfo(functionId, historyId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Revert the function name
-     * Reverts the function name to a previous name using the function ID and history ID
-     * @param functionId  (required)
-     * @param historyId  (required)
-     * @return ApiResponse&lt;BaseResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public ApiResponse<BaseResponse> revertFunctionNameWithHttpInfo(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull Integer historyId) throws ApiException {
-        okhttp3.Call localVarCall = revertFunctionNameValidateBeforeCall(functionId, historyId, null);
-        Type localVarReturnType = new TypeToken<BaseResponse>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Revert the function name (asynchronously)
-     * Reverts the function name to a previous name using the function ID and history ID
-     * @param functionId  (required)
-     * @param historyId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public okhttp3.Call revertFunctionNameAsync(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nonnull Integer historyId, final ApiCallback<BaseResponse> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = revertFunctionNameValidateBeforeCall(functionId, historyId, _callback);
-        Type localVarReturnType = new TypeToken<BaseResponse>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for revertFunctionName_0
      * @param functionId Function ID (required)
      * @param historyId History ID to revert to (required)
      * @param _callback Callback for upload/download progress
@@ -1117,7 +533,7 @@ public class FunctionsRenamingHistoryApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call revertFunctionName_0Call(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull Long historyId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call revertFunctionNameCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull Long historyId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1164,18 +580,18 @@ public class FunctionsRenamingHistoryApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call revertFunctionName_0ValidateBeforeCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull Long historyId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call revertFunctionNameValidateBeforeCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull Long historyId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'functionId' is set
         if (functionId == null) {
-            throw new ApiException("Missing the required parameter 'functionId' when calling revertFunctionName_0(Async)");
+            throw new ApiException("Missing the required parameter 'functionId' when calling revertFunctionName(Async)");
         }
 
         // verify the required parameter 'historyId' is set
         if (historyId == null) {
-            throw new ApiException("Missing the required parameter 'historyId' when calling revertFunctionName_0(Async)");
+            throw new ApiException("Missing the required parameter 'historyId' when calling revertFunctionName(Async)");
         }
 
-        return revertFunctionName_0Call(functionId, historyId, _callback);
+        return revertFunctionNameCall(functionId, historyId, _callback);
 
     }
 
@@ -1197,8 +613,8 @@ public class FunctionsRenamingHistoryApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public Object revertFunctionName_0(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull Long historyId) throws ApiException {
-        ApiResponse<Object> localVarResp = revertFunctionName_0WithHttpInfo(functionId, historyId);
+    public Object revertFunctionName(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull Long historyId) throws ApiException {
+        ApiResponse<Object> localVarResp = revertFunctionNameWithHttpInfo(functionId, historyId);
         return localVarResp.getData();
     }
 
@@ -1220,8 +636,8 @@ public class FunctionsRenamingHistoryApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> revertFunctionName_0WithHttpInfo(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull Long historyId) throws ApiException {
-        okhttp3.Call localVarCall = revertFunctionName_0ValidateBeforeCall(functionId, historyId, null);
+    public ApiResponse<Object> revertFunctionNameWithHttpInfo(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull Long historyId) throws ApiException {
+        okhttp3.Call localVarCall = revertFunctionNameValidateBeforeCall(functionId, historyId, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1245,9 +661,9 @@ public class FunctionsRenamingHistoryApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call revertFunctionName_0Async(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull Long historyId, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call revertFunctionNameAsync(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull Long historyId, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = revertFunctionName_0ValidateBeforeCall(functionId, historyId, _callback);
+        okhttp3.Call localVarCall = revertFunctionNameValidateBeforeCall(functionId, historyId, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

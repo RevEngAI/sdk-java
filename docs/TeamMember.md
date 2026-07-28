@@ -7,11 +7,11 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**email** | **String** | Search is applied to string value |  |
+|**email** | **String** |  |  |
 |**isAdmin** | **Boolean** |  |  |
 |**role** | [**RoleEnum**](#RoleEnum) |  |  |
 |**userId** | **Long** |  |  |
-|**username** | **String** | Search is applied to string value |  |
+|**username** | **String** |  |  |
 
 
 

@@ -51,12 +51,12 @@ import ai.reveng.invoker.JSON;
 public class FormFile {
   public static final String SERIALIZED_NAME_CONTENT_TYPE = "ContentType";
   @SerializedName(SERIALIZED_NAME_CONTENT_TYPE)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String contentType;
 
   public static final String SERIALIZED_NAME_FILENAME = "Filename";
   @SerializedName(SERIALIZED_NAME_FILENAME)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String filename;
 
   public static final String SERIALIZED_NAME_IS_SET = "IsSet";
@@ -72,40 +72,40 @@ public class FormFile {
   public FormFile() {
   }
 
-  public FormFile contentType(@javax.annotation.Nullable String contentType) {
+  public FormFile contentType(@javax.annotation.Nonnull String contentType) {
     this.contentType = contentType;
     return this;
   }
 
   /**
-   * Search is applied to string value
+   * Get contentType
    * @return contentType
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getContentType() {
     return contentType;
   }
 
-  public void setContentType(@javax.annotation.Nullable String contentType) {
+  public void setContentType(@javax.annotation.Nonnull String contentType) {
     this.contentType = contentType;
   }
 
 
-  public FormFile filename(@javax.annotation.Nullable String filename) {
+  public FormFile filename(@javax.annotation.Nonnull String filename) {
     this.filename = filename;
     return this;
   }
 
   /**
-   * Search is applied to string value
+   * Get filename
    * @return filename
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getFilename() {
     return filename;
   }
 
-  public void setFilename(@javax.annotation.Nullable String filename) {
+  public void setFilename(@javax.annotation.Nonnull String filename) {
     this.filename = filename;
   }
 
@@ -267,10 +267,10 @@ public class FormFile {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("ContentType") != null && !jsonObj.get("ContentType").isJsonNull()) && !jsonObj.get("ContentType").isJsonPrimitive()) {
+      if (!jsonObj.get("ContentType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ContentType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ContentType").toString()));
       }
-      if ((jsonObj.get("Filename") != null && !jsonObj.get("Filename").isJsonNull()) && !jsonObj.get("Filename").isJsonPrimitive()) {
+      if (!jsonObj.get("Filename").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `Filename` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Filename").toString()));
       }
   }

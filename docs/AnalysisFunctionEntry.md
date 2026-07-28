@@ -13,7 +13,7 @@
 |**functionName** | **String** |  |  |
 |**functionSize** | **Long** |  |  |
 |**functionVaddr** | **Long** |  |  |
-|**mangledName** | **String** | Search is applied to string value |  [optional] |
+|**mangledName** | **String** |  |  [optional] |
 |**sourceAnalysisId** | **Long** | ID of the analysis the source function belongs to, if any |  [optional] |
 |**sourceBinaryId** | **Long** |  |  [optional] |
 |**sourceFunctionId** | **Long** | ID of the source function this name was transferred from, if any |  [optional] |

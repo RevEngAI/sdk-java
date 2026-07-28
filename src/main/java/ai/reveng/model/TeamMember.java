@@ -51,7 +51,7 @@ import ai.reveng.invoker.JSON;
 public class TeamMember {
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String email;
 
   public static final String SERIALIZED_NAME_IS_ADMIN = "is_admin";
@@ -129,27 +129,27 @@ public class TeamMember {
 
   public static final String SERIALIZED_NAME_USERNAME = "username";
   @SerializedName(SERIALIZED_NAME_USERNAME)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String username;
 
   public TeamMember() {
   }
 
-  public TeamMember email(@javax.annotation.Nullable String email) {
+  public TeamMember email(@javax.annotation.Nonnull String email) {
     this.email = email;
     return this;
   }
 
   /**
-   * Search is applied to string value
+   * Get email
    * @return email
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getEmail() {
     return email;
   }
 
-  public void setEmail(@javax.annotation.Nullable String email) {
+  public void setEmail(@javax.annotation.Nonnull String email) {
     this.email = email;
   }
 
@@ -211,21 +211,21 @@ public class TeamMember {
   }
 
 
-  public TeamMember username(@javax.annotation.Nullable String username) {
+  public TeamMember username(@javax.annotation.Nonnull String username) {
     this.username = username;
     return this;
   }
 
   /**
-   * Search is applied to string value
+   * Get username
    * @return username
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getUsername() {
     return username;
   }
 
-  public void setUsername(@javax.annotation.Nullable String username) {
+  public void setUsername(@javax.annotation.Nonnull String username) {
     this.username = username;
   }
 
@@ -351,7 +351,7 @@ public class TeamMember {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()) && !jsonObj.get("email").isJsonPrimitive()) {
+      if (!jsonObj.get("email").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
       }
       if (!jsonObj.get("role").isJsonPrimitive()) {
@@ -359,7 +359,7 @@ public class TeamMember {
       }
       // validate the required field `role`
       RoleEnum.validateJsonElement(jsonObj.get("role"));
-      if ((jsonObj.get("username") != null && !jsonObj.get("username").isJsonNull()) && !jsonObj.get("username").isJsonPrimitive()) {
+      if (!jsonObj.get("username").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("username").toString()));
       }
   }

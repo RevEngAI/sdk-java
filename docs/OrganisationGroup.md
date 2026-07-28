@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**createdAt** | **OffsetDateTime** |  |  |
-|**name** | **String** | Search is applied to string value |  |
+|**name** | **String** |  |  |
 |**organisationGroupId** | **Long** |  |  |
 |**organisationId** | **Long** |  |  |
 |**teamId** | **Long** |  |  |

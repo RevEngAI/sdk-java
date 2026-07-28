@@ -165,7 +165,7 @@ public class DisassemblyOutputBody {
   }
 
   /**
-   * Search is applied to string value
+   * Get returnType
    * @return returnType
    */
   @javax.annotation.Nullable

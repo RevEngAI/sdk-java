@@ -11,7 +11,7 @@
 |**functionId** | **Long** |  |  |
 |**localVariables** | **Object** |  |  [optional] |
 |**params** | **Object** |  |  [optional] |
-|**returnType** | **String** | Search is applied to string value |  [optional] |
+|**returnType** | **String** |  |  [optional] |
 |**returns** | **Boolean** |  |  |
 
 

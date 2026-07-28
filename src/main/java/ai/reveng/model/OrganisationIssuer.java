@@ -67,7 +67,7 @@ public class OrganisationIssuer {
 
   public static final String SERIALIZED_NAME_ISSUER_URL = "issuer_url";
   @SerializedName(SERIALIZED_NAME_ISSUER_URL)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String issuerUrl;
 
   public static final String SERIALIZED_NAME_JWKS_URI = "jwks_uri";
@@ -150,21 +150,21 @@ public class OrganisationIssuer {
   }
 
 
-  public OrganisationIssuer issuerUrl(@javax.annotation.Nullable String issuerUrl) {
+  public OrganisationIssuer issuerUrl(@javax.annotation.Nonnull String issuerUrl) {
     this.issuerUrl = issuerUrl;
     return this;
   }
 
   /**
-   * Search is applied to string value
+   * Get issuerUrl
    * @return issuerUrl
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getIssuerUrl() {
     return issuerUrl;
   }
 
-  public void setIssuerUrl(@javax.annotation.Nullable String issuerUrl) {
+  public void setIssuerUrl(@javax.annotation.Nonnull String issuerUrl) {
     this.issuerUrl = issuerUrl;
   }
 
@@ -375,7 +375,7 @@ public class OrganisationIssuer {
       if ((jsonObj.get("client_id") != null && !jsonObj.get("client_id").isJsonNull()) && !jsonObj.get("client_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `client_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("client_id").toString()));
       }
-      if ((jsonObj.get("issuer_url") != null && !jsonObj.get("issuer_url").isJsonNull()) && !jsonObj.get("issuer_url").isJsonPrimitive()) {
+      if (!jsonObj.get("issuer_url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `issuer_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuer_url").toString()));
       }
       if ((jsonObj.get("jwks_uri") != null && !jsonObj.get("jwks_uri").isJsonNull()) && !jsonObj.get("jwks_uri").isJsonPrimitive()) {

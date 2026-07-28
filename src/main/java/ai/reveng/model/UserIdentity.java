@@ -57,12 +57,12 @@ public class UserIdentity {
 
   public static final String SERIALIZED_NAME_ISSUER_URL = "issuer_url";
   @SerializedName(SERIALIZED_NAME_ISSUER_URL)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String issuerUrl;
 
   public static final String SERIALIZED_NAME_SUBJECT = "subject";
   @SerializedName(SERIALIZED_NAME_SUBJECT)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String subject;
 
   public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
@@ -102,40 +102,40 @@ public class UserIdentity {
   }
 
 
-  public UserIdentity issuerUrl(@javax.annotation.Nullable String issuerUrl) {
+  public UserIdentity issuerUrl(@javax.annotation.Nonnull String issuerUrl) {
     this.issuerUrl = issuerUrl;
     return this;
   }
 
   /**
-   * Search is applied to string value
+   * Get issuerUrl
    * @return issuerUrl
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getIssuerUrl() {
     return issuerUrl;
   }
 
-  public void setIssuerUrl(@javax.annotation.Nullable String issuerUrl) {
+  public void setIssuerUrl(@javax.annotation.Nonnull String issuerUrl) {
     this.issuerUrl = issuerUrl;
   }
 
 
-  public UserIdentity subject(@javax.annotation.Nullable String subject) {
+  public UserIdentity subject(@javax.annotation.Nonnull String subject) {
     this.subject = subject;
     return this;
   }
 
   /**
-   * Search is applied to string value
+   * Get subject
    * @return subject
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getSubject() {
     return subject;
   }
 
-  public void setSubject(@javax.annotation.Nullable String subject) {
+  public void setSubject(@javax.annotation.Nonnull String subject) {
     this.subject = subject;
   }
 
@@ -320,10 +320,10 @@ public class UserIdentity {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("issuer_url") != null && !jsonObj.get("issuer_url").isJsonNull()) && !jsonObj.get("issuer_url").isJsonPrimitive()) {
+      if (!jsonObj.get("issuer_url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `issuer_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuer_url").toString()));
       }
-      if ((jsonObj.get("subject") != null && !jsonObj.get("subject").isJsonNull()) && !jsonObj.get("subject").isJsonPrimitive()) {
+      if (!jsonObj.get("subject").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `subject` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subject").toString()));
       }
   }
