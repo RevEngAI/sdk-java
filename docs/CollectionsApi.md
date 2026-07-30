@@ -11,6 +11,7 @@ All URIs are relative to *https://api.reveng.ai*
 | [**updateCollection**](CollectionsApi.md#updateCollection) | **PATCH** /v2/collections/{collection_id} | Updates a collection |
 | [**updateCollectionBinaries**](CollectionsApi.md#updateCollectionBinaries) | **PATCH** /v2/collections/{collection_id}/binaries | Updates a collection binaries |
 | [**updateCollectionTags**](CollectionsApi.md#updateCollectionTags) | **PATCH** /v2/collections/{collection_id}/tags | Updates a collection tags |
+| [**v3AddCollectionBinaries**](CollectionsApi.md#v3AddCollectionBinaries) | **POST** /v3/collections/{collection_id}/binaries | Add binaries to a collection. |
 | [**v3CreateCollection**](CollectionsApi.md#v3CreateCollection) | **POST** /v3/collections | Create a collection. |
 | [**v3DeleteCollection**](CollectionsApi.md#v3DeleteCollection) | **DELETE** /v3/collections/{collection_id} | Delete a collection. |
 | [**v3GetCollection**](CollectionsApi.md#v3GetCollection) | **GET** /v3/collections/{collection_id} | Get a collection. |
@@ -18,6 +19,7 @@ All URIs are relative to *https://api.reveng.ai*
 | [**v3PatchCollection**](CollectionsApi.md#v3PatchCollection) | **PATCH** /v3/collections/{collection_id} | Update a collection. |
 | [**v3PatchCollectionBinaries**](CollectionsApi.md#v3PatchCollectionBinaries) | **PATCH** /v3/collections/{collection_id}/binaries | Replace the binaries in a collection. |
 | [**v3PatchCollectionTags**](CollectionsApi.md#v3PatchCollectionTags) | **PATCH** /v3/collections/{collection_id}/tags | Replace the tags on a collection. |
+| [**v3RemoveCollectionBinaries**](CollectionsApi.md#v3RemoveCollectionBinaries) | **DELETE** /v3/collections/{collection_id}/binaries | Remove binaries from a collection. |
 
 
 <a id="createCollection"></a>
@@ -563,6 +565,84 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Successful Response |  -  |
 | **422** | Invalid request parameters |  -  |
+
+<a id="v3AddCollectionBinaries"></a>
+# **v3AddCollectionBinaries**
+> v3AddCollectionBinaries(collectionId, addCollectionBinariesInputBody)
+
+Add binaries to a collection.
+
+Links the supplied binaries to a collection without affecting any binaries already linked. Binary IDs already linked to the collection are ignored.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;422&#x60; [&#x60;VALIDATION_FAILED&#x60;](/errors/VALIDATION_FAILED) — Validation Failed
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.CollectionsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    CollectionsApi apiInstance = new CollectionsApi(defaultClient);
+    Long collectionId = 56L; // Long | 
+    AddCollectionBinariesInputBody addCollectionBinariesInputBody = new AddCollectionBinariesInputBody(); // AddCollectionBinariesInputBody | 
+    try {
+      apiInstance.v3AddCollectionBinaries(collectionId, addCollectionBinariesInputBody);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling CollectionsApi#v3AddCollectionBinaries");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **collectionId** | **Long**|  | |
+| **addCollectionBinariesInputBody** | [**AddCollectionBinariesInputBody**](AddCollectionBinariesInputBody.md)|  | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **500** | Internal Server Error |  -  |
 
 <a id="v3CreateCollection"></a>
 # **v3CreateCollection**
@@ -1120,6 +1200,84 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **500** | Internal Server Error |  -  |
+
+<a id="v3RemoveCollectionBinaries"></a>
+# **v3RemoveCollectionBinaries**
+> v3RemoveCollectionBinaries(collectionId, removeCollectionBinariesInputBody)
+
+Remove binaries from a collection.
+
+Unlinks the supplied binaries from a collection without affecting any other binaries linked to it. Binary IDs not linked to the collection are ignored.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.CollectionsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    CollectionsApi apiInstance = new CollectionsApi(defaultClient);
+    Long collectionId = 56L; // Long | 
+    RemoveCollectionBinariesInputBody removeCollectionBinariesInputBody = new RemoveCollectionBinariesInputBody(); // RemoveCollectionBinariesInputBody | 
+    try {
+      apiInstance.v3RemoveCollectionBinaries(collectionId, removeCollectionBinariesInputBody);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling CollectionsApi#v3RemoveCollectionBinaries");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **collectionId** | **Long**|  | |
+| **removeCollectionBinariesInputBody** | [**RemoveCollectionBinariesInputBody**](RemoveCollectionBinariesInputBody.md)|  | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 | **422** | Unprocessable Entity |  -  |

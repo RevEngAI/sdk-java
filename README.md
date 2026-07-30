@@ -16,7 +16,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>ai.reveng</groupId>
     <artifactId>sdk</artifactId>
-    <version>3.124.0</version>
+    <version>3.130.1</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -31,7 +31,7 @@ repositories {
 }
 
 dependencies {
-    implementation "ai.reveng:sdk:3.124.0"
+    implementation "ai.reveng:sdk:3.130.1"
 }
 ```
 
@@ -146,6 +146,7 @@ Class | Method | HTTP request | Description
 *CollectionsApi* | [**updateCollection**](docs/CollectionsApi.md#updateCollection) | **PATCH** /v2/collections/{collection_id} | Updates a collection
 *CollectionsApi* | [**updateCollectionBinaries**](docs/CollectionsApi.md#updateCollectionBinaries) | **PATCH** /v2/collections/{collection_id}/binaries | Updates a collection binaries
 *CollectionsApi* | [**updateCollectionTags**](docs/CollectionsApi.md#updateCollectionTags) | **PATCH** /v2/collections/{collection_id}/tags | Updates a collection tags
+*CollectionsApi* | [**v3AddCollectionBinaries**](docs/CollectionsApi.md#v3AddCollectionBinaries) | **POST** /v3/collections/{collection_id}/binaries | Add binaries to a collection.
 *CollectionsApi* | [**v3CreateCollection**](docs/CollectionsApi.md#v3CreateCollection) | **POST** /v3/collections | Create a collection.
 *CollectionsApi* | [**v3DeleteCollection**](docs/CollectionsApi.md#v3DeleteCollection) | **DELETE** /v3/collections/{collection_id} | Delete a collection.
 *CollectionsApi* | [**v3GetCollection**](docs/CollectionsApi.md#v3GetCollection) | **GET** /v3/collections/{collection_id} | Get a collection.
@@ -153,6 +154,7 @@ Class | Method | HTTP request | Description
 *CollectionsApi* | [**v3PatchCollection**](docs/CollectionsApi.md#v3PatchCollection) | **PATCH** /v3/collections/{collection_id} | Update a collection.
 *CollectionsApi* | [**v3PatchCollectionBinaries**](docs/CollectionsApi.md#v3PatchCollectionBinaries) | **PATCH** /v3/collections/{collection_id}/binaries | Replace the binaries in a collection.
 *CollectionsApi* | [**v3PatchCollectionTags**](docs/CollectionsApi.md#v3PatchCollectionTags) | **PATCH** /v3/collections/{collection_id}/tags | Replace the tags on a collection.
+*CollectionsApi* | [**v3RemoveCollectionBinaries**](docs/CollectionsApi.md#v3RemoveCollectionBinaries) | **DELETE** /v3/collections/{collection_id}/binaries | Remove binaries from a collection.
 *ConfigApi* | [**getConfig**](docs/ConfigApi.md#getConfig) | **GET** /v2/config | Get Config
 *ConversationsApi* | [**cancelRun**](docs/ConversationsApi.md#cancelRun) | **POST** /v2/conversations/{id}/cancel | Cancel an active run
 *ConversationsApi* | [**confirmTool**](docs/ConversationsApi.md#confirmTool) | **POST** /v2/conversations/{id}/confirm | Approve or reject a pending tool confirmation
@@ -242,6 +244,7 @@ Class | Method | HTTP request | Description
  - [AIDecompInverseStringMapItem](docs/AIDecompInverseStringMapItem.md)
  - [APIError](docs/APIError.md)
  - [AddCalleeInputBody](docs/AddCalleeInputBody.md)
+ - [AddCollectionBinariesInputBody](docs/AddCollectionBinariesInputBody.md)
  - [AddIssuerDomainInputBody](docs/AddIssuerDomainInputBody.md)
  - [AddOwnerInputBody](docs/AddOwnerInputBody.md)
  - [AddTeamMemberInputBody](docs/AddTeamMemberInputBody.md)
@@ -627,6 +630,7 @@ Class | Method | HTTP request | Description
  - [RegisterUserInputBody](docs/RegisterUserInputBody.md)
  - [RegistryOperation](docs/RegistryOperation.md)
  - [RelativeBinaryResponse](docs/RelativeBinaryResponse.md)
+ - [RemoveCollectionBinariesInputBody](docs/RemoveCollectionBinariesInputBody.md)
  - [RenameAppliedEvent](docs/RenameAppliedEvent.md)
  - [RenameInputBody](docs/RenameInputBody.md)
  - [RenameOutputBody](docs/RenameOutputBody.md)
