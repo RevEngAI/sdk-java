@@ -82,6 +82,11 @@ public class ProductOutput {
   @javax.annotation.Nullable
   private List<PriceOutput> prices;
 
+  public static final String SERIALIZED_NAME_SALES_ONLY = "sales_only";
+  @SerializedName(SERIALIZED_NAME_SALES_ONLY)
+  @javax.annotation.Nonnull
+  private Boolean salesOnly;
+
   public static final String SERIALIZED_NAME_TIER = "tier";
   @SerializedName(SERIALIZED_NAME_TIER)
   @javax.annotation.Nullable
@@ -220,6 +225,25 @@ public class ProductOutput {
   }
 
 
+  public ProductOutput salesOnly(@javax.annotation.Nonnull Boolean salesOnly) {
+    this.salesOnly = salesOnly;
+    return this;
+  }
+
+  /**
+   * When true, this product is not self-serve purchasable and must be bought via direct sales.
+   * @return salesOnly
+   */
+  @javax.annotation.Nonnull
+  public Boolean getSalesOnly() {
+    return salesOnly;
+  }
+
+  public void setSalesOnly(@javax.annotation.Nonnull Boolean salesOnly) {
+    this.salesOnly = salesOnly;
+  }
+
+
   public ProductOutput tier(@javax.annotation.Nullable String tier) {
     this.tier = tier;
     return this;
@@ -255,12 +279,13 @@ public class ProductOutput {
         Objects.equals(this.id, productOutput.id) &&
         Objects.equals(this.name, productOutput.name) &&
         Objects.equals(this.prices, productOutput.prices) &&
+        Objects.equals(this.salesOnly, productOutput.salesOnly) &&
         Objects.equals(this.tier, productOutput.tier);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(creditsPerMonth, description, features, id, name, prices, tier);
+    return Objects.hash(creditsPerMonth, description, features, id, name, prices, salesOnly, tier);
   }
 
   @Override
@@ -273,6 +298,7 @@ public class ProductOutput {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    prices: ").append(toIndentedString(prices)).append("\n");
+    sb.append("    salesOnly: ").append(toIndentedString(salesOnly)).append("\n");
     sb.append("    tier: ").append(toIndentedString(tier)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -292,10 +318,10 @@ public class ProductOutput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("credits_per_month", "description", "features", "id", "name", "prices", "tier"));
+    openapiFields = new HashSet<String>(Arrays.asList("credits_per_month", "description", "features", "id", "name", "prices", "sales_only", "tier"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("description", "features", "id", "name", "prices"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("description", "features", "id", "name", "prices", "sales_only"));
   }
 
   /**
