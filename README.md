@@ -16,7 +16,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>ai.reveng</groupId>
     <artifactId>sdk</artifactId>
-    <version>3.130.1</version>
+    <version>3.131.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -31,7 +31,7 @@ repositories {
 }
 
 dependencies {
-    implementation "ai.reveng:sdk:3.130.1"
+    implementation "ai.reveng:sdk:3.131.0"
 }
 ```
 
@@ -77,12 +77,15 @@ All URIs are relative to *https://api.reveng.ai*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AgentApi* | [**checkCapabilitiesTaskStatusV2AnalysesAnalysisIdAgentCapabilitiesStatusGet**](docs/AgentApi.md#checkCapabilitiesTaskStatusV2AnalysesAnalysisIdAgentCapabilitiesStatusGet) | **GET** /v2/analyses/{analysis_id}/agent/capabilities/status | Check the status of a capabilities analysis workflow
+*AgentApi* | [**checkRemediationTaskStatusV2AnalysesAnalysisIdAgentRemediationStatusGet**](docs/AgentApi.md#checkRemediationTaskStatusV2AnalysesAnalysisIdAgentRemediationStatusGet) | **GET** /v2/analyses/{analysis_id}/agent/remediation/status | Check the status of a remediation analysis workflow
 *AgentApi* | [**checkReportAnalysisTaskStatusV2AnalysesAnalysisIdAgentReportAnalysisStatusGet**](docs/AgentApi.md#checkReportAnalysisTaskStatusV2AnalysesAnalysisIdAgentReportAnalysisStatusGet) | **GET** /v2/analyses/{analysis_id}/agent/report-analysis/status | Check the status of a report analysis workflow
 *AgentApi* | [**checkTriageTaskStatusV2AnalysesAnalysisIdAgentTriageStatusGet**](docs/AgentApi.md#checkTriageTaskStatusV2AnalysesAnalysisIdAgentTriageStatusGet) | **GET** /v2/analyses/{analysis_id}/agent/triage/status | Check the status of a triage analysis workflow
 *AgentApi* | [**createCapabilitiesTaskV2AnalysesAnalysisIdAgentCapabilitiesPost**](docs/AgentApi.md#createCapabilitiesTaskV2AnalysesAnalysisIdAgentCapabilitiesPost) | **POST** /v2/analyses/{analysis_id}/agent/capabilities | Queues a capabilities analysis workflow process
+*AgentApi* | [**createRemediationTaskV2AnalysesAnalysisIdAgentRemediationPost**](docs/AgentApi.md#createRemediationTaskV2AnalysesAnalysisIdAgentRemediationPost) | **POST** /v2/analyses/{analysis_id}/agent/remediation | Queues a remediation analysis workflow process
 *AgentApi* | [**createReportAnalysisTaskV2AnalysesAnalysisIdAgentReportAnalysisPost**](docs/AgentApi.md#createReportAnalysisTaskV2AnalysesAnalysisIdAgentReportAnalysisPost) | **POST** /v2/analyses/{analysis_id}/agent/report-analysis | Queues a combined report analysis workflow process
 *AgentApi* | [**createTriageTaskV2AnalysesAnalysisIdAgentTriagePost**](docs/AgentApi.md#createTriageTaskV2AnalysesAnalysisIdAgentTriagePost) | **POST** /v2/analyses/{analysis_id}/agent/triage | Queues a triage analysis workflow process
 *AgentApi* | [**getCapabilitiesResultV2AnalysesAnalysisIdAgentCapabilitiesGet**](docs/AgentApi.md#getCapabilitiesResultV2AnalysesAnalysisIdAgentCapabilitiesGet) | **GET** /v2/analyses/{analysis_id}/agent/capabilities | Get Capabilities Result
+*AgentApi* | [**getRemediationResultV2AnalysesAnalysisIdAgentRemediationGet**](docs/AgentApi.md#getRemediationResultV2AnalysesAnalysisIdAgentRemediationGet) | **GET** /v2/analyses/{analysis_id}/agent/remediation | Get Remediation Result
 *AgentApi* | [**getReportAnalysisResultV2AnalysesAnalysisIdAgentReportAnalysisGet**](docs/AgentApi.md#getReportAnalysisResultV2AnalysesAnalysisIdAgentReportAnalysisGet) | **GET** /v2/analyses/{analysis_id}/agent/report-analysis | Get Report Analysis Result
 *AgentApi* | [**getTriageResultV2AnalysesAnalysisIdAgentTriageGet**](docs/AgentApi.md#getTriageResultV2AnalysesAnalysisIdAgentTriageGet) | **GET** /v2/analyses/{analysis_id}/agent/triage | Get Triage Result
 *AnalysesBulkActionsApi* | [**bulkAddAnalysisTags**](docs/AnalysesBulkActionsApi.md#bulkAddAnalysisTags) | **PATCH** /v2/analyses/tags/add | Bulk Add Analysis Tags
@@ -350,6 +353,7 @@ Class | Method | HTTP request | Description
  - [BaseResponseParams](docs/BaseResponseParams.md)
  - [BaseResponseQueuedWorkflowTaskResponse](docs/BaseResponseQueuedWorkflowTaskResponse.md)
  - [BaseResponseRecent](docs/BaseResponseRecent.md)
+ - [BaseResponseRemediationAgentResponse](docs/BaseResponseRemediationAgentResponse.md)
  - [BaseResponseReportAnalysisResponse](docs/BaseResponseReportAnalysisResponse.md)
  - [BaseResponseStatus](docs/BaseResponseStatus.md)
  - [BaseResponseStr](docs/BaseResponseStr.md)
@@ -630,6 +634,7 @@ Class | Method | HTTP request | Description
  - [RegisterUserInputBody](docs/RegisterUserInputBody.md)
  - [RegistryOperation](docs/RegistryOperation.md)
  - [RelativeBinaryResponse](docs/RelativeBinaryResponse.md)
+ - [RemediationAgentResponse](docs/RemediationAgentResponse.md)
  - [RemoveCollectionBinariesInputBody](docs/RemoveCollectionBinariesInputBody.md)
  - [RenameAppliedEvent](docs/RenameAppliedEvent.md)
  - [RenameInputBody](docs/RenameInputBody.md)

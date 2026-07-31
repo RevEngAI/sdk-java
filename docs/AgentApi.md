@@ -5,12 +5,15 @@ All URIs are relative to *https://api.reveng.ai*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**checkCapabilitiesTaskStatusV2AnalysesAnalysisIdAgentCapabilitiesStatusGet**](AgentApi.md#checkCapabilitiesTaskStatusV2AnalysesAnalysisIdAgentCapabilitiesStatusGet) | **GET** /v2/analyses/{analysis_id}/agent/capabilities/status | Check the status of a capabilities analysis workflow |
+| [**checkRemediationTaskStatusV2AnalysesAnalysisIdAgentRemediationStatusGet**](AgentApi.md#checkRemediationTaskStatusV2AnalysesAnalysisIdAgentRemediationStatusGet) | **GET** /v2/analyses/{analysis_id}/agent/remediation/status | Check the status of a remediation analysis workflow |
 | [**checkReportAnalysisTaskStatusV2AnalysesAnalysisIdAgentReportAnalysisStatusGet**](AgentApi.md#checkReportAnalysisTaskStatusV2AnalysesAnalysisIdAgentReportAnalysisStatusGet) | **GET** /v2/analyses/{analysis_id}/agent/report-analysis/status | Check the status of a report analysis workflow |
 | [**checkTriageTaskStatusV2AnalysesAnalysisIdAgentTriageStatusGet**](AgentApi.md#checkTriageTaskStatusV2AnalysesAnalysisIdAgentTriageStatusGet) | **GET** /v2/analyses/{analysis_id}/agent/triage/status | Check the status of a triage analysis workflow |
 | [**createCapabilitiesTaskV2AnalysesAnalysisIdAgentCapabilitiesPost**](AgentApi.md#createCapabilitiesTaskV2AnalysesAnalysisIdAgentCapabilitiesPost) | **POST** /v2/analyses/{analysis_id}/agent/capabilities | Queues a capabilities analysis workflow process |
+| [**createRemediationTaskV2AnalysesAnalysisIdAgentRemediationPost**](AgentApi.md#createRemediationTaskV2AnalysesAnalysisIdAgentRemediationPost) | **POST** /v2/analyses/{analysis_id}/agent/remediation | Queues a remediation analysis workflow process |
 | [**createReportAnalysisTaskV2AnalysesAnalysisIdAgentReportAnalysisPost**](AgentApi.md#createReportAnalysisTaskV2AnalysesAnalysisIdAgentReportAnalysisPost) | **POST** /v2/analyses/{analysis_id}/agent/report-analysis | Queues a combined report analysis workflow process |
 | [**createTriageTaskV2AnalysesAnalysisIdAgentTriagePost**](AgentApi.md#createTriageTaskV2AnalysesAnalysisIdAgentTriagePost) | **POST** /v2/analyses/{analysis_id}/agent/triage | Queues a triage analysis workflow process |
 | [**getCapabilitiesResultV2AnalysesAnalysisIdAgentCapabilitiesGet**](AgentApi.md#getCapabilitiesResultV2AnalysesAnalysisIdAgentCapabilitiesGet) | **GET** /v2/analyses/{analysis_id}/agent/capabilities | Get Capabilities Result |
+| [**getRemediationResultV2AnalysesAnalysisIdAgentRemediationGet**](AgentApi.md#getRemediationResultV2AnalysesAnalysisIdAgentRemediationGet) | **GET** /v2/analyses/{analysis_id}/agent/remediation | Get Remediation Result |
 | [**getReportAnalysisResultV2AnalysesAnalysisIdAgentReportAnalysisGet**](AgentApi.md#getReportAnalysisResultV2AnalysesAnalysisIdAgentReportAnalysisGet) | **GET** /v2/analyses/{analysis_id}/agent/report-analysis | Get Report Analysis Result |
 | [**getTriageResultV2AnalysesAnalysisIdAgentTriageGet**](AgentApi.md#getTriageResultV2AnalysesAnalysisIdAgentTriageGet) | **GET** /v2/analyses/{analysis_id}/agent/triage | Get Triage Result |
 
@@ -53,6 +56,78 @@ public class Example {
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AgentApi#checkCapabilitiesTaskStatusV2AnalysesAnalysisIdAgentCapabilitiesStatusGet");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **analysisId** | **Integer**|  | |
+
+### Return type
+
+[**TaskStatusResponse**](TaskStatusResponse.md)
+
+### Authorization
+
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+| **422** | Invalid request parameters |  -  |
+
+<a id="checkRemediationTaskStatusV2AnalysesAnalysisIdAgentRemediationStatusGet"></a>
+# **checkRemediationTaskStatusV2AnalysesAnalysisIdAgentRemediationStatusGet**
+> TaskStatusResponse checkRemediationTaskStatusV2AnalysesAnalysisIdAgentRemediationStatusGet(analysisId)
+
+Check the status of a remediation analysis workflow
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.AgentApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    AgentApi apiInstance = new AgentApi(defaultClient);
+    Integer analysisId = 56; // Integer | 
+    try {
+      TaskStatusResponse result = apiInstance.checkRemediationTaskStatusV2AnalysesAnalysisIdAgentRemediationStatusGet(analysisId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AgentApi#checkRemediationTaskStatusV2AnalysesAnalysisIdAgentRemediationStatusGet");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -303,6 +378,78 @@ public class Example {
 | **202** | Successful Response |  -  |
 | **422** | Invalid request parameters |  -  |
 
+<a id="createRemediationTaskV2AnalysesAnalysisIdAgentRemediationPost"></a>
+# **createRemediationTaskV2AnalysesAnalysisIdAgentRemediationPost**
+> BaseResponseQueuedWorkflowTaskResponse createRemediationTaskV2AnalysesAnalysisIdAgentRemediationPost(analysisId)
+
+Queues a remediation analysis workflow process
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.AgentApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    AgentApi apiInstance = new AgentApi(defaultClient);
+    Integer analysisId = 56; // Integer | 
+    try {
+      BaseResponseQueuedWorkflowTaskResponse result = apiInstance.createRemediationTaskV2AnalysesAnalysisIdAgentRemediationPost(analysisId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AgentApi#createRemediationTaskV2AnalysesAnalysisIdAgentRemediationPost");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **analysisId** | **Integer**|  | |
+
+### Return type
+
+[**BaseResponseQueuedWorkflowTaskResponse**](BaseResponseQueuedWorkflowTaskResponse.md)
+
+### Authorization
+
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **202** | Successful Response |  -  |
+| **422** | Invalid request parameters |  -  |
+
 <a id="createReportAnalysisTaskV2AnalysesAnalysisIdAgentReportAnalysisPost"></a>
 # **createReportAnalysisTaskV2AnalysesAnalysisIdAgentReportAnalysisPost**
 > QueuedWorkflowTaskResponse createReportAnalysisTaskV2AnalysesAnalysisIdAgentReportAnalysisPost(analysisId)
@@ -504,6 +651,80 @@ public class Example {
 ### Return type
 
 [**BaseResponseCapabilitiesAgentResponse**](BaseResponseCapabilitiesAgentResponse.md)
+
+### Authorization
+
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+| **422** | Invalid request parameters |  -  |
+
+<a id="getRemediationResultV2AnalysesAnalysisIdAgentRemediationGet"></a>
+# **getRemediationResultV2AnalysesAnalysisIdAgentRemediationGet**
+> BaseResponseRemediationAgentResponse getRemediationResultV2AnalysesAnalysisIdAgentRemediationGet(analysisId)
+
+Get Remediation Result
+
+Returns: - A list of generated YARA rules - A list of generated Snort rules - A list of generated STIX rules
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.AgentApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    AgentApi apiInstance = new AgentApi(defaultClient);
+    Integer analysisId = 56; // Integer | 
+    try {
+      BaseResponseRemediationAgentResponse result = apiInstance.getRemediationResultV2AnalysesAnalysisIdAgentRemediationGet(analysisId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AgentApi#getRemediationResultV2AnalysesAnalysisIdAgentRemediationGet");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **analysisId** | **Integer**|  | |
+
+### Return type
+
+[**BaseResponseRemediationAgentResponse**](BaseResponseRemediationAgentResponse.md)
 
 ### Authorization
 
