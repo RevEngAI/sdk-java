@@ -29,6 +29,7 @@ import java.io.IOException;
 import ai.reveng.model.BaseResponse;
 import ai.reveng.model.BaseResponseCapabilitiesAgentResponse;
 import ai.reveng.model.BaseResponseQueuedWorkflowTaskResponse;
+import ai.reveng.model.BaseResponseRemediationAgentResponse;
 import ai.reveng.model.BaseResponseReportAnalysisResponse;
 import ai.reveng.model.BaseResponseTriageReportResponse;
 import ai.reveng.model.ErrorModel;
@@ -205,6 +206,137 @@ public class AgentApi {
     public okhttp3.Call checkCapabilitiesTaskStatusV2AnalysesAnalysisIdAgentCapabilitiesStatusGetAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<TaskStatusResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = checkCapabilitiesTaskStatusV2AnalysesAnalysisIdAgentCapabilitiesStatusGetValidateBeforeCall(analysisId, _callback);
+        Type localVarReturnType = new TypeToken<TaskStatusResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for checkRemediationTaskStatusV2AnalysesAnalysisIdAgentRemediationStatusGet
+     * @param analysisId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call checkRemediationTaskStatusV2AnalysesAnalysisIdAgentRemediationStatusGetCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v2/analyses/{analysis_id}/agent/remediation/status"
+            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call checkRemediationTaskStatusV2AnalysesAnalysisIdAgentRemediationStatusGetValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'analysisId' is set
+        if (analysisId == null) {
+            throw new ApiException("Missing the required parameter 'analysisId' when calling checkRemediationTaskStatusV2AnalysesAnalysisIdAgentRemediationStatusGet(Async)");
+        }
+
+        return checkRemediationTaskStatusV2AnalysesAnalysisIdAgentRemediationStatusGetCall(analysisId, _callback);
+
+    }
+
+    /**
+     * Check the status of a remediation analysis workflow
+     * 
+     * @param analysisId  (required)
+     * @return TaskStatusResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+     </table>
+     */
+    public TaskStatusResponse checkRemediationTaskStatusV2AnalysesAnalysisIdAgentRemediationStatusGet(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        ApiResponse<TaskStatusResponse> localVarResp = checkRemediationTaskStatusV2AnalysesAnalysisIdAgentRemediationStatusGetWithHttpInfo(analysisId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Check the status of a remediation analysis workflow
+     * 
+     * @param analysisId  (required)
+     * @return ApiResponse&lt;TaskStatusResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<TaskStatusResponse> checkRemediationTaskStatusV2AnalysesAnalysisIdAgentRemediationStatusGetWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        okhttp3.Call localVarCall = checkRemediationTaskStatusV2AnalysesAnalysisIdAgentRemediationStatusGetValidateBeforeCall(analysisId, null);
+        Type localVarReturnType = new TypeToken<TaskStatusResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Check the status of a remediation analysis workflow (asynchronously)
+     * 
+     * @param analysisId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call checkRemediationTaskStatusV2AnalysesAnalysisIdAgentRemediationStatusGetAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<TaskStatusResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = checkRemediationTaskStatusV2AnalysesAnalysisIdAgentRemediationStatusGetValidateBeforeCall(analysisId, _callback);
         Type localVarReturnType = new TypeToken<TaskStatusResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -603,6 +735,137 @@ public class AgentApi {
         return localVarCall;
     }
     /**
+     * Build call for createRemediationTaskV2AnalysesAnalysisIdAgentRemediationPost
+     * @param analysisId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 202 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createRemediationTaskV2AnalysesAnalysisIdAgentRemediationPostCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v2/analyses/{analysis_id}/agent/remediation"
+            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createRemediationTaskV2AnalysesAnalysisIdAgentRemediationPostValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'analysisId' is set
+        if (analysisId == null) {
+            throw new ApiException("Missing the required parameter 'analysisId' when calling createRemediationTaskV2AnalysesAnalysisIdAgentRemediationPost(Async)");
+        }
+
+        return createRemediationTaskV2AnalysesAnalysisIdAgentRemediationPostCall(analysisId, _callback);
+
+    }
+
+    /**
+     * Queues a remediation analysis workflow process
+     * 
+     * @param analysisId  (required)
+     * @return BaseResponseQueuedWorkflowTaskResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 202 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+     </table>
+     */
+    public BaseResponseQueuedWorkflowTaskResponse createRemediationTaskV2AnalysesAnalysisIdAgentRemediationPost(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        ApiResponse<BaseResponseQueuedWorkflowTaskResponse> localVarResp = createRemediationTaskV2AnalysesAnalysisIdAgentRemediationPostWithHttpInfo(analysisId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Queues a remediation analysis workflow process
+     * 
+     * @param analysisId  (required)
+     * @return ApiResponse&lt;BaseResponseQueuedWorkflowTaskResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 202 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<BaseResponseQueuedWorkflowTaskResponse> createRemediationTaskV2AnalysesAnalysisIdAgentRemediationPostWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        okhttp3.Call localVarCall = createRemediationTaskV2AnalysesAnalysisIdAgentRemediationPostValidateBeforeCall(analysisId, null);
+        Type localVarReturnType = new TypeToken<BaseResponseQueuedWorkflowTaskResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Queues a remediation analysis workflow process (asynchronously)
+     * 
+     * @param analysisId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 202 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createRemediationTaskV2AnalysesAnalysisIdAgentRemediationPostAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<BaseResponseQueuedWorkflowTaskResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createRemediationTaskV2AnalysesAnalysisIdAgentRemediationPostValidateBeforeCall(analysisId, _callback);
+        Type localVarReturnType = new TypeToken<BaseResponseQueuedWorkflowTaskResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for createReportAnalysisTaskV2AnalysesAnalysisIdAgentReportAnalysisPost
      * @param analysisId  (required)
      * @param _callback Callback for upload/download progress
@@ -996,6 +1259,137 @@ public class AgentApi {
 
         okhttp3.Call localVarCall = getCapabilitiesResultV2AnalysesAnalysisIdAgentCapabilitiesGetValidateBeforeCall(analysisId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseCapabilitiesAgentResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getRemediationResultV2AnalysesAnalysisIdAgentRemediationGet
+     * @param analysisId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getRemediationResultV2AnalysesAnalysisIdAgentRemediationGetCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v2/analyses/{analysis_id}/agent/remediation"
+            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getRemediationResultV2AnalysesAnalysisIdAgentRemediationGetValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'analysisId' is set
+        if (analysisId == null) {
+            throw new ApiException("Missing the required parameter 'analysisId' when calling getRemediationResultV2AnalysesAnalysisIdAgentRemediationGet(Async)");
+        }
+
+        return getRemediationResultV2AnalysesAnalysisIdAgentRemediationGetCall(analysisId, _callback);
+
+    }
+
+    /**
+     * Get Remediation Result
+     * Returns: - A list of generated YARA rules - A list of generated Snort rules - A list of generated STIX rules
+     * @param analysisId  (required)
+     * @return BaseResponseRemediationAgentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+     </table>
+     */
+    public BaseResponseRemediationAgentResponse getRemediationResultV2AnalysesAnalysisIdAgentRemediationGet(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        ApiResponse<BaseResponseRemediationAgentResponse> localVarResp = getRemediationResultV2AnalysesAnalysisIdAgentRemediationGetWithHttpInfo(analysisId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get Remediation Result
+     * Returns: - A list of generated YARA rules - A list of generated Snort rules - A list of generated STIX rules
+     * @param analysisId  (required)
+     * @return ApiResponse&lt;BaseResponseRemediationAgentResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<BaseResponseRemediationAgentResponse> getRemediationResultV2AnalysesAnalysisIdAgentRemediationGetWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
+        okhttp3.Call localVarCall = getRemediationResultV2AnalysesAnalysisIdAgentRemediationGetValidateBeforeCall(analysisId, null);
+        Type localVarReturnType = new TypeToken<BaseResponseRemediationAgentResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get Remediation Result (asynchronously)
+     * Returns: - A list of generated YARA rules - A list of generated Snort rules - A list of generated STIX rules
+     * @param analysisId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getRemediationResultV2AnalysesAnalysisIdAgentRemediationGetAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<BaseResponseRemediationAgentResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getRemediationResultV2AnalysesAnalysisIdAgentRemediationGetValidateBeforeCall(analysisId, _callback);
+        Type localVarReturnType = new TypeToken<BaseResponseRemediationAgentResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
