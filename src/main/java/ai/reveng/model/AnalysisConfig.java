@@ -56,16 +56,6 @@ public class AnalysisConfig {
   @javax.annotation.Nullable
   private ScrapeThirdPartyConfig scrapeThirdPartyConfig;
 
-  public static final String SERIALIZED_NAME_GENERATE_CVES = "generate_cves";
-  @SerializedName(SERIALIZED_NAME_GENERATE_CVES)
-  @javax.annotation.Nullable
-  private Boolean generateCves = false;
-
-  public static final String SERIALIZED_NAME_GENERATE_SBOM = "generate_sbom";
-  @SerializedName(SERIALIZED_NAME_GENERATE_SBOM)
-  @javax.annotation.Nullable
-  private Boolean generateSbom = false;
-
   public static final String SERIALIZED_NAME_GENERATE_CAPABILITIES = "generate_capabilities";
   @SerializedName(SERIALIZED_NAME_GENERATE_CAPABILITIES)
   @javax.annotation.Nullable
@@ -105,44 +95,6 @@ public class AnalysisConfig {
 
   public void setScrapeThirdPartyConfig(@javax.annotation.Nullable ScrapeThirdPartyConfig scrapeThirdPartyConfig) {
     this.scrapeThirdPartyConfig = scrapeThirdPartyConfig;
-  }
-
-
-  public AnalysisConfig generateCves(@javax.annotation.Nullable Boolean generateCves) {
-    this.generateCves = generateCves;
-    return this;
-  }
-
-  /**
-   * A configuration option for fetching CVEs data.
-   * @return generateCves
-   */
-  @javax.annotation.Nullable
-  public Boolean getGenerateCves() {
-    return generateCves;
-  }
-
-  public void setGenerateCves(@javax.annotation.Nullable Boolean generateCves) {
-    this.generateCves = generateCves;
-  }
-
-
-  public AnalysisConfig generateSbom(@javax.annotation.Nullable Boolean generateSbom) {
-    this.generateSbom = generateSbom;
-    return this;
-  }
-
-  /**
-   * A configuration option for generating software bill of materials data.
-   * @return generateSbom
-   */
-  @javax.annotation.Nullable
-  public Boolean getGenerateSbom() {
-    return generateSbom;
-  }
-
-  public void setGenerateSbom(@javax.annotation.Nullable Boolean generateSbom) {
-    this.generateSbom = generateSbom;
   }
 
 
@@ -277,8 +229,6 @@ public class AnalysisConfig {
     }
     AnalysisConfig analysisConfig = (AnalysisConfig) o;
     return Objects.equals(this.scrapeThirdPartyConfig, analysisConfig.scrapeThirdPartyConfig) &&
-        Objects.equals(this.generateCves, analysisConfig.generateCves) &&
-        Objects.equals(this.generateSbom, analysisConfig.generateSbom) &&
         Objects.equals(this.generateCapabilities, analysisConfig.generateCapabilities) &&
         Objects.equals(this.noCache, analysisConfig.noCache) &&
         Objects.equals(this.advancedAnalysis, analysisConfig.advancedAnalysis) &&
@@ -288,7 +238,7 @@ public class AnalysisConfig {
 
   @Override
   public int hashCode() {
-    return Objects.hash(scrapeThirdPartyConfig, generateCves, generateSbom, generateCapabilities, noCache, advancedAnalysis, sandboxConfig, additionalProperties);
+    return Objects.hash(scrapeThirdPartyConfig, generateCapabilities, noCache, advancedAnalysis, sandboxConfig, additionalProperties);
   }
 
   @Override
@@ -296,8 +246,6 @@ public class AnalysisConfig {
     StringBuilder sb = new StringBuilder();
     sb.append("class AnalysisConfig {\n");
     sb.append("    scrapeThirdPartyConfig: ").append(toIndentedString(scrapeThirdPartyConfig)).append("\n");
-    sb.append("    generateCves: ").append(toIndentedString(generateCves)).append("\n");
-    sb.append("    generateSbom: ").append(toIndentedString(generateSbom)).append("\n");
     sb.append("    generateCapabilities: ").append(toIndentedString(generateCapabilities)).append("\n");
     sb.append("    noCache: ").append(toIndentedString(noCache)).append("\n");
     sb.append("    advancedAnalysis: ").append(toIndentedString(advancedAnalysis)).append("\n");
@@ -321,7 +269,7 @@ public class AnalysisConfig {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("scrape_third_party_config", "generate_cves", "generate_sbom", "generate_capabilities", "no_cache", "advanced_analysis", "sandbox_config"));
+    openapiFields = new HashSet<String>(Arrays.asList("scrape_third_party_config", "generate_capabilities", "no_cache", "advanced_analysis", "sandbox_config"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);

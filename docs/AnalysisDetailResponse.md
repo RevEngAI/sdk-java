@@ -20,7 +20,6 @@
 |**dashboardUrl** | **String** | URL to view this analysis in the dashboard |  |
 |**debug** | **Boolean** |  |  |
 |**modelName** | **String** |  |  |
-|**sbom** | **Map&lt;String, Object&gt;** |  |  [optional] |
 |**sha256Hash** | **String** |  |  |
 |**autoRunAgents** | [**AutoRunAgents**](AutoRunAgents.md) |  |  |
 |**requestedConfig** | [**AnalysisConfigSnapshot**](AnalysisConfigSnapshot.md) | Snapshot of the configuration the analysis was submitted with. |  |

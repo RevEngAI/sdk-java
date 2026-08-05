@@ -161,7 +161,7 @@ public class ReAnalysisForm {
   }
 
   /**
-   * Only runs essential parts of the analysis, skips tags/sbom/cves etc.
+   * Only runs essential parts of the analysis, skips tags etc.
    * @return essential
    */
   @javax.annotation.Nullable
