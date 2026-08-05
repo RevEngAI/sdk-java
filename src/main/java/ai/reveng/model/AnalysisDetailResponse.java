@@ -23,9 +23,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -119,11 +116,6 @@ public class AnalysisDetailResponse {
   @SerializedName(SERIALIZED_NAME_MODEL_NAME)
   @javax.annotation.Nonnull
   private String modelName;
-
-  public static final String SERIALIZED_NAME_SBOM = "sbom";
-  @SerializedName(SERIALIZED_NAME_SBOM)
-  @javax.annotation.Nullable
-  private Map<String, Object> sbom;
 
   public static final String SERIALIZED_NAME_SHA256_HASH = "sha_256_hash";
   @SerializedName(SERIALIZED_NAME_SHA256_HASH)
@@ -390,33 +382,6 @@ public class AnalysisDetailResponse {
   }
 
 
-  public AnalysisDetailResponse sbom(@javax.annotation.Nullable Map<String, Object> sbom) {
-    this.sbom = sbom;
-    return this;
-  }
-
-  public AnalysisDetailResponse putSbomItem(String key, Object sbomItem) {
-    if (this.sbom == null) {
-      this.sbom = new HashMap<>();
-    }
-    this.sbom.put(key, sbomItem);
-    return this;
-  }
-
-  /**
-   * Get sbom
-   * @return sbom
-   */
-  @javax.annotation.Nullable
-  public Map<String, Object> getSbom() {
-    return sbom;
-  }
-
-  public void setSbom(@javax.annotation.Nullable Map<String, Object> sbom) {
-    this.sbom = sbom;
-  }
-
-
   public AnalysisDetailResponse sha256Hash(@javax.annotation.Nonnull String sha256Hash) {
     this.sha256Hash = sha256Hash;
     return this;
@@ -541,27 +506,15 @@ public class AnalysisDetailResponse {
         Objects.equals(this.dashboardUrl, analysisDetailResponse.dashboardUrl) &&
         Objects.equals(this.debug, analysisDetailResponse.debug) &&
         Objects.equals(this.modelName, analysisDetailResponse.modelName) &&
-        Objects.equals(this.sbom, analysisDetailResponse.sbom) &&
         Objects.equals(this.sha256Hash, analysisDetailResponse.sha256Hash) &&
         Objects.equals(this.autoRunAgents, analysisDetailResponse.autoRunAgents) &&
         Objects.equals(this.requestedConfig, analysisDetailResponse.requestedConfig)&&
         Objects.equals(this.additionalProperties, analysisDetailResponse.additionalProperties);
   }
 
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
-  }
-
   @Override
   public int hashCode() {
-    return Objects.hash(access, analysisId, analysisScope, architecture, binaryDynamic, binaryFormat, binaryName, binarySize, binaryType, creation, dashboardUrl, debug, modelName, sbom, sha256Hash, autoRunAgents, requestedConfig, additionalProperties);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(access, analysisId, analysisScope, architecture, binaryDynamic, binaryFormat, binaryName, binarySize, binaryType, creation, dashboardUrl, debug, modelName, sha256Hash, autoRunAgents, requestedConfig, additionalProperties);
   }
 
   @Override
@@ -581,7 +534,6 @@ public class AnalysisDetailResponse {
     sb.append("    dashboardUrl: ").append(toIndentedString(dashboardUrl)).append("\n");
     sb.append("    debug: ").append(toIndentedString(debug)).append("\n");
     sb.append("    modelName: ").append(toIndentedString(modelName)).append("\n");
-    sb.append("    sbom: ").append(toIndentedString(sbom)).append("\n");
     sb.append("    sha256Hash: ").append(toIndentedString(sha256Hash)).append("\n");
     sb.append("    autoRunAgents: ").append(toIndentedString(autoRunAgents)).append("\n");
     sb.append("    requestedConfig: ").append(toIndentedString(requestedConfig)).append("\n");
@@ -604,7 +556,7 @@ public class AnalysisDetailResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access", "analysis_id", "analysis_scope", "architecture", "binary_dynamic", "binary_format", "binary_name", "binary_size", "binary_type", "creation", "dashboard_url", "debug", "model_name", "sbom", "sha_256_hash", "auto_run_agents", "requested_config"));
+    openapiFields = new HashSet<String>(Arrays.asList("access", "analysis_id", "analysis_scope", "architecture", "binary_dynamic", "binary_format", "binary_name", "binary_size", "binary_type", "creation", "dashboard_url", "debug", "model_name", "sha_256_hash", "auto_run_agents", "requested_config"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("access", "analysis_id", "analysis_scope", "architecture", "binary_dynamic", "binary_format", "binary_name", "binary_size", "binary_type", "creation", "dashboard_url", "debug", "model_name", "sha_256_hash", "auto_run_agents", "requested_config"));
