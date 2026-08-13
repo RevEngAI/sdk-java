@@ -72,7 +72,9 @@ echo "==> Spec info.version: $SPEC_VERSION"
 
 # --- 2. Resolve the artifact version --------------------------------------
 if [ -z "$VERSION" ]; then
-  # Drop the `v` prefix, as CI does: it is not usually used in Maven versions.
+  # Drop the `v` prefix: Maven versions do not use it. Note this makes
+  # .sdk-version differ from CI, which stores the tag-shaped version there.
+  # Local consumers read the file as the Maven version, so keep it stripped.
   BASE="${SPEC_VERSION#v}"
   if printf '%s' "$BASE" | grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+$'; then
     # Released spec: use its version verbatim, identical to CI.

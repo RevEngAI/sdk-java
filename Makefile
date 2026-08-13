@@ -35,7 +35,7 @@ build: ## Compile the current source tree
 install: ## Install the current source tree into ~/.m2 (publishToMavenLocal)
 	./gradlew publishToMavenLocal
 	@printf "\nInstalled:\n"
-	@ls -1 "$$HOME/.m2/repository/ai/reveng/sdk/$$(cat .sdk-version)/"
+	@ls -1 "$$HOME/.m2/repository/ai/reveng/sdk/$$(sed 's/^v//' .sdk-version)/"
 
 sdk: generate install ## Regenerate from SPEC and install into ~/.m2
 
