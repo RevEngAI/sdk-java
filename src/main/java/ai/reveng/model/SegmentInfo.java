@@ -46,7 +46,7 @@ import java.util.Set;
 import ai.reveng.invoker.JSON;
 
 /**
- * Represents the information about a segment.  Attributes:     name: The name of the segment.     r: Determines if the segment has read permission.     w: Determines if the segment has write permission.     x: Determines if the segment has execute permission.     start: The start address of the segment.     end: The end address of the segment.
+ * Represents the information about a segment.  Attributes:     name: The name of the segment.     r: Determines if the segment has read permission.     w: Determines if the segment has write permission.     x: Determines if the segment has execute permission.     start: The start address of the segment.     end: The end address of the segment (inclusive).     kind: Coarse classification of the segment: \&quot;code\&quot;, \&quot;data\&quot;, or \&quot;other\&quot;.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SegmentInfo {
@@ -79,6 +79,11 @@ public class SegmentInfo {
   @SerializedName(SERIALIZED_NAME_END)
   @javax.annotation.Nullable
   private Integer end = 0;
+
+  public static final String SERIALIZED_NAME_KIND = "kind";
+  @SerializedName(SERIALIZED_NAME_KIND)
+  @javax.annotation.Nullable
+  private String kind = "other";
 
   public SegmentInfo() {
   }
@@ -196,6 +201,25 @@ public class SegmentInfo {
     this.end = end;
   }
 
+
+  public SegmentInfo kind(@javax.annotation.Nullable String kind) {
+    this.kind = kind;
+    return this;
+  }
+
+  /**
+   * Get kind
+   * @return kind
+   */
+  @javax.annotation.Nullable
+  public String getKind() {
+    return kind;
+  }
+
+  public void setKind(@javax.annotation.Nullable String kind) {
+    this.kind = kind;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -256,7 +280,8 @@ public class SegmentInfo {
         Objects.equals(this.w, segmentInfo.w) &&
         Objects.equals(this.x, segmentInfo.x) &&
         Objects.equals(this.start, segmentInfo.start) &&
-        Objects.equals(this.end, segmentInfo.end)&&
+        Objects.equals(this.end, segmentInfo.end) &&
+        Objects.equals(this.kind, segmentInfo.kind)&&
         Objects.equals(this.additionalProperties, segmentInfo.additionalProperties);
   }
 
@@ -266,7 +291,7 @@ public class SegmentInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, r, w, x, start, end, additionalProperties);
+    return Objects.hash(name, r, w, x, start, end, kind, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -286,6 +311,7 @@ public class SegmentInfo {
     sb.append("    x: ").append(toIndentedString(x)).append("\n");
     sb.append("    start: ").append(toIndentedString(start)).append("\n");
     sb.append("    end: ").append(toIndentedString(end)).append("\n");
+    sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -305,7 +331,7 @@ public class SegmentInfo {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("name", "r", "w", "x", "start", "end"));
+    openapiFields = new HashSet<String>(Arrays.asList("name", "r", "w", "x", "start", "end", "kind"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -326,6 +352,9 @@ public class SegmentInfo {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("kind") != null && !jsonObj.get("kind").isJsonNull()) && !jsonObj.get("kind").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kind").toString()));
       }
   }
 

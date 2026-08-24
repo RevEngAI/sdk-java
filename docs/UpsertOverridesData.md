@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**userOverrideMappings** | **Map&lt;String, String&gt;** | Merged override mappings after applying changes |  |
+|**placeholderToUserOverride** | [**Map&lt;String, Token&gt;**](Token.md) | Every override on the function after applying this request, keyed by placeholder token. |  |
 
 
 

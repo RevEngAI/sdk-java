@@ -295,7 +295,7 @@ public class FunctionsRenamingHistoryApi {
 
     /**
      * Batch rename functions
-     * Renames multiple functions in a single request. Records name changes in history and copies data types from source functions.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
+     * Renames multiple functions in a single request. Records name changes in history.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
      * @param batchRenameInputBody  (required)
      * @return BatchRenameOutputBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -317,7 +317,7 @@ public class FunctionsRenamingHistoryApi {
 
     /**
      * Batch rename functions
-     * Renames multiple functions in a single request. Records name changes in history and copies data types from source functions.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
+     * Renames multiple functions in a single request. Records name changes in history.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
      * @param batchRenameInputBody  (required)
      * @return ApiResponse&lt;BatchRenameOutputBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -340,7 +340,7 @@ public class FunctionsRenamingHistoryApi {
 
     /**
      * Batch rename functions (asynchronously)
-     * Renames multiple functions in a single request. Records name changes in history and copies data types from source functions.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
+     * Renames multiple functions in a single request. Records name changes in history.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
      * @param batchRenameInputBody  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

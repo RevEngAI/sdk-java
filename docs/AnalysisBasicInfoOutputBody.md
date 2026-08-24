@@ -15,6 +15,9 @@
 |**binaryUuid** | **String** | UUID of the binary, omitted when not set |  |
 |**creation** | **OffsetDateTime** | When the binary was uploaded |  |
 |**debug** | **Boolean** | True when the binary was analysed with debug symbols |  |
+|**detectedArchitecture** | **String** | Detected instruction-set architecture; empty when unavailable |  |
+|**detectedBinaryFormat** | **String** | Detected binary container format; empty when unavailable |  |
+|**detectedBinaryType** | **String** | Detected operating-system platform; empty when unavailable |  |
 |**functionCount** | **Long** | Number of functions in the binary |  |
 |**isAdvanced** | **Boolean** | True when the analysis was run in advanced mode |  |
 |**isOwner** | **Boolean** | True when the caller is the analysis owner |  |
@@ -24,6 +27,9 @@
 |**ownerUsername** | **String** | Username of the analysis owner |  |
 |**sequencerVersion** | **String** | Sequencer version, omitted when not set |  [optional] |
 |**sha256Hash** | **String** | SHA-256 hash of the binary |  |
+|**suppliedArchitecture** | **String** | User-supplied instruction-set architecture; \&quot;AUTO\&quot; when not overridden |  |
+|**suppliedBinaryFormat** | **String** | User-supplied binary container format; \&quot;AUTO\&quot; when not overridden |  |
+|**suppliedBinaryType** | **String** | User-supplied operating-system platform; \&quot;AUTO\&quot; when not overridden |  |
 |**teamId** | **Long** | Team ID of the analysis |  |
 
 

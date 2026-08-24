@@ -13,18 +13,19 @@ All URIs are relative to *https://api.reveng.ai*
 | [**getAiDecompilationStatus**](FunctionsAiDecompilationApi.md#getAiDecompilationStatus) | **GET** /v3/functions/{function_id}/ai-decompilation/status | Get AI decompilation workflow status |
 | [**getAiDecompilationSummary**](FunctionsAiDecompilationApi.md#getAiDecompilationSummary) | **GET** /v3/functions/{function_id}/ai-decompilation/summary | Get AI decompilation summary |
 | [**getAiDecompilationSummaryStatus**](FunctionsAiDecompilationApi.md#getAiDecompilationSummaryStatus) | **GET** /v3/functions/{function_id}/ai-decompilation/summary/status | Get summary generation workflow status |
-| [**getAiDecompilationTokenised**](FunctionsAiDecompilationApi.md#getAiDecompilationTokenised) | **GET** /v3/functions/{function_id}/ai-decompilation/tokenised | Get tokenised AI decompilation with function mapping |
 | [**patchAiDecompilationInlineComment**](FunctionsAiDecompilationApi.md#patchAiDecompilationInlineComment) | **PATCH** /v3/functions/{function_id}/ai-decompilation/inline-comments | Update a single inline comment |
 | [**regenerateAiDecompilationInlineComments**](FunctionsAiDecompilationApi.md#regenerateAiDecompilationInlineComments) | **POST** /v3/functions/{function_id}/ai-decompilation/inline-comments | Regenerate AI decompilation inline comments |
 | [**regenerateAiDecompilationSummary**](FunctionsAiDecompilationApi.md#regenerateAiDecompilationSummary) | **POST** /v3/functions/{function_id}/ai-decompilation/summary | Regenerate AI decompilation summary |
 | [**streamAiDecompilation**](FunctionsAiDecompilationApi.md#streamAiDecompilation) | **GET** /v3/functions/{function_id}/ai-decompilation/events | Stream live AI decompilation output (SSE) |
-| [**upsertAiDecompilationOverrides**](FunctionsAiDecompilationApi.md#upsertAiDecompilationOverrides) | **PATCH** /v3/functions/{function_id}/ai-decompilation/overrides | Upsert variable/function name overrides |
 | [**upsertAiDecompilationRating**](FunctionsAiDecompilationApi.md#upsertAiDecompilationRating) | **PATCH** /v2/functions/{function_id}/ai-decompilation/rating | Upsert rating for AI decompilation |
+| [**v3GetAiDecompilationLineAttributions**](FunctionsAiDecompilationApi.md#v3GetAiDecompilationLineAttributions) | **GET** /v3/functions/{function_id}/ai-decompilation/line-attributions | Get AI decompilation line attributions |
+| [**v3GetAiDecompilationTokens**](FunctionsAiDecompilationApi.md#v3GetAiDecompilationTokens) | **GET** /v3/functions/{function_id}/ai-decompilation/tokens | Get AI decompilation tokens and user overrides |
+| [**v3UpsertAiDecompilationOverrides**](FunctionsAiDecompilationApi.md#v3UpsertAiDecompilationOverrides) | **PATCH** /v3/functions/{function_id}/ai-decompilation/overrides | Upsert variable/function name overrides |
 
 
 <a id="createAiDecompilation"></a>
 # **createAiDecompilation**
-> CreateAIDecompOutputBody createAiDecompilation(functionId, contextAware, temperature)
+> CreateAIDecompOutputBody createAiDecompilation(functionId, temperature)
 
 Start AI decompilation
 
@@ -57,10 +58,9 @@ public class Example {
 
     FunctionsAiDecompilationApi apiInstance = new FunctionsAiDecompilationApi(defaultClient);
     Long functionId = 56L; // Long | Function ID
-    Boolean contextAware = false; // Boolean | Use context-aware decompilation
     Double temperature = -1D; // Double | LLM temperature (0.0-1.0). Overrides the server default when set. Omit or set to -1 to use the server default.
     try {
-      CreateAIDecompOutputBody result = apiInstance.createAiDecompilation(functionId, contextAware, temperature);
+      CreateAIDecompOutputBody result = apiInstance.createAiDecompilation(functionId, temperature);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsAiDecompilationApi#createAiDecompilation");
@@ -78,7 +78,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **functionId** | **Long**| Function ID | |
-| **contextAware** | **Boolean**| Use context-aware decompilation | [optional] [default to false] |
 | **temperature** | **Double**| LLM temperature (0.0-1.0). Overrides the server default when set. Omit or set to -1 to use the server default. | [optional] [default to -1] |
 
 ### Return type
@@ -718,83 +717,6 @@ public class Example {
 | **422** | Unprocessable Entity |  -  |
 | **500** | Internal Server Error |  -  |
 
-<a id="getAiDecompilationTokenised"></a>
-# **getAiDecompilationTokenised**
-> TokenisedData getAiDecompilationTokenised(functionId)
-
-Get tokenised AI decompilation with function mapping
-
-Returns the decompilation with placeholder tokens, the function mapping for token resolution, and the predicted function name.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;500&#x60; [&#x60;INTERNAL_ERROR&#x60;](/errors/INTERNAL_ERROR) — Internal Server Error
-
-### Example
-```java
-// Import classes:
-import ai.reveng.invoker.ApiClient;
-import ai.reveng.invoker.ApiException;
-import ai.reveng.invoker.Configuration;
-import ai.reveng.invoker.auth.*;
-import ai.reveng.invoker.models.*;
-import ai.reveng.api.FunctionsAiDecompilationApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.reveng.ai");
-    
-    // Configure API key authorization: APIKey
-    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
-    APIKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //APIKey.setApiKeyPrefix("Token");
-
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
-
-    FunctionsAiDecompilationApi apiInstance = new FunctionsAiDecompilationApi(defaultClient);
-    Long functionId = 56L; // Long | Function ID
-    try {
-      TokenisedData result = apiInstance.getAiDecompilationTokenised(functionId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling FunctionsAiDecompilationApi#getAiDecompilationTokenised");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **functionId** | **Long**| Function ID | |
-
-### Return type
-
-[**TokenisedData**](TokenisedData.md)
-
-### Authorization
-
-[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **422** | Unprocessable Entity |  -  |
-| **500** | Internal Server Error |  -  |
-
 <a id="patchAiDecompilationInlineComment"></a>
 # **patchAiDecompilationInlineComment**
 > CommentsData patchAiDecompilationInlineComment(functionId, patchCommentBody)
@@ -1102,86 +1024,6 @@ public class Example {
 | **200** | OK |  -  |
 | **0** | Error |  -  |
 
-<a id="upsertAiDecompilationOverrides"></a>
-# **upsertAiDecompilationOverrides**
-> UpsertOverridesData upsertAiDecompilationOverrides(functionId, upsertOverridesInputBody)
-
-Upsert variable/function name overrides
-
-Applies user-provided name overrides to placeholder tokens in the decompilation.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
-
-### Example
-```java
-// Import classes:
-import ai.reveng.invoker.ApiClient;
-import ai.reveng.invoker.ApiException;
-import ai.reveng.invoker.Configuration;
-import ai.reveng.invoker.auth.*;
-import ai.reveng.invoker.models.*;
-import ai.reveng.api.FunctionsAiDecompilationApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.reveng.ai");
-    
-    // Configure API key authorization: APIKey
-    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
-    APIKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //APIKey.setApiKeyPrefix("Token");
-
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
-
-    FunctionsAiDecompilationApi apiInstance = new FunctionsAiDecompilationApi(defaultClient);
-    Long functionId = 56L; // Long | Function ID
-    UpsertOverridesInputBody upsertOverridesInputBody = new UpsertOverridesInputBody(); // UpsertOverridesInputBody | 
-    try {
-      UpsertOverridesData result = apiInstance.upsertAiDecompilationOverrides(functionId, upsertOverridesInputBody);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling FunctionsAiDecompilationApi#upsertAiDecompilationOverrides");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **functionId** | **Long**| Function ID | |
-| **upsertOverridesInputBody** | [**UpsertOverridesInputBody**](UpsertOverridesInputBody.md)|  | |
-
-### Return type
-
-[**UpsertOverridesData**](UpsertOverridesData.md)
-
-### Authorization
-
-[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **422** | Unprocessable Entity |  -  |
-| **500** | Internal Server Error |  -  |
-
 <a id="upsertAiDecompilationRating"></a>
 # **upsertAiDecompilationRating**
 > BaseResponse upsertAiDecompilationRating(functionId, upsertAiDecomplationRatingRequest)
@@ -1255,4 +1097,238 @@ public class Example {
 |-------------|-------------|------------------|
 | **201** | Successful Response |  -  |
 | **422** | Invalid request parameters |  -  |
+
+<a id="v3GetAiDecompilationLineAttributions"></a>
+# **v3GetAiDecompilationLineAttributions**
+> LineAttributionsData v3GetAiDecompilationLineAttributions(functionId)
+
+Get AI decompilation line attributions
+
+Returns the correspondence between the function&#39;s disassembly line numbers and its AI-decompilation line numbers, grouped by disassembly line. Both sides are 0-indexed and the correspondence has a many-to-many relationship. The mapping is empty until a completed run has produced one, and is empty for a run that produced none.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;500&#x60; [&#x60;INTERNAL_ERROR&#x60;](/errors/INTERNAL_ERROR) — Internal Server Error
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.FunctionsAiDecompilationApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    FunctionsAiDecompilationApi apiInstance = new FunctionsAiDecompilationApi(defaultClient);
+    Long functionId = 56L; // Long | Function ID
+    try {
+      LineAttributionsData result = apiInstance.v3GetAiDecompilationLineAttributions(functionId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling FunctionsAiDecompilationApi#v3GetAiDecompilationLineAttributions");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **functionId** | **Long**| Function ID | |
+
+### Return type
+
+[**LineAttributionsData**](LineAttributionsData.md)
+
+### Authorization
+
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **500** | Internal Server Error |  -  |
+
+<a id="v3GetAiDecompilationTokens"></a>
+# **v3GetAiDecompilationTokens**
+> GetTokensResponse v3GetAiDecompilationTokens(functionId)
+
+Get AI decompilation tokens and user overrides
+
+Returns the tokenised AI-decompilation source, the value each token resolves to, and the user&#39;s overrides as a separate unmerged map. The source is empty and the overrides are null until a run has succeeded.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;500&#x60; [&#x60;INTERNAL_ERROR&#x60;](/errors/INTERNAL_ERROR) — Internal Server Error
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.FunctionsAiDecompilationApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    FunctionsAiDecompilationApi apiInstance = new FunctionsAiDecompilationApi(defaultClient);
+    Long functionId = 56L; // Long | Function ID
+    try {
+      GetTokensResponse result = apiInstance.v3GetAiDecompilationTokens(functionId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling FunctionsAiDecompilationApi#v3GetAiDecompilationTokens");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **functionId** | **Long**| Function ID | |
+
+### Return type
+
+[**GetTokensResponse**](GetTokensResponse.md)
+
+### Authorization
+
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **500** | Internal Server Error |  -  |
+
+<a id="v3UpsertAiDecompilationOverrides"></a>
+# **v3UpsertAiDecompilationOverrides**
+> UpsertOverridesData v3UpsertAiDecompilationOverrides(functionId, upsertOverridesInputBody)
+
+Upsert variable/function name overrides
+
+Applies user-provided name overrides to placeholder tokens in the decompilation.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;500&#x60; [&#x60;INTERNAL_ERROR&#x60;](/errors/INTERNAL_ERROR) — Internal Server Error
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.FunctionsAiDecompilationApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    FunctionsAiDecompilationApi apiInstance = new FunctionsAiDecompilationApi(defaultClient);
+    Long functionId = 56L; // Long | Function ID
+    UpsertOverridesInputBody upsertOverridesInputBody = new UpsertOverridesInputBody(); // UpsertOverridesInputBody | 
+    try {
+      UpsertOverridesData result = apiInstance.v3UpsertAiDecompilationOverrides(functionId, upsertOverridesInputBody);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling FunctionsAiDecompilationApi#v3UpsertAiDecompilationOverrides");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **functionId** | **Long**| Function ID | |
+| **upsertOverridesInputBody** | [**UpsertOverridesInputBody**](UpsertOverridesInputBody.md)|  | |
+
+### Return type
+
+[**UpsertOverridesData**](UpsertOverridesData.md)
+
+### Authorization
+
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **500** | Internal Server Error |  -  |
 

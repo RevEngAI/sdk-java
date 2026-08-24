@@ -430,7 +430,7 @@ public class Example {
 
 Get function disassembly
 
-Returns the function&#39;s disassembly metadata (JSON blob containing basic blocks + local variables) along with parameter and return-type info.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+Returns the function&#39;s disassembly metadata (JSON blob containing basic blocks + local variables) along with parameter and return-type info. A function that carries no disassembly (externals, thunks) returns 200 with the block fields omitted; disassembly that exists but cannot be read yet returns 409 ANALYSIS_NOT_READY.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;409&#x60; [&#x60;ANALYSIS_NOT_READY&#x60;](/errors/ANALYSIS_NOT_READY) — Analysis Not Ready
 
 ### Example
 ```java
@@ -498,6 +498,7 @@ public class Example {
 | **200** | OK |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 | **500** | Internal Server Error |  -  |
 

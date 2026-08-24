@@ -13,6 +13,7 @@
 package ai.reveng.model;
 
 import java.util.Objects;
+import ai.reveng.model.Token;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -51,38 +52,38 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpsertOverridesData {
-  public static final String SERIALIZED_NAME_USER_OVERRIDE_MAPPINGS = "user_override_mappings";
-  @SerializedName(SERIALIZED_NAME_USER_OVERRIDE_MAPPINGS)
+  public static final String SERIALIZED_NAME_PLACEHOLDER_TO_USER_OVERRIDE = "placeholder_to_user_override";
+  @SerializedName(SERIALIZED_NAME_PLACEHOLDER_TO_USER_OVERRIDE)
   @javax.annotation.Nonnull
-  private Map<String, String> userOverrideMappings = new HashMap<>();
+  private Map<String, Token> placeholderToUserOverride = new HashMap<>();
 
   public UpsertOverridesData() {
   }
 
-  public UpsertOverridesData userOverrideMappings(@javax.annotation.Nonnull Map<String, String> userOverrideMappings) {
-    this.userOverrideMappings = userOverrideMappings;
+  public UpsertOverridesData placeholderToUserOverride(@javax.annotation.Nonnull Map<String, Token> placeholderToUserOverride) {
+    this.placeholderToUserOverride = placeholderToUserOverride;
     return this;
   }
 
-  public UpsertOverridesData putUserOverrideMappingsItem(String key, String userOverrideMappingsItem) {
-    if (this.userOverrideMappings == null) {
-      this.userOverrideMappings = new HashMap<>();
+  public UpsertOverridesData putPlaceholderToUserOverrideItem(String key, Token placeholderToUserOverrideItem) {
+    if (this.placeholderToUserOverride == null) {
+      this.placeholderToUserOverride = new HashMap<>();
     }
-    this.userOverrideMappings.put(key, userOverrideMappingsItem);
+    this.placeholderToUserOverride.put(key, placeholderToUserOverrideItem);
     return this;
   }
 
   /**
-   * Merged override mappings after applying changes
-   * @return userOverrideMappings
+   * Every override on the function after applying this request, keyed by placeholder token.
+   * @return placeholderToUserOverride
    */
   @javax.annotation.Nonnull
-  public Map<String, String> getUserOverrideMappings() {
-    return userOverrideMappings;
+  public Map<String, Token> getPlaceholderToUserOverride() {
+    return placeholderToUserOverride;
   }
 
-  public void setUserOverrideMappings(@javax.annotation.Nonnull Map<String, String> userOverrideMappings) {
-    this.userOverrideMappings = userOverrideMappings;
+  public void setPlaceholderToUserOverride(@javax.annotation.Nonnull Map<String, Token> placeholderToUserOverride) {
+    this.placeholderToUserOverride = placeholderToUserOverride;
   }
 
 
@@ -96,19 +97,19 @@ public class UpsertOverridesData {
       return false;
     }
     UpsertOverridesData upsertOverridesData = (UpsertOverridesData) o;
-    return Objects.equals(this.userOverrideMappings, upsertOverridesData.userOverrideMappings);
+    return Objects.equals(this.placeholderToUserOverride, upsertOverridesData.placeholderToUserOverride);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(userOverrideMappings);
+    return Objects.hash(placeholderToUserOverride);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpsertOverridesData {\n");
-    sb.append("    userOverrideMappings: ").append(toIndentedString(userOverrideMappings)).append("\n");
+    sb.append("    placeholderToUserOverride: ").append(toIndentedString(placeholderToUserOverride)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -127,10 +128,10 @@ public class UpsertOverridesData {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("user_override_mappings"));
+    openapiFields = new HashSet<String>(Arrays.asList("placeholder_to_user_override"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("user_override_mappings"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("placeholder_to_user_override"));
   }
 
   /**

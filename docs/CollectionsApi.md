@@ -726,7 +726,7 @@ public class Example {
 
 Delete a collection.
 
-Deletes a collection. The collection must not have any linked binaries (call PATCH /v3/collections/{collection_id}/binaries with an empty list first).  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict
+Deletes a collection along with its binary links, tags, and hierarchy links. The binaries themselves are not deleted.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
 
 ### Example
 ```java
@@ -793,7 +793,6 @@ null (empty response body)
 | **204** | No Content |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
-| **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 | **500** | Internal Server Error |  -  |
 

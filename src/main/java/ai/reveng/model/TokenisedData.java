@@ -13,14 +13,17 @@
 package ai.reveng.model;
 
 import java.util.Objects;
-import ai.reveng.model.AIDecompFunctionMapping;
+import ai.reveng.model.ResolvedEntity;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -50,10 +53,15 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TokenisedData {
-  public static final String SERIALIZED_NAME_FUNCTION_MAPPING = "function_mapping";
-  @SerializedName(SERIALIZED_NAME_FUNCTION_MAPPING)
+  public static final String SERIALIZED_NAME_ENTITIES = "entities";
+  @SerializedName(SERIALIZED_NAME_ENTITIES)
   @javax.annotation.Nullable
-  private AIDecompFunctionMapping functionMapping;
+  private List<ResolvedEntity> entities;
+
+  public static final String SERIALIZED_NAME_LINE_ATTRIBUTION = "line_attribution";
+  @SerializedName(SERIALIZED_NAME_LINE_ATTRIBUTION)
+  @javax.annotation.Nullable
+  private Object lineAttribution = null;
 
   public static final String SERIALIZED_NAME_PREDICTED_FUNCTION_NAME = "predicted_function_name";
   @SerializedName(SERIALIZED_NAME_PREDICTED_FUNCTION_NAME)
@@ -133,22 +141,49 @@ public class TokenisedData {
   public TokenisedData() {
   }
 
-  public TokenisedData functionMapping(@javax.annotation.Nullable AIDecompFunctionMapping functionMapping) {
-    this.functionMapping = functionMapping;
+  public TokenisedData entities(@javax.annotation.Nullable List<ResolvedEntity> entities) {
+    this.entities = entities;
+    return this;
+  }
+
+  public TokenisedData addEntitiesItem(ResolvedEntity entitiesItem) {
+    if (this.entities == null) {
+      this.entities = new ArrayList<>();
+    }
+    this.entities.add(entitiesItem);
     return this;
   }
 
   /**
-   * Complete mapping data for token resolution
-   * @return functionMapping
+   * One entry per token in the tokenised source, with the name it resolves to and its hover metadata.
+   * @return entities
    */
   @javax.annotation.Nullable
-  public AIDecompFunctionMapping getFunctionMapping() {
-    return functionMapping;
+  public List<ResolvedEntity> getEntities() {
+    return entities;
   }
 
-  public void setFunctionMapping(@javax.annotation.Nullable AIDecompFunctionMapping functionMapping) {
-    this.functionMapping = functionMapping;
+  public void setEntities(@javax.annotation.Nullable List<ResolvedEntity> entities) {
+    this.entities = entities;
+  }
+
+
+  public TokenisedData lineAttribution(@javax.annotation.Nullable Object lineAttribution) {
+    this.lineAttribution = lineAttribution;
+    return this;
+  }
+
+  /**
+   * Get lineAttribution
+   * @return lineAttribution
+   */
+  @javax.annotation.Nullable
+  public Object getLineAttribution() {
+    return lineAttribution;
+  }
+
+  public void setLineAttribution(@javax.annotation.Nullable Object lineAttribution) {
+    this.lineAttribution = lineAttribution;
   }
 
 
@@ -208,6 +243,50 @@ public class TokenisedData {
     this.tokenisedDecompilation = tokenisedDecompilation;
   }
 
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  private Map<String, Object> additionalProperties;
+
+  /**
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
+   *
+   * @param key name of the property
+   * @param value value of the property
+   * @return the TokenisedData instance itself
+   */
+  public TokenisedData putAdditionalProperty(String key, Object value) {
+    if (this.additionalProperties == null) {
+        this.additionalProperties = new HashMap<String, Object>();
+    }
+    this.additionalProperties.put(key, value);
+    return this;
+  }
+
+  /**
+   * Return the additional (undeclared) property.
+   *
+   * @return a map of objects
+   */
+  public Map<String, Object> getAdditionalProperties() {
+    return additionalProperties;
+  }
+
+  /**
+   * Return the additional (undeclared) property with the specified name.
+   *
+   * @param key name of the property
+   * @return an object
+   */
+  public Object getAdditionalProperty(String key) {
+    if (this.additionalProperties == null) {
+        return null;
+    }
+    return this.additionalProperties.get(key);
+  }
 
 
   @Override
@@ -219,25 +298,40 @@ public class TokenisedData {
       return false;
     }
     TokenisedData tokenisedData = (TokenisedData) o;
-    return Objects.equals(this.functionMapping, tokenisedData.functionMapping) &&
+    return Objects.equals(this.entities, tokenisedData.entities) &&
+        Objects.equals(this.lineAttribution, tokenisedData.lineAttribution) &&
         Objects.equals(this.predictedFunctionName, tokenisedData.predictedFunctionName) &&
         Objects.equals(this.status, tokenisedData.status) &&
-        Objects.equals(this.tokenisedDecompilation, tokenisedData.tokenisedDecompilation);
+        Objects.equals(this.tokenisedDecompilation, tokenisedData.tokenisedDecompilation)&&
+        Objects.equals(this.additionalProperties, tokenisedData.additionalProperties);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(functionMapping, predictedFunctionName, status, tokenisedDecompilation);
+    return Objects.hash(entities, lineAttribution, predictedFunctionName, status, tokenisedDecompilation, additionalProperties);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TokenisedData {\n");
-    sb.append("    functionMapping: ").append(toIndentedString(functionMapping)).append("\n");
+    sb.append("    entities: ").append(toIndentedString(entities)).append("\n");
+    sb.append("    lineAttribution: ").append(toIndentedString(lineAttribution)).append("\n");
     sb.append("    predictedFunctionName: ").append(toIndentedString(predictedFunctionName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tokenisedDecompilation: ").append(toIndentedString(tokenisedDecompilation)).append("\n");
+    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -256,7 +350,7 @@ public class TokenisedData {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("function_mapping", "predicted_function_name", "status", "tokenised_decompilation"));
+    openapiFields = new HashSet<String>(Arrays.asList("entities", "line_attribution", "predicted_function_name", "status", "tokenised_decompilation"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("status"));
@@ -275,14 +369,6 @@ public class TokenisedData {
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!TokenisedData.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `TokenisedData` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : TokenisedData.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
@@ -290,9 +376,19 @@ public class TokenisedData {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the optional field `function_mapping`
-      if (jsonObj.get("function_mapping") != null && !jsonObj.get("function_mapping").isJsonNull()) {
-        AIDecompFunctionMapping.validateJsonElement(jsonObj.get("function_mapping"));
+      if (jsonObj.get("entities") != null && !jsonObj.get("entities").isJsonNull()) {
+        JsonArray jsonArrayentities = jsonObj.getAsJsonArray("entities");
+        if (jsonArrayentities != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("entities").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `entities` to be an array in the JSON string but got `%s`", jsonObj.get("entities").toString()));
+          }
+
+          // validate the optional field `entities` (array)
+          for (int i = 0; i < jsonArrayentities.size(); i++) {
+            ResolvedEntity.validateJsonElement(jsonArrayentities.get(i));
+          };
+        }
       }
       if ((jsonObj.get("predicted_function_name") != null && !jsonObj.get("predicted_function_name").isJsonNull()) && !jsonObj.get("predicted_function_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `predicted_function_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("predicted_function_name").toString()));
@@ -322,6 +418,28 @@ public class TokenisedData {
            @Override
            public void write(JsonWriter out, TokenisedData value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             obj.remove("additionalProperties");
+             // serialize additional properties
+             if (value.getAdditionalProperties() != null) {
+               for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
+                 if (entry.getValue() instanceof String)
+                   obj.addProperty(entry.getKey(), (String) entry.getValue());
+                 else if (entry.getValue() instanceof Number)
+                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
+                 else if (entry.getValue() instanceof Boolean)
+                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
+                 else if (entry.getValue() instanceof Character)
+                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
+                 else {
+                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
+                   if (jsonElement.isJsonArray()) {
+                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
+                   } else {
+                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
+                   }
+                 }
+               }
+             }
              elementAdapter.write(out, obj);
            }
 
@@ -329,7 +447,28 @@ public class TokenisedData {
            public TokenisedData read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = jsonElement.getAsJsonObject();
+             // store additional fields in the deserialized instance
+             TokenisedData instance = thisAdapter.fromJsonTree(jsonObj);
+             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
+               if (!openapiFields.contains(entry.getKey())) {
+                 if (entry.getValue().isJsonPrimitive()) { // primitive type
+                   if (entry.getValue().getAsJsonPrimitive().isString())
+                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsString());
+                   else if (entry.getValue().getAsJsonPrimitive().isNumber())
+                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsNumber());
+                   else if (entry.getValue().getAsJsonPrimitive().isBoolean())
+                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
+                   else
+                     throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
+                 } else if (entry.getValue().isJsonArray()) {
+                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
+                 } else { // JSON object
+                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), HashMap.class));
+                 }
+               }
+             }
+             return instance;
            }
 
        }.nullSafe();
