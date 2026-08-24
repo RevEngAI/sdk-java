@@ -144,6 +144,21 @@ public class AnalysisRecordBody {
   @javax.annotation.Nonnull
   private OffsetDateTime creation;
 
+  public static final String SERIALIZED_NAME_DETECTED_ARCHITECTURE = "detected_architecture";
+  @SerializedName(SERIALIZED_NAME_DETECTED_ARCHITECTURE)
+  @javax.annotation.Nonnull
+  private String detectedArchitecture;
+
+  public static final String SERIALIZED_NAME_DETECTED_BINARY_FORMAT = "detected_binary_format";
+  @SerializedName(SERIALIZED_NAME_DETECTED_BINARY_FORMAT)
+  @javax.annotation.Nonnull
+  private String detectedBinaryFormat;
+
+  public static final String SERIALIZED_NAME_DETECTED_BINARY_TYPE = "detected_binary_type";
+  @SerializedName(SERIALIZED_NAME_DETECTED_BINARY_TYPE)
+  @javax.annotation.Nonnull
+  private String detectedBinaryType;
+
   public static final String SERIALIZED_NAME_FUNCTION_BOUNDARIES_HASH = "function_boundaries_hash";
   @SerializedName(SERIALIZED_NAME_FUNCTION_BOUNDARIES_HASH)
   @javax.annotation.Nonnull
@@ -173,6 +188,21 @@ public class AnalysisRecordBody {
   @SerializedName(SERIALIZED_NAME_STATUS)
   @javax.annotation.Nonnull
   private String status;
+
+  public static final String SERIALIZED_NAME_SUPPLIED_ARCHITECTURE = "supplied_architecture";
+  @SerializedName(SERIALIZED_NAME_SUPPLIED_ARCHITECTURE)
+  @javax.annotation.Nonnull
+  private String suppliedArchitecture;
+
+  public static final String SERIALIZED_NAME_SUPPLIED_BINARY_FORMAT = "supplied_binary_format";
+  @SerializedName(SERIALIZED_NAME_SUPPLIED_BINARY_FORMAT)
+  @javax.annotation.Nonnull
+  private String suppliedBinaryFormat;
+
+  public static final String SERIALIZED_NAME_SUPPLIED_BINARY_TYPE = "supplied_binary_type";
+  @SerializedName(SERIALIZED_NAME_SUPPLIED_BINARY_TYPE)
+  @javax.annotation.Nonnull
+  private String suppliedBinaryType;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -320,6 +350,63 @@ public class AnalysisRecordBody {
   }
 
 
+  public AnalysisRecordBody detectedArchitecture(@javax.annotation.Nonnull String detectedArchitecture) {
+    this.detectedArchitecture = detectedArchitecture;
+    return this;
+  }
+
+  /**
+   * Detected instruction-set architecture; empty when unavailable
+   * @return detectedArchitecture
+   */
+  @javax.annotation.Nonnull
+  public String getDetectedArchitecture() {
+    return detectedArchitecture;
+  }
+
+  public void setDetectedArchitecture(@javax.annotation.Nonnull String detectedArchitecture) {
+    this.detectedArchitecture = detectedArchitecture;
+  }
+
+
+  public AnalysisRecordBody detectedBinaryFormat(@javax.annotation.Nonnull String detectedBinaryFormat) {
+    this.detectedBinaryFormat = detectedBinaryFormat;
+    return this;
+  }
+
+  /**
+   * Detected binary container format; empty when unavailable
+   * @return detectedBinaryFormat
+   */
+  @javax.annotation.Nonnull
+  public String getDetectedBinaryFormat() {
+    return detectedBinaryFormat;
+  }
+
+  public void setDetectedBinaryFormat(@javax.annotation.Nonnull String detectedBinaryFormat) {
+    this.detectedBinaryFormat = detectedBinaryFormat;
+  }
+
+
+  public AnalysisRecordBody detectedBinaryType(@javax.annotation.Nonnull String detectedBinaryType) {
+    this.detectedBinaryType = detectedBinaryType;
+    return this;
+  }
+
+  /**
+   * Detected operating-system platform; empty when unavailable
+   * @return detectedBinaryType
+   */
+  @javax.annotation.Nonnull
+  public String getDetectedBinaryType() {
+    return detectedBinaryType;
+  }
+
+  public void setDetectedBinaryType(@javax.annotation.Nonnull String detectedBinaryType) {
+    this.detectedBinaryType = detectedBinaryType;
+  }
+
+
   public AnalysisRecordBody functionBoundariesHash(@javax.annotation.Nonnull String functionBoundariesHash) {
     this.functionBoundariesHash = functionBoundariesHash;
     return this;
@@ -434,6 +521,63 @@ public class AnalysisRecordBody {
   }
 
 
+  public AnalysisRecordBody suppliedArchitecture(@javax.annotation.Nonnull String suppliedArchitecture) {
+    this.suppliedArchitecture = suppliedArchitecture;
+    return this;
+  }
+
+  /**
+   * User-supplied instruction-set architecture; \&quot;AUTO\&quot; when not overridden
+   * @return suppliedArchitecture
+   */
+  @javax.annotation.Nonnull
+  public String getSuppliedArchitecture() {
+    return suppliedArchitecture;
+  }
+
+  public void setSuppliedArchitecture(@javax.annotation.Nonnull String suppliedArchitecture) {
+    this.suppliedArchitecture = suppliedArchitecture;
+  }
+
+
+  public AnalysisRecordBody suppliedBinaryFormat(@javax.annotation.Nonnull String suppliedBinaryFormat) {
+    this.suppliedBinaryFormat = suppliedBinaryFormat;
+    return this;
+  }
+
+  /**
+   * User-supplied binary container format; \&quot;AUTO\&quot; when not overridden
+   * @return suppliedBinaryFormat
+   */
+  @javax.annotation.Nonnull
+  public String getSuppliedBinaryFormat() {
+    return suppliedBinaryFormat;
+  }
+
+  public void setSuppliedBinaryFormat(@javax.annotation.Nonnull String suppliedBinaryFormat) {
+    this.suppliedBinaryFormat = suppliedBinaryFormat;
+  }
+
+
+  public AnalysisRecordBody suppliedBinaryType(@javax.annotation.Nonnull String suppliedBinaryType) {
+    this.suppliedBinaryType = suppliedBinaryType;
+    return this;
+  }
+
+  /**
+   * User-supplied operating-system platform; \&quot;AUTO\&quot; when not overridden
+   * @return suppliedBinaryType
+   */
+  @javax.annotation.Nonnull
+  public String getSuppliedBinaryType() {
+    return suppliedBinaryType;
+  }
+
+  public void setSuppliedBinaryType(@javax.annotation.Nonnull String suppliedBinaryType) {
+    this.suppliedBinaryType = suppliedBinaryType;
+  }
+
+
   public AnalysisRecordBody tags(@javax.annotation.Nullable List<AnalysisTagBody> tags) {
     this.tags = tags;
     return this;
@@ -541,12 +685,18 @@ public class AnalysisRecordBody {
         Objects.equals(this.binaryName, analysisRecordBody.binaryName) &&
         Objects.equals(this.binarySize, analysisRecordBody.binarySize) &&
         Objects.equals(this.creation, analysisRecordBody.creation) &&
+        Objects.equals(this.detectedArchitecture, analysisRecordBody.detectedArchitecture) &&
+        Objects.equals(this.detectedBinaryFormat, analysisRecordBody.detectedBinaryFormat) &&
+        Objects.equals(this.detectedBinaryType, analysisRecordBody.detectedBinaryType) &&
         Objects.equals(this.functionBoundariesHash, analysisRecordBody.functionBoundariesHash) &&
         Objects.equals(this.isOwner, analysisRecordBody.isOwner) &&
         Objects.equals(this.modelId, analysisRecordBody.modelId) &&
         Objects.equals(this.modelName, analysisRecordBody.modelName) &&
         Objects.equals(this.sha256Hash, analysisRecordBody.sha256Hash) &&
         Objects.equals(this.status, analysisRecordBody.status) &&
+        Objects.equals(this.suppliedArchitecture, analysisRecordBody.suppliedArchitecture) &&
+        Objects.equals(this.suppliedBinaryFormat, analysisRecordBody.suppliedBinaryFormat) &&
+        Objects.equals(this.suppliedBinaryType, analysisRecordBody.suppliedBinaryType) &&
         Objects.equals(this.tags, analysisRecordBody.tags) &&
         Objects.equals(this.username, analysisRecordBody.username)&&
         Objects.equals(this.additionalProperties, analysisRecordBody.additionalProperties);
@@ -554,7 +704,7 @@ public class AnalysisRecordBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(analysisId, analysisScope, baseAddress, binaryId, binaryName, binarySize, creation, functionBoundariesHash, isOwner, modelId, modelName, sha256Hash, status, tags, username, additionalProperties);
+    return Objects.hash(analysisId, analysisScope, baseAddress, binaryId, binaryName, binarySize, creation, detectedArchitecture, detectedBinaryFormat, detectedBinaryType, functionBoundariesHash, isOwner, modelId, modelName, sha256Hash, status, suppliedArchitecture, suppliedBinaryFormat, suppliedBinaryType, tags, username, additionalProperties);
   }
 
   @Override
@@ -568,12 +718,18 @@ public class AnalysisRecordBody {
     sb.append("    binaryName: ").append(toIndentedString(binaryName)).append("\n");
     sb.append("    binarySize: ").append(toIndentedString(binarySize)).append("\n");
     sb.append("    creation: ").append(toIndentedString(creation)).append("\n");
+    sb.append("    detectedArchitecture: ").append(toIndentedString(detectedArchitecture)).append("\n");
+    sb.append("    detectedBinaryFormat: ").append(toIndentedString(detectedBinaryFormat)).append("\n");
+    sb.append("    detectedBinaryType: ").append(toIndentedString(detectedBinaryType)).append("\n");
     sb.append("    functionBoundariesHash: ").append(toIndentedString(functionBoundariesHash)).append("\n");
     sb.append("    isOwner: ").append(toIndentedString(isOwner)).append("\n");
     sb.append("    modelId: ").append(toIndentedString(modelId)).append("\n");
     sb.append("    modelName: ").append(toIndentedString(modelName)).append("\n");
     sb.append("    sha256Hash: ").append(toIndentedString(sha256Hash)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    suppliedArchitecture: ").append(toIndentedString(suppliedArchitecture)).append("\n");
+    sb.append("    suppliedBinaryFormat: ").append(toIndentedString(suppliedBinaryFormat)).append("\n");
+    sb.append("    suppliedBinaryType: ").append(toIndentedString(suppliedBinaryType)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -595,10 +751,10 @@ public class AnalysisRecordBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("analysis_id", "analysis_scope", "base_address", "binary_id", "binary_name", "binary_size", "creation", "function_boundaries_hash", "is_owner", "model_id", "model_name", "sha_256_hash", "status", "tags", "username"));
+    openapiFields = new HashSet<String>(Arrays.asList("analysis_id", "analysis_scope", "base_address", "binary_id", "binary_name", "binary_size", "creation", "detected_architecture", "detected_binary_format", "detected_binary_type", "function_boundaries_hash", "is_owner", "model_id", "model_name", "sha_256_hash", "status", "supplied_architecture", "supplied_binary_format", "supplied_binary_type", "tags", "username"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("analysis_id", "analysis_scope", "base_address", "binary_id", "binary_name", "binary_size", "creation", "function_boundaries_hash", "is_owner", "model_id", "model_name", "sha_256_hash", "status", "tags", "username"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("analysis_id", "analysis_scope", "base_address", "binary_id", "binary_name", "binary_size", "creation", "detected_architecture", "detected_binary_format", "detected_binary_type", "function_boundaries_hash", "is_owner", "model_id", "model_name", "sha_256_hash", "status", "supplied_architecture", "supplied_binary_format", "supplied_binary_type", "tags", "username"));
   }
 
   /**
@@ -629,6 +785,15 @@ public class AnalysisRecordBody {
       if (!jsonObj.get("binary_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `binary_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("binary_name").toString()));
       }
+      if (!jsonObj.get("detected_architecture").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `detected_architecture` to be a primitive type in the JSON string but got `%s`", jsonObj.get("detected_architecture").toString()));
+      }
+      if (!jsonObj.get("detected_binary_format").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `detected_binary_format` to be a primitive type in the JSON string but got `%s`", jsonObj.get("detected_binary_format").toString()));
+      }
+      if (!jsonObj.get("detected_binary_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `detected_binary_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("detected_binary_type").toString()));
+      }
       if (!jsonObj.get("function_boundaries_hash").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `function_boundaries_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("function_boundaries_hash").toString()));
       }
@@ -640,6 +805,15 @@ public class AnalysisRecordBody {
       }
       if (!jsonObj.get("status").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
+      }
+      if (!jsonObj.get("supplied_architecture").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `supplied_architecture` to be a primitive type in the JSON string but got `%s`", jsonObj.get("supplied_architecture").toString()));
+      }
+      if (!jsonObj.get("supplied_binary_format").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `supplied_binary_format` to be a primitive type in the JSON string but got `%s`", jsonObj.get("supplied_binary_format").toString()));
+      }
+      if (!jsonObj.get("supplied_binary_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `supplied_binary_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("supplied_binary_type").toString()));
       }
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull()) {
         if (!jsonObj.get("tags").isJsonArray()) {

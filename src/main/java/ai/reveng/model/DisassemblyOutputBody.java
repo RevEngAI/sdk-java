@@ -60,6 +60,11 @@ public class DisassemblyOutputBody {
   @javax.annotation.Nonnull
   private Long functionId;
 
+  public static final String SERIALIZED_NAME_GLOBAL_VARIABLES = "global_variables";
+  @SerializedName(SERIALIZED_NAME_GLOBAL_VARIABLES)
+  @javax.annotation.Nullable
+  private Object globalVariables = null;
+
   public static final String SERIALIZED_NAME_LOCAL_VARIABLES = "local_variables";
   @SerializedName(SERIALIZED_NAME_LOCAL_VARIABLES)
   @javax.annotation.Nullable
@@ -118,6 +123,25 @@ public class DisassemblyOutputBody {
 
   public void setFunctionId(@javax.annotation.Nonnull Long functionId) {
     this.functionId = functionId;
+  }
+
+
+  public DisassemblyOutputBody globalVariables(@javax.annotation.Nullable Object globalVariables) {
+    this.globalVariables = globalVariables;
+    return this;
+  }
+
+  /**
+   * Get globalVariables
+   * @return globalVariables
+   */
+  @javax.annotation.Nullable
+  public Object getGlobalVariables() {
+    return globalVariables;
+  }
+
+  public void setGlobalVariables(@javax.annotation.Nullable Object globalVariables) {
+    this.globalVariables = globalVariables;
   }
 
 
@@ -253,6 +277,7 @@ public class DisassemblyOutputBody {
     DisassemblyOutputBody disassemblyOutputBody = (DisassemblyOutputBody) o;
     return Objects.equals(this.basicBlocks, disassemblyOutputBody.basicBlocks) &&
         Objects.equals(this.functionId, disassemblyOutputBody.functionId) &&
+        Objects.equals(this.globalVariables, disassemblyOutputBody.globalVariables) &&
         Objects.equals(this.localVariables, disassemblyOutputBody.localVariables) &&
         Objects.equals(this.params, disassemblyOutputBody.params) &&
         Objects.equals(this.returnType, disassemblyOutputBody.returnType) &&
@@ -266,7 +291,7 @@ public class DisassemblyOutputBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(basicBlocks, functionId, localVariables, params, returnType, returns, additionalProperties);
+    return Objects.hash(basicBlocks, functionId, globalVariables, localVariables, params, returnType, returns, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -282,6 +307,7 @@ public class DisassemblyOutputBody {
     sb.append("class DisassemblyOutputBody {\n");
     sb.append("    basicBlocks: ").append(toIndentedString(basicBlocks)).append("\n");
     sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
+    sb.append("    globalVariables: ").append(toIndentedString(globalVariables)).append("\n");
     sb.append("    localVariables: ").append(toIndentedString(localVariables)).append("\n");
     sb.append("    params: ").append(toIndentedString(params)).append("\n");
     sb.append("    returnType: ").append(toIndentedString(returnType)).append("\n");
@@ -305,7 +331,7 @@ public class DisassemblyOutputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("basic_blocks", "function_id", "local_variables", "params", "return_type", "returns"));
+    openapiFields = new HashSet<String>(Arrays.asList("basic_blocks", "function_id", "global_variables", "local_variables", "params", "return_type", "returns"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("function_id", "returns"));

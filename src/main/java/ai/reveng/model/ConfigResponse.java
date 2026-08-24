@@ -59,7 +59,7 @@ public class ConfigResponse {
   public static final String SERIALIZED_NAME_MAX_FILE_SIZE_BYTES = "max_file_size_bytes";
   @SerializedName(SERIALIZED_NAME_MAX_FILE_SIZE_BYTES)
   @javax.annotation.Nonnull
-  private Integer maxFileSizeBytes;
+  private Long maxFileSizeBytes;
 
   public static final String SERIALIZED_NAME_AI_DECOMPILER_UNSUPPORTED_LANGUAGES = "ai_decompiler_unsupported_languages";
   @SerializedName(SERIALIZED_NAME_AI_DECOMPILER_UNSUPPORTED_LANGUAGES)
@@ -93,7 +93,7 @@ public class ConfigResponse {
   }
 
 
-  public ConfigResponse maxFileSizeBytes(@javax.annotation.Nonnull Integer maxFileSizeBytes) {
+  public ConfigResponse maxFileSizeBytes(@javax.annotation.Nonnull Long maxFileSizeBytes) {
     this.maxFileSizeBytes = maxFileSizeBytes;
     return this;
   }
@@ -103,11 +103,11 @@ public class ConfigResponse {
    * @return maxFileSizeBytes
    */
   @javax.annotation.Nonnull
-  public Integer getMaxFileSizeBytes() {
+  public Long getMaxFileSizeBytes() {
     return maxFileSizeBytes;
   }
 
-  public void setMaxFileSizeBytes(@javax.annotation.Nonnull Integer maxFileSizeBytes) {
+  public void setMaxFileSizeBytes(@javax.annotation.Nonnull Long maxFileSizeBytes) {
     this.maxFileSizeBytes = maxFileSizeBytes;
   }
 

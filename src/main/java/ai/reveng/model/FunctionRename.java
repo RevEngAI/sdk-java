@@ -13,6 +13,7 @@
 package ai.reveng.model;
 
 import java.util.Objects;
+import ai.reveng.model.FunctionSourceType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -59,6 +60,11 @@ public class FunctionRename {
   @javax.annotation.Nonnull
   private String newMangledName;
 
+  public static final String SERIALIZED_NAME_SOURCE_TYPE = "source_type";
+  @SerializedName(SERIALIZED_NAME_SOURCE_TYPE)
+  @javax.annotation.Nullable
+  private FunctionSourceType sourceType = FunctionSourceType.USER;
+
   public FunctionRename() {
   }
 
@@ -97,6 +103,25 @@ public class FunctionRename {
 
   public void setNewMangledName(@javax.annotation.Nonnull String newMangledName) {
     this.newMangledName = newMangledName;
+  }
+
+
+  public FunctionRename sourceType(@javax.annotation.Nullable FunctionSourceType sourceType) {
+    this.sourceType = sourceType;
+    return this;
+  }
+
+  /**
+   * The source that triggered the rename
+   * @return sourceType
+   */
+  @javax.annotation.Nullable
+  public FunctionSourceType getSourceType() {
+    return sourceType;
+  }
+
+  public void setSourceType(@javax.annotation.Nullable FunctionSourceType sourceType) {
+    this.sourceType = sourceType;
   }
 
   /**
@@ -155,13 +180,14 @@ public class FunctionRename {
     }
     FunctionRename functionRename = (FunctionRename) o;
     return Objects.equals(this.newName, functionRename.newName) &&
-        Objects.equals(this.newMangledName, functionRename.newMangledName)&&
+        Objects.equals(this.newMangledName, functionRename.newMangledName) &&
+        Objects.equals(this.sourceType, functionRename.sourceType)&&
         Objects.equals(this.additionalProperties, functionRename.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(newName, newMangledName, additionalProperties);
+    return Objects.hash(newName, newMangledName, sourceType, additionalProperties);
   }
 
   @Override
@@ -170,6 +196,7 @@ public class FunctionRename {
     sb.append("class FunctionRename {\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    newMangledName: ").append(toIndentedString(newMangledName)).append("\n");
+    sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -189,7 +216,7 @@ public class FunctionRename {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("new_name", "new_mangled_name"));
+    openapiFields = new HashSet<String>(Arrays.asList("new_name", "new_mangled_name", "source_type"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("new_name", "new_mangled_name"));
@@ -220,6 +247,10 @@ public class FunctionRename {
       }
       if (!jsonObj.get("new_mangled_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `new_mangled_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("new_mangled_name").toString()));
+      }
+      // validate the optional field `source_type`
+      if (jsonObj.get("source_type") != null && !jsonObj.get("source_type").isJsonNull()) {
+        FunctionSourceType.validateJsonElement(jsonObj.get("source_type"));
       }
   }
 

@@ -146,6 +146,21 @@ public class AnalysisBasicInfoOutputBody {
   @javax.annotation.Nonnull
   private Boolean debug;
 
+  public static final String SERIALIZED_NAME_DETECTED_ARCHITECTURE = "detected_architecture";
+  @SerializedName(SERIALIZED_NAME_DETECTED_ARCHITECTURE)
+  @javax.annotation.Nonnull
+  private String detectedArchitecture;
+
+  public static final String SERIALIZED_NAME_DETECTED_BINARY_FORMAT = "detected_binary_format";
+  @SerializedName(SERIALIZED_NAME_DETECTED_BINARY_FORMAT)
+  @javax.annotation.Nonnull
+  private String detectedBinaryFormat;
+
+  public static final String SERIALIZED_NAME_DETECTED_BINARY_TYPE = "detected_binary_type";
+  @SerializedName(SERIALIZED_NAME_DETECTED_BINARY_TYPE)
+  @javax.annotation.Nonnull
+  private String detectedBinaryType;
+
   public static final String SERIALIZED_NAME_FUNCTION_COUNT = "function_count";
   @SerializedName(SERIALIZED_NAME_FUNCTION_COUNT)
   @javax.annotation.Nonnull
@@ -190,6 +205,21 @@ public class AnalysisBasicInfoOutputBody {
   @SerializedName(SERIALIZED_NAME_SHA256_HASH)
   @javax.annotation.Nonnull
   private String sha256Hash;
+
+  public static final String SERIALIZED_NAME_SUPPLIED_ARCHITECTURE = "supplied_architecture";
+  @SerializedName(SERIALIZED_NAME_SUPPLIED_ARCHITECTURE)
+  @javax.annotation.Nonnull
+  private String suppliedArchitecture;
+
+  public static final String SERIALIZED_NAME_SUPPLIED_BINARY_FORMAT = "supplied_binary_format";
+  @SerializedName(SERIALIZED_NAME_SUPPLIED_BINARY_FORMAT)
+  @javax.annotation.Nonnull
+  private String suppliedBinaryFormat;
+
+  public static final String SERIALIZED_NAME_SUPPLIED_BINARY_TYPE = "supplied_binary_type";
+  @SerializedName(SERIALIZED_NAME_SUPPLIED_BINARY_TYPE)
+  @javax.annotation.Nonnull
+  private String suppliedBinaryType;
 
   public static final String SERIALIZED_NAME_TEAM_ID = "team_id";
   @SerializedName(SERIALIZED_NAME_TEAM_ID)
@@ -348,6 +378,63 @@ public class AnalysisBasicInfoOutputBody {
 
   public void setDebug(@javax.annotation.Nonnull Boolean debug) {
     this.debug = debug;
+  }
+
+
+  public AnalysisBasicInfoOutputBody detectedArchitecture(@javax.annotation.Nonnull String detectedArchitecture) {
+    this.detectedArchitecture = detectedArchitecture;
+    return this;
+  }
+
+  /**
+   * Detected instruction-set architecture; empty when unavailable
+   * @return detectedArchitecture
+   */
+  @javax.annotation.Nonnull
+  public String getDetectedArchitecture() {
+    return detectedArchitecture;
+  }
+
+  public void setDetectedArchitecture(@javax.annotation.Nonnull String detectedArchitecture) {
+    this.detectedArchitecture = detectedArchitecture;
+  }
+
+
+  public AnalysisBasicInfoOutputBody detectedBinaryFormat(@javax.annotation.Nonnull String detectedBinaryFormat) {
+    this.detectedBinaryFormat = detectedBinaryFormat;
+    return this;
+  }
+
+  /**
+   * Detected binary container format; empty when unavailable
+   * @return detectedBinaryFormat
+   */
+  @javax.annotation.Nonnull
+  public String getDetectedBinaryFormat() {
+    return detectedBinaryFormat;
+  }
+
+  public void setDetectedBinaryFormat(@javax.annotation.Nonnull String detectedBinaryFormat) {
+    this.detectedBinaryFormat = detectedBinaryFormat;
+  }
+
+
+  public AnalysisBasicInfoOutputBody detectedBinaryType(@javax.annotation.Nonnull String detectedBinaryType) {
+    this.detectedBinaryType = detectedBinaryType;
+    return this;
+  }
+
+  /**
+   * Detected operating-system platform; empty when unavailable
+   * @return detectedBinaryType
+   */
+  @javax.annotation.Nonnull
+  public String getDetectedBinaryType() {
+    return detectedBinaryType;
+  }
+
+  public void setDetectedBinaryType(@javax.annotation.Nonnull String detectedBinaryType) {
+    this.detectedBinaryType = detectedBinaryType;
   }
 
 
@@ -522,6 +609,63 @@ public class AnalysisBasicInfoOutputBody {
   }
 
 
+  public AnalysisBasicInfoOutputBody suppliedArchitecture(@javax.annotation.Nonnull String suppliedArchitecture) {
+    this.suppliedArchitecture = suppliedArchitecture;
+    return this;
+  }
+
+  /**
+   * User-supplied instruction-set architecture; \&quot;AUTO\&quot; when not overridden
+   * @return suppliedArchitecture
+   */
+  @javax.annotation.Nonnull
+  public String getSuppliedArchitecture() {
+    return suppliedArchitecture;
+  }
+
+  public void setSuppliedArchitecture(@javax.annotation.Nonnull String suppliedArchitecture) {
+    this.suppliedArchitecture = suppliedArchitecture;
+  }
+
+
+  public AnalysisBasicInfoOutputBody suppliedBinaryFormat(@javax.annotation.Nonnull String suppliedBinaryFormat) {
+    this.suppliedBinaryFormat = suppliedBinaryFormat;
+    return this;
+  }
+
+  /**
+   * User-supplied binary container format; \&quot;AUTO\&quot; when not overridden
+   * @return suppliedBinaryFormat
+   */
+  @javax.annotation.Nonnull
+  public String getSuppliedBinaryFormat() {
+    return suppliedBinaryFormat;
+  }
+
+  public void setSuppliedBinaryFormat(@javax.annotation.Nonnull String suppliedBinaryFormat) {
+    this.suppliedBinaryFormat = suppliedBinaryFormat;
+  }
+
+
+  public AnalysisBasicInfoOutputBody suppliedBinaryType(@javax.annotation.Nonnull String suppliedBinaryType) {
+    this.suppliedBinaryType = suppliedBinaryType;
+    return this;
+  }
+
+  /**
+   * User-supplied operating-system platform; \&quot;AUTO\&quot; when not overridden
+   * @return suppliedBinaryType
+   */
+  @javax.annotation.Nonnull
+  public String getSuppliedBinaryType() {
+    return suppliedBinaryType;
+  }
+
+  public void setSuppliedBinaryType(@javax.annotation.Nonnull String suppliedBinaryType) {
+    this.suppliedBinaryType = suppliedBinaryType;
+  }
+
+
   public AnalysisBasicInfoOutputBody teamId(@javax.annotation.Nonnull Long teamId) {
     this.teamId = teamId;
     return this;
@@ -559,6 +703,9 @@ public class AnalysisBasicInfoOutputBody {
         Objects.equals(this.binaryUuid, analysisBasicInfoOutputBody.binaryUuid) &&
         Objects.equals(this.creation, analysisBasicInfoOutputBody.creation) &&
         Objects.equals(this.debug, analysisBasicInfoOutputBody.debug) &&
+        Objects.equals(this.detectedArchitecture, analysisBasicInfoOutputBody.detectedArchitecture) &&
+        Objects.equals(this.detectedBinaryFormat, analysisBasicInfoOutputBody.detectedBinaryFormat) &&
+        Objects.equals(this.detectedBinaryType, analysisBasicInfoOutputBody.detectedBinaryType) &&
         Objects.equals(this.functionCount, analysisBasicInfoOutputBody.functionCount) &&
         Objects.equals(this.isAdvanced, analysisBasicInfoOutputBody.isAdvanced) &&
         Objects.equals(this.isOwner, analysisBasicInfoOutputBody.isOwner) &&
@@ -568,12 +715,15 @@ public class AnalysisBasicInfoOutputBody {
         Objects.equals(this.ownerUsername, analysisBasicInfoOutputBody.ownerUsername) &&
         Objects.equals(this.sequencerVersion, analysisBasicInfoOutputBody.sequencerVersion) &&
         Objects.equals(this.sha256Hash, analysisBasicInfoOutputBody.sha256Hash) &&
+        Objects.equals(this.suppliedArchitecture, analysisBasicInfoOutputBody.suppliedArchitecture) &&
+        Objects.equals(this.suppliedBinaryFormat, analysisBasicInfoOutputBody.suppliedBinaryFormat) &&
+        Objects.equals(this.suppliedBinaryType, analysisBasicInfoOutputBody.suppliedBinaryType) &&
         Objects.equals(this.teamId, analysisBasicInfoOutputBody.teamId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(analysisScope, baseAddress, binaryId, binaryName, binarySize, binaryUuid, creation, debug, functionCount, isAdvanced, isOwner, isSystem, modelId, modelName, ownerUsername, sequencerVersion, sha256Hash, teamId);
+    return Objects.hash(analysisScope, baseAddress, binaryId, binaryName, binarySize, binaryUuid, creation, debug, detectedArchitecture, detectedBinaryFormat, detectedBinaryType, functionCount, isAdvanced, isOwner, isSystem, modelId, modelName, ownerUsername, sequencerVersion, sha256Hash, suppliedArchitecture, suppliedBinaryFormat, suppliedBinaryType, teamId);
   }
 
   @Override
@@ -588,6 +738,9 @@ public class AnalysisBasicInfoOutputBody {
     sb.append("    binaryUuid: ").append(toIndentedString(binaryUuid)).append("\n");
     sb.append("    creation: ").append(toIndentedString(creation)).append("\n");
     sb.append("    debug: ").append(toIndentedString(debug)).append("\n");
+    sb.append("    detectedArchitecture: ").append(toIndentedString(detectedArchitecture)).append("\n");
+    sb.append("    detectedBinaryFormat: ").append(toIndentedString(detectedBinaryFormat)).append("\n");
+    sb.append("    detectedBinaryType: ").append(toIndentedString(detectedBinaryType)).append("\n");
     sb.append("    functionCount: ").append(toIndentedString(functionCount)).append("\n");
     sb.append("    isAdvanced: ").append(toIndentedString(isAdvanced)).append("\n");
     sb.append("    isOwner: ").append(toIndentedString(isOwner)).append("\n");
@@ -597,6 +750,9 @@ public class AnalysisBasicInfoOutputBody {
     sb.append("    ownerUsername: ").append(toIndentedString(ownerUsername)).append("\n");
     sb.append("    sequencerVersion: ").append(toIndentedString(sequencerVersion)).append("\n");
     sb.append("    sha256Hash: ").append(toIndentedString(sha256Hash)).append("\n");
+    sb.append("    suppliedArchitecture: ").append(toIndentedString(suppliedArchitecture)).append("\n");
+    sb.append("    suppliedBinaryFormat: ").append(toIndentedString(suppliedBinaryFormat)).append("\n");
+    sb.append("    suppliedBinaryType: ").append(toIndentedString(suppliedBinaryType)).append("\n");
     sb.append("    teamId: ").append(toIndentedString(teamId)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -616,10 +772,10 @@ public class AnalysisBasicInfoOutputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("analysis_scope", "base_address", "binary_id", "binary_name", "binary_size", "binary_uuid", "creation", "debug", "function_count", "is_advanced", "is_owner", "is_system", "model_id", "model_name", "owner_username", "sequencer_version", "sha_256_hash", "team_id"));
+    openapiFields = new HashSet<String>(Arrays.asList("analysis_scope", "base_address", "binary_id", "binary_name", "binary_size", "binary_uuid", "creation", "debug", "detected_architecture", "detected_binary_format", "detected_binary_type", "function_count", "is_advanced", "is_owner", "is_system", "model_id", "model_name", "owner_username", "sequencer_version", "sha_256_hash", "supplied_architecture", "supplied_binary_format", "supplied_binary_type", "team_id"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("analysis_scope", "base_address", "binary_id", "binary_name", "binary_size", "binary_uuid", "creation", "debug", "function_count", "is_advanced", "is_owner", "is_system", "model_id", "model_name", "owner_username", "sha_256_hash", "team_id"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("analysis_scope", "base_address", "binary_id", "binary_name", "binary_size", "binary_uuid", "creation", "debug", "detected_architecture", "detected_binary_format", "detected_binary_type", "function_count", "is_advanced", "is_owner", "is_system", "model_id", "model_name", "owner_username", "sha_256_hash", "supplied_architecture", "supplied_binary_format", "supplied_binary_type", "team_id"));
   }
 
   /**
@@ -661,6 +817,15 @@ public class AnalysisBasicInfoOutputBody {
       if (!jsonObj.get("binary_uuid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `binary_uuid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("binary_uuid").toString()));
       }
+      if (!jsonObj.get("detected_architecture").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `detected_architecture` to be a primitive type in the JSON string but got `%s`", jsonObj.get("detected_architecture").toString()));
+      }
+      if (!jsonObj.get("detected_binary_format").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `detected_binary_format` to be a primitive type in the JSON string but got `%s`", jsonObj.get("detected_binary_format").toString()));
+      }
+      if (!jsonObj.get("detected_binary_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `detected_binary_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("detected_binary_type").toString()));
+      }
       if (!jsonObj.get("model_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `model_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("model_name").toString()));
       }
@@ -672,6 +837,15 @@ public class AnalysisBasicInfoOutputBody {
       }
       if (!jsonObj.get("sha_256_hash").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sha_256_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sha_256_hash").toString()));
+      }
+      if (!jsonObj.get("supplied_architecture").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `supplied_architecture` to be a primitive type in the JSON string but got `%s`", jsonObj.get("supplied_architecture").toString()));
+      }
+      if (!jsonObj.get("supplied_binary_format").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `supplied_binary_format` to be a primitive type in the JSON string but got `%s`", jsonObj.get("supplied_binary_format").toString()));
+      }
+      if (!jsonObj.get("supplied_binary_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `supplied_binary_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("supplied_binary_type").toString()));
       }
   }
 

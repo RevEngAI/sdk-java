@@ -53,21 +53,21 @@ import ai.reveng.invoker.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MatchFilters {
   /**
-   * Restrict matches to this architecture (multi-platform models only; matches all architectures if omitted). Rejected for single-architecture models.
+   * Gets or Sets architectures
    */
-  @JsonAdapter(ArchEnum.Adapter.class)
-  public enum ArchEnum {
-    X86("x86"),
+  @JsonAdapter(ArchitecturesEnum.Adapter.class)
+  public enum ArchitecturesEnum {
+    X86_64("x86_64"),
     
-    ARM("arm"),
+    X86_32("x86_32"),
     
-    UNKNOWN("unknown"),
+    ARM_64("arm_64"),
     
     UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
     private String value;
 
-    ArchEnum(String value) {
+    ArchitecturesEnum(String value) {
       this.value = value;
     }
 
@@ -80,8 +80,8 @@ public class MatchFilters {
       return String.valueOf(value);
     }
 
-    public static ArchEnum fromValue(String value) {
-      for (ArchEnum b : ArchEnum.values()) {
+    public static ArchitecturesEnum fromValue(String value) {
+      for (ArchitecturesEnum b : ArchitecturesEnum.values()) {
         if (b.value.equals(value)) {
           return b;
         }
@@ -89,44 +89,44 @@ public class MatchFilters {
       return UNKNOWN_DEFAULT_OPEN_API;
     }
 
-    public static class Adapter extends TypeAdapter<ArchEnum> {
+    public static class Adapter extends TypeAdapter<ArchitecturesEnum> {
       @Override
-      public void write(final JsonWriter jsonWriter, final ArchEnum enumeration) throws IOException {
+      public void write(final JsonWriter jsonWriter, final ArchitecturesEnum enumeration) throws IOException {
         jsonWriter.value(enumeration.getValue());
       }
 
       @Override
-      public ArchEnum read(final JsonReader jsonReader) throws IOException {
+      public ArchitecturesEnum read(final JsonReader jsonReader) throws IOException {
         String value =  jsonReader.nextString();
-        return ArchEnum.fromValue(value);
+        return ArchitecturesEnum.fromValue(value);
       }
     }
 
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       String value = jsonElement.getAsString();
-      ArchEnum.fromValue(value);
+      ArchitecturesEnum.fromValue(value);
     }
   }
 
-  public static final String SERIALIZED_NAME_ARCH = "arch";
-  @SerializedName(SERIALIZED_NAME_ARCH)
+  public static final String SERIALIZED_NAME_ARCHITECTURES = "architectures";
+  @SerializedName(SERIALIZED_NAME_ARCHITECTURES)
   @javax.annotation.Nullable
-  private ArchEnum arch;
+  private List<ArchitecturesEnum> architectures;
 
   public static final String SERIALIZED_NAME_BINARY_IDS = "binary_ids";
   @SerializedName(SERIALIZED_NAME_BINARY_IDS)
   @javax.annotation.Nullable
   private List<Long> binaryIds;
 
-  public static final String SERIALIZED_NAME_BITS = "bits";
-  @SerializedName(SERIALIZED_NAME_BITS)
-  @javax.annotation.Nullable
-  private Long bits;
-
   public static final String SERIALIZED_NAME_COLLECTION_IDS = "collection_ids";
   @SerializedName(SERIALIZED_NAME_COLLECTION_IDS)
   @javax.annotation.Nullable
   private List<Long> collectionIds;
+
+  public static final String SERIALIZED_NAME_DEBUG = "debug";
+  @SerializedName(SERIALIZED_NAME_DEBUG)
+  @javax.annotation.Nullable
+  private Boolean debug;
 
   public static final String SERIALIZED_NAME_DEBUG_TYPES = "debug_types";
   @SerializedName(SERIALIZED_NAME_DEBUG_TYPES)
@@ -138,26 +138,27 @@ public class MatchFilters {
   @javax.annotation.Nullable
   private List<Long> functionIds;
 
+  public static final String SERIALIZED_NAME_INCLUDE_USER_DEBUG = "include_user_debug";
+  @SerializedName(SERIALIZED_NAME_INCLUDE_USER_DEBUG)
+  @javax.annotation.Nullable
+  private Boolean includeUserDebug;
+
   /**
-   * Restrict matches to this platform (multi-platform models only; matches all platforms if omitted). Rejected for single-architecture models.
+   * Gets or Sets platforms
    */
-  @JsonAdapter(PlatformEnum.Adapter.class)
-  public enum PlatformEnum {
-    LINUX("linux"),
-    
+  @JsonAdapter(PlatformsEnum.Adapter.class)
+  public enum PlatformsEnum {
     WINDOWS("windows"),
     
+    LINUX("linux"),
+    
     ANDROID("android"),
-    
-    MACOS("macos"),
-    
-    UNKNOWN("unknown"),
     
     UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
     private String value;
 
-    PlatformEnum(String value) {
+    PlatformsEnum(String value) {
       this.value = value;
     }
 
@@ -170,8 +171,8 @@ public class MatchFilters {
       return String.valueOf(value);
     }
 
-    public static PlatformEnum fromValue(String value) {
-      for (PlatformEnum b : PlatformEnum.values()) {
+    public static PlatformsEnum fromValue(String value) {
+      for (PlatformsEnum b : PlatformsEnum.values()) {
         if (b.value.equals(value)) {
           return b;
         }
@@ -179,29 +180,29 @@ public class MatchFilters {
       return UNKNOWN_DEFAULT_OPEN_API;
     }
 
-    public static class Adapter extends TypeAdapter<PlatformEnum> {
+    public static class Adapter extends TypeAdapter<PlatformsEnum> {
       @Override
-      public void write(final JsonWriter jsonWriter, final PlatformEnum enumeration) throws IOException {
+      public void write(final JsonWriter jsonWriter, final PlatformsEnum enumeration) throws IOException {
         jsonWriter.value(enumeration.getValue());
       }
 
       @Override
-      public PlatformEnum read(final JsonReader jsonReader) throws IOException {
+      public PlatformsEnum read(final JsonReader jsonReader) throws IOException {
         String value =  jsonReader.nextString();
-        return PlatformEnum.fromValue(value);
+        return PlatformsEnum.fromValue(value);
       }
     }
 
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       String value = jsonElement.getAsString();
-      PlatformEnum.fromValue(value);
+      PlatformsEnum.fromValue(value);
     }
   }
 
-  public static final String SERIALIZED_NAME_PLATFORM = "platform";
-  @SerializedName(SERIALIZED_NAME_PLATFORM)
+  public static final String SERIALIZED_NAME_PLATFORMS = "platforms";
+  @SerializedName(SERIALIZED_NAME_PLATFORMS)
   @javax.annotation.Nullable
-  private PlatformEnum platform;
+  private List<PlatformsEnum> platforms;
 
   public static final String SERIALIZED_NAME_USER_IDS = "user_ids";
   @SerializedName(SERIALIZED_NAME_USER_IDS)
@@ -211,22 +212,30 @@ public class MatchFilters {
   public MatchFilters() {
   }
 
-  public MatchFilters arch(@javax.annotation.Nullable ArchEnum arch) {
-    this.arch = arch;
+  public MatchFilters architectures(@javax.annotation.Nullable List<ArchitecturesEnum> architectures) {
+    this.architectures = architectures;
+    return this;
+  }
+
+  public MatchFilters addArchitecturesItem(ArchitecturesEnum architecturesItem) {
+    if (this.architectures == null) {
+      this.architectures = new ArrayList<>();
+    }
+    this.architectures.add(architecturesItem);
     return this;
   }
 
   /**
-   * Restrict matches to this architecture (multi-platform models only; matches all architectures if omitted). Rejected for single-architecture models.
-   * @return arch
+   * Restrict matches to candidates whose binary was detected as one of these architectures. Word size is part of the value, so there is no separate bits filter. Matches all architectures if omitted.
+   * @return architectures
    */
   @javax.annotation.Nullable
-  public ArchEnum getArch() {
-    return arch;
+  public List<ArchitecturesEnum> getArchitectures() {
+    return architectures;
   }
 
-  public void setArch(@javax.annotation.Nullable ArchEnum arch) {
-    this.arch = arch;
+  public void setArchitectures(@javax.annotation.Nullable List<ArchitecturesEnum> architectures) {
+    this.architectures = architectures;
   }
 
 
@@ -257,25 +266,6 @@ public class MatchFilters {
   }
 
 
-  public MatchFilters bits(@javax.annotation.Nullable Long bits) {
-    this.bits = bits;
-    return this;
-  }
-
-  /**
-   * Restrict matches to this word size (multi-platform models only). Rejected for single-architecture models.
-   * @return bits
-   */
-  @javax.annotation.Nullable
-  public Long getBits() {
-    return bits;
-  }
-
-  public void setBits(@javax.annotation.Nullable Long bits) {
-    this.bits = bits;
-  }
-
-
   public MatchFilters collectionIds(@javax.annotation.Nullable List<Long> collectionIds) {
     this.collectionIds = collectionIds;
     return this;
@@ -300,6 +290,25 @@ public class MatchFilters {
 
   public void setCollectionIds(@javax.annotation.Nullable List<Long> collectionIds) {
     this.collectionIds = collectionIds;
+  }
+
+
+  public MatchFilters debug(@javax.annotation.Nullable Boolean debug) {
+    this.debug = debug;
+    return this;
+  }
+
+  /**
+   * Restrict matches to candidates with auto/system debug symbols. Multi-platform models only; rejected for single-architecture models.
+   * @return debug
+   */
+  @javax.annotation.Nullable
+  public Boolean getDebug() {
+    return debug;
+  }
+
+  public void setDebug(@javax.annotation.Nullable Boolean debug) {
+    this.debug = debug;
   }
 
 
@@ -357,22 +366,49 @@ public class MatchFilters {
   }
 
 
-  public MatchFilters platform(@javax.annotation.Nullable PlatformEnum platform) {
-    this.platform = platform;
+  public MatchFilters includeUserDebug(@javax.annotation.Nullable Boolean includeUserDebug) {
+    this.includeUserDebug = includeUserDebug;
     return this;
   }
 
   /**
-   * Restrict matches to this platform (multi-platform models only; matches all platforms if omitted). Rejected for single-architecture models.
-   * @return platform
+   * When debug is set, also match user-named functions (not only auto/system debug). No effect unless debug is true.
+   * @return includeUserDebug
    */
   @javax.annotation.Nullable
-  public PlatformEnum getPlatform() {
-    return platform;
+  public Boolean getIncludeUserDebug() {
+    return includeUserDebug;
   }
 
-  public void setPlatform(@javax.annotation.Nullable PlatformEnum platform) {
-    this.platform = platform;
+  public void setIncludeUserDebug(@javax.annotation.Nullable Boolean includeUserDebug) {
+    this.includeUserDebug = includeUserDebug;
+  }
+
+
+  public MatchFilters platforms(@javax.annotation.Nullable List<PlatformsEnum> platforms) {
+    this.platforms = platforms;
+    return this;
+  }
+
+  public MatchFilters addPlatformsItem(PlatformsEnum platformsItem) {
+    if (this.platforms == null) {
+      this.platforms = new ArrayList<>();
+    }
+    this.platforms.add(platformsItem);
+    return this;
+  }
+
+  /**
+   * Restrict matches to candidates whose binary was detected as one of these platforms. Matches all platforms if omitted; a binary whose detection has not run is never matched by a non-empty filter.
+   * @return platforms
+   */
+  @javax.annotation.Nullable
+  public List<PlatformsEnum> getPlatforms() {
+    return platforms;
+  }
+
+  public void setPlatforms(@javax.annotation.Nullable List<PlatformsEnum> platforms) {
+    this.platforms = platforms;
   }
 
 
@@ -402,6 +438,50 @@ public class MatchFilters {
     this.userIds = userIds;
   }
 
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  private Map<String, Object> additionalProperties;
+
+  /**
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
+   *
+   * @param key name of the property
+   * @param value value of the property
+   * @return the MatchFilters instance itself
+   */
+  public MatchFilters putAdditionalProperty(String key, Object value) {
+    if (this.additionalProperties == null) {
+        this.additionalProperties = new HashMap<String, Object>();
+    }
+    this.additionalProperties.put(key, value);
+    return this;
+  }
+
+  /**
+   * Return the additional (undeclared) property.
+   *
+   * @return a map of objects
+   */
+  public Map<String, Object> getAdditionalProperties() {
+    return additionalProperties;
+  }
+
+  /**
+   * Return the additional (undeclared) property with the specified name.
+   *
+   * @param key name of the property
+   * @return an object
+   */
+  public Object getAdditionalProperty(String key) {
+    if (this.additionalProperties == null) {
+        return null;
+    }
+    return this.additionalProperties.get(key);
+  }
 
 
   @Override
@@ -413,14 +493,16 @@ public class MatchFilters {
       return false;
     }
     MatchFilters matchFilters = (MatchFilters) o;
-    return Objects.equals(this.arch, matchFilters.arch) &&
+    return Objects.equals(this.architectures, matchFilters.architectures) &&
         Objects.equals(this.binaryIds, matchFilters.binaryIds) &&
-        Objects.equals(this.bits, matchFilters.bits) &&
         Objects.equals(this.collectionIds, matchFilters.collectionIds) &&
+        Objects.equals(this.debug, matchFilters.debug) &&
         Objects.equals(this.debugTypes, matchFilters.debugTypes) &&
         Objects.equals(this.functionIds, matchFilters.functionIds) &&
-        Objects.equals(this.platform, matchFilters.platform) &&
-        Objects.equals(this.userIds, matchFilters.userIds);
+        Objects.equals(this.includeUserDebug, matchFilters.includeUserDebug) &&
+        Objects.equals(this.platforms, matchFilters.platforms) &&
+        Objects.equals(this.userIds, matchFilters.userIds)&&
+        Objects.equals(this.additionalProperties, matchFilters.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -429,7 +511,7 @@ public class MatchFilters {
 
   @Override
   public int hashCode() {
-    return Objects.hash(arch, binaryIds, bits, collectionIds, debugTypes, functionIds, platform, userIds);
+    return Objects.hash(architectures, binaryIds, collectionIds, debug, debugTypes, functionIds, includeUserDebug, platforms, userIds, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -443,14 +525,16 @@ public class MatchFilters {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MatchFilters {\n");
-    sb.append("    arch: ").append(toIndentedString(arch)).append("\n");
+    sb.append("    architectures: ").append(toIndentedString(architectures)).append("\n");
     sb.append("    binaryIds: ").append(toIndentedString(binaryIds)).append("\n");
-    sb.append("    bits: ").append(toIndentedString(bits)).append("\n");
     sb.append("    collectionIds: ").append(toIndentedString(collectionIds)).append("\n");
+    sb.append("    debug: ").append(toIndentedString(debug)).append("\n");
     sb.append("    debugTypes: ").append(toIndentedString(debugTypes)).append("\n");
     sb.append("    functionIds: ").append(toIndentedString(functionIds)).append("\n");
-    sb.append("    platform: ").append(toIndentedString(platform)).append("\n");
+    sb.append("    includeUserDebug: ").append(toIndentedString(includeUserDebug)).append("\n");
+    sb.append("    platforms: ").append(toIndentedString(platforms)).append("\n");
     sb.append("    userIds: ").append(toIndentedString(userIds)).append("\n");
+    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -469,7 +553,7 @@ public class MatchFilters {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("arch", "binary_ids", "bits", "collection_ids", "debug_types", "function_ids", "platform", "user_ids"));
+    openapiFields = new HashSet<String>(Arrays.asList("architectures", "binary_ids", "collection_ids", "debug", "debug_types", "function_ids", "include_user_debug", "platforms", "user_ids"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -487,21 +571,10 @@ public class MatchFilters {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in MatchFilters is not found in the empty JSON string", MatchFilters.openapiRequiredFields.toString()));
         }
       }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!MatchFilters.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `MatchFilters` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("arch") != null && !jsonObj.get("arch").isJsonNull()) && !jsonObj.get("arch").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `arch` to be a primitive type in the JSON string but got `%s`", jsonObj.get("arch").toString()));
-      }
-      // validate the optional field `arch`
-      if (jsonObj.get("arch") != null && !jsonObj.get("arch").isJsonNull()) {
-        ArchEnum.validateJsonElement(jsonObj.get("arch"));
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("architectures") != null && !jsonObj.get("architectures").isJsonNull() && !jsonObj.get("architectures").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `architectures` to be an array in the JSON string but got `%s`", jsonObj.get("architectures").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("binary_ids") != null && !jsonObj.get("binary_ids").isJsonNull() && !jsonObj.get("binary_ids").isJsonArray()) {
@@ -519,12 +592,9 @@ public class MatchFilters {
       if (jsonObj.get("function_ids") != null && !jsonObj.get("function_ids").isJsonNull() && !jsonObj.get("function_ids").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `function_ids` to be an array in the JSON string but got `%s`", jsonObj.get("function_ids").toString()));
       }
-      if ((jsonObj.get("platform") != null && !jsonObj.get("platform").isJsonNull()) && !jsonObj.get("platform").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `platform` to be a primitive type in the JSON string but got `%s`", jsonObj.get("platform").toString()));
-      }
-      // validate the optional field `platform`
-      if (jsonObj.get("platform") != null && !jsonObj.get("platform").isJsonNull()) {
-        PlatformEnum.validateJsonElement(jsonObj.get("platform"));
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("platforms") != null && !jsonObj.get("platforms").isJsonNull() && !jsonObj.get("platforms").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `platforms` to be an array in the JSON string but got `%s`", jsonObj.get("platforms").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("user_ids") != null && !jsonObj.get("user_ids").isJsonNull() && !jsonObj.get("user_ids").isJsonArray()) {
@@ -547,6 +617,28 @@ public class MatchFilters {
            @Override
            public void write(JsonWriter out, MatchFilters value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             obj.remove("additionalProperties");
+             // serialize additional properties
+             if (value.getAdditionalProperties() != null) {
+               for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
+                 if (entry.getValue() instanceof String)
+                   obj.addProperty(entry.getKey(), (String) entry.getValue());
+                 else if (entry.getValue() instanceof Number)
+                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
+                 else if (entry.getValue() instanceof Boolean)
+                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
+                 else if (entry.getValue() instanceof Character)
+                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
+                 else {
+                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
+                   if (jsonElement.isJsonArray()) {
+                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
+                   } else {
+                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
+                   }
+                 }
+               }
+             }
              elementAdapter.write(out, obj);
            }
 
@@ -554,7 +646,28 @@ public class MatchFilters {
            public MatchFilters read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = jsonElement.getAsJsonObject();
+             // store additional fields in the deserialized instance
+             MatchFilters instance = thisAdapter.fromJsonTree(jsonObj);
+             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
+               if (!openapiFields.contains(entry.getKey())) {
+                 if (entry.getValue().isJsonPrimitive()) { // primitive type
+                   if (entry.getValue().getAsJsonPrimitive().isString())
+                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsString());
+                   else if (entry.getValue().getAsJsonPrimitive().isNumber())
+                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsNumber());
+                   else if (entry.getValue().getAsJsonPrimitive().isBoolean())
+                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
+                   else
+                     throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
+                 } else if (entry.getValue().isJsonArray()) {
+                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
+                 } else { // JSON object
+                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), HashMap.class));
+                 }
+               }
+             }
+             return instance;
            }
 
        }.nullSafe();

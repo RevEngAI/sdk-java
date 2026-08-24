@@ -32,11 +32,12 @@ import ai.reveng.model.BaseResponseUnionGetAiDecompilationRatingResponseNoneType
 import ai.reveng.model.CommentsData;
 import ai.reveng.model.CreateAIDecompOutputBody;
 import ai.reveng.model.DecompilationData;
+import ai.reveng.model.GetTokensResponse;
+import ai.reveng.model.LineAttributionsData;
 import ai.reveng.model.PatchCommentBody;
 import ai.reveng.model.RegenerateOutputBody;
 import ai.reveng.model.ServerSentEventsInner1;
 import ai.reveng.model.SummaryData;
-import ai.reveng.model.TokenisedData;
 import ai.reveng.model.UpsertAiDecomplationRatingRequest;
 import ai.reveng.model.UpsertOverridesData;
 import ai.reveng.model.UpsertOverridesInputBody;
@@ -88,7 +89,6 @@ public class FunctionsAiDecompilationApi {
     /**
      * Build call for createAiDecompilation
      * @param functionId Function ID (required)
-     * @param contextAware Use context-aware decompilation (optional, default to false)
      * @param temperature LLM temperature (0.0-1.0). Overrides the server default when set. Omit or set to -1 to use the server default. (optional, default to -1)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -106,7 +106,7 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAiDecompilationCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Boolean contextAware, @javax.annotation.Nullable Double temperature, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createAiDecompilationCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Double temperature, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -132,10 +132,6 @@ public class FunctionsAiDecompilationApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-        if (contextAware != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("context_aware", contextAware));
-        }
-
         if (temperature != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("temperature", temperature));
         }
@@ -160,13 +156,13 @@ public class FunctionsAiDecompilationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createAiDecompilationValidateBeforeCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Boolean contextAware, @javax.annotation.Nullable Double temperature, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createAiDecompilationValidateBeforeCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Double temperature, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'functionId' is set
         if (functionId == null) {
             throw new ApiException("Missing the required parameter 'functionId' when calling createAiDecompilation(Async)");
         }
 
-        return createAiDecompilationCall(functionId, contextAware, temperature, _callback);
+        return createAiDecompilationCall(functionId, temperature, _callback);
 
     }
 
@@ -174,7 +170,6 @@ public class FunctionsAiDecompilationApi {
      * Start AI decompilation
      * Begins the AI decompilation process for a function. Charges team credits and starts the workflow.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;402&#x60; [&#x60;INSUFFICIENT_CREDITS&#x60;](/errors/INSUFFICIENT_CREDITS) — Insufficient Credits
      * @param functionId Function ID (required)
-     * @param contextAware Use context-aware decompilation (optional, default to false)
      * @param temperature LLM temperature (0.0-1.0). Overrides the server default when set. Omit or set to -1 to use the server default. (optional, default to -1)
      * @return CreateAIDecompOutputBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -191,8 +186,8 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public CreateAIDecompOutputBody createAiDecompilation(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Boolean contextAware, @javax.annotation.Nullable Double temperature) throws ApiException {
-        ApiResponse<CreateAIDecompOutputBody> localVarResp = createAiDecompilationWithHttpInfo(functionId, contextAware, temperature);
+    public CreateAIDecompOutputBody createAiDecompilation(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Double temperature) throws ApiException {
+        ApiResponse<CreateAIDecompOutputBody> localVarResp = createAiDecompilationWithHttpInfo(functionId, temperature);
         return localVarResp.getData();
     }
 
@@ -200,7 +195,6 @@ public class FunctionsAiDecompilationApi {
      * Start AI decompilation
      * Begins the AI decompilation process for a function. Charges team credits and starts the workflow.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;402&#x60; [&#x60;INSUFFICIENT_CREDITS&#x60;](/errors/INSUFFICIENT_CREDITS) — Insufficient Credits
      * @param functionId Function ID (required)
-     * @param contextAware Use context-aware decompilation (optional, default to false)
      * @param temperature LLM temperature (0.0-1.0). Overrides the server default when set. Omit or set to -1 to use the server default. (optional, default to -1)
      * @return ApiResponse&lt;CreateAIDecompOutputBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -217,8 +211,8 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CreateAIDecompOutputBody> createAiDecompilationWithHttpInfo(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Boolean contextAware, @javax.annotation.Nullable Double temperature) throws ApiException {
-        okhttp3.Call localVarCall = createAiDecompilationValidateBeforeCall(functionId, contextAware, temperature, null);
+    public ApiResponse<CreateAIDecompOutputBody> createAiDecompilationWithHttpInfo(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Double temperature) throws ApiException {
+        okhttp3.Call localVarCall = createAiDecompilationValidateBeforeCall(functionId, temperature, null);
         Type localVarReturnType = new TypeToken<CreateAIDecompOutputBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -227,7 +221,6 @@ public class FunctionsAiDecompilationApi {
      * Start AI decompilation (asynchronously)
      * Begins the AI decompilation process for a function. Charges team credits and starts the workflow.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;402&#x60; [&#x60;INSUFFICIENT_CREDITS&#x60;](/errors/INSUFFICIENT_CREDITS) — Insufficient Credits
      * @param functionId Function ID (required)
-     * @param contextAware Use context-aware decompilation (optional, default to false)
      * @param temperature LLM temperature (0.0-1.0). Overrides the server default when set. Omit or set to -1 to use the server default. (optional, default to -1)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -245,9 +238,9 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAiDecompilationAsync(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Boolean contextAware, @javax.annotation.Nullable Double temperature, final ApiCallback<CreateAIDecompOutputBody> _callback) throws ApiException {
+    public okhttp3.Call createAiDecompilationAsync(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Double temperature, final ApiCallback<CreateAIDecompOutputBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createAiDecompilationValidateBeforeCall(functionId, contextAware, temperature, _callback);
+        okhttp3.Call localVarCall = createAiDecompilationValidateBeforeCall(functionId, temperature, _callback);
         Type localVarReturnType = new TypeToken<CreateAIDecompOutputBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1395,149 +1388,6 @@ public class FunctionsAiDecompilationApi {
         return localVarCall;
     }
     /**
-     * Build call for getAiDecompilationTokenised
-     * @param functionId Function ID (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getAiDecompilationTokenisedCall(@javax.annotation.Nonnull Long functionId, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v3/functions/{function_id}/ai-decompilation/tokenised"
-            .replace("{" + "function_id" + "}", localVarApiClient.escapeString(functionId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAiDecompilationTokenisedValidateBeforeCall(@javax.annotation.Nonnull Long functionId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'functionId' is set
-        if (functionId == null) {
-            throw new ApiException("Missing the required parameter 'functionId' when calling getAiDecompilationTokenised(Async)");
-        }
-
-        return getAiDecompilationTokenisedCall(functionId, _callback);
-
-    }
-
-    /**
-     * Get tokenised AI decompilation with function mapping
-     * Returns the decompilation with placeholder tokens, the function mapping for token resolution, and the predicted function name.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;500&#x60; [&#x60;INTERNAL_ERROR&#x60;](/errors/INTERNAL_ERROR) — Internal Server Error
-     * @param functionId Function ID (required)
-     * @return TokenisedData
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public TokenisedData getAiDecompilationTokenised(@javax.annotation.Nonnull Long functionId) throws ApiException {
-        ApiResponse<TokenisedData> localVarResp = getAiDecompilationTokenisedWithHttpInfo(functionId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get tokenised AI decompilation with function mapping
-     * Returns the decompilation with placeholder tokens, the function mapping for token resolution, and the predicted function name.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;500&#x60; [&#x60;INTERNAL_ERROR&#x60;](/errors/INTERNAL_ERROR) — Internal Server Error
-     * @param functionId Function ID (required)
-     * @return ApiResponse&lt;TokenisedData&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<TokenisedData> getAiDecompilationTokenisedWithHttpInfo(@javax.annotation.Nonnull Long functionId) throws ApiException {
-        okhttp3.Call localVarCall = getAiDecompilationTokenisedValidateBeforeCall(functionId, null);
-        Type localVarReturnType = new TypeToken<TokenisedData>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Get tokenised AI decompilation with function mapping (asynchronously)
-     * Returns the decompilation with placeholder tokens, the function mapping for token resolution, and the predicted function name.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;500&#x60; [&#x60;INTERNAL_ERROR&#x60;](/errors/INTERNAL_ERROR) — Internal Server Error
-     * @param functionId Function ID (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getAiDecompilationTokenisedAsync(@javax.annotation.Nonnull Long functionId, final ApiCallback<TokenisedData> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = getAiDecompilationTokenisedValidateBeforeCall(functionId, _callback);
-        Type localVarReturnType = new TypeToken<TokenisedData>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
      * Build call for patchAiDecompilationInlineComment
      * @param functionId Function ID (required)
      * @param patchCommentBody  (required)
@@ -2109,163 +1959,6 @@ public class FunctionsAiDecompilationApi {
         return localVarCall;
     }
     /**
-     * Build call for upsertAiDecompilationOverrides
-     * @param functionId Function ID (required)
-     * @param upsertOverridesInputBody  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call upsertAiDecompilationOverridesCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull UpsertOverridesInputBody upsertOverridesInputBody, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = upsertOverridesInputBody;
-
-        // create path and map variables
-        String localVarPath = "/v3/functions/{function_id}/ai-decompilation/overrides"
-            .replace("{" + "function_id" + "}", localVarApiClient.escapeString(functionId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call upsertAiDecompilationOverridesValidateBeforeCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull UpsertOverridesInputBody upsertOverridesInputBody, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'functionId' is set
-        if (functionId == null) {
-            throw new ApiException("Missing the required parameter 'functionId' when calling upsertAiDecompilationOverrides(Async)");
-        }
-
-        // verify the required parameter 'upsertOverridesInputBody' is set
-        if (upsertOverridesInputBody == null) {
-            throw new ApiException("Missing the required parameter 'upsertOverridesInputBody' when calling upsertAiDecompilationOverrides(Async)");
-        }
-
-        return upsertAiDecompilationOverridesCall(functionId, upsertOverridesInputBody, _callback);
-
-    }
-
-    /**
-     * Upsert variable/function name overrides
-     * Applies user-provided name overrides to placeholder tokens in the decompilation.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
-     * @param functionId Function ID (required)
-     * @param upsertOverridesInputBody  (required)
-     * @return UpsertOverridesData
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public UpsertOverridesData upsertAiDecompilationOverrides(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull UpsertOverridesInputBody upsertOverridesInputBody) throws ApiException {
-        ApiResponse<UpsertOverridesData> localVarResp = upsertAiDecompilationOverridesWithHttpInfo(functionId, upsertOverridesInputBody);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Upsert variable/function name overrides
-     * Applies user-provided name overrides to placeholder tokens in the decompilation.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
-     * @param functionId Function ID (required)
-     * @param upsertOverridesInputBody  (required)
-     * @return ApiResponse&lt;UpsertOverridesData&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<UpsertOverridesData> upsertAiDecompilationOverridesWithHttpInfo(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull UpsertOverridesInputBody upsertOverridesInputBody) throws ApiException {
-        okhttp3.Call localVarCall = upsertAiDecompilationOverridesValidateBeforeCall(functionId, upsertOverridesInputBody, null);
-        Type localVarReturnType = new TypeToken<UpsertOverridesData>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Upsert variable/function name overrides (asynchronously)
-     * Applies user-provided name overrides to placeholder tokens in the decompilation.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
-     * @param functionId Function ID (required)
-     * @param upsertOverridesInputBody  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call upsertAiDecompilationOverridesAsync(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull UpsertOverridesInputBody upsertOverridesInputBody, final ApiCallback<UpsertOverridesData> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = upsertAiDecompilationOverridesValidateBeforeCall(functionId, upsertOverridesInputBody, _callback);
-        Type localVarReturnType = new TypeToken<UpsertOverridesData>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
      * Build call for upsertAiDecompilationRating
      * @param functionId The ID of the function being rated (required)
      * @param upsertAiDecomplationRatingRequest  (required)
@@ -2403,6 +2096,449 @@ public class FunctionsAiDecompilationApi {
 
         okhttp3.Call localVarCall = upsertAiDecompilationRatingValidateBeforeCall(functionId, upsertAiDecomplationRatingRequest, _callback);
         Type localVarReturnType = new TypeToken<BaseResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for v3GetAiDecompilationLineAttributions
+     * @param functionId Function ID (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3GetAiDecompilationLineAttributionsCall(@javax.annotation.Nonnull Long functionId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/functions/{function_id}/ai-decompilation/line-attributions"
+            .replace("{" + "function_id" + "}", localVarApiClient.escapeString(functionId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call v3GetAiDecompilationLineAttributionsValidateBeforeCall(@javax.annotation.Nonnull Long functionId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'functionId' is set
+        if (functionId == null) {
+            throw new ApiException("Missing the required parameter 'functionId' when calling v3GetAiDecompilationLineAttributions(Async)");
+        }
+
+        return v3GetAiDecompilationLineAttributionsCall(functionId, _callback);
+
+    }
+
+    /**
+     * Get AI decompilation line attributions
+     * Returns the correspondence between the function&#39;s disassembly line numbers and its AI-decompilation line numbers, grouped by disassembly line. Both sides are 0-indexed and the correspondence has a many-to-many relationship. The mapping is empty until a completed run has produced one, and is empty for a run that produced none.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;500&#x60; [&#x60;INTERNAL_ERROR&#x60;](/errors/INTERNAL_ERROR) — Internal Server Error
+     * @param functionId Function ID (required)
+     * @return LineAttributionsData
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public LineAttributionsData v3GetAiDecompilationLineAttributions(@javax.annotation.Nonnull Long functionId) throws ApiException {
+        ApiResponse<LineAttributionsData> localVarResp = v3GetAiDecompilationLineAttributionsWithHttpInfo(functionId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get AI decompilation line attributions
+     * Returns the correspondence between the function&#39;s disassembly line numbers and its AI-decompilation line numbers, grouped by disassembly line. Both sides are 0-indexed and the correspondence has a many-to-many relationship. The mapping is empty until a completed run has produced one, and is empty for a run that produced none.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;500&#x60; [&#x60;INTERNAL_ERROR&#x60;](/errors/INTERNAL_ERROR) — Internal Server Error
+     * @param functionId Function ID (required)
+     * @return ApiResponse&lt;LineAttributionsData&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<LineAttributionsData> v3GetAiDecompilationLineAttributionsWithHttpInfo(@javax.annotation.Nonnull Long functionId) throws ApiException {
+        okhttp3.Call localVarCall = v3GetAiDecompilationLineAttributionsValidateBeforeCall(functionId, null);
+        Type localVarReturnType = new TypeToken<LineAttributionsData>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get AI decompilation line attributions (asynchronously)
+     * Returns the correspondence between the function&#39;s disassembly line numbers and its AI-decompilation line numbers, grouped by disassembly line. Both sides are 0-indexed and the correspondence has a many-to-many relationship. The mapping is empty until a completed run has produced one, and is empty for a run that produced none.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;500&#x60; [&#x60;INTERNAL_ERROR&#x60;](/errors/INTERNAL_ERROR) — Internal Server Error
+     * @param functionId Function ID (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3GetAiDecompilationLineAttributionsAsync(@javax.annotation.Nonnull Long functionId, final ApiCallback<LineAttributionsData> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = v3GetAiDecompilationLineAttributionsValidateBeforeCall(functionId, _callback);
+        Type localVarReturnType = new TypeToken<LineAttributionsData>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for v3GetAiDecompilationTokens
+     * @param functionId Function ID (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3GetAiDecompilationTokensCall(@javax.annotation.Nonnull Long functionId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/functions/{function_id}/ai-decompilation/tokens"
+            .replace("{" + "function_id" + "}", localVarApiClient.escapeString(functionId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call v3GetAiDecompilationTokensValidateBeforeCall(@javax.annotation.Nonnull Long functionId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'functionId' is set
+        if (functionId == null) {
+            throw new ApiException("Missing the required parameter 'functionId' when calling v3GetAiDecompilationTokens(Async)");
+        }
+
+        return v3GetAiDecompilationTokensCall(functionId, _callback);
+
+    }
+
+    /**
+     * Get AI decompilation tokens and user overrides
+     * Returns the tokenised AI-decompilation source, the value each token resolves to, and the user&#39;s overrides as a separate unmerged map. The source is empty and the overrides are null until a run has succeeded.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;500&#x60; [&#x60;INTERNAL_ERROR&#x60;](/errors/INTERNAL_ERROR) — Internal Server Error
+     * @param functionId Function ID (required)
+     * @return GetTokensResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public GetTokensResponse v3GetAiDecompilationTokens(@javax.annotation.Nonnull Long functionId) throws ApiException {
+        ApiResponse<GetTokensResponse> localVarResp = v3GetAiDecompilationTokensWithHttpInfo(functionId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get AI decompilation tokens and user overrides
+     * Returns the tokenised AI-decompilation source, the value each token resolves to, and the user&#39;s overrides as a separate unmerged map. The source is empty and the overrides are null until a run has succeeded.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;500&#x60; [&#x60;INTERNAL_ERROR&#x60;](/errors/INTERNAL_ERROR) — Internal Server Error
+     * @param functionId Function ID (required)
+     * @return ApiResponse&lt;GetTokensResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<GetTokensResponse> v3GetAiDecompilationTokensWithHttpInfo(@javax.annotation.Nonnull Long functionId) throws ApiException {
+        okhttp3.Call localVarCall = v3GetAiDecompilationTokensValidateBeforeCall(functionId, null);
+        Type localVarReturnType = new TypeToken<GetTokensResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get AI decompilation tokens and user overrides (asynchronously)
+     * Returns the tokenised AI-decompilation source, the value each token resolves to, and the user&#39;s overrides as a separate unmerged map. The source is empty and the overrides are null until a run has succeeded.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;500&#x60; [&#x60;INTERNAL_ERROR&#x60;](/errors/INTERNAL_ERROR) — Internal Server Error
+     * @param functionId Function ID (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3GetAiDecompilationTokensAsync(@javax.annotation.Nonnull Long functionId, final ApiCallback<GetTokensResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = v3GetAiDecompilationTokensValidateBeforeCall(functionId, _callback);
+        Type localVarReturnType = new TypeToken<GetTokensResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for v3UpsertAiDecompilationOverrides
+     * @param functionId Function ID (required)
+     * @param upsertOverridesInputBody  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3UpsertAiDecompilationOverridesCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull UpsertOverridesInputBody upsertOverridesInputBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = upsertOverridesInputBody;
+
+        // create path and map variables
+        String localVarPath = "/v3/functions/{function_id}/ai-decompilation/overrides"
+            .replace("{" + "function_id" + "}", localVarApiClient.escapeString(functionId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call v3UpsertAiDecompilationOverridesValidateBeforeCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull UpsertOverridesInputBody upsertOverridesInputBody, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'functionId' is set
+        if (functionId == null) {
+            throw new ApiException("Missing the required parameter 'functionId' when calling v3UpsertAiDecompilationOverrides(Async)");
+        }
+
+        // verify the required parameter 'upsertOverridesInputBody' is set
+        if (upsertOverridesInputBody == null) {
+            throw new ApiException("Missing the required parameter 'upsertOverridesInputBody' when calling v3UpsertAiDecompilationOverrides(Async)");
+        }
+
+        return v3UpsertAiDecompilationOverridesCall(functionId, upsertOverridesInputBody, _callback);
+
+    }
+
+    /**
+     * Upsert variable/function name overrides
+     * Applies user-provided name overrides to placeholder tokens in the decompilation.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;500&#x60; [&#x60;INTERNAL_ERROR&#x60;](/errors/INTERNAL_ERROR) — Internal Server Error
+     * @param functionId Function ID (required)
+     * @param upsertOverridesInputBody  (required)
+     * @return UpsertOverridesData
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public UpsertOverridesData v3UpsertAiDecompilationOverrides(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull UpsertOverridesInputBody upsertOverridesInputBody) throws ApiException {
+        ApiResponse<UpsertOverridesData> localVarResp = v3UpsertAiDecompilationOverridesWithHttpInfo(functionId, upsertOverridesInputBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Upsert variable/function name overrides
+     * Applies user-provided name overrides to placeholder tokens in the decompilation.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;500&#x60; [&#x60;INTERNAL_ERROR&#x60;](/errors/INTERNAL_ERROR) — Internal Server Error
+     * @param functionId Function ID (required)
+     * @param upsertOverridesInputBody  (required)
+     * @return ApiResponse&lt;UpsertOverridesData&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<UpsertOverridesData> v3UpsertAiDecompilationOverridesWithHttpInfo(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull UpsertOverridesInputBody upsertOverridesInputBody) throws ApiException {
+        okhttp3.Call localVarCall = v3UpsertAiDecompilationOverridesValidateBeforeCall(functionId, upsertOverridesInputBody, null);
+        Type localVarReturnType = new TypeToken<UpsertOverridesData>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Upsert variable/function name overrides (asynchronously)
+     * Applies user-provided name overrides to placeholder tokens in the decompilation.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;500&#x60; [&#x60;INTERNAL_ERROR&#x60;](/errors/INTERNAL_ERROR) — Internal Server Error
+     * @param functionId Function ID (required)
+     * @param upsertOverridesInputBody  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3UpsertAiDecompilationOverridesAsync(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull UpsertOverridesInputBody upsertOverridesInputBody, final ApiCallback<UpsertOverridesData> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = v3UpsertAiDecompilationOverridesValidateBeforeCall(functionId, upsertOverridesInputBody, _callback);
+        Type localVarReturnType = new TypeToken<UpsertOverridesData>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

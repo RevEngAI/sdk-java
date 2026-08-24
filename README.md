@@ -16,7 +16,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>ai.reveng</groupId>
     <artifactId>sdk</artifactId>
-    <version>3.131.1</version>
+    <version>4.4.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -31,7 +31,7 @@ repositories {
 }
 
 dependencies {
-    implementation "ai.reveng:sdk:3.131.1"
+    implementation "ai.reveng:sdk:4.4.0"
 }
 ```
 
@@ -88,6 +88,10 @@ Class | Method | HTTP request | Description
 *AgentApi* | [**getRemediationResultV2AnalysesAnalysisIdAgentRemediationGet**](docs/AgentApi.md#getRemediationResultV2AnalysesAnalysisIdAgentRemediationGet) | **GET** /v2/analyses/{analysis_id}/agent/remediation | Get Remediation Result
 *AgentApi* | [**getReportAnalysisResultV2AnalysesAnalysisIdAgentReportAnalysisGet**](docs/AgentApi.md#getReportAnalysisResultV2AnalysesAnalysisIdAgentReportAnalysisGet) | **GET** /v2/analyses/{analysis_id}/agent/report-analysis | Get Report Analysis Result
 *AgentApi* | [**getTriageResultV2AnalysesAnalysisIdAgentTriageGet**](docs/AgentApi.md#getTriageResultV2AnalysesAnalysisIdAgentTriageGet) | **GET** /v2/analyses/{analysis_id}/agent/triage | Get Triage Result
+*AgentApi* | [**v3CancelRenameUnnamedFunctions**](docs/AgentApi.md#v3CancelRenameUnnamedFunctions) | **POST** /v3/analyses/{analysis_id}/agents/rename-unnamed-functions/cancel | Cancel the rename-unnamed-functions agent.
+*AgentApi* | [**v3GetRenameUnnamedFunctionsResult**](docs/AgentApi.md#v3GetRenameUnnamedFunctionsResult) | **GET** /v3/analyses/{analysis_id}/agents/rename-unnamed-functions | Get rename-unnamed-functions agent result.
+*AgentApi* | [**v3GetRenameUnnamedFunctionsStatus**](docs/AgentApi.md#v3GetRenameUnnamedFunctionsStatus) | **GET** /v3/analyses/{analysis_id}/agents/rename-unnamed-functions/status | Get rename-unnamed-functions agent status.
+*AgentApi* | [**v3TriggerRenameUnnamedFunctions**](docs/AgentApi.md#v3TriggerRenameUnnamedFunctions) | **POST** /v3/analyses/{analysis_id}/agents/rename-unnamed-functions | Run the rename-unnamed-functions agent.
 *AnalysesBulkActionsApi* | [**bulkAddAnalysisTags**](docs/AnalysesBulkActionsApi.md#bulkAddAnalysisTags) | **PATCH** /v2/analyses/tags/add | Bulk Add Analysis Tags
 *AnalysesBulkActionsApi* | [**bulkDeleteAnalyses**](docs/AnalysesBulkActionsApi.md#bulkDeleteAnalyses) | **PATCH** /v2/analyses/delete | Bulk Delete Analyses
 *AnalysesCommentsApi* | [**createAnalysisComment**](docs/AnalysesCommentsApi.md#createAnalysisComment) | **POST** /v2/analyses/{analysis_id}/comments | Create a comment for this analysis
@@ -118,6 +122,7 @@ Class | Method | HTTP request | Description
 *AnalysesCoreApi* | [**updateAnalysisTags**](docs/AnalysesCoreApi.md#updateAnalysisTags) | **PATCH** /v2/analyses/{analysis_id}/tags | Update Analysis Tags
 *AnalysesCoreApi* | [**uploadFile**](docs/AnalysesCoreApi.md#uploadFile) | **POST** /v2/upload | Upload File
 *AnalysesCoreApi* | [**v3GetAnalysisAutoUnstripStatus**](docs/AnalysesCoreApi.md#v3GetAnalysisAutoUnstripStatus) | **GET** /v3/analyses/{analysis_id}/auto-unstrip/status | Get the auto-unstrip status for an analysis.
+*AnalysesCoreApi* | [**v3GetAnalysisLogs**](docs/AnalysesCoreApi.md#v3GetAnalysisLogs) | **GET** /v3/analyses/{analysis_id}/logs | Get the Analysis log
 *AnalysesCoreApi* | [**v3GetAnalysisStrings**](docs/AnalysesCoreApi.md#v3GetAnalysisStrings) | **GET** /v3/analyses/{analysis_id}/functions/strings | List strings for an analysis.
 *AnalysesCoreApi* | [**v3GetAnalysisStringsStatus**](docs/AnalysesCoreApi.md#v3GetAnalysisStringsStatus) | **GET** /v3/analyses/{analysis_id}/functions/strings/status | Get the string-extraction status for an analysis.
 *AnalysesCoreApi* | [**v3ListAnalyses**](docs/AnalysesCoreApi.md#v3ListAnalyses) | **GET** /v3/analyses | List analyses
@@ -164,6 +169,17 @@ Class | Method | HTTP request | Description
 *ConversationsApi* | [**listConversations**](docs/ConversationsApi.md#listConversations) | **GET** /v2/conversations | List conversations for the authenticated user
 *ConversationsApi* | [**sendMessage**](docs/ConversationsApi.md#sendMessage) | **POST** /v2/conversations/{id}/messages | Send a message and start an agentic run
 *ConversationsApi* | [**streamEvents**](docs/ConversationsApi.md#streamEvents) | **GET** /v2/conversations/{id}/events | Stream conversation events (SSE)
+*DataTypesApi* | [**v3CopyFunctionSignatures**](docs/DataTypesApi.md#v3CopyFunctionSignatures) | **POST** /v3/analyses/{analysis_id}/signatures/copy | Copy function signatures
+*DataTypesApi* | [**v3CreateAnalysisDataTypes**](docs/DataTypesApi.md#v3CreateAnalysisDataTypes) | **POST** /v3/analyses/{analysis_id}/data-types | Create an analysis&#39;s data types
+*DataTypesApi* | [**v3GetAnalysisDataType**](docs/DataTypesApi.md#v3GetAnalysisDataType) | **GET** /v3/analyses/{analysis_id}/data-types/{data_type_id} | Get one of an analysis&#39;s data types
+*DataTypesApi* | [**v3GetAnalysisDataTypeHistory**](docs/DataTypesApi.md#v3GetAnalysisDataTypeHistory) | **GET** /v3/analyses/{analysis_id}/data-types/{data_type_id}/history | Get a data type&#39;s edit history
+*DataTypesApi* | [**v3GetFunctionSignature**](docs/DataTypesApi.md#v3GetFunctionSignature) | **GET** /v3/analyses/{analysis_id}/functions/{function_id}/signature | Get a function&#39;s signature
+*DataTypesApi* | [**v3GetFunctionSignatureHistory**](docs/DataTypesApi.md#v3GetFunctionSignatureHistory) | **GET** /v3/analyses/{analysis_id}/functions/{function_id}/signature/history | Get a function signature&#39;s edit history
+*DataTypesApi* | [**v3ListAnalysisDataTypes**](docs/DataTypesApi.md#v3ListAnalysisDataTypes) | **GET** /v3/analyses/{analysis_id}/data-types | List an analysis&#39;s data types
+*DataTypesApi* | [**v3ListDataTypeFunctions**](docs/DataTypesApi.md#v3ListDataTypeFunctions) | **GET** /v3/analyses/{analysis_id}/data-types/{data_type_id}/functions | List the functions using a data type
+*DataTypesApi* | [**v3ListFunctionSignatures**](docs/DataTypesApi.md#v3ListFunctionSignatures) | **GET** /v3/functions/signatures | Get signatures for many functions
+*DataTypesApi* | [**v3UpdateAnalysisDataTypes**](docs/DataTypesApi.md#v3UpdateAnalysisDataTypes) | **PUT** /v3/analyses/{analysis_id}/data-types | Update an analysis&#39;s data types
+*DataTypesApi* | [**v3UpdateFunctionSignature**](docs/DataTypesApi.md#v3UpdateFunctionSignature) | **PUT** /v3/analyses/{analysis_id}/functions/{function_id}/signature | Update a function&#39;s signature
 *ExternalSourcesApi* | [**createExternalTaskVt**](docs/ExternalSourcesApi.md#createExternalTaskVt) | **POST** /v2/analysis/{analysis_id}/external/vt | Pulls data from VirusTotal
 *ExternalSourcesApi* | [**getVtData**](docs/ExternalSourcesApi.md#getVtData) | **GET** /v2/analysis/{analysis_id}/external/vt | Get VirusTotal data
 *ExternalSourcesApi* | [**getVtTaskStatus**](docs/ExternalSourcesApi.md#getVtTaskStatus) | **GET** /v2/analysis/{analysis_id}/external/vt/status | Check the status of VirusTotal data retrieval
@@ -178,13 +194,14 @@ Class | Method | HTTP request | Description
 *FunctionsAiDecompilationApi* | [**getAiDecompilationStatus**](docs/FunctionsAiDecompilationApi.md#getAiDecompilationStatus) | **GET** /v3/functions/{function_id}/ai-decompilation/status | Get AI decompilation workflow status
 *FunctionsAiDecompilationApi* | [**getAiDecompilationSummary**](docs/FunctionsAiDecompilationApi.md#getAiDecompilationSummary) | **GET** /v3/functions/{function_id}/ai-decompilation/summary | Get AI decompilation summary
 *FunctionsAiDecompilationApi* | [**getAiDecompilationSummaryStatus**](docs/FunctionsAiDecompilationApi.md#getAiDecompilationSummaryStatus) | **GET** /v3/functions/{function_id}/ai-decompilation/summary/status | Get summary generation workflow status
-*FunctionsAiDecompilationApi* | [**getAiDecompilationTokenised**](docs/FunctionsAiDecompilationApi.md#getAiDecompilationTokenised) | **GET** /v3/functions/{function_id}/ai-decompilation/tokenised | Get tokenised AI decompilation with function mapping
 *FunctionsAiDecompilationApi* | [**patchAiDecompilationInlineComment**](docs/FunctionsAiDecompilationApi.md#patchAiDecompilationInlineComment) | **PATCH** /v3/functions/{function_id}/ai-decompilation/inline-comments | Update a single inline comment
 *FunctionsAiDecompilationApi* | [**regenerateAiDecompilationInlineComments**](docs/FunctionsAiDecompilationApi.md#regenerateAiDecompilationInlineComments) | **POST** /v3/functions/{function_id}/ai-decompilation/inline-comments | Regenerate AI decompilation inline comments
 *FunctionsAiDecompilationApi* | [**regenerateAiDecompilationSummary**](docs/FunctionsAiDecompilationApi.md#regenerateAiDecompilationSummary) | **POST** /v3/functions/{function_id}/ai-decompilation/summary | Regenerate AI decompilation summary
 *FunctionsAiDecompilationApi* | [**streamAiDecompilation**](docs/FunctionsAiDecompilationApi.md#streamAiDecompilation) | **GET** /v3/functions/{function_id}/ai-decompilation/events | Stream live AI decompilation output (SSE)
-*FunctionsAiDecompilationApi* | [**upsertAiDecompilationOverrides**](docs/FunctionsAiDecompilationApi.md#upsertAiDecompilationOverrides) | **PATCH** /v3/functions/{function_id}/ai-decompilation/overrides | Upsert variable/function name overrides
 *FunctionsAiDecompilationApi* | [**upsertAiDecompilationRating**](docs/FunctionsAiDecompilationApi.md#upsertAiDecompilationRating) | **PATCH** /v2/functions/{function_id}/ai-decompilation/rating | Upsert rating for AI decompilation
+*FunctionsAiDecompilationApi* | [**v3GetAiDecompilationLineAttributions**](docs/FunctionsAiDecompilationApi.md#v3GetAiDecompilationLineAttributions) | **GET** /v3/functions/{function_id}/ai-decompilation/line-attributions | Get AI decompilation line attributions
+*FunctionsAiDecompilationApi* | [**v3GetAiDecompilationTokens**](docs/FunctionsAiDecompilationApi.md#v3GetAiDecompilationTokens) | **GET** /v3/functions/{function_id}/ai-decompilation/tokens | Get AI decompilation tokens and user overrides
+*FunctionsAiDecompilationApi* | [**v3UpsertAiDecompilationOverrides**](docs/FunctionsAiDecompilationApi.md#v3UpsertAiDecompilationOverrides) | **PATCH** /v3/functions/{function_id}/ai-decompilation/overrides | Upsert variable/function name overrides
 *FunctionsCoreApi* | [**addFunctionCallee**](docs/FunctionsCoreApi.md#addFunctionCallee) | **POST** /v3/functions/{function_id}/callees | Add a callee to a function
 *FunctionsCoreApi* | [**addUserStringToFunction**](docs/FunctionsCoreApi.md#addUserStringToFunction) | **POST** /v3/functions/{function_id}/user-provided-strings | Add a user-provided string to a function.
 *FunctionsCoreApi* | [**getAnalysisStrings**](docs/FunctionsCoreApi.md#getAnalysisStrings) | **GET** /v2/analyses/{analysis_id}/functions/strings | Get string information found in the Analysis
@@ -209,15 +226,6 @@ Class | Method | HTTP request | Description
 *FunctionsCoreApi* | [**listImportedFunctions**](docs/FunctionsCoreApi.md#listImportedFunctions) | **GET** /v3/analyses/{analysis_id}/imported-functions | List imported functions in an analysis
 *FunctionsCoreApi* | [**startFunctionsMatching**](docs/FunctionsCoreApi.md#startFunctionsMatching) | **POST** /v3/functions/matches | Start function matching for an explicit set of functions
 *FunctionsCoreApi* | [**v3CanonicalizeFunctionNames**](docs/FunctionsCoreApi.md#v3CanonicalizeFunctionNames) | **POST** /v3/functions/canonical-names | Canonicalize a batch of function names
-*FunctionsDataTypesApi* | [**batchUpdateFunctionDataTypes**](docs/FunctionsDataTypesApi.md#batchUpdateFunctionDataTypes) | **PUT** /v3/analyses/{analysis_id}/functions/data-types | Batch update function data types
-*FunctionsDataTypesApi* | [**generateFunctionDataTypesForAnalysis**](docs/FunctionsDataTypesApi.md#generateFunctionDataTypesForAnalysis) | **POST** /v2/analyses/{analysis_id}/functions/data_types | Generate Function Data Types
-*FunctionsDataTypesApi* | [**generateFunctionDataTypesForFunctions**](docs/FunctionsDataTypesApi.md#generateFunctionDataTypesForFunctions) | **POST** /v2/functions/data_types | Generate Function Data Types for an arbitrary list of functions
-*FunctionsDataTypesApi* | [**getFunctionDataTypes**](docs/FunctionsDataTypesApi.md#getFunctionDataTypes) | **GET** /v3/analyses/{analysis_id}/functions/{function_id}/data-types | Get data types for a single function
-*FunctionsDataTypesApi* | [**listAnalysisFunctionsDataTypes**](docs/FunctionsDataTypesApi.md#listAnalysisFunctionsDataTypes) | **GET** /v3/analyses/{analysis_id}/functions/data-types | List data types for all functions in an analysis
-*FunctionsDataTypesApi* | [**listFunctionDataTypesForAnalysis**](docs/FunctionsDataTypesApi.md#listFunctionDataTypesForAnalysis) | **GET** /v2/analyses/{analysis_id}/functions/data_types | List Function Data Types
-*FunctionsDataTypesApi* | [**listFunctionDataTypesForFunctions**](docs/FunctionsDataTypesApi.md#listFunctionDataTypesForFunctions) | **GET** /v2/functions/data_types | List Function Data Types
-*FunctionsDataTypesApi* | [**listFunctionsDataTypes**](docs/FunctionsDataTypesApi.md#listFunctionsDataTypes) | **GET** /v3/functions/data-types | Get data types for many functions
-*FunctionsDataTypesApi* | [**updateFunctionDataTypes**](docs/FunctionsDataTypesApi.md#updateFunctionDataTypes) | **PUT** /v2/analyses/{analysis_id}/functions/{function_id}/data_types | Update function data types
 *FunctionsRenamingHistoryApi* | [**batchRenameFunction**](docs/FunctionsRenamingHistoryApi.md#batchRenameFunction) | **POST** /v2/functions/rename/batch | Batch Rename Functions
 *FunctionsRenamingHistoryApi* | [**batchRenameFunctions**](docs/FunctionsRenamingHistoryApi.md#batchRenameFunctions) | **POST** /v3/functions/rename | Batch rename functions
 *FunctionsRenamingHistoryApi* | [**getFunctionHistory**](docs/FunctionsRenamingHistoryApi.md#getFunctionHistory) | **GET** /v3/functions/{function_id}/history | Get function name history
@@ -240,9 +248,6 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
- - [AIDecompFunctionMapping](docs/AIDecompFunctionMapping.md)
- - [AIDecompInverseFunctionMapItem](docs/AIDecompInverseFunctionMapItem.md)
- - [AIDecompInverseStringMapItem](docs/AIDecompInverseStringMapItem.md)
  - [APIError](docs/APIError.md)
  - [AddCalleeInputBody](docs/AddCalleeInputBody.md)
  - [AddCollectionBinariesInputBody](docs/AddCollectionBinariesInputBody.md)
@@ -262,11 +267,14 @@ Class | Method | HTTP request | Description
  - [AnalysisConfigSnapshot](docs/AnalysisConfigSnapshot.md)
  - [AnalysisCreateRequest](docs/AnalysisCreateRequest.md)
  - [AnalysisCreateResponse](docs/AnalysisCreateResponse.md)
+ - [AnalysisDataTypesGroup](docs/AnalysisDataTypesGroup.md)
+ - [AnalysisDataTypesOutputBody](docs/AnalysisDataTypesOutputBody.md)
  - [AnalysisDetailResponse](docs/AnalysisDetailResponse.md)
  - [AnalysisFunctionEntry](docs/AnalysisFunctionEntry.md)
  - [AnalysisFunctionMapping](docs/AnalysisFunctionMapping.md)
  - [AnalysisFunctions](docs/AnalysisFunctions.md)
  - [AnalysisFunctionsList](docs/AnalysisFunctionsList.md)
+ - [AnalysisLogEntry](docs/AnalysisLogEntry.md)
  - [AnalysisLogMessage](docs/AnalysisLogMessage.md)
  - [AnalysisLogs](docs/AnalysisLogs.md)
  - [AnalysisRecord](docs/AnalysisRecord.md)
@@ -291,12 +299,14 @@ Class | Method | HTTP request | Description
  - [AppApiRestV2FunctionsTypesFunction](docs/AppApiRestV2FunctionsTypesFunction.md)
  - [AppApiRestV2InfoTypesCapability](docs/AppApiRestV2InfoTypesCapability.md)
  - [ArchiveContentEntry](docs/ArchiveContentEntry.md)
- - [Argument](docs/Argument.md)
+ - [ArrayDataType](docs/ArrayDataType.md)
+ - [ArrayDefinition](docs/ArrayDefinition.md)
  - [Artifact](docs/Artifact.md)
  - [AttemptFailedEvent](docs/AttemptFailedEvent.md)
  - [AttemptStartedEvent](docs/AttemptStartedEvent.md)
  - [AutoRunAgents](docs/AutoRunAgents.md)
  - [AutoUnstripStatusOutputBody](docs/AutoUnstripStatusOutputBody.md)
+ - [BaseDataType](docs/BaseDataType.md)
  - [BaseResponse](docs/BaseResponse.md)
  - [BaseResponseAdditionalDetailsStatusResponse](docs/BaseResponseAdditionalDetailsStatusResponse.md)
  - [BaseResponseAnalysisBulkAddTagsResponse](docs/BaseResponseAnalysisBulkAddTagsResponse.md)
@@ -331,13 +341,9 @@ Class | Method | HTTP request | Description
  - [BaseResponseExternalResponse](docs/BaseResponseExternalResponse.md)
  - [BaseResponseFunctionBlocksResponse](docs/BaseResponseFunctionBlocksResponse.md)
  - [BaseResponseFunctionCapabilityResponse](docs/BaseResponseFunctionCapabilityResponse.md)
- - [BaseResponseFunctionDataTypes](docs/BaseResponseFunctionDataTypes.md)
- - [BaseResponseFunctionDataTypesList](docs/BaseResponseFunctionDataTypesList.md)
  - [BaseResponseFunctionSearchResponse](docs/BaseResponseFunctionSearchResponse.md)
  - [BaseResponseFunctionStringsResponse](docs/BaseResponseFunctionStringsResponse.md)
  - [BaseResponseFunctionsDetailResponse](docs/BaseResponseFunctionsDetailResponse.md)
- - [BaseResponseGenerateFunctionDataTypes](docs/BaseResponseGenerateFunctionDataTypes.md)
- - [BaseResponseGenerationStatusList](docs/BaseResponseGenerationStatusList.md)
  - [BaseResponseGetPublicUserResponse](docs/BaseResponseGetPublicUserResponse.md)
  - [BaseResponseListCalleesCallerFunctionsResponse](docs/BaseResponseListCalleesCallerFunctionsResponse.md)
  - [BaseResponseListCollectionResults](docs/BaseResponseListCollectionResults.md)
@@ -363,14 +369,11 @@ Class | Method | HTTP request | Description
  - [BaseResponseXrefResponse](docs/BaseResponseXrefResponse.md)
  - [Basic](docs/Basic.md)
  - [BatchBinaryMatchResult](docs/BatchBinaryMatchResult.md)
+ - [BatchFunctionSignatureEntry](docs/BatchFunctionSignatureEntry.md)
  - [BatchMatchingOutputBody](docs/BatchMatchingOutputBody.md)
  - [BatchRenameInputBody](docs/BatchRenameInputBody.md)
  - [BatchRenameItem](docs/BatchRenameItem.md)
  - [BatchRenameOutputBody](docs/BatchRenameOutputBody.md)
- - [BatchUpdateDataTypesInputBody](docs/BatchUpdateDataTypesInputBody.md)
- - [BatchUpdateDataTypesItem](docs/BatchUpdateDataTypesItem.md)
- - [BatchUpdateDataTypesOutputBody](docs/BatchUpdateDataTypesOutputBody.md)
- - [BatchUpdateDataTypesResult](docs/BatchUpdateDataTypesResult.md)
  - [BinariesRelatedStatusResponse](docs/BinariesRelatedStatusResponse.md)
  - [BinariesTaskStatus](docs/BinariesTaskStatus.md)
  - [Binary](docs/Binary.md)
@@ -382,6 +385,7 @@ Class | Method | HTTP request | Description
  - [BinarySearchResponse](docs/BinarySearchResponse.md)
  - [BinarySearchResult](docs/BinarySearchResult.md)
  - [BinaryTaskStatus](docs/BinaryTaskStatus.md)
+ - [BitfieldDataType](docs/BitfieldDataType.md)
  - [BulkCreateUserResult](docs/BulkCreateUserResult.md)
  - [BulkCreateUsersOutputBody](docs/BulkCreateUsersOutputBody.md)
  - [BulkDeleteAnalysesRequest](docs/BulkDeleteAnalysesRequest.md)
@@ -425,20 +429,40 @@ Class | Method | HTTP request | Description
  - [Conversation](docs/Conversation.md)
  - [ConversationContext](docs/ConversationContext.md)
  - [ConversationWithEvents](docs/ConversationWithEvents.md)
+ - [CopyFunctionSignaturesInputBody](docs/CopyFunctionSignaturesInputBody.md)
+ - [CopyFunctionSignaturesOutputBody](docs/CopyFunctionSignaturesOutputBody.md)
+ - [CopySignatureItem](docs/CopySignatureItem.md)
  - [CreateAIDecompOutputBody](docs/CreateAIDecompOutputBody.md)
+ - [CreateAnalysisDataTypesInputBody](docs/CreateAnalysisDataTypesInputBody.md)
+ - [CreateArrayDataType](docs/CreateArrayDataType.md)
+ - [CreateBaseDataType](docs/CreateBaseDataType.md)
+ - [CreateBitfieldDataType](docs/CreateBitfieldDataType.md)
  - [CreateCheckoutSessionInputBody](docs/CreateCheckoutSessionInputBody.md)
  - [CreateCollectionInputBody](docs/CreateCollectionInputBody.md)
  - [CreateCollectionOutputBody](docs/CreateCollectionOutputBody.md)
  - [CreateConversationRequest](docs/CreateConversationRequest.md)
+ - [CreateDataTypeEntry](docs/CreateDataTypeEntry.md)
+ - [CreateEnumDataType](docs/CreateEnumDataType.md)
+ - [CreateFunctionDataType](docs/CreateFunctionDataType.md)
  - [CreateGroupInputBody](docs/CreateGroupInputBody.md)
  - [CreateIdentityInputBody](docs/CreateIdentityInputBody.md)
  - [CreateIssuerInputBody](docs/CreateIssuerInputBody.md)
  - [CreateOrganisationInputBody](docs/CreateOrganisationInputBody.md)
+ - [CreatePointerDataType](docs/CreatePointerDataType.md)
  - [CreatePortalSessionInputBody](docs/CreatePortalSessionInputBody.md)
+ - [CreateStructDataType](docs/CreateStructDataType.md)
  - [CreateTeamInputBody](docs/CreateTeamInputBody.md)
+ - [CreateTypedefDataType](docs/CreateTypedefDataType.md)
+ - [CreateUnionDataType](docs/CreateUnionDataType.md)
+ - [CreateUnknownDataType](docs/CreateUnknownDataType.md)
  - [CreateUserInputBody](docs/CreateUserInputBody.md)
  - [Created](docs/Created.md)
- - [DataTypesEntry](docs/DataTypesEntry.md)
+ - [DataTypeEntry](docs/DataTypeEntry.md)
+ - [DataTypeEnumValueEntry](docs/DataTypeEnumValueEntry.md)
+ - [DataTypeFunctionEntry](docs/DataTypeFunctionEntry.md)
+ - [DataTypeFunctionParameterEntry](docs/DataTypeFunctionParameterEntry.md)
+ - [DataTypeMemberEntry](docs/DataTypeMemberEntry.md)
+ - [DataTypeVersion](docs/DataTypeVersion.md)
  - [DecompFailedEvent](docs/DecompFailedEvent.md)
  - [DecompFinishedEvent](docs/DecompFinishedEvent.md)
  - [DecompilationCommentContext](docs/DecompilationCommentContext.md)
@@ -458,7 +482,8 @@ Class | Method | HTTP request | Description
  - [ELFSymbol](docs/ELFSymbol.md)
  - [ElfDynamicEntry](docs/ElfDynamicEntry.md)
  - [EntrypointModel](docs/EntrypointModel.md)
- - [Enumeration](docs/Enumeration.md)
+ - [EnumDataType](docs/EnumDataType.md)
+ - [EnumDefinition](docs/EnumDefinition.md)
  - [ErrorBody](docs/ErrorBody.md)
  - [ErrorModel](docs/ErrorModel.md)
  - [Event](docs/Event.md)
@@ -498,23 +523,14 @@ Class | Method | HTTP request | Description
  - [FileMetadata](docs/FileMetadata.md)
  - [Filters](docs/Filters.md)
  - [FormFile](docs/FormFile.md)
- - [FuncDepsInner](docs/FuncDepsInner.md)
- - [FunctionArgument](docs/FunctionArgument.md)
  - [FunctionBlockDestinationResponse](docs/FunctionBlockDestinationResponse.md)
  - [FunctionBlockResponse](docs/FunctionBlockResponse.md)
  - [FunctionBlocksResponse](docs/FunctionBlocksResponse.md)
  - [FunctionBoundary](docs/FunctionBoundary.md)
  - [FunctionCallEdges](docs/FunctionCallEdges.md)
  - [FunctionCapabilityResponse](docs/FunctionCapabilityResponse.md)
- - [FunctionDataTypes](docs/FunctionDataTypes.md)
- - [FunctionDataTypesList](docs/FunctionDataTypesList.md)
- - [FunctionDataTypesListItem](docs/FunctionDataTypesListItem.md)
- - [FunctionDataTypesParams](docs/FunctionDataTypesParams.md)
- - [FunctionDataTypesStatus](docs/FunctionDataTypesStatus.md)
- - [FunctionDependency](docs/FunctionDependency.md)
+ - [FunctionDataType](docs/FunctionDataType.md)
  - [FunctionDetailsOutputBody](docs/FunctionDetailsOutputBody.md)
- - [FunctionHeader](docs/FunctionHeader.md)
- - [FunctionInfo](docs/FunctionInfo.md)
  - [FunctionListItem](docs/FunctionListItem.md)
  - [FunctionLocalVariableResponse](docs/FunctionLocalVariableResponse.md)
  - [FunctionMapping](docs/FunctionMapping.md)
@@ -525,28 +541,32 @@ Class | Method | HTTP request | Description
  - [FunctionRenameMap](docs/FunctionRenameMap.md)
  - [FunctionSearchResponse](docs/FunctionSearchResponse.md)
  - [FunctionSearchResult](docs/FunctionSearchResult.md)
+ - [FunctionSignatureBody](docs/FunctionSignatureBody.md)
+ - [FunctionSignatureEntry](docs/FunctionSignatureEntry.md)
+ - [FunctionSignatureVersion](docs/FunctionSignatureVersion.md)
  - [FunctionSourceType](docs/FunctionSourceType.md)
- - [FunctionStackVariable](docs/FunctionStackVariable.md)
  - [FunctionString](docs/FunctionString.md)
  - [FunctionStringItem](docs/FunctionStringItem.md)
  - [FunctionStringsResponse](docs/FunctionStringsResponse.md)
- - [FunctionType](docs/FunctionType.md)
+ - [FunctionTypeDefinition](docs/FunctionTypeDefinition.md)
  - [FunctionsDetailResponse](docs/FunctionsDetailResponse.md)
  - [FunctionsListRename](docs/FunctionsListRename.md)
- - [GenerateFunctionDataTypes](docs/GenerateFunctionDataTypes.md)
  - [GeneratePDFOutputBody](docs/GeneratePDFOutputBody.md)
- - [GenerationStatusList](docs/GenerationStatusList.md)
  - [GetAdditionalDetailsOutputBody](docs/GetAdditionalDetailsOutputBody.md)
  - [GetAdditionalDetailsStatusOutputBody](docs/GetAdditionalDetailsStatusOutputBody.md)
  - [GetAiDecompilationRatingResponse](docs/GetAiDecompilationRatingResponse.md)
+ - [GetAnalysisLogsOutputBody](docs/GetAnalysisLogsOutputBody.md)
  - [GetAnalysisStringsStatusOutputBody](docs/GetAnalysisStringsStatusOutputBody.md)
  - [GetCollectionOutputBody](docs/GetCollectionOutputBody.md)
+ - [GetDataTypeHistoryBody](docs/GetDataTypeHistoryBody.md)
+ - [GetFunctionSignatureHistoryBody](docs/GetFunctionSignatureHistoryBody.md)
  - [GetMatchesOutputBody](docs/GetMatchesOutputBody.md)
  - [GetMatchesStatusOutputBody](docs/GetMatchesStatusOutputBody.md)
  - [GetProductsOutputBody](docs/GetProductsOutputBody.md)
  - [GetPublicUserResponse](docs/GetPublicUserResponse.md)
  - [GetSubscriptionOutputBody](docs/GetSubscriptionOutputBody.md)
- - [GlobalVariable](docs/GlobalVariable.md)
+ - [GetTokensResponse](docs/GetTokensResponse.md)
+ - [HistoryActor](docs/HistoryActor.md)
  - [HistoryEntry](docs/HistoryEntry.md)
  - [HttpRequest](docs/HttpRequest.md)
  - [IOC](docs/IOC.md)
@@ -562,16 +582,18 @@ Class | Method | HTTP request | Description
  - [InsertAnalysisLogRequest](docs/InsertAnalysisLogRequest.md)
  - [InviteUserInputBody](docs/InviteUserInputBody.md)
  - [IssuerAllowedDomain](docs/IssuerAllowedDomain.md)
+ - [LineAttributionsData](docs/LineAttributionsData.md)
  - [ListAnalysesOutputBody](docs/ListAnalysesOutputBody.md)
- - [ListAnalysisFunctionsDataTypesOutputBody](docs/ListAnalysisFunctionsDataTypesOutputBody.md)
+ - [ListAnalysisDataTypesOutputBody](docs/ListAnalysisDataTypesOutputBody.md)
  - [ListAnalysisFunctionsOutputBody](docs/ListAnalysisFunctionsOutputBody.md)
  - [ListAnalysisStringsOutputBody](docs/ListAnalysisStringsOutputBody.md)
  - [ListArchiveContentsOutputBody](docs/ListArchiveContentsOutputBody.md)
  - [ListCollectionResults](docs/ListCollectionResults.md)
  - [ListCollectionsOutputBody](docs/ListCollectionsOutputBody.md)
+ - [ListDataTypeFunctionsBody](docs/ListDataTypeFunctionsBody.md)
  - [ListExampleAnalysesOutputBody](docs/ListExampleAnalysesOutputBody.md)
+ - [ListFunctionSignaturesOutputBody](docs/ListFunctionSignaturesOutputBody.md)
  - [ListFunctionStringsOutputBody](docs/ListFunctionStringsOutputBody.md)
- - [ListFunctionsDataTypesOutputBody](docs/ListFunctionsDataTypesOutputBody.md)
  - [ListImportedFunctionsOutputBody](docs/ListImportedFunctionsOutputBody.md)
  - [ListTeamsOutputBody](docs/ListTeamsOutputBody.md)
  - [ListUsersOutputBody](docs/ListUsersOutputBody.md)
@@ -611,6 +633,8 @@ Class | Method | HTTP request | Description
  - [PcapBodyInfo](docs/PcapBodyInfo.md)
  - [Permissions](docs/Permissions.md)
  - [Platform](docs/Platform.md)
+ - [PointerDataType](docs/PointerDataType.md)
+ - [PointerDefinition](docs/PointerDefinition.md)
  - [PriceOutput](docs/PriceOutput.md)
  - [PriceSummary](docs/PriceSummary.md)
  - [ProcessActivityEntry](docs/ProcessActivityEntry.md)
@@ -635,11 +659,13 @@ Class | Method | HTTP request | Description
  - [RenameAppliedEvent](docs/RenameAppliedEvent.md)
  - [RenameInputBody](docs/RenameInputBody.md)
  - [RenameOutputBody](docs/RenameOutputBody.md)
- - [ReplacementValue](docs/ReplacementValue.md)
+ - [RenameUnnamedFunctionsResult](docs/RenameUnnamedFunctionsResult.md)
+ - [RenderedToken](docs/RenderedToken.md)
  - [ReportAnalysisResponse](docs/ReportAnalysisResponse.md)
  - [ReportEvent](docs/ReportEvent.md)
  - [ReportInfo](docs/ReportInfo.md)
  - [ReportOptions](docs/ReportOptions.md)
+ - [ResolvedEntity](docs/ResolvedEntity.md)
  - [RevokeBody](docs/RevokeBody.md)
  - [SSOProvider](docs/SSOProvider.md)
  - [SSOProvidersOutputBody](docs/SSOProvidersOutputBody.md)
@@ -656,6 +682,10 @@ Class | Method | HTTP request | Description
  - [ServerSentEventsInner1](docs/ServerSentEventsInner1.md)
  - [ServiceEntry](docs/ServiceEntry.md)
  - [SessionOutputBody](docs/SessionOutputBody.md)
+ - [SignatureParameterEntry](docs/SignatureParameterEntry.md)
+ - [SignatureParameterInput](docs/SignatureParameterInput.md)
+ - [SignatureStorageEntry](docs/SignatureStorageEntry.md)
+ - [SignatureStorageInput](docs/SignatureStorageInput.md)
  - [SingleCodeCertificateModel](docs/SingleCodeCertificateModel.md)
  - [SingleCodeSignatureModel](docs/SingleCodeSignatureModel.md)
  - [SinglePDBEntryModel](docs/SinglePDBEntryModel.md)
@@ -679,19 +709,19 @@ Class | Method | HTTP request | Description
  - [SseEventToolCallResultData](docs/SseEventToolCallResultData.md)
  - [SseEventToolCallStartData](docs/SseEventToolCallStartData.md)
  - [SseEventToolConfirmationRequiredData](docs/SseEventToolConfirmationRequiredData.md)
- - [StackVariable](docs/StackVariable.md)
  - [StartBatchMatchingInputBody](docs/StartBatchMatchingInputBody.md)
  - [StartMatchingForAnalysisInputBody](docs/StartMatchingForAnalysisInputBody.md)
  - [StartMatchingForFunctionsInputBody](docs/StartMatchingForFunctionsInputBody.md)
  - [StartMatchingOutputBody](docs/StartMatchingOutputBody.md)
  - [StartupInfo](docs/StartupInfo.md)
+ - [StatusBody](docs/StatusBody.md)
  - [StatusInput](docs/StatusInput.md)
  - [StatusOutput](docs/StatusOutput.md)
  - [StatusResponse](docs/StatusResponse.md)
  - [StringFunctions](docs/StringFunctions.md)
  - [StringSource](docs/StringSource.md)
- - [Structure](docs/Structure.md)
- - [StructureMember](docs/StructureMember.md)
+ - [StructDataType](docs/StructDataType.md)
+ - [StructDefinition](docs/StructDefinition.md)
  - [SubmitUserFeedbackRequest](docs/SubmitUserFeedbackRequest.md)
  - [SummaryData](docs/SummaryData.md)
  - [Symbols](docs/Symbols.md)
@@ -707,21 +737,38 @@ Class | Method | HTTP request | Description
  - [Team](docs/Team.md)
  - [TeamMember](docs/TeamMember.md)
  - [TimestampModel](docs/TimestampModel.md)
+ - [Token](docs/Token.md)
  - [TokenInputBody](docs/TokenInputBody.md)
  - [TokenResponse](docs/TokenResponse.md)
  - [TokenisedData](docs/TokenisedData.md)
  - [TriageFunctionResponse](docs/TriageFunctionResponse.md)
  - [TriageReportResponse](docs/TriageReportResponse.md)
  - [TriggerDynamicExecutionInputBody](docs/TriggerDynamicExecutionInputBody.md)
+ - [TriggerRenameUnnamedFunctionsInputBody](docs/TriggerRenameUnnamedFunctionsInputBody.md)
  - [Ttp](docs/Ttp.md)
- - [TypeDefinition](docs/TypeDefinition.md)
- - [UpdateDataTypesInputBody](docs/UpdateDataTypesInputBody.md)
- - [UpdateDataTypesOutputBody](docs/UpdateDataTypesOutputBody.md)
+ - [TypedefDataType](docs/TypedefDataType.md)
+ - [TypedefDefinition](docs/TypedefDefinition.md)
+ - [UnionDataType](docs/UnionDataType.md)
+ - [UnionDefinition](docs/UnionDefinition.md)
+ - [UnknownDataType](docs/UnknownDataType.md)
+ - [UpdateAnalysisDataTypesInputBody](docs/UpdateAnalysisDataTypesInputBody.md)
+ - [UpdateArrayDataType](docs/UpdateArrayDataType.md)
+ - [UpdateBaseDataType](docs/UpdateBaseDataType.md)
+ - [UpdateBitfieldDataType](docs/UpdateBitfieldDataType.md)
+ - [UpdateDataTypeEntry](docs/UpdateDataTypeEntry.md)
+ - [UpdateEnumDataType](docs/UpdateEnumDataType.md)
+ - [UpdateFunctionDataType](docs/UpdateFunctionDataType.md)
+ - [UpdateFunctionSignatureInputBody](docs/UpdateFunctionSignatureInputBody.md)
  - [UpdateIssuerInputBody](docs/UpdateIssuerInputBody.md)
  - [UpdateOrganisationInputBody](docs/UpdateOrganisationInputBody.md)
  - [UpdatePasswordInputBody](docs/UpdatePasswordInputBody.md)
+ - [UpdatePointerDataType](docs/UpdatePointerDataType.md)
  - [UpdateProfileInputBody](docs/UpdateProfileInputBody.md)
+ - [UpdateStructDataType](docs/UpdateStructDataType.md)
  - [UpdateTeamInputBody](docs/UpdateTeamInputBody.md)
+ - [UpdateTypedefDataType](docs/UpdateTypedefDataType.md)
+ - [UpdateUnionDataType](docs/UpdateUnionDataType.md)
+ - [UpdateUnknownDataType](docs/UpdateUnknownDataType.md)
  - [UpdateUserCreditsInputBody](docs/UpdateUserCreditsInputBody.md)
  - [UpdateUserInputBody](docs/UpdateUserInputBody.md)
  - [UpdateUserPasswordInputBody](docs/UpdateUserPasswordInputBody.md)
@@ -735,9 +782,6 @@ Class | Method | HTTP request | Description
  - [UserCredits](docs/UserCredits.md)
  - [UserIdentity](docs/UserIdentity.md)
  - [UserProfile](docs/UserProfile.md)
- - [V2FunctionHeader](docs/V2FunctionHeader.md)
- - [V2FunctionInfo](docs/V2FunctionInfo.md)
- - [V2FunctionType](docs/V2FunctionType.md)
  - [WarningEvent](docs/WarningEvent.md)
  - [WorkflowProgress](docs/WorkflowProgress.md)
  - [Workspace](docs/Workspace.md)

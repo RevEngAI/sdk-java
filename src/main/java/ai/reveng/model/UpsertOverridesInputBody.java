@@ -13,6 +13,7 @@
 package ai.reveng.model;
 
 import java.util.Objects;
+import ai.reveng.model.Token;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -54,17 +55,17 @@ public class UpsertOverridesInputBody {
   public static final String SERIALIZED_NAME_OVERRIDES = "overrides";
   @SerializedName(SERIALIZED_NAME_OVERRIDES)
   @javax.annotation.Nonnull
-  private Map<String, String> overrides = new HashMap<>();
+  private Map<String, Token> overrides = new HashMap<>();
 
   public UpsertOverridesInputBody() {
   }
 
-  public UpsertOverridesInputBody overrides(@javax.annotation.Nonnull Map<String, String> overrides) {
+  public UpsertOverridesInputBody overrides(@javax.annotation.Nonnull Map<String, Token> overrides) {
     this.overrides = overrides;
     return this;
   }
 
-  public UpsertOverridesInputBody putOverridesItem(String key, String overridesItem) {
+  public UpsertOverridesInputBody putOverridesItem(String key, Token overridesItem) {
     if (this.overrides == null) {
       this.overrides = new HashMap<>();
     }
@@ -73,15 +74,15 @@ public class UpsertOverridesInputBody {
   }
 
   /**
-   * Token to name mappings. Empty string removes the override.
+   * Overrides keyed by placeholder token. An entry whose value is an empty string removes that override.
    * @return overrides
    */
   @javax.annotation.Nonnull
-  public Map<String, String> getOverrides() {
+  public Map<String, Token> getOverrides() {
     return overrides;
   }
 
-  public void setOverrides(@javax.annotation.Nonnull Map<String, String> overrides) {
+  public void setOverrides(@javax.annotation.Nonnull Map<String, Token> overrides) {
     this.overrides = overrides;
   }
 

@@ -7,7 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**functionMapping** | [**AIDecompFunctionMapping**](AIDecompFunctionMapping.md) | Complete mapping data for token resolution |  [optional] |
+|**entities** | [**List&lt;ResolvedEntity&gt;**](ResolvedEntity.md) | One entry per token in the tokenised source, with the name it resolves to and its hover metadata. |  [optional] |
+|**lineAttribution** | **Object** |  |  [optional] |
 |**predictedFunctionName** | **String** | Predicted function name from the AI model |  [optional] |
 |**status** | [**StatusEnum**](#StatusEnum) | Task status |  |
 |**tokenisedDecompilation** | **String** | Source code with placeholder tokens |  [optional] |

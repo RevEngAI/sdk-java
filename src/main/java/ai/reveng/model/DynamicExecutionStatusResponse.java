@@ -153,7 +153,7 @@ public class DynamicExecutionStatusResponse {
   }
 
   /**
-   * Sandbox status log messages captured during the run. Contains a single \&quot;No logs available\&quot; message when none have been captured yet.
+   * Sandbox status log messages captured during the run. Empty when none have been captured yet.
    * @return logs
    */
   @javax.annotation.Nonnull
