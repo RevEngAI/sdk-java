@@ -125,30 +125,10 @@ jobs:
       if: steps.version_check.outputs.should_generate == 'true'
       id: check_changes
       env:
-        OPENAPI_VERSION: ${{ steps.version_check.outputs.openapi_version }}
+        SDK_VERSION: ${{ steps.version_check.outputs.openapi_version }}
       run: |
-        # Move generated files to the correct locations and clean up
-        rm -Rf docs && mv java-client/docs .
-        rm -Rf gradle && mv java-client/gradle .
-        rm -Rf src/main && mv java-client/src/main src/
-        rm -Rf build.gradle && mv java-client/build.gradle .
-        rm -Rf build.sbt && mv java-client/build.sbt .
-        rm -Rf gradle.properties && mv java-client/gradle.properties .
-        rm -Rf gradlew && mv java-client/gradlew .
-        rm -Rf gradlew.bat && mv java-client/gradlew.bat .
-        rm -Rf pom.xml && mv java-client/pom.xml .
-        rm -Rf settings.gradle && mv java-client/settings.gradle .
-        rm -Rf README.md && mv java-client/README.md .
-        rm -Rf java-client
-
-        # Ensure gradlew is executable
-        chmod +x gradlew
-
-        # Move custom models
-        cp models/* src/main/java/ai/reveng/model/
-
-        # Store the SDK version
-        echo "$OPENAPI_VERSION" > .sdk-version
+        # Shared with scripts/generate-local.sh so the two cannot drift.
+        bash scripts/postprocess.sh
 
         # Configure git
         git config user.name "github-actions[bot]"

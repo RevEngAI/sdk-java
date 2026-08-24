@@ -205,7 +205,10 @@ test {
 
 mavenPublishing {
     publishToMavenCentral(true)
-    signAllPublications()
+
+    // CI sets ORG_GRADLE_PROJECT_signingInMemoryKey; publishToMavenLocal has no
+    // key, and signing without one fails the build.
+    if (project.hasProperty("signingInMemoryKey")) signAllPublications()
 
     coordinates("{{groupId}}", "{{artifactId}}", "{{artifactVersion}}")
 

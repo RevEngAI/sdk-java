@@ -24,3 +24,6 @@ build
 .openapi-generator
 out/
 *.iml
+# Local generation scratch
+.openapi-spec.json
+java-client/
