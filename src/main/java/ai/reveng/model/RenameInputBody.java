@@ -59,11 +59,6 @@ public class RenameInputBody {
   @javax.annotation.Nonnull
   private String newName;
 
-  public static final String SERIALIZED_NAME_PRESERVE_AI_DECOMPILATION = "preserve_ai_decompilation";
-  @SerializedName(SERIALIZED_NAME_PRESERVE_AI_DECOMPILATION)
-  @javax.annotation.Nullable
-  private Boolean preserveAiDecompilation;
-
   public RenameInputBody() {
   }
 
@@ -105,25 +100,6 @@ public class RenameInputBody {
   }
 
 
-  public RenameInputBody preserveAiDecompilation(@javax.annotation.Nullable Boolean preserveAiDecompilation) {
-    this.preserveAiDecompilation = preserveAiDecompilation;
-    return this;
-  }
-
-  /**
-   * Keep the cached AI decompilation, summary and inline comments. Set when the new name comes from the model&#39;s own prediction (e.g. Transfer Name) so existing AI output is not discarded and regenerated.
-   * @return preserveAiDecompilation
-   */
-  @javax.annotation.Nullable
-  public Boolean getPreserveAiDecompilation() {
-    return preserveAiDecompilation;
-  }
-
-  public void setPreserveAiDecompilation(@javax.annotation.Nullable Boolean preserveAiDecompilation) {
-    this.preserveAiDecompilation = preserveAiDecompilation;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -135,13 +111,12 @@ public class RenameInputBody {
     }
     RenameInputBody renameInputBody = (RenameInputBody) o;
     return Objects.equals(this.newMangledName, renameInputBody.newMangledName) &&
-        Objects.equals(this.newName, renameInputBody.newName) &&
-        Objects.equals(this.preserveAiDecompilation, renameInputBody.preserveAiDecompilation);
+        Objects.equals(this.newName, renameInputBody.newName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(newMangledName, newName, preserveAiDecompilation);
+    return Objects.hash(newMangledName, newName);
   }
 
   @Override
@@ -150,7 +125,6 @@ public class RenameInputBody {
     sb.append("class RenameInputBody {\n");
     sb.append("    newMangledName: ").append(toIndentedString(newMangledName)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
-    sb.append("    preserveAiDecompilation: ").append(toIndentedString(preserveAiDecompilation)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -169,7 +143,7 @@ public class RenameInputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("new_mangled_name", "new_name", "preserve_ai_decompilation"));
+    openapiFields = new HashSet<String>(Arrays.asList("new_mangled_name", "new_name"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("new_name"));

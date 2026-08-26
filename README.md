@@ -16,7 +16,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>ai.reveng</groupId>
     <artifactId>sdk</artifactId>
-    <version>4.4.0</version>
+    <version>4.5.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -31,7 +31,7 @@ repositories {
 }
 
 dependencies {
-    implementation "ai.reveng:sdk:4.4.0"
+    implementation "ai.reveng:sdk:4.5.0"
 }
 ```
 
@@ -89,8 +89,11 @@ Class | Method | HTTP request | Description
 *AgentApi* | [**getReportAnalysisResultV2AnalysesAnalysisIdAgentReportAnalysisGet**](docs/AgentApi.md#getReportAnalysisResultV2AnalysesAnalysisIdAgentReportAnalysisGet) | **GET** /v2/analyses/{analysis_id}/agent/report-analysis | Get Report Analysis Result
 *AgentApi* | [**getTriageResultV2AnalysesAnalysisIdAgentTriageGet**](docs/AgentApi.md#getTriageResultV2AnalysesAnalysisIdAgentTriageGet) | **GET** /v2/analyses/{analysis_id}/agent/triage | Get Triage Result
 *AgentApi* | [**v3CancelRenameUnnamedFunctions**](docs/AgentApi.md#v3CancelRenameUnnamedFunctions) | **POST** /v3/analyses/{analysis_id}/agents/rename-unnamed-functions/cancel | Cancel the rename-unnamed-functions agent.
+*AgentApi* | [**v3CancelSecurityScanOperation**](docs/AgentApi.md#v3CancelSecurityScanOperation) | **POST** /v3/operations/security-scan/{analysis_id}:cancel | Cancel a security-scan operation.
 *AgentApi* | [**v3GetRenameUnnamedFunctionsResult**](docs/AgentApi.md#v3GetRenameUnnamedFunctionsResult) | **GET** /v3/analyses/{analysis_id}/agents/rename-unnamed-functions | Get rename-unnamed-functions agent result.
 *AgentApi* | [**v3GetRenameUnnamedFunctionsStatus**](docs/AgentApi.md#v3GetRenameUnnamedFunctionsStatus) | **GET** /v3/analyses/{analysis_id}/agents/rename-unnamed-functions/status | Get rename-unnamed-functions agent status.
+*AgentApi* | [**v3GetSecurityScanOperation**](docs/AgentApi.md#v3GetSecurityScanOperation) | **GET** /v3/operations/security-scan/{analysis_id} | Get a security-scan operation.
+*AgentApi* | [**v3RunSecurityScan**](docs/AgentApi.md#v3RunSecurityScan) | **POST** /v3/analyses/{analysis_id}/security-scan:run | Run the security-scan agent.
 *AgentApi* | [**v3TriggerRenameUnnamedFunctions**](docs/AgentApi.md#v3TriggerRenameUnnamedFunctions) | **POST** /v3/analyses/{analysis_id}/agents/rename-unnamed-functions | Run the rename-unnamed-functions agent.
 *AnalysesBulkActionsApi* | [**bulkAddAnalysisTags**](docs/AnalysesBulkActionsApi.md#bulkAddAnalysisTags) | **PATCH** /v2/analyses/tags/add | Bulk Add Analysis Tags
 *AnalysesBulkActionsApi* | [**bulkDeleteAnalyses**](docs/AnalysesBulkActionsApi.md#bulkDeleteAnalyses) | **PATCH** /v2/analyses/delete | Bulk Delete Analyses
@@ -492,6 +495,7 @@ Class | Method | HTTP request | Description
  - [EventCONTEXTCOMPACTED](docs/EventCONTEXTCOMPACTED.md)
  - [EventDecompFailed](docs/EventDecompFailed.md)
  - [EventDecompFinished](docs/EventDecompFinished.md)
+ - [EventNamesFinished](docs/EventNamesFinished.md)
  - [EventProse](docs/EventProse.md)
  - [EventRUNCANCELLED](docs/EventRUNCANCELLED.md)
  - [EventRUNERROR](docs/EventRUNERROR.md)
@@ -516,6 +520,7 @@ Class | Method | HTTP request | Description
  - [Example](docs/Example.md)
  - [ExportModel](docs/ExportModel.md)
  - [ExternalResponse](docs/ExternalResponse.md)
+ - [ExtractedBinary](docs/ExtractedBinary.md)
  - [ExtractedURL](docs/ExtractedURL.md)
  - [FileActivityEntry](docs/FileActivityEntry.md)
  - [FileFormat](docs/FileFormat.md)
@@ -579,6 +584,7 @@ Class | Method | HTTP request | Description
  - [IndirectCallSite](docs/IndirectCallSite.md)
  - [IndirectCallSitesOutputBody](docs/IndirectCallSitesOutputBody.md)
  - [InlineComment](docs/InlineComment.md)
+ - [InputBody](docs/InputBody.md)
  - [InsertAnalysisLogRequest](docs/InsertAnalysisLogRequest.md)
  - [InviteUserInputBody](docs/InviteUserInputBody.md)
  - [IssuerAllowedDomain](docs/IssuerAllowedDomain.md)
@@ -611,8 +617,11 @@ Class | Method | HTTP request | Description
  - [MutexEntry](docs/MutexEntry.md)
  - [NameConfidence](docs/NameConfidence.md)
  - [NameSourceType](docs/NameSourceType.md)
+ - [NamesFinishedEvent](docs/NamesFinishedEvent.md)
  - [NetworkActivity](docs/NetworkActivity.md)
  - [OIDCCallbackInputBody](docs/OIDCCallbackInputBody.md)
+ - [OperationSecurityScanMetadataSecurityScanResult](docs/OperationSecurityScanMetadataSecurityScanResult.md)
+ - [OperationWorkflowProgressResultBody](docs/OperationWorkflowProgressResultBody.md)
  - [Order](docs/Order.md)
  - [Organisation](docs/Organisation.md)
  - [OrganisationGroup](docs/OrganisationGroup.md)
@@ -666,6 +675,7 @@ Class | Method | HTTP request | Description
  - [ReportInfo](docs/ReportInfo.md)
  - [ReportOptions](docs/ReportOptions.md)
  - [ResolvedEntity](docs/ResolvedEntity.md)
+ - [ResultBody](docs/ResultBody.md)
  - [RevokeBody](docs/RevokeBody.md)
  - [SSOProvider](docs/SSOProvider.md)
  - [SSOProvidersOutputBody](docs/SSOProvidersOutputBody.md)
@@ -676,6 +686,8 @@ Class | Method | HTTP request | Description
  - [ScrapeThirdPartyConfig](docs/ScrapeThirdPartyConfig.md)
  - [SectionModel](docs/SectionModel.md)
  - [SecurityModel](docs/SecurityModel.md)
+ - [SecurityScanMetadata](docs/SecurityScanMetadata.md)
+ - [SecurityScanResult](docs/SecurityScanResult.md)
  - [SegmentInfo](docs/SegmentInfo.md)
  - [SendMessageRequest](docs/SendMessageRequest.md)
  - [ServerSentEventsInner](docs/ServerSentEventsInner.md)
@@ -714,6 +726,7 @@ Class | Method | HTTP request | Description
  - [StartMatchingForFunctionsInputBody](docs/StartMatchingForFunctionsInputBody.md)
  - [StartMatchingOutputBody](docs/StartMatchingOutputBody.md)
  - [StartupInfo](docs/StartupInfo.md)
+ - [Status](docs/Status.md)
  - [StatusBody](docs/StatusBody.md)
  - [StatusInput](docs/StatusInput.md)
  - [StatusOutput](docs/StatusOutput.md)
@@ -745,6 +758,7 @@ Class | Method | HTTP request | Description
  - [TriageReportResponse](docs/TriageReportResponse.md)
  - [TriggerDynamicExecutionInputBody](docs/TriggerDynamicExecutionInputBody.md)
  - [TriggerRenameUnnamedFunctionsInputBody](docs/TriggerRenameUnnamedFunctionsInputBody.md)
+ - [TriggerSecurityScanInputBody](docs/TriggerSecurityScanInputBody.md)
  - [Ttp](docs/Ttp.md)
  - [TypedefDataType](docs/TypedefDataType.md)
  - [TypedefDefinition](docs/TypedefDefinition.md)
