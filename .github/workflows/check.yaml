@@ -108,13 +108,43 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+    # `disallowAdditionalPropertiesIfNotPresent: false` only covers schemas that
+    # omit additionalProperties. For an explicit `additionalProperties: false` the
+    # generator reads the OpenAPI 3.1 boolean schema inconsistently, so the
+    # additional-properties catch-all silently comes and goes between spec
+    # revisions. `true` has only one reading.
+    # Keep in lockstep with scripts/generate-local.sh.
+    - name: Fetch and normalise OpenAPI spec
+      if: steps.version_check.outputs.should_generate == 'true'
+      run: |
+        curl -fsSL https://docs.reveng.ai/openapi.json -o openapi.json
+        python3 - <<'PY'
+        import json
+
+        with open("openapi.json") as f:
+            spec = json.load(f)
+
+        for schema in spec.get("components", {}).get("schemas", {}).values():
+            if not isinstance(schema, dict) or schema.get("additionalProperties") is not False:
+                continue
+            if schema.get("properties"):
+                schema["additionalProperties"] = True
+            else:
+                # No properties means an empty response body; `true` would change
+                # its generated type, so drop the key instead.
+                del schema["additionalProperties"]
+
+        with open("openapi.json", "w") as f:
+            json.dump(spec, f)
+        PY
+
     - name: Generate Java SDK
       if: steps.version_check.outputs.should_generate == 'true'
       uses: openapi-generators/openapitools-generator-action@b729d184e6b3459572c37c0e37f88a832e69b552 # v1.5.0
       with:
         generator: java
         generator-tag: 'v7.23.0'
-        openapi-url: https://docs.reveng.ai/openapi.json
+        openapi-file: openapi.json
         config-file: config.yml
         template-dir: templates
         # For the artifact version drop the `v` prefix as it's not usually used in Maven versions

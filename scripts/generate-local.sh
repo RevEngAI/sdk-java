@@ -66,6 +66,30 @@ case "$SPEC" in
     ;;
 esac
 
+# Normalise `additionalProperties: false` out of the spec. Keep in lockstep
+# with the "Fetch and normalise OpenAPI spec" step in
+# .github/workflows/check.yaml, which explains why.
+python3 - "$SPEC_FILE" <<'PY'
+import json
+import sys
+
+with open(sys.argv[1]) as f:
+    spec = json.load(f)
+
+for schema in spec.get("components", {}).get("schemas", {}).values():
+    if not isinstance(schema, dict) or schema.get("additionalProperties") is not False:
+        continue
+    if schema.get("properties"):
+        schema["additionalProperties"] = True
+    else:
+        # No properties means an empty response body; `true` would change its
+        # generated type, so drop the key instead.
+        del schema["additionalProperties"]
+
+with open(sys.argv[1], "w") as f:
+    json.dump(spec, f)
+PY
+
 SPEC_VERSION="$(jq -r '.info.version // empty' "$SPEC_FILE")"
 [ -n "$SPEC_VERSION" ] || { echo "spec has no info.version" >&2; exit 1; }
 echo "==> Spec info.version: $SPEC_VERSION"
