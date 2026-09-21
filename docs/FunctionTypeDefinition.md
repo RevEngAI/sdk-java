@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**parameters** | [**List&lt;DataTypeFunctionParameterEntry&gt;**](DataTypeFunctionParameterEntry.md) | The parameters, in argument order. |  |
+|**parameters** | **List&lt;DataTypeFunctionParameterEntry&gt;** | The parameters, in argument order. |  |
 |**returnDataTypeId** | **Long** | The return type. |  [optional] |
 
 

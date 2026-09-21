@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**bytesReceived** | **Long** |  |  [optional] |
 |**bytesSent** | **Long** |  |  [optional] |
-|**events** | [**List&lt;ReportEvent&gt;**](ReportEvent.md) |  |  [optional] |
+|**events** | **List&lt;ReportEvent&gt;** |  |  [optional] |
 |**extraHeaders** | **List&lt;String&gt;** |  |  [optional] |
 |**flags** | **Long** |  |  [optional] |
 |**password** | **String** |  |  [optional] |
@@ -19,8 +19,8 @@
 |**proxy** | **String** |  |  [optional] |
 |**proxyBypass** | **String** |  |  [optional] |
 |**referer** | **String** |  |  [optional] |
-|**requestBody** | [**PcapBodyInfo**](PcapBodyInfo.md) |  |  [optional] |
-|**responseBody** | [**PcapBodyInfo**](PcapBodyInfo.md) |  |  [optional] |
+|**requestBody** | **PcapBodyInfo** |  |  [optional] |
+|**responseBody** | **PcapBodyInfo** |  |  [optional] |
 |**responseStatus** | **Long** |  |  [optional] |
 |**serverIp** | **String** |  |  [optional] |
 |**serverName** | **String** |  |  [optional] |

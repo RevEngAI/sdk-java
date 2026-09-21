@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**error** | [**ErrorBody**](ErrorBody.md) |  |  |
+|**error** | **ErrorBody** |  |  |
 
 
 

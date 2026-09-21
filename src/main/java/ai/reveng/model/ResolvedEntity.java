@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -182,6 +183,8 @@ public class ResolvedEntity {
     
     DEFAULT("default"),
     
+    SUGGESTED("suggested"),
+    
     UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
     private String value;
@@ -246,6 +249,11 @@ public class ResolvedEntity {
   @SerializedName(SERIALIZED_NAME_RESOLVED_NAME)
   @javax.annotation.Nullable
   private String resolvedName;
+
+  public static final String SERIALIZED_NAME_SUGGESTED_NAME = "suggested_name";
+  @SerializedName(SERIALIZED_NAME_SUGGESTED_NAME)
+  @javax.annotation.Nullable
+  private String suggestedName;
 
   public static final String SERIALIZED_NAME_SUGGESTED_TYPE = "suggested_type";
   @SerializedName(SERIALIZED_NAME_SUGGESTED_TYPE)
@@ -602,6 +610,25 @@ public class ResolvedEntity {
   }
 
 
+  public ResolvedEntity suggestedName(@javax.annotation.Nullable String suggestedName) {
+    this.suggestedName = suggestedName;
+    return this;
+  }
+
+  /**
+   * Search is applied to string value
+   * @return suggestedName
+   */
+  @javax.annotation.Nullable
+  public String getSuggestedName() {
+    return suggestedName;
+  }
+
+  public void setSuggestedName(@javax.annotation.Nullable String suggestedName) {
+    this.suggestedName = suggestedName;
+  }
+
+
   public ResolvedEntity suggestedType(@javax.annotation.Nullable String suggestedType) {
     this.suggestedType = suggestedType;
     return this;
@@ -824,6 +851,7 @@ public class ResolvedEntity {
         Objects.equals(this.needsNaming, resolvedEntity.needsNaming) &&
         Objects.equals(this.provenance, resolvedEntity.provenance) &&
         Objects.equals(this.resolvedName, resolvedEntity.resolvedName) &&
+        Objects.equals(this.suggestedName, resolvedEntity.suggestedName) &&
         Objects.equals(this.suggestedType, resolvedEntity.suggestedType) &&
         Objects.equals(this.suggestionConfidence, resolvedEntity.suggestionConfidence) &&
         Objects.equals(this.token, resolvedEntity.token) &&
@@ -835,9 +863,20 @@ public class ResolvedEntity {
         Objects.equals(this.additionalProperties, resolvedEntity.additionalProperties);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
-    return Objects.hash(addrToken, allAddrTokens, bitOffset, byteOffset, byteSize, count, dataTypeIndex, fieldStatus, functionId, importedFunctionId, kind, name, nameSource, needsNaming, provenance, resolvedName, suggestedType, suggestionConfidence, token, typeIndex, vaddr, value, valueConfidence, valueType, additionalProperties);
+    return Objects.hash(addrToken, allAddrTokens, bitOffset, byteOffset, byteSize, count, dataTypeIndex, fieldStatus, functionId, importedFunctionId, kind, name, nameSource, needsNaming, provenance, resolvedName, suggestedName, suggestedType, suggestionConfidence, token, typeIndex, vaddr, value, valueConfidence, valueType, additionalProperties);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -860,6 +899,7 @@ public class ResolvedEntity {
     sb.append("    needsNaming: ").append(toIndentedString(needsNaming)).append("\n");
     sb.append("    provenance: ").append(toIndentedString(provenance)).append("\n");
     sb.append("    resolvedName: ").append(toIndentedString(resolvedName)).append("\n");
+    sb.append("    suggestedName: ").append(toIndentedString(suggestedName)).append("\n");
     sb.append("    suggestedType: ").append(toIndentedString(suggestedType)).append("\n");
     sb.append("    suggestionConfidence: ").append(toIndentedString(suggestionConfidence)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
@@ -887,7 +927,7 @@ public class ResolvedEntity {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("addr_token", "all_addr_tokens", "bit_offset", "byte_offset", "byte_size", "count", "data_type_index", "field_status", "function_id", "imported_function_id", "kind", "name", "name_source", "needs_naming", "provenance", "resolved_name", "suggested_type", "suggestion_confidence", "token", "type_index", "vaddr", "value", "value_confidence", "value_type"));
+    openapiFields = new HashSet<String>(Arrays.asList("addr_token", "all_addr_tokens", "bit_offset", "byte_offset", "byte_size", "count", "data_type_index", "field_status", "function_id", "imported_function_id", "kind", "name", "name_source", "needs_naming", "provenance", "resolved_name", "suggested_name", "suggested_type", "suggestion_confidence", "token", "type_index", "vaddr", "value", "value_confidence", "value_type"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("addr_token", "all_addr_tokens", "bit_offset", "byte_offset", "byte_size", "count", "data_type_index", "kind", "name", "name_source", "needs_naming", "provenance", "resolved_name", "suggested_type", "suggestion_confidence", "token", "type_index", "vaddr", "value", "value_confidence", "value_type"));
@@ -945,6 +985,9 @@ public class ResolvedEntity {
       }
       if ((jsonObj.get("resolved_name") != null && !jsonObj.get("resolved_name").isJsonNull()) && !jsonObj.get("resolved_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `resolved_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resolved_name").toString()));
+      }
+      if ((jsonObj.get("suggested_name") != null && !jsonObj.get("suggested_name").isJsonNull()) && !jsonObj.get("suggested_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `suggested_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("suggested_name").toString()));
       }
       if ((jsonObj.get("suggested_type") != null && !jsonObj.get("suggested_type").isJsonNull()) && !jsonObj.get("suggested_type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `suggested_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("suggested_type").toString()));

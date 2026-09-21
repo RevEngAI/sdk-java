@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**analyses** | [**List&lt;Example&gt;**](Example.md) | List of example analyses |  |
+|**analyses** | **List&lt;Example&gt;** | List of example analyses |  |
 
 
 

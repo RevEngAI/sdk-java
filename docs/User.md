@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**createdAt** | **OffsetDateTime** |  |  |
 |**email** | **String** |  |  |
-|**profile** | [**UserProfile**](UserProfile.md) |  |  |
+|**profile** | **UserProfile** |  |  |
 |**role** | [**RoleEnum**](#RoleEnum) |  |  |
 |**tier** | [**TierEnum**](#TierEnum) |  |  [optional] |
 |**userId** | **Long** |  |  |

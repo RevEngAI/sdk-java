@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**callers** | [**List&lt;ImportedFunctionCallerEntry&gt;**](ImportedFunctionCallerEntry.md) | Internal functions that call this import, resolved via its PLT/stub addresses. |  |
+|**callers** | **List&lt;ImportedFunctionCallerEntry&gt;** | Internal functions that call this import, resolved via its PLT/stub addresses. |  |
 |**importedFunctionId** | **Long** |  |  |
 |**isFunction** | **Boolean** | False for imported data symbols. |  |
 |**libraryName** | **String** | Library the symbol is imported from. &#39;&lt;EXTERNAL&gt;&#39; for unattributed imports. |  |

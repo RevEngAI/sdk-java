@@ -11,7 +11,7 @@
 |**dataTypeId** | **Long** | The parameter&#39;s type, resolvable against the analysis data types list. Absent when the type could not be resolved. |  [optional] |
 |**name** | **String** | Parameter name, absent when the producer had none. |  [optional] |
 |**ordinal** | **Long** | Zero-based argument position. |  |
-|**storage** | [**SignatureStorageEntry**](SignatureStorageEntry.md) | Where the parameter is passed. |  [optional] |
+|**storage** | **SignatureStorageEntry** | Where the parameter is passed. |  [optional] |
 
 
 

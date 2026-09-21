@@ -288,10 +288,6 @@ public class AnalysisConfig {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the optional field `scrape_third_party_config`
-      if (jsonObj.get("scrape_third_party_config") != null && !jsonObj.get("scrape_third_party_config").isJsonNull()) {
-        ScrapeThirdPartyConfig.validateJsonElement(jsonObj.get("scrape_third_party_config"));
-      }
       // validate the optional field `sandbox_config`
       if (jsonObj.get("sandbox_config") != null && !jsonObj.get("sandbox_config").isJsonNull()) {
         SandboxOptions.validateJsonElement(jsonObj.get("sandbox_config"));

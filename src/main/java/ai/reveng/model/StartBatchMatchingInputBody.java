@@ -67,6 +67,11 @@ public class StartBatchMatchingInputBody {
   @javax.annotation.Nullable
   private Double minSimilarity;
 
+  public static final String SERIALIZED_NAME_NO_CACHE = "no_cache";
+  @SerializedName(SERIALIZED_NAME_NO_CACHE)
+  @javax.annotation.Nullable
+  private Boolean noCache;
+
   public static final String SERIALIZED_NAME_RESULTS_PER_FUNCTION = "results_per_function";
   @SerializedName(SERIALIZED_NAME_RESULTS_PER_FUNCTION)
   @javax.annotation.Nullable
@@ -150,6 +155,25 @@ public class StartBatchMatchingInputBody {
   }
 
 
+  public StartBatchMatchingInputBody noCache(@javax.annotation.Nullable Boolean noCache) {
+    this.noCache = noCache;
+    return this;
+  }
+
+  /**
+   * By default a completed matching run is reused per binary (that binary reports status&#x3D;COMPLETED, no new run). Set true to force fresh runs for every binary.
+   * @return noCache
+   */
+  @javax.annotation.Nullable
+  public Boolean getNoCache() {
+    return noCache;
+  }
+
+  public void setNoCache(@javax.annotation.Nullable Boolean noCache) {
+    this.noCache = noCache;
+  }
+
+
   public StartBatchMatchingInputBody resultsPerFunction(@javax.annotation.Nullable Long resultsPerFunction) {
     this.resultsPerFunction = resultsPerFunction;
     return this;
@@ -228,6 +252,7 @@ public class StartBatchMatchingInputBody {
     return Objects.equals(this.binaryIds, startBatchMatchingInputBody.binaryIds) &&
         Objects.equals(this.debugTypes, startBatchMatchingInputBody.debugTypes) &&
         Objects.equals(this.minSimilarity, startBatchMatchingInputBody.minSimilarity) &&
+        Objects.equals(this.noCache, startBatchMatchingInputBody.noCache) &&
         Objects.equals(this.resultsPerFunction, startBatchMatchingInputBody.resultsPerFunction)&&
         Objects.equals(this.additionalProperties, startBatchMatchingInputBody.additionalProperties);
   }
@@ -238,7 +263,7 @@ public class StartBatchMatchingInputBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(binaryIds, debugTypes, minSimilarity, resultsPerFunction, additionalProperties);
+    return Objects.hash(binaryIds, debugTypes, minSimilarity, noCache, resultsPerFunction, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -255,6 +280,7 @@ public class StartBatchMatchingInputBody {
     sb.append("    binaryIds: ").append(toIndentedString(binaryIds)).append("\n");
     sb.append("    debugTypes: ").append(toIndentedString(debugTypes)).append("\n");
     sb.append("    minSimilarity: ").append(toIndentedString(minSimilarity)).append("\n");
+    sb.append("    noCache: ").append(toIndentedString(noCache)).append("\n");
     sb.append("    resultsPerFunction: ").append(toIndentedString(resultsPerFunction)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -275,7 +301,7 @@ public class StartBatchMatchingInputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("binary_ids", "debug_types", "min_similarity", "results_per_function"));
+    openapiFields = new HashSet<String>(Arrays.asList("binary_ids", "debug_types", "min_similarity", "no_cache", "results_per_function"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("binary_ids"));

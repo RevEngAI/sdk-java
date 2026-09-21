@@ -200,15 +200,11 @@ public class GetProductsOutputBody {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (jsonObj.get("products") != null && !jsonObj.get("products").isJsonNull()) {
-        if (!jsonObj.get("products").isJsonArray()) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `products` to be an array in the JSON string but got `%s`", jsonObj.get("products").toString()));
-        }
-        JsonArray jsonArrayproducts = jsonObj.getAsJsonArray("products");
-        // validate the required field `products` (array)
-        for (int i = 0; i < jsonArrayproducts.size(); i++) {
-          ProductOutput.validateJsonElement(jsonArrayproducts.get(i));
-        }
+      // ensure the required json array is present
+      if (jsonObj.get("products") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("products").isJsonArray() && !jsonObj.get("products").isJsonNull()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `products` to be an array in the JSON string but got `%s`", jsonObj.get("products").toString()));
       }
   }
 

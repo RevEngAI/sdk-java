@@ -278,15 +278,11 @@ public class BulkCreateUsersOutputBody {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (jsonObj.get("results") != null && !jsonObj.get("results").isJsonNull()) {
-        if (!jsonObj.get("results").isJsonArray()) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `results` to be an array in the JSON string but got `%s`", jsonObj.get("results").toString()));
-        }
-        JsonArray jsonArrayresults = jsonObj.getAsJsonArray("results");
-        // validate the required field `results` (array)
-        for (int i = 0; i < jsonArrayresults.size(); i++) {
-          BulkCreateUserResult.validateJsonElement(jsonArrayresults.get(i));
-        }
+      // ensure the required json array is present
+      if (jsonObj.get("results") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("results").isJsonArray() && !jsonObj.get("results").isJsonNull()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `results` to be an array in the JSON string but got `%s`", jsonObj.get("results").toString()));
       }
   }
 

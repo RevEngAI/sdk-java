@@ -611,8 +611,6 @@ public class AnalysisDetailResponse {
       if (!jsonObj.get("sha_256_hash").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sha_256_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sha_256_hash").toString()));
       }
-      // validate the required field `auto_run_agents`
-      AutoRunAgents.validateJsonElement(jsonObj.get("auto_run_agents"));
       // validate the required field `requested_config`
       AnalysisConfigSnapshot.validateJsonElement(jsonObj.get("requested_config"));
   }

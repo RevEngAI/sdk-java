@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**definition** | [**PointerDefinition**](PointerDefinition.md) |  |  |
+|**definition** | **PointerDefinition** |  |  |
 |**kind** | [**KindEnum**](#KindEnum) |  |  |
 |**name** | **String** | Type name. Unique within the analysis for a given namespace and kind. |  |
 |**namespace** | **String** | The scope qualifying the type name. Omit for a type of the binary&#39;s own. |  [optional] |

@@ -440,14 +440,6 @@ public class GetSubscriptionOutputBody {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the optional field `price`
-      if (jsonObj.get("price") != null && !jsonObj.get("price").isJsonNull()) {
-        PriceSummary.validateJsonElement(jsonObj.get("price"));
-      }
-      // validate the optional field `product`
-      if (jsonObj.get("product") != null && !jsonObj.get("product").isJsonNull()) {
-        ProductSummary.validateJsonElement(jsonObj.get("product"));
-      }
       if (!jsonObj.get("status").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
       }

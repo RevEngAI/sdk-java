@@ -200,15 +200,11 @@ public class SSOProvidersOutputBody {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (jsonObj.get("providers") != null && !jsonObj.get("providers").isJsonNull()) {
-        if (!jsonObj.get("providers").isJsonArray()) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `providers` to be an array in the JSON string but got `%s`", jsonObj.get("providers").toString()));
-        }
-        JsonArray jsonArrayproviders = jsonObj.getAsJsonArray("providers");
-        // validate the required field `providers` (array)
-        for (int i = 0; i < jsonArrayproviders.size(); i++) {
-          SSOProvider.validateJsonElement(jsonArrayproviders.get(i));
-        }
+      // ensure the required json array is present
+      if (jsonObj.get("providers") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("providers").isJsonArray() && !jsonObj.get("providers").isJsonNull()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `providers` to be an array in the JSON string but got `%s`", jsonObj.get("providers").toString()));
       }
   }
 

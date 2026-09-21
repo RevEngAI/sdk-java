@@ -13,6 +13,7 @@
 package ai.reveng.model;
 
 import java.util.Objects;
+import ai.reveng.model.AnalysisRequirement;
 import ai.reveng.model.UploadFileType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -20,7 +21,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -84,6 +87,11 @@ public class UploadResponse {
   @SerializedName(SERIALIZED_NAME_CAN_EXTRACT)
   @javax.annotation.Nonnull
   private Boolean canExtract;
+
+  public static final String SERIALIZED_NAME_ANALYSIS_REQUIREMENTS = "analysis_requirements";
+  @SerializedName(SERIALIZED_NAME_ANALYSIS_REQUIREMENTS)
+  @javax.annotation.Nullable
+  private List<AnalysisRequirement> analysisRequirements = new ArrayList<>();
 
   public UploadResponse() {
   }
@@ -220,6 +228,33 @@ public class UploadResponse {
     this.canExtract = canExtract;
   }
 
+
+  public UploadResponse analysisRequirements(@javax.annotation.Nullable List<AnalysisRequirement> analysisRequirements) {
+    this.analysisRequirements = analysisRequirements;
+    return this;
+  }
+
+  public UploadResponse addAnalysisRequirementsItem(AnalysisRequirement analysisRequirementsItem) {
+    if (this.analysisRequirements == null) {
+      this.analysisRequirements = new ArrayList<>();
+    }
+    this.analysisRequirements.add(analysisRequirementsItem);
+    return this;
+  }
+
+  /**
+   * Get analysisRequirements
+   * @return analysisRequirements
+   */
+  @javax.annotation.Nullable
+  public List<AnalysisRequirement> getAnalysisRequirements() {
+    return analysisRequirements;
+  }
+
+  public void setAnalysisRequirements(@javax.annotation.Nullable List<AnalysisRequirement> analysisRequirements) {
+    this.analysisRequirements = analysisRequirements;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -281,13 +316,14 @@ public class UploadResponse {
         Objects.equals(this.mime, uploadResponse.mime) &&
         Objects.equals(this.isArchive, uploadResponse.isArchive) &&
         Objects.equals(this.canSandbox, uploadResponse.canSandbox) &&
-        Objects.equals(this.canExtract, uploadResponse.canExtract)&&
+        Objects.equals(this.canExtract, uploadResponse.canExtract) &&
+        Objects.equals(this.analysisRequirements, uploadResponse.analysisRequirements)&&
         Objects.equals(this.additionalProperties, uploadResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sha256Hash, fileType, filename, mime, isArchive, canSandbox, canExtract, additionalProperties);
+    return Objects.hash(sha256Hash, fileType, filename, mime, isArchive, canSandbox, canExtract, analysisRequirements, additionalProperties);
   }
 
   @Override
@@ -301,6 +337,7 @@ public class UploadResponse {
     sb.append("    isArchive: ").append(toIndentedString(isArchive)).append("\n");
     sb.append("    canSandbox: ").append(toIndentedString(canSandbox)).append("\n");
     sb.append("    canExtract: ").append(toIndentedString(canExtract)).append("\n");
+    sb.append("    analysisRequirements: ").append(toIndentedString(analysisRequirements)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -320,7 +357,7 @@ public class UploadResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("sha_256_hash", "file_type", "filename", "mime", "is_archive", "can_sandbox", "can_extract"));
+    openapiFields = new HashSet<String>(Arrays.asList("sha_256_hash", "file_type", "filename", "mime", "is_archive", "can_sandbox", "can_extract", "analysis_requirements"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("sha_256_hash", "file_type", "filename", "mime", "is_archive", "can_sandbox", "can_extract"));
@@ -356,6 +393,10 @@ public class UploadResponse {
       }
       if (!jsonObj.get("mime").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mime` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mime").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("analysis_requirements") != null && !jsonObj.get("analysis_requirements").isJsonNull() && !jsonObj.get("analysis_requirements").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `analysis_requirements` to be an array in the JSON string but got `%s`", jsonObj.get("analysis_requirements").toString()));
       }
   }
 

@@ -11,7 +11,7 @@
 |**dataTypeId** | **Long** | The parameter&#39;s type, which must belong to this analysis. Omit for an unresolved type. |  [optional] |
 |**name** | **String** | Parameter name. Omit for an unnamed parameter. |  [optional] |
 |**ordinal** | **Long** | Zero-based argument position. Must equal the parameter&#39;s index in the list. |  |
-|**storage** | [**SignatureStorageInput**](SignatureStorageInput.md) | Where the parameter is passed. |  [optional] |
+|**storage** | **SignatureStorageInput** | Where the parameter is passed. |  [optional] |
 
 
 

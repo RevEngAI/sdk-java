@@ -12,7 +12,7 @@
 |**totalNumberOfFunctions** | **Integer** | The total number of functions identified in the binary |  |
 |**numberOfAnalysedFunctions** | **Integer** | The number of functions that were analyzed in the binary |  |
 |**attackFlowSummary** | **String** | A summary in markdown format of the attack flow |  |
-|**ioCs** | [**List&lt;IOC&gt;**](IOC.md) | A list of IOCs (Indicators of Compromise) found in the analysis |  |
+|**ioCs** | **List&lt;IOC&gt;** | A list of IOCs (Indicators of Compromise) found in the analysis |  |
 |**executableTechniques** | [**List&lt;MITRETechnique&gt;**](MITRETechnique.md) | A series of MITRE Techniques found |  |
 |**yaraRule** | **String** | The YARA rule generated for the binary |  |
 

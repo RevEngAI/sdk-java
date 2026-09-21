@@ -52,7 +52,7 @@ public class ScrapeThirdPartyConfig {
   public static final String SERIALIZED_NAME_ENABLED = "enabled";
   @SerializedName(SERIALIZED_NAME_ENABLED)
   @javax.annotation.Nullable
-  private Boolean enabled = false;
+  private Boolean enabled;
 
   public ScrapeThirdPartyConfig() {
   }

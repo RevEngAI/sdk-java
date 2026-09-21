@@ -63,7 +63,7 @@ public class BinaryDetailsResponse {
 
   public static final String SERIALIZED_NAME_CRC32 = "crc32";
   @SerializedName(SERIALIZED_NAME_CRC32)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String crc32;
 
   public static final String SERIALIZED_NAME_PROPERTY_CLASS = "Class";
@@ -73,12 +73,12 @@ public class BinaryDetailsResponse {
 
   public static final String SERIALIZED_NAME_ENTROPY = "entropy";
   @SerializedName(SERIALIZED_NAME_ENTROPY)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private BigDecimal entropy;
 
   public static final String SERIALIZED_NAME_FILE_SIZE = "file_size";
   @SerializedName(SERIALIZED_NAME_FILE_SIZE)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private Integer fileSize;
 
   public static final String SERIALIZED_NAME_LANGUAGE = "language";
@@ -88,7 +88,7 @@ public class BinaryDetailsResponse {
 
   public static final String SERIALIZED_NAME_MD5 = "md5";
   @SerializedName(SERIALIZED_NAME_MD5)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String md5;
 
   public static final String SERIALIZED_NAME_MACHINE = "machine";
@@ -103,12 +103,12 @@ public class BinaryDetailsResponse {
 
   public static final String SERIALIZED_NAME_SHA1 = "sha1";
   @SerializedName(SERIALIZED_NAME_SHA1)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String sha1;
 
   public static final String SERIALIZED_NAME_SHA256 = "sha256";
   @SerializedName(SERIALIZED_NAME_SHA256)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String sha256;
 
   public static final String SERIALIZED_NAME_SSDEEP = "ssdeep";
@@ -133,7 +133,7 @@ public class BinaryDetailsResponse {
 
   public static final String SERIALIZED_NAME_TLSH = "tlsh";
   @SerializedName(SERIALIZED_NAME_TLSH)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String tlsh;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
@@ -192,7 +192,7 @@ public class BinaryDetailsResponse {
   }
 
 
-  public BinaryDetailsResponse crc32(@javax.annotation.Nonnull String crc32) {
+  public BinaryDetailsResponse crc32(@javax.annotation.Nullable String crc32) {
     this.crc32 = crc32;
     return this;
   }
@@ -201,12 +201,12 @@ public class BinaryDetailsResponse {
    * Get crc32
    * @return crc32
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getCrc32() {
     return crc32;
   }
 
-  public void setCrc32(@javax.annotation.Nonnull String crc32) {
+  public void setCrc32(@javax.annotation.Nullable String crc32) {
     this.crc32 = crc32;
   }
 
@@ -230,7 +230,7 @@ public class BinaryDetailsResponse {
   }
 
 
-  public BinaryDetailsResponse entropy(@javax.annotation.Nonnull BigDecimal entropy) {
+  public BinaryDetailsResponse entropy(@javax.annotation.Nullable BigDecimal entropy) {
     this.entropy = entropy;
     return this;
   }
@@ -239,17 +239,17 @@ public class BinaryDetailsResponse {
    * Get entropy
    * @return entropy
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public BigDecimal getEntropy() {
     return entropy;
   }
 
-  public void setEntropy(@javax.annotation.Nonnull BigDecimal entropy) {
+  public void setEntropy(@javax.annotation.Nullable BigDecimal entropy) {
     this.entropy = entropy;
   }
 
 
-  public BinaryDetailsResponse fileSize(@javax.annotation.Nonnull Integer fileSize) {
+  public BinaryDetailsResponse fileSize(@javax.annotation.Nullable Integer fileSize) {
     this.fileSize = fileSize;
     return this;
   }
@@ -258,12 +258,12 @@ public class BinaryDetailsResponse {
    * Get fileSize
    * @return fileSize
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public Integer getFileSize() {
     return fileSize;
   }
 
-  public void setFileSize(@javax.annotation.Nonnull Integer fileSize) {
+  public void setFileSize(@javax.annotation.Nullable Integer fileSize) {
     this.fileSize = fileSize;
   }
 
@@ -287,7 +287,7 @@ public class BinaryDetailsResponse {
   }
 
 
-  public BinaryDetailsResponse md5(@javax.annotation.Nonnull String md5) {
+  public BinaryDetailsResponse md5(@javax.annotation.Nullable String md5) {
     this.md5 = md5;
     return this;
   }
@@ -296,12 +296,12 @@ public class BinaryDetailsResponse {
    * Get md5
    * @return md5
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getMd5() {
     return md5;
   }
 
-  public void setMd5(@javax.annotation.Nonnull String md5) {
+  public void setMd5(@javax.annotation.Nullable String md5) {
     this.md5 = md5;
   }
 
@@ -344,7 +344,7 @@ public class BinaryDetailsResponse {
   }
 
 
-  public BinaryDetailsResponse sha1(@javax.annotation.Nonnull String sha1) {
+  public BinaryDetailsResponse sha1(@javax.annotation.Nullable String sha1) {
     this.sha1 = sha1;
     return this;
   }
@@ -353,17 +353,17 @@ public class BinaryDetailsResponse {
    * SHA1 hash of the binary
    * @return sha1
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getSha1() {
     return sha1;
   }
 
-  public void setSha1(@javax.annotation.Nonnull String sha1) {
+  public void setSha1(@javax.annotation.Nullable String sha1) {
     this.sha1 = sha1;
   }
 
 
-  public BinaryDetailsResponse sha256(@javax.annotation.Nonnull String sha256) {
+  public BinaryDetailsResponse sha256(@javax.annotation.Nullable String sha256) {
     this.sha256 = sha256;
     return this;
   }
@@ -372,12 +372,12 @@ public class BinaryDetailsResponse {
    * SHA256 hash of the binary
    * @return sha256
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getSha256() {
     return sha256;
   }
 
-  public void setSha256(@javax.annotation.Nonnull String sha256) {
+  public void setSha256(@javax.annotation.Nullable String sha256) {
     this.sha256 = sha256;
   }
 
@@ -458,7 +458,7 @@ public class BinaryDetailsResponse {
   }
 
 
-  public BinaryDetailsResponse tlsh(@javax.annotation.Nonnull String tlsh) {
+  public BinaryDetailsResponse tlsh(@javax.annotation.Nullable String tlsh) {
     this.tlsh = tlsh;
     return this;
   }
@@ -467,12 +467,12 @@ public class BinaryDetailsResponse {
    * Get tlsh
    * @return tlsh
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getTlsh() {
     return tlsh;
   }
 
-  public void setTlsh(@javax.annotation.Nonnull String tlsh) {
+  public void setTlsh(@javax.annotation.Nullable String tlsh) {
     this.tlsh = tlsh;
   }
 
@@ -688,7 +688,7 @@ public class BinaryDetailsResponse {
       if (!jsonObj.get("arch").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `arch` to be a primitive type in the JSON string but got `%s`", jsonObj.get("arch").toString()));
       }
-      if (!jsonObj.get("crc32").isJsonPrimitive()) {
+      if ((jsonObj.get("crc32") != null && !jsonObj.get("crc32").isJsonNull()) && !jsonObj.get("crc32").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `crc32` to be a primitive type in the JSON string but got `%s`", jsonObj.get("crc32").toString()));
       }
       if (!jsonObj.get("Class").isJsonPrimitive()) {
@@ -697,7 +697,7 @@ public class BinaryDetailsResponse {
       if (!jsonObj.get("language").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `language` to be a primitive type in the JSON string but got `%s`", jsonObj.get("language").toString()));
       }
-      if (!jsonObj.get("md5").isJsonPrimitive()) {
+      if ((jsonObj.get("md5") != null && !jsonObj.get("md5").isJsonNull()) && !jsonObj.get("md5").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `md5` to be a primitive type in the JSON string but got `%s`", jsonObj.get("md5").toString()));
       }
       if (!jsonObj.get("machine").isJsonPrimitive()) {
@@ -706,10 +706,10 @@ public class BinaryDetailsResponse {
       if (!jsonObj.get("os").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `os` to be a primitive type in the JSON string but got `%s`", jsonObj.get("os").toString()));
       }
-      if (!jsonObj.get("sha1").isJsonPrimitive()) {
+      if ((jsonObj.get("sha1") != null && !jsonObj.get("sha1").isJsonNull()) && !jsonObj.get("sha1").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sha1` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sha1").toString()));
       }
-      if (!jsonObj.get("sha256").isJsonPrimitive()) {
+      if ((jsonObj.get("sha256") != null && !jsonObj.get("sha256").isJsonNull()) && !jsonObj.get("sha256").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sha256` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sha256").toString()));
       }
       if ((jsonObj.get("ssdeep") != null && !jsonObj.get("ssdeep").isJsonNull()) && !jsonObj.get("ssdeep").isJsonPrimitive()) {
@@ -718,7 +718,7 @@ public class BinaryDetailsResponse {
       if (!jsonObj.get("sub_sys").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sub_sys` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sub_sys").toString()));
       }
-      if (!jsonObj.get("tlsh").isJsonPrimitive()) {
+      if ((jsonObj.get("tlsh") != null && !jsonObj.get("tlsh").isJsonNull()) && !jsonObj.get("tlsh").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tlsh` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tlsh").toString()));
       }
       if (!jsonObj.get("type").isJsonPrimitive()) {

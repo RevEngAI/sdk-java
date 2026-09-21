@@ -320,8 +320,6 @@ public class EventSTEPSTARTED {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the required field `data`
-      SseEventStepStartedData.validateJsonElement(jsonObj.get("data"));
       if (!jsonObj.get("event").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `event` to be a primitive type in the JSON string but got `%s`", jsonObj.get("event").toString()));
       }

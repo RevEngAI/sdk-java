@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**filters** | [**MatchFilters**](MatchFilters.md) | Narrow the candidate pool. |  [optional] |
+|**filters** | **MatchFilters** | Narrow the candidate pool. |  [optional] |
 |**functionIds** | **List&lt;Long&gt;** | Source function IDs to match against the rest of the corpus. |  |
 |**minSimilarity** | **Double** | Similarity floor as a percentage. Defaults to 90. |  [optional] |
 |**noCache** | **Boolean** | By default a completed matching run for the same request is reused (response status&#x3D;COMPLETED, no new run). Set true to force a fresh run. |  [optional] |

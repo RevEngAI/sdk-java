@@ -226,15 +226,11 @@ public class ListTeamsOutputBody {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (jsonObj.get("teams") != null && !jsonObj.get("teams").isJsonNull()) {
-        if (!jsonObj.get("teams").isJsonArray()) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `teams` to be an array in the JSON string but got `%s`", jsonObj.get("teams").toString()));
-        }
-        JsonArray jsonArrayteams = jsonObj.getAsJsonArray("teams");
-        // validate the required field `teams` (array)
-        for (int i = 0; i < jsonArrayteams.size(); i++) {
-          Team.validateJsonElement(jsonArrayteams.get(i));
-        }
+      // ensure the required json array is present
+      if (jsonObj.get("teams") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("teams").isJsonArray() && !jsonObj.get("teams").isJsonNull()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `teams` to be an array in the JSON string but got `%s`", jsonObj.get("teams").toString()));
       }
   }
 

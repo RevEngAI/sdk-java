@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**apiCalls** | [**List&lt;ApiCall&gt;**](ApiCall.md) |  |  [optional] |
+|**apiCalls** | **List&lt;ApiCall&gt;** |  |  [optional] |
 |**count** | **Long** |  |  [optional] |
 |**desiredAccess** | **List&lt;String&gt;** |  |  [optional] |
 |**processSeqid** | **Long** |  |  [optional] |

@@ -13,9 +13,6 @@
 package ai.reveng.model;
 
 import java.util.Objects;
-import ai.reveng.model.FileFormat;
-import ai.reveng.model.ISA;
-import ai.reveng.model.Platform;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,7 +20,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -53,63 +49,193 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class BinaryConfig {
-  public static final String SERIALIZED_NAME_ISA = "isa";
-  @SerializedName(SERIALIZED_NAME_ISA)
-  @javax.annotation.Nullable
-  private ISA isa;
+  /**
+   * Gets or Sets fileFormat
+   */
+  @JsonAdapter(FileFormatEnum.Adapter.class)
+  public enum FileFormatEnum {
+    PE("pe"),
+    
+    ELF("elf"),
+    
+    BLOB("blob"),
+    
+    UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
-  public static final String SERIALIZED_NAME_PLATFORM = "platform";
-  @SerializedName(SERIALIZED_NAME_PLATFORM)
-  @javax.annotation.Nullable
-  private Platform platform;
+    private String value;
+
+    FileFormatEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static FileFormatEnum fromValue(String value) {
+      for (FileFormatEnum b : FileFormatEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return UNKNOWN_DEFAULT_OPEN_API;
+    }
+
+    public static class Adapter extends TypeAdapter<FileFormatEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final FileFormatEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public FileFormatEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return FileFormatEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      FileFormatEnum.fromValue(value);
+    }
+  }
 
   public static final String SERIALIZED_NAME_FILE_FORMAT = "file_format";
   @SerializedName(SERIALIZED_NAME_FILE_FORMAT)
   @javax.annotation.Nullable
-  private FileFormat fileFormat;
+  private FileFormatEnum fileFormat;
+
+  /**
+   * Gets or Sets isa
+   */
+  @JsonAdapter(IsaEnum.Adapter.class)
+  public enum IsaEnum {
+    X86("x86"),
+    
+    X86_64("x86_64"),
+    
+    ARM("arm"),
+    
+    UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+    private String value;
+
+    IsaEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static IsaEnum fromValue(String value) {
+      for (IsaEnum b : IsaEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return UNKNOWN_DEFAULT_OPEN_API;
+    }
+
+    public static class Adapter extends TypeAdapter<IsaEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final IsaEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public IsaEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return IsaEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      IsaEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_ISA = "isa";
+  @SerializedName(SERIALIZED_NAME_ISA)
+  @javax.annotation.Nullable
+  private IsaEnum isa;
+
+  /**
+   * Gets or Sets platform
+   */
+  @JsonAdapter(PlatformEnum.Adapter.class)
+  public enum PlatformEnum {
+    LINUX("linux"),
+    
+    WINDOWS("windows"),
+    
+    ANDROID("android"),
+    
+    UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+    private String value;
+
+    PlatformEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static PlatformEnum fromValue(String value) {
+      for (PlatformEnum b : PlatformEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return UNKNOWN_DEFAULT_OPEN_API;
+    }
+
+    public static class Adapter extends TypeAdapter<PlatformEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final PlatformEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public PlatformEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return PlatformEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      PlatformEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_PLATFORM = "platform";
+  @SerializedName(SERIALIZED_NAME_PLATFORM)
+  @javax.annotation.Nullable
+  private PlatformEnum platform;
 
   public BinaryConfig() {
   }
 
-  public BinaryConfig isa(@javax.annotation.Nullable ISA isa) {
-    this.isa = isa;
-    return this;
-  }
-
-  /**
-   * Instruction Set Architecture
-   * @return isa
-   */
-  @javax.annotation.Nullable
-  public ISA getIsa() {
-    return isa;
-  }
-
-  public void setIsa(@javax.annotation.Nullable ISA isa) {
-    this.isa = isa;
-  }
-
-
-  public BinaryConfig platform(@javax.annotation.Nullable Platform platform) {
-    this.platform = platform;
-    return this;
-  }
-
-  /**
-   * Get platform
-   * @return platform
-   */
-  @javax.annotation.Nullable
-  public Platform getPlatform() {
-    return platform;
-  }
-
-  public void setPlatform(@javax.annotation.Nullable Platform platform) {
-    this.platform = platform;
-  }
-
-
-  public BinaryConfig fileFormat(@javax.annotation.Nullable FileFormat fileFormat) {
+  public BinaryConfig fileFormat(@javax.annotation.Nullable FileFormatEnum fileFormat) {
     this.fileFormat = fileFormat;
     return this;
   }
@@ -119,12 +245,50 @@ public class BinaryConfig {
    * @return fileFormat
    */
   @javax.annotation.Nullable
-  public FileFormat getFileFormat() {
+  public FileFormatEnum getFileFormat() {
     return fileFormat;
   }
 
-  public void setFileFormat(@javax.annotation.Nullable FileFormat fileFormat) {
+  public void setFileFormat(@javax.annotation.Nullable FileFormatEnum fileFormat) {
     this.fileFormat = fileFormat;
+  }
+
+
+  public BinaryConfig isa(@javax.annotation.Nullable IsaEnum isa) {
+    this.isa = isa;
+    return this;
+  }
+
+  /**
+   * Get isa
+   * @return isa
+   */
+  @javax.annotation.Nullable
+  public IsaEnum getIsa() {
+    return isa;
+  }
+
+  public void setIsa(@javax.annotation.Nullable IsaEnum isa) {
+    this.isa = isa;
+  }
+
+
+  public BinaryConfig platform(@javax.annotation.Nullable PlatformEnum platform) {
+    this.platform = platform;
+    return this;
+  }
+
+  /**
+   * Get platform
+   * @return platform
+   */
+  @javax.annotation.Nullable
+  public PlatformEnum getPlatform() {
+    return platform;
+  }
+
+  public void setPlatform(@javax.annotation.Nullable PlatformEnum platform) {
+    this.platform = platform;
   }
 
   /**
@@ -182,35 +346,24 @@ public class BinaryConfig {
       return false;
     }
     BinaryConfig binaryConfig = (BinaryConfig) o;
-    return Objects.equals(this.isa, binaryConfig.isa) &&
-        Objects.equals(this.platform, binaryConfig.platform) &&
-        Objects.equals(this.fileFormat, binaryConfig.fileFormat)&&
+    return Objects.equals(this.fileFormat, binaryConfig.fileFormat) &&
+        Objects.equals(this.isa, binaryConfig.isa) &&
+        Objects.equals(this.platform, binaryConfig.platform)&&
         Objects.equals(this.additionalProperties, binaryConfig.additionalProperties);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(isa, platform, fileFormat, additionalProperties);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(fileFormat, isa, platform, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class BinaryConfig {\n");
+    sb.append("    fileFormat: ").append(toIndentedString(fileFormat)).append("\n");
     sb.append("    isa: ").append(toIndentedString(isa)).append("\n");
     sb.append("    platform: ").append(toIndentedString(platform)).append("\n");
-    sb.append("    fileFormat: ").append(toIndentedString(fileFormat)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -230,7 +383,7 @@ public class BinaryConfig {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("isa", "platform", "file_format"));
+    openapiFields = new HashSet<String>(Arrays.asList("file_format", "isa", "platform"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -249,17 +402,26 @@ public class BinaryConfig {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the optional field `isa`
-      if (jsonObj.get("isa") != null && !jsonObj.get("isa").isJsonNull()) {
-        ISA.validateJsonElement(jsonObj.get("isa"));
-      }
-      // validate the optional field `platform`
-      if (jsonObj.get("platform") != null && !jsonObj.get("platform").isJsonNull()) {
-        Platform.validateJsonElement(jsonObj.get("platform"));
+      if ((jsonObj.get("file_format") != null && !jsonObj.get("file_format").isJsonNull()) && !jsonObj.get("file_format").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `file_format` to be a primitive type in the JSON string but got `%s`", jsonObj.get("file_format").toString()));
       }
       // validate the optional field `file_format`
       if (jsonObj.get("file_format") != null && !jsonObj.get("file_format").isJsonNull()) {
-        FileFormat.validateJsonElement(jsonObj.get("file_format"));
+        FileFormatEnum.validateJsonElement(jsonObj.get("file_format"));
+      }
+      if ((jsonObj.get("isa") != null && !jsonObj.get("isa").isJsonNull()) && !jsonObj.get("isa").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `isa` to be a primitive type in the JSON string but got `%s`", jsonObj.get("isa").toString()));
+      }
+      // validate the optional field `isa`
+      if (jsonObj.get("isa") != null && !jsonObj.get("isa").isJsonNull()) {
+        IsaEnum.validateJsonElement(jsonObj.get("isa"));
+      }
+      if ((jsonObj.get("platform") != null && !jsonObj.get("platform").isJsonNull()) && !jsonObj.get("platform").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `platform` to be a primitive type in the JSON string but got `%s`", jsonObj.get("platform").toString()));
+      }
+      // validate the optional field `platform`
+      if (jsonObj.get("platform") != null && !jsonObj.get("platform").isJsonNull()) {
+        PlatformEnum.validateJsonElement(jsonObj.get("platform"));
       }
   }
 

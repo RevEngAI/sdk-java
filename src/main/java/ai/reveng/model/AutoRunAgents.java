@@ -52,7 +52,7 @@ public class AutoRunAgents {
   public static final String SERIALIZED_NAME_TRIAGE = "triage";
   @SerializedName(SERIALIZED_NAME_TRIAGE)
   @javax.annotation.Nullable
-  private Boolean triage = false;
+  private Boolean triage;
 
   public AutoRunAgents() {
   }

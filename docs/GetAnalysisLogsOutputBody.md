@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**entries** | [**List&lt;AnalysisLogEntry&gt;**](AnalysisLogEntry.md) | Analysis log lines, oldest first |  |
+|**entries** | **List&lt;AnalysisLogEntry&gt;** | Analysis log lines, oldest first |  |
 
 
 

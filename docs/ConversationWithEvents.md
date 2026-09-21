@@ -10,7 +10,7 @@
 |**context** | **Object** |  |  [optional] |
 |**conversationUuid** | **String** |  |  |
 |**createdAt** | **OffsetDateTime** |  |  |
-|**events** | [**List&lt;Event&gt;**](Event.md) |  |  |
+|**events** | **List&lt;Event&gt;** |  |  |
 |**title** | **String** |  |  |
 |**updatedAt** | **OffsetDateTime** |  |  |
 |**userId** | **Long** |  |  |

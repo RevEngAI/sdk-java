@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**errorMessage** | **String** | Error detail, set when status is FAILED |  [optional] |
-|**logs** | [**AnalysisLogs**](AnalysisLogs.md) | Sandbox status log messages captured during the run. Empty when none have been captured yet. |  |
+|**logs** | **AnalysisLogs** | Sandbox status log messages captured during the run. Empty when none have been captured yet. |  |
 |**status** | [**StatusEnum**](#StatusEnum) | Task status |  |
 
 
