@@ -28,7 +28,8 @@ rm -Rf gradlew.bat && mv java-client/gradlew.bat .
 rm -Rf pom.xml && mv java-client/pom.xml .
 rm -Rf settings.gradle && mv java-client/settings.gradle .
 rm -Rf README.md && mv java-client/README.md .
-rm -Rf java-client
+# openapi.json is the normalised spec CI generates from; it must not be committed.
+rm -Rf java-client openapi.json
 
 # Ensure gradlew is executable
 chmod +x gradlew
