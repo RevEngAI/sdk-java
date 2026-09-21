@@ -143,6 +143,11 @@ public class StructDataType {
   @javax.annotation.Nullable
   private Long size;
 
+  public static final String SERIALIZED_NAME_SOURCE_ANALYSIS_ID = "source_analysis_id";
+  @SerializedName(SERIALIZED_NAME_SOURCE_ANALYSIS_ID)
+  @javax.annotation.Nullable
+  private Long sourceAnalysisId;
+
   public static final String SERIALIZED_NAME_SOURCE_FUNCTION_ID = "source_function_id";
   @SerializedName(SERIALIZED_NAME_SOURCE_FUNCTION_ID)
   @javax.annotation.Nullable
@@ -366,6 +371,25 @@ public class StructDataType {
   }
 
 
+  public StructDataType sourceAnalysisId(@javax.annotation.Nullable Long sourceAnalysisId) {
+    this.sourceAnalysisId = sourceAnalysisId;
+    return this;
+  }
+
+  /**
+   * ID of the analysis the source function belongs to, when it could be resolved.
+   * @return sourceAnalysisId
+   */
+  @javax.annotation.Nullable
+  public Long getSourceAnalysisId() {
+    return sourceAnalysisId;
+  }
+
+  public void setSourceAnalysisId(@javax.annotation.Nullable Long sourceAnalysisId) {
+    this.sourceAnalysisId = sourceAnalysisId;
+  }
+
+
   public StructDataType sourceFunctionId(@javax.annotation.Nullable Long sourceFunctionId) {
     this.sourceFunctionId = sourceFunctionId;
     return this;
@@ -466,6 +490,7 @@ public class StructDataType {
         Objects.equals(this.name, structDataType.name) &&
         Objects.equals(this.namespace, structDataType.namespace) &&
         Objects.equals(this.size, structDataType.size) &&
+        Objects.equals(this.sourceAnalysisId, structDataType.sourceAnalysisId) &&
         Objects.equals(this.sourceFunctionId, structDataType.sourceFunctionId) &&
         Objects.equals(this.sourceType, structDataType.sourceType)&&
         Objects.equals(this.additionalProperties, structDataType.additionalProperties);
@@ -473,7 +498,7 @@ public class StructDataType {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, dataTypeId, definition, hasDefinition, kind, name, namespace, size, sourceFunctionId, sourceType, additionalProperties);
+    return Objects.hash(createdAt, dataTypeId, definition, hasDefinition, kind, name, namespace, size, sourceAnalysisId, sourceFunctionId, sourceType, additionalProperties);
   }
 
   @Override
@@ -488,6 +513,7 @@ public class StructDataType {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
+    sb.append("    sourceAnalysisId: ").append(toIndentedString(sourceAnalysisId)).append("\n");
     sb.append("    sourceFunctionId: ").append(toIndentedString(sourceFunctionId)).append("\n");
     sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -509,7 +535,7 @@ public class StructDataType {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("created_at", "data_type_id", "definition", "has_definition", "kind", "name", "namespace", "size", "source_function_id", "source_type"));
+    openapiFields = new HashSet<String>(Arrays.asList("created_at", "data_type_id", "definition", "has_definition", "kind", "name", "namespace", "size", "source_analysis_id", "source_function_id", "source_type"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("created_at", "data_type_id", "has_definition", "kind", "name", "namespace", "source_type"));
@@ -535,10 +561,6 @@ public class StructDataType {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the optional field `definition`
-      if (jsonObj.get("definition") != null && !jsonObj.get("definition").isJsonNull()) {
-        StructDefinition.validateJsonElement(jsonObj.get("definition"));
-      }
       if (!jsonObj.get("kind").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kind").toString()));
       }

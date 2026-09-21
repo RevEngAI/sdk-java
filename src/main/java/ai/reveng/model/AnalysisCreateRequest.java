@@ -449,24 +449,12 @@ public class AnalysisCreateRequest {
       if (jsonObj.get("analysis_scope") != null && !jsonObj.get("analysis_scope").isJsonNull()) {
         AnalysisScope.validateJsonElement(jsonObj.get("analysis_scope"));
       }
-      // validate the optional field `symbols`
-      if (jsonObj.get("symbols") != null && !jsonObj.get("symbols").isJsonNull()) {
-        Symbols.validateJsonElement(jsonObj.get("symbols"));
-      }
       if ((jsonObj.get("debug_hash") != null && !jsonObj.get("debug_hash").isJsonNull()) && !jsonObj.get("debug_hash").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `debug_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("debug_hash").toString()));
       }
       // validate the optional field `analysis_config`
       if (jsonObj.get("analysis_config") != null && !jsonObj.get("analysis_config").isJsonNull()) {
         AnalysisConfig.validateJsonElement(jsonObj.get("analysis_config"));
-      }
-      // validate the optional field `binary_config`
-      if (jsonObj.get("binary_config") != null && !jsonObj.get("binary_config").isJsonNull()) {
-        BinaryConfig.validateJsonElement(jsonObj.get("binary_config"));
-      }
-      // validate the optional field `auto_run_agents`
-      if (jsonObj.get("auto_run_agents") != null && !jsonObj.get("auto_run_agents").isJsonNull()) {
-        AutoRunAgents.validateJsonElement(jsonObj.get("auto_run_agents"));
       }
   }
 

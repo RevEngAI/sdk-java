@@ -144,6 +144,50 @@ public class FunctionMatch {
     this.matchedFunctions = matchedFunctions;
   }
 
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  private Map<String, Object> additionalProperties;
+
+  /**
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
+   *
+   * @param key name of the property
+   * @param value value of the property
+   * @return the FunctionMatch instance itself
+   */
+  public FunctionMatch putAdditionalProperty(String key, Object value) {
+    if (this.additionalProperties == null) {
+        this.additionalProperties = new HashMap<String, Object>();
+    }
+    this.additionalProperties.put(key, value);
+    return this;
+  }
+
+  /**
+   * Return the additional (undeclared) property.
+   *
+   * @return a map of objects
+   */
+  public Map<String, Object> getAdditionalProperties() {
+    return additionalProperties;
+  }
+
+  /**
+   * Return the additional (undeclared) property with the specified name.
+   *
+   * @param key name of the property
+   * @return an object
+   */
+  public Object getAdditionalProperty(String key) {
+    if (this.additionalProperties == null) {
+        return null;
+    }
+    return this.additionalProperties.get(key);
+  }
 
 
   @Override
@@ -157,7 +201,8 @@ public class FunctionMatch {
     FunctionMatch functionMatch = (FunctionMatch) o;
     return Objects.equals(this.confidences, functionMatch.confidences) &&
         Objects.equals(this.functionId, functionMatch.functionId) &&
-        Objects.equals(this.matchedFunctions, functionMatch.matchedFunctions);
+        Objects.equals(this.matchedFunctions, functionMatch.matchedFunctions)&&
+        Objects.equals(this.additionalProperties, functionMatch.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -166,7 +211,7 @@ public class FunctionMatch {
 
   @Override
   public int hashCode() {
-    return Objects.hash(confidences, functionId, matchedFunctions);
+    return Objects.hash(confidences, functionId, matchedFunctions, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -183,6 +228,7 @@ public class FunctionMatch {
     sb.append("    confidences: ").append(toIndentedString(confidences)).append("\n");
     sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
     sb.append("    matchedFunctions: ").append(toIndentedString(matchedFunctions)).append("\n");
+    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -220,14 +266,6 @@ public class FunctionMatch {
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!FunctionMatch.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `FunctionMatch` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : FunctionMatch.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
@@ -235,29 +273,15 @@ public class FunctionMatch {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (jsonObj.get("confidences") != null && !jsonObj.get("confidences").isJsonNull()) {
-        JsonArray jsonArrayconfidences = jsonObj.getAsJsonArray("confidences");
-        if (jsonArrayconfidences != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("confidences").isJsonArray()) {
-            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `confidences` to be an array in the JSON string but got `%s`", jsonObj.get("confidences").toString()));
-          }
-
-          // validate the optional field `confidences` (array)
-          for (int i = 0; i < jsonArrayconfidences.size(); i++) {
-            NameConfidence.validateJsonElement(jsonArrayconfidences.get(i));
-          };
-        }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("confidences") != null && !jsonObj.get("confidences").isJsonNull() && !jsonObj.get("confidences").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `confidences` to be an array in the JSON string but got `%s`", jsonObj.get("confidences").toString()));
       }
-      if (jsonObj.get("matched_functions") != null && !jsonObj.get("matched_functions").isJsonNull()) {
-        if (!jsonObj.get("matched_functions").isJsonArray()) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `matched_functions` to be an array in the JSON string but got `%s`", jsonObj.get("matched_functions").toString()));
-        }
-        JsonArray jsonArraymatchedFunctions = jsonObj.getAsJsonArray("matched_functions");
-        // validate the required field `matched_functions` (array)
-        for (int i = 0; i < jsonArraymatchedFunctions.size(); i++) {
-          MatchedFunction.validateJsonElement(jsonArraymatchedFunctions.get(i));
-        }
+      // ensure the required json array is present
+      if (jsonObj.get("matched_functions") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("matched_functions").isJsonArray() && !jsonObj.get("matched_functions").isJsonNull()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `matched_functions` to be an array in the JSON string but got `%s`", jsonObj.get("matched_functions").toString()));
       }
   }
 
@@ -276,6 +300,28 @@ public class FunctionMatch {
            @Override
            public void write(JsonWriter out, FunctionMatch value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             obj.remove("additionalProperties");
+             // serialize additional properties
+             if (value.getAdditionalProperties() != null) {
+               for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
+                 if (entry.getValue() instanceof String)
+                   obj.addProperty(entry.getKey(), (String) entry.getValue());
+                 else if (entry.getValue() instanceof Number)
+                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
+                 else if (entry.getValue() instanceof Boolean)
+                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
+                 else if (entry.getValue() instanceof Character)
+                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
+                 else {
+                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
+                   if (jsonElement.isJsonArray()) {
+                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
+                   } else {
+                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
+                   }
+                 }
+               }
+             }
              elementAdapter.write(out, obj);
            }
 
@@ -283,7 +329,28 @@ public class FunctionMatch {
            public FunctionMatch read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = jsonElement.getAsJsonObject();
+             // store additional fields in the deserialized instance
+             FunctionMatch instance = thisAdapter.fromJsonTree(jsonObj);
+             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
+               if (!openapiFields.contains(entry.getKey())) {
+                 if (entry.getValue().isJsonPrimitive()) { // primitive type
+                   if (entry.getValue().getAsJsonPrimitive().isString())
+                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsString());
+                   else if (entry.getValue().getAsJsonPrimitive().isNumber())
+                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsNumber());
+                   else if (entry.getValue().getAsJsonPrimitive().isBoolean())
+                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
+                   else
+                     throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
+                 } else if (entry.getValue().isJsonArray()) {
+                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
+                 } else { // JSON object
+                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), HashMap.class));
+                 }
+               }
+             }
+             return instance;
            }
 
        }.nullSafe();

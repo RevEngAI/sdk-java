@@ -17,10 +17,12 @@ import ai.reveng.model.EventAttemptFailed;
 import ai.reveng.model.EventAttemptStarted;
 import ai.reveng.model.EventDecompFailed;
 import ai.reveng.model.EventDecompFinished;
+import ai.reveng.model.EventNamesFinished;
 import ai.reveng.model.EventProse;
 import ai.reveng.model.EventRenameApplied;
 import ai.reveng.model.EventSourceDelta;
 import ai.reveng.model.EventSourceReset;
+import ai.reveng.model.EventTypesSuggested;
 import ai.reveng.model.EventWarning;
 import ai.reveng.model.WarningEvent;
 import com.google.gson.TypeAdapter;
@@ -82,10 +84,12 @@ public class ServerSentEventsInner1 extends AbstractOpenApiSchema {
             final TypeAdapter<EventAttemptStarted> adapterEventAttemptStarted = gson.getDelegateAdapter(this, TypeToken.get(EventAttemptStarted.class));
             final TypeAdapter<EventDecompFailed> adapterEventDecompFailed = gson.getDelegateAdapter(this, TypeToken.get(EventDecompFailed.class));
             final TypeAdapter<EventDecompFinished> adapterEventDecompFinished = gson.getDelegateAdapter(this, TypeToken.get(EventDecompFinished.class));
+            final TypeAdapter<EventNamesFinished> adapterEventNamesFinished = gson.getDelegateAdapter(this, TypeToken.get(EventNamesFinished.class));
             final TypeAdapter<EventProse> adapterEventProse = gson.getDelegateAdapter(this, TypeToken.get(EventProse.class));
             final TypeAdapter<EventRenameApplied> adapterEventRenameApplied = gson.getDelegateAdapter(this, TypeToken.get(EventRenameApplied.class));
             final TypeAdapter<EventSourceDelta> adapterEventSourceDelta = gson.getDelegateAdapter(this, TypeToken.get(EventSourceDelta.class));
             final TypeAdapter<EventSourceReset> adapterEventSourceReset = gson.getDelegateAdapter(this, TypeToken.get(EventSourceReset.class));
+            final TypeAdapter<EventTypesSuggested> adapterEventTypesSuggested = gson.getDelegateAdapter(this, TypeToken.get(EventTypesSuggested.class));
             final TypeAdapter<EventWarning> adapterEventWarning = gson.getDelegateAdapter(this, TypeToken.get(EventWarning.class));
 
             return (TypeAdapter<T>) new TypeAdapter<ServerSentEventsInner1>() {
@@ -120,6 +124,12 @@ public class ServerSentEventsInner1 extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
+                    // check if the actual instance is of the type `EventNamesFinished`
+                    if (value.getActualInstance() instanceof EventNamesFinished) {
+                        JsonElement element = adapterEventNamesFinished.toJsonTree((EventNamesFinished)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
                     // check if the actual instance is of the type `EventProse`
                     if (value.getActualInstance() instanceof EventProse) {
                         JsonElement element = adapterEventProse.toJsonTree((EventProse)value.getActualInstance());
@@ -144,13 +154,19 @@ public class ServerSentEventsInner1 extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
+                    // check if the actual instance is of the type `EventTypesSuggested`
+                    if (value.getActualInstance() instanceof EventTypesSuggested) {
+                        JsonElement element = adapterEventTypesSuggested.toJsonTree((EventTypesSuggested)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
                     // check if the actual instance is of the type `EventWarning`
                     if (value.getActualInstance() instanceof EventWarning) {
                         JsonElement element = adapterEventWarning.toJsonTree((EventWarning)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: EventAttemptFailed, EventAttemptStarted, EventDecompFailed, EventDecompFinished, EventProse, EventRenameApplied, EventSourceDelta, EventSourceReset, EventWarning");
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: EventAttemptFailed, EventAttemptStarted, EventDecompFailed, EventDecompFinished, EventNamesFinished, EventProse, EventRenameApplied, EventSourceDelta, EventSourceReset, EventTypesSuggested, EventWarning");
                 }
 
                 @Override
@@ -210,6 +226,18 @@ public class ServerSentEventsInner1 extends AbstractOpenApiSchema {
                         errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EventDecompFinished failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'EventDecompFinished'", e);
                     }
+                    // deserialize EventNamesFinished
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EventNamesFinished.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEventNamesFinished;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EventNamesFinished'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EventNamesFinished failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EventNamesFinished'", e);
+                    }
                     // deserialize EventProse
                     try {
                         // validate the JSON object to see if any exception is thrown
@@ -258,6 +286,18 @@ public class ServerSentEventsInner1 extends AbstractOpenApiSchema {
                         errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EventSourceReset failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'EventSourceReset'", e);
                     }
+                    // deserialize EventTypesSuggested
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EventTypesSuggested.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEventTypesSuggested;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EventTypesSuggested'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EventTypesSuggested failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EventTypesSuggested'", e);
+                    }
                     // deserialize EventWarning
                     try {
                         // validate the JSON object to see if any exception is thrown
@@ -300,10 +340,12 @@ public class ServerSentEventsInner1 extends AbstractOpenApiSchema {
         schemas.put("EventAttemptStarted", EventAttemptStarted.class);
         schemas.put("EventDecompFailed", EventDecompFailed.class);
         schemas.put("EventDecompFinished", EventDecompFinished.class);
+        schemas.put("EventNamesFinished", EventNamesFinished.class);
         schemas.put("EventProse", EventProse.class);
         schemas.put("EventRenameApplied", EventRenameApplied.class);
         schemas.put("EventSourceDelta", EventSourceDelta.class);
         schemas.put("EventSourceReset", EventSourceReset.class);
+        schemas.put("EventTypesSuggested", EventTypesSuggested.class);
         schemas.put("EventWarning", EventWarning.class);
     }
 
@@ -315,7 +357,7 @@ public class ServerSentEventsInner1 extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * EventAttemptFailed, EventAttemptStarted, EventDecompFailed, EventDecompFinished, EventProse, EventRenameApplied, EventSourceDelta, EventSourceReset, EventWarning
+     * EventAttemptFailed, EventAttemptStarted, EventDecompFailed, EventDecompFinished, EventNamesFinished, EventProse, EventRenameApplied, EventSourceDelta, EventSourceReset, EventTypesSuggested, EventWarning
      *
      * It could be an instance of the 'oneOf' schemas.
      */
@@ -341,6 +383,11 @@ public class ServerSentEventsInner1 extends AbstractOpenApiSchema {
             return;
         }
 
+        if (instance instanceof EventNamesFinished) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         if (instance instanceof EventProse) {
             super.setActualInstance(instance);
             return;
@@ -361,19 +408,24 @@ public class ServerSentEventsInner1 extends AbstractOpenApiSchema {
             return;
         }
 
+        if (instance instanceof EventTypesSuggested) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         if (instance instanceof EventWarning) {
             super.setActualInstance(instance);
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be EventAttemptFailed, EventAttemptStarted, EventDecompFailed, EventDecompFinished, EventProse, EventRenameApplied, EventSourceDelta, EventSourceReset, EventWarning");
+        throw new RuntimeException("Invalid instance type. Must be EventAttemptFailed, EventAttemptStarted, EventDecompFailed, EventDecompFinished, EventNamesFinished, EventProse, EventRenameApplied, EventSourceDelta, EventSourceReset, EventTypesSuggested, EventWarning");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * EventAttemptFailed, EventAttemptStarted, EventDecompFailed, EventDecompFinished, EventProse, EventRenameApplied, EventSourceDelta, EventSourceReset, EventWarning
+     * EventAttemptFailed, EventAttemptStarted, EventDecompFailed, EventDecompFinished, EventNamesFinished, EventProse, EventRenameApplied, EventSourceDelta, EventSourceReset, EventTypesSuggested, EventWarning
      *
-     * @return The actual instance (EventAttemptFailed, EventAttemptStarted, EventDecompFailed, EventDecompFinished, EventProse, EventRenameApplied, EventSourceDelta, EventSourceReset, EventWarning)
+     * @return The actual instance (EventAttemptFailed, EventAttemptStarted, EventDecompFailed, EventDecompFinished, EventNamesFinished, EventProse, EventRenameApplied, EventSourceDelta, EventSourceReset, EventTypesSuggested, EventWarning)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -430,6 +482,18 @@ public class ServerSentEventsInner1 extends AbstractOpenApiSchema {
     }
 
     /**
+     * Get the actual instance of `EventNamesFinished`. If the actual instance is not `EventNamesFinished`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EventNamesFinished`
+     * @throws ClassCastException if the instance is not `EventNamesFinished`
+     */
+    @SuppressWarnings("unchecked")
+    public EventNamesFinished getEventNamesFinished() throws ClassCastException {
+        return (EventNamesFinished)super.getActualInstance();
+    }
+
+    /**
      * Get the actual instance of `EventProse`. If the actual instance is not `EventProse`,
      * the ClassCastException will be thrown.
      *
@@ -475,6 +539,18 @@ public class ServerSentEventsInner1 extends AbstractOpenApiSchema {
     @SuppressWarnings("unchecked")
     public EventSourceReset getEventSourceReset() throws ClassCastException {
         return (EventSourceReset)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `EventTypesSuggested`. If the actual instance is not `EventTypesSuggested`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EventTypesSuggested`
+     * @throws ClassCastException if the instance is not `EventTypesSuggested`
+     */
+    @SuppressWarnings("unchecked")
+    public EventTypesSuggested getEventTypesSuggested() throws ClassCastException {
+        return (EventTypesSuggested)super.getActualInstance();
     }
 
     /**
@@ -531,6 +607,14 @@ public class ServerSentEventsInner1 extends AbstractOpenApiSchema {
             errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EventDecompFinished failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
+        // validate the json string with EventNamesFinished
+        try {
+            EventNamesFinished.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EventNamesFinished failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
         // validate the json string with EventProse
         try {
             EventProse.validateJsonElement(jsonElement);
@@ -563,6 +647,14 @@ public class ServerSentEventsInner1 extends AbstractOpenApiSchema {
             errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EventSourceReset failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
+        // validate the json string with EventTypesSuggested
+        try {
+            EventTypesSuggested.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EventTypesSuggested failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
         // validate the json string with EventWarning
         try {
             EventWarning.validateJsonElement(jsonElement);
@@ -572,7 +664,7 @@ public class ServerSentEventsInner1 extends AbstractOpenApiSchema {
             // continue to the next one
         }
         if (validCount != 1) {
-            throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for ServerSentEventsInner1 with oneOf schemas: EventAttemptFailed, EventAttemptStarted, EventDecompFailed, EventDecompFinished, EventProse, EventRenameApplied, EventSourceDelta, EventSourceReset, EventWarning. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for ServerSentEventsInner1 with oneOf schemas: EventAttemptFailed, EventAttemptStarted, EventDecompFailed, EventDecompFinished, EventNamesFinished, EventProse, EventRenameApplied, EventSourceDelta, EventSourceReset, EventTypesSuggested, EventWarning. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 

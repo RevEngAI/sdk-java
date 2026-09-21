@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**strings** | [**List&lt;FunctionStringItem&gt;**](FunctionStringItem.md) |  |  |
+|**strings** | **List&lt;FunctionStringItem&gt;** |  |  |
 |**totalStrings** | **Long** |  |  |
 
 

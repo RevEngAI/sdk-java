@@ -46,7 +46,7 @@ import java.util.Set;
 import ai.reveng.invoker.JSON;
 
 /**
- * Represents the information about a segment.  Attributes:     name: The name of the segment.     r: Determines if the segment has read permission.     w: Determines if the segment has write permission.     x: Determines if the segment has execute permission.     start: The start address of the segment.     end: The end address of the segment (inclusive).     kind: Coarse classification of the segment: \&quot;code\&quot;, \&quot;data\&quot;, or \&quot;other\&quot;.
+ * Represents the information about a segment.  This is the per-xref view, carried on :class:&#x60;XRef.segment&#x60;. The binary-wide &#x60;&#x60;AnalysisModel.segments&#x60;&#x60; list is written by a different producer with a different shape -- see :class:&#x60;MemorySegment&#x60;.  Attributes:     name: The name of the segment.     r: Determines if the segment has read permission.     w: Determines if the segment has write permission.     x: Determines if the segment has execute permission.     start: The start address of the segment.     end: The end address of the segment (inclusive).     kind: Coarse classification of the segment: \&quot;code\&quot;, \&quot;data\&quot;, or \&quot;other\&quot;.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SegmentInfo {

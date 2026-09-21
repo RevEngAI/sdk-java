@@ -14,6 +14,7 @@
 |**isArchive** | **Boolean** |  |  |
 |**canSandbox** | **Boolean** |  |  |
 |**canExtract** | **Boolean** |  |  |
+|**analysisRequirements** | **List&lt;AnalysisRequirement&gt;** |  |  [optional] |
 
 
 

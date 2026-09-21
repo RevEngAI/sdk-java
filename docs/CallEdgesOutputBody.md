@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**edges** | [**List&lt;FunctionCallEdges&gt;**](FunctionCallEdges.md) |  |  |
+|**edges** | **List&lt;FunctionCallEdges&gt;** |  |  |
 
 
 

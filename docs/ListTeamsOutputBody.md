@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**teams** | [**List&lt;Team&gt;**](Team.md) |  |  |
+|**teams** | **List&lt;Team&gt;** |  |  |
 |**total** | **Long** |  |  |
 
 

@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**providers** | [**List&lt;SSOProvider&gt;**](SSOProvider.md) |  |  |
+|**providers** | **List&lt;SSOProvider&gt;** |  |  |
 
 
 

@@ -226,15 +226,11 @@ public class ListUsersOutputBody {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (jsonObj.get("users") != null && !jsonObj.get("users").isJsonNull()) {
-        if (!jsonObj.get("users").isJsonArray()) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `users` to be an array in the JSON string but got `%s`", jsonObj.get("users").toString()));
-        }
-        JsonArray jsonArrayusers = jsonObj.getAsJsonArray("users");
-        // validate the required field `users` (array)
-        for (int i = 0; i < jsonArrayusers.size(); i++) {
-          User.validateJsonElement(jsonArrayusers.get(i));
-        }
+      // ensure the required json array is present
+      if (jsonObj.get("users") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("users").isJsonArray() && !jsonObj.get("users").isJsonNull()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `users` to be an array in the JSON string but got `%s`", jsonObj.get("users").toString()));
       }
   }
 

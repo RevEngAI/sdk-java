@@ -62,6 +62,11 @@ public class StartMatchingOutputBody {
   @javax.annotation.Nullable
   private List<ProgressMessage> messages;
 
+  public static final String SERIALIZED_NAME_PERCENT = "percent";
+  @SerializedName(SERIALIZED_NAME_PERCENT)
+  @javax.annotation.Nonnull
+  private Long percent;
+
   /**
    * Current workflow status
    */
@@ -137,10 +142,30 @@ public class StartMatchingOutputBody {
   @javax.annotation.Nonnull
   private Long stepIndex;
 
+  public static final String SERIALIZED_NAME_STEP_SHARE = "step_share";
+  @SerializedName(SERIALIZED_NAME_STEP_SHARE)
+  @javax.annotation.Nonnull
+  private Long stepShare;
+
   public static final String SERIALIZED_NAME_STEPS_TOTAL = "steps_total";
   @SerializedName(SERIALIZED_NAME_STEPS_TOTAL)
   @javax.annotation.Nonnull
   private Long stepsTotal;
+
+  public static final String SERIALIZED_NAME_SUB_STEP = "sub_step";
+  @SerializedName(SERIALIZED_NAME_SUB_STEP)
+  @javax.annotation.Nullable
+  private String subStep;
+
+  public static final String SERIALIZED_NAME_SUB_STEP_DONE = "sub_step_done";
+  @SerializedName(SERIALIZED_NAME_SUB_STEP_DONE)
+  @javax.annotation.Nullable
+  private Long subStepDone;
+
+  public static final String SERIALIZED_NAME_SUB_STEP_TOTAL = "sub_step_total";
+  @SerializedName(SERIALIZED_NAME_SUB_STEP_TOTAL)
+  @javax.annotation.Nullable
+  private Long subStepTotal;
 
   public StartMatchingOutputBody() {
   }
@@ -188,6 +213,25 @@ public class StartMatchingOutputBody {
 
   public void setMessages(@javax.annotation.Nullable List<ProgressMessage> messages) {
     this.messages = messages;
+  }
+
+
+  public StartMatchingOutputBody percent(@javax.annotation.Nonnull Long percent) {
+    this.percent = percent;
+    return this;
+  }
+
+  /**
+   * Overall completion as a percentage, weighted by step duration
+   * @return percent
+   */
+  @javax.annotation.Nonnull
+  public Long getPercent() {
+    return percent;
+  }
+
+  public void setPercent(@javax.annotation.Nonnull Long percent) {
+    this.percent = percent;
   }
 
 
@@ -248,6 +292,25 @@ public class StartMatchingOutputBody {
   }
 
 
+  public StartMatchingOutputBody stepShare(@javax.annotation.Nonnull Long stepShare) {
+    this.stepShare = stepShare;
+    return this;
+  }
+
+  /**
+   * Percentage points the current step contributes when it completes
+   * @return stepShare
+   */
+  @javax.annotation.Nonnull
+  public Long getStepShare() {
+    return stepShare;
+  }
+
+  public void setStepShare(@javax.annotation.Nonnull Long stepShare) {
+    this.stepShare = stepShare;
+  }
+
+
   public StartMatchingOutputBody stepsTotal(@javax.annotation.Nonnull Long stepsTotal) {
     this.stepsTotal = stepsTotal;
     return this;
@@ -267,6 +330,107 @@ public class StartMatchingOutputBody {
   }
 
 
+  public StartMatchingOutputBody subStep(@javax.annotation.Nullable String subStep) {
+    this.subStep = subStep;
+    return this;
+  }
+
+  /**
+   * Phase within the current step, when the step reports one
+   * @return subStep
+   */
+  @javax.annotation.Nullable
+  public String getSubStep() {
+    return subStep;
+  }
+
+  public void setSubStep(@javax.annotation.Nullable String subStep) {
+    this.subStep = subStep;
+  }
+
+
+  public StartMatchingOutputBody subStepDone(@javax.annotation.Nullable Long subStepDone) {
+    this.subStepDone = subStepDone;
+    return this;
+  }
+
+  /**
+   * Items completed in the current phase
+   * @return subStepDone
+   */
+  @javax.annotation.Nullable
+  public Long getSubStepDone() {
+    return subStepDone;
+  }
+
+  public void setSubStepDone(@javax.annotation.Nullable Long subStepDone) {
+    this.subStepDone = subStepDone;
+  }
+
+
+  public StartMatchingOutputBody subStepTotal(@javax.annotation.Nullable Long subStepTotal) {
+    this.subStepTotal = subStepTotal;
+    return this;
+  }
+
+  /**
+   * Items the current phase will process, 0 when unknown
+   * @return subStepTotal
+   */
+  @javax.annotation.Nullable
+  public Long getSubStepTotal() {
+    return subStepTotal;
+  }
+
+  public void setSubStepTotal(@javax.annotation.Nullable Long subStepTotal) {
+    this.subStepTotal = subStepTotal;
+  }
+
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  private Map<String, Object> additionalProperties;
+
+  /**
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
+   *
+   * @param key name of the property
+   * @param value value of the property
+   * @return the StartMatchingOutputBody instance itself
+   */
+  public StartMatchingOutputBody putAdditionalProperty(String key, Object value) {
+    if (this.additionalProperties == null) {
+        this.additionalProperties = new HashMap<String, Object>();
+    }
+    this.additionalProperties.put(key, value);
+    return this;
+  }
+
+  /**
+   * Return the additional (undeclared) property.
+   *
+   * @return a map of objects
+   */
+  public Map<String, Object> getAdditionalProperties() {
+    return additionalProperties;
+  }
+
+  /**
+   * Return the additional (undeclared) property with the specified name.
+   *
+   * @param key name of the property
+   * @return an object
+   */
+  public Object getAdditionalProperty(String key) {
+    if (this.additionalProperties == null) {
+        return null;
+    }
+    return this.additionalProperties.get(key);
+  }
+
 
   @Override
   public boolean equals(Object o) {
@@ -279,15 +443,21 @@ public class StartMatchingOutputBody {
     StartMatchingOutputBody startMatchingOutputBody = (StartMatchingOutputBody) o;
     return Objects.equals(this.matchId, startMatchingOutputBody.matchId) &&
         Objects.equals(this.messages, startMatchingOutputBody.messages) &&
+        Objects.equals(this.percent, startMatchingOutputBody.percent) &&
         Objects.equals(this.status, startMatchingOutputBody.status) &&
         Objects.equals(this.step, startMatchingOutputBody.step) &&
         Objects.equals(this.stepIndex, startMatchingOutputBody.stepIndex) &&
-        Objects.equals(this.stepsTotal, startMatchingOutputBody.stepsTotal);
+        Objects.equals(this.stepShare, startMatchingOutputBody.stepShare) &&
+        Objects.equals(this.stepsTotal, startMatchingOutputBody.stepsTotal) &&
+        Objects.equals(this.subStep, startMatchingOutputBody.subStep) &&
+        Objects.equals(this.subStepDone, startMatchingOutputBody.subStepDone) &&
+        Objects.equals(this.subStepTotal, startMatchingOutputBody.subStepTotal)&&
+        Objects.equals(this.additionalProperties, startMatchingOutputBody.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(matchId, messages, status, step, stepIndex, stepsTotal);
+    return Objects.hash(matchId, messages, percent, status, step, stepIndex, stepShare, stepsTotal, subStep, subStepDone, subStepTotal, additionalProperties);
   }
 
   @Override
@@ -296,10 +466,16 @@ public class StartMatchingOutputBody {
     sb.append("class StartMatchingOutputBody {\n");
     sb.append("    matchId: ").append(toIndentedString(matchId)).append("\n");
     sb.append("    messages: ").append(toIndentedString(messages)).append("\n");
+    sb.append("    percent: ").append(toIndentedString(percent)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    step: ").append(toIndentedString(step)).append("\n");
     sb.append("    stepIndex: ").append(toIndentedString(stepIndex)).append("\n");
+    sb.append("    stepShare: ").append(toIndentedString(stepShare)).append("\n");
     sb.append("    stepsTotal: ").append(toIndentedString(stepsTotal)).append("\n");
+    sb.append("    subStep: ").append(toIndentedString(subStep)).append("\n");
+    sb.append("    subStepDone: ").append(toIndentedString(subStepDone)).append("\n");
+    sb.append("    subStepTotal: ").append(toIndentedString(subStepTotal)).append("\n");
+    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -318,10 +494,10 @@ public class StartMatchingOutputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("match_id", "messages", "status", "step", "step_index", "steps_total"));
+    openapiFields = new HashSet<String>(Arrays.asList("match_id", "messages", "percent", "status", "step", "step_index", "step_share", "steps_total", "sub_step", "sub_step_done", "sub_step_total"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("match_id", "messages", "status", "step", "step_index", "steps_total"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("match_id", "messages", "percent", "status", "step", "step_index", "step_share", "steps_total"));
   }
 
   /**
@@ -337,14 +513,6 @@ public class StartMatchingOutputBody {
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!StartMatchingOutputBody.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `StartMatchingOutputBody` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : StartMatchingOutputBody.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
@@ -355,15 +523,11 @@ public class StartMatchingOutputBody {
       if (!jsonObj.get("match_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `match_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("match_id").toString()));
       }
-      if (jsonObj.get("messages") != null && !jsonObj.get("messages").isJsonNull()) {
-        if (!jsonObj.get("messages").isJsonArray()) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `messages` to be an array in the JSON string but got `%s`", jsonObj.get("messages").toString()));
-        }
-        JsonArray jsonArraymessages = jsonObj.getAsJsonArray("messages");
-        // validate the required field `messages` (array)
-        for (int i = 0; i < jsonArraymessages.size(); i++) {
-          ProgressMessage.validateJsonElement(jsonArraymessages.get(i));
-        }
+      // ensure the required json array is present
+      if (jsonObj.get("messages") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("messages").isJsonArray() && !jsonObj.get("messages").isJsonNull()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `messages` to be an array in the JSON string but got `%s`", jsonObj.get("messages").toString()));
       }
       if (!jsonObj.get("status").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
@@ -372,6 +536,9 @@ public class StartMatchingOutputBody {
       StatusEnum.validateJsonElement(jsonObj.get("status"));
       if (!jsonObj.get("step").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `step` to be a primitive type in the JSON string but got `%s`", jsonObj.get("step").toString()));
+      }
+      if ((jsonObj.get("sub_step") != null && !jsonObj.get("sub_step").isJsonNull()) && !jsonObj.get("sub_step").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sub_step` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sub_step").toString()));
       }
   }
 
@@ -390,6 +557,28 @@ public class StartMatchingOutputBody {
            @Override
            public void write(JsonWriter out, StartMatchingOutputBody value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             obj.remove("additionalProperties");
+             // serialize additional properties
+             if (value.getAdditionalProperties() != null) {
+               for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
+                 if (entry.getValue() instanceof String)
+                   obj.addProperty(entry.getKey(), (String) entry.getValue());
+                 else if (entry.getValue() instanceof Number)
+                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
+                 else if (entry.getValue() instanceof Boolean)
+                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
+                 else if (entry.getValue() instanceof Character)
+                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
+                 else {
+                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
+                   if (jsonElement.isJsonArray()) {
+                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
+                   } else {
+                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
+                   }
+                 }
+               }
+             }
              elementAdapter.write(out, obj);
            }
 
@@ -397,7 +586,28 @@ public class StartMatchingOutputBody {
            public StartMatchingOutputBody read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = jsonElement.getAsJsonObject();
+             // store additional fields in the deserialized instance
+             StartMatchingOutputBody instance = thisAdapter.fromJsonTree(jsonObj);
+             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
+               if (!openapiFields.contains(entry.getKey())) {
+                 if (entry.getValue().isJsonPrimitive()) { // primitive type
+                   if (entry.getValue().getAsJsonPrimitive().isString())
+                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsString());
+                   else if (entry.getValue().getAsJsonPrimitive().isNumber())
+                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsNumber());
+                   else if (entry.getValue().getAsJsonPrimitive().isBoolean())
+                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
+                   else
+                     throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
+                 } else if (entry.getValue().isJsonArray()) {
+                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
+                 } else { // JSON object
+                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), HashMap.class));
+                 }
+               }
+             }
+             return instance;
            }
 
        }.nullSafe();

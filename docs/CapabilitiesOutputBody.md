@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**capabilities** | [**List&lt;CapabilityEntry&gt;**](CapabilityEntry.md) |  |  |
+|**capabilities** | **List&lt;CapabilityEntry&gt;** |  |  |
 
 
 

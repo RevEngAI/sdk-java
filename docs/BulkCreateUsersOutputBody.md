@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**failed** | **Long** |  |  |
-|**results** | [**List&lt;BulkCreateUserResult&gt;**](BulkCreateUserResult.md) |  |  |
+|**results** | **List&lt;BulkCreateUserResult&gt;** |  |  |
 |**succeeded** | **Long** |  |  |
 |**total** | **Long** |  |  |
 

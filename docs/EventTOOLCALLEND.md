@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**data** | [**SseEventToolCallEndData**](SseEventToolCallEndData.md) |  |  |
+|**data** | **SseEventToolCallEndData** |  |  |
 |**event** | [**EventEnum**](#EventEnum) | The event name. |  |
 |**id** | **Integer** | The event ID. |  [optional] |
 |**retry** | **Integer** | The retry time in milliseconds. |  [optional] |

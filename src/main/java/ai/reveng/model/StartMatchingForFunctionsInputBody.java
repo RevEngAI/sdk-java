@@ -334,10 +334,6 @@ public class StartMatchingForFunctionsInputBody {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the optional field `filters`
-      if (jsonObj.get("filters") != null && !jsonObj.get("filters").isJsonNull()) {
-        MatchFilters.validateJsonElement(jsonObj.get("filters"));
-      }
       // ensure the required json array is present
       if (jsonObj.get("function_ids") == null) {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");

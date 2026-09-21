@@ -265,10 +265,6 @@ public class StartMatchingForAnalysisInputBody {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the optional field `filters`
-      if (jsonObj.get("filters") != null && !jsonObj.get("filters").isJsonNull()) {
-        MatchFilters.validateJsonElement(jsonObj.get("filters"));
-      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

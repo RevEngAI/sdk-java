@@ -20,7 +20,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -50,172 +49,38 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class IOC {
-  /**
-   * Type of the IOC
-   */
-  @JsonAdapter(TypeEnum.Adapter.class)
-  public enum TypeEnum {
-    IP("ip"),
-    
-    DOMAIN("domain"),
-    
-    URL("url"),
-    
-    USERNAMES("usernames"),
-    
-    PASSWORDS("passwords"),
-    
-    FILE_HASH("file_hash"),
-    
-    MUTEX("mutex"),
-    
-    REGISTRY_KEY("registry_key"),
-    
-    FILENAME("filename"),
-    
-    EMAIL("email"),
-    
-    C2_ENDPOINT("c2_endpoint"),
-    
-    USER_AGENT("user_agent"),
-    
-    PEM_KEY("pem_key"),
-    
-    SSH_KEY("ssh_key"),
-    
-    NETWORK_PORT("network_port"),
-    
-    JA3("ja3"),
-    
-    SSL_CERT_FINGERPRINT("ssl_cert_fingerprint"),
-    
-    HTTP_HEADER("http_header"),
-    
-    SERVICE("service"),
-    
-    SCHEDULED_TASK("scheduled_task"),
-    
-    PE_HEADER("pe_header"),
-    
-    ENTROPY("entropy"),
-    
-    OTHER("other"),
-    
-    UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
-
-    private String value;
-
-    TypeEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static TypeEnum fromValue(String value) {
-      for (TypeEnum b : TypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      return UNKNOWN_DEFAULT_OPEN_API;
-    }
-
-    public static class Adapter extends TypeAdapter<TypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public TypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return TypeEnum.fromValue(value);
-      }
-    }
-
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      String value = jsonElement.getAsString();
-      TypeEnum.fromValue(value);
-    }
-  }
-
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  @javax.annotation.Nonnull
-  private TypeEnum type;
-
-  public static final String SERIALIZED_NAME_VALUE = "value";
-  @SerializedName(SERIALIZED_NAME_VALUE)
-  @javax.annotation.Nonnull
-  private String value;
-
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   @javax.annotation.Nonnull
   private String description;
 
-  public static final String SERIALIZED_NAME_SOURCE = "source";
-  @SerializedName(SERIALIZED_NAME_SOURCE)
-  @javax.annotation.Nullable
-  private String source;
-
   public static final String SERIALIZED_NAME_FUNCTION_ID = "function_id";
   @SerializedName(SERIALIZED_NAME_FUNCTION_ID)
   @javax.annotation.Nullable
-  private Integer functionId;
+  private Long functionId;
 
   public static final String SERIALIZED_NAME_FUNCTION_NAME = "function_name";
   @SerializedName(SERIALIZED_NAME_FUNCTION_NAME)
   @javax.annotation.Nullable
   private String functionName;
 
+  public static final String SERIALIZED_NAME_SOURCE = "source";
+  @SerializedName(SERIALIZED_NAME_SOURCE)
+  @javax.annotation.Nullable
+  private String source;
+
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  @javax.annotation.Nonnull
+  private String type;
+
+  public static final String SERIALIZED_NAME_VALUE = "value";
+  @SerializedName(SERIALIZED_NAME_VALUE)
+  @javax.annotation.Nonnull
+  private String value;
+
   public IOC() {
   }
-
-  public IOC type(@javax.annotation.Nonnull TypeEnum type) {
-    this.type = type;
-    return this;
-  }
-
-  /**
-   * Type of the IOC
-   * @return type
-   */
-  @javax.annotation.Nonnull
-  public TypeEnum getType() {
-    return type;
-  }
-
-  public void setType(@javax.annotation.Nonnull TypeEnum type) {
-    this.type = type;
-  }
-
-
-  public IOC value(@javax.annotation.Nonnull String value) {
-    this.value = value;
-    return this;
-  }
-
-  /**
-   * Value of the IOC
-   * @return value
-   */
-  @javax.annotation.Nonnull
-  public String getValue() {
-    return value;
-  }
-
-  public void setValue(@javax.annotation.Nonnull String value) {
-    this.value = value;
-  }
-
 
   public IOC description(@javax.annotation.Nonnull String description) {
     this.description = description;
@@ -223,7 +88,7 @@ public class IOC {
   }
 
   /**
-   * Description of the IOC
+   * What the indicator means
    * @return description
    */
   @javax.annotation.Nonnull
@@ -236,13 +101,51 @@ public class IOC {
   }
 
 
+  public IOC functionId(@javax.annotation.Nullable Long functionId) {
+    this.functionId = functionId;
+    return this;
+  }
+
+  /**
+   * ID of the function it was found in. Null when the source does not resolve to one.
+   * @return functionId
+   */
+  @javax.annotation.Nullable
+  public Long getFunctionId() {
+    return functionId;
+  }
+
+  public void setFunctionId(@javax.annotation.Nullable Long functionId) {
+    this.functionId = functionId;
+  }
+
+
+  public IOC functionName(@javax.annotation.Nullable String functionName) {
+    this.functionName = functionName;
+    return this;
+  }
+
+  /**
+   * Name of the function it was found in. Null when the source does not resolve to one.
+   * @return functionName
+   */
+  @javax.annotation.Nullable
+  public String getFunctionName() {
+    return functionName;
+  }
+
+  public void setFunctionName(@javax.annotation.Nullable String functionName) {
+    this.functionName = functionName;
+  }
+
+
   public IOC source(@javax.annotation.Nullable String source) {
     this.source = source;
     return this;
   }
 
   /**
-   * The source address where the IOC can be found in the binary if possible.
+   * Where in the binary it was found, usually a hex address. Null when the agent did not report one.
    * @return source
    */
   @javax.annotation.Nullable
@@ -255,41 +158,41 @@ public class IOC {
   }
 
 
-  public IOC functionId(@javax.annotation.Nullable Integer functionId) {
-    this.functionId = functionId;
+  public IOC type(@javax.annotation.Nonnull String type) {
+    this.type = type;
     return this;
   }
 
   /**
-   * Unique identifier of the function containing the IOC
-   * @return functionId
+   * Indicator type
+   * @return type
    */
-  @javax.annotation.Nullable
-  public Integer getFunctionId() {
-    return functionId;
+  @javax.annotation.Nonnull
+  public String getType() {
+    return type;
   }
 
-  public void setFunctionId(@javax.annotation.Nullable Integer functionId) {
-    this.functionId = functionId;
+  public void setType(@javax.annotation.Nonnull String type) {
+    this.type = type;
   }
 
 
-  public IOC functionName(@javax.annotation.Nullable String functionName) {
-    this.functionName = functionName;
+  public IOC value(@javax.annotation.Nonnull String value) {
+    this.value = value;
     return this;
   }
 
   /**
-   * Name of the function containing the IOC
-   * @return functionName
+   * The indicator itself
+   * @return value
    */
-  @javax.annotation.Nullable
-  public String getFunctionName() {
-    return functionName;
+  @javax.annotation.Nonnull
+  public String getValue() {
+    return value;
   }
 
-  public void setFunctionName(@javax.annotation.Nullable String functionName) {
-    this.functionName = functionName;
+  public void setValue(@javax.annotation.Nonnull String value) {
+    this.value = value;
   }
 
   /**
@@ -347,41 +250,30 @@ public class IOC {
       return false;
     }
     IOC IOC = (IOC) o;
-    return Objects.equals(this.type, IOC.type) &&
-        Objects.equals(this.value, IOC.value) &&
-        Objects.equals(this.description, IOC.description) &&
-        Objects.equals(this.source, IOC.source) &&
+    return Objects.equals(this.description, IOC.description) &&
         Objects.equals(this.functionId, IOC.functionId) &&
-        Objects.equals(this.functionName, IOC.functionName)&&
+        Objects.equals(this.functionName, IOC.functionName) &&
+        Objects.equals(this.source, IOC.source) &&
+        Objects.equals(this.type, IOC.type) &&
+        Objects.equals(this.value, IOC.value)&&
         Objects.equals(this.additionalProperties, IOC.additionalProperties);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, value, description, source, functionId, functionName, additionalProperties);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(description, functionId, functionName, source, type, value, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class IOC {\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
     sb.append("    functionName: ").append(toIndentedString(functionName)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -401,10 +293,10 @@ public class IOC {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("type", "value", "description", "source", "function_id", "function_name"));
+    openapiFields = new HashSet<String>(Arrays.asList("description", "function_id", "function_name", "source", "type", "value"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("type", "value", "description"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("description", "function_id", "function_name", "source", "type", "value"));
   }
 
   /**
@@ -427,22 +319,20 @@ public class IOC {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-      }
-      // validate the required field `type`
-      TypeEnum.validateJsonElement(jsonObj.get("type"));
-      if (!jsonObj.get("value").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
-      }
       if (!jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      if ((jsonObj.get("function_name") != null && !jsonObj.get("function_name").isJsonNull()) && !jsonObj.get("function_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `function_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("function_name").toString()));
       }
       if ((jsonObj.get("source") != null && !jsonObj.get("source").isJsonNull()) && !jsonObj.get("source").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `source` to be a primitive type in the JSON string but got `%s`", jsonObj.get("source").toString()));
       }
-      if ((jsonObj.get("function_name") != null && !jsonObj.get("function_name").isJsonNull()) && !jsonObj.get("function_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `function_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("function_name").toString()));
+      if (!jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      }
+      if (!jsonObj.get("value").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
       }
   }
 

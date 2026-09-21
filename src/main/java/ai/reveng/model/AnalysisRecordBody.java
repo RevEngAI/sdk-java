@@ -179,6 +179,11 @@ public class AnalysisRecordBody {
   @javax.annotation.Nonnull
   private String modelName;
 
+  public static final String SERIALIZED_NAME_MODEL_UPGRADE_AVAILABLE = "model_upgrade_available";
+  @SerializedName(SERIALIZED_NAME_MODEL_UPGRADE_AVAILABLE)
+  @javax.annotation.Nonnull
+  private Boolean modelUpgradeAvailable;
+
   public static final String SERIALIZED_NAME_SHA256_HASH = "sha_256_hash";
   @SerializedName(SERIALIZED_NAME_SHA256_HASH)
   @javax.annotation.Nonnull
@@ -483,6 +488,25 @@ public class AnalysisRecordBody {
   }
 
 
+  public AnalysisRecordBody modelUpgradeAvailable(@javax.annotation.Nonnull Boolean modelUpgradeAvailable) {
+    this.modelUpgradeAvailable = modelUpgradeAvailable;
+    return this;
+  }
+
+  /**
+   * True when the analysis ran on a model older than the current one, so its owner can re-analyse it on the latest. Describes the analysis, not the caller&#39;s rights — only the owner may act on it
+   * @return modelUpgradeAvailable
+   */
+  @javax.annotation.Nonnull
+  public Boolean getModelUpgradeAvailable() {
+    return modelUpgradeAvailable;
+  }
+
+  public void setModelUpgradeAvailable(@javax.annotation.Nonnull Boolean modelUpgradeAvailable) {
+    this.modelUpgradeAvailable = modelUpgradeAvailable;
+  }
+
+
   public AnalysisRecordBody sha256Hash(@javax.annotation.Nonnull String sha256Hash) {
     this.sha256Hash = sha256Hash;
     return this;
@@ -692,6 +716,7 @@ public class AnalysisRecordBody {
         Objects.equals(this.isOwner, analysisRecordBody.isOwner) &&
         Objects.equals(this.modelId, analysisRecordBody.modelId) &&
         Objects.equals(this.modelName, analysisRecordBody.modelName) &&
+        Objects.equals(this.modelUpgradeAvailable, analysisRecordBody.modelUpgradeAvailable) &&
         Objects.equals(this.sha256Hash, analysisRecordBody.sha256Hash) &&
         Objects.equals(this.status, analysisRecordBody.status) &&
         Objects.equals(this.suppliedArchitecture, analysisRecordBody.suppliedArchitecture) &&
@@ -704,7 +729,7 @@ public class AnalysisRecordBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(analysisId, analysisScope, baseAddress, binaryId, binaryName, binarySize, creation, detectedArchitecture, detectedBinaryFormat, detectedBinaryType, functionBoundariesHash, isOwner, modelId, modelName, sha256Hash, status, suppliedArchitecture, suppliedBinaryFormat, suppliedBinaryType, tags, username, additionalProperties);
+    return Objects.hash(analysisId, analysisScope, baseAddress, binaryId, binaryName, binarySize, creation, detectedArchitecture, detectedBinaryFormat, detectedBinaryType, functionBoundariesHash, isOwner, modelId, modelName, modelUpgradeAvailable, sha256Hash, status, suppliedArchitecture, suppliedBinaryFormat, suppliedBinaryType, tags, username, additionalProperties);
   }
 
   @Override
@@ -725,6 +750,7 @@ public class AnalysisRecordBody {
     sb.append("    isOwner: ").append(toIndentedString(isOwner)).append("\n");
     sb.append("    modelId: ").append(toIndentedString(modelId)).append("\n");
     sb.append("    modelName: ").append(toIndentedString(modelName)).append("\n");
+    sb.append("    modelUpgradeAvailable: ").append(toIndentedString(modelUpgradeAvailable)).append("\n");
     sb.append("    sha256Hash: ").append(toIndentedString(sha256Hash)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    suppliedArchitecture: ").append(toIndentedString(suppliedArchitecture)).append("\n");
@@ -751,10 +777,10 @@ public class AnalysisRecordBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("analysis_id", "analysis_scope", "base_address", "binary_id", "binary_name", "binary_size", "creation", "detected_architecture", "detected_binary_format", "detected_binary_type", "function_boundaries_hash", "is_owner", "model_id", "model_name", "sha_256_hash", "status", "supplied_architecture", "supplied_binary_format", "supplied_binary_type", "tags", "username"));
+    openapiFields = new HashSet<String>(Arrays.asList("analysis_id", "analysis_scope", "base_address", "binary_id", "binary_name", "binary_size", "creation", "detected_architecture", "detected_binary_format", "detected_binary_type", "function_boundaries_hash", "is_owner", "model_id", "model_name", "model_upgrade_available", "sha_256_hash", "status", "supplied_architecture", "supplied_binary_format", "supplied_binary_type", "tags", "username"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("analysis_id", "analysis_scope", "base_address", "binary_id", "binary_name", "binary_size", "creation", "detected_architecture", "detected_binary_format", "detected_binary_type", "function_boundaries_hash", "is_owner", "model_id", "model_name", "sha_256_hash", "status", "supplied_architecture", "supplied_binary_format", "supplied_binary_type", "tags", "username"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("analysis_id", "analysis_scope", "base_address", "binary_id", "binary_name", "binary_size", "creation", "detected_architecture", "detected_binary_format", "detected_binary_type", "function_boundaries_hash", "is_owner", "model_id", "model_name", "model_upgrade_available", "sha_256_hash", "status", "supplied_architecture", "supplied_binary_format", "supplied_binary_type", "tags", "username"));
   }
 
   /**
@@ -815,15 +841,11 @@ public class AnalysisRecordBody {
       if (!jsonObj.get("supplied_binary_type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `supplied_binary_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("supplied_binary_type").toString()));
       }
-      if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull()) {
-        if (!jsonObj.get("tags").isJsonArray()) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
-        }
-        JsonArray jsonArraytags = jsonObj.getAsJsonArray("tags");
-        // validate the required field `tags` (array)
-        for (int i = 0; i < jsonArraytags.size(); i++) {
-          AnalysisTagBody.validateJsonElement(jsonArraytags.get(i));
-        }
+      // ensure the required json array is present
+      if (jsonObj.get("tags") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("tags").isJsonArray() && !jsonObj.get("tags").isJsonNull()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
       }
       if (!jsonObj.get("username").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("username").toString()));

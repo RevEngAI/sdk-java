@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**matches** | [**List&lt;FunctionMatch&gt;**](FunctionMatch.md) | Per-source-function matches. Populated when status&#x3D;COMPLETED; empty otherwise. |  [optional] |
+|**matches** | **List&lt;FunctionMatch&gt;** | Per-source-function matches. Populated when status&#x3D;COMPLETED; empty otherwise. |  [optional] |
 |**status** | [**StatusEnum**](#StatusEnum) | Current workflow status |  |
 
 

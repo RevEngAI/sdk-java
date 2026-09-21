@@ -13,7 +13,7 @@
 |**functionId** | **Long** |  |  |
 |**functionName** | **String** | Current name of the function. |  |
 |**hasSignature** | **Boolean** | Whether a signature was extracted for this function. False is a normal result: no signature is recorded unless data type extraction ran for the analysis, and thunks and external functions are skipped when it does. |  |
-|**parameters** | [**List&lt;SignatureParameterEntry&gt;**](SignatureParameterEntry.md) | Parameters in argument order. Empty with has_signature true means the function is known to take no arguments. |  |
+|**parameters** | **List&lt;SignatureParameterEntry&gt;** | Parameters in argument order. Empty with has_signature true means the function is known to take no arguments. |  |
 |**returnDataTypeId** | **Long** | Return type, resolvable against the analysis data types list. Absent for an unresolved return type. |  [optional] |
 |**sourceFunctionId** | **Long** | The function this signature was copied from, when it was transferred rather than extracted. |  [optional] |
 |**sourceType** | [**SourceTypeEnum**](#SourceTypeEnum) | Where this signature came from. |  [optional] |

@@ -376,19 +376,9 @@ public class TokenisedData {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (jsonObj.get("entities") != null && !jsonObj.get("entities").isJsonNull()) {
-        JsonArray jsonArrayentities = jsonObj.getAsJsonArray("entities");
-        if (jsonArrayentities != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("entities").isJsonArray()) {
-            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `entities` to be an array in the JSON string but got `%s`", jsonObj.get("entities").toString()));
-          }
-
-          // validate the optional field `entities` (array)
-          for (int i = 0; i < jsonArrayentities.size(); i++) {
-            ResolvedEntity.validateJsonElement(jsonArrayentities.get(i));
-          };
-        }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("entities") != null && !jsonObj.get("entities").isJsonNull() && !jsonObj.get("entities").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `entities` to be an array in the JSON string but got `%s`", jsonObj.get("entities").toString()));
       }
       if ((jsonObj.get("predicted_function_name") != null && !jsonObj.get("predicted_function_name").isJsonNull()) && !jsonObj.get("predicted_function_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `predicted_function_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("predicted_function_name").toString()));

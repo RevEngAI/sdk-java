@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**perBinary** | [**List&lt;BatchBinaryMatchResult&gt;**](BatchBinaryMatchResult.md) | Per-binary status (order matches the request). |  |
+|**perBinary** | **List&lt;BatchBinaryMatchResult&gt;** | Per-binary status (order matches the request). |  |
 |**status** | [**StatusEnum**](#StatusEnum) | Aggregate status across the batch: COMPLETED when every binary is completed, FAILED if any failed, RUNNING/PENDING otherwise. |  |
 
 

@@ -7,10 +7,10 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**endAddress** | **Long** |  |  |
+|**includeInAnalysis** | **Boolean** |  |  [optional] |
 |**mangledName** | **String** |  |  |
 |**startAddress** | **Long** |  |  |
-|**endAddress** | **Long** |  |  |
-|**includeInAnalysis** | **Boolean** | Indicates whether the function should be included in the analysis |  [optional] |
 
 
 

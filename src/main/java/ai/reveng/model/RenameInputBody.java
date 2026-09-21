@@ -59,10 +59,72 @@ public class RenameInputBody {
   @javax.annotation.Nonnull
   private String newName;
 
-  public static final String SERIALIZED_NAME_PRESERVE_AI_DECOMPILATION = "preserve_ai_decompilation";
-  @SerializedName(SERIALIZED_NAME_PRESERVE_AI_DECOMPILATION)
+  /**
+   * Source that triggered the rename
+   */
+  @JsonAdapter(SourceTypeEnum.Adapter.class)
+  public enum SourceTypeEnum {
+    SYSTEM("SYSTEM"),
+    
+    USER("USER"),
+    
+    EXTERNAL("EXTERNAL"),
+    
+    AUTO_UNSTRIP("AUTO_UNSTRIP"),
+    
+    AI_UNSTRIP("AI_UNSTRIP"),
+    
+    AI_AGENT("AI_AGENT"),
+    
+    UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+    private String value;
+
+    SourceTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static SourceTypeEnum fromValue(String value) {
+      for (SourceTypeEnum b : SourceTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return UNKNOWN_DEFAULT_OPEN_API;
+    }
+
+    public static class Adapter extends TypeAdapter<SourceTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final SourceTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public SourceTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return SourceTypeEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      SourceTypeEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_SOURCE_TYPE = "source_type";
+  @SerializedName(SERIALIZED_NAME_SOURCE_TYPE)
   @javax.annotation.Nullable
-  private Boolean preserveAiDecompilation;
+  private SourceTypeEnum sourceType;
 
   public RenameInputBody() {
   }
@@ -105,24 +167,68 @@ public class RenameInputBody {
   }
 
 
-  public RenameInputBody preserveAiDecompilation(@javax.annotation.Nullable Boolean preserveAiDecompilation) {
-    this.preserveAiDecompilation = preserveAiDecompilation;
+  public RenameInputBody sourceType(@javax.annotation.Nullable SourceTypeEnum sourceType) {
+    this.sourceType = sourceType;
     return this;
   }
 
   /**
-   * Keep the cached AI decompilation, summary and inline comments. Set when the new name comes from the model&#39;s own prediction (e.g. Transfer Name) so existing AI output is not discarded and regenerated.
-   * @return preserveAiDecompilation
+   * Source that triggered the rename
+   * @return sourceType
    */
   @javax.annotation.Nullable
-  public Boolean getPreserveAiDecompilation() {
-    return preserveAiDecompilation;
+  public SourceTypeEnum getSourceType() {
+    return sourceType;
   }
 
-  public void setPreserveAiDecompilation(@javax.annotation.Nullable Boolean preserveAiDecompilation) {
-    this.preserveAiDecompilation = preserveAiDecompilation;
+  public void setSourceType(@javax.annotation.Nullable SourceTypeEnum sourceType) {
+    this.sourceType = sourceType;
   }
 
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  private Map<String, Object> additionalProperties;
+
+  /**
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
+   *
+   * @param key name of the property
+   * @param value value of the property
+   * @return the RenameInputBody instance itself
+   */
+  public RenameInputBody putAdditionalProperty(String key, Object value) {
+    if (this.additionalProperties == null) {
+        this.additionalProperties = new HashMap<String, Object>();
+    }
+    this.additionalProperties.put(key, value);
+    return this;
+  }
+
+  /**
+   * Return the additional (undeclared) property.
+   *
+   * @return a map of objects
+   */
+  public Map<String, Object> getAdditionalProperties() {
+    return additionalProperties;
+  }
+
+  /**
+   * Return the additional (undeclared) property with the specified name.
+   *
+   * @param key name of the property
+   * @return an object
+   */
+  public Object getAdditionalProperty(String key) {
+    if (this.additionalProperties == null) {
+        return null;
+    }
+    return this.additionalProperties.get(key);
+  }
 
 
   @Override
@@ -136,12 +242,13 @@ public class RenameInputBody {
     RenameInputBody renameInputBody = (RenameInputBody) o;
     return Objects.equals(this.newMangledName, renameInputBody.newMangledName) &&
         Objects.equals(this.newName, renameInputBody.newName) &&
-        Objects.equals(this.preserveAiDecompilation, renameInputBody.preserveAiDecompilation);
+        Objects.equals(this.sourceType, renameInputBody.sourceType)&&
+        Objects.equals(this.additionalProperties, renameInputBody.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(newMangledName, newName, preserveAiDecompilation);
+    return Objects.hash(newMangledName, newName, sourceType, additionalProperties);
   }
 
   @Override
@@ -150,7 +257,8 @@ public class RenameInputBody {
     sb.append("class RenameInputBody {\n");
     sb.append("    newMangledName: ").append(toIndentedString(newMangledName)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
-    sb.append("    preserveAiDecompilation: ").append(toIndentedString(preserveAiDecompilation)).append("\n");
+    sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
+    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -169,7 +277,7 @@ public class RenameInputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("new_mangled_name", "new_name", "preserve_ai_decompilation"));
+    openapiFields = new HashSet<String>(Arrays.asList("new_mangled_name", "new_name", "source_type"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("new_name"));
@@ -188,14 +296,6 @@ public class RenameInputBody {
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!RenameInputBody.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `RenameInputBody` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : RenameInputBody.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
@@ -208,6 +308,13 @@ public class RenameInputBody {
       }
       if (!jsonObj.get("new_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `new_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("new_name").toString()));
+      }
+      if ((jsonObj.get("source_type") != null && !jsonObj.get("source_type").isJsonNull()) && !jsonObj.get("source_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `source_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("source_type").toString()));
+      }
+      // validate the optional field `source_type`
+      if (jsonObj.get("source_type") != null && !jsonObj.get("source_type").isJsonNull()) {
+        SourceTypeEnum.validateJsonElement(jsonObj.get("source_type"));
       }
   }
 
@@ -226,6 +333,28 @@ public class RenameInputBody {
            @Override
            public void write(JsonWriter out, RenameInputBody value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             obj.remove("additionalProperties");
+             // serialize additional properties
+             if (value.getAdditionalProperties() != null) {
+               for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
+                 if (entry.getValue() instanceof String)
+                   obj.addProperty(entry.getKey(), (String) entry.getValue());
+                 else if (entry.getValue() instanceof Number)
+                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
+                 else if (entry.getValue() instanceof Boolean)
+                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
+                 else if (entry.getValue() instanceof Character)
+                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
+                 else {
+                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
+                   if (jsonElement.isJsonArray()) {
+                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
+                   } else {
+                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
+                   }
+                 }
+               }
+             }
              elementAdapter.write(out, obj);
            }
 
@@ -233,7 +362,28 @@ public class RenameInputBody {
            public RenameInputBody read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = jsonElement.getAsJsonObject();
+             // store additional fields in the deserialized instance
+             RenameInputBody instance = thisAdapter.fromJsonTree(jsonObj);
+             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
+               if (!openapiFields.contains(entry.getKey())) {
+                 if (entry.getValue().isJsonPrimitive()) { // primitive type
+                   if (entry.getValue().getAsJsonPrimitive().isString())
+                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsString());
+                   else if (entry.getValue().getAsJsonPrimitive().isNumber())
+                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsNumber());
+                   else if (entry.getValue().getAsJsonPrimitive().isBoolean())
+                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
+                   else
+                     throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
+                 } else if (entry.getValue().isJsonArray()) {
+                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
+                 } else { // JSON object
+                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), HashMap.class));
+                 }
+               }
+             }
+             return instance;
            }
 
        }.nullSafe();

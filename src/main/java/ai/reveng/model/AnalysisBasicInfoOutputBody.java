@@ -191,6 +191,11 @@ public class AnalysisBasicInfoOutputBody {
   @javax.annotation.Nonnull
   private String modelName;
 
+  public static final String SERIALIZED_NAME_MODEL_UPGRADE_AVAILABLE = "model_upgrade_available";
+  @SerializedName(SERIALIZED_NAME_MODEL_UPGRADE_AVAILABLE)
+  @javax.annotation.Nonnull
+  private Boolean modelUpgradeAvailable;
+
   public static final String SERIALIZED_NAME_OWNER_USERNAME = "owner_username";
   @SerializedName(SERIALIZED_NAME_OWNER_USERNAME)
   @javax.annotation.Nonnull
@@ -552,6 +557,25 @@ public class AnalysisBasicInfoOutputBody {
   }
 
 
+  public AnalysisBasicInfoOutputBody modelUpgradeAvailable(@javax.annotation.Nonnull Boolean modelUpgradeAvailable) {
+    this.modelUpgradeAvailable = modelUpgradeAvailable;
+    return this;
+  }
+
+  /**
+   * True when the analysis ran on a model older than the current one, so its owner can re-analyse it on the latest. Describes the analysis, not the caller&#39;s rights — only the owner may act on it
+   * @return modelUpgradeAvailable
+   */
+  @javax.annotation.Nonnull
+  public Boolean getModelUpgradeAvailable() {
+    return modelUpgradeAvailable;
+  }
+
+  public void setModelUpgradeAvailable(@javax.annotation.Nonnull Boolean modelUpgradeAvailable) {
+    this.modelUpgradeAvailable = modelUpgradeAvailable;
+  }
+
+
   public AnalysisBasicInfoOutputBody ownerUsername(@javax.annotation.Nonnull String ownerUsername) {
     this.ownerUsername = ownerUsername;
     return this;
@@ -684,6 +708,50 @@ public class AnalysisBasicInfoOutputBody {
     this.teamId = teamId;
   }
 
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  private Map<String, Object> additionalProperties;
+
+  /**
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
+   *
+   * @param key name of the property
+   * @param value value of the property
+   * @return the AnalysisBasicInfoOutputBody instance itself
+   */
+  public AnalysisBasicInfoOutputBody putAdditionalProperty(String key, Object value) {
+    if (this.additionalProperties == null) {
+        this.additionalProperties = new HashMap<String, Object>();
+    }
+    this.additionalProperties.put(key, value);
+    return this;
+  }
+
+  /**
+   * Return the additional (undeclared) property.
+   *
+   * @return a map of objects
+   */
+  public Map<String, Object> getAdditionalProperties() {
+    return additionalProperties;
+  }
+
+  /**
+   * Return the additional (undeclared) property with the specified name.
+   *
+   * @param key name of the property
+   * @return an object
+   */
+  public Object getAdditionalProperty(String key) {
+    if (this.additionalProperties == null) {
+        return null;
+    }
+    return this.additionalProperties.get(key);
+  }
 
 
   @Override
@@ -712,18 +780,20 @@ public class AnalysisBasicInfoOutputBody {
         Objects.equals(this.isSystem, analysisBasicInfoOutputBody.isSystem) &&
         Objects.equals(this.modelId, analysisBasicInfoOutputBody.modelId) &&
         Objects.equals(this.modelName, analysisBasicInfoOutputBody.modelName) &&
+        Objects.equals(this.modelUpgradeAvailable, analysisBasicInfoOutputBody.modelUpgradeAvailable) &&
         Objects.equals(this.ownerUsername, analysisBasicInfoOutputBody.ownerUsername) &&
         Objects.equals(this.sequencerVersion, analysisBasicInfoOutputBody.sequencerVersion) &&
         Objects.equals(this.sha256Hash, analysisBasicInfoOutputBody.sha256Hash) &&
         Objects.equals(this.suppliedArchitecture, analysisBasicInfoOutputBody.suppliedArchitecture) &&
         Objects.equals(this.suppliedBinaryFormat, analysisBasicInfoOutputBody.suppliedBinaryFormat) &&
         Objects.equals(this.suppliedBinaryType, analysisBasicInfoOutputBody.suppliedBinaryType) &&
-        Objects.equals(this.teamId, analysisBasicInfoOutputBody.teamId);
+        Objects.equals(this.teamId, analysisBasicInfoOutputBody.teamId)&&
+        Objects.equals(this.additionalProperties, analysisBasicInfoOutputBody.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(analysisScope, baseAddress, binaryId, binaryName, binarySize, binaryUuid, creation, debug, detectedArchitecture, detectedBinaryFormat, detectedBinaryType, functionCount, isAdvanced, isOwner, isSystem, modelId, modelName, ownerUsername, sequencerVersion, sha256Hash, suppliedArchitecture, suppliedBinaryFormat, suppliedBinaryType, teamId);
+    return Objects.hash(analysisScope, baseAddress, binaryId, binaryName, binarySize, binaryUuid, creation, debug, detectedArchitecture, detectedBinaryFormat, detectedBinaryType, functionCount, isAdvanced, isOwner, isSystem, modelId, modelName, modelUpgradeAvailable, ownerUsername, sequencerVersion, sha256Hash, suppliedArchitecture, suppliedBinaryFormat, suppliedBinaryType, teamId, additionalProperties);
   }
 
   @Override
@@ -747,6 +817,7 @@ public class AnalysisBasicInfoOutputBody {
     sb.append("    isSystem: ").append(toIndentedString(isSystem)).append("\n");
     sb.append("    modelId: ").append(toIndentedString(modelId)).append("\n");
     sb.append("    modelName: ").append(toIndentedString(modelName)).append("\n");
+    sb.append("    modelUpgradeAvailable: ").append(toIndentedString(modelUpgradeAvailable)).append("\n");
     sb.append("    ownerUsername: ").append(toIndentedString(ownerUsername)).append("\n");
     sb.append("    sequencerVersion: ").append(toIndentedString(sequencerVersion)).append("\n");
     sb.append("    sha256Hash: ").append(toIndentedString(sha256Hash)).append("\n");
@@ -754,6 +825,7 @@ public class AnalysisBasicInfoOutputBody {
     sb.append("    suppliedBinaryFormat: ").append(toIndentedString(suppliedBinaryFormat)).append("\n");
     sb.append("    suppliedBinaryType: ").append(toIndentedString(suppliedBinaryType)).append("\n");
     sb.append("    teamId: ").append(toIndentedString(teamId)).append("\n");
+    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -772,10 +844,10 @@ public class AnalysisBasicInfoOutputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("analysis_scope", "base_address", "binary_id", "binary_name", "binary_size", "binary_uuid", "creation", "debug", "detected_architecture", "detected_binary_format", "detected_binary_type", "function_count", "is_advanced", "is_owner", "is_system", "model_id", "model_name", "owner_username", "sequencer_version", "sha_256_hash", "supplied_architecture", "supplied_binary_format", "supplied_binary_type", "team_id"));
+    openapiFields = new HashSet<String>(Arrays.asList("analysis_scope", "base_address", "binary_id", "binary_name", "binary_size", "binary_uuid", "creation", "debug", "detected_architecture", "detected_binary_format", "detected_binary_type", "function_count", "is_advanced", "is_owner", "is_system", "model_id", "model_name", "model_upgrade_available", "owner_username", "sequencer_version", "sha_256_hash", "supplied_architecture", "supplied_binary_format", "supplied_binary_type", "team_id"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("analysis_scope", "base_address", "binary_id", "binary_name", "binary_size", "binary_uuid", "creation", "debug", "detected_architecture", "detected_binary_format", "detected_binary_type", "function_count", "is_advanced", "is_owner", "is_system", "model_id", "model_name", "owner_username", "sha_256_hash", "supplied_architecture", "supplied_binary_format", "supplied_binary_type", "team_id"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("analysis_scope", "base_address", "binary_id", "binary_name", "binary_size", "binary_uuid", "creation", "debug", "detected_architecture", "detected_binary_format", "detected_binary_type", "function_count", "is_advanced", "is_owner", "is_system", "model_id", "model_name", "model_upgrade_available", "owner_username", "sha_256_hash", "supplied_architecture", "supplied_binary_format", "supplied_binary_type", "team_id"));
   }
 
   /**
@@ -788,14 +860,6 @@ public class AnalysisBasicInfoOutputBody {
       if (jsonElement == null) {
         if (!AnalysisBasicInfoOutputBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in AnalysisBasicInfoOutputBody is not found in the empty JSON string", AnalysisBasicInfoOutputBody.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!AnalysisBasicInfoOutputBody.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `AnalysisBasicInfoOutputBody` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
@@ -864,6 +928,28 @@ public class AnalysisBasicInfoOutputBody {
            @Override
            public void write(JsonWriter out, AnalysisBasicInfoOutputBody value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             obj.remove("additionalProperties");
+             // serialize additional properties
+             if (value.getAdditionalProperties() != null) {
+               for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
+                 if (entry.getValue() instanceof String)
+                   obj.addProperty(entry.getKey(), (String) entry.getValue());
+                 else if (entry.getValue() instanceof Number)
+                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
+                 else if (entry.getValue() instanceof Boolean)
+                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
+                 else if (entry.getValue() instanceof Character)
+                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
+                 else {
+                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
+                   if (jsonElement.isJsonArray()) {
+                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
+                   } else {
+                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
+                   }
+                 }
+               }
+             }
              elementAdapter.write(out, obj);
            }
 
@@ -871,7 +957,28 @@ public class AnalysisBasicInfoOutputBody {
            public AnalysisBasicInfoOutputBody read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = jsonElement.getAsJsonObject();
+             // store additional fields in the deserialized instance
+             AnalysisBasicInfoOutputBody instance = thisAdapter.fromJsonTree(jsonObj);
+             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
+               if (!openapiFields.contains(entry.getKey())) {
+                 if (entry.getValue().isJsonPrimitive()) { // primitive type
+                   if (entry.getValue().getAsJsonPrimitive().isString())
+                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsString());
+                   else if (entry.getValue().getAsJsonPrimitive().isNumber())
+                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsNumber());
+                   else if (entry.getValue().getAsJsonPrimitive().isBoolean())
+                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
+                   else
+                     throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
+                 } else if (entry.getValue().isJsonArray()) {
+                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
+                 } else { // JSON object
+                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), HashMap.class));
+                 }
+               }
+             }
+             return instance;
            }
 
        }.nullSafe();

@@ -9,7 +9,7 @@ A replacement for the data type named by `data_type_id`. `kind` selects the vari
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**dataTypeId** | **Long** | The type to replace, as returned by the data types list for this analysis. |  |
-|**definition** | [**FunctionTypeDefinition**](FunctionTypeDefinition.md) |  |  |
+|**definition** | **FunctionTypeDefinition** |  |  |
 |**kind** | [**KindEnum**](#KindEnum) |  |  |
 |**name** | **String** | Type name. Unique within the analysis for a given namespace and kind. |  |
 |**namespace** | **String** | The scope qualifying the type name. Omit for a type of the binary&#39;s own. |  [optional] |

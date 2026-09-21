@@ -462,15 +462,11 @@ public class ReportAnalysisResponse {
       if (!jsonObj.get("attack_flow_summary").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `attack_flow_summary` to be a primitive type in the JSON string but got `%s`", jsonObj.get("attack_flow_summary").toString()));
       }
-      if (jsonObj.get("IOCs") != null) {
-        if (!jsonObj.get("IOCs").isJsonArray()) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `IOCs` to be an array in the JSON string but got `%s`", jsonObj.get("IOCs").toString()));
-        }
-        JsonArray jsonArrayioCs = jsonObj.getAsJsonArray("IOCs");
-        // validate the required field `IOCs` (array)
-        for (int i = 0; i < jsonArrayioCs.size(); i++) {
-          IOC.validateJsonElement(jsonArrayioCs.get(i));
-        }
+      // ensure the required json array is present
+      if (jsonObj.get("IOCs") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("IOCs").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `IOCs` to be an array in the JSON string but got `%s`", jsonObj.get("IOCs").toString()));
       }
       if (jsonObj.get("executable_techniques") != null) {
         if (!jsonObj.get("executable_techniques").isJsonArray()) {

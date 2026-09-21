@@ -20,7 +20,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -50,16 +49,6 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FunctionBoundary {
-  public static final String SERIALIZED_NAME_MANGLED_NAME = "mangled_name";
-  @SerializedName(SERIALIZED_NAME_MANGLED_NAME)
-  @javax.annotation.Nonnull
-  private String mangledName;
-
-  public static final String SERIALIZED_NAME_START_ADDRESS = "start_address";
-  @SerializedName(SERIALIZED_NAME_START_ADDRESS)
-  @javax.annotation.Nonnull
-  private Long startAddress;
-
   public static final String SERIALIZED_NAME_END_ADDRESS = "end_address";
   @SerializedName(SERIALIZED_NAME_END_ADDRESS)
   @javax.annotation.Nonnull
@@ -70,8 +59,57 @@ public class FunctionBoundary {
   @javax.annotation.Nullable
   private Boolean includeInAnalysis;
 
+  public static final String SERIALIZED_NAME_MANGLED_NAME = "mangled_name";
+  @SerializedName(SERIALIZED_NAME_MANGLED_NAME)
+  @javax.annotation.Nonnull
+  private String mangledName;
+
+  public static final String SERIALIZED_NAME_START_ADDRESS = "start_address";
+  @SerializedName(SERIALIZED_NAME_START_ADDRESS)
+  @javax.annotation.Nonnull
+  private Long startAddress;
+
   public FunctionBoundary() {
   }
+
+  public FunctionBoundary endAddress(@javax.annotation.Nonnull Long endAddress) {
+    this.endAddress = endAddress;
+    return this;
+  }
+
+  /**
+   * Get endAddress
+   * minimum: 0
+   * @return endAddress
+   */
+  @javax.annotation.Nonnull
+  public Long getEndAddress() {
+    return endAddress;
+  }
+
+  public void setEndAddress(@javax.annotation.Nonnull Long endAddress) {
+    this.endAddress = endAddress;
+  }
+
+
+  public FunctionBoundary includeInAnalysis(@javax.annotation.Nullable Boolean includeInAnalysis) {
+    this.includeInAnalysis = includeInAnalysis;
+    return this;
+  }
+
+  /**
+   * Get includeInAnalysis
+   * @return includeInAnalysis
+   */
+  @javax.annotation.Nullable
+  public Boolean getIncludeInAnalysis() {
+    return includeInAnalysis;
+  }
+
+  public void setIncludeInAnalysis(@javax.annotation.Nullable Boolean includeInAnalysis) {
+    this.includeInAnalysis = includeInAnalysis;
+  }
+
 
   public FunctionBoundary mangledName(@javax.annotation.Nonnull String mangledName) {
     this.mangledName = mangledName;
@@ -99,6 +137,7 @@ public class FunctionBoundary {
 
   /**
    * Get startAddress
+   * minimum: 0
    * @return startAddress
    */
   @javax.annotation.Nonnull
@@ -108,44 +147,6 @@ public class FunctionBoundary {
 
   public void setStartAddress(@javax.annotation.Nonnull Long startAddress) {
     this.startAddress = startAddress;
-  }
-
-
-  public FunctionBoundary endAddress(@javax.annotation.Nonnull Long endAddress) {
-    this.endAddress = endAddress;
-    return this;
-  }
-
-  /**
-   * Get endAddress
-   * @return endAddress
-   */
-  @javax.annotation.Nonnull
-  public Long getEndAddress() {
-    return endAddress;
-  }
-
-  public void setEndAddress(@javax.annotation.Nonnull Long endAddress) {
-    this.endAddress = endAddress;
-  }
-
-
-  public FunctionBoundary includeInAnalysis(@javax.annotation.Nullable Boolean includeInAnalysis) {
-    this.includeInAnalysis = includeInAnalysis;
-    return this;
-  }
-
-  /**
-   * Indicates whether the function should be included in the analysis
-   * @return includeInAnalysis
-   */
-  @javax.annotation.Nullable
-  public Boolean getIncludeInAnalysis() {
-    return includeInAnalysis;
-  }
-
-  public void setIncludeInAnalysis(@javax.annotation.Nullable Boolean includeInAnalysis) {
-    this.includeInAnalysis = includeInAnalysis;
   }
 
   /**
@@ -203,37 +204,26 @@ public class FunctionBoundary {
       return false;
     }
     FunctionBoundary functionBoundary = (FunctionBoundary) o;
-    return Objects.equals(this.mangledName, functionBoundary.mangledName) &&
-        Objects.equals(this.startAddress, functionBoundary.startAddress) &&
-        Objects.equals(this.endAddress, functionBoundary.endAddress) &&
-        Objects.equals(this.includeInAnalysis, functionBoundary.includeInAnalysis)&&
+    return Objects.equals(this.endAddress, functionBoundary.endAddress) &&
+        Objects.equals(this.includeInAnalysis, functionBoundary.includeInAnalysis) &&
+        Objects.equals(this.mangledName, functionBoundary.mangledName) &&
+        Objects.equals(this.startAddress, functionBoundary.startAddress)&&
         Objects.equals(this.additionalProperties, functionBoundary.additionalProperties);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(mangledName, startAddress, endAddress, includeInAnalysis, additionalProperties);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(endAddress, includeInAnalysis, mangledName, startAddress, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FunctionBoundary {\n");
-    sb.append("    mangledName: ").append(toIndentedString(mangledName)).append("\n");
-    sb.append("    startAddress: ").append(toIndentedString(startAddress)).append("\n");
     sb.append("    endAddress: ").append(toIndentedString(endAddress)).append("\n");
     sb.append("    includeInAnalysis: ").append(toIndentedString(includeInAnalysis)).append("\n");
+    sb.append("    mangledName: ").append(toIndentedString(mangledName)).append("\n");
+    sb.append("    startAddress: ").append(toIndentedString(startAddress)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -253,10 +243,10 @@ public class FunctionBoundary {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("mangled_name", "start_address", "end_address", "include_in_analysis"));
+    openapiFields = new HashSet<String>(Arrays.asList("end_address", "include_in_analysis", "mangled_name", "start_address"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("mangled_name", "start_address", "end_address"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("end_address", "mangled_name", "start_address"));
   }
 
   /**

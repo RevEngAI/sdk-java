@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**functions** | [**List&lt;AnalysisStringFunction&gt;**](AnalysisStringFunction.md) |  |  |
+|**functions** | **List&lt;AnalysisStringFunction&gt;** |  |  |
 |**source** | **String** |  |  |
 |**value** | **String** |  |  |
 

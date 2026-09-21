@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**members** | [**List&lt;DataTypeMemberEntry&gt;**](DataTypeMemberEntry.md) | The type&#39;s fields, in offset order. |  |
+|**members** | **List&lt;DataTypeMemberEntry&gt;** | The type&#39;s fields, in offset order. |  |
 
 
 

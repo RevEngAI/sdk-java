@@ -24,6 +24,7 @@
 |**isSystem** | **Boolean** | True when the analysis is owned by a system user |  |
 |**modelId** | **Long** | Model ID |  |
 |**modelName** | **String** | Model used for analysis |  |
+|**modelUpgradeAvailable** | **Boolean** | True when the analysis ran on a model older than the current one, so its owner can re-analyse it on the latest. Describes the analysis, not the caller&#39;s rights — only the owner may act on it |  |
 |**ownerUsername** | **String** | Username of the analysis owner |  |
 |**sequencerVersion** | **String** | Sequencer version, omitted when not set |  [optional] |
 |**sha256Hash** | **String** | SHA-256 hash of the binary |  |

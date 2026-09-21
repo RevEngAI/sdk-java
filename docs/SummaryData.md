@@ -8,6 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**aiSummary** | **String** | Summary with code tags removed |  |
+|**predictedFunctionName** | **String** | Name the model proposes for this function, produced alongside the summary. |  [optional] |
 |**summary** | **String** | Raw summary from the model |  |
 |**taskStatus** | [**TaskStatusEnum**](#TaskStatusEnum) | Task status |  |
 

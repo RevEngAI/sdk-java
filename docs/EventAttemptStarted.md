@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**data** | [**AttemptStartedEvent**](AttemptStartedEvent.md) |  |  |
+|**data** | **AttemptStartedEvent** |  |  |
 |**event** | [**EventEnum**](#EventEnum) | The event name. |  |
 |**id** | **Integer** | The event ID. |  [optional] |
 |**retry** | **Integer** | The retry time in milliseconds. |  [optional] |

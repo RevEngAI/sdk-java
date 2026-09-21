@@ -38,6 +38,7 @@ import ai.reveng.model.PatchCommentBody;
 import ai.reveng.model.RegenerateOutputBody;
 import ai.reveng.model.ServerSentEventsInner1;
 import ai.reveng.model.SummaryData;
+import ai.reveng.model.TypeSuggestionsData;
 import ai.reveng.model.UpsertAiDecomplationRatingRequest;
 import ai.reveng.model.UpsertOverridesData;
 import ai.reveng.model.UpsertOverridesInputBody;
@@ -90,6 +91,7 @@ public class FunctionsAiDecompilationApi {
      * Build call for createAiDecompilation
      * @param functionId Function ID (required)
      * @param temperature LLM temperature (0.0-1.0). Overrides the server default when set. Omit or set to -1 to use the server default. (optional, default to -1)
+     * @param typeSuggestions Ask the language model to name the suggested types and their members. Set to false to skip the model call; the statically derived layouts are still computed and stored. Cannot re-enable the pass when the server has it off. (optional, default to true)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -106,7 +108,7 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAiDecompilationCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Double temperature, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createAiDecompilationCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Double temperature, @javax.annotation.Nullable Boolean typeSuggestions, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -136,6 +138,10 @@ public class FunctionsAiDecompilationApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("temperature", temperature));
         }
 
+        if (typeSuggestions != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("type_suggestions", typeSuggestions));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -156,13 +162,13 @@ public class FunctionsAiDecompilationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createAiDecompilationValidateBeforeCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Double temperature, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createAiDecompilationValidateBeforeCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Double temperature, @javax.annotation.Nullable Boolean typeSuggestions, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'functionId' is set
         if (functionId == null) {
             throw new ApiException("Missing the required parameter 'functionId' when calling createAiDecompilation(Async)");
         }
 
-        return createAiDecompilationCall(functionId, temperature, _callback);
+        return createAiDecompilationCall(functionId, temperature, typeSuggestions, _callback);
 
     }
 
@@ -171,6 +177,7 @@ public class FunctionsAiDecompilationApi {
      * Begins the AI decompilation process for a function. Charges team credits and starts the workflow.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;402&#x60; [&#x60;INSUFFICIENT_CREDITS&#x60;](/errors/INSUFFICIENT_CREDITS) — Insufficient Credits
      * @param functionId Function ID (required)
      * @param temperature LLM temperature (0.0-1.0). Overrides the server default when set. Omit or set to -1 to use the server default. (optional, default to -1)
+     * @param typeSuggestions Ask the language model to name the suggested types and their members. Set to false to skip the model call; the statically derived layouts are still computed and stored. Cannot re-enable the pass when the server has it off. (optional, default to true)
      * @return CreateAIDecompOutputBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -186,8 +193,8 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public CreateAIDecompOutputBody createAiDecompilation(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Double temperature) throws ApiException {
-        ApiResponse<CreateAIDecompOutputBody> localVarResp = createAiDecompilationWithHttpInfo(functionId, temperature);
+    public CreateAIDecompOutputBody createAiDecompilation(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Double temperature, @javax.annotation.Nullable Boolean typeSuggestions) throws ApiException {
+        ApiResponse<CreateAIDecompOutputBody> localVarResp = createAiDecompilationWithHttpInfo(functionId, temperature, typeSuggestions);
         return localVarResp.getData();
     }
 
@@ -196,6 +203,7 @@ public class FunctionsAiDecompilationApi {
      * Begins the AI decompilation process for a function. Charges team credits and starts the workflow.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;402&#x60; [&#x60;INSUFFICIENT_CREDITS&#x60;](/errors/INSUFFICIENT_CREDITS) — Insufficient Credits
      * @param functionId Function ID (required)
      * @param temperature LLM temperature (0.0-1.0). Overrides the server default when set. Omit or set to -1 to use the server default. (optional, default to -1)
+     * @param typeSuggestions Ask the language model to name the suggested types and their members. Set to false to skip the model call; the statically derived layouts are still computed and stored. Cannot re-enable the pass when the server has it off. (optional, default to true)
      * @return ApiResponse&lt;CreateAIDecompOutputBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -211,8 +219,8 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CreateAIDecompOutputBody> createAiDecompilationWithHttpInfo(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Double temperature) throws ApiException {
-        okhttp3.Call localVarCall = createAiDecompilationValidateBeforeCall(functionId, temperature, null);
+    public ApiResponse<CreateAIDecompOutputBody> createAiDecompilationWithHttpInfo(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Double temperature, @javax.annotation.Nullable Boolean typeSuggestions) throws ApiException {
+        okhttp3.Call localVarCall = createAiDecompilationValidateBeforeCall(functionId, temperature, typeSuggestions, null);
         Type localVarReturnType = new TypeToken<CreateAIDecompOutputBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -222,6 +230,7 @@ public class FunctionsAiDecompilationApi {
      * Begins the AI decompilation process for a function. Charges team credits and starts the workflow.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;402&#x60; [&#x60;INSUFFICIENT_CREDITS&#x60;](/errors/INSUFFICIENT_CREDITS) — Insufficient Credits
      * @param functionId Function ID (required)
      * @param temperature LLM temperature (0.0-1.0). Overrides the server default when set. Omit or set to -1 to use the server default. (optional, default to -1)
+     * @param typeSuggestions Ask the language model to name the suggested types and their members. Set to false to skip the model call; the statically derived layouts are still computed and stored. Cannot re-enable the pass when the server has it off. (optional, default to true)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -238,9 +247,9 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAiDecompilationAsync(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Double temperature, final ApiCallback<CreateAIDecompOutputBody> _callback) throws ApiException {
+    public okhttp3.Call createAiDecompilationAsync(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Double temperature, @javax.annotation.Nullable Boolean typeSuggestions, final ApiCallback<CreateAIDecompOutputBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createAiDecompilationValidateBeforeCall(functionId, temperature, _callback);
+        okhttp3.Call localVarCall = createAiDecompilationValidateBeforeCall(functionId, temperature, typeSuggestions, _callback);
         Type localVarReturnType = new TypeToken<CreateAIDecompOutputBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1551,8 +1560,10 @@ public class FunctionsAiDecompilationApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
@@ -1615,7 +1626,7 @@ public class FunctionsAiDecompilationApi {
 
     /**
      * Regenerate AI decompilation inline comments
-     * Starts a new inline comments generation workflow for the function. Requires an existing decompilation with a summary.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * Starts a new inline comments generation workflow for the function. Requires an existing decompilation with a summary. Rejected while a decompilation is running: its naming and type-suggestion passes are still changing the identifiers the comments would reference. Poll the inline comments status endpoint, which reports PENDING until then.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict
      * @param functionId Function ID (required)
      * @return RegenerateOutputBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1624,8 +1635,10 @@ public class FunctionsAiDecompilationApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
@@ -1637,7 +1650,7 @@ public class FunctionsAiDecompilationApi {
 
     /**
      * Regenerate AI decompilation inline comments
-     * Starts a new inline comments generation workflow for the function. Requires an existing decompilation with a summary.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * Starts a new inline comments generation workflow for the function. Requires an existing decompilation with a summary. Rejected while a decompilation is running: its naming and type-suggestion passes are still changing the identifiers the comments would reference. Poll the inline comments status endpoint, which reports PENDING until then.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict
      * @param functionId Function ID (required)
      * @return ApiResponse&lt;RegenerateOutputBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1646,8 +1659,10 @@ public class FunctionsAiDecompilationApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
@@ -1660,7 +1675,7 @@ public class FunctionsAiDecompilationApi {
 
     /**
      * Regenerate AI decompilation inline comments (asynchronously)
-     * Starts a new inline comments generation workflow for the function. Requires an existing decompilation with a summary.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * Starts a new inline comments generation workflow for the function. Requires an existing decompilation with a summary. Rejected while a decompilation is running: its naming and type-suggestion passes are still changing the identifiers the comments would reference. Poll the inline comments status endpoint, which reports PENDING until then.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict
      * @param functionId Function ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1670,8 +1685,10 @@ public class FunctionsAiDecompilationApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
@@ -1696,6 +1713,7 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
@@ -1758,7 +1776,7 @@ public class FunctionsAiDecompilationApi {
 
     /**
      * Regenerate AI decompilation summary
-     * Starts a new summary generation workflow for the function. Requires an existing decompilation.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * Starts a new summary generation workflow for the function. Requires an existing decompilation. Rejected while a decompilation is running: its naming and type-suggestion passes are still changing the identifiers a summary would describe. Poll the summary status endpoint, which reports PENDING until then.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict
      * @param functionId Function ID (required)
      * @return RegenerateOutputBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1769,6 +1787,7 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
@@ -1780,7 +1799,7 @@ public class FunctionsAiDecompilationApi {
 
     /**
      * Regenerate AI decompilation summary
-     * Starts a new summary generation workflow for the function. Requires an existing decompilation.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * Starts a new summary generation workflow for the function. Requires an existing decompilation. Rejected while a decompilation is running: its naming and type-suggestion passes are still changing the identifiers a summary would describe. Poll the summary status endpoint, which reports PENDING until then.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict
      * @param functionId Function ID (required)
      * @return ApiResponse&lt;RegenerateOutputBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1791,6 +1810,7 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
@@ -1803,7 +1823,7 @@ public class FunctionsAiDecompilationApi {
 
     /**
      * Regenerate AI decompilation summary (asynchronously)
-     * Starts a new summary generation workflow for the function. Requires an existing decompilation.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * Starts a new summary generation workflow for the function. Requires an existing decompilation. Rejected while a decompilation is running: its naming and type-suggestion passes are still changing the identifiers a summary would describe. Poll the summary status endpoint, which reports PENDING until then.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict
      * @param functionId Function ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1815,6 +1835,7 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
@@ -1899,7 +1920,7 @@ public class FunctionsAiDecompilationApi {
 
     /**
      * Stream live AI decompilation output (SSE)
-     * Opens a Server-Sent Events stream of incremental decompilation events for the given function. Each event has a &#x60;type&#x60; discriminator (also used as the SSE &#x60;event:&#x60; line) and a per-attempt monotonic &#x60;seq&#x60;. Terminal events: &#x60;decomp_finished&#x60; (success) or &#x60;decomp_failed&#x60; (all retries exhausted). &#x60;attempt_failed&#x60; is per-attempt and non-terminal — Temporal may retry the activity. Clients should treat &#x60;attempt&#x60; changes as a reset signal. &#x60;last_event_id&#x60; is not supported — clients fall back to polling the standard GET endpoint after the stream ends.
+     * Opens a Server-Sent Events stream of incremental decompilation events for the given function. Each event has a &#x60;type&#x60; discriminator (also used as the SSE &#x60;event:&#x60; line) and a per-attempt monotonic &#x60;seq&#x60;.  **Terminal events — the stream closes on these:** &#x60;names_finished&#x60; (success) and &#x60;decomp_failed&#x60; (all retries exhausted). &#x60;names_finished&#x60; is published on every success path, including when the naming pass is disabled, produces nothing, or fails, so a successful run always closes.  **&#x60;decomp_finished&#x60; is NOT terminal.** It marks the end of the model call, not the end of the run: entity restore, the result write, the placeholder-naming pass and the type-suggestion pass all follow it, and the last two rewrite the identifiers the source renders with. Reading the decompilation at &#x60;decomp_finished&#x60; therefore returns names that are about to change — wait for &#x60;names_finished&#x60;. &#x60;attempt_failed&#x60; is per-attempt and non-terminal too: Temporal may retry, and clients disambiguate on &#x60;attempt&#x60;, which they should treat as a reset signal.  &#x60;last_event_id&#x60; is not supported — clients fall back to polling the standard GET endpoint after the stream ends.
      * @param functionId Function ID (required)
      * @return List&lt;ServerSentEventsInner1&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1918,7 +1939,7 @@ public class FunctionsAiDecompilationApi {
 
     /**
      * Stream live AI decompilation output (SSE)
-     * Opens a Server-Sent Events stream of incremental decompilation events for the given function. Each event has a &#x60;type&#x60; discriminator (also used as the SSE &#x60;event:&#x60; line) and a per-attempt monotonic &#x60;seq&#x60;. Terminal events: &#x60;decomp_finished&#x60; (success) or &#x60;decomp_failed&#x60; (all retries exhausted). &#x60;attempt_failed&#x60; is per-attempt and non-terminal — Temporal may retry the activity. Clients should treat &#x60;attempt&#x60; changes as a reset signal. &#x60;last_event_id&#x60; is not supported — clients fall back to polling the standard GET endpoint after the stream ends.
+     * Opens a Server-Sent Events stream of incremental decompilation events for the given function. Each event has a &#x60;type&#x60; discriminator (also used as the SSE &#x60;event:&#x60; line) and a per-attempt monotonic &#x60;seq&#x60;.  **Terminal events — the stream closes on these:** &#x60;names_finished&#x60; (success) and &#x60;decomp_failed&#x60; (all retries exhausted). &#x60;names_finished&#x60; is published on every success path, including when the naming pass is disabled, produces nothing, or fails, so a successful run always closes.  **&#x60;decomp_finished&#x60; is NOT terminal.** It marks the end of the model call, not the end of the run: entity restore, the result write, the placeholder-naming pass and the type-suggestion pass all follow it, and the last two rewrite the identifiers the source renders with. Reading the decompilation at &#x60;decomp_finished&#x60; therefore returns names that are about to change — wait for &#x60;names_finished&#x60;. &#x60;attempt_failed&#x60; is per-attempt and non-terminal too: Temporal may retry, and clients disambiguate on &#x60;attempt&#x60;, which they should treat as a reset signal.  &#x60;last_event_id&#x60; is not supported — clients fall back to polling the standard GET endpoint after the stream ends.
      * @param functionId Function ID (required)
      * @return ApiResponse&lt;List&lt;ServerSentEventsInner1&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1938,7 +1959,7 @@ public class FunctionsAiDecompilationApi {
 
     /**
      * Stream live AI decompilation output (SSE) (asynchronously)
-     * Opens a Server-Sent Events stream of incremental decompilation events for the given function. Each event has a &#x60;type&#x60; discriminator (also used as the SSE &#x60;event:&#x60; line) and a per-attempt monotonic &#x60;seq&#x60;. Terminal events: &#x60;decomp_finished&#x60; (success) or &#x60;decomp_failed&#x60; (all retries exhausted). &#x60;attempt_failed&#x60; is per-attempt and non-terminal — Temporal may retry the activity. Clients should treat &#x60;attempt&#x60; changes as a reset signal. &#x60;last_event_id&#x60; is not supported — clients fall back to polling the standard GET endpoint after the stream ends.
+     * Opens a Server-Sent Events stream of incremental decompilation events for the given function. Each event has a &#x60;type&#x60; discriminator (also used as the SSE &#x60;event:&#x60; line) and a per-attempt monotonic &#x60;seq&#x60;.  **Terminal events — the stream closes on these:** &#x60;names_finished&#x60; (success) and &#x60;decomp_failed&#x60; (all retries exhausted). &#x60;names_finished&#x60; is published on every success path, including when the naming pass is disabled, produces nothing, or fails, so a successful run always closes.  **&#x60;decomp_finished&#x60; is NOT terminal.** It marks the end of the model call, not the end of the run: entity restore, the result write, the placeholder-naming pass and the type-suggestion pass all follow it, and the last two rewrite the identifiers the source renders with. Reading the decompilation at &#x60;decomp_finished&#x60; therefore returns names that are about to change — wait for &#x60;names_finished&#x60;. &#x60;attempt_failed&#x60; is per-attempt and non-terminal too: Temporal may retry, and clients disambiguate on &#x60;attempt&#x60;, which they should treat as a reset signal.  &#x60;last_event_id&#x60; is not supported — clients fall back to polling the standard GET endpoint after the stream ends.
      * @param functionId Function ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2382,6 +2403,149 @@ public class FunctionsAiDecompilationApi {
 
         okhttp3.Call localVarCall = v3GetAiDecompilationTokensValidateBeforeCall(functionId, _callback);
         Type localVarReturnType = new TypeToken<GetTokensResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for v3GetAiDecompilationTypeSuggestions
+     * @param functionId Function ID (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3GetAiDecompilationTypeSuggestionsCall(@javax.annotation.Nonnull Long functionId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/functions/{function_id}/ai-decompilation/type-suggestions"
+            .replace("{" + "function_id" + "}", localVarApiClient.escapeString(functionId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call v3GetAiDecompilationTypeSuggestionsValidateBeforeCall(@javax.annotation.Nonnull Long functionId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'functionId' is set
+        if (functionId == null) {
+            throw new ApiException("Missing the required parameter 'functionId' when calling v3GetAiDecompilationTypeSuggestions(Async)");
+        }
+
+        return v3GetAiDecompilationTypeSuggestionsCall(functionId, _callback);
+
+    }
+
+    /**
+     * Get AI decompilation type suggestions
+     * Returns the aggregate types the AI decompilation inferred for this function: a suggested name for each type and each of its members, the members&#39; offsets and widths, and the gaps between them. Members revealed only by a caller or callee are included and marked by origin, as are members the model placed rather than observed. Nothing here is a data type row — these are proposals, and creating a row from one is the client&#39;s call. The list is empty until a run has produced suggestions, which is ordinary and not an error.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;500&#x60; [&#x60;INTERNAL_ERROR&#x60;](/errors/INTERNAL_ERROR) — Internal Server Error
+     * @param functionId Function ID (required)
+     * @return TypeSuggestionsData
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public TypeSuggestionsData v3GetAiDecompilationTypeSuggestions(@javax.annotation.Nonnull Long functionId) throws ApiException {
+        ApiResponse<TypeSuggestionsData> localVarResp = v3GetAiDecompilationTypeSuggestionsWithHttpInfo(functionId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get AI decompilation type suggestions
+     * Returns the aggregate types the AI decompilation inferred for this function: a suggested name for each type and each of its members, the members&#39; offsets and widths, and the gaps between them. Members revealed only by a caller or callee are included and marked by origin, as are members the model placed rather than observed. Nothing here is a data type row — these are proposals, and creating a row from one is the client&#39;s call. The list is empty until a run has produced suggestions, which is ordinary and not an error.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;500&#x60; [&#x60;INTERNAL_ERROR&#x60;](/errors/INTERNAL_ERROR) — Internal Server Error
+     * @param functionId Function ID (required)
+     * @return ApiResponse&lt;TypeSuggestionsData&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<TypeSuggestionsData> v3GetAiDecompilationTypeSuggestionsWithHttpInfo(@javax.annotation.Nonnull Long functionId) throws ApiException {
+        okhttp3.Call localVarCall = v3GetAiDecompilationTypeSuggestionsValidateBeforeCall(functionId, null);
+        Type localVarReturnType = new TypeToken<TypeSuggestionsData>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get AI decompilation type suggestions (asynchronously)
+     * Returns the aggregate types the AI decompilation inferred for this function: a suggested name for each type and each of its members, the members&#39; offsets and widths, and the gaps between them. Members revealed only by a caller or callee are included and marked by origin, as are members the model placed rather than observed. Nothing here is a data type row — these are proposals, and creating a row from one is the client&#39;s call. The list is empty until a run has produced suggestions, which is ordinary and not an error.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;500&#x60; [&#x60;INTERNAL_ERROR&#x60;](/errors/INTERNAL_ERROR) — Internal Server Error
+     * @param functionId Function ID (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3GetAiDecompilationTypeSuggestionsAsync(@javax.annotation.Nonnull Long functionId, final ApiCallback<TypeSuggestionsData> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = v3GetAiDecompilationTypeSuggestionsValidateBeforeCall(functionId, _callback);
+        Type localVarReturnType = new TypeToken<TypeSuggestionsData>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

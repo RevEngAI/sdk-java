@@ -23,6 +23,7 @@
 |**needsNaming** | **Boolean** |  |  |
 |**provenance** | **String** | Search is applied to string value |  |
 |**resolvedName** | **String** |  |  |
+|**suggestedName** | **String** | Search is applied to string value |  [optional] |
 |**suggestedType** | **String** |  |  |
 |**suggestionConfidence** | **String** |  |  |
 |**token** | **String** | Search is applied to string value |  |
@@ -54,6 +55,7 @@
 | DATABASE | &quot;database&quot; |
 | FROZEN | &quot;frozen&quot; |
 | DEFAULT | &quot;default&quot; |
+| SUGGESTED | &quot;suggested&quot; |
 | UNKNOWN_DEFAULT_OPEN_API | &quot;unknown_default_open_api&quot; |
 
 

@@ -21,7 +21,7 @@
 |**debug** | **Boolean** |  |  |
 |**modelName** | **String** |  |  |
 |**sha256Hash** | **String** |  |  |
-|**autoRunAgents** | [**AutoRunAgents**](AutoRunAgents.md) |  |  |
+|**autoRunAgents** | **AutoRunAgents** |  |  |
 |**requestedConfig** | [**AnalysisConfigSnapshot**](AnalysisConfigSnapshot.md) | Snapshot of the configuration the analysis was submitted with. |  |
 
 

@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**context** | [**ConversationContext**](ConversationContext.md) |  |  [optional] |
+|**context** | **ConversationContext** |  |  [optional] |
 |**title** | **String** |  |  [optional] |
 
 

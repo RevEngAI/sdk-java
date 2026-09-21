@@ -20,7 +20,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -228,7 +227,7 @@ public class AnalysisFunctionEntry {
   }
 
   /**
-   * Search is applied to string value
+   * Get mangledName
    * @return mangledName
    */
   @javax.annotation.Nullable
@@ -385,20 +384,9 @@ public class AnalysisFunctionEntry {
         Objects.equals(this.additionalProperties, analysisFunctionEntry.additionalProperties);
   }
 
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
-  }
-
   @Override
   public int hashCode() {
     return Objects.hash(binaryId, debug, functionId, functionName, functionSize, functionVaddr, mangledName, sourceAnalysisId, sourceBinaryId, sourceFunctionId, sourceType, additionalProperties);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

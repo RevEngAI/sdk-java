@@ -532,15 +532,11 @@ public class FunctionSignatureBody {
       if (!jsonObj.get("function_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `function_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("function_name").toString()));
       }
-      if (jsonObj.get("parameters") != null && !jsonObj.get("parameters").isJsonNull()) {
-        if (!jsonObj.get("parameters").isJsonArray()) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `parameters` to be an array in the JSON string but got `%s`", jsonObj.get("parameters").toString()));
-        }
-        JsonArray jsonArrayparameters = jsonObj.getAsJsonArray("parameters");
-        // validate the required field `parameters` (array)
-        for (int i = 0; i < jsonArrayparameters.size(); i++) {
-          SignatureParameterEntry.validateJsonElement(jsonArrayparameters.get(i));
-        }
+      // ensure the required json array is present
+      if (jsonObj.get("parameters") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("parameters").isJsonArray() && !jsonObj.get("parameters").isJsonNull()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `parameters` to be an array in the JSON string but got `%s`", jsonObj.get("parameters").toString()));
       }
       if ((jsonObj.get("source_type") != null && !jsonObj.get("source_type").isJsonNull()) && !jsonObj.get("source_type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `source_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("source_type").toString()));

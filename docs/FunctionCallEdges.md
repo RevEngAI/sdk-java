@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**callees** | [**List&lt;CallEdge&gt;**](CallEdge.md) |  |  |
-|**callers** | [**List&lt;CallEdge&gt;**](CallEdge.md) |  |  |
+|**callees** | **List&lt;CallEdge&gt;** |  |  |
+|**callers** | **List&lt;CallEdge&gt;** |  |  |
 |**functionId** | **Long** |  |  |
 
 

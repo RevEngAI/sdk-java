@@ -286,15 +286,11 @@ public class BatchMatchingOutputBody {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (jsonObj.get("per_binary") != null && !jsonObj.get("per_binary").isJsonNull()) {
-        if (!jsonObj.get("per_binary").isJsonArray()) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `per_binary` to be an array in the JSON string but got `%s`", jsonObj.get("per_binary").toString()));
-        }
-        JsonArray jsonArrayperBinary = jsonObj.getAsJsonArray("per_binary");
-        // validate the required field `per_binary` (array)
-        for (int i = 0; i < jsonArrayperBinary.size(); i++) {
-          BatchBinaryMatchResult.validateJsonElement(jsonArrayperBinary.get(i));
-        }
+      // ensure the required json array is present
+      if (jsonObj.get("per_binary") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("per_binary").isJsonArray() && !jsonObj.get("per_binary").isJsonNull()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `per_binary` to be an array in the JSON string but got `%s`", jsonObj.get("per_binary").toString()));
       }
       if (!jsonObj.get("status").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));

@@ -21,12 +21,13 @@
 |**isOwner** | **Boolean** | True when the caller owns the analysis |  |
 |**modelId** | **Long** | Model ID |  |
 |**modelName** | **String** | Model name |  |
+|**modelUpgradeAvailable** | **Boolean** | True when the analysis ran on a model older than the current one, so its owner can re-analyse it on the latest. Describes the analysis, not the caller&#39;s rights — only the owner may act on it |  |
 |**sha256Hash** | **String** | SHA-256 hash of the binary |  |
 |**status** | **String** | Analysis status |  |
 |**suppliedArchitecture** | **String** | User-supplied instruction-set architecture; \&quot;AUTO\&quot; when not overridden |  |
 |**suppliedBinaryFormat** | **String** | User-supplied binary container format; \&quot;AUTO\&quot; when not overridden |  |
 |**suppliedBinaryType** | **String** | User-supplied operating-system platform; \&quot;AUTO\&quot; when not overridden |  |
-|**tags** | [**List&lt;AnalysisTagBody&gt;**](AnalysisTagBody.md) | Tags associated with the binary |  |
+|**tags** | **List&lt;AnalysisTagBody&gt;** | Tags associated with the binary |  |
 |**username** | **String** | Username of the analysis owner |  |
 
 

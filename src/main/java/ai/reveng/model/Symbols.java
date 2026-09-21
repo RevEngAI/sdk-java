@@ -20,10 +20,10 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -56,31 +56,32 @@ public class Symbols {
   public static final String SERIALIZED_NAME_BASE_ADDRESS = "base_address";
   @SerializedName(SERIALIZED_NAME_BASE_ADDRESS)
   @javax.annotation.Nonnull
-  private BigInteger baseAddress;
+  private Long baseAddress;
 
   public static final String SERIALIZED_NAME_FUNCTION_BOUNDARIES = "function_boundaries";
   @SerializedName(SERIALIZED_NAME_FUNCTION_BOUNDARIES)
   @javax.annotation.Nullable
-  private List<FunctionBoundary> functionBoundaries = new ArrayList<>();
+  private List<FunctionBoundary> functionBoundaries;
 
   public Symbols() {
   }
 
-  public Symbols baseAddress(@javax.annotation.Nonnull BigInteger baseAddress) {
+  public Symbols baseAddress(@javax.annotation.Nonnull Long baseAddress) {
     this.baseAddress = baseAddress;
     return this;
   }
 
   /**
-   * The starting address of the execution
+   * Get baseAddress
+   * minimum: 0
    * @return baseAddress
    */
   @javax.annotation.Nonnull
-  public BigInteger getBaseAddress() {
+  public Long getBaseAddress() {
     return baseAddress;
   }
 
-  public void setBaseAddress(@javax.annotation.Nonnull BigInteger baseAddress) {
+  public void setBaseAddress(@javax.annotation.Nonnull Long baseAddress) {
     this.baseAddress = baseAddress;
   }
 
@@ -99,7 +100,7 @@ public class Symbols {
   }
 
   /**
-   * List of user defined function boundaries
+   * Get functionBoundaries
    * @return functionBoundaries
    */
   @javax.annotation.Nullable
@@ -171,9 +172,20 @@ public class Symbols {
         Objects.equals(this.additionalProperties, symbols.additionalProperties);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
     return Objects.hash(baseAddress, functionBoundaries, additionalProperties);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -227,19 +239,9 @@ public class Symbols {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (jsonObj.get("function_boundaries") != null && !jsonObj.get("function_boundaries").isJsonNull()) {
-        JsonArray jsonArrayfunctionBoundaries = jsonObj.getAsJsonArray("function_boundaries");
-        if (jsonArrayfunctionBoundaries != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("function_boundaries").isJsonArray()) {
-            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `function_boundaries` to be an array in the JSON string but got `%s`", jsonObj.get("function_boundaries").toString()));
-          }
-
-          // validate the optional field `function_boundaries` (array)
-          for (int i = 0; i < jsonArrayfunctionBoundaries.size(); i++) {
-            FunctionBoundary.validateJsonElement(jsonArrayfunctionBoundaries.get(i));
-          };
-        }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("function_boundaries") != null && !jsonObj.get("function_boundaries").isJsonNull() && !jsonObj.get("function_boundaries").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `function_boundaries` to be an array in the JSON string but got `%s`", jsonObj.get("function_boundaries").toString()));
       }
   }
 

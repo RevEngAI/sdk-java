@@ -304,15 +304,11 @@ public class ListArchiveContentsOutputBody {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (jsonObj.get("entries") != null && !jsonObj.get("entries").isJsonNull()) {
-        if (!jsonObj.get("entries").isJsonArray()) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `entries` to be an array in the JSON string but got `%s`", jsonObj.get("entries").toString()));
-        }
-        JsonArray jsonArrayentries = jsonObj.getAsJsonArray("entries");
-        // validate the required field `entries` (array)
-        for (int i = 0; i < jsonArrayentries.size(); i++) {
-          ArchiveContentEntry.validateJsonElement(jsonArrayentries.get(i));
-        }
+      // ensure the required json array is present
+      if (jsonObj.get("entries") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("entries").isJsonArray() && !jsonObj.get("entries").isJsonNull()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `entries` to be an array in the JSON string but got `%s`", jsonObj.get("entries").toString()));
       }
   }
 
