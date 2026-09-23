@@ -14,7 +14,7 @@
 |**callChain** | **List&lt;Integer&gt;** |  |  |
 |**constants** | [**List&lt;ReferencedConstant&gt;**](ReferencedConstant.md) |  |  |
 |**calls** | [**List&lt;ImportedApiCall&gt;**](ImportedApiCall.md) |  |  |
-|**strings** | [**List&lt;SuspiciousString&gt;**](SuspiciousString.md) |  |  |
+|**strings** | [**List&lt;StringMatch&gt;**](StringMatch.md) |  |  |
 |**similarities** | [**List&lt;FunctionSimilarity&gt;**](FunctionSimilarity.md) |  |  |
 |**apis** | [**List&lt;ImportedApi&gt;**](ImportedApi.md) |  |  |
 |**summaries** | [**List&lt;DecompilerSummary&gt;**](DecompilerSummary.md) |  |  |

@@ -19,8 +19,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
-import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,178 +47,90 @@ import java.util.Set;
 import ai.reveng.invoker.JSON;
 
 /**
- * DisassemblyOutputBody
+ * AnalysisCapabilityBody
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class DisassemblyOutputBody {
-  public static final String SERIALIZED_NAME_BASIC_BLOCKS = "basic_blocks";
-  @SerializedName(SERIALIZED_NAME_BASIC_BLOCKS)
+public class AnalysisCapabilityBody {
+  public static final String SERIALIZED_NAME_CAPABILITIES = "capabilities";
+  @SerializedName(SERIALIZED_NAME_CAPABILITIES)
   @javax.annotation.Nullable
-  private Object basicBlocks = null;
+  private List<String> capabilities;
 
-  public static final String SERIALIZED_NAME_FUNCTION_ID = "function_id";
-  @SerializedName(SERIALIZED_NAME_FUNCTION_ID)
+  public static final String SERIALIZED_NAME_FUNCTION_NAME = "function_name";
+  @SerializedName(SERIALIZED_NAME_FUNCTION_NAME)
   @javax.annotation.Nonnull
-  private Long functionId;
+  private String functionName;
 
-  public static final String SERIALIZED_NAME_GLOBAL_VARIABLES = "global_variables";
-  @SerializedName(SERIALIZED_NAME_GLOBAL_VARIABLES)
-  @javax.annotation.Nullable
-  private Object globalVariables = null;
-
-  public static final String SERIALIZED_NAME_LOCAL_VARIABLES = "local_variables";
-  @SerializedName(SERIALIZED_NAME_LOCAL_VARIABLES)
-  @javax.annotation.Nullable
-  private Object localVariables = null;
-
-  public static final String SERIALIZED_NAME_PARAMS = "params";
-  @SerializedName(SERIALIZED_NAME_PARAMS)
-  @javax.annotation.Nullable
-  private Object params = null;
-
-  public static final String SERIALIZED_NAME_RETURN_TYPE = "return_type";
-  @SerializedName(SERIALIZED_NAME_RETURN_TYPE)
-  @javax.annotation.Nullable
-  private String returnType;
-
-  public static final String SERIALIZED_NAME_RETURNS = "returns";
-  @SerializedName(SERIALIZED_NAME_RETURNS)
+  public static final String SERIALIZED_NAME_FUNCTION_VADDR = "function_vaddr";
+  @SerializedName(SERIALIZED_NAME_FUNCTION_VADDR)
   @javax.annotation.Nonnull
-  private Boolean returns;
+  private Long functionVaddr;
 
-  public DisassemblyOutputBody() {
+  public AnalysisCapabilityBody() {
   }
 
-  public DisassemblyOutputBody basicBlocks(@javax.annotation.Nullable Object basicBlocks) {
-    this.basicBlocks = basicBlocks;
+  public AnalysisCapabilityBody capabilities(@javax.annotation.Nullable List<String> capabilities) {
+    this.capabilities = capabilities;
+    return this;
+  }
+
+  public AnalysisCapabilityBody addCapabilitiesItem(String capabilitiesItem) {
+    if (this.capabilities == null) {
+      this.capabilities = new ArrayList<>();
+    }
+    this.capabilities.add(capabilitiesItem);
     return this;
   }
 
   /**
-   * Get basicBlocks
-   * @return basicBlocks
+   * Capabilities attributed to the function
+   * @return capabilities
    */
   @javax.annotation.Nullable
-  public Object getBasicBlocks() {
-    return basicBlocks;
+  public List<String> getCapabilities() {
+    return capabilities;
   }
 
-  public void setBasicBlocks(@javax.annotation.Nullable Object basicBlocks) {
-    this.basicBlocks = basicBlocks;
+  public void setCapabilities(@javax.annotation.Nullable List<String> capabilities) {
+    this.capabilities = capabilities;
   }
 
 
-  public DisassemblyOutputBody functionId(@javax.annotation.Nonnull Long functionId) {
-    this.functionId = functionId;
+  public AnalysisCapabilityBody functionName(@javax.annotation.Nonnull String functionName) {
+    this.functionName = functionName;
     return this;
   }
 
   /**
-   * Get functionId
-   * @return functionId
+   * Name of the function the capability was found in
+   * @return functionName
    */
   @javax.annotation.Nonnull
-  public Long getFunctionId() {
-    return functionId;
+  public String getFunctionName() {
+    return functionName;
   }
 
-  public void setFunctionId(@javax.annotation.Nonnull Long functionId) {
-    this.functionId = functionId;
+  public void setFunctionName(@javax.annotation.Nonnull String functionName) {
+    this.functionName = functionName;
   }
 
 
-  public DisassemblyOutputBody globalVariables(@javax.annotation.Nullable Object globalVariables) {
-    this.globalVariables = globalVariables;
+  public AnalysisCapabilityBody functionVaddr(@javax.annotation.Nonnull Long functionVaddr) {
+    this.functionVaddr = functionVaddr;
     return this;
   }
 
   /**
-   * Get globalVariables
-   * @return globalVariables
-   */
-  @javax.annotation.Nullable
-  public Object getGlobalVariables() {
-    return globalVariables;
-  }
-
-  public void setGlobalVariables(@javax.annotation.Nullable Object globalVariables) {
-    this.globalVariables = globalVariables;
-  }
-
-
-  public DisassemblyOutputBody localVariables(@javax.annotation.Nullable Object localVariables) {
-    this.localVariables = localVariables;
-    return this;
-  }
-
-  /**
-   * Get localVariables
-   * @return localVariables
-   */
-  @javax.annotation.Nullable
-  public Object getLocalVariables() {
-    return localVariables;
-  }
-
-  public void setLocalVariables(@javax.annotation.Nullable Object localVariables) {
-    this.localVariables = localVariables;
-  }
-
-
-  public DisassemblyOutputBody params(@javax.annotation.Nullable Object params) {
-    this.params = params;
-    return this;
-  }
-
-  /**
-   * Get params
-   * @return params
-   */
-  @javax.annotation.Nullable
-  public Object getParams() {
-    return params;
-  }
-
-  public void setParams(@javax.annotation.Nullable Object params) {
-    this.params = params;
-  }
-
-
-  public DisassemblyOutputBody returnType(@javax.annotation.Nullable String returnType) {
-    this.returnType = returnType;
-    return this;
-  }
-
-  /**
-   * Get returnType
-   * @return returnType
-   */
-  @javax.annotation.Nullable
-  public String getReturnType() {
-    return returnType;
-  }
-
-  public void setReturnType(@javax.annotation.Nullable String returnType) {
-    this.returnType = returnType;
-  }
-
-
-  public DisassemblyOutputBody returns(@javax.annotation.Nonnull Boolean returns) {
-    this.returns = returns;
-    return this;
-  }
-
-  /**
-   * Get returns
-   * @return returns
+   * Virtual address of that function
+   * @return functionVaddr
    */
   @javax.annotation.Nonnull
-  public Boolean getReturns() {
-    return returns;
+  public Long getFunctionVaddr() {
+    return functionVaddr;
   }
 
-  public void setReturns(@javax.annotation.Nonnull Boolean returns) {
-    this.returns = returns;
+  public void setFunctionVaddr(@javax.annotation.Nonnull Long functionVaddr) {
+    this.functionVaddr = functionVaddr;
   }
 
   /**
@@ -233,9 +146,9 @@ public class DisassemblyOutputBody {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the DisassemblyOutputBody instance itself
+   * @return the AnalysisCapabilityBody instance itself
    */
-  public DisassemblyOutputBody putAdditionalProperty(String key, Object value) {
+  public AnalysisCapabilityBody putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -274,44 +187,25 @@ public class DisassemblyOutputBody {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DisassemblyOutputBody disassemblyOutputBody = (DisassemblyOutputBody) o;
-    return Objects.equals(this.basicBlocks, disassemblyOutputBody.basicBlocks) &&
-        Objects.equals(this.functionId, disassemblyOutputBody.functionId) &&
-        Objects.equals(this.globalVariables, disassemblyOutputBody.globalVariables) &&
-        Objects.equals(this.localVariables, disassemblyOutputBody.localVariables) &&
-        Objects.equals(this.params, disassemblyOutputBody.params) &&
-        Objects.equals(this.returnType, disassemblyOutputBody.returnType) &&
-        Objects.equals(this.returns, disassemblyOutputBody.returns)&&
-        Objects.equals(this.additionalProperties, disassemblyOutputBody.additionalProperties);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+    AnalysisCapabilityBody analysisCapabilityBody = (AnalysisCapabilityBody) o;
+    return Objects.equals(this.capabilities, analysisCapabilityBody.capabilities) &&
+        Objects.equals(this.functionName, analysisCapabilityBody.functionName) &&
+        Objects.equals(this.functionVaddr, analysisCapabilityBody.functionVaddr)&&
+        Objects.equals(this.additionalProperties, analysisCapabilityBody.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(basicBlocks, functionId, globalVariables, localVariables, params, returnType, returns, additionalProperties);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(capabilities, functionName, functionVaddr, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DisassemblyOutputBody {\n");
-    sb.append("    basicBlocks: ").append(toIndentedString(basicBlocks)).append("\n");
-    sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
-    sb.append("    globalVariables: ").append(toIndentedString(globalVariables)).append("\n");
-    sb.append("    localVariables: ").append(toIndentedString(localVariables)).append("\n");
-    sb.append("    params: ").append(toIndentedString(params)).append("\n");
-    sb.append("    returnType: ").append(toIndentedString(returnType)).append("\n");
-    sb.append("    returns: ").append(toIndentedString(returns)).append("\n");
+    sb.append("class AnalysisCapabilityBody {\n");
+    sb.append("    capabilities: ").append(toIndentedString(capabilities)).append("\n");
+    sb.append("    functionName: ").append(toIndentedString(functionName)).append("\n");
+    sb.append("    functionVaddr: ").append(toIndentedString(functionVaddr)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -331,34 +225,40 @@ public class DisassemblyOutputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("basic_blocks", "function_id", "global_variables", "local_variables", "params", "return_type", "returns"));
+    openapiFields = new HashSet<String>(Arrays.asList("capabilities", "function_name", "function_vaddr"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("function_id", "returns"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("capabilities", "function_name", "function_vaddr"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to DisassemblyOutputBody
+   * @throws IOException if the JSON Element is invalid with respect to AnalysisCapabilityBody
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!DisassemblyOutputBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in DisassemblyOutputBody is not found in the empty JSON string", DisassemblyOutputBody.openapiRequiredFields.toString()));
+        if (!AnalysisCapabilityBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in AnalysisCapabilityBody is not found in the empty JSON string", AnalysisCapabilityBody.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : DisassemblyOutputBody.openapiRequiredFields) {
+      for (String requiredField : AnalysisCapabilityBody.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("return_type") != null && !jsonObj.get("return_type").isJsonNull()) && !jsonObj.get("return_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `return_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("return_type").toString()));
+      // ensure the required json array is present
+      if (jsonObj.get("capabilities") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("capabilities").isJsonArray() && !jsonObj.get("capabilities").isJsonNull()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `capabilities` to be an array in the JSON string but got `%s`", jsonObj.get("capabilities").toString()));
+      }
+      if (!jsonObj.get("function_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `function_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("function_name").toString()));
       }
   }
 
@@ -366,16 +266,16 @@ public class DisassemblyOutputBody {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!DisassemblyOutputBody.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'DisassemblyOutputBody' and its subtypes
+       if (!AnalysisCapabilityBody.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'AnalysisCapabilityBody' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<DisassemblyOutputBody> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(DisassemblyOutputBody.class));
+       final TypeAdapter<AnalysisCapabilityBody> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(AnalysisCapabilityBody.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<DisassemblyOutputBody>() {
+       return (TypeAdapter<T>) new TypeAdapter<AnalysisCapabilityBody>() {
            @Override
-           public void write(JsonWriter out, DisassemblyOutputBody value) throws IOException {
+           public void write(JsonWriter out, AnalysisCapabilityBody value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -403,12 +303,12 @@ public class DisassemblyOutputBody {
            }
 
            @Override
-           public DisassemblyOutputBody read(JsonReader in) throws IOException {
+           public AnalysisCapabilityBody read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             DisassemblyOutputBody instance = thisAdapter.fromJsonTree(jsonObj);
+             AnalysisCapabilityBody instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -435,18 +335,18 @@ public class DisassemblyOutputBody {
   }
 
   /**
-   * Create an instance of DisassemblyOutputBody given an JSON string
+   * Create an instance of AnalysisCapabilityBody given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of DisassemblyOutputBody
-   * @throws IOException if the JSON string is invalid with respect to DisassemblyOutputBody
+   * @return An instance of AnalysisCapabilityBody
+   * @throws IOException if the JSON string is invalid with respect to AnalysisCapabilityBody
    */
-  public static DisassemblyOutputBody fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, DisassemblyOutputBody.class);
+  public static AnalysisCapabilityBody fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, AnalysisCapabilityBody.class);
   }
 
   /**
-   * Convert an instance of DisassemblyOutputBody to an JSON string
+   * Convert an instance of AnalysisCapabilityBody to an JSON string
    *
    * @return JSON string
    */

@@ -14,7 +14,7 @@ package ai.reveng.model;
 
 import java.util.Objects;
 import ai.reveng.model.EvidenceEffect;
-import ai.reveng.model.SuspiciousString;
+import ai.reveng.model.StringMatch;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -49,16 +49,16 @@ import java.util.Set;
 import ai.reveng.invoker.JSON;
 
 /**
- * Suspicious strings without demonstrated semantic use.
+ * String matches without demonstrated semantic use.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class SuspiciousStringEvidence {
+public class StringMatchEvidence {
   /**
    * Gets or Sets evidenceKind
    */
   @JsonAdapter(EvidenceKindEnum.Adapter.class)
   public enum EvidenceKindEnum {
-    SUSPICIOUS_STRING("suspicious_string"),
+    STRING_MATCH("string_match"),
     
     UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
@@ -108,7 +108,7 @@ public class SuspiciousStringEvidence {
   public static final String SERIALIZED_NAME_EVIDENCE_KIND = "evidence_kind";
   @SerializedName(SERIALIZED_NAME_EVIDENCE_KIND)
   @javax.annotation.Nullable
-  private EvidenceKindEnum evidenceKind = EvidenceKindEnum.SUSPICIOUS_STRING;
+  private EvidenceKindEnum evidenceKind = EvidenceKindEnum.STRING_MATCH;
 
   /**
    * Gets or Sets kind
@@ -232,12 +232,12 @@ public class SuspiciousStringEvidence {
   public static final String SERIALIZED_NAME_STRINGS = "strings";
   @SerializedName(SERIALIZED_NAME_STRINGS)
   @javax.annotation.Nonnull
-  private List<SuspiciousString> strings = new ArrayList<>();
+  private List<StringMatch> strings = new ArrayList<>();
 
-  public SuspiciousStringEvidence() {
+  public StringMatchEvidence() {
   }
 
-  public SuspiciousStringEvidence evidenceKind(@javax.annotation.Nullable EvidenceKindEnum evidenceKind) {
+  public StringMatchEvidence evidenceKind(@javax.annotation.Nullable EvidenceKindEnum evidenceKind) {
     this.evidenceKind = evidenceKind;
     return this;
   }
@@ -256,7 +256,7 @@ public class SuspiciousStringEvidence {
   }
 
 
-  public SuspiciousStringEvidence kind(@javax.annotation.Nullable KindEnum kind) {
+  public StringMatchEvidence kind(@javax.annotation.Nullable KindEnum kind) {
     this.kind = kind;
     return this;
   }
@@ -275,7 +275,7 @@ public class SuspiciousStringEvidence {
   }
 
 
-  public SuspiciousStringEvidence effect(@javax.annotation.Nonnull EvidenceEffect effect) {
+  public StringMatchEvidence effect(@javax.annotation.Nonnull EvidenceEffect effect) {
     this.effect = effect;
     return this;
   }
@@ -294,7 +294,7 @@ public class SuspiciousStringEvidence {
   }
 
 
-  public SuspiciousStringEvidence strength(@javax.annotation.Nullable StrengthEnum strength) {
+  public StringMatchEvidence strength(@javax.annotation.Nullable StrengthEnum strength) {
     this.strength = strength;
     return this;
   }
@@ -313,12 +313,12 @@ public class SuspiciousStringEvidence {
   }
 
 
-  public SuspiciousStringEvidence strings(@javax.annotation.Nonnull List<SuspiciousString> strings) {
+  public StringMatchEvidence strings(@javax.annotation.Nonnull List<StringMatch> strings) {
     this.strings = strings;
     return this;
   }
 
-  public SuspiciousStringEvidence addStringsItem(SuspiciousString stringsItem) {
+  public StringMatchEvidence addStringsItem(StringMatch stringsItem) {
     if (this.strings == null) {
       this.strings = new ArrayList<>();
     }
@@ -331,11 +331,11 @@ public class SuspiciousStringEvidence {
    * @return strings
    */
   @javax.annotation.Nonnull
-  public List<SuspiciousString> getStrings() {
+  public List<StringMatch> getStrings() {
     return strings;
   }
 
-  public void setStrings(@javax.annotation.Nonnull List<SuspiciousString> strings) {
+  public void setStrings(@javax.annotation.Nonnull List<StringMatch> strings) {
     this.strings = strings;
   }
 
@@ -352,9 +352,9 @@ public class SuspiciousStringEvidence {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the SuspiciousStringEvidence instance itself
+   * @return the StringMatchEvidence instance itself
    */
-  public SuspiciousStringEvidence putAdditionalProperty(String key, Object value) {
+  public StringMatchEvidence putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -393,13 +393,13 @@ public class SuspiciousStringEvidence {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SuspiciousStringEvidence suspiciousStringEvidence = (SuspiciousStringEvidence) o;
-    return Objects.equals(this.evidenceKind, suspiciousStringEvidence.evidenceKind) &&
-        Objects.equals(this.kind, suspiciousStringEvidence.kind) &&
-        Objects.equals(this.effect, suspiciousStringEvidence.effect) &&
-        Objects.equals(this.strength, suspiciousStringEvidence.strength) &&
-        Objects.equals(this.strings, suspiciousStringEvidence.strings)&&
-        Objects.equals(this.additionalProperties, suspiciousStringEvidence.additionalProperties);
+    StringMatchEvidence stringMatchEvidence = (StringMatchEvidence) o;
+    return Objects.equals(this.evidenceKind, stringMatchEvidence.evidenceKind) &&
+        Objects.equals(this.kind, stringMatchEvidence.kind) &&
+        Objects.equals(this.effect, stringMatchEvidence.effect) &&
+        Objects.equals(this.strength, stringMatchEvidence.strength) &&
+        Objects.equals(this.strings, stringMatchEvidence.strings)&&
+        Objects.equals(this.additionalProperties, stringMatchEvidence.additionalProperties);
   }
 
   @Override
@@ -410,7 +410,7 @@ public class SuspiciousStringEvidence {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SuspiciousStringEvidence {\n");
+    sb.append("class StringMatchEvidence {\n");
     sb.append("    evidenceKind: ").append(toIndentedString(evidenceKind)).append("\n");
     sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
     sb.append("    effect: ").append(toIndentedString(effect)).append("\n");
@@ -445,17 +445,17 @@ public class SuspiciousStringEvidence {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to SuspiciousStringEvidence
+   * @throws IOException if the JSON Element is invalid with respect to StringMatchEvidence
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!SuspiciousStringEvidence.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in SuspiciousStringEvidence is not found in the empty JSON string", SuspiciousStringEvidence.openapiRequiredFields.toString()));
+        if (!StringMatchEvidence.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in StringMatchEvidence is not found in the empty JSON string", StringMatchEvidence.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : SuspiciousStringEvidence.openapiRequiredFields) {
+      for (String requiredField : StringMatchEvidence.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
@@ -491,7 +491,7 @@ public class SuspiciousStringEvidence {
         JsonArray jsonArraystrings = jsonObj.getAsJsonArray("strings");
         // validate the required field `strings` (array)
         for (int i = 0; i < jsonArraystrings.size(); i++) {
-          SuspiciousString.validateJsonElement(jsonArraystrings.get(i));
+          StringMatch.validateJsonElement(jsonArraystrings.get(i));
         }
       }
   }
@@ -500,16 +500,16 @@ public class SuspiciousStringEvidence {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!SuspiciousStringEvidence.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'SuspiciousStringEvidence' and its subtypes
+       if (!StringMatchEvidence.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'StringMatchEvidence' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<SuspiciousStringEvidence> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(SuspiciousStringEvidence.class));
+       final TypeAdapter<StringMatchEvidence> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(StringMatchEvidence.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<SuspiciousStringEvidence>() {
+       return (TypeAdapter<T>) new TypeAdapter<StringMatchEvidence>() {
            @Override
-           public void write(JsonWriter out, SuspiciousStringEvidence value) throws IOException {
+           public void write(JsonWriter out, StringMatchEvidence value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -537,12 +537,12 @@ public class SuspiciousStringEvidence {
            }
 
            @Override
-           public SuspiciousStringEvidence read(JsonReader in) throws IOException {
+           public StringMatchEvidence read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             SuspiciousStringEvidence instance = thisAdapter.fromJsonTree(jsonObj);
+             StringMatchEvidence instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -569,18 +569,18 @@ public class SuspiciousStringEvidence {
   }
 
   /**
-   * Create an instance of SuspiciousStringEvidence given an JSON string
+   * Create an instance of StringMatchEvidence given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of SuspiciousStringEvidence
-   * @throws IOException if the JSON string is invalid with respect to SuspiciousStringEvidence
+   * @return An instance of StringMatchEvidence
+   * @throws IOException if the JSON string is invalid with respect to StringMatchEvidence
    */
-  public static SuspiciousStringEvidence fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, SuspiciousStringEvidence.class);
+  public static StringMatchEvidence fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, StringMatchEvidence.class);
   }
 
   /**
-   * Convert an instance of SuspiciousStringEvidence to an JSON string
+   * Convert an instance of StringMatchEvidence to an JSON string
    *
    * @return JSON string
    */

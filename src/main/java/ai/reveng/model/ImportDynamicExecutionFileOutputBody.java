@@ -20,7 +20,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,178 +45,154 @@ import java.util.Set;
 import ai.reveng.invoker.JSON;
 
 /**
- * DisassemblyOutputBody
+ * ImportDynamicExecutionFileOutputBody
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class DisassemblyOutputBody {
-  public static final String SERIALIZED_NAME_BASIC_BLOCKS = "basic_blocks";
-  @SerializedName(SERIALIZED_NAME_BASIC_BLOCKS)
-  @javax.annotation.Nullable
-  private Object basicBlocks = null;
-
-  public static final String SERIALIZED_NAME_FUNCTION_ID = "function_id";
-  @SerializedName(SERIALIZED_NAME_FUNCTION_ID)
+public class ImportDynamicExecutionFileOutputBody {
+  public static final String SERIALIZED_NAME_CAN_EXTRACT = "can_extract";
+  @SerializedName(SERIALIZED_NAME_CAN_EXTRACT)
   @javax.annotation.Nonnull
-  private Long functionId;
+  private Boolean canExtract;
 
-  public static final String SERIALIZED_NAME_GLOBAL_VARIABLES = "global_variables";
-  @SerializedName(SERIALIZED_NAME_GLOBAL_VARIABLES)
-  @javax.annotation.Nullable
-  private Object globalVariables = null;
-
-  public static final String SERIALIZED_NAME_LOCAL_VARIABLES = "local_variables";
-  @SerializedName(SERIALIZED_NAME_LOCAL_VARIABLES)
-  @javax.annotation.Nullable
-  private Object localVariables = null;
-
-  public static final String SERIALIZED_NAME_PARAMS = "params";
-  @SerializedName(SERIALIZED_NAME_PARAMS)
-  @javax.annotation.Nullable
-  private Object params = null;
-
-  public static final String SERIALIZED_NAME_RETURN_TYPE = "return_type";
-  @SerializedName(SERIALIZED_NAME_RETURN_TYPE)
-  @javax.annotation.Nullable
-  private String returnType;
-
-  public static final String SERIALIZED_NAME_RETURNS = "returns";
-  @SerializedName(SERIALIZED_NAME_RETURNS)
+  public static final String SERIALIZED_NAME_CAN_SANDBOX = "can_sandbox";
+  @SerializedName(SERIALIZED_NAME_CAN_SANDBOX)
   @javax.annotation.Nonnull
-  private Boolean returns;
+  private Boolean canSandbox;
 
-  public DisassemblyOutputBody() {
+  public static final String SERIALIZED_NAME_IS_ARCHIVE = "is_archive";
+  @SerializedName(SERIALIZED_NAME_IS_ARCHIVE)
+  @javax.annotation.Nonnull
+  private Boolean isArchive;
+
+  public static final String SERIALIZED_NAME_MIME = "mime";
+  @SerializedName(SERIALIZED_NAME_MIME)
+  @javax.annotation.Nonnull
+  private String mime;
+
+  public static final String SERIALIZED_NAME_SHA256_HASH = "sha_256_hash";
+  @SerializedName(SERIALIZED_NAME_SHA256_HASH)
+  @javax.annotation.Nonnull
+  private String sha256Hash;
+
+  public static final String SERIALIZED_NAME_SIZE = "size";
+  @SerializedName(SERIALIZED_NAME_SIZE)
+  @javax.annotation.Nonnull
+  private Long size;
+
+  public ImportDynamicExecutionFileOutputBody() {
   }
 
-  public DisassemblyOutputBody basicBlocks(@javax.annotation.Nullable Object basicBlocks) {
-    this.basicBlocks = basicBlocks;
+  public ImportDynamicExecutionFileOutputBody canExtract(@javax.annotation.Nonnull Boolean canExtract) {
+    this.canExtract = canExtract;
     return this;
   }
 
   /**
-   * Get basicBlocks
-   * @return basicBlocks
-   */
-  @javax.annotation.Nullable
-  public Object getBasicBlocks() {
-    return basicBlocks;
-  }
-
-  public void setBasicBlocks(@javax.annotation.Nullable Object basicBlocks) {
-    this.basicBlocks = basicBlocks;
-  }
-
-
-  public DisassemblyOutputBody functionId(@javax.annotation.Nonnull Long functionId) {
-    this.functionId = functionId;
-    return this;
-  }
-
-  /**
-   * Get functionId
-   * @return functionId
+   * Whether the firmware/extraction flow can accept this file.
+   * @return canExtract
    */
   @javax.annotation.Nonnull
-  public Long getFunctionId() {
-    return functionId;
+  public Boolean getCanExtract() {
+    return canExtract;
   }
 
-  public void setFunctionId(@javax.annotation.Nonnull Long functionId) {
-    this.functionId = functionId;
+  public void setCanExtract(@javax.annotation.Nonnull Boolean canExtract) {
+    this.canExtract = canExtract;
   }
 
 
-  public DisassemblyOutputBody globalVariables(@javax.annotation.Nullable Object globalVariables) {
-    this.globalVariables = globalVariables;
+  public ImportDynamicExecutionFileOutputBody canSandbox(@javax.annotation.Nonnull Boolean canSandbox) {
+    this.canSandbox = canSandbox;
     return this;
   }
 
   /**
-   * Get globalVariables
-   * @return globalVariables
-   */
-  @javax.annotation.Nullable
-  public Object getGlobalVariables() {
-    return globalVariables;
-  }
-
-  public void setGlobalVariables(@javax.annotation.Nullable Object globalVariables) {
-    this.globalVariables = globalVariables;
-  }
-
-
-  public DisassemblyOutputBody localVariables(@javax.annotation.Nullable Object localVariables) {
-    this.localVariables = localVariables;
-    return this;
-  }
-
-  /**
-   * Get localVariables
-   * @return localVariables
-   */
-  @javax.annotation.Nullable
-  public Object getLocalVariables() {
-    return localVariables;
-  }
-
-  public void setLocalVariables(@javax.annotation.Nullable Object localVariables) {
-    this.localVariables = localVariables;
-  }
-
-
-  public DisassemblyOutputBody params(@javax.annotation.Nullable Object params) {
-    this.params = params;
-    return this;
-  }
-
-  /**
-   * Get params
-   * @return params
-   */
-  @javax.annotation.Nullable
-  public Object getParams() {
-    return params;
-  }
-
-  public void setParams(@javax.annotation.Nullable Object params) {
-    this.params = params;
-  }
-
-
-  public DisassemblyOutputBody returnType(@javax.annotation.Nullable String returnType) {
-    this.returnType = returnType;
-    return this;
-  }
-
-  /**
-   * Get returnType
-   * @return returnType
-   */
-  @javax.annotation.Nullable
-  public String getReturnType() {
-    return returnType;
-  }
-
-  public void setReturnType(@javax.annotation.Nullable String returnType) {
-    this.returnType = returnType;
-  }
-
-
-  public DisassemblyOutputBody returns(@javax.annotation.Nonnull Boolean returns) {
-    this.returns = returns;
-    return this;
-  }
-
-  /**
-   * Get returns
-   * @return returns
+   * Whether the file can be extracted and run in the Windows sandbox.
+   * @return canSandbox
    */
   @javax.annotation.Nonnull
-  public Boolean getReturns() {
-    return returns;
+  public Boolean getCanSandbox() {
+    return canSandbox;
   }
 
-  public void setReturns(@javax.annotation.Nonnull Boolean returns) {
-    this.returns = returns;
+  public void setCanSandbox(@javax.annotation.Nonnull Boolean canSandbox) {
+    this.canSandbox = canSandbox;
+  }
+
+
+  public ImportDynamicExecutionFileOutputBody isArchive(@javax.annotation.Nonnull Boolean isArchive) {
+    this.isArchive = isArchive;
+    return this;
+  }
+
+  /**
+   * Whether the detected format is a container/compression archive.
+   * @return isArchive
+   */
+  @javax.annotation.Nonnull
+  public Boolean getIsArchive() {
+    return isArchive;
+  }
+
+  public void setIsArchive(@javax.annotation.Nonnull Boolean isArchive) {
+    this.isArchive = isArchive;
+  }
+
+
+  public ImportDynamicExecutionFileOutputBody mime(@javax.annotation.Nonnull String mime) {
+    this.mime = mime;
+    return this;
+  }
+
+  /**
+   * The MIME type detected from the file&#39;s contents.
+   * @return mime
+   */
+  @javax.annotation.Nonnull
+  public String getMime() {
+    return mime;
+  }
+
+  public void setMime(@javax.annotation.Nonnull String mime) {
+    this.mime = mime;
+  }
+
+
+  public ImportDynamicExecutionFileOutputBody sha256Hash(@javax.annotation.Nonnull String sha256Hash) {
+    this.sha256Hash = sha256Hash;
+    return this;
+  }
+
+  /**
+   * SHA-256 hash the file is stored under; the storage key for every subsequent reference to it.
+   * @return sha256Hash
+   */
+  @javax.annotation.Nonnull
+  public String getSha256Hash() {
+    return sha256Hash;
+  }
+
+  public void setSha256Hash(@javax.annotation.Nonnull String sha256Hash) {
+    this.sha256Hash = sha256Hash;
+  }
+
+
+  public ImportDynamicExecutionFileOutputBody size(@javax.annotation.Nonnull Long size) {
+    this.size = size;
+    return this;
+  }
+
+  /**
+   * Size of the file in bytes.
+   * @return size
+   */
+  @javax.annotation.Nonnull
+  public Long getSize() {
+    return size;
+  }
+
+  public void setSize(@javax.annotation.Nonnull Long size) {
+    this.size = size;
   }
 
   /**
@@ -233,9 +208,9 @@ public class DisassemblyOutputBody {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the DisassemblyOutputBody instance itself
+   * @return the ImportDynamicExecutionFileOutputBody instance itself
    */
-  public DisassemblyOutputBody putAdditionalProperty(String key, Object value) {
+  public ImportDynamicExecutionFileOutputBody putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -274,44 +249,31 @@ public class DisassemblyOutputBody {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DisassemblyOutputBody disassemblyOutputBody = (DisassemblyOutputBody) o;
-    return Objects.equals(this.basicBlocks, disassemblyOutputBody.basicBlocks) &&
-        Objects.equals(this.functionId, disassemblyOutputBody.functionId) &&
-        Objects.equals(this.globalVariables, disassemblyOutputBody.globalVariables) &&
-        Objects.equals(this.localVariables, disassemblyOutputBody.localVariables) &&
-        Objects.equals(this.params, disassemblyOutputBody.params) &&
-        Objects.equals(this.returnType, disassemblyOutputBody.returnType) &&
-        Objects.equals(this.returns, disassemblyOutputBody.returns)&&
-        Objects.equals(this.additionalProperties, disassemblyOutputBody.additionalProperties);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+    ImportDynamicExecutionFileOutputBody importDynamicExecutionFileOutputBody = (ImportDynamicExecutionFileOutputBody) o;
+    return Objects.equals(this.canExtract, importDynamicExecutionFileOutputBody.canExtract) &&
+        Objects.equals(this.canSandbox, importDynamicExecutionFileOutputBody.canSandbox) &&
+        Objects.equals(this.isArchive, importDynamicExecutionFileOutputBody.isArchive) &&
+        Objects.equals(this.mime, importDynamicExecutionFileOutputBody.mime) &&
+        Objects.equals(this.sha256Hash, importDynamicExecutionFileOutputBody.sha256Hash) &&
+        Objects.equals(this.size, importDynamicExecutionFileOutputBody.size)&&
+        Objects.equals(this.additionalProperties, importDynamicExecutionFileOutputBody.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(basicBlocks, functionId, globalVariables, localVariables, params, returnType, returns, additionalProperties);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(canExtract, canSandbox, isArchive, mime, sha256Hash, size, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DisassemblyOutputBody {\n");
-    sb.append("    basicBlocks: ").append(toIndentedString(basicBlocks)).append("\n");
-    sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
-    sb.append("    globalVariables: ").append(toIndentedString(globalVariables)).append("\n");
-    sb.append("    localVariables: ").append(toIndentedString(localVariables)).append("\n");
-    sb.append("    params: ").append(toIndentedString(params)).append("\n");
-    sb.append("    returnType: ").append(toIndentedString(returnType)).append("\n");
-    sb.append("    returns: ").append(toIndentedString(returns)).append("\n");
+    sb.append("class ImportDynamicExecutionFileOutputBody {\n");
+    sb.append("    canExtract: ").append(toIndentedString(canExtract)).append("\n");
+    sb.append("    canSandbox: ").append(toIndentedString(canSandbox)).append("\n");
+    sb.append("    isArchive: ").append(toIndentedString(isArchive)).append("\n");
+    sb.append("    mime: ").append(toIndentedString(mime)).append("\n");
+    sb.append("    sha256Hash: ").append(toIndentedString(sha256Hash)).append("\n");
+    sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -331,34 +293,37 @@ public class DisassemblyOutputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("basic_blocks", "function_id", "global_variables", "local_variables", "params", "return_type", "returns"));
+    openapiFields = new HashSet<String>(Arrays.asList("can_extract", "can_sandbox", "is_archive", "mime", "sha_256_hash", "size"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("function_id", "returns"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("can_extract", "can_sandbox", "is_archive", "mime", "sha_256_hash", "size"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to DisassemblyOutputBody
+   * @throws IOException if the JSON Element is invalid with respect to ImportDynamicExecutionFileOutputBody
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!DisassemblyOutputBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in DisassemblyOutputBody is not found in the empty JSON string", DisassemblyOutputBody.openapiRequiredFields.toString()));
+        if (!ImportDynamicExecutionFileOutputBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ImportDynamicExecutionFileOutputBody is not found in the empty JSON string", ImportDynamicExecutionFileOutputBody.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : DisassemblyOutputBody.openapiRequiredFields) {
+      for (String requiredField : ImportDynamicExecutionFileOutputBody.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("return_type") != null && !jsonObj.get("return_type").isJsonNull()) && !jsonObj.get("return_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `return_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("return_type").toString()));
+      if (!jsonObj.get("mime").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mime` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mime").toString()));
+      }
+      if (!jsonObj.get("sha_256_hash").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sha_256_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sha_256_hash").toString()));
       }
   }
 
@@ -366,16 +331,16 @@ public class DisassemblyOutputBody {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!DisassemblyOutputBody.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'DisassemblyOutputBody' and its subtypes
+       if (!ImportDynamicExecutionFileOutputBody.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ImportDynamicExecutionFileOutputBody' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<DisassemblyOutputBody> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(DisassemblyOutputBody.class));
+       final TypeAdapter<ImportDynamicExecutionFileOutputBody> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ImportDynamicExecutionFileOutputBody.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<DisassemblyOutputBody>() {
+       return (TypeAdapter<T>) new TypeAdapter<ImportDynamicExecutionFileOutputBody>() {
            @Override
-           public void write(JsonWriter out, DisassemblyOutputBody value) throws IOException {
+           public void write(JsonWriter out, ImportDynamicExecutionFileOutputBody value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -403,12 +368,12 @@ public class DisassemblyOutputBody {
            }
 
            @Override
-           public DisassemblyOutputBody read(JsonReader in) throws IOException {
+           public ImportDynamicExecutionFileOutputBody read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             DisassemblyOutputBody instance = thisAdapter.fromJsonTree(jsonObj);
+             ImportDynamicExecutionFileOutputBody instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -435,18 +400,18 @@ public class DisassemblyOutputBody {
   }
 
   /**
-   * Create an instance of DisassemblyOutputBody given an JSON string
+   * Create an instance of ImportDynamicExecutionFileOutputBody given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of DisassemblyOutputBody
-   * @throws IOException if the JSON string is invalid with respect to DisassemblyOutputBody
+   * @return An instance of ImportDynamicExecutionFileOutputBody
+   * @throws IOException if the JSON string is invalid with respect to ImportDynamicExecutionFileOutputBody
    */
-  public static DisassemblyOutputBody fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, DisassemblyOutputBody.class);
+  public static ImportDynamicExecutionFileOutputBody fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ImportDynamicExecutionFileOutputBody.class);
   }
 
   /**
-   * Convert an instance of DisassemblyOutputBody to an JSON string
+   * Convert an instance of ImportDynamicExecutionFileOutputBody to an JSON string
    *
    * @return JSON string
    */

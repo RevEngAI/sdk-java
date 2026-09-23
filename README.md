@@ -16,7 +16,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>ai.reveng</groupId>
     <artifactId>sdk</artifactId>
-    <version>4.51.0</version>
+    <version>4.54.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -31,7 +31,7 @@ repositories {
 }
 
 dependencies {
-    implementation "ai.reveng:sdk:4.51.0"
+    implementation "ai.reveng:sdk:4.54.0"
 }
 ```
 
@@ -133,6 +133,7 @@ Class | Method | HTTP request | Description
 *AgentApi* | [**v3UpsertBinaryAgentFeedback**](docs/AgentApi.md#v3UpsertBinaryAgentFeedback) | **PUT** /v3/analyses/{analysis_id}/agents/{agent}/feedback | Record feedback on an agent&#39;s output.
 *AnalysesBulkActionsApi* | [**bulkAddAnalysisTags**](docs/AnalysesBulkActionsApi.md#bulkAddAnalysisTags) | **PATCH** /v2/analyses/tags/add | Bulk Add Analysis Tags
 *AnalysesBulkActionsApi* | [**bulkDeleteAnalyses**](docs/AnalysesBulkActionsApi.md#bulkDeleteAnalyses) | **PATCH** /v2/analyses/delete | Bulk Delete Analyses
+*AnalysesBulkActionsApi* | [**v3BatchDeleteAnalyses**](docs/AnalysesBulkActionsApi.md#v3BatchDeleteAnalyses) | **POST** /v3/analyses:batchDelete | Delete multiple analyses.
 *AnalysesCommentsApi* | [**createAnalysisComment**](docs/AnalysesCommentsApi.md#createAnalysisComment) | **POST** /v2/analyses/{analysis_id}/comments | Create a comment for this analysis
 *AnalysesCommentsApi* | [**deleteAnalysisComment**](docs/AnalysesCommentsApi.md#deleteAnalysisComment) | **DELETE** /v2/analyses/{analysis_id}/comments/{comment_id} | Delete a comment
 *AnalysesCommentsApi* | [**getAnalysisComments**](docs/AnalysesCommentsApi.md#getAnalysisComments) | **GET** /v2/analyses/{analysis_id}/comments | Get comments for this analysis
@@ -161,19 +162,27 @@ Class | Method | HTTP request | Description
 *AnalysesCoreApi* | [**updateAnalysisTags**](docs/AnalysesCoreApi.md#updateAnalysisTags) | **PATCH** /v2/analyses/{analysis_id}/tags | Update Analysis Tags
 *AnalysesCoreApi* | [**uploadFile**](docs/AnalysesCoreApi.md#uploadFile) | **POST** /v2/upload | Upload File
 *AnalysesCoreApi* | [**v3CreateAnalysis**](docs/AnalysesCoreApi.md#v3CreateAnalysis) | **POST** /v3/analyses | Create an analysis
+*AnalysesCoreApi* | [**v3DeleteAnalysis**](docs/AnalysesCoreApi.md#v3DeleteAnalysis) | **DELETE** /v3/analyses/{analysis_id} | Delete an analysis.
+*AnalysesCoreApi* | [**v3DownloadBinaryExport**](docs/AnalysesCoreApi.md#v3DownloadBinaryExport) | **GET** /v3/analyses/{analysis_id}/binary-export | Download a binary export
+*AnalysesCoreApi* | [**v3GetAnalysis**](docs/AnalysesCoreApi.md#v3GetAnalysis) | **GET** /v3/analyses/{analysis_id} | Get an analysis.
 *AnalysesCoreApi* | [**v3GetAnalysisAutoUnstripStatus**](docs/AnalysesCoreApi.md#v3GetAnalysisAutoUnstripStatus) | **GET** /v3/analyses/{analysis_id}/auto-unstrip/status | Get the auto-unstrip status for an analysis.
 *AnalysesCoreApi* | [**v3GetAnalysisFunctionsProgress**](docs/AnalysesCoreApi.md#v3GetAnalysisFunctionsProgress) | **GET** /v3/analyses/{analysis_id}/progress/functions | Get function embedding progress for an analysis.
 *AnalysesCoreApi* | [**v3GetAnalysisLogs**](docs/AnalysesCoreApi.md#v3GetAnalysisLogs) | **GET** /v3/analyses/{analysis_id}/logs | Get the Analysis log
 *AnalysesCoreApi* | [**v3GetAnalysisOperation**](docs/AnalysesCoreApi.md#v3GetAnalysisOperation) | **GET** /v3/operations/analyses/{analysis_id} | Get an Analysis-creation operation
 *AnalysesCoreApi* | [**v3GetAnalysisStrings**](docs/AnalysesCoreApi.md#v3GetAnalysisStrings) | **GET** /v3/analyses/{analysis_id}/functions/strings | List strings for an analysis.
 *AnalysesCoreApi* | [**v3GetAnalysisStringsStatus**](docs/AnalysesCoreApi.md#v3GetAnalysisStringsStatus) | **GET** /v3/analyses/{analysis_id}/functions/strings/status | Get the string-extraction status for an analysis.
+*AnalysesCoreApi* | [**v3GetBinaryExportOperation**](docs/AnalysesCoreApi.md#v3GetBinaryExportOperation) | **GET** /v3/operations/binary-export/{task_id} | Get a binary export operation
 *AnalysesCoreApi* | [**v3ListAnalyses**](docs/AnalysesCoreApi.md#v3ListAnalyses) | **GET** /v3/analyses | List analyses
 *AnalysesCoreApi* | [**v3ListExampleAnalyses**](docs/AnalysesCoreApi.md#v3ListExampleAnalyses) | **GET** /v3/analyses/examples | List example analyses
+*AnalysesCoreApi* | [**v3LookupAnalysisByBinaryId**](docs/AnalysesCoreApi.md#v3LookupAnalysisByBinaryId) | **GET** /v3/analyses/lookup/{binary_id} | Look up the most recent analysis for a binary.
+*AnalysesCoreApi* | [**v3QueueBinaryExport**](docs/AnalysesCoreApi.md#v3QueueBinaryExport) | **POST** /v3/analyses/{analysis_id}/binary-export | Queue a binary export
+*AnalysesCoreApi* | [**v3UpdateAnalysis**](docs/AnalysesCoreApi.md#v3UpdateAnalysis) | **PATCH** /v3/analyses/{analysis_id} | Update an analysis.
 *AnalysesCoreApi* | [**v3UpgradeAnalysisModel**](docs/AnalysesCoreApi.md#v3UpgradeAnalysisModel) | **POST** /v3/analyses/{analysis_id}/upgrade-model | Re-analyse on the latest model
 *AnalysesResultsMetadataApi* | [**getAnalysisFunctionsPaginated**](docs/AnalysesResultsMetadataApi.md#getAnalysisFunctionsPaginated) | **GET** /v2/analyses/{analysis_id}/functions | Get functions from analysis
 *AnalysesResultsMetadataApi* | [**getCapabilities**](docs/AnalysesResultsMetadataApi.md#getCapabilities) | **GET** /v2/analyses/{analysis_id}/capabilities | Gets the capabilities from the analysis
 *AnalysesResultsMetadataApi* | [**getFunctionsList**](docs/AnalysesResultsMetadataApi.md#getFunctionsList) | **GET** /v2/analyses/{analysis_id}/functions/list | Gets functions from analysis
 *AnalysesResultsMetadataApi* | [**getTags**](docs/AnalysesResultsMetadataApi.md#getTags) | **GET** /v2/analyses/{analysis_id}/tags | Get function tags with maliciousness score
+*AnalysesResultsMetadataApi* | [**v3ListAnalysisCapabilities**](docs/AnalysesResultsMetadataApi.md#v3ListAnalysisCapabilities) | **GET** /v3/analyses/{analysis_id}/capabilities | List the capabilities found in an analysis.
 *AnalysesXRefsApi* | [**getXrefByVaddr**](docs/AnalysesXRefsApi.md#getXrefByVaddr) | **GET** /v2/analyses/{analysis_id}/xrefs/{vaddr} | [Beta] Look up xrefs by virtual address
 *AuthenticationUsersApi* | [**getUser**](docs/AuthenticationUsersApi.md#getUser) | **GET** /v2/users/{user_id} | Get a user&#39;s public information
 *AuthenticationUsersApi* | [**getUserActivity**](docs/AuthenticationUsersApi.md#getUserActivity) | **GET** /v2/users/activity | Get auth user activity
@@ -306,17 +315,21 @@ Class | Method | HTTP request | Description
  - [AddUserStringToFunctionInputBody](docs/AddUserStringToFunctionInputBody.md)
  - [AdditionalDetailsStatusResponse](docs/AdditionalDetailsStatusResponse.md)
  - [AiDecompilationRating](docs/AiDecompilationRating.md)
+ - [AnalysisAccessBody](docs/AnalysisAccessBody.md)
  - [AnalysisAccessInfo](docs/AnalysisAccessInfo.md)
  - [AnalysisBasicInfoOutputBody](docs/AnalysisBasicInfoOutputBody.md)
  - [AnalysisBulkAddTagsRequest](docs/AnalysisBulkAddTagsRequest.md)
  - [AnalysisBulkAddTagsResponse](docs/AnalysisBulkAddTagsResponse.md)
  - [AnalysisBulkAddTagsResponseItem](docs/AnalysisBulkAddTagsResponseItem.md)
+ - [AnalysisCapabilitiesOutputBody](docs/AnalysisCapabilitiesOutputBody.md)
+ - [AnalysisCapabilityBody](docs/AnalysisCapabilityBody.md)
  - [AnalysisConfig](docs/AnalysisConfig.md)
  - [AnalysisConfigSnapshot](docs/AnalysisConfigSnapshot.md)
  - [AnalysisCreateRequest](docs/AnalysisCreateRequest.md)
  - [AnalysisCreateResponse](docs/AnalysisCreateResponse.md)
  - [AnalysisDataTypesGroup](docs/AnalysisDataTypesGroup.md)
  - [AnalysisDataTypesOutputBody](docs/AnalysisDataTypesOutputBody.md)
+ - [AnalysisDetailOutputBody](docs/AnalysisDetailOutputBody.md)
  - [AnalysisDetailResponse](docs/AnalysisDetailResponse.md)
  - [AnalysisFunctionEntry](docs/AnalysisFunctionEntry.md)
  - [AnalysisFunctionMapping](docs/AnalysisFunctionMapping.md)
@@ -355,6 +368,7 @@ Class | Method | HTTP request | Description
  - [AttemptFailedEvent](docs/AttemptFailedEvent.md)
  - [AttemptStartedEvent](docs/AttemptStartedEvent.md)
  - [AutoRunAgents](docs/AutoRunAgents.md)
+ - [AutoRunAgentsBody](docs/AutoRunAgentsBody.md)
  - [AutoUnstripStatusOutputBody](docs/AutoUnstripStatusOutputBody.md)
  - [BaseDataType](docs/BaseDataType.md)
  - [BaseResponse](docs/BaseResponse.md)
@@ -433,6 +447,8 @@ Class | Method | HTTP request | Description
  - [BinaryAdditionalResponse](docs/BinaryAdditionalResponse.md)
  - [BinaryConfig](docs/BinaryConfig.md)
  - [BinaryDetailsResponse](docs/BinaryDetailsResponse.md)
+ - [BinaryExportMetadata](docs/BinaryExportMetadata.md)
+ - [BinaryExportResult](docs/BinaryExportResult.md)
  - [BinaryExternalsResponse](docs/BinaryExternalsResponse.md)
  - [BinarySearchResponse](docs/BinarySearchResponse.md)
  - [BinarySearchResult](docs/BinarySearchResult.md)
@@ -440,6 +456,7 @@ Class | Method | HTTP request | Description
  - [BitfieldDataType](docs/BitfieldDataType.md)
  - [BulkCreateUserResult](docs/BulkCreateUserResult.md)
  - [BulkCreateUsersOutputBody](docs/BulkCreateUsersOutputBody.md)
+ - [BulkDeleteAnalysesInputBody](docs/BulkDeleteAnalysesInputBody.md)
  - [BulkDeleteAnalysesRequest](docs/BulkDeleteAnalysesRequest.md)
  - [BytesConstant](docs/BytesConstant.md)
  - [CallChain](docs/CallChain.md)
@@ -679,6 +696,7 @@ Class | Method | HTTP request | Description
  - [IOC](docs/IOC.md)
  - [ISA](docs/ISA.md)
  - [IconModel](docs/IconModel.md)
+ - [ImportDynamicExecutionFileOutputBody](docs/ImportDynamicExecutionFileOutputBody.md)
  - [ImportModel](docs/ImportModel.md)
  - [ImportedApi](docs/ImportedApi.md)
  - [ImportedApiCall](docs/ImportedApiCall.md)
@@ -711,6 +729,7 @@ Class | Method | HTTP request | Description
  - [ListUsersOutputBody](docs/ListUsersOutputBody.md)
  - [LocationOutputBody](docs/LocationOutputBody.md)
  - [Logs](docs/Logs.md)
+ - [LookupAnalysisByBinaryIDOutputBody](docs/LookupAnalysisByBinaryIDOutputBody.md)
  - [MITRETechnique](docs/MITRETechnique.md)
  - [MatchFilters](docs/MatchFilters.md)
  - [MatchedFunction](docs/MatchedFunction.md)
@@ -738,6 +757,7 @@ Class | Method | HTTP request | Description
  - [NetworkingScanMetadata](docs/NetworkingScanMetadata.md)
  - [NetworkingScanResult](docs/NetworkingScanResult.md)
  - [OIDCCallbackInputBody](docs/OIDCCallbackInputBody.md)
+ - [OperationBinaryExportMetadataBinaryExportResult](docs/OperationBinaryExportMetadataBinaryExportResult.md)
  - [OperationCreateMetadataCreateResult](docs/OperationCreateMetadataCreateResult.md)
  - [OperationCryptoExplainMetadataCryptoExplainResult](docs/OperationCryptoExplainMetadataCryptoExplainResult.md)
  - [OperationCryptoScanMetadataCryptoScanResult](docs/OperationCryptoScanMetadataCryptoScanResult.md)
@@ -813,6 +833,7 @@ Class | Method | HTTP request | Description
  - [ReportOptions](docs/ReportOptions.md)
  - [ReportReachabilityStatus](docs/ReportReachabilityStatus.md)
  - [ReportResult](docs/ReportResult.md)
+ - [RequestedConfigBody](docs/RequestedConfigBody.md)
  - [ResolvedEntity](docs/ResolvedEntity.md)
  - [ResultBody](docs/ResultBody.md)
  - [RevokeBody](docs/RevokeBody.md)
@@ -877,6 +898,8 @@ Class | Method | HTTP request | Description
  - [StatusOutput](docs/StatusOutput.md)
  - [StatusResponse](docs/StatusResponse.md)
  - [StringFunctions](docs/StringFunctions.md)
+ - [StringMatch](docs/StringMatch.md)
+ - [StringMatchEvidence](docs/StringMatchEvidence.md)
  - [StringSource](docs/StringSource.md)
  - [StructDataType](docs/StructDataType.md)
  - [StructDefinition](docs/StructDefinition.md)
@@ -891,8 +914,6 @@ Class | Method | HTTP request | Description
  - [SuggestedMemberView](docs/SuggestedMemberView.md)
  - [SuggestedTypeView](docs/SuggestedTypeView.md)
  - [SummaryData](docs/SummaryData.md)
- - [SuspiciousString](docs/SuspiciousString.md)
- - [SuspiciousStringEvidence](docs/SuspiciousStringEvidence.md)
  - [Symbols](docs/Symbols.md)
  - [Tag](docs/Tag.md)
  - [TagItem](docs/TagItem.md)
@@ -935,6 +956,7 @@ Class | Method | HTTP request | Description
  - [UnionDefinition](docs/UnionDefinition.md)
  - [UnknownDataType](docs/UnknownDataType.md)
  - [UpdateAnalysisDataTypesInputBody](docs/UpdateAnalysisDataTypesInputBody.md)
+ - [UpdateAnalysisInputBody](docs/UpdateAnalysisInputBody.md)
  - [UpdateArrayDataType](docs/UpdateArrayDataType.md)
  - [UpdateBaseDataType](docs/UpdateBaseDataType.md)
  - [UpdateBitfieldDataType](docs/UpdateBitfieldDataType.md)

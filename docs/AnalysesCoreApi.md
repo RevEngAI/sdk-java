@@ -28,14 +28,21 @@ All URIs are relative to *https://api.reveng.ai*
 | [**updateAnalysisTags**](AnalysesCoreApi.md#updateAnalysisTags) | **PATCH** /v2/analyses/{analysis_id}/tags | Update Analysis Tags |
 | [**uploadFile**](AnalysesCoreApi.md#uploadFile) | **POST** /v2/upload | Upload File |
 | [**v3CreateAnalysis**](AnalysesCoreApi.md#v3CreateAnalysis) | **POST** /v3/analyses | Create an analysis |
+| [**v3DeleteAnalysis**](AnalysesCoreApi.md#v3DeleteAnalysis) | **DELETE** /v3/analyses/{analysis_id} | Delete an analysis. |
+| [**v3DownloadBinaryExport**](AnalysesCoreApi.md#v3DownloadBinaryExport) | **GET** /v3/analyses/{analysis_id}/binary-export | Download a binary export |
+| [**v3GetAnalysis**](AnalysesCoreApi.md#v3GetAnalysis) | **GET** /v3/analyses/{analysis_id} | Get an analysis. |
 | [**v3GetAnalysisAutoUnstripStatus**](AnalysesCoreApi.md#v3GetAnalysisAutoUnstripStatus) | **GET** /v3/analyses/{analysis_id}/auto-unstrip/status | Get the auto-unstrip status for an analysis. |
 | [**v3GetAnalysisFunctionsProgress**](AnalysesCoreApi.md#v3GetAnalysisFunctionsProgress) | **GET** /v3/analyses/{analysis_id}/progress/functions | Get function embedding progress for an analysis. |
 | [**v3GetAnalysisLogs**](AnalysesCoreApi.md#v3GetAnalysisLogs) | **GET** /v3/analyses/{analysis_id}/logs | Get the Analysis log |
 | [**v3GetAnalysisOperation**](AnalysesCoreApi.md#v3GetAnalysisOperation) | **GET** /v3/operations/analyses/{analysis_id} | Get an Analysis-creation operation |
 | [**v3GetAnalysisStrings**](AnalysesCoreApi.md#v3GetAnalysisStrings) | **GET** /v3/analyses/{analysis_id}/functions/strings | List strings for an analysis. |
 | [**v3GetAnalysisStringsStatus**](AnalysesCoreApi.md#v3GetAnalysisStringsStatus) | **GET** /v3/analyses/{analysis_id}/functions/strings/status | Get the string-extraction status for an analysis. |
+| [**v3GetBinaryExportOperation**](AnalysesCoreApi.md#v3GetBinaryExportOperation) | **GET** /v3/operations/binary-export/{task_id} | Get a binary export operation |
 | [**v3ListAnalyses**](AnalysesCoreApi.md#v3ListAnalyses) | **GET** /v3/analyses | List analyses |
 | [**v3ListExampleAnalyses**](AnalysesCoreApi.md#v3ListExampleAnalyses) | **GET** /v3/analyses/examples | List example analyses |
+| [**v3LookupAnalysisByBinaryId**](AnalysesCoreApi.md#v3LookupAnalysisByBinaryId) | **GET** /v3/analyses/lookup/{binary_id} | Look up the most recent analysis for a binary. |
+| [**v3QueueBinaryExport**](AnalysesCoreApi.md#v3QueueBinaryExport) | **POST** /v3/analyses/{analysis_id}/binary-export | Queue a binary export |
+| [**v3UpdateAnalysis**](AnalysesCoreApi.md#v3UpdateAnalysis) | **PATCH** /v3/analyses/{analysis_id} | Update an analysis. |
 | [**v3UpgradeAnalysisModel**](AnalysesCoreApi.md#v3UpgradeAnalysisModel) | **POST** /v3/analyses/{analysis_id}/upgrade-model | Re-analyse on the latest model |
 
 
@@ -1904,6 +1911,237 @@ public class Example {
 | **422** | Unprocessable Entity |  -  |
 | **500** | Internal Server Error |  -  |
 
+<a id="v3DeleteAnalysis"></a>
+# **v3DeleteAnalysis**
+> v3DeleteAnalysis(analysisId)
+
+Delete an analysis.
+
+Deactivates the analysis. Only the owner may call it.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.AnalysesCoreApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
+    Long analysisId = 56L; // Long | Analysis ID
+    try {
+      apiInstance.v3DeleteAnalysis(analysisId);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AnalysesCoreApi#v3DeleteAnalysis");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **analysisId** | **Long**| Analysis ID | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **500** | Internal Server Error |  -  |
+
+<a id="v3DownloadBinaryExport"></a>
+# **v3DownloadBinaryExport**
+> v3DownloadBinaryExport(analysisId, taskId)
+
+Download a binary export
+
+Streams the exported binary. Returns 404 if the task is not complete or its result has expired -- export again in either case.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.AnalysesCoreApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
+    Long analysisId = 56L; // Long | Analysis ID
+    String taskId = "taskId_example"; // String | Task ID returned by queueing the export
+    try {
+      apiInstance.v3DownloadBinaryExport(analysisId, taskId);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AnalysesCoreApi#v3DownloadBinaryExport");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **analysisId** | **Long**| Analysis ID | |
+| **taskId** | **String**| Task ID returned by queueing the export | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **500** | Internal Server Error |  -  |
+
+<a id="v3GetAnalysis"></a>
+# **v3GetAnalysis**
+> AnalysisDetailOutputBody v3GetAnalysis(analysisId)
+
+Get an analysis.
+
+Returns the analysis&#39; resource-level detail: binary attributes, ownership, and the configuration it was submitted with.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.AnalysesCoreApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
+    Long analysisId = 56L; // Long | Analysis ID
+    try {
+      AnalysisDetailOutputBody result = apiInstance.v3GetAnalysis(analysisId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AnalysesCoreApi#v3GetAnalysis");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **analysisId** | **Long**| Analysis ID | |
+
+### Return type
+
+[**AnalysisDetailOutputBody**](AnalysisDetailOutputBody.md)
+
+### Authorization
+
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **500** | Internal Server Error |  -  |
+
 <a id="v3GetAnalysisAutoUnstripStatus"></a>
 # **v3GetAnalysisAutoUnstripStatus**
 > AutoUnstripStatusOutputBody v3GetAnalysisAutoUnstripStatus(analysisId)
@@ -2380,9 +2618,86 @@ public class Example {
 | **422** | Unprocessable Entity |  -  |
 | **500** | Internal Server Error |  -  |
 
+<a id="v3GetBinaryExportOperation"></a>
+# **v3GetBinaryExportOperation**
+> OperationBinaryExportMetadataBinaryExportResult v3GetBinaryExportOperation(taskId)
+
+Get a binary export operation
+
+Returns the current state of the export started for this task ID. &#x60;done&#x60; is the only readiness signal: while false, poll again; once true, exactly one of &#x60;response&#x60; or &#x60;error&#x60; is set. A task ID the platform no longer recognises -- whether it never existed or its history has expired -- resolves to a failed operation, since either way the caller must export again.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.AnalysesCoreApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
+    String taskId = "taskId_example"; // String | Task ID returned by queueing the export
+    try {
+      OperationBinaryExportMetadataBinaryExportResult result = apiInstance.v3GetBinaryExportOperation(taskId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AnalysesCoreApi#v3GetBinaryExportOperation");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **taskId** | **String**| Task ID returned by queueing the export | |
+
+### Return type
+
+[**OperationBinaryExportMetadataBinaryExportResult**](OperationBinaryExportMetadataBinaryExportResult.md)
+
+### Authorization
+
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **500** | Internal Server Error |  -  |
+
 <a id="v3ListAnalyses"></a>
 # **v3ListAnalyses**
-> ListAnalysesOutputBody v3ListAnalyses(searchTerm, analysisScope, status, modelName, usernames, sha256Hash, platform, architecture, pageSize, nextPageToken, orderBy, order)
+> ListAnalysesOutputBody v3ListAnalyses(searchTerm, analysisScope, status, modelName, usernames, sha256Hash, binaryId, platform, architecture, pageSize, nextPageToken, orderBy, order)
 
 List analyses
 
@@ -2420,6 +2735,7 @@ public class Example {
     List<String> modelName = Arrays.asList(); // List<String> | 
     List<String> usernames = Arrays.asList(); // List<String> | 
     String sha256Hash = "sha256Hash_example"; // String | 
+    Long binaryId = 56L; // Long | Restrict to analyses of this binary. A binary can carry more than one analysis; they are returned newest first under the default sort
     List<String> platform = Arrays.asList(); // List<String> | Restrict to binaries running on one of these operating-system platforms. Matches the uploader's override when they set one, the detected platform otherwise; a binary with neither is never matched. Leave empty for no filter
     List<String> architecture = Arrays.asList(); // List<String> | Restrict to binaries built for one of these instruction-set architectures. Resolved the same way as platform. Leave empty for no filter
     Long pageSize = 20L; // Long | 
@@ -2427,7 +2743,7 @@ public class Example {
     String orderBy = "created"; // String | 
     String order = "ASC"; // String | 
     try {
-      ListAnalysesOutputBody result = apiInstance.v3ListAnalyses(searchTerm, analysisScope, status, modelName, usernames, sha256Hash, platform, architecture, pageSize, nextPageToken, orderBy, order);
+      ListAnalysesOutputBody result = apiInstance.v3ListAnalyses(searchTerm, analysisScope, status, modelName, usernames, sha256Hash, binaryId, platform, architecture, pageSize, nextPageToken, orderBy, order);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCoreApi#v3ListAnalyses");
@@ -2450,6 +2766,7 @@ public class Example {
 | **modelName** | [**List&lt;String&gt;**](String.md)|  | [optional] |
 | **usernames** | [**List&lt;String&gt;**](String.md)|  | [optional] |
 | **sha256Hash** | **String**|  | [optional] |
+| **binaryId** | **Long**| Restrict to analyses of this binary. A binary can carry more than one analysis; they are returned newest first under the default sort | [optional] |
 | **platform** | [**List&lt;String&gt;**](String.md)| Restrict to binaries running on one of these operating-system platforms. Matches the uploader&#39;s override when they set one, the detected platform otherwise; a binary with neither is never matched. Leave empty for no filter | [optional] [enum: windows, linux, android] |
 | **architecture** | [**List&lt;String&gt;**](String.md)| Restrict to binaries built for one of these instruction-set architectures. Resolved the same way as platform. Leave empty for no filter | [optional] [enum: x86_64, x86_32, arm_64] |
 | **pageSize** | **Long**|  | [optional] [default to 20] |
@@ -2547,6 +2864,239 @@ This endpoint does not need any parameter.
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **0** | Error |  -  |
+
+<a id="v3LookupAnalysisByBinaryId"></a>
+# **v3LookupAnalysisByBinaryId**
+> LookupAnalysisByBinaryIDOutputBody v3LookupAnalysisByBinaryId(binaryId)
+
+Look up the most recent analysis for a binary.
+
+Returns the ID of the most recent analysis of this binary that the caller may see (their own, their team&#39;s, or public). Returns 404 if the binary has none, whether because it has never been analysed or because every analysis of it is private to someone else.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.AnalysesCoreApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
+    Long binaryId = 56L; // Long | Binary ID
+    try {
+      LookupAnalysisByBinaryIDOutputBody result = apiInstance.v3LookupAnalysisByBinaryId(binaryId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AnalysesCoreApi#v3LookupAnalysisByBinaryId");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **binaryId** | **Long**| Binary ID | |
+
+### Return type
+
+[**LookupAnalysisByBinaryIDOutputBody**](LookupAnalysisByBinaryIDOutputBody.md)
+
+### Authorization
+
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **404** | Not Found |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **500** | Internal Server Error |  -  |
+
+<a id="v3QueueBinaryExport"></a>
+# **v3QueueBinaryExport**
+> OperationBinaryExportMetadataBinaryExportResult v3QueueBinaryExport(analysisId)
+
+Queue a binary export
+
+Starts an asynchronous export of the binary with its current symbols rewritten in, and returns the operation to poll for its outcome. Only the owner may call it, and it requires a subscription tier that supports symbol export. Download the result once the operation reports done.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.AnalysesCoreApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
+    Long analysisId = 56L; // Long | Analysis ID
+    try {
+      OperationBinaryExportMetadataBinaryExportResult result = apiInstance.v3QueueBinaryExport(analysisId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AnalysesCoreApi#v3QueueBinaryExport");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **analysisId** | **Long**| Analysis ID | |
+
+### Return type
+
+[**OperationBinaryExportMetadataBinaryExportResult**](OperationBinaryExportMetadataBinaryExportResult.md)
+
+### Authorization
+
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **202** | Accepted |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **500** | Internal Server Error |  -  |
+
+<a id="v3UpdateAnalysis"></a>
+# **v3UpdateAnalysis**
+> AnalysisDetailOutputBody v3UpdateAnalysis(analysisId, updateAnalysisInputBody)
+
+Update an analysis.
+
+Renames the analysis&#39; binary and/or changes its scope. Only the owner may call it. Changing to a non-PUBLIC scope requires a subscription tier that supports private analyses.  **Error codes:** - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.AnalysesCoreApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
+    Long analysisId = 56L; // Long | Analysis ID
+    UpdateAnalysisInputBody updateAnalysisInputBody = new UpdateAnalysisInputBody(); // UpdateAnalysisInputBody | 
+    try {
+      AnalysisDetailOutputBody result = apiInstance.v3UpdateAnalysis(analysisId, updateAnalysisInputBody);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AnalysesCoreApi#v3UpdateAnalysis");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **analysisId** | **Long**| Analysis ID | |
+| **updateAnalysisInputBody** | [**UpdateAnalysisInputBody**](UpdateAnalysisInputBody.md)|  | |
+
+### Return type
+
+[**AnalysisDetailOutputBody**](AnalysisDetailOutputBody.md)
+
+### Authorization
+
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **500** | Internal Server Error |  -  |
 
 <a id="v3UpgradeAnalysisModel"></a>
 # **v3UpgradeAnalysisModel**

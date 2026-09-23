@@ -1,8 +1,8 @@
 
 
-# SuspiciousStringEvidence
+# StringMatchEvidence
 
-Suspicious strings without demonstrated semantic use.
+String matches without demonstrated semantic use.
 
 ## Properties
 
@@ -12,7 +12,7 @@ Suspicious strings without demonstrated semantic use.
 |**kind** | [**KindEnum**](#KindEnum) |  |  [optional] |
 |**effect** | **EvidenceEffect** |  |  |
 |**strength** | [**StrengthEnum**](#StrengthEnum) |  |  [optional] |
-|**strings** | [**List&lt;SuspiciousString&gt;**](SuspiciousString.md) |  |  |
+|**strings** | [**List&lt;StringMatch&gt;**](StringMatch.md) |  |  |
 
 
 
@@ -20,7 +20,7 @@ Suspicious strings without demonstrated semantic use.
 
 | Name | Value |
 |---- | -----|
-| SUSPICIOUS_STRING | &quot;suspicious_string&quot; |
+| STRING_MATCH | &quot;string_match&quot; |
 | UNKNOWN_DEFAULT_OPEN_API | &quot;unknown_default_open_api&quot; |
 
 

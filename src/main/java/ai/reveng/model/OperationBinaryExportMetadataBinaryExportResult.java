@@ -13,6 +13,9 @@
 package ai.reveng.model;
 
 import java.util.Objects;
+import ai.reveng.model.BinaryExportMetadata;
+import ai.reveng.model.BinaryExportResult;
+import ai.reveng.model.Status;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -20,7 +23,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,178 +48,130 @@ import java.util.Set;
 import ai.reveng.invoker.JSON;
 
 /**
- * DisassemblyOutputBody
+ * OperationBinaryExportMetadataBinaryExportResult
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class DisassemblyOutputBody {
-  public static final String SERIALIZED_NAME_BASIC_BLOCKS = "basic_blocks";
-  @SerializedName(SERIALIZED_NAME_BASIC_BLOCKS)
-  @javax.annotation.Nullable
-  private Object basicBlocks = null;
-
-  public static final String SERIALIZED_NAME_FUNCTION_ID = "function_id";
-  @SerializedName(SERIALIZED_NAME_FUNCTION_ID)
+public class OperationBinaryExportMetadataBinaryExportResult {
+  public static final String SERIALIZED_NAME_DONE = "done";
+  @SerializedName(SERIALIZED_NAME_DONE)
   @javax.annotation.Nonnull
-  private Long functionId;
+  private Boolean done;
 
-  public static final String SERIALIZED_NAME_GLOBAL_VARIABLES = "global_variables";
-  @SerializedName(SERIALIZED_NAME_GLOBAL_VARIABLES)
+  public static final String SERIALIZED_NAME_ERROR = "error";
+  @SerializedName(SERIALIZED_NAME_ERROR)
   @javax.annotation.Nullable
-  private Object globalVariables = null;
+  private Status error;
 
-  public static final String SERIALIZED_NAME_LOCAL_VARIABLES = "local_variables";
-  @SerializedName(SERIALIZED_NAME_LOCAL_VARIABLES)
+  public static final String SERIALIZED_NAME_METADATA = "metadata";
+  @SerializedName(SERIALIZED_NAME_METADATA)
   @javax.annotation.Nullable
-  private Object localVariables = null;
+  private BinaryExportMetadata metadata;
 
-  public static final String SERIALIZED_NAME_PARAMS = "params";
-  @SerializedName(SERIALIZED_NAME_PARAMS)
-  @javax.annotation.Nullable
-  private Object params = null;
-
-  public static final String SERIALIZED_NAME_RETURN_TYPE = "return_type";
-  @SerializedName(SERIALIZED_NAME_RETURN_TYPE)
-  @javax.annotation.Nullable
-  private String returnType;
-
-  public static final String SERIALIZED_NAME_RETURNS = "returns";
-  @SerializedName(SERIALIZED_NAME_RETURNS)
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
   @javax.annotation.Nonnull
-  private Boolean returns;
+  private String name;
 
-  public DisassemblyOutputBody() {
+  public static final String SERIALIZED_NAME_RESPONSE = "response";
+  @SerializedName(SERIALIZED_NAME_RESPONSE)
+  @javax.annotation.Nullable
+  private BinaryExportResult response;
+
+  public OperationBinaryExportMetadataBinaryExportResult() {
   }
 
-  public DisassemblyOutputBody basicBlocks(@javax.annotation.Nullable Object basicBlocks) {
-    this.basicBlocks = basicBlocks;
+  public OperationBinaryExportMetadataBinaryExportResult done(@javax.annotation.Nonnull Boolean done) {
+    this.done = done;
     return this;
   }
 
   /**
-   * Get basicBlocks
-   * @return basicBlocks
-   */
-  @javax.annotation.Nullable
-  public Object getBasicBlocks() {
-    return basicBlocks;
-  }
-
-  public void setBasicBlocks(@javax.annotation.Nullable Object basicBlocks) {
-    this.basicBlocks = basicBlocks;
-  }
-
-
-  public DisassemblyOutputBody functionId(@javax.annotation.Nonnull Long functionId) {
-    this.functionId = functionId;
-    return this;
-  }
-
-  /**
-   * Get functionId
-   * @return functionId
+   * Whether the operation has reached a terminal state.
+   * @return done
    */
   @javax.annotation.Nonnull
-  public Long getFunctionId() {
-    return functionId;
+  public Boolean getDone() {
+    return done;
   }
 
-  public void setFunctionId(@javax.annotation.Nonnull Long functionId) {
-    this.functionId = functionId;
+  public void setDone(@javax.annotation.Nonnull Boolean done) {
+    this.done = done;
   }
 
 
-  public DisassemblyOutputBody globalVariables(@javax.annotation.Nullable Object globalVariables) {
-    this.globalVariables = globalVariables;
+  public OperationBinaryExportMetadataBinaryExportResult error(@javax.annotation.Nullable Status error) {
+    this.error = error;
     return this;
   }
 
   /**
-   * Get globalVariables
-   * @return globalVariables
+   * Failure detail, populated only when done is true and the operation failed.
+   * @return error
    */
   @javax.annotation.Nullable
-  public Object getGlobalVariables() {
-    return globalVariables;
+  public Status getError() {
+    return error;
   }
 
-  public void setGlobalVariables(@javax.annotation.Nullable Object globalVariables) {
-    this.globalVariables = globalVariables;
+  public void setError(@javax.annotation.Nullable Status error) {
+    this.error = error;
   }
 
 
-  public DisassemblyOutputBody localVariables(@javax.annotation.Nullable Object localVariables) {
-    this.localVariables = localVariables;
+  public OperationBinaryExportMetadataBinaryExportResult metadata(@javax.annotation.Nullable BinaryExportMetadata metadata) {
+    this.metadata = metadata;
     return this;
   }
 
   /**
-   * Get localVariables
-   * @return localVariables
+   * In-flight information and details.
+   * @return metadata
    */
   @javax.annotation.Nullable
-  public Object getLocalVariables() {
-    return localVariables;
+  public BinaryExportMetadata getMetadata() {
+    return metadata;
   }
 
-  public void setLocalVariables(@javax.annotation.Nullable Object localVariables) {
-    this.localVariables = localVariables;
+  public void setMetadata(@javax.annotation.Nullable BinaryExportMetadata metadata) {
+    this.metadata = metadata;
   }
 
 
-  public DisassemblyOutputBody params(@javax.annotation.Nullable Object params) {
-    this.params = params;
+  public OperationBinaryExportMetadataBinaryExportResult name(@javax.annotation.Nonnull String name) {
+    this.name = name;
     return this;
   }
 
   /**
-   * Get params
-   * @return params
-   */
-  @javax.annotation.Nullable
-  public Object getParams() {
-    return params;
-  }
-
-  public void setParams(@javax.annotation.Nullable Object params) {
-    this.params = params;
-  }
-
-
-  public DisassemblyOutputBody returnType(@javax.annotation.Nullable String returnType) {
-    this.returnType = returnType;
-    return this;
-  }
-
-  /**
-   * Get returnType
-   * @return returnType
-   */
-  @javax.annotation.Nullable
-  public String getReturnType() {
-    return returnType;
-  }
-
-  public void setReturnType(@javax.annotation.Nullable String returnType) {
-    this.returnType = returnType;
-  }
-
-
-  public DisassemblyOutputBody returns(@javax.annotation.Nonnull Boolean returns) {
-    this.returns = returns;
-    return this;
-  }
-
-  /**
-   * Get returns
-   * @return returns
+   * API resource name.
+   * @return name
    */
   @javax.annotation.Nonnull
-  public Boolean getReturns() {
-    return returns;
+  public String getName() {
+    return name;
   }
 
-  public void setReturns(@javax.annotation.Nonnull Boolean returns) {
-    this.returns = returns;
+  public void setName(@javax.annotation.Nonnull String name) {
+    this.name = name;
+  }
+
+
+  public OperationBinaryExportMetadataBinaryExportResult response(@javax.annotation.Nullable BinaryExportResult response) {
+    this.response = response;
+    return this;
+  }
+
+  /**
+   * Result, set only when done is true and the operation succeeded.
+   * @return response
+   */
+  @javax.annotation.Nullable
+  public BinaryExportResult getResponse() {
+    return response;
+  }
+
+  public void setResponse(@javax.annotation.Nullable BinaryExportResult response) {
+    this.response = response;
   }
 
   /**
@@ -233,9 +187,9 @@ public class DisassemblyOutputBody {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the DisassemblyOutputBody instance itself
+   * @return the OperationBinaryExportMetadataBinaryExportResult instance itself
    */
-  public DisassemblyOutputBody putAdditionalProperty(String key, Object value) {
+  public OperationBinaryExportMetadataBinaryExportResult putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -274,44 +228,29 @@ public class DisassemblyOutputBody {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DisassemblyOutputBody disassemblyOutputBody = (DisassemblyOutputBody) o;
-    return Objects.equals(this.basicBlocks, disassemblyOutputBody.basicBlocks) &&
-        Objects.equals(this.functionId, disassemblyOutputBody.functionId) &&
-        Objects.equals(this.globalVariables, disassemblyOutputBody.globalVariables) &&
-        Objects.equals(this.localVariables, disassemblyOutputBody.localVariables) &&
-        Objects.equals(this.params, disassemblyOutputBody.params) &&
-        Objects.equals(this.returnType, disassemblyOutputBody.returnType) &&
-        Objects.equals(this.returns, disassemblyOutputBody.returns)&&
-        Objects.equals(this.additionalProperties, disassemblyOutputBody.additionalProperties);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+    OperationBinaryExportMetadataBinaryExportResult operationBinaryExportMetadataBinaryExportResult = (OperationBinaryExportMetadataBinaryExportResult) o;
+    return Objects.equals(this.done, operationBinaryExportMetadataBinaryExportResult.done) &&
+        Objects.equals(this.error, operationBinaryExportMetadataBinaryExportResult.error) &&
+        Objects.equals(this.metadata, operationBinaryExportMetadataBinaryExportResult.metadata) &&
+        Objects.equals(this.name, operationBinaryExportMetadataBinaryExportResult.name) &&
+        Objects.equals(this.response, operationBinaryExportMetadataBinaryExportResult.response)&&
+        Objects.equals(this.additionalProperties, operationBinaryExportMetadataBinaryExportResult.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(basicBlocks, functionId, globalVariables, localVariables, params, returnType, returns, additionalProperties);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(done, error, metadata, name, response, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DisassemblyOutputBody {\n");
-    sb.append("    basicBlocks: ").append(toIndentedString(basicBlocks)).append("\n");
-    sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
-    sb.append("    globalVariables: ").append(toIndentedString(globalVariables)).append("\n");
-    sb.append("    localVariables: ").append(toIndentedString(localVariables)).append("\n");
-    sb.append("    params: ").append(toIndentedString(params)).append("\n");
-    sb.append("    returnType: ").append(toIndentedString(returnType)).append("\n");
-    sb.append("    returns: ").append(toIndentedString(returns)).append("\n");
+    sb.append("class OperationBinaryExportMetadataBinaryExportResult {\n");
+    sb.append("    done: ").append(toIndentedString(done)).append("\n");
+    sb.append("    error: ").append(toIndentedString(error)).append("\n");
+    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    response: ").append(toIndentedString(response)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -331,34 +270,34 @@ public class DisassemblyOutputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("basic_blocks", "function_id", "global_variables", "local_variables", "params", "return_type", "returns"));
+    openapiFields = new HashSet<String>(Arrays.asList("done", "error", "metadata", "name", "response"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("function_id", "returns"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("done", "name"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to DisassemblyOutputBody
+   * @throws IOException if the JSON Element is invalid with respect to OperationBinaryExportMetadataBinaryExportResult
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!DisassemblyOutputBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in DisassemblyOutputBody is not found in the empty JSON string", DisassemblyOutputBody.openapiRequiredFields.toString()));
+        if (!OperationBinaryExportMetadataBinaryExportResult.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in OperationBinaryExportMetadataBinaryExportResult is not found in the empty JSON string", OperationBinaryExportMetadataBinaryExportResult.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : DisassemblyOutputBody.openapiRequiredFields) {
+      for (String requiredField : OperationBinaryExportMetadataBinaryExportResult.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("return_type") != null && !jsonObj.get("return_type").isJsonNull()) && !jsonObj.get("return_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `return_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("return_type").toString()));
+      if (!jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
   }
 
@@ -366,16 +305,16 @@ public class DisassemblyOutputBody {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!DisassemblyOutputBody.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'DisassemblyOutputBody' and its subtypes
+       if (!OperationBinaryExportMetadataBinaryExportResult.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'OperationBinaryExportMetadataBinaryExportResult' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<DisassemblyOutputBody> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(DisassemblyOutputBody.class));
+       final TypeAdapter<OperationBinaryExportMetadataBinaryExportResult> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(OperationBinaryExportMetadataBinaryExportResult.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<DisassemblyOutputBody>() {
+       return (TypeAdapter<T>) new TypeAdapter<OperationBinaryExportMetadataBinaryExportResult>() {
            @Override
-           public void write(JsonWriter out, DisassemblyOutputBody value) throws IOException {
+           public void write(JsonWriter out, OperationBinaryExportMetadataBinaryExportResult value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -403,12 +342,12 @@ public class DisassemblyOutputBody {
            }
 
            @Override
-           public DisassemblyOutputBody read(JsonReader in) throws IOException {
+           public OperationBinaryExportMetadataBinaryExportResult read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             DisassemblyOutputBody instance = thisAdapter.fromJsonTree(jsonObj);
+             OperationBinaryExportMetadataBinaryExportResult instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -435,18 +374,18 @@ public class DisassemblyOutputBody {
   }
 
   /**
-   * Create an instance of DisassemblyOutputBody given an JSON string
+   * Create an instance of OperationBinaryExportMetadataBinaryExportResult given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of DisassemblyOutputBody
-   * @throws IOException if the JSON string is invalid with respect to DisassemblyOutputBody
+   * @return An instance of OperationBinaryExportMetadataBinaryExportResult
+   * @throws IOException if the JSON string is invalid with respect to OperationBinaryExportMetadataBinaryExportResult
    */
-  public static DisassemblyOutputBody fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, DisassemblyOutputBody.class);
+  public static OperationBinaryExportMetadataBinaryExportResult fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, OperationBinaryExportMetadataBinaryExportResult.class);
   }
 
   /**
-   * Convert an instance of DisassemblyOutputBody to an JSON string
+   * Convert an instance of OperationBinaryExportMetadataBinaryExportResult to an JSON string
    *
    * @return JSON string
    */
