@@ -30,6 +30,7 @@ import ai.reveng.model.APIError;
 import ai.reveng.model.AddUserStringInputBody;
 import ai.reveng.model.AnalysisBasicInfoOutputBody;
 import ai.reveng.model.AnalysisCreateRequest;
+import ai.reveng.model.AnalysisDetailOutputBody;
 import ai.reveng.model.AnalysisReport;
 import ai.reveng.model.AnalysisUpdateRequest;
 import ai.reveng.model.AnalysisUpdateTagsRequest;
@@ -61,7 +62,9 @@ import ai.reveng.model.InsertAnalysisLogRequest;
 import ai.reveng.model.ListAnalysesOutputBody;
 import ai.reveng.model.ListAnalysisStringsOutputBody;
 import ai.reveng.model.ListExampleAnalysesOutputBody;
+import ai.reveng.model.LookupAnalysisByBinaryIDOutputBody;
 import ai.reveng.model.ModelName;
+import ai.reveng.model.OperationBinaryExportMetadataBinaryExportResult;
 import ai.reveng.model.OperationCreateMetadataCreateResult;
 import ai.reveng.model.Order;
 import ai.reveng.model.PutAnalysisStringsRequest;
@@ -69,6 +72,7 @@ import ai.reveng.model.ReAnalysisForm;
 import ai.reveng.model.StartMatchingForAnalysisInputBody;
 import ai.reveng.model.StartMatchingOutputBody;
 import ai.reveng.model.StatusInput;
+import ai.reveng.model.UpdateAnalysisInputBody;
 import ai.reveng.model.UpgradeAnalysisModelOutputBody;
 import ai.reveng.model.UploadFileType;
 import ai.reveng.model.Workspace;
@@ -3721,6 +3725,435 @@ public class AnalysesCoreApi {
         return localVarCall;
     }
     /**
+     * Build call for v3DeleteAnalysis
+     * @param analysisId Analysis ID (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3DeleteAnalysisCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/analyses/{analysis_id}"
+            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call v3DeleteAnalysisValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'analysisId' is set
+        if (analysisId == null) {
+            throw new ApiException("Missing the required parameter 'analysisId' when calling v3DeleteAnalysis(Async)");
+        }
+
+        return v3DeleteAnalysisCall(analysisId, _callback);
+
+    }
+
+    /**
+     * Delete an analysis.
+     * Deactivates the analysis. Only the owner may call it.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param analysisId Analysis ID (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public void v3DeleteAnalysis(@javax.annotation.Nonnull Long analysisId) throws ApiException {
+        v3DeleteAnalysisWithHttpInfo(analysisId);
+    }
+
+    /**
+     * Delete an analysis.
+     * Deactivates the analysis. Only the owner may call it.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param analysisId Analysis ID (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> v3DeleteAnalysisWithHttpInfo(@javax.annotation.Nonnull Long analysisId) throws ApiException {
+        okhttp3.Call localVarCall = v3DeleteAnalysisValidateBeforeCall(analysisId, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Delete an analysis. (asynchronously)
+     * Deactivates the analysis. Only the owner may call it.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param analysisId Analysis ID (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3DeleteAnalysisAsync(@javax.annotation.Nonnull Long analysisId, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = v3DeleteAnalysisValidateBeforeCall(analysisId, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for v3DownloadBinaryExport
+     * @param analysisId Analysis ID (required)
+     * @param taskId Task ID returned by queueing the export (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3DownloadBinaryExportCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable String taskId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/analyses/{analysis_id}/binary-export"
+            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (taskId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("task_id", taskId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call v3DownloadBinaryExportValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable String taskId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'analysisId' is set
+        if (analysisId == null) {
+            throw new ApiException("Missing the required parameter 'analysisId' when calling v3DownloadBinaryExport(Async)");
+        }
+
+        return v3DownloadBinaryExportCall(analysisId, taskId, _callback);
+
+    }
+
+    /**
+     * Download a binary export
+     * Streams the exported binary. Returns 404 if the task is not complete or its result has expired -- export again in either case.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param analysisId Analysis ID (required)
+     * @param taskId Task ID returned by queueing the export (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public void v3DownloadBinaryExport(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable String taskId) throws ApiException {
+        v3DownloadBinaryExportWithHttpInfo(analysisId, taskId);
+    }
+
+    /**
+     * Download a binary export
+     * Streams the exported binary. Returns 404 if the task is not complete or its result has expired -- export again in either case.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param analysisId Analysis ID (required)
+     * @param taskId Task ID returned by queueing the export (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> v3DownloadBinaryExportWithHttpInfo(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable String taskId) throws ApiException {
+        okhttp3.Call localVarCall = v3DownloadBinaryExportValidateBeforeCall(analysisId, taskId, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Download a binary export (asynchronously)
+     * Streams the exported binary. Returns 404 if the task is not complete or its result has expired -- export again in either case.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param analysisId Analysis ID (required)
+     * @param taskId Task ID returned by queueing the export (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3DownloadBinaryExportAsync(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable String taskId, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = v3DownloadBinaryExportValidateBeforeCall(analysisId, taskId, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for v3GetAnalysis
+     * @param analysisId Analysis ID (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3GetAnalysisCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/analyses/{analysis_id}"
+            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call v3GetAnalysisValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'analysisId' is set
+        if (analysisId == null) {
+            throw new ApiException("Missing the required parameter 'analysisId' when calling v3GetAnalysis(Async)");
+        }
+
+        return v3GetAnalysisCall(analysisId, _callback);
+
+    }
+
+    /**
+     * Get an analysis.
+     * Returns the analysis&#39; resource-level detail: binary attributes, ownership, and the configuration it was submitted with.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param analysisId Analysis ID (required)
+     * @return AnalysisDetailOutputBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public AnalysisDetailOutputBody v3GetAnalysis(@javax.annotation.Nonnull Long analysisId) throws ApiException {
+        ApiResponse<AnalysisDetailOutputBody> localVarResp = v3GetAnalysisWithHttpInfo(analysisId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get an analysis.
+     * Returns the analysis&#39; resource-level detail: binary attributes, ownership, and the configuration it was submitted with.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param analysisId Analysis ID (required)
+     * @return ApiResponse&lt;AnalysisDetailOutputBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<AnalysisDetailOutputBody> v3GetAnalysisWithHttpInfo(@javax.annotation.Nonnull Long analysisId) throws ApiException {
+        okhttp3.Call localVarCall = v3GetAnalysisValidateBeforeCall(analysisId, null);
+        Type localVarReturnType = new TypeToken<AnalysisDetailOutputBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get an analysis. (asynchronously)
+     * Returns the analysis&#39; resource-level detail: binary attributes, ownership, and the configuration it was submitted with.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param analysisId Analysis ID (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3GetAnalysisAsync(@javax.annotation.Nonnull Long analysisId, final ApiCallback<AnalysisDetailOutputBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = v3GetAnalysisValidateBeforeCall(analysisId, _callback);
+        Type localVarReturnType = new TypeToken<AnalysisDetailOutputBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for v3GetAnalysisAutoUnstripStatus
      * @param analysisId Analysis ID (required)
      * @param _callback Callback for upload/download progress
@@ -4635,6 +5068,149 @@ public class AnalysesCoreApi {
         return localVarCall;
     }
     /**
+     * Build call for v3GetBinaryExportOperation
+     * @param taskId Task ID returned by queueing the export (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3GetBinaryExportOperationCall(@javax.annotation.Nonnull String taskId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/operations/binary-export/{task_id}"
+            .replace("{" + "task_id" + "}", localVarApiClient.escapeString(taskId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call v3GetBinaryExportOperationValidateBeforeCall(@javax.annotation.Nonnull String taskId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'taskId' is set
+        if (taskId == null) {
+            throw new ApiException("Missing the required parameter 'taskId' when calling v3GetBinaryExportOperation(Async)");
+        }
+
+        return v3GetBinaryExportOperationCall(taskId, _callback);
+
+    }
+
+    /**
+     * Get a binary export operation
+     * Returns the current state of the export started for this task ID. &#x60;done&#x60; is the only readiness signal: while false, poll again; once true, exactly one of &#x60;response&#x60; or &#x60;error&#x60; is set. A task ID the platform no longer recognises -- whether it never existed or its history has expired -- resolves to a failed operation, since either way the caller must export again.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param taskId Task ID returned by queueing the export (required)
+     * @return OperationBinaryExportMetadataBinaryExportResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public OperationBinaryExportMetadataBinaryExportResult v3GetBinaryExportOperation(@javax.annotation.Nonnull String taskId) throws ApiException {
+        ApiResponse<OperationBinaryExportMetadataBinaryExportResult> localVarResp = v3GetBinaryExportOperationWithHttpInfo(taskId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get a binary export operation
+     * Returns the current state of the export started for this task ID. &#x60;done&#x60; is the only readiness signal: while false, poll again; once true, exactly one of &#x60;response&#x60; or &#x60;error&#x60; is set. A task ID the platform no longer recognises -- whether it never existed or its history has expired -- resolves to a failed operation, since either way the caller must export again.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param taskId Task ID returned by queueing the export (required)
+     * @return ApiResponse&lt;OperationBinaryExportMetadataBinaryExportResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<OperationBinaryExportMetadataBinaryExportResult> v3GetBinaryExportOperationWithHttpInfo(@javax.annotation.Nonnull String taskId) throws ApiException {
+        okhttp3.Call localVarCall = v3GetBinaryExportOperationValidateBeforeCall(taskId, null);
+        Type localVarReturnType = new TypeToken<OperationBinaryExportMetadataBinaryExportResult>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get a binary export operation (asynchronously)
+     * Returns the current state of the export started for this task ID. &#x60;done&#x60; is the only readiness signal: while false, poll again; once true, exactly one of &#x60;response&#x60; or &#x60;error&#x60; is set. A task ID the platform no longer recognises -- whether it never existed or its history has expired -- resolves to a failed operation, since either way the caller must export again.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param taskId Task ID returned by queueing the export (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3GetBinaryExportOperationAsync(@javax.annotation.Nonnull String taskId, final ApiCallback<OperationBinaryExportMetadataBinaryExportResult> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = v3GetBinaryExportOperationValidateBeforeCall(taskId, _callback);
+        Type localVarReturnType = new TypeToken<OperationBinaryExportMetadataBinaryExportResult>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for v3ListAnalyses
      * @param searchTerm  (optional)
      * @param analysisScope Leave empty to search your own, your team&#39;s and all public analyses (optional)
@@ -4642,6 +5218,7 @@ public class AnalysesCoreApi {
      * @param modelName  (optional)
      * @param usernames  (optional)
      * @param sha256Hash  (optional)
+     * @param binaryId Restrict to analyses of this binary. A binary can carry more than one analysis; they are returned newest first under the default sort (optional)
      * @param platform Restrict to binaries running on one of these operating-system platforms. Matches the uploader&#39;s override when they set one, the detected platform otherwise; a binary with neither is never matched. Leave empty for no filter (optional)
      * @param architecture Restrict to binaries built for one of these instruction-set architectures. Resolved the same way as platform. Leave empty for no filter (optional)
      * @param pageSize  (optional, default to 20)
@@ -4661,7 +5238,7 @@ public class AnalysesCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call v3ListAnalysesCall(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<String> analysisScope, @javax.annotation.Nullable List<String> status, @javax.annotation.Nullable List<String> modelName, @javax.annotation.Nullable List<String> usernames, @javax.annotation.Nullable String sha256Hash, @javax.annotation.Nullable List<String> platform, @javax.annotation.Nullable List<String> architecture, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String nextPageToken, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String order, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call v3ListAnalysesCall(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<String> analysisScope, @javax.annotation.Nullable List<String> status, @javax.annotation.Nullable List<String> modelName, @javax.annotation.Nullable List<String> usernames, @javax.annotation.Nullable String sha256Hash, @javax.annotation.Nullable Long binaryId, @javax.annotation.Nullable List<String> platform, @javax.annotation.Nullable List<String> architecture, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String nextPageToken, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String order, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4710,6 +5287,10 @@ public class AnalysesCoreApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("sha256_hash", sha256Hash));
         }
 
+        if (binaryId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("binary_id", binaryId));
+        }
+
         if (platform != null) {
             localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("csv", "platform", platform));
         }
@@ -4754,8 +5335,8 @@ public class AnalysesCoreApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call v3ListAnalysesValidateBeforeCall(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<String> analysisScope, @javax.annotation.Nullable List<String> status, @javax.annotation.Nullable List<String> modelName, @javax.annotation.Nullable List<String> usernames, @javax.annotation.Nullable String sha256Hash, @javax.annotation.Nullable List<String> platform, @javax.annotation.Nullable List<String> architecture, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String nextPageToken, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String order, final ApiCallback _callback) throws ApiException {
-        return v3ListAnalysesCall(searchTerm, analysisScope, status, modelName, usernames, sha256Hash, platform, architecture, pageSize, nextPageToken, orderBy, order, _callback);
+    private okhttp3.Call v3ListAnalysesValidateBeforeCall(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<String> analysisScope, @javax.annotation.Nullable List<String> status, @javax.annotation.Nullable List<String> modelName, @javax.annotation.Nullable List<String> usernames, @javax.annotation.Nullable String sha256Hash, @javax.annotation.Nullable Long binaryId, @javax.annotation.Nullable List<String> platform, @javax.annotation.Nullable List<String> architecture, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String nextPageToken, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String order, final ApiCallback _callback) throws ApiException {
+        return v3ListAnalysesCall(searchTerm, analysisScope, status, modelName, usernames, sha256Hash, binaryId, platform, architecture, pageSize, nextPageToken, orderBy, order, _callback);
 
     }
 
@@ -4768,6 +5349,7 @@ public class AnalysesCoreApi {
      * @param modelName  (optional)
      * @param usernames  (optional)
      * @param sha256Hash  (optional)
+     * @param binaryId Restrict to analyses of this binary. A binary can carry more than one analysis; they are returned newest first under the default sort (optional)
      * @param platform Restrict to binaries running on one of these operating-system platforms. Matches the uploader&#39;s override when they set one, the detected platform otherwise; a binary with neither is never matched. Leave empty for no filter (optional)
      * @param architecture Restrict to binaries built for one of these instruction-set architectures. Resolved the same way as platform. Leave empty for no filter (optional)
      * @param pageSize  (optional, default to 20)
@@ -4786,8 +5368,8 @@ public class AnalysesCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ListAnalysesOutputBody v3ListAnalyses(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<String> analysisScope, @javax.annotation.Nullable List<String> status, @javax.annotation.Nullable List<String> modelName, @javax.annotation.Nullable List<String> usernames, @javax.annotation.Nullable String sha256Hash, @javax.annotation.Nullable List<String> platform, @javax.annotation.Nullable List<String> architecture, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String nextPageToken, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String order) throws ApiException {
-        ApiResponse<ListAnalysesOutputBody> localVarResp = v3ListAnalysesWithHttpInfo(searchTerm, analysisScope, status, modelName, usernames, sha256Hash, platform, architecture, pageSize, nextPageToken, orderBy, order);
+    public ListAnalysesOutputBody v3ListAnalyses(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<String> analysisScope, @javax.annotation.Nullable List<String> status, @javax.annotation.Nullable List<String> modelName, @javax.annotation.Nullable List<String> usernames, @javax.annotation.Nullable String sha256Hash, @javax.annotation.Nullable Long binaryId, @javax.annotation.Nullable List<String> platform, @javax.annotation.Nullable List<String> architecture, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String nextPageToken, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String order) throws ApiException {
+        ApiResponse<ListAnalysesOutputBody> localVarResp = v3ListAnalysesWithHttpInfo(searchTerm, analysisScope, status, modelName, usernames, sha256Hash, binaryId, platform, architecture, pageSize, nextPageToken, orderBy, order);
         return localVarResp.getData();
     }
 
@@ -4800,6 +5382,7 @@ public class AnalysesCoreApi {
      * @param modelName  (optional)
      * @param usernames  (optional)
      * @param sha256Hash  (optional)
+     * @param binaryId Restrict to analyses of this binary. A binary can carry more than one analysis; they are returned newest first under the default sort (optional)
      * @param platform Restrict to binaries running on one of these operating-system platforms. Matches the uploader&#39;s override when they set one, the detected platform otherwise; a binary with neither is never matched. Leave empty for no filter (optional)
      * @param architecture Restrict to binaries built for one of these instruction-set architectures. Resolved the same way as platform. Leave empty for no filter (optional)
      * @param pageSize  (optional, default to 20)
@@ -4818,8 +5401,8 @@ public class AnalysesCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListAnalysesOutputBody> v3ListAnalysesWithHttpInfo(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<String> analysisScope, @javax.annotation.Nullable List<String> status, @javax.annotation.Nullable List<String> modelName, @javax.annotation.Nullable List<String> usernames, @javax.annotation.Nullable String sha256Hash, @javax.annotation.Nullable List<String> platform, @javax.annotation.Nullable List<String> architecture, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String nextPageToken, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String order) throws ApiException {
-        okhttp3.Call localVarCall = v3ListAnalysesValidateBeforeCall(searchTerm, analysisScope, status, modelName, usernames, sha256Hash, platform, architecture, pageSize, nextPageToken, orderBy, order, null);
+    public ApiResponse<ListAnalysesOutputBody> v3ListAnalysesWithHttpInfo(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<String> analysisScope, @javax.annotation.Nullable List<String> status, @javax.annotation.Nullable List<String> modelName, @javax.annotation.Nullable List<String> usernames, @javax.annotation.Nullable String sha256Hash, @javax.annotation.Nullable Long binaryId, @javax.annotation.Nullable List<String> platform, @javax.annotation.Nullable List<String> architecture, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String nextPageToken, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String order) throws ApiException {
+        okhttp3.Call localVarCall = v3ListAnalysesValidateBeforeCall(searchTerm, analysisScope, status, modelName, usernames, sha256Hash, binaryId, platform, architecture, pageSize, nextPageToken, orderBy, order, null);
         Type localVarReturnType = new TypeToken<ListAnalysesOutputBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4833,6 +5416,7 @@ public class AnalysesCoreApi {
      * @param modelName  (optional)
      * @param usernames  (optional)
      * @param sha256Hash  (optional)
+     * @param binaryId Restrict to analyses of this binary. A binary can carry more than one analysis; they are returned newest first under the default sort (optional)
      * @param platform Restrict to binaries running on one of these operating-system platforms. Matches the uploader&#39;s override when they set one, the detected platform otherwise; a binary with neither is never matched. Leave empty for no filter (optional)
      * @param architecture Restrict to binaries built for one of these instruction-set architectures. Resolved the same way as platform. Leave empty for no filter (optional)
      * @param pageSize  (optional, default to 20)
@@ -4852,9 +5436,9 @@ public class AnalysesCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call v3ListAnalysesAsync(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<String> analysisScope, @javax.annotation.Nullable List<String> status, @javax.annotation.Nullable List<String> modelName, @javax.annotation.Nullable List<String> usernames, @javax.annotation.Nullable String sha256Hash, @javax.annotation.Nullable List<String> platform, @javax.annotation.Nullable List<String> architecture, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String nextPageToken, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String order, final ApiCallback<ListAnalysesOutputBody> _callback) throws ApiException {
+    public okhttp3.Call v3ListAnalysesAsync(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<String> analysisScope, @javax.annotation.Nullable List<String> status, @javax.annotation.Nullable List<String> modelName, @javax.annotation.Nullable List<String> usernames, @javax.annotation.Nullable String sha256Hash, @javax.annotation.Nullable Long binaryId, @javax.annotation.Nullable List<String> platform, @javax.annotation.Nullable List<String> architecture, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String nextPageToken, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String order, final ApiCallback<ListAnalysesOutputBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = v3ListAnalysesValidateBeforeCall(searchTerm, analysisScope, status, modelName, usernames, sha256Hash, platform, architecture, pageSize, nextPageToken, orderBy, order, _callback);
+        okhttp3.Call localVarCall = v3ListAnalysesValidateBeforeCall(searchTerm, analysisScope, status, modelName, usernames, sha256Hash, binaryId, platform, architecture, pageSize, nextPageToken, orderBy, order, _callback);
         Type localVarReturnType = new TypeToken<ListAnalysesOutputBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4977,6 +5561,445 @@ public class AnalysesCoreApi {
 
         okhttp3.Call localVarCall = v3ListExampleAnalysesValidateBeforeCall(_callback);
         Type localVarReturnType = new TypeToken<ListExampleAnalysesOutputBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for v3LookupAnalysisByBinaryId
+     * @param binaryId Binary ID (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3LookupAnalysisByBinaryIdCall(@javax.annotation.Nonnull Long binaryId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/analyses/lookup/{binary_id}"
+            .replace("{" + "binary_id" + "}", localVarApiClient.escapeString(binaryId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call v3LookupAnalysisByBinaryIdValidateBeforeCall(@javax.annotation.Nonnull Long binaryId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'binaryId' is set
+        if (binaryId == null) {
+            throw new ApiException("Missing the required parameter 'binaryId' when calling v3LookupAnalysisByBinaryId(Async)");
+        }
+
+        return v3LookupAnalysisByBinaryIdCall(binaryId, _callback);
+
+    }
+
+    /**
+     * Look up the most recent analysis for a binary.
+     * Returns the ID of the most recent analysis of this binary that the caller may see (their own, their team&#39;s, or public). Returns 404 if the binary has none, whether because it has never been analysed or because every analysis of it is private to someone else.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * @param binaryId Binary ID (required)
+     * @return LookupAnalysisByBinaryIDOutputBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public LookupAnalysisByBinaryIDOutputBody v3LookupAnalysisByBinaryId(@javax.annotation.Nonnull Long binaryId) throws ApiException {
+        ApiResponse<LookupAnalysisByBinaryIDOutputBody> localVarResp = v3LookupAnalysisByBinaryIdWithHttpInfo(binaryId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Look up the most recent analysis for a binary.
+     * Returns the ID of the most recent analysis of this binary that the caller may see (their own, their team&#39;s, or public). Returns 404 if the binary has none, whether because it has never been analysed or because every analysis of it is private to someone else.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * @param binaryId Binary ID (required)
+     * @return ApiResponse&lt;LookupAnalysisByBinaryIDOutputBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<LookupAnalysisByBinaryIDOutputBody> v3LookupAnalysisByBinaryIdWithHttpInfo(@javax.annotation.Nonnull Long binaryId) throws ApiException {
+        okhttp3.Call localVarCall = v3LookupAnalysisByBinaryIdValidateBeforeCall(binaryId, null);
+        Type localVarReturnType = new TypeToken<LookupAnalysisByBinaryIDOutputBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Look up the most recent analysis for a binary. (asynchronously)
+     * Returns the ID of the most recent analysis of this binary that the caller may see (their own, their team&#39;s, or public). Returns 404 if the binary has none, whether because it has never been analysed or because every analysis of it is private to someone else.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * @param binaryId Binary ID (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3LookupAnalysisByBinaryIdAsync(@javax.annotation.Nonnull Long binaryId, final ApiCallback<LookupAnalysisByBinaryIDOutputBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = v3LookupAnalysisByBinaryIdValidateBeforeCall(binaryId, _callback);
+        Type localVarReturnType = new TypeToken<LookupAnalysisByBinaryIDOutputBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for v3QueueBinaryExport
+     * @param analysisId Analysis ID (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3QueueBinaryExportCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/analyses/{analysis_id}/binary-export"
+            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call v3QueueBinaryExportValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'analysisId' is set
+        if (analysisId == null) {
+            throw new ApiException("Missing the required parameter 'analysisId' when calling v3QueueBinaryExport(Async)");
+        }
+
+        return v3QueueBinaryExportCall(analysisId, _callback);
+
+    }
+
+    /**
+     * Queue a binary export
+     * Starts an asynchronous export of the binary with its current symbols rewritten in, and returns the operation to poll for its outcome. Only the owner may call it, and it requires a subscription tier that supports symbol export. Download the result once the operation reports done.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param analysisId Analysis ID (required)
+     * @return OperationBinaryExportMetadataBinaryExportResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public OperationBinaryExportMetadataBinaryExportResult v3QueueBinaryExport(@javax.annotation.Nonnull Long analysisId) throws ApiException {
+        ApiResponse<OperationBinaryExportMetadataBinaryExportResult> localVarResp = v3QueueBinaryExportWithHttpInfo(analysisId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Queue a binary export
+     * Starts an asynchronous export of the binary with its current symbols rewritten in, and returns the operation to poll for its outcome. Only the owner may call it, and it requires a subscription tier that supports symbol export. Download the result once the operation reports done.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param analysisId Analysis ID (required)
+     * @return ApiResponse&lt;OperationBinaryExportMetadataBinaryExportResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<OperationBinaryExportMetadataBinaryExportResult> v3QueueBinaryExportWithHttpInfo(@javax.annotation.Nonnull Long analysisId) throws ApiException {
+        okhttp3.Call localVarCall = v3QueueBinaryExportValidateBeforeCall(analysisId, null);
+        Type localVarReturnType = new TypeToken<OperationBinaryExportMetadataBinaryExportResult>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Queue a binary export (asynchronously)
+     * Starts an asynchronous export of the binary with its current symbols rewritten in, and returns the operation to poll for its outcome. Only the owner may call it, and it requires a subscription tier that supports symbol export. Download the result once the operation reports done.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param analysisId Analysis ID (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3QueueBinaryExportAsync(@javax.annotation.Nonnull Long analysisId, final ApiCallback<OperationBinaryExportMetadataBinaryExportResult> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = v3QueueBinaryExportValidateBeforeCall(analysisId, _callback);
+        Type localVarReturnType = new TypeToken<OperationBinaryExportMetadataBinaryExportResult>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for v3UpdateAnalysis
+     * @param analysisId Analysis ID (required)
+     * @param updateAnalysisInputBody  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3UpdateAnalysisCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull UpdateAnalysisInputBody updateAnalysisInputBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = updateAnalysisInputBody;
+
+        // create path and map variables
+        String localVarPath = "/v3/analyses/{analysis_id}"
+            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call v3UpdateAnalysisValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull UpdateAnalysisInputBody updateAnalysisInputBody, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'analysisId' is set
+        if (analysisId == null) {
+            throw new ApiException("Missing the required parameter 'analysisId' when calling v3UpdateAnalysis(Async)");
+        }
+
+        // verify the required parameter 'updateAnalysisInputBody' is set
+        if (updateAnalysisInputBody == null) {
+            throw new ApiException("Missing the required parameter 'updateAnalysisInputBody' when calling v3UpdateAnalysis(Async)");
+        }
+
+        return v3UpdateAnalysisCall(analysisId, updateAnalysisInputBody, _callback);
+
+    }
+
+    /**
+     * Update an analysis.
+     * Renames the analysis&#39; binary and/or changes its scope. Only the owner may call it. Changing to a non-PUBLIC scope requires a subscription tier that supports private analyses.  **Error codes:** - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param analysisId Analysis ID (required)
+     * @param updateAnalysisInputBody  (required)
+     * @return AnalysisDetailOutputBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public AnalysisDetailOutputBody v3UpdateAnalysis(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull UpdateAnalysisInputBody updateAnalysisInputBody) throws ApiException {
+        ApiResponse<AnalysisDetailOutputBody> localVarResp = v3UpdateAnalysisWithHttpInfo(analysisId, updateAnalysisInputBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update an analysis.
+     * Renames the analysis&#39; binary and/or changes its scope. Only the owner may call it. Changing to a non-PUBLIC scope requires a subscription tier that supports private analyses.  **Error codes:** - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param analysisId Analysis ID (required)
+     * @param updateAnalysisInputBody  (required)
+     * @return ApiResponse&lt;AnalysisDetailOutputBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<AnalysisDetailOutputBody> v3UpdateAnalysisWithHttpInfo(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull UpdateAnalysisInputBody updateAnalysisInputBody) throws ApiException {
+        okhttp3.Call localVarCall = v3UpdateAnalysisValidateBeforeCall(analysisId, updateAnalysisInputBody, null);
+        Type localVarReturnType = new TypeToken<AnalysisDetailOutputBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update an analysis. (asynchronously)
+     * Renames the analysis&#39; binary and/or changes its scope. Only the owner may call it. Changing to a non-PUBLIC scope requires a subscription tier that supports private analyses.  **Error codes:** - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param analysisId Analysis ID (required)
+     * @param updateAnalysisInputBody  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3UpdateAnalysisAsync(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull UpdateAnalysisInputBody updateAnalysisInputBody, final ApiCallback<AnalysisDetailOutputBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = v3UpdateAnalysisValidateBeforeCall(analysisId, updateAnalysisInputBody, _callback);
+        Type localVarReturnType = new TypeToken<AnalysisDetailOutputBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

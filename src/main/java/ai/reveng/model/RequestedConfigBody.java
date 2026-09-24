@@ -13,7 +13,6 @@
 package ai.reveng.model;
 
 import java.util.Objects;
-import ai.reveng.model.Subject;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -21,7 +20,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -47,58 +45,130 @@ import java.util.Set;
 import ai.reveng.invoker.JSON;
 
 /**
- * SuspiciousString
+ * RequestedConfigBody
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class SuspiciousString {
-  public static final String SERIALIZED_NAME_VALUE = "value";
-  @SerializedName(SERIALIZED_NAME_VALUE)
+public class RequestedConfigBody {
+  public static final String SERIALIZED_NAME_CAPABILITIES = "capabilities";
+  @SerializedName(SERIALIZED_NAME_CAPABILITIES)
   @javax.annotation.Nonnull
-  private String value;
+  private Boolean capabilities;
 
-  public static final String SERIALIZED_NAME_SUBJECT = "subject";
-  @SerializedName(SERIALIZED_NAME_SUBJECT)
-  @javax.annotation.Nullable
-  private Subject subject;
+  public static final String SERIALIZED_NAME_FUNCTIONS = "functions";
+  @SerializedName(SERIALIZED_NAME_FUNCTIONS)
+  @javax.annotation.Nonnull
+  private Boolean functions;
 
-  public SuspiciousString() {
+  public static final String SERIALIZED_NAME_SANDBOX = "sandbox";
+  @SerializedName(SERIALIZED_NAME_SANDBOX)
+  @javax.annotation.Nonnull
+  private Boolean sandbox;
+
+  public static final String SERIALIZED_NAME_SCRAPE = "scrape";
+  @SerializedName(SERIALIZED_NAME_SCRAPE)
+  @javax.annotation.Nonnull
+  private Boolean scrape;
+
+  public static final String SERIALIZED_NAME_TRIAGE = "triage";
+  @SerializedName(SERIALIZED_NAME_TRIAGE)
+  @javax.annotation.Nonnull
+  private Boolean triage;
+
+  public RequestedConfigBody() {
   }
 
-  public SuspiciousString value(@javax.annotation.Nonnull String value) {
-    this.value = value;
+  public RequestedConfigBody capabilities(@javax.annotation.Nonnull Boolean capabilities) {
+    this.capabilities = capabilities;
     return this;
   }
 
   /**
-   * Get value
-   * @return value
+   * Whether the capabilities agent was requested
+   * @return capabilities
    */
   @javax.annotation.Nonnull
-  public String getValue() {
-    return value;
+  public Boolean getCapabilities() {
+    return capabilities;
   }
 
-  public void setValue(@javax.annotation.Nonnull String value) {
-    this.value = value;
+  public void setCapabilities(@javax.annotation.Nonnull Boolean capabilities) {
+    this.capabilities = capabilities;
   }
 
 
-  public SuspiciousString subject(@javax.annotation.Nullable Subject subject) {
-    this.subject = subject;
+  public RequestedConfigBody functions(@javax.annotation.Nonnull Boolean functions) {
+    this.functions = functions;
     return this;
   }
 
   /**
-   * Get subject
-   * @return subject
+   * Whether the functions pipeline was requested
+   * @return functions
    */
-  @javax.annotation.Nullable
-  public Subject getSubject() {
-    return subject;
+  @javax.annotation.Nonnull
+  public Boolean getFunctions() {
+    return functions;
   }
 
-  public void setSubject(@javax.annotation.Nullable Subject subject) {
-    this.subject = subject;
+  public void setFunctions(@javax.annotation.Nonnull Boolean functions) {
+    this.functions = functions;
+  }
+
+
+  public RequestedConfigBody sandbox(@javax.annotation.Nonnull Boolean sandbox) {
+    this.sandbox = sandbox;
+    return this;
+  }
+
+  /**
+   * Whether dynamic execution (sandbox) was requested
+   * @return sandbox
+   */
+  @javax.annotation.Nonnull
+  public Boolean getSandbox() {
+    return sandbox;
+  }
+
+  public void setSandbox(@javax.annotation.Nonnull Boolean sandbox) {
+    this.sandbox = sandbox;
+  }
+
+
+  public RequestedConfigBody scrape(@javax.annotation.Nonnull Boolean scrape) {
+    this.scrape = scrape;
+    return this;
+  }
+
+  /**
+   * Whether external-source scraping was requested
+   * @return scrape
+   */
+  @javax.annotation.Nonnull
+  public Boolean getScrape() {
+    return scrape;
+  }
+
+  public void setScrape(@javax.annotation.Nonnull Boolean scrape) {
+    this.scrape = scrape;
+  }
+
+
+  public RequestedConfigBody triage(@javax.annotation.Nonnull Boolean triage) {
+    this.triage = triage;
+    return this;
+  }
+
+  /**
+   * Whether the triage agent was requested
+   * @return triage
+   */
+  @javax.annotation.Nonnull
+  public Boolean getTriage() {
+    return triage;
+  }
+
+  public void setTriage(@javax.annotation.Nonnull Boolean triage) {
+    this.triage = triage;
   }
 
   /**
@@ -114,9 +184,9 @@ public class SuspiciousString {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the SuspiciousString instance itself
+   * @return the RequestedConfigBody instance itself
    */
-  public SuspiciousString putAdditionalProperty(String key, Object value) {
+  public RequestedConfigBody putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -155,34 +225,29 @@ public class SuspiciousString {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SuspiciousString suspiciousString = (SuspiciousString) o;
-    return Objects.equals(this.value, suspiciousString.value) &&
-        Objects.equals(this.subject, suspiciousString.subject)&&
-        Objects.equals(this.additionalProperties, suspiciousString.additionalProperties);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+    RequestedConfigBody requestedConfigBody = (RequestedConfigBody) o;
+    return Objects.equals(this.capabilities, requestedConfigBody.capabilities) &&
+        Objects.equals(this.functions, requestedConfigBody.functions) &&
+        Objects.equals(this.sandbox, requestedConfigBody.sandbox) &&
+        Objects.equals(this.scrape, requestedConfigBody.scrape) &&
+        Objects.equals(this.triage, requestedConfigBody.triage)&&
+        Objects.equals(this.additionalProperties, requestedConfigBody.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(value, subject, additionalProperties);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(capabilities, functions, sandbox, scrape, triage, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SuspiciousString {\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
-    sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
+    sb.append("class RequestedConfigBody {\n");
+    sb.append("    capabilities: ").append(toIndentedString(capabilities)).append("\n");
+    sb.append("    functions: ").append(toIndentedString(functions)).append("\n");
+    sb.append("    sandbox: ").append(toIndentedString(sandbox)).append("\n");
+    sb.append("    scrape: ").append(toIndentedString(scrape)).append("\n");
+    sb.append("    triage: ").append(toIndentedString(triage)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -202,55 +267,48 @@ public class SuspiciousString {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("value", "subject"));
+    openapiFields = new HashSet<String>(Arrays.asList("capabilities", "functions", "sandbox", "scrape", "triage"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("value"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("capabilities", "functions", "sandbox", "scrape", "triage"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to SuspiciousString
+   * @throws IOException if the JSON Element is invalid with respect to RequestedConfigBody
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!SuspiciousString.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in SuspiciousString is not found in the empty JSON string", SuspiciousString.openapiRequiredFields.toString()));
+        if (!RequestedConfigBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in RequestedConfigBody is not found in the empty JSON string", RequestedConfigBody.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : SuspiciousString.openapiRequiredFields) {
+      for (String requiredField : RequestedConfigBody.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("value").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
-      }
-      // validate the optional field `subject`
-      if (jsonObj.get("subject") != null && !jsonObj.get("subject").isJsonNull()) {
-        Subject.validateJsonElement(jsonObj.get("subject"));
-      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!SuspiciousString.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'SuspiciousString' and its subtypes
+       if (!RequestedConfigBody.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'RequestedConfigBody' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<SuspiciousString> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(SuspiciousString.class));
+       final TypeAdapter<RequestedConfigBody> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(RequestedConfigBody.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<SuspiciousString>() {
+       return (TypeAdapter<T>) new TypeAdapter<RequestedConfigBody>() {
            @Override
-           public void write(JsonWriter out, SuspiciousString value) throws IOException {
+           public void write(JsonWriter out, RequestedConfigBody value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -278,12 +336,12 @@ public class SuspiciousString {
            }
 
            @Override
-           public SuspiciousString read(JsonReader in) throws IOException {
+           public RequestedConfigBody read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             SuspiciousString instance = thisAdapter.fromJsonTree(jsonObj);
+             RequestedConfigBody instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -310,18 +368,18 @@ public class SuspiciousString {
   }
 
   /**
-   * Create an instance of SuspiciousString given an JSON string
+   * Create an instance of RequestedConfigBody given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of SuspiciousString
-   * @throws IOException if the JSON string is invalid with respect to SuspiciousString
+   * @return An instance of RequestedConfigBody
+   * @throws IOException if the JSON string is invalid with respect to RequestedConfigBody
    */
-  public static SuspiciousString fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, SuspiciousString.class);
+  public static RequestedConfigBody fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, RequestedConfigBody.class);
   }
 
   /**
-   * Convert an instance of SuspiciousString to an JSON string
+   * Convert an instance of RequestedConfigBody to an JSON string
    *
    * @return JSON string
    */

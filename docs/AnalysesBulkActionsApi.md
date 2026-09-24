@@ -6,6 +6,7 @@ All URIs are relative to *https://api.reveng.ai*
 |------------- | ------------- | -------------|
 | [**bulkAddAnalysisTags**](AnalysesBulkActionsApi.md#bulkAddAnalysisTags) | **PATCH** /v2/analyses/tags/add | Bulk Add Analysis Tags |
 | [**bulkDeleteAnalyses**](AnalysesBulkActionsApi.md#bulkDeleteAnalyses) | **PATCH** /v2/analyses/delete | Bulk Delete Analyses |
+| [**v3BatchDeleteAnalyses**](AnalysesBulkActionsApi.md#v3BatchDeleteAnalyses) | **POST** /v3/analyses:batchDelete | Delete multiple analyses. |
 
 
 <a id="bulkAddAnalysisTags"></a>
@@ -157,4 +158,80 @@ public class Example {
 | **422** | Invalid request parameters |  -  |
 | **404** | Not Found |  -  |
 | **403** | Forbidden |  -  |
+
+<a id="v3BatchDeleteAnalyses"></a>
+# **v3BatchDeleteAnalyses**
+> v3BatchDeleteAnalyses(bulkDeleteAnalysesInputBody)
+
+Delete multiple analyses.
+
+Deactivates every given analysis. The caller must own all of them, or none are deleted.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.AnalysesBulkActionsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    AnalysesBulkActionsApi apiInstance = new AnalysesBulkActionsApi(defaultClient);
+    BulkDeleteAnalysesInputBody bulkDeleteAnalysesInputBody = new BulkDeleteAnalysesInputBody(); // BulkDeleteAnalysesInputBody | 
+    try {
+      apiInstance.v3BatchDeleteAnalyses(bulkDeleteAnalysesInputBody);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AnalysesBulkActionsApi#v3BatchDeleteAnalyses");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **bulkDeleteAnalysesInputBody** | [**BulkDeleteAnalysesInputBody**](BulkDeleteAnalysesInputBody.md)|  | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **500** | Internal Server Error |  -  |
 
