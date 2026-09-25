@@ -18,6 +18,7 @@
 |**functionName** | **String** | Name of the function the finding was reported in |  |
 |**functionSize** | **Long** | Size of the function in bytes |  |
 |**sources** | [**List&lt;SourcesEnum&gt;**](#List&lt;SourcesEnum&gt;) | Distinct execution sources evidenced by this function |  |
+|**verification** | **ExecutionVerification** | LLM verdict checking this finding against its decompilation. Present only when the run verified this finding. |  [optional] |
 
 
 

@@ -15,6 +15,7 @@ package ai.reveng.model;
 import java.util.Objects;
 import ai.reveng.model.CryptoCall;
 import ai.reveng.model.CryptoDirectMatch;
+import ai.reveng.model.CryptoVerification;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -290,6 +291,11 @@ public class CryptoFinding {
   @javax.annotation.Nullable
   private List<LibrariesEnum> libraries;
 
+  public static final String SERIALIZED_NAME_VERIFICATION = "verification";
+  @SerializedName(SERIALIZED_NAME_VERIFICATION)
+  @javax.annotation.Nullable
+  private CryptoVerification verification;
+
   public CryptoFinding() {
   }
 
@@ -514,6 +520,25 @@ public class CryptoFinding {
     this.libraries = libraries;
   }
 
+
+  public CryptoFinding verification(@javax.annotation.Nullable CryptoVerification verification) {
+    this.verification = verification;
+    return this;
+  }
+
+  /**
+   * LLM verdict checking this finding against its decompilation. Present only when the run verified this finding.
+   * @return verification
+   */
+  @javax.annotation.Nullable
+  public CryptoVerification getVerification() {
+    return verification;
+  }
+
+  public void setVerification(@javax.annotation.Nullable CryptoVerification verification) {
+    this.verification = verification;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -578,7 +603,8 @@ public class CryptoFinding {
         Objects.equals(this.functionId, cryptoFinding.functionId) &&
         Objects.equals(this.functionName, cryptoFinding.functionName) &&
         Objects.equals(this.functionSize, cryptoFinding.functionSize) &&
-        Objects.equals(this.libraries, cryptoFinding.libraries)&&
+        Objects.equals(this.libraries, cryptoFinding.libraries) &&
+        Objects.equals(this.verification, cryptoFinding.verification)&&
         Objects.equals(this.additionalProperties, cryptoFinding.additionalProperties);
   }
 
@@ -588,7 +614,7 @@ public class CryptoFinding {
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, categories, confidence, cryptoCalls, directMatches, evidenceCount, functionId, functionName, functionSize, libraries, additionalProperties);
+    return Objects.hash(address, categories, confidence, cryptoCalls, directMatches, evidenceCount, functionId, functionName, functionSize, libraries, verification, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -612,6 +638,7 @@ public class CryptoFinding {
     sb.append("    functionName: ").append(toIndentedString(functionName)).append("\n");
     sb.append("    functionSize: ").append(toIndentedString(functionSize)).append("\n");
     sb.append("    libraries: ").append(toIndentedString(libraries)).append("\n");
+    sb.append("    verification: ").append(toIndentedString(verification)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -631,7 +658,7 @@ public class CryptoFinding {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("address", "categories", "confidence", "crypto_calls", "direct_matches", "evidence_count", "function_id", "function_name", "function_size", "libraries"));
+    openapiFields = new HashSet<String>(Arrays.asList("address", "categories", "confidence", "crypto_calls", "direct_matches", "evidence_count", "function_id", "function_name", "function_size", "libraries", "verification"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("address", "categories", "confidence", "evidence_count", "function_id", "function_name", "function_size", "libraries"));

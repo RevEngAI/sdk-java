@@ -27,6 +27,8 @@ import java.io.IOException;
 
 
 import ai.reveng.model.APIError;
+import ai.reveng.model.AcceptTypeSuggestionsInputBody;
+import ai.reveng.model.AcceptTypeSuggestionsOutputBody;
 import ai.reveng.model.BaseResponse;
 import ai.reveng.model.BaseResponseUnionGetAiDecompilationRatingResponseNoneType;
 import ai.reveng.model.CommentsData;
@@ -2117,6 +2119,167 @@ public class FunctionsAiDecompilationApi {
 
         okhttp3.Call localVarCall = upsertAiDecompilationRatingValidateBeforeCall(functionId, upsertAiDecomplationRatingRequest, _callback);
         Type localVarReturnType = new TypeToken<BaseResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for v3AcceptAiDecompilationTypeSuggestions
+     * @param functionId Function ID (required)
+     * @param acceptTypeSuggestionsInputBody  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3AcceptAiDecompilationTypeSuggestionsCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull AcceptTypeSuggestionsInputBody acceptTypeSuggestionsInputBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = acceptTypeSuggestionsInputBody;
+
+        // create path and map variables
+        String localVarPath = "/v3/functions/{function_id}/ai-decompilation/type-suggestions/accept"
+            .replace("{" + "function_id" + "}", localVarApiClient.escapeString(functionId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call v3AcceptAiDecompilationTypeSuggestionsValidateBeforeCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull AcceptTypeSuggestionsInputBody acceptTypeSuggestionsInputBody, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'functionId' is set
+        if (functionId == null) {
+            throw new ApiException("Missing the required parameter 'functionId' when calling v3AcceptAiDecompilationTypeSuggestions(Async)");
+        }
+
+        // verify the required parameter 'acceptTypeSuggestionsInputBody' is set
+        if (acceptTypeSuggestionsInputBody == null) {
+            throw new ApiException("Missing the required parameter 'acceptTypeSuggestionsInputBody' when calling v3AcceptAiDecompilationTypeSuggestions(Async)");
+        }
+
+        return v3AcceptAiDecompilationTypeSuggestionsCall(functionId, acceptTypeSuggestionsInputBody, _callback);
+
+    }
+
+    /**
+     * Accept AI decompilation type suggestions
+     * Stores the named type suggestions as data types of this function&#39;s analysis, with a &#x60;source_type&#x60; of &#x60;AI_DECOMP&#x60; and this function as their &#x60;source_function_id&#x60;.  Each suggestion is stored as the type suggestions endpoint renders it: a &#x60;STRUCT&#x60; where members were placed, a &#x60;TYPEDEF&#x60; where the suggestion is a name for a scalar, and an &#x60;UNKNOWN&#x60; type where nothing gave it a shape. A member with no offset or width is left out and counted in &#x60;skipped_members&#x60;. A type expression a member names is matched against the analysis by name alone and created where nothing matches: &#x60;char *&#x60; creates a &#x60;char&#x60; &#x60;BASE&#x60; type and a &#x60;POINTER&#x60; type pointing at it, reusing either where the analysis already holds it. A member naming another suggestion accepted by the same request resolves to it. Only a trailing &#x60;*&#x60; is taken apart, so a name like &#x60;int &amp;&#x60; stands for one type.  No size is stored: the widths a suggestion carries are lower bounds rather than the type&#39;s own. A suggestion the analysis already holds a type of that name and kind for resolves to it, so repeating a request stores nothing further.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;422&#x60; [&#x60;VALIDATION_FAILED&#x60;](/errors/VALIDATION_FAILED) — Validation Failed - &#x60;500&#x60; [&#x60;INTERNAL_ERROR&#x60;](/errors/INTERNAL_ERROR) — Internal Server Error
+     * @param functionId Function ID (required)
+     * @param acceptTypeSuggestionsInputBody  (required)
+     * @return AcceptTypeSuggestionsOutputBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public AcceptTypeSuggestionsOutputBody v3AcceptAiDecompilationTypeSuggestions(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull AcceptTypeSuggestionsInputBody acceptTypeSuggestionsInputBody) throws ApiException {
+        ApiResponse<AcceptTypeSuggestionsOutputBody> localVarResp = v3AcceptAiDecompilationTypeSuggestionsWithHttpInfo(functionId, acceptTypeSuggestionsInputBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Accept AI decompilation type suggestions
+     * Stores the named type suggestions as data types of this function&#39;s analysis, with a &#x60;source_type&#x60; of &#x60;AI_DECOMP&#x60; and this function as their &#x60;source_function_id&#x60;.  Each suggestion is stored as the type suggestions endpoint renders it: a &#x60;STRUCT&#x60; where members were placed, a &#x60;TYPEDEF&#x60; where the suggestion is a name for a scalar, and an &#x60;UNKNOWN&#x60; type where nothing gave it a shape. A member with no offset or width is left out and counted in &#x60;skipped_members&#x60;. A type expression a member names is matched against the analysis by name alone and created where nothing matches: &#x60;char *&#x60; creates a &#x60;char&#x60; &#x60;BASE&#x60; type and a &#x60;POINTER&#x60; type pointing at it, reusing either where the analysis already holds it. A member naming another suggestion accepted by the same request resolves to it. Only a trailing &#x60;*&#x60; is taken apart, so a name like &#x60;int &amp;&#x60; stands for one type.  No size is stored: the widths a suggestion carries are lower bounds rather than the type&#39;s own. A suggestion the analysis already holds a type of that name and kind for resolves to it, so repeating a request stores nothing further.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;422&#x60; [&#x60;VALIDATION_FAILED&#x60;](/errors/VALIDATION_FAILED) — Validation Failed - &#x60;500&#x60; [&#x60;INTERNAL_ERROR&#x60;](/errors/INTERNAL_ERROR) — Internal Server Error
+     * @param functionId Function ID (required)
+     * @param acceptTypeSuggestionsInputBody  (required)
+     * @return ApiResponse&lt;AcceptTypeSuggestionsOutputBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<AcceptTypeSuggestionsOutputBody> v3AcceptAiDecompilationTypeSuggestionsWithHttpInfo(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull AcceptTypeSuggestionsInputBody acceptTypeSuggestionsInputBody) throws ApiException {
+        okhttp3.Call localVarCall = v3AcceptAiDecompilationTypeSuggestionsValidateBeforeCall(functionId, acceptTypeSuggestionsInputBody, null);
+        Type localVarReturnType = new TypeToken<AcceptTypeSuggestionsOutputBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Accept AI decompilation type suggestions (asynchronously)
+     * Stores the named type suggestions as data types of this function&#39;s analysis, with a &#x60;source_type&#x60; of &#x60;AI_DECOMP&#x60; and this function as their &#x60;source_function_id&#x60;.  Each suggestion is stored as the type suggestions endpoint renders it: a &#x60;STRUCT&#x60; where members were placed, a &#x60;TYPEDEF&#x60; where the suggestion is a name for a scalar, and an &#x60;UNKNOWN&#x60; type where nothing gave it a shape. A member with no offset or width is left out and counted in &#x60;skipped_members&#x60;. A type expression a member names is matched against the analysis by name alone and created where nothing matches: &#x60;char *&#x60; creates a &#x60;char&#x60; &#x60;BASE&#x60; type and a &#x60;POINTER&#x60; type pointing at it, reusing either where the analysis already holds it. A member naming another suggestion accepted by the same request resolves to it. Only a trailing &#x60;*&#x60; is taken apart, so a name like &#x60;int &amp;&#x60; stands for one type.  No size is stored: the widths a suggestion carries are lower bounds rather than the type&#39;s own. A suggestion the analysis already holds a type of that name and kind for resolves to it, so repeating a request stores nothing further.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;422&#x60; [&#x60;VALIDATION_FAILED&#x60;](/errors/VALIDATION_FAILED) — Validation Failed - &#x60;500&#x60; [&#x60;INTERNAL_ERROR&#x60;](/errors/INTERNAL_ERROR) — Internal Server Error
+     * @param functionId Function ID (required)
+     * @param acceptTypeSuggestionsInputBody  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3AcceptAiDecompilationTypeSuggestionsAsync(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull AcceptTypeSuggestionsInputBody acceptTypeSuggestionsInputBody, final ApiCallback<AcceptTypeSuggestionsOutputBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = v3AcceptAiDecompilationTypeSuggestionsValidateBeforeCall(functionId, acceptTypeSuggestionsInputBody, _callback);
+        Type localVarReturnType = new TypeToken<AcceptTypeSuggestionsOutputBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

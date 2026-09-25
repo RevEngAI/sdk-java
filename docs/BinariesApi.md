@@ -14,9 +14,12 @@ All URIs are relative to *https://api.reveng.ai*
 | [**getBinaryExternals**](BinariesApi.md#getBinaryExternals) | **GET** /v2/binaries/{binary_id}/externals | Gets the external details of a binary |
 | [**getBinaryRelatedStatus**](BinariesApi.md#getBinaryRelatedStatus) | **GET** /v2/binaries/{binary_id}/related/status | Gets the status of the unpack binary task for a binary |
 | [**getRelatedBinaries**](BinariesApi.md#getRelatedBinaries) | **GET** /v2/binaries/{binary_id}/related | Gets the related binaries of a binary. |
+| [**v3DownloadBinaryZipped**](BinariesApi.md#v3DownloadBinaryZipped) | **GET** /v3/binaries/{binary_id}/download-zipped | Download a binary as a password-protected zip. |
 | [**v3GetBinaryDieInfo**](BinariesApi.md#v3GetBinaryDieInfo) | **GET** /v3/binaries/{binary_id}/die-info | Get Detect It Easy matches for a binary. |
+| [**v3GetBinaryExternals**](BinariesApi.md#v3GetBinaryExternals) | **GET** /v3/binaries/{binary_id}/externals | Get third-party threat-intel lookups for a binary. |
 | [**v3GetBinaryRelated**](BinariesApi.md#v3GetBinaryRelated) | **GET** /v3/binaries/{binary_id}/related | Get the binaries related to this one by unpacking. |
 | [**v3GetBinaryRelatedStatus**](BinariesApi.md#v3GetBinaryRelatedStatus) | **GET** /v3/binaries/{binary_id}/related/status | Get the archive-unpacking status for a binary. |
+| [**v3SearchBinaries**](BinariesApi.md#v3SearchBinaries) | **GET** /v3/binaries | Search binaries |
 | [**v3UploadFile**](BinariesApi.md#v3UploadFile) | **POST** /v3/upload | Upload a file. |
 
 
@@ -751,6 +754,82 @@ public class Example {
 | **422** | Invalid request parameters |  -  |
 | **403** | Forbidden |  -  |
 
+<a id="v3DownloadBinaryZipped"></a>
+# **v3DownloadBinaryZipped**
+> v3DownloadBinaryZipped(binaryId)
+
+Download a binary as a password-protected zip.
+
+Streams the binary&#39;s uploaded file back as a zip archive, encrypted with a fixed password (&#x60;infected&#x60;) that deters antivirus scanning in transit rather than protecting confidentiality. Only the binary&#39;s owner, or an admin/superadmin, may download it; an internally-managed account&#39;s binary can only be downloaded by a superadmin.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.BinariesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    BinariesApi apiInstance = new BinariesApi(defaultClient);
+    Long binaryId = 56L; // Long | Binary ID
+    try {
+      apiInstance.v3DownloadBinaryZipped(binaryId);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling BinariesApi#v3DownloadBinaryZipped");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **binaryId** | **Long**| Binary ID | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **500** | Internal Server Error |  -  |
+
 <a id="v3GetBinaryDieInfo"></a>
 # **v3GetBinaryDieInfo**
 > GetDieInfoOutputBody v3GetBinaryDieInfo(binaryId)
@@ -809,6 +888,83 @@ public class Example {
 ### Return type
 
 [**GetDieInfoOutputBody**](GetDieInfoOutputBody.md)
+
+### Authorization
+
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **500** | Internal Server Error |  -  |
+
+<a id="v3GetBinaryExternals"></a>
+# **v3GetBinaryExternals**
+> GetBinaryExternalsOutputBody v3GetBinaryExternals(binaryId)
+
+Get third-party threat-intel lookups for a binary.
+
+Returns VirusTotal and MalwareBazaar lookup results for the binary&#39;s content hash. &#x60;externals&#x60; is null until at least one lookup has run.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.BinariesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    BinariesApi apiInstance = new BinariesApi(defaultClient);
+    Long binaryId = 56L; // Long | Binary ID
+    try {
+      GetBinaryExternalsOutputBody result = apiInstance.v3GetBinaryExternals(binaryId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling BinariesApi#v3GetBinaryExternals");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **binaryId** | **Long**| Binary ID | |
+
+### Return type
+
+[**GetBinaryExternalsOutputBody**](GetBinaryExternalsOutputBody.md)
 
 ### Authorization
 
@@ -979,6 +1135,97 @@ public class Example {
 | **200** | OK |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **500** | Internal Server Error |  -  |
+
+<a id="v3SearchBinaries"></a>
+# **v3SearchBinaries**
+> SearchBinariesOutputBody v3SearchBinaries(partialName, partialSha256, tags, modelName, userFilesOnly, excludeBinaryId, userIds, limit, offset)
+
+Search binaries
+
+Searches for binaries visible to the caller. At least one of partial_name, partial_sha256, tags, or model_name must be provided.  **Error codes:** - &#x60;422&#x60; [&#x60;VALIDATION_FAILED&#x60;](/errors/VALIDATION_FAILED) — Validation Failed
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.BinariesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    BinariesApi apiInstance = new BinariesApi(defaultClient);
+    String partialName = "partialName_example"; // String | Partial or full binary name to search for
+    String partialSha256 = "partialSha256_example"; // String | Partial or full SHA-256 hash to search for
+    List<String> tags = Arrays.asList(); // List<String> | Restrict results to binaries carrying at least one of these tags
+    String modelName = "modelName_example"; // String | Restrict results to binaries analysed with this model
+    Boolean userFilesOnly = false; // Boolean | Restrict results to files the caller uploaded themself
+    Long excludeBinaryId = 56L; // Long | A binary ID to exclude from the results
+    List<Long> userIds = Arrays.asList(); // List<Long> | Restrict results to binaries owned by one of these user IDs
+    Long limit = 10L; // Long | Maximum results to return
+    Long offset = 0L; // Long | Number of results to skip
+    try {
+      SearchBinariesOutputBody result = apiInstance.v3SearchBinaries(partialName, partialSha256, tags, modelName, userFilesOnly, excludeBinaryId, userIds, limit, offset);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling BinariesApi#v3SearchBinaries");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **partialName** | **String**| Partial or full binary name to search for | [optional] |
+| **partialSha256** | **String**| Partial or full SHA-256 hash to search for | [optional] |
+| **tags** | [**List&lt;String&gt;**](String.md)| Restrict results to binaries carrying at least one of these tags | [optional] |
+| **modelName** | **String**| Restrict results to binaries analysed with this model | [optional] |
+| **userFilesOnly** | **Boolean**| Restrict results to files the caller uploaded themself | [optional] [default to false] |
+| **excludeBinaryId** | **Long**| A binary ID to exclude from the results | [optional] |
+| **userIds** | [**List&lt;Long&gt;**](Long.md)| Restrict results to binaries owned by one of these user IDs | [optional] |
+| **limit** | **Long**| Maximum results to return | [optional] [default to 10] |
+| **offset** | **Long**| Number of results to skip | [optional] [default to 0] |
+
+### Return type
+
+[**SearchBinariesOutputBody**](SearchBinariesOutputBody.md)
+
+### Authorization
+
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
 | **422** | Unprocessable Entity |  -  |
 | **500** | Internal Server Error |  -  |
 

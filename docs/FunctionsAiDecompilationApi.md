@@ -18,6 +18,7 @@ All URIs are relative to *https://api.reveng.ai*
 | [**regenerateAiDecompilationSummary**](FunctionsAiDecompilationApi.md#regenerateAiDecompilationSummary) | **POST** /v3/functions/{function_id}/ai-decompilation/summary | Regenerate AI decompilation summary |
 | [**streamAiDecompilation**](FunctionsAiDecompilationApi.md#streamAiDecompilation) | **GET** /v3/functions/{function_id}/ai-decompilation/events | Stream live AI decompilation output (SSE) |
 | [**upsertAiDecompilationRating**](FunctionsAiDecompilationApi.md#upsertAiDecompilationRating) | **PATCH** /v2/functions/{function_id}/ai-decompilation/rating | Upsert rating for AI decompilation |
+| [**v3AcceptAiDecompilationTypeSuggestions**](FunctionsAiDecompilationApi.md#v3AcceptAiDecompilationTypeSuggestions) | **POST** /v3/functions/{function_id}/ai-decompilation/type-suggestions/accept | Accept AI decompilation type suggestions |
 | [**v3GetAiDecompilationLineAttributions**](FunctionsAiDecompilationApi.md#v3GetAiDecompilationLineAttributions) | **GET** /v3/functions/{function_id}/ai-decompilation/line-attributions | Get AI decompilation line attributions |
 | [**v3GetAiDecompilationTokens**](FunctionsAiDecompilationApi.md#v3GetAiDecompilationTokens) | **GET** /v3/functions/{function_id}/ai-decompilation/tokens | Get AI decompilation tokens and user overrides |
 | [**v3GetAiDecompilationTypeSuggestions**](FunctionsAiDecompilationApi.md#v3GetAiDecompilationTypeSuggestions) | **GET** /v3/functions/{function_id}/ai-decompilation/type-suggestions | Get AI decompilation type suggestions |
@@ -1103,6 +1104,87 @@ public class Example {
 |-------------|-------------|------------------|
 | **201** | Successful Response |  -  |
 | **422** | Invalid request parameters |  -  |
+
+<a id="v3AcceptAiDecompilationTypeSuggestions"></a>
+# **v3AcceptAiDecompilationTypeSuggestions**
+> AcceptTypeSuggestionsOutputBody v3AcceptAiDecompilationTypeSuggestions(functionId, acceptTypeSuggestionsInputBody)
+
+Accept AI decompilation type suggestions
+
+Stores the named type suggestions as data types of this function&#39;s analysis, with a &#x60;source_type&#x60; of &#x60;AI_DECOMP&#x60; and this function as their &#x60;source_function_id&#x60;.  Each suggestion is stored as the type suggestions endpoint renders it: a &#x60;STRUCT&#x60; where members were placed, a &#x60;TYPEDEF&#x60; where the suggestion is a name for a scalar, and an &#x60;UNKNOWN&#x60; type where nothing gave it a shape. A member with no offset or width is left out and counted in &#x60;skipped_members&#x60;. A type expression a member names is matched against the analysis by name alone and created where nothing matches: &#x60;char *&#x60; creates a &#x60;char&#x60; &#x60;BASE&#x60; type and a &#x60;POINTER&#x60; type pointing at it, reusing either where the analysis already holds it. A member naming another suggestion accepted by the same request resolves to it. Only a trailing &#x60;*&#x60; is taken apart, so a name like &#x60;int &amp;&#x60; stands for one type.  No size is stored: the widths a suggestion carries are lower bounds rather than the type&#39;s own. A suggestion the analysis already holds a type of that name and kind for resolves to it, so repeating a request stores nothing further.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;422&#x60; [&#x60;VALIDATION_FAILED&#x60;](/errors/VALIDATION_FAILED) — Validation Failed - &#x60;500&#x60; [&#x60;INTERNAL_ERROR&#x60;](/errors/INTERNAL_ERROR) — Internal Server Error
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.FunctionsAiDecompilationApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    FunctionsAiDecompilationApi apiInstance = new FunctionsAiDecompilationApi(defaultClient);
+    Long functionId = 56L; // Long | Function ID
+    AcceptTypeSuggestionsInputBody acceptTypeSuggestionsInputBody = new AcceptTypeSuggestionsInputBody(); // AcceptTypeSuggestionsInputBody | 
+    try {
+      AcceptTypeSuggestionsOutputBody result = apiInstance.v3AcceptAiDecompilationTypeSuggestions(functionId, acceptTypeSuggestionsInputBody);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling FunctionsAiDecompilationApi#v3AcceptAiDecompilationTypeSuggestions");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **functionId** | **Long**| Function ID | |
+| **acceptTypeSuggestionsInputBody** | [**AcceptTypeSuggestionsInputBody**](AcceptTypeSuggestionsInputBody.md)|  | |
+
+### Return type
+
+[**AcceptTypeSuggestionsOutputBody**](AcceptTypeSuggestionsOutputBody.md)
+
+### Authorization
+
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **500** | Internal Server Error |  -  |
 
 <a id="v3GetAiDecompilationLineAttributions"></a>
 # **v3GetAiDecompilationLineAttributions**

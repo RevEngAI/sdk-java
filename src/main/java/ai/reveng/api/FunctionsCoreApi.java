@@ -51,6 +51,7 @@ import ai.reveng.model.IndirectCallSitesOutputBody;
 import ai.reveng.model.ListAnalysisFunctionsOutputBody;
 import ai.reveng.model.ListFunctionStringsOutputBody;
 import ai.reveng.model.ListImportedFunctionsOutputBody;
+import ai.reveng.model.SearchFunctionsOutputBody;
 import ai.reveng.model.StartMatchingForFunctionsInputBody;
 import ai.reveng.model.StartMatchingOutputBody;
 
@@ -3710,6 +3711,163 @@ public class FunctionsCoreApi {
 
         okhttp3.Call localVarCall = v3CanonicalizeFunctionNamesValidateBeforeCall(canonicalizeNamesInputBody, _callback);
         Type localVarReturnType = new TypeToken<CanonicalizeNamesOutputBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for v3SearchFunctions
+     * @param partialName Partial or full function name to search for (optional)
+     * @param modelName Restrict results to functions analysed with this model (optional)
+     * @param limit Maximum results to return (optional, default to 10)
+     * @param offset Number of results to skip (optional, default to 0)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3SearchFunctionsCall(@javax.annotation.Nullable String partialName, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable Long limit, @javax.annotation.Nullable Long offset, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/functions";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (partialName != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("partial_name", partialName));
+        }
+
+        if (modelName != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("model_name", modelName));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (offset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call v3SearchFunctionsValidateBeforeCall(@javax.annotation.Nullable String partialName, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable Long limit, @javax.annotation.Nullable Long offset, final ApiCallback _callback) throws ApiException {
+        return v3SearchFunctionsCall(partialName, modelName, limit, offset, _callback);
+
+    }
+
+    /**
+     * Search functions
+     * Searches for functions visible to the caller. At least one of partial_name or model_name must be provided.  **Error codes:** - &#x60;422&#x60; [&#x60;VALIDATION_FAILED&#x60;](/errors/VALIDATION_FAILED) — Validation Failed
+     * @param partialName Partial or full function name to search for (optional)
+     * @param modelName Restrict results to functions analysed with this model (optional)
+     * @param limit Maximum results to return (optional, default to 10)
+     * @param offset Number of results to skip (optional, default to 0)
+     * @return SearchFunctionsOutputBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public SearchFunctionsOutputBody v3SearchFunctions(@javax.annotation.Nullable String partialName, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable Long limit, @javax.annotation.Nullable Long offset) throws ApiException {
+        ApiResponse<SearchFunctionsOutputBody> localVarResp = v3SearchFunctionsWithHttpInfo(partialName, modelName, limit, offset);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Search functions
+     * Searches for functions visible to the caller. At least one of partial_name or model_name must be provided.  **Error codes:** - &#x60;422&#x60; [&#x60;VALIDATION_FAILED&#x60;](/errors/VALIDATION_FAILED) — Validation Failed
+     * @param partialName Partial or full function name to search for (optional)
+     * @param modelName Restrict results to functions analysed with this model (optional)
+     * @param limit Maximum results to return (optional, default to 10)
+     * @param offset Number of results to skip (optional, default to 0)
+     * @return ApiResponse&lt;SearchFunctionsOutputBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<SearchFunctionsOutputBody> v3SearchFunctionsWithHttpInfo(@javax.annotation.Nullable String partialName, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable Long limit, @javax.annotation.Nullable Long offset) throws ApiException {
+        okhttp3.Call localVarCall = v3SearchFunctionsValidateBeforeCall(partialName, modelName, limit, offset, null);
+        Type localVarReturnType = new TypeToken<SearchFunctionsOutputBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Search functions (asynchronously)
+     * Searches for functions visible to the caller. At least one of partial_name or model_name must be provided.  **Error codes:** - &#x60;422&#x60; [&#x60;VALIDATION_FAILED&#x60;](/errors/VALIDATION_FAILED) — Validation Failed
+     * @param partialName Partial or full function name to search for (optional)
+     * @param modelName Restrict results to functions analysed with this model (optional)
+     * @param limit Maximum results to return (optional, default to 10)
+     * @param offset Number of results to skip (optional, default to 0)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3SearchFunctionsAsync(@javax.annotation.Nullable String partialName, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable Long limit, @javax.annotation.Nullable Long offset, final ApiCallback<SearchFunctionsOutputBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = v3SearchFunctionsValidateBeforeCall(partialName, modelName, limit, offset, _callback);
+        Type localVarReturnType = new TypeToken<SearchFunctionsOutputBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

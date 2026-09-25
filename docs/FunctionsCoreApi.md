@@ -28,6 +28,7 @@ All URIs are relative to *https://api.reveng.ai*
 | [**listImportedFunctions**](FunctionsCoreApi.md#listImportedFunctions) | **GET** /v3/analyses/{analysis_id}/imported-functions | List imported functions in an analysis |
 | [**startFunctionsMatching**](FunctionsCoreApi.md#startFunctionsMatching) | **POST** /v3/functions/matches | Start function matching for an explicit set of functions |
 | [**v3CanonicalizeFunctionNames**](FunctionsCoreApi.md#v3CanonicalizeFunctionNames) | **POST** /v3/functions/canonical-names | Canonicalize a batch of function names |
+| [**v3SearchFunctions**](FunctionsCoreApi.md#v3SearchFunctions) | **GET** /v3/functions | Search functions |
 
 
 <a id="addFunctionCallee"></a>
@@ -1895,4 +1896,85 @@ public class Example {
 | **422** | Unprocessable Entity |  -  |
 | **500** | Internal Server Error |  -  |
 | **503** | Service Unavailable |  -  |
+
+<a id="v3SearchFunctions"></a>
+# **v3SearchFunctions**
+> SearchFunctionsOutputBody v3SearchFunctions(partialName, modelName, limit, offset)
+
+Search functions
+
+Searches for functions visible to the caller. At least one of partial_name or model_name must be provided.  **Error codes:** - &#x60;422&#x60; [&#x60;VALIDATION_FAILED&#x60;](/errors/VALIDATION_FAILED) — Validation Failed
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.FunctionsCoreApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    FunctionsCoreApi apiInstance = new FunctionsCoreApi(defaultClient);
+    String partialName = "partialName_example"; // String | Partial or full function name to search for
+    String modelName = "modelName_example"; // String | Restrict results to functions analysed with this model
+    Long limit = 10L; // Long | Maximum results to return
+    Long offset = 0L; // Long | Number of results to skip
+    try {
+      SearchFunctionsOutputBody result = apiInstance.v3SearchFunctions(partialName, modelName, limit, offset);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling FunctionsCoreApi#v3SearchFunctions");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **partialName** | **String**| Partial or full function name to search for | [optional] |
+| **modelName** | **String**| Restrict results to functions analysed with this model | [optional] |
+| **limit** | **Long**| Maximum results to return | [optional] [default to 10] |
+| **offset** | **Long**| Number of results to skip | [optional] [default to 0] |
+
+### Return type
+
+[**SearchFunctionsOutputBody**](SearchFunctionsOutputBody.md)
+
+### Authorization
+
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **500** | Internal Server Error |  -  |
 

@@ -884,11 +884,11 @@ public class Example {
 
 <a id="v3ListCollections"></a>
 # **v3ListCollections**
-> ListCollectionsOutputBody v3ListCollections(searchTerm, filters, limit, offset, orderBy, order)
+> ListCollectionsOutputBody v3ListCollections(searchTerm, binaryName, binarySha256, tags, userIds, filters, limit, offset, orderBy, order)
 
 List collections.
 
-Lists collections accessible to the authenticated user. Supports search, filtering, ordering, and pagination.  **Error codes:** - &#x60;422&#x60; [&#x60;VALIDATION_FAILED&#x60;](/errors/VALIDATION_FAILED) — Validation Failed
+Lists collections accessible to the authenticated user. Supports search by collection name, contained binary name/SHA-256, tags, owner, filtering, ordering, and pagination.  **Error codes:** - &#x60;422&#x60; [&#x60;VALIDATION_FAILED&#x60;](/errors/VALIDATION_FAILED) — Validation Failed
 
 ### Example
 ```java
@@ -916,14 +916,18 @@ public class Example {
     bearerAuth.setBearerToken("BEARER TOKEN");
 
     CollectionsApi apiInstance = new CollectionsApi(defaultClient);
-    String searchTerm = "searchTerm_example"; // String | 
+    String searchTerm = "searchTerm_example"; // String | Partial or full collection name to search for
+    String binaryName = "binaryName_example"; // String | Only return Collections containing a Binary whose name contains this
+    String binarySha256 = "binarySha256_example"; // String | Only return Collections containing a Binary whose SHA-256 hash contains this
+    List<String> tags = Arrays.asList(); // List<String> | Only return Collections carrying at least one of these Tags
+    List<Long> userIds = Arrays.asList(); // List<Long> | Restrict results to Collections owned by one of these user IDs
     List<String> filters = Arrays.asList(); // List<String> | 
     Long limit = 20L; // Long | 
     Long offset = 0L; // Long | 
     String orderBy = "created"; // String | 
     String order = "ASC"; // String | 
     try {
-      ListCollectionsOutputBody result = apiInstance.v3ListCollections(searchTerm, filters, limit, offset, orderBy, order);
+      ListCollectionsOutputBody result = apiInstance.v3ListCollections(searchTerm, binaryName, binarySha256, tags, userIds, filters, limit, offset, orderBy, order);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CollectionsApi#v3ListCollections");
@@ -940,7 +944,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **searchTerm** | **String**|  | [optional] |
+| **searchTerm** | **String**| Partial or full collection name to search for | [optional] |
+| **binaryName** | **String**| Only return Collections containing a Binary whose name contains this | [optional] |
+| **binarySha256** | **String**| Only return Collections containing a Binary whose SHA-256 hash contains this | [optional] |
+| **tags** | [**List&lt;String&gt;**](String.md)| Only return Collections carrying at least one of these Tags | [optional] |
+| **userIds** | [**List&lt;Long&gt;**](Long.md)| Restrict results to Collections owned by one of these user IDs | [optional] |
 | **filters** | [**List&lt;String&gt;**](String.md)|  | [optional] [enum: official_only, user_only, team_only, public_only, hide_empty] |
 | **limit** | **Long**|  | [optional] [default to 20] |
 | **offset** | **Long**|  | [optional] [default to 0] |

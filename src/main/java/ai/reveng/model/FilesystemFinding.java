@@ -15,6 +15,7 @@ package ai.reveng.model;
 import java.util.Objects;
 import ai.reveng.model.FilesystemCall;
 import ai.reveng.model.FilesystemDirectMatch;
+import ai.reveng.model.FilesystemVerification;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -309,6 +310,11 @@ public class FilesystemFinding {
   @javax.annotation.Nullable
   private List<SourcesEnum> sources;
 
+  public static final String SERIALIZED_NAME_VERIFICATION = "verification";
+  @SerializedName(SERIALIZED_NAME_VERIFICATION)
+  @javax.annotation.Nullable
+  private FilesystemVerification verification;
+
   public FilesystemFinding() {
   }
 
@@ -552,6 +558,25 @@ public class FilesystemFinding {
     this.sources = sources;
   }
 
+
+  public FilesystemFinding verification(@javax.annotation.Nullable FilesystemVerification verification) {
+    this.verification = verification;
+    return this;
+  }
+
+  /**
+   * LLM verdict checking this finding against its decompilation. Present only when the run verified this finding.
+   * @return verification
+   */
+  @javax.annotation.Nullable
+  public FilesystemVerification getVerification() {
+    return verification;
+  }
+
+  public void setVerification(@javax.annotation.Nullable FilesystemVerification verification) {
+    this.verification = verification;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -617,7 +642,8 @@ public class FilesystemFinding {
         Objects.equals(this.functionName, filesystemFinding.functionName) &&
         Objects.equals(this.functionSize, filesystemFinding.functionSize) &&
         Objects.equals(this.modifies, filesystemFinding.modifies) &&
-        Objects.equals(this.sources, filesystemFinding.sources)&&
+        Objects.equals(this.sources, filesystemFinding.sources) &&
+        Objects.equals(this.verification, filesystemFinding.verification)&&
         Objects.equals(this.additionalProperties, filesystemFinding.additionalProperties);
   }
 
@@ -627,7 +653,7 @@ public class FilesystemFinding {
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, categories, confidence, directMatches, evidenceCount, filesystemCalls, functionId, functionName, functionSize, modifies, sources, additionalProperties);
+    return Objects.hash(address, categories, confidence, directMatches, evidenceCount, filesystemCalls, functionId, functionName, functionSize, modifies, sources, verification, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -652,6 +678,7 @@ public class FilesystemFinding {
     sb.append("    functionSize: ").append(toIndentedString(functionSize)).append("\n");
     sb.append("    modifies: ").append(toIndentedString(modifies)).append("\n");
     sb.append("    sources: ").append(toIndentedString(sources)).append("\n");
+    sb.append("    verification: ").append(toIndentedString(verification)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -671,7 +698,7 @@ public class FilesystemFinding {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("address", "categories", "confidence", "direct_matches", "evidence_count", "filesystem_calls", "function_id", "function_name", "function_size", "modifies", "sources"));
+    openapiFields = new HashSet<String>(Arrays.asList("address", "categories", "confidence", "direct_matches", "evidence_count", "filesystem_calls", "function_id", "function_name", "function_size", "modifies", "sources", "verification"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("address", "categories", "confidence", "evidence_count", "function_id", "function_name", "function_size", "modifies", "sources"));

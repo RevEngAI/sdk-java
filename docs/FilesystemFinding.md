@@ -18,6 +18,7 @@
 |**functionSize** | **Long** | Size of the function in bytes |  |
 |**modifies** | **Boolean** | Whether this function evidences modifying the filesystem rather than only observing it |  |
 |**sources** | [**List&lt;SourcesEnum&gt;**](#List&lt;SourcesEnum&gt;) | Distinct filesystem sources evidenced by this function |  |
+|**verification** | **FilesystemVerification** | LLM verdict checking this finding against its decompilation. Present only when the run verified this finding. |  [optional] |
 
 
 

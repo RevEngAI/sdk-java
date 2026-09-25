@@ -17,6 +17,7 @@
 |**functionName** | **String** | Name of the function the finding was reported in |  |
 |**functionSize** | **Long** | Size of the function in bytes |  |
 |**libraries** | [**List&lt;LibrariesEnum&gt;**](#List&lt;LibrariesEnum&gt;) | Distinct crypto libraries evidenced by this function |  |
+|**verification** | **CryptoVerification** | LLM verdict checking this finding against its decompilation. Present only when the run verified this finding. |  [optional] |
 
 
 

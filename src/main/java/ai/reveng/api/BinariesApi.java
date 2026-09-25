@@ -38,9 +38,11 @@ import ai.reveng.model.BaseResponseListDieMatch;
 import java.io.File;
 import ai.reveng.model.GetAdditionalDetailsOutputBody;
 import ai.reveng.model.GetAdditionalDetailsStatusOutputBody;
+import ai.reveng.model.GetBinaryExternalsOutputBody;
 import ai.reveng.model.GetDieInfoOutputBody;
 import ai.reveng.model.GetRelatedBinariesOutputBody;
 import ai.reveng.model.GetRelatedStatusOutputBody;
+import ai.reveng.model.SearchBinariesOutputBody;
 import ai.reveng.model.UploadOutputBody;
 
 import java.lang.reflect.Type;
@@ -928,7 +930,9 @@ public class BinariesApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getBinaryDieInfoCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -974,6 +978,7 @@ public class BinariesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getBinaryDieInfoValidateBeforeCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'binaryId' is set
@@ -998,7 +1003,9 @@ public class BinariesApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BaseResponseListDieMatch getBinaryDieInfo(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
         ApiResponse<BaseResponseListDieMatch> localVarResp = getBinaryDieInfoWithHttpInfo(binaryId);
         return localVarResp.getData();
@@ -1017,7 +1024,9 @@ public class BinariesApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BaseResponseListDieMatch> getBinaryDieInfoWithHttpInfo(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
         okhttp3.Call localVarCall = getBinaryDieInfoValidateBeforeCall(binaryId, null);
         Type localVarReturnType = new TypeToken<BaseResponseListDieMatch>(){}.getType();
@@ -1038,7 +1047,9 @@ public class BinariesApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getBinaryDieInfoAsync(@javax.annotation.Nonnull Integer binaryId, final ApiCallback<BaseResponseListDieMatch> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getBinaryDieInfoValidateBeforeCall(binaryId, _callback);
@@ -1190,7 +1201,9 @@ public class BinariesApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getBinaryRelatedStatusCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1236,6 +1249,7 @@ public class BinariesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getBinaryRelatedStatusValidateBeforeCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'binaryId' is set
@@ -1260,7 +1274,9 @@ public class BinariesApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BaseResponseBinariesRelatedStatusResponse getBinaryRelatedStatus(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
         ApiResponse<BaseResponseBinariesRelatedStatusResponse> localVarResp = getBinaryRelatedStatusWithHttpInfo(binaryId);
         return localVarResp.getData();
@@ -1279,7 +1295,9 @@ public class BinariesApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BaseResponseBinariesRelatedStatusResponse> getBinaryRelatedStatusWithHttpInfo(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
         okhttp3.Call localVarCall = getBinaryRelatedStatusValidateBeforeCall(binaryId, null);
         Type localVarReturnType = new TypeToken<BaseResponseBinariesRelatedStatusResponse>(){}.getType();
@@ -1300,7 +1318,9 @@ public class BinariesApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getBinaryRelatedStatusAsync(@javax.annotation.Nonnull Integer binaryId, final ApiCallback<BaseResponseBinariesRelatedStatusResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getBinaryRelatedStatusValidateBeforeCall(binaryId, _callback);
@@ -1322,7 +1342,9 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getRelatedBinariesCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1368,6 +1390,7 @@ public class BinariesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getRelatedBinariesValidateBeforeCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'binaryId' is set
@@ -1393,7 +1416,9 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BaseResponseChildBinariesResponse getRelatedBinaries(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
         ApiResponse<BaseResponseChildBinariesResponse> localVarResp = getRelatedBinariesWithHttpInfo(binaryId);
         return localVarResp.getData();
@@ -1413,7 +1438,9 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BaseResponseChildBinariesResponse> getRelatedBinariesWithHttpInfo(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
         okhttp3.Call localVarCall = getRelatedBinariesValidateBeforeCall(binaryId, null);
         Type localVarReturnType = new TypeToken<BaseResponseChildBinariesResponse>(){}.getType();
@@ -1435,12 +1462,153 @@ public class BinariesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getRelatedBinariesAsync(@javax.annotation.Nonnull Integer binaryId, final ApiCallback<BaseResponseChildBinariesResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getRelatedBinariesValidateBeforeCall(binaryId, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseChildBinariesResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for v3DownloadBinaryZipped
+     * @param binaryId Binary ID (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3DownloadBinaryZippedCall(@javax.annotation.Nonnull Long binaryId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/binaries/{binary_id}/download-zipped"
+            .replace("{" + "binary_id" + "}", localVarApiClient.escapeString(binaryId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call v3DownloadBinaryZippedValidateBeforeCall(@javax.annotation.Nonnull Long binaryId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'binaryId' is set
+        if (binaryId == null) {
+            throw new ApiException("Missing the required parameter 'binaryId' when calling v3DownloadBinaryZipped(Async)");
+        }
+
+        return v3DownloadBinaryZippedCall(binaryId, _callback);
+
+    }
+
+    /**
+     * Download a binary as a password-protected zip.
+     * Streams the binary&#39;s uploaded file back as a zip archive, encrypted with a fixed password (&#x60;infected&#x60;) that deters antivirus scanning in transit rather than protecting confidentiality. Only the binary&#39;s owner, or an admin/superadmin, may download it; an internally-managed account&#39;s binary can only be downloaded by a superadmin.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param binaryId Binary ID (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public void v3DownloadBinaryZipped(@javax.annotation.Nonnull Long binaryId) throws ApiException {
+        v3DownloadBinaryZippedWithHttpInfo(binaryId);
+    }
+
+    /**
+     * Download a binary as a password-protected zip.
+     * Streams the binary&#39;s uploaded file back as a zip archive, encrypted with a fixed password (&#x60;infected&#x60;) that deters antivirus scanning in transit rather than protecting confidentiality. Only the binary&#39;s owner, or an admin/superadmin, may download it; an internally-managed account&#39;s binary can only be downloaded by a superadmin.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param binaryId Binary ID (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> v3DownloadBinaryZippedWithHttpInfo(@javax.annotation.Nonnull Long binaryId) throws ApiException {
+        okhttp3.Call localVarCall = v3DownloadBinaryZippedValidateBeforeCall(binaryId, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Download a binary as a password-protected zip. (asynchronously)
+     * Streams the binary&#39;s uploaded file back as a zip archive, encrypted with a fixed password (&#x60;infected&#x60;) that deters antivirus scanning in transit rather than protecting confidentiality. Only the binary&#39;s owner, or an admin/superadmin, may download it; an internally-managed account&#39;s binary can only be downloaded by a superadmin.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param binaryId Binary ID (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3DownloadBinaryZippedAsync(@javax.annotation.Nonnull Long binaryId, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = v3DownloadBinaryZippedValidateBeforeCall(binaryId, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
@@ -1583,6 +1751,149 @@ public class BinariesApi {
 
         okhttp3.Call localVarCall = v3GetBinaryDieInfoValidateBeforeCall(binaryId, _callback);
         Type localVarReturnType = new TypeToken<GetDieInfoOutputBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for v3GetBinaryExternals
+     * @param binaryId Binary ID (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3GetBinaryExternalsCall(@javax.annotation.Nonnull Long binaryId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/binaries/{binary_id}/externals"
+            .replace("{" + "binary_id" + "}", localVarApiClient.escapeString(binaryId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call v3GetBinaryExternalsValidateBeforeCall(@javax.annotation.Nonnull Long binaryId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'binaryId' is set
+        if (binaryId == null) {
+            throw new ApiException("Missing the required parameter 'binaryId' when calling v3GetBinaryExternals(Async)");
+        }
+
+        return v3GetBinaryExternalsCall(binaryId, _callback);
+
+    }
+
+    /**
+     * Get third-party threat-intel lookups for a binary.
+     * Returns VirusTotal and MalwareBazaar lookup results for the binary&#39;s content hash. &#x60;externals&#x60; is null until at least one lookup has run.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param binaryId Binary ID (required)
+     * @return GetBinaryExternalsOutputBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public GetBinaryExternalsOutputBody v3GetBinaryExternals(@javax.annotation.Nonnull Long binaryId) throws ApiException {
+        ApiResponse<GetBinaryExternalsOutputBody> localVarResp = v3GetBinaryExternalsWithHttpInfo(binaryId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get third-party threat-intel lookups for a binary.
+     * Returns VirusTotal and MalwareBazaar lookup results for the binary&#39;s content hash. &#x60;externals&#x60; is null until at least one lookup has run.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param binaryId Binary ID (required)
+     * @return ApiResponse&lt;GetBinaryExternalsOutputBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<GetBinaryExternalsOutputBody> v3GetBinaryExternalsWithHttpInfo(@javax.annotation.Nonnull Long binaryId) throws ApiException {
+        okhttp3.Call localVarCall = v3GetBinaryExternalsValidateBeforeCall(binaryId, null);
+        Type localVarReturnType = new TypeToken<GetBinaryExternalsOutputBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get third-party threat-intel lookups for a binary. (asynchronously)
+     * Returns VirusTotal and MalwareBazaar lookup results for the binary&#39;s content hash. &#x60;externals&#x60; is null until at least one lookup has run.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param binaryId Binary ID (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3GetBinaryExternalsAsync(@javax.annotation.Nonnull Long binaryId, final ApiCallback<GetBinaryExternalsOutputBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = v3GetBinaryExternalsValidateBeforeCall(binaryId, _callback);
+        Type localVarReturnType = new TypeToken<GetBinaryExternalsOutputBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1869,6 +2180,203 @@ public class BinariesApi {
 
         okhttp3.Call localVarCall = v3GetBinaryRelatedStatusValidateBeforeCall(binaryId, _callback);
         Type localVarReturnType = new TypeToken<GetRelatedStatusOutputBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for v3SearchBinaries
+     * @param partialName Partial or full binary name to search for (optional)
+     * @param partialSha256 Partial or full SHA-256 hash to search for (optional)
+     * @param tags Restrict results to binaries carrying at least one of these tags (optional)
+     * @param modelName Restrict results to binaries analysed with this model (optional)
+     * @param userFilesOnly Restrict results to files the caller uploaded themself (optional, default to false)
+     * @param excludeBinaryId A binary ID to exclude from the results (optional)
+     * @param userIds Restrict results to binaries owned by one of these user IDs (optional)
+     * @param limit Maximum results to return (optional, default to 10)
+     * @param offset Number of results to skip (optional, default to 0)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3SearchBinariesCall(@javax.annotation.Nullable String partialName, @javax.annotation.Nullable String partialSha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable Boolean userFilesOnly, @javax.annotation.Nullable Long excludeBinaryId, @javax.annotation.Nullable List<Long> userIds, @javax.annotation.Nullable Long limit, @javax.annotation.Nullable Long offset, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/binaries";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (partialName != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("partial_name", partialName));
+        }
+
+        if (partialSha256 != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("partial_sha256", partialSha256));
+        }
+
+        if (tags != null) {
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("csv", "tags", tags));
+        }
+
+        if (modelName != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("model_name", modelName));
+        }
+
+        if (userFilesOnly != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("user_files_only", userFilesOnly));
+        }
+
+        if (excludeBinaryId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("exclude_binary_id", excludeBinaryId));
+        }
+
+        if (userIds != null) {
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("csv", "user_ids", userIds));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (offset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call v3SearchBinariesValidateBeforeCall(@javax.annotation.Nullable String partialName, @javax.annotation.Nullable String partialSha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable Boolean userFilesOnly, @javax.annotation.Nullable Long excludeBinaryId, @javax.annotation.Nullable List<Long> userIds, @javax.annotation.Nullable Long limit, @javax.annotation.Nullable Long offset, final ApiCallback _callback) throws ApiException {
+        return v3SearchBinariesCall(partialName, partialSha256, tags, modelName, userFilesOnly, excludeBinaryId, userIds, limit, offset, _callback);
+
+    }
+
+    /**
+     * Search binaries
+     * Searches for binaries visible to the caller. At least one of partial_name, partial_sha256, tags, or model_name must be provided.  **Error codes:** - &#x60;422&#x60; [&#x60;VALIDATION_FAILED&#x60;](/errors/VALIDATION_FAILED) — Validation Failed
+     * @param partialName Partial or full binary name to search for (optional)
+     * @param partialSha256 Partial or full SHA-256 hash to search for (optional)
+     * @param tags Restrict results to binaries carrying at least one of these tags (optional)
+     * @param modelName Restrict results to binaries analysed with this model (optional)
+     * @param userFilesOnly Restrict results to files the caller uploaded themself (optional, default to false)
+     * @param excludeBinaryId A binary ID to exclude from the results (optional)
+     * @param userIds Restrict results to binaries owned by one of these user IDs (optional)
+     * @param limit Maximum results to return (optional, default to 10)
+     * @param offset Number of results to skip (optional, default to 0)
+     * @return SearchBinariesOutputBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public SearchBinariesOutputBody v3SearchBinaries(@javax.annotation.Nullable String partialName, @javax.annotation.Nullable String partialSha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable Boolean userFilesOnly, @javax.annotation.Nullable Long excludeBinaryId, @javax.annotation.Nullable List<Long> userIds, @javax.annotation.Nullable Long limit, @javax.annotation.Nullable Long offset) throws ApiException {
+        ApiResponse<SearchBinariesOutputBody> localVarResp = v3SearchBinariesWithHttpInfo(partialName, partialSha256, tags, modelName, userFilesOnly, excludeBinaryId, userIds, limit, offset);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Search binaries
+     * Searches for binaries visible to the caller. At least one of partial_name, partial_sha256, tags, or model_name must be provided.  **Error codes:** - &#x60;422&#x60; [&#x60;VALIDATION_FAILED&#x60;](/errors/VALIDATION_FAILED) — Validation Failed
+     * @param partialName Partial or full binary name to search for (optional)
+     * @param partialSha256 Partial or full SHA-256 hash to search for (optional)
+     * @param tags Restrict results to binaries carrying at least one of these tags (optional)
+     * @param modelName Restrict results to binaries analysed with this model (optional)
+     * @param userFilesOnly Restrict results to files the caller uploaded themself (optional, default to false)
+     * @param excludeBinaryId A binary ID to exclude from the results (optional)
+     * @param userIds Restrict results to binaries owned by one of these user IDs (optional)
+     * @param limit Maximum results to return (optional, default to 10)
+     * @param offset Number of results to skip (optional, default to 0)
+     * @return ApiResponse&lt;SearchBinariesOutputBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<SearchBinariesOutputBody> v3SearchBinariesWithHttpInfo(@javax.annotation.Nullable String partialName, @javax.annotation.Nullable String partialSha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable Boolean userFilesOnly, @javax.annotation.Nullable Long excludeBinaryId, @javax.annotation.Nullable List<Long> userIds, @javax.annotation.Nullable Long limit, @javax.annotation.Nullable Long offset) throws ApiException {
+        okhttp3.Call localVarCall = v3SearchBinariesValidateBeforeCall(partialName, partialSha256, tags, modelName, userFilesOnly, excludeBinaryId, userIds, limit, offset, null);
+        Type localVarReturnType = new TypeToken<SearchBinariesOutputBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Search binaries (asynchronously)
+     * Searches for binaries visible to the caller. At least one of partial_name, partial_sha256, tags, or model_name must be provided.  **Error codes:** - &#x60;422&#x60; [&#x60;VALIDATION_FAILED&#x60;](/errors/VALIDATION_FAILED) — Validation Failed
+     * @param partialName Partial or full binary name to search for (optional)
+     * @param partialSha256 Partial or full SHA-256 hash to search for (optional)
+     * @param tags Restrict results to binaries carrying at least one of these tags (optional)
+     * @param modelName Restrict results to binaries analysed with this model (optional)
+     * @param userFilesOnly Restrict results to files the caller uploaded themself (optional, default to false)
+     * @param excludeBinaryId A binary ID to exclude from the results (optional)
+     * @param userIds Restrict results to binaries owned by one of these user IDs (optional)
+     * @param limit Maximum results to return (optional, default to 10)
+     * @param offset Number of results to skip (optional, default to 0)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3SearchBinariesAsync(@javax.annotation.Nullable String partialName, @javax.annotation.Nullable String partialSha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable Boolean userFilesOnly, @javax.annotation.Nullable Long excludeBinaryId, @javax.annotation.Nullable List<Long> userIds, @javax.annotation.Nullable Long limit, @javax.annotation.Nullable Long offset, final ApiCallback<SearchBinariesOutputBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = v3SearchBinariesValidateBeforeCall(partialName, partialSha256, tags, modelName, userFilesOnly, excludeBinaryId, userIds, limit, offset, _callback);
+        Type localVarReturnType = new TypeToken<SearchBinariesOutputBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
