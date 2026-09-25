@@ -15,6 +15,7 @@ package ai.reveng.model;
 import java.util.Objects;
 import ai.reveng.model.NetworkingCall;
 import ai.reveng.model.NetworkingDirectMatch;
+import ai.reveng.model.NetworkingVerification;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -307,6 +308,11 @@ public class NetworkingFinding {
   @javax.annotation.Nullable
   private List<SourcesEnum> sources;
 
+  public static final String SERIALIZED_NAME_VERIFICATION = "verification";
+  @SerializedName(SERIALIZED_NAME_VERIFICATION)
+  @javax.annotation.Nullable
+  private NetworkingVerification verification;
+
   public NetworkingFinding() {
   }
 
@@ -550,6 +556,25 @@ public class NetworkingFinding {
     this.sources = sources;
   }
 
+
+  public NetworkingFinding verification(@javax.annotation.Nullable NetworkingVerification verification) {
+    this.verification = verification;
+    return this;
+  }
+
+  /**
+   * LLM verdict checking this finding against its decompilation. Present only when the run verified this finding.
+   * @return verification
+   */
+  @javax.annotation.Nullable
+  public NetworkingVerification getVerification() {
+    return verification;
+  }
+
+  public void setVerification(@javax.annotation.Nullable NetworkingVerification verification) {
+    this.verification = verification;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -615,7 +640,8 @@ public class NetworkingFinding {
         Objects.equals(this.functionSize, networkingFinding.functionSize) &&
         Objects.equals(this.networkCalls, networkingFinding.networkCalls) &&
         Objects.equals(this.remote, networkingFinding.remote) &&
-        Objects.equals(this.sources, networkingFinding.sources)&&
+        Objects.equals(this.sources, networkingFinding.sources) &&
+        Objects.equals(this.verification, networkingFinding.verification)&&
         Objects.equals(this.additionalProperties, networkingFinding.additionalProperties);
   }
 
@@ -625,7 +651,7 @@ public class NetworkingFinding {
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, categories, confidence, directMatches, evidenceCount, functionId, functionName, functionSize, networkCalls, remote, sources, additionalProperties);
+    return Objects.hash(address, categories, confidence, directMatches, evidenceCount, functionId, functionName, functionSize, networkCalls, remote, sources, verification, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -650,6 +676,7 @@ public class NetworkingFinding {
     sb.append("    networkCalls: ").append(toIndentedString(networkCalls)).append("\n");
     sb.append("    remote: ").append(toIndentedString(remote)).append("\n");
     sb.append("    sources: ").append(toIndentedString(sources)).append("\n");
+    sb.append("    verification: ").append(toIndentedString(verification)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -669,7 +696,7 @@ public class NetworkingFinding {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("address", "categories", "confidence", "direct_matches", "evidence_count", "function_id", "function_name", "function_size", "network_calls", "remote", "sources"));
+    openapiFields = new HashSet<String>(Arrays.asList("address", "categories", "confidence", "direct_matches", "evidence_count", "function_id", "function_name", "function_size", "network_calls", "remote", "sources", "verification"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("address", "categories", "confidence", "evidence_count", "function_id", "function_name", "function_size", "remote", "sources"));

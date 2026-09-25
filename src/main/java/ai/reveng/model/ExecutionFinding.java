@@ -15,6 +15,7 @@ package ai.reveng.model;
 import java.util.Objects;
 import ai.reveng.model.ExecutionCall;
 import ai.reveng.model.ExecutionDirectMatch;
+import ai.reveng.model.ExecutionVerification;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -299,6 +300,11 @@ public class ExecutionFinding {
   @javax.annotation.Nullable
   private List<SourcesEnum> sources;
 
+  public static final String SERIALIZED_NAME_VERIFICATION = "verification";
+  @SerializedName(SERIALIZED_NAME_VERIFICATION)
+  @javax.annotation.Nullable
+  private ExecutionVerification verification;
+
   public ExecutionFinding() {
   }
 
@@ -542,6 +548,25 @@ public class ExecutionFinding {
     this.sources = sources;
   }
 
+
+  public ExecutionFinding verification(@javax.annotation.Nullable ExecutionVerification verification) {
+    this.verification = verification;
+    return this;
+  }
+
+  /**
+   * LLM verdict checking this finding against its decompilation. Present only when the run verified this finding.
+   * @return verification
+   */
+  @javax.annotation.Nullable
+  public ExecutionVerification getVerification() {
+    return verification;
+  }
+
+  public void setVerification(@javax.annotation.Nullable ExecutionVerification verification) {
+    this.verification = verification;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -607,7 +632,8 @@ public class ExecutionFinding {
         Objects.equals(this.functionId, executionFinding.functionId) &&
         Objects.equals(this.functionName, executionFinding.functionName) &&
         Objects.equals(this.functionSize, executionFinding.functionSize) &&
-        Objects.equals(this.sources, executionFinding.sources)&&
+        Objects.equals(this.sources, executionFinding.sources) &&
+        Objects.equals(this.verification, executionFinding.verification)&&
         Objects.equals(this.additionalProperties, executionFinding.additionalProperties);
   }
 
@@ -617,7 +643,7 @@ public class ExecutionFinding {
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, categories, confidence, directMatches, evidenceCount, executes, executionCalls, functionId, functionName, functionSize, sources, additionalProperties);
+    return Objects.hash(address, categories, confidence, directMatches, evidenceCount, executes, executionCalls, functionId, functionName, functionSize, sources, verification, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -642,6 +668,7 @@ public class ExecutionFinding {
     sb.append("    functionName: ").append(toIndentedString(functionName)).append("\n");
     sb.append("    functionSize: ").append(toIndentedString(functionSize)).append("\n");
     sb.append("    sources: ").append(toIndentedString(sources)).append("\n");
+    sb.append("    verification: ").append(toIndentedString(verification)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -661,7 +688,7 @@ public class ExecutionFinding {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("address", "categories", "confidence", "direct_matches", "evidence_count", "executes", "execution_calls", "function_id", "function_name", "function_size", "sources"));
+    openapiFields = new HashSet<String>(Arrays.asList("address", "categories", "confidence", "direct_matches", "evidence_count", "executes", "execution_calls", "function_id", "function_name", "function_size", "sources", "verification"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("address", "categories", "confidence", "evidence_count", "executes", "function_id", "function_name", "function_size", "sources"));

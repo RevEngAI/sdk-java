@@ -155,7 +155,7 @@ public class GetTokensResponse {
   }
 
   /**
-   * The caller&#39;s own overrides, keyed by token. Null until a run has succeeded.
+   * The overrides on this function, keyed by token, each carrying who chose it. Null until a run has succeeded.
    * @return placeholderToUserOverride
    */
   @javax.annotation.Nonnull

@@ -31,6 +31,8 @@ import ai.reveng.model.AnalysisBulkAddTagsRequest;
 import ai.reveng.model.BaseResponse;
 import ai.reveng.model.BaseResponseAnalysisBulkAddTagsResponse;
 import ai.reveng.model.BaseResponseDict;
+import ai.reveng.model.BulkAddTagsInputBody;
+import ai.reveng.model.BulkAddTagsOutputBody;
 import ai.reveng.model.BulkDeleteAnalysesInputBody;
 import ai.reveng.model.BulkDeleteAnalysesRequest;
 
@@ -223,7 +225,9 @@ public class AnalysesBulkActionsApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call bulkDeleteAnalysesCall(@javax.annotation.Nonnull BulkDeleteAnalysesRequest bulkDeleteAnalysesRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -269,6 +273,7 @@ public class AnalysesBulkActionsApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call bulkDeleteAnalysesValidateBeforeCall(@javax.annotation.Nonnull BulkDeleteAnalysesRequest bulkDeleteAnalysesRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'bulkDeleteAnalysesRequest' is set
@@ -295,7 +300,9 @@ public class AnalysesBulkActionsApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BaseResponseDict bulkDeleteAnalyses(@javax.annotation.Nonnull BulkDeleteAnalysesRequest bulkDeleteAnalysesRequest) throws ApiException {
         ApiResponse<BaseResponseDict> localVarResp = bulkDeleteAnalysesWithHttpInfo(bulkDeleteAnalysesRequest);
         return localVarResp.getData();
@@ -316,7 +323,9 @@ public class AnalysesBulkActionsApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BaseResponseDict> bulkDeleteAnalysesWithHttpInfo(@javax.annotation.Nonnull BulkDeleteAnalysesRequest bulkDeleteAnalysesRequest) throws ApiException {
         okhttp3.Call localVarCall = bulkDeleteAnalysesValidateBeforeCall(bulkDeleteAnalysesRequest, null);
         Type localVarReturnType = new TypeToken<BaseResponseDict>(){}.getType();
@@ -339,11 +348,156 @@ public class AnalysesBulkActionsApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call bulkDeleteAnalysesAsync(@javax.annotation.Nonnull BulkDeleteAnalysesRequest bulkDeleteAnalysesRequest, final ApiCallback<BaseResponseDict> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = bulkDeleteAnalysesValidateBeforeCall(bulkDeleteAnalysesRequest, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseDict>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for v3BatchAddAnalysisTags
+     * @param bulkAddTagsInputBody  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3BatchAddAnalysisTagsCall(@javax.annotation.Nonnull BulkAddTagsInputBody bulkAddTagsInputBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = bulkAddTagsInputBody;
+
+        // create path and map variables
+        String localVarPath = "/v3/analyses:batchAddTags";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call v3BatchAddAnalysisTagsValidateBeforeCall(@javax.annotation.Nonnull BulkAddTagsInputBody bulkAddTagsInputBody, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'bulkAddTagsInputBody' is set
+        if (bulkAddTagsInputBody == null) {
+            throw new ApiException("Missing the required parameter 'bulkAddTagsInputBody' when calling v3BatchAddAnalysisTags(Async)");
+        }
+
+        return v3BatchAddAnalysisTagsCall(bulkAddTagsInputBody, _callback);
+
+    }
+
+    /**
+     * Add tags to multiple analyses.
+     * Adds tags (origin RevEng) to every given analysis&#39; binary. The caller must own every analysis, or none are changed.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param bulkAddTagsInputBody  (required)
+     * @return BulkAddTagsOutputBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public BulkAddTagsOutputBody v3BatchAddAnalysisTags(@javax.annotation.Nonnull BulkAddTagsInputBody bulkAddTagsInputBody) throws ApiException {
+        ApiResponse<BulkAddTagsOutputBody> localVarResp = v3BatchAddAnalysisTagsWithHttpInfo(bulkAddTagsInputBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Add tags to multiple analyses.
+     * Adds tags (origin RevEng) to every given analysis&#39; binary. The caller must own every analysis, or none are changed.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param bulkAddTagsInputBody  (required)
+     * @return ApiResponse&lt;BulkAddTagsOutputBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<BulkAddTagsOutputBody> v3BatchAddAnalysisTagsWithHttpInfo(@javax.annotation.Nonnull BulkAddTagsInputBody bulkAddTagsInputBody) throws ApiException {
+        okhttp3.Call localVarCall = v3BatchAddAnalysisTagsValidateBeforeCall(bulkAddTagsInputBody, null);
+        Type localVarReturnType = new TypeToken<BulkAddTagsOutputBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Add tags to multiple analyses. (asynchronously)
+     * Adds tags (origin RevEng) to every given analysis&#39; binary. The caller must own every analysis, or none are changed.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param bulkAddTagsInputBody  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3BatchAddAnalysisTagsAsync(@javax.annotation.Nonnull BulkAddTagsInputBody bulkAddTagsInputBody, final ApiCallback<BulkAddTagsOutputBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = v3BatchAddAnalysisTagsValidateBeforeCall(bulkAddTagsInputBody, _callback);
+        Type localVarReturnType = new TypeToken<BulkAddTagsOutputBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

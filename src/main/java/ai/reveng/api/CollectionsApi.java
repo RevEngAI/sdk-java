@@ -1792,7 +1792,11 @@ public class CollectionsApi {
     }
     /**
      * Build call for v3ListCollections
-     * @param searchTerm  (optional)
+     * @param searchTerm Partial or full collection name to search for (optional)
+     * @param binaryName Only return Collections containing a Binary whose name contains this (optional)
+     * @param binarySha256 Only return Collections containing a Binary whose SHA-256 hash contains this (optional)
+     * @param tags Only return Collections carrying at least one of these Tags (optional)
+     * @param userIds Restrict results to Collections owned by one of these user IDs (optional)
      * @param filters  (optional)
      * @param limit  (optional, default to 20)
      * @param offset  (optional, default to 0)
@@ -1810,7 +1814,7 @@ public class CollectionsApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call v3ListCollectionsCall(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<String> filters, @javax.annotation.Nullable Long limit, @javax.annotation.Nullable Long offset, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String order, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call v3ListCollectionsCall(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable String binaryName, @javax.annotation.Nullable String binarySha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable List<Long> userIds, @javax.annotation.Nullable List<String> filters, @javax.annotation.Nullable Long limit, @javax.annotation.Nullable Long offset, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String order, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1837,6 +1841,22 @@ public class CollectionsApi {
 
         if (searchTerm != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("search_term", searchTerm));
+        }
+
+        if (binaryName != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("binary_name", binaryName));
+        }
+
+        if (binarySha256 != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("binary_sha256", binarySha256));
+        }
+
+        if (tags != null) {
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("csv", "tags", tags));
+        }
+
+        if (userIds != null) {
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("csv", "user_ids", userIds));
         }
 
         if (filters != null) {
@@ -1879,15 +1899,19 @@ public class CollectionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call v3ListCollectionsValidateBeforeCall(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<String> filters, @javax.annotation.Nullable Long limit, @javax.annotation.Nullable Long offset, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String order, final ApiCallback _callback) throws ApiException {
-        return v3ListCollectionsCall(searchTerm, filters, limit, offset, orderBy, order, _callback);
+    private okhttp3.Call v3ListCollectionsValidateBeforeCall(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable String binaryName, @javax.annotation.Nullable String binarySha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable List<Long> userIds, @javax.annotation.Nullable List<String> filters, @javax.annotation.Nullable Long limit, @javax.annotation.Nullable Long offset, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String order, final ApiCallback _callback) throws ApiException {
+        return v3ListCollectionsCall(searchTerm, binaryName, binarySha256, tags, userIds, filters, limit, offset, orderBy, order, _callback);
 
     }
 
     /**
      * List collections.
-     * Lists collections accessible to the authenticated user. Supports search, filtering, ordering, and pagination.  **Error codes:** - &#x60;422&#x60; [&#x60;VALIDATION_FAILED&#x60;](/errors/VALIDATION_FAILED) — Validation Failed
-     * @param searchTerm  (optional)
+     * Lists collections accessible to the authenticated user. Supports search by collection name, contained binary name/SHA-256, tags, owner, filtering, ordering, and pagination.  **Error codes:** - &#x60;422&#x60; [&#x60;VALIDATION_FAILED&#x60;](/errors/VALIDATION_FAILED) — Validation Failed
+     * @param searchTerm Partial or full collection name to search for (optional)
+     * @param binaryName Only return Collections containing a Binary whose name contains this (optional)
+     * @param binarySha256 Only return Collections containing a Binary whose SHA-256 hash contains this (optional)
+     * @param tags Only return Collections carrying at least one of these Tags (optional)
+     * @param userIds Restrict results to Collections owned by one of these user IDs (optional)
      * @param filters  (optional)
      * @param limit  (optional, default to 20)
      * @param offset  (optional, default to 0)
@@ -1904,15 +1928,19 @@ public class CollectionsApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ListCollectionsOutputBody v3ListCollections(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<String> filters, @javax.annotation.Nullable Long limit, @javax.annotation.Nullable Long offset, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String order) throws ApiException {
-        ApiResponse<ListCollectionsOutputBody> localVarResp = v3ListCollectionsWithHttpInfo(searchTerm, filters, limit, offset, orderBy, order);
+    public ListCollectionsOutputBody v3ListCollections(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable String binaryName, @javax.annotation.Nullable String binarySha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable List<Long> userIds, @javax.annotation.Nullable List<String> filters, @javax.annotation.Nullable Long limit, @javax.annotation.Nullable Long offset, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String order) throws ApiException {
+        ApiResponse<ListCollectionsOutputBody> localVarResp = v3ListCollectionsWithHttpInfo(searchTerm, binaryName, binarySha256, tags, userIds, filters, limit, offset, orderBy, order);
         return localVarResp.getData();
     }
 
     /**
      * List collections.
-     * Lists collections accessible to the authenticated user. Supports search, filtering, ordering, and pagination.  **Error codes:** - &#x60;422&#x60; [&#x60;VALIDATION_FAILED&#x60;](/errors/VALIDATION_FAILED) — Validation Failed
-     * @param searchTerm  (optional)
+     * Lists collections accessible to the authenticated user. Supports search by collection name, contained binary name/SHA-256, tags, owner, filtering, ordering, and pagination.  **Error codes:** - &#x60;422&#x60; [&#x60;VALIDATION_FAILED&#x60;](/errors/VALIDATION_FAILED) — Validation Failed
+     * @param searchTerm Partial or full collection name to search for (optional)
+     * @param binaryName Only return Collections containing a Binary whose name contains this (optional)
+     * @param binarySha256 Only return Collections containing a Binary whose SHA-256 hash contains this (optional)
+     * @param tags Only return Collections carrying at least one of these Tags (optional)
+     * @param userIds Restrict results to Collections owned by one of these user IDs (optional)
      * @param filters  (optional)
      * @param limit  (optional, default to 20)
      * @param offset  (optional, default to 0)
@@ -1929,16 +1957,20 @@ public class CollectionsApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListCollectionsOutputBody> v3ListCollectionsWithHttpInfo(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<String> filters, @javax.annotation.Nullable Long limit, @javax.annotation.Nullable Long offset, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String order) throws ApiException {
-        okhttp3.Call localVarCall = v3ListCollectionsValidateBeforeCall(searchTerm, filters, limit, offset, orderBy, order, null);
+    public ApiResponse<ListCollectionsOutputBody> v3ListCollectionsWithHttpInfo(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable String binaryName, @javax.annotation.Nullable String binarySha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable List<Long> userIds, @javax.annotation.Nullable List<String> filters, @javax.annotation.Nullable Long limit, @javax.annotation.Nullable Long offset, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String order) throws ApiException {
+        okhttp3.Call localVarCall = v3ListCollectionsValidateBeforeCall(searchTerm, binaryName, binarySha256, tags, userIds, filters, limit, offset, orderBy, order, null);
         Type localVarReturnType = new TypeToken<ListCollectionsOutputBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * List collections. (asynchronously)
-     * Lists collections accessible to the authenticated user. Supports search, filtering, ordering, and pagination.  **Error codes:** - &#x60;422&#x60; [&#x60;VALIDATION_FAILED&#x60;](/errors/VALIDATION_FAILED) — Validation Failed
-     * @param searchTerm  (optional)
+     * Lists collections accessible to the authenticated user. Supports search by collection name, contained binary name/SHA-256, tags, owner, filtering, ordering, and pagination.  **Error codes:** - &#x60;422&#x60; [&#x60;VALIDATION_FAILED&#x60;](/errors/VALIDATION_FAILED) — Validation Failed
+     * @param searchTerm Partial or full collection name to search for (optional)
+     * @param binaryName Only return Collections containing a Binary whose name contains this (optional)
+     * @param binarySha256 Only return Collections containing a Binary whose SHA-256 hash contains this (optional)
+     * @param tags Only return Collections carrying at least one of these Tags (optional)
+     * @param userIds Restrict results to Collections owned by one of these user IDs (optional)
      * @param filters  (optional)
      * @param limit  (optional, default to 20)
      * @param offset  (optional, default to 0)
@@ -1956,9 +1988,9 @@ public class CollectionsApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call v3ListCollectionsAsync(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable List<String> filters, @javax.annotation.Nullable Long limit, @javax.annotation.Nullable Long offset, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String order, final ApiCallback<ListCollectionsOutputBody> _callback) throws ApiException {
+    public okhttp3.Call v3ListCollectionsAsync(@javax.annotation.Nullable String searchTerm, @javax.annotation.Nullable String binaryName, @javax.annotation.Nullable String binarySha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable List<Long> userIds, @javax.annotation.Nullable List<String> filters, @javax.annotation.Nullable Long limit, @javax.annotation.Nullable Long offset, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String order, final ApiCallback<ListCollectionsOutputBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = v3ListCollectionsValidateBeforeCall(searchTerm, filters, limit, offset, orderBy, order, _callback);
+        okhttp3.Call localVarCall = v3ListCollectionsValidateBeforeCall(searchTerm, binaryName, binarySha256, tags, userIds, filters, limit, offset, orderBy, order, _callback);
         Type localVarReturnType = new TypeToken<ListCollectionsOutputBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

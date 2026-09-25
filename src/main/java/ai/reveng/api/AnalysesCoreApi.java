@@ -32,6 +32,7 @@ import ai.reveng.model.AnalysisBasicInfoOutputBody;
 import ai.reveng.model.AnalysisCreateRequest;
 import ai.reveng.model.AnalysisDetailOutputBody;
 import ai.reveng.model.AnalysisReport;
+import ai.reveng.model.AnalysisTagsOutputBody;
 import ai.reveng.model.AnalysisUpdateRequest;
 import ai.reveng.model.AnalysisUpdateTagsRequest;
 import ai.reveng.model.AppApiRestV2AnalysesEnumsOrderBy;
@@ -69,10 +70,12 @@ import ai.reveng.model.OperationCreateMetadataCreateResult;
 import ai.reveng.model.Order;
 import ai.reveng.model.PutAnalysisStringsRequest;
 import ai.reveng.model.ReAnalysisForm;
+import ai.reveng.model.SearchTagsOutputBody;
 import ai.reveng.model.StartMatchingForAnalysisInputBody;
 import ai.reveng.model.StartMatchingOutputBody;
 import ai.reveng.model.StatusInput;
 import ai.reveng.model.UpdateAnalysisInputBody;
+import ai.reveng.model.UpdateTagsInputBody;
 import ai.reveng.model.UpgradeAnalysisModelOutputBody;
 import ai.reveng.model.UploadFileType;
 import ai.reveng.model.Workspace;
@@ -445,7 +448,9 @@ public class AnalysesCoreApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call deleteAnalysisCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -491,6 +496,7 @@ public class AnalysesCoreApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteAnalysisValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
@@ -517,7 +523,9 @@ public class AnalysesCoreApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BaseResponseDict deleteAnalysis(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
         ApiResponse<BaseResponseDict> localVarResp = deleteAnalysisWithHttpInfo(analysisId);
         return localVarResp.getData();
@@ -538,7 +546,9 @@ public class AnalysesCoreApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BaseResponseDict> deleteAnalysisWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
         okhttp3.Call localVarCall = deleteAnalysisValidateBeforeCall(analysisId, null);
         Type localVarReturnType = new TypeToken<BaseResponseDict>(){}.getType();
@@ -561,7 +571,9 @@ public class AnalysesCoreApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call deleteAnalysisAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<BaseResponseDict> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteAnalysisValidateBeforeCall(analysisId, _callback);
@@ -2518,7 +2530,9 @@ public class AnalysesCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call lookupBinaryIdCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -2564,6 +2578,7 @@ public class AnalysesCoreApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call lookupBinaryIdValidateBeforeCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'binaryId' is set
@@ -2588,7 +2603,9 @@ public class AnalysesCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public Object lookupBinaryId(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
         ApiResponse<Object> localVarResp = lookupBinaryIdWithHttpInfo(binaryId);
         return localVarResp.getData();
@@ -2607,7 +2624,9 @@ public class AnalysesCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<Object> lookupBinaryIdWithHttpInfo(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
         okhttp3.Call localVarCall = lookupBinaryIdValidateBeforeCall(binaryId, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
@@ -2628,7 +2647,9 @@ public class AnalysesCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call lookupBinaryIdAsync(@javax.annotation.Nonnull Integer binaryId, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = lookupBinaryIdValidateBeforeCall(binaryId, _callback);
@@ -3115,7 +3136,9 @@ public class AnalysesCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call updateAnalysisCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateRequest analysisUpdateRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -3162,6 +3185,7 @@ public class AnalysesCoreApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateAnalysisValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateRequest analysisUpdateRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
@@ -3192,7 +3216,9 @@ public class AnalysesCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BaseResponseAnalysisDetailResponse updateAnalysis(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateRequest analysisUpdateRequest) throws ApiException {
         ApiResponse<BaseResponseAnalysisDetailResponse> localVarResp = updateAnalysisWithHttpInfo(analysisId, analysisUpdateRequest);
         return localVarResp.getData();
@@ -3212,7 +3238,9 @@ public class AnalysesCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BaseResponseAnalysisDetailResponse> updateAnalysisWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateRequest analysisUpdateRequest) throws ApiException {
         okhttp3.Call localVarCall = updateAnalysisValidateBeforeCall(analysisId, analysisUpdateRequest, null);
         Type localVarReturnType = new TypeToken<BaseResponseAnalysisDetailResponse>(){}.getType();
@@ -3234,7 +3262,9 @@ public class AnalysesCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call updateAnalysisAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateRequest analysisUpdateRequest, final ApiCallback<BaseResponseAnalysisDetailResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateAnalysisValidateBeforeCall(analysisId, analysisUpdateRequest, _callback);
@@ -5847,6 +5877,155 @@ public class AnalysesCoreApi {
         return localVarCall;
     }
     /**
+     * Build call for v3SearchTags
+     * @param partialName Partial or full tag name to search for, at least 3 characters (optional)
+     * @param limit Maximum results to return (optional, default to 10)
+     * @param offset Number of results to skip (optional, default to 0)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3SearchTagsCall(@javax.annotation.Nullable String partialName, @javax.annotation.Nullable Long limit, @javax.annotation.Nullable Long offset, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/tags";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (partialName != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("partial_name", partialName));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (offset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call v3SearchTagsValidateBeforeCall(@javax.annotation.Nullable String partialName, @javax.annotation.Nullable Long limit, @javax.annotation.Nullable Long offset, final ApiCallback _callback) throws ApiException {
+        return v3SearchTagsCall(partialName, limit, offset, _callback);
+
+    }
+
+    /**
+     * Search tags
+     * Searches for tags by name. partial_name is required and must be at least 3 characters.  **Error codes:** - &#x60;422&#x60; [&#x60;VALIDATION_FAILED&#x60;](/errors/VALIDATION_FAILED) — Validation Failed
+     * @param partialName Partial or full tag name to search for, at least 3 characters (optional)
+     * @param limit Maximum results to return (optional, default to 10)
+     * @param offset Number of results to skip (optional, default to 0)
+     * @return SearchTagsOutputBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public SearchTagsOutputBody v3SearchTags(@javax.annotation.Nullable String partialName, @javax.annotation.Nullable Long limit, @javax.annotation.Nullable Long offset) throws ApiException {
+        ApiResponse<SearchTagsOutputBody> localVarResp = v3SearchTagsWithHttpInfo(partialName, limit, offset);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Search tags
+     * Searches for tags by name. partial_name is required and must be at least 3 characters.  **Error codes:** - &#x60;422&#x60; [&#x60;VALIDATION_FAILED&#x60;](/errors/VALIDATION_FAILED) — Validation Failed
+     * @param partialName Partial or full tag name to search for, at least 3 characters (optional)
+     * @param limit Maximum results to return (optional, default to 10)
+     * @param offset Number of results to skip (optional, default to 0)
+     * @return ApiResponse&lt;SearchTagsOutputBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<SearchTagsOutputBody> v3SearchTagsWithHttpInfo(@javax.annotation.Nullable String partialName, @javax.annotation.Nullable Long limit, @javax.annotation.Nullable Long offset) throws ApiException {
+        okhttp3.Call localVarCall = v3SearchTagsValidateBeforeCall(partialName, limit, offset, null);
+        Type localVarReturnType = new TypeToken<SearchTagsOutputBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Search tags (asynchronously)
+     * Searches for tags by name. partial_name is required and must be at least 3 characters.  **Error codes:** - &#x60;422&#x60; [&#x60;VALIDATION_FAILED&#x60;](/errors/VALIDATION_FAILED) — Validation Failed
+     * @param partialName Partial or full tag name to search for, at least 3 characters (optional)
+     * @param limit Maximum results to return (optional, default to 10)
+     * @param offset Number of results to skip (optional, default to 0)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3SearchTagsAsync(@javax.annotation.Nullable String partialName, @javax.annotation.Nullable Long limit, @javax.annotation.Nullable Long offset, final ApiCallback<SearchTagsOutputBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = v3SearchTagsValidateBeforeCall(partialName, limit, offset, _callback);
+        Type localVarReturnType = new TypeToken<SearchTagsOutputBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for v3UpdateAnalysis
      * @param analysisId Analysis ID (required)
      * @param updateAnalysisInputBody  (required)
@@ -6000,6 +6179,159 @@ public class AnalysesCoreApi {
 
         okhttp3.Call localVarCall = v3UpdateAnalysisValidateBeforeCall(analysisId, updateAnalysisInputBody, _callback);
         Type localVarReturnType = new TypeToken<AnalysisDetailOutputBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for v3UpdateAnalysisTags
+     * @param analysisId Analysis ID (required)
+     * @param updateTagsInputBody  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3UpdateAnalysisTagsCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull UpdateTagsInputBody updateTagsInputBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = updateTagsInputBody;
+
+        // create path and map variables
+        String localVarPath = "/v3/analyses/{analysis_id}/tags"
+            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call v3UpdateAnalysisTagsValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull UpdateTagsInputBody updateTagsInputBody, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'analysisId' is set
+        if (analysisId == null) {
+            throw new ApiException("Missing the required parameter 'analysisId' when calling v3UpdateAnalysisTags(Async)");
+        }
+
+        // verify the required parameter 'updateTagsInputBody' is set
+        if (updateTagsInputBody == null) {
+            throw new ApiException("Missing the required parameter 'updateTagsInputBody' when calling v3UpdateAnalysisTags(Async)");
+        }
+
+        return v3UpdateAnalysisTagsCall(analysisId, updateTagsInputBody, _callback);
+
+    }
+
+    /**
+     * Replace an analysis&#39; tags.
+     * Replaces the analysis&#39; binary&#39;s user tags (origin RevEng) with the given set. A tag recorded under any other origin, such as a heuristic detection sharing a name with a user tag, is left in place even when its name is absent from the request. Only the owner may call it.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param analysisId Analysis ID (required)
+     * @param updateTagsInputBody  (required)
+     * @return AnalysisTagsOutputBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public AnalysisTagsOutputBody v3UpdateAnalysisTags(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull UpdateTagsInputBody updateTagsInputBody) throws ApiException {
+        ApiResponse<AnalysisTagsOutputBody> localVarResp = v3UpdateAnalysisTagsWithHttpInfo(analysisId, updateTagsInputBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Replace an analysis&#39; tags.
+     * Replaces the analysis&#39; binary&#39;s user tags (origin RevEng) with the given set. A tag recorded under any other origin, such as a heuristic detection sharing a name with a user tag, is left in place even when its name is absent from the request. Only the owner may call it.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param analysisId Analysis ID (required)
+     * @param updateTagsInputBody  (required)
+     * @return ApiResponse&lt;AnalysisTagsOutputBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<AnalysisTagsOutputBody> v3UpdateAnalysisTagsWithHttpInfo(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull UpdateTagsInputBody updateTagsInputBody) throws ApiException {
+        okhttp3.Call localVarCall = v3UpdateAnalysisTagsValidateBeforeCall(analysisId, updateTagsInputBody, null);
+        Type localVarReturnType = new TypeToken<AnalysisTagsOutputBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Replace an analysis&#39; tags. (asynchronously)
+     * Replaces the analysis&#39; binary&#39;s user tags (origin RevEng) with the given set. A tag recorded under any other origin, such as a heuristic detection sharing a name with a user tag, is left in place even when its name is absent from the request. Only the owner may call it.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param analysisId Analysis ID (required)
+     * @param updateTagsInputBody  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3UpdateAnalysisTagsAsync(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull UpdateTagsInputBody updateTagsInputBody, final ApiCallback<AnalysisTagsOutputBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = v3UpdateAnalysisTagsValidateBeforeCall(analysisId, updateTagsInputBody, _callback);
+        Type localVarReturnType = new TypeToken<AnalysisTagsOutputBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

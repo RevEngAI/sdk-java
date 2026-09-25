@@ -74,7 +74,7 @@ public class UpsertOverridesData {
   }
 
   /**
-   * Every override on the function after applying this request, keyed by placeholder token.
+   * Every override on the function after applying this request, keyed by placeholder token, each carrying who chose it.
    * @return placeholderToUserOverride
    */
   @javax.annotation.Nonnull

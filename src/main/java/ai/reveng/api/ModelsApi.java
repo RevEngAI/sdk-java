@@ -84,7 +84,9 @@ public class ModelsApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getModelsCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -129,6 +131,7 @@ public class ModelsApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getModelsValidateBeforeCall(final ApiCallback _callback) throws ApiException {
         return getModelsCall(_callback);
@@ -147,7 +150,9 @@ public class ModelsApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BaseResponseModelsResponse getModels() throws ApiException {
         ApiResponse<BaseResponseModelsResponse> localVarResp = getModelsWithHttpInfo();
         return localVarResp.getData();
@@ -165,7 +170,9 @@ public class ModelsApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BaseResponseModelsResponse> getModelsWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = getModelsValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<BaseResponseModelsResponse>(){}.getType();
@@ -185,7 +192,9 @@ public class ModelsApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getModelsAsync(final ApiCallback<BaseResponseModelsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getModelsValidateBeforeCall(_callback);

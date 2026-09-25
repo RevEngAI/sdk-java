@@ -135,6 +135,11 @@ public class CreateUserInputBody {
   @javax.annotation.Nullable
   private RoleEnum role;
 
+  public static final String SERIALIZED_NAME_TEAM_ID = "team_id";
+  @SerializedName(SERIALIZED_NAME_TEAM_ID)
+  @javax.annotation.Nullable
+  private Long teamId;
+
   /**
    * User tier (defaults to ENTHUSIAST)
    */
@@ -328,6 +333,26 @@ public class CreateUserInputBody {
   }
 
 
+  public CreateUserInputBody teamId(@javax.annotation.Nullable Long teamId) {
+    this.teamId = teamId;
+    return this;
+  }
+
+  /**
+   * Existing team to add the user to, which also becomes their default team
+   * minimum: 1
+   * @return teamId
+   */
+  @javax.annotation.Nullable
+  public Long getTeamId() {
+    return teamId;
+  }
+
+  public void setTeamId(@javax.annotation.Nullable Long teamId) {
+    this.teamId = teamId;
+  }
+
+
   public CreateUserInputBody tier(@javax.annotation.Nullable TierEnum tier) {
     this.tier = tier;
     return this;
@@ -445,6 +470,7 @@ public class CreateUserInputBody {
         Objects.equals(this.lastName, createUserInputBody.lastName) &&
         Objects.equals(this.password, createUserInputBody.password) &&
         Objects.equals(this.role, createUserInputBody.role) &&
+        Objects.equals(this.teamId, createUserInputBody.teamId) &&
         Objects.equals(this.tier, createUserInputBody.tier) &&
         Objects.equals(this.timeZone, createUserInputBody.timeZone) &&
         Objects.equals(this.username, createUserInputBody.username)&&
@@ -453,7 +479,7 @@ public class CreateUserInputBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(credits, email, firstName, lastName, password, role, tier, timeZone, username, additionalProperties);
+    return Objects.hash(credits, email, firstName, lastName, password, role, teamId, tier, timeZone, username, additionalProperties);
   }
 
   @Override
@@ -466,6 +492,7 @@ public class CreateUserInputBody {
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");
+    sb.append("    teamId: ").append(toIndentedString(teamId)).append("\n");
     sb.append("    tier: ").append(toIndentedString(tier)).append("\n");
     sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
@@ -488,7 +515,7 @@ public class CreateUserInputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("credits", "email", "first_name", "last_name", "password", "role", "tier", "time_zone", "username"));
+    openapiFields = new HashSet<String>(Arrays.asList("credits", "email", "first_name", "last_name", "password", "role", "team_id", "tier", "time_zone", "username"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("email", "password", "username"));

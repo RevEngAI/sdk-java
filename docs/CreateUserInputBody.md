@@ -13,6 +13,7 @@
 |**lastName** | **String** | Last name |  [optional] |
 |**password** | **String** | Initial password |  |
 |**role** | [**RoleEnum**](#RoleEnum) | User role (defaults to USER) |  [optional] |
+|**teamId** | **Long** | Existing team to add the user to, which also becomes their default team |  [optional] |
 |**tier** | [**TierEnum**](#TierEnum) | User tier (defaults to ENTHUSIAST) |  [optional] |
 |**timeZone** | **String** | IANA time zone |  [optional] |
 |**username** | **String** | Username |  |

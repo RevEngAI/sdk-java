@@ -18,6 +18,7 @@
 |**networkCalls** | **List&lt;NetworkingCall&gt;** | Matches against names this function calls |  [optional] |
 |**remote** | **Boolean** | Whether this function evidences remote communication rather than only supporting it |  |
 |**sources** | [**List&lt;SourcesEnum&gt;**](#List&lt;SourcesEnum&gt;) | Distinct networking sources evidenced by this function |  |
+|**verification** | **NetworkingVerification** | LLM verdict checking this finding against its decompilation. Present only when the run verified this finding. |  [optional] |
 
 
 
