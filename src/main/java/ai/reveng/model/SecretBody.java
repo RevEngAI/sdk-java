@@ -19,6 +19,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.Arrays;
 
 import com.google.gson.Gson;
@@ -45,118 +46,29 @@ import java.util.Set;
 import ai.reveng.invoker.JSON;
 
 /**
- * Status
+ * SecretBody
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class Status {
+public class SecretBody {
+  public static final String SERIALIZED_NAME_ACTIVE = "active";
+  @SerializedName(SERIALIZED_NAME_ACTIVE)
+  @javax.annotation.Nonnull
+  private Boolean active;
+
   /**
-   * Machine-readable error code, shared with synchronous API errors.
+   * Gets or Sets apiProvider
    */
-  @JsonAdapter(CodeEnum.Adapter.class)
-  public enum CodeEnum {
-    ACCESS_DENIED("ACCESS_DENIED"),
+  @JsonAdapter(ApiProviderEnum.Adapter.class)
+  public enum ApiProviderEnum {
+    VIRUS_TOTAL("virus_total"),
     
-    ALREADY_EXISTS("ALREADY_EXISTS"),
-    
-    ANALYSIS_NOT_READY("ANALYSIS_NOT_READY"),
-    
-    BAD_REQUEST("BAD_REQUEST"),
-    
-    CLIENT_CLOSED_REQUEST("CLIENT_CLOSED_REQUEST"),
-    
-    CONFLICT("CONFLICT"),
-    
-    CONVERSATION_NOT_FOUND("CONVERSATION_NOT_FOUND"),
-    
-    DOMAIN_ALREADY_CLAIMED("DOMAIN_ALREADY_CLAIMED"),
-    
-    DOMAIN_VERIFICATION_PENDING("DOMAIN_VERIFICATION_PENDING"),
-    
-    DYNAMIC_EXECUTION_INCOMPLETE("DYNAMIC_EXECUTION_INCOMPLETE"),
-    
-    EMAIL_NOT_VERIFIED("EMAIL_NOT_VERIFIED"),
-    
-    EXTERNAL_USER("EXTERNAL_USER"),
-    
-    FORBIDDEN("FORBIDDEN"),
-    
-    GATEWAY_TIMEOUT("GATEWAY_TIMEOUT"),
-    
-    GROUP_HAS_MEMBERS("GROUP_HAS_MEMBERS"),
-    
-    INSUFFICIENT_CREDITS("INSUFFICIENT_CREDITS"),
-    
-    INTERNAL_ERROR("INTERNAL_ERROR"),
-    
-    INTERNAL_ISSUER("INTERNAL_ISSUER"),
-    
-    INVALID_CONVERSATION_ID("INVALID_CONVERSATION_ID"),
-    
-    INVALID_CREDENTIALS("INVALID_CREDENTIALS"),
-    
-    INVALID_INVITE_CODE("INVALID_INVITE_CODE"),
-    
-    INVALID_RESET_CODE("INVALID_RESET_CODE"),
-    
-    LAST_ORG_OWNER("LAST_ORG_OWNER"),
-    
-    LAST_TEAM_ADMIN("LAST_TEAM_ADMIN"),
-    
-    LAST_TEAM_MEMBER("LAST_TEAM_MEMBER"),
-    
-    LINKED_TO_ORG("LINKED_TO_ORG"),
-    
-    METHOD_NOT_ALLOWED("METHOD_NOT_ALLOWED"),
-    
-    NOT_ACCEPTABLE("NOT_ACCEPTABLE"),
-    
-    NOT_FOUND("NOT_FOUND"),
-    
-    NOT_IMPLEMENTED("NOT_IMPLEMENTED"),
-    
-    NO_ACTIVE_RUN("NO_ACTIVE_RUN"),
-    
-    NO_PENDING_CONFIRMATION("NO_PENDING_CONFIRMATION"),
-    
-    NO_VIRUSTOTAL_KEY("NO_VIRUSTOTAL_KEY"),
-    
-    OIDC_DISCOVERY_FAILED("OIDC_DISCOVERY_FAILED"),
-    
-    PASSWORD_RESET_REQUIRED("PASSWORD_RESET_REQUIRED"),
-    
-    PAYMENT_REQUIRED("PAYMENT_REQUIRED"),
-    
-    REPORT_RENDER_FAILED("REPORT_RENDER_FAILED"),
-    
-    REQUEST_ENTITY_TOO_LARGE("REQUEST_ENTITY_TOO_LARGE"),
-    
-    RUN_ALREADY_ACTIVE("RUN_ALREADY_ACTIVE"),
-    
-    SELF_DELETION_NOT_ALLOWED("SELF_DELETION_NOT_ALLOWED"),
-    
-    SERVICE_UNAVAILABLE("SERVICE_UNAVAILABLE"),
-    
-    TOKEN_EXPIRED("TOKEN_EXPIRED"),
-    
-    TOKEN_REUSED("TOKEN_REUSED"),
-    
-    TOO_MANY_REQUESTS("TOO_MANY_REQUESTS"),
-    
-    UNAUTHORIZED("UNAUTHORIZED"),
-    
-    UNSUPPORTED_MEDIA_TYPE("UNSUPPORTED_MEDIA_TYPE"),
-    
-    VALIDATION_FAILED("VALIDATION_FAILED"),
-    
-    VERIFICATION_EXPIRED("VERIFICATION_EXPIRED"),
-    
-    VERIFICATION_NOT_FOUND("VERIFICATION_NOT_FOUND"),
+    MALWARE_BAZAAR("malware_bazaar"),
     
     UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
     private String value;
 
-    CodeEnum(String value) {
+    ApiProviderEnum(String value) {
       this.value = value;
     }
 
@@ -169,8 +81,8 @@ public class Status {
       return String.valueOf(value);
     }
 
-    public static CodeEnum fromValue(String value) {
-      for (CodeEnum b : CodeEnum.values()) {
+    public static ApiProviderEnum fromValue(String value) {
+      for (ApiProviderEnum b : ApiProviderEnum.values()) {
         if (b.value.equals(value)) {
           return b;
         }
@@ -178,145 +90,236 @@ public class Status {
       return UNKNOWN_DEFAULT_OPEN_API;
     }
 
-    public static class Adapter extends TypeAdapter<CodeEnum> {
+    public static class Adapter extends TypeAdapter<ApiProviderEnum> {
       @Override
-      public void write(final JsonWriter jsonWriter, final CodeEnum enumeration) throws IOException {
+      public void write(final JsonWriter jsonWriter, final ApiProviderEnum enumeration) throws IOException {
         jsonWriter.value(enumeration.getValue());
       }
 
       @Override
-      public CodeEnum read(final JsonReader jsonReader) throws IOException {
+      public ApiProviderEnum read(final JsonReader jsonReader) throws IOException {
         String value =  jsonReader.nextString();
-        return CodeEnum.fromValue(value);
+        return ApiProviderEnum.fromValue(value);
       }
     }
 
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       String value = jsonElement.getAsString();
-      CodeEnum.fromValue(value);
+      ApiProviderEnum.fromValue(value);
     }
   }
 
-  public static final String SERIALIZED_NAME_CODE = "code";
-  @SerializedName(SERIALIZED_NAME_CODE)
+  public static final String SERIALIZED_NAME_API_PROVIDER = "api_provider";
+  @SerializedName(SERIALIZED_NAME_API_PROVIDER)
   @javax.annotation.Nonnull
-  private CodeEnum code;
+  private ApiProviderEnum apiProvider;
 
-  public static final String SERIALIZED_NAME_DETAIL = "detail";
-  @SerializedName(SERIALIZED_NAME_DETAIL)
+  public static final String SERIALIZED_NAME_CREATION = "creation";
+  @SerializedName(SERIALIZED_NAME_CREATION)
+  @javax.annotation.Nonnull
+  private OffsetDateTime creation;
+
+  public static final String SERIALIZED_NAME_DISABLED_AT = "disabled_at";
+  @SerializedName(SERIALIZED_NAME_DISABLED_AT)
   @javax.annotation.Nullable
-  private String detail;
+  private OffsetDateTime disabledAt;
 
-  public static final String SERIALIZED_NAME_DOC_URL = "doc_url";
-  @SerializedName(SERIALIZED_NAME_DOC_URL)
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
   @javax.annotation.Nonnull
-  private String docUrl;
+  private Long id;
 
-  public static final String SERIALIZED_NAME_MESSAGE = "message";
-  @SerializedName(SERIALIZED_NAME_MESSAGE)
+  public static final String SERIALIZED_NAME_KEY = "key";
+  @SerializedName(SERIALIZED_NAME_KEY)
   @javax.annotation.Nonnull
-  private String message;
+  private String key;
 
-  public static final String SERIALIZED_NAME_RETRYABLE = "retryable";
-  @SerializedName(SERIALIZED_NAME_RETRYABLE)
+  public static final String SERIALIZED_NAME_TEAM_ID = "team_id";
+  @SerializedName(SERIALIZED_NAME_TEAM_ID)
+  @javax.annotation.Nullable
+  private Long teamId;
+
+  public static final String SERIALIZED_NAME_USER_ID = "user_id";
+  @SerializedName(SERIALIZED_NAME_USER_ID)
   @javax.annotation.Nonnull
-  private Boolean retryable;
+  private Long userId;
 
-  public Status() {
+  public static final String SERIALIZED_NAME_VALID = "valid";
+  @SerializedName(SERIALIZED_NAME_VALID)
+  @javax.annotation.Nonnull
+  private Boolean valid;
+
+  public SecretBody() {
   }
 
-  public Status code(@javax.annotation.Nonnull CodeEnum code) {
-    this.code = code;
+  public SecretBody active(@javax.annotation.Nonnull Boolean active) {
+    this.active = active;
     return this;
   }
 
   /**
-   * Machine-readable error code, shared with synchronous API errors.
-   * @return code
+   * Get active
+   * @return active
    */
   @javax.annotation.Nonnull
-  public CodeEnum getCode() {
-    return code;
+  public Boolean getActive() {
+    return active;
   }
 
-  public void setCode(@javax.annotation.Nonnull CodeEnum code) {
-    this.code = code;
+  public void setActive(@javax.annotation.Nonnull Boolean active) {
+    this.active = active;
   }
 
 
-  public Status detail(@javax.annotation.Nullable String detail) {
-    this.detail = detail;
+  public SecretBody apiProvider(@javax.annotation.Nonnull ApiProviderEnum apiProvider) {
+    this.apiProvider = apiProvider;
     return this;
   }
 
   /**
-   * Additional context where helpful (quota numbers, validation specifics, etc.).
-   * @return detail
+   * Get apiProvider
+   * @return apiProvider
+   */
+  @javax.annotation.Nonnull
+  public ApiProviderEnum getApiProvider() {
+    return apiProvider;
+  }
+
+  public void setApiProvider(@javax.annotation.Nonnull ApiProviderEnum apiProvider) {
+    this.apiProvider = apiProvider;
+  }
+
+
+  public SecretBody creation(@javax.annotation.Nonnull OffsetDateTime creation) {
+    this.creation = creation;
+    return this;
+  }
+
+  /**
+   * Get creation
+   * @return creation
+   */
+  @javax.annotation.Nonnull
+  public OffsetDateTime getCreation() {
+    return creation;
+  }
+
+  public void setCreation(@javax.annotation.Nonnull OffsetDateTime creation) {
+    this.creation = creation;
+  }
+
+
+  public SecretBody disabledAt(@javax.annotation.Nullable OffsetDateTime disabledAt) {
+    this.disabledAt = disabledAt;
+    return this;
+  }
+
+  /**
+   * Get disabledAt
+   * @return disabledAt
    */
   @javax.annotation.Nullable
-  public String getDetail() {
-    return detail;
+  public OffsetDateTime getDisabledAt() {
+    return disabledAt;
   }
 
-  public void setDetail(@javax.annotation.Nullable String detail) {
-    this.detail = detail;
+  public void setDisabledAt(@javax.annotation.Nullable OffsetDateTime disabledAt) {
+    this.disabledAt = disabledAt;
   }
 
 
-  public Status docUrl(@javax.annotation.Nonnull String docUrl) {
-    this.docUrl = docUrl;
+  public SecretBody id(@javax.annotation.Nonnull Long id) {
+    this.id = id;
     return this;
   }
 
   /**
-   * Link to documentation explaining this error and resolution steps.
-   * @return docUrl
+   * Get id
+   * @return id
    */
   @javax.annotation.Nonnull
-  public String getDocUrl() {
-    return docUrl;
+  public Long getId() {
+    return id;
   }
 
-  public void setDocUrl(@javax.annotation.Nonnull String docUrl) {
-    this.docUrl = docUrl;
+  public void setId(@javax.annotation.Nonnull Long id) {
+    this.id = id;
   }
 
 
-  public Status message(@javax.annotation.Nonnull String message) {
-    this.message = message;
+  public SecretBody key(@javax.annotation.Nonnull String key) {
+    this.key = key;
     return this;
   }
 
   /**
-   * Brief description of the failure.
-   * @return message
+   * Masked API key showing only the last 4 characters
+   * @return key
    */
   @javax.annotation.Nonnull
-  public String getMessage() {
-    return message;
+  public String getKey() {
+    return key;
   }
 
-  public void setMessage(@javax.annotation.Nonnull String message) {
-    this.message = message;
+  public void setKey(@javax.annotation.Nonnull String key) {
+    this.key = key;
   }
 
 
-  public Status retryable(@javax.annotation.Nonnull Boolean retryable) {
-    this.retryable = retryable;
+  public SecretBody teamId(@javax.annotation.Nullable Long teamId) {
+    this.teamId = teamId;
     return this;
   }
 
   /**
-   * Whether retrying the operation might succeed.
-   * @return retryable
+   * Null for a personal secret
+   * @return teamId
    */
-  @javax.annotation.Nonnull
-  public Boolean getRetryable() {
-    return retryable;
+  @javax.annotation.Nullable
+  public Long getTeamId() {
+    return teamId;
   }
 
-  public void setRetryable(@javax.annotation.Nonnull Boolean retryable) {
-    this.retryable = retryable;
+  public void setTeamId(@javax.annotation.Nullable Long teamId) {
+    this.teamId = teamId;
+  }
+
+
+  public SecretBody userId(@javax.annotation.Nonnull Long userId) {
+    this.userId = userId;
+    return this;
+  }
+
+  /**
+   * Get userId
+   * @return userId
+   */
+  @javax.annotation.Nonnull
+  public Long getUserId() {
+    return userId;
+  }
+
+  public void setUserId(@javax.annotation.Nonnull Long userId) {
+    this.userId = userId;
+  }
+
+
+  public SecretBody valid(@javax.annotation.Nonnull Boolean valid) {
+    this.valid = valid;
+    return this;
+  }
+
+  /**
+   * Get valid
+   * @return valid
+   */
+  @javax.annotation.Nonnull
+  public Boolean getValid() {
+    return valid;
+  }
+
+  public void setValid(@javax.annotation.Nonnull Boolean valid) {
+    this.valid = valid;
   }
 
   /**
@@ -332,9 +335,9 @@ public class Status {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the Status instance itself
+   * @return the SecretBody instance itself
    */
-  public Status putAdditionalProperty(String key, Object value) {
+  public SecretBody putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -373,29 +376,37 @@ public class Status {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Status status = (Status) o;
-    return Objects.equals(this.code, status.code) &&
-        Objects.equals(this.detail, status.detail) &&
-        Objects.equals(this.docUrl, status.docUrl) &&
-        Objects.equals(this.message, status.message) &&
-        Objects.equals(this.retryable, status.retryable)&&
-        Objects.equals(this.additionalProperties, status.additionalProperties);
+    SecretBody secretBody = (SecretBody) o;
+    return Objects.equals(this.active, secretBody.active) &&
+        Objects.equals(this.apiProvider, secretBody.apiProvider) &&
+        Objects.equals(this.creation, secretBody.creation) &&
+        Objects.equals(this.disabledAt, secretBody.disabledAt) &&
+        Objects.equals(this.id, secretBody.id) &&
+        Objects.equals(this.key, secretBody.key) &&
+        Objects.equals(this.teamId, secretBody.teamId) &&
+        Objects.equals(this.userId, secretBody.userId) &&
+        Objects.equals(this.valid, secretBody.valid)&&
+        Objects.equals(this.additionalProperties, secretBody.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, detail, docUrl, message, retryable, additionalProperties);
+    return Objects.hash(active, apiProvider, creation, disabledAt, id, key, teamId, userId, valid, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Status {\n");
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
-    sb.append("    docUrl: ").append(toIndentedString(docUrl)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
-    sb.append("    retryable: ").append(toIndentedString(retryable)).append("\n");
+    sb.append("class SecretBody {\n");
+    sb.append("    active: ").append(toIndentedString(active)).append("\n");
+    sb.append("    apiProvider: ").append(toIndentedString(apiProvider)).append("\n");
+    sb.append("    creation: ").append(toIndentedString(creation)).append("\n");
+    sb.append("    disabledAt: ").append(toIndentedString(disabledAt)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    teamId: ").append(toIndentedString(teamId)).append("\n");
+    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
+    sb.append("    valid: ").append(toIndentedString(valid)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -415,45 +426,39 @@ public class Status {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("code", "detail", "doc_url", "message", "retryable"));
+    openapiFields = new HashSet<String>(Arrays.asList("active", "api_provider", "creation", "disabled_at", "id", "key", "team_id", "user_id", "valid"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("code", "doc_url", "message", "retryable"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("active", "api_provider", "creation", "id", "key", "user_id", "valid"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to Status
+   * @throws IOException if the JSON Element is invalid with respect to SecretBody
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!Status.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in Status is not found in the empty JSON string", Status.openapiRequiredFields.toString()));
+        if (!SecretBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in SecretBody is not found in the empty JSON string", SecretBody.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : Status.openapiRequiredFields) {
+      for (String requiredField : SecretBody.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("code").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("code").toString()));
+      if (!jsonObj.get("api_provider").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `api_provider` to be a primitive type in the JSON string but got `%s`", jsonObj.get("api_provider").toString()));
       }
-      // validate the required field `code`
-      CodeEnum.validateJsonElement(jsonObj.get("code"));
-      if ((jsonObj.get("detail") != null && !jsonObj.get("detail").isJsonNull()) && !jsonObj.get("detail").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `detail` to be a primitive type in the JSON string but got `%s`", jsonObj.get("detail").toString()));
-      }
-      if (!jsonObj.get("doc_url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `doc_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("doc_url").toString()));
-      }
-      if (!jsonObj.get("message").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
+      // validate the required field `api_provider`
+      ApiProviderEnum.validateJsonElement(jsonObj.get("api_provider"));
+      if (!jsonObj.get("key").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key").toString()));
       }
   }
 
@@ -461,16 +466,16 @@ public class Status {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!Status.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Status' and its subtypes
+       if (!SecretBody.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'SecretBody' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<Status> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(Status.class));
+       final TypeAdapter<SecretBody> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(SecretBody.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<Status>() {
+       return (TypeAdapter<T>) new TypeAdapter<SecretBody>() {
            @Override
-           public void write(JsonWriter out, Status value) throws IOException {
+           public void write(JsonWriter out, SecretBody value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -498,12 +503,12 @@ public class Status {
            }
 
            @Override
-           public Status read(JsonReader in) throws IOException {
+           public SecretBody read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             Status instance = thisAdapter.fromJsonTree(jsonObj);
+             SecretBody instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -530,18 +535,18 @@ public class Status {
   }
 
   /**
-   * Create an instance of Status given an JSON string
+   * Create an instance of SecretBody given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of Status
-   * @throws IOException if the JSON string is invalid with respect to Status
+   * @return An instance of SecretBody
+   * @throws IOException if the JSON string is invalid with respect to SecretBody
    */
-  public static Status fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, Status.class);
+  public static SecretBody fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, SecretBody.class);
   }
 
   /**
-   * Convert an instance of Status to an JSON string
+   * Convert an instance of SecretBody to an JSON string
    *
    * @return JSON string
    */

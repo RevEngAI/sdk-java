@@ -20,9 +20,11 @@ All URIs are relative to *https://api.reveng.ai*
 | [**upsertAiDecompilationRating**](FunctionsAiDecompilationApi.md#upsertAiDecompilationRating) | **PATCH** /v2/functions/{function_id}/ai-decompilation/rating | Upsert rating for AI decompilation |
 | [**v3AcceptAiDecompilationTypeSuggestions**](FunctionsAiDecompilationApi.md#v3AcceptAiDecompilationTypeSuggestions) | **POST** /v3/functions/{function_id}/ai-decompilation/type-suggestions/accept | Accept AI decompilation type suggestions |
 | [**v3GetAiDecompilationLineAttributions**](FunctionsAiDecompilationApi.md#v3GetAiDecompilationLineAttributions) | **GET** /v3/functions/{function_id}/ai-decompilation/line-attributions | Get AI decompilation line attributions |
+| [**v3GetAiDecompilationRating**](FunctionsAiDecompilationApi.md#v3GetAiDecompilationRating) | **GET** /v3/functions/{function_id}/ai-decompilation/rating | Get AI decompilation rating |
 | [**v3GetAiDecompilationTokens**](FunctionsAiDecompilationApi.md#v3GetAiDecompilationTokens) | **GET** /v3/functions/{function_id}/ai-decompilation/tokens | Get AI decompilation tokens and user overrides |
 | [**v3GetAiDecompilationTypeSuggestions**](FunctionsAiDecompilationApi.md#v3GetAiDecompilationTypeSuggestions) | **GET** /v3/functions/{function_id}/ai-decompilation/type-suggestions | Get AI decompilation type suggestions |
 | [**v3UpsertAiDecompilationOverrides**](FunctionsAiDecompilationApi.md#v3UpsertAiDecompilationOverrides) | **PATCH** /v3/functions/{function_id}/ai-decompilation/overrides | Upsert variable/function name overrides |
+| [**v3UpsertAiDecompilationRating**](FunctionsAiDecompilationApi.md#v3UpsertAiDecompilationRating) | **PATCH** /v3/functions/{function_id}/ai-decompilation/rating | Upsert AI decompilation rating |
 
 
 <a id="createAiDecompilation"></a>
@@ -1263,6 +1265,83 @@ public class Example {
 | **422** | Unprocessable Entity |  -  |
 | **500** | Internal Server Error |  -  |
 
+<a id="v3GetAiDecompilationRating"></a>
+# **v3GetAiDecompilationRating**
+> RatingOutputBody v3GetAiDecompilationRating(functionId)
+
+Get AI decompilation rating
+
+Returns the caller&#39;s rating and reason for a function&#39;s AI decompilation, or null fields when they have not rated it yet.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;500&#x60; [&#x60;INTERNAL_ERROR&#x60;](/errors/INTERNAL_ERROR) — Internal Server Error
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.FunctionsAiDecompilationApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    FunctionsAiDecompilationApi apiInstance = new FunctionsAiDecompilationApi(defaultClient);
+    Long functionId = 56L; // Long | Function ID
+    try {
+      RatingOutputBody result = apiInstance.v3GetAiDecompilationRating(functionId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling FunctionsAiDecompilationApi#v3GetAiDecompilationRating");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **functionId** | **Long**| Function ID | |
+
+### Return type
+
+[**RatingOutputBody**](RatingOutputBody.md)
+
+### Authorization
+
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **500** | Internal Server Error |  -  |
+
 <a id="v3GetAiDecompilationTokens"></a>
 # **v3GetAiDecompilationTokens**
 > GetTokensResponse v3GetAiDecompilationTokens(functionId)
@@ -1492,6 +1571,84 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **500** | Internal Server Error |  -  |
+
+<a id="v3UpsertAiDecompilationRating"></a>
+# **v3UpsertAiDecompilationRating**
+> v3UpsertAiDecompilationRating(functionId, upsertRatingInputBody)
+
+Upsert AI decompilation rating
+
+Records the caller&#39;s rating and optional reason for a function&#39;s AI decompilation, replacing any they recorded before. Requires an existing decompilation.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;500&#x60; [&#x60;INTERNAL_ERROR&#x60;](/errors/INTERNAL_ERROR) — Internal Server Error
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.FunctionsAiDecompilationApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    FunctionsAiDecompilationApi apiInstance = new FunctionsAiDecompilationApi(defaultClient);
+    Long functionId = 56L; // Long | Function ID
+    UpsertRatingInputBody upsertRatingInputBody = new UpsertRatingInputBody(); // UpsertRatingInputBody | 
+    try {
+      apiInstance.v3UpsertAiDecompilationRating(functionId, upsertRatingInputBody);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling FunctionsAiDecompilationApi#v3UpsertAiDecompilationRating");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **functionId** | **Long**| Function ID | |
+| **upsertRatingInputBody** | [**UpsertRatingInputBody**](UpsertRatingInputBody.md)|  | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 | **422** | Unprocessable Entity |  -  |

@@ -27,7 +27,6 @@ All URIs are relative to *https://api.reveng.ai*
 | [**updateAnalysis**](AnalysesCoreApi.md#updateAnalysis) | **PATCH** /v2/analyses/{analysis_id} | Update Analysis |
 | [**updateAnalysisTags**](AnalysesCoreApi.md#updateAnalysisTags) | **PATCH** /v2/analyses/{analysis_id}/tags | Update Analysis Tags |
 | [**uploadFile**](AnalysesCoreApi.md#uploadFile) | **POST** /v2/upload | Upload File |
-| [**v3CreateAnalysis**](AnalysesCoreApi.md#v3CreateAnalysis) | **POST** /v3/analyses | Create an analysis |
 | [**v3DeleteAnalysis**](AnalysesCoreApi.md#v3DeleteAnalysis) | **DELETE** /v3/analyses/{analysis_id} | Delete an analysis. |
 | [**v3DownloadBinaryExport**](AnalysesCoreApi.md#v3DownloadBinaryExport) | **GET** /v3/analyses/{analysis_id}/binary-export | Download a binary export |
 | [**v3GetAnalysis**](AnalysesCoreApi.md#v3GetAnalysis) | **GET** /v3/analyses/{analysis_id} | Get an analysis. |
@@ -1829,89 +1828,6 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Successful Response |  -  |
 | **422** | Invalid request parameters |  -  |
-
-<a id="v3CreateAnalysis"></a>
-# **v3CreateAnalysis**
-> OperationCreateMetadataCreateResult v3CreateAnalysis(createRequest, xRevEngApplication)
-
-Create an analysis
-
-Queues a new Analysis for an uploaded Binary and returns the created Operation.  **Error codes:** - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;402&#x60; [&#x60;INSUFFICIENT_CREDITS&#x60;](/errors/INSUFFICIENT_CREDITS) — Insufficient Credits - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;413&#x60; [&#x60;REQUEST_ENTITY_TOO_LARGE&#x60;](/errors/REQUEST_ENTITY_TOO_LARGE) — Request Entity Too Large
-
-### Example
-```java
-// Import classes:
-import ai.reveng.invoker.ApiClient;
-import ai.reveng.invoker.ApiException;
-import ai.reveng.invoker.Configuration;
-import ai.reveng.invoker.auth.*;
-import ai.reveng.invoker.models.*;
-import ai.reveng.api.AnalysesCoreApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.reveng.ai");
-    
-    // Configure API key authorization: APIKey
-    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
-    APIKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //APIKey.setApiKeyPrefix("Token");
-
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
-
-    AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
-    CreateRequest createRequest = new CreateRequest(); // CreateRequest | 
-    String xRevEngApplication = "xRevEngApplication_example"; // String | Identifies the calling RevEng application. Recorded on the Analysis log.
-    try {
-      OperationCreateMetadataCreateResult result = apiInstance.v3CreateAnalysis(createRequest, xRevEngApplication);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling AnalysesCoreApi#v3CreateAnalysis");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **createRequest** | [**CreateRequest**](CreateRequest.md)|  | |
-| **xRevEngApplication** | **String**| Identifies the calling RevEng application. Recorded on the Analysis log. | [optional] |
-
-### Return type
-
-[**OperationCreateMetadataCreateResult**](OperationCreateMetadataCreateResult.md)
-
-### Authorization
-
-[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **201** | Created |  -  |
-| **400** | Bad Request |  -  |
-| **402** | Payment Required |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **409** | Conflict |  -  |
-| **413** | Request Entity Too Large |  -  |
-| **422** | Unprocessable Entity |  -  |
-| **500** | Internal Server Error |  -  |
 
 <a id="v3DeleteAnalysis"></a>
 # **v3DeleteAnalysis**
