@@ -576,7 +576,9 @@ public class AnalysesResultsMetadataApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getTagsCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -622,6 +624,7 @@ public class AnalysesResultsMetadataApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getTagsValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
@@ -646,7 +649,9 @@ public class AnalysesResultsMetadataApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BaseResponseAnalysisTags getTags(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
         ApiResponse<BaseResponseAnalysisTags> localVarResp = getTagsWithHttpInfo(analysisId);
         return localVarResp.getData();
@@ -665,7 +670,9 @@ public class AnalysesResultsMetadataApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BaseResponseAnalysisTags> getTagsWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
         okhttp3.Call localVarCall = getTagsValidateBeforeCall(analysisId, null);
         Type localVarReturnType = new TypeToken<BaseResponseAnalysisTags>(){}.getType();
@@ -686,7 +693,9 @@ public class AnalysesResultsMetadataApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getTagsAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<BaseResponseAnalysisTags> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getTagsValidateBeforeCall(analysisId, _callback);

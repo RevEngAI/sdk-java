@@ -16,7 +16,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>ai.reveng</groupId>
     <artifactId>sdk</artifactId>
-    <version>4.64.0</version>
+    <version>4.67.1</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -31,7 +31,7 @@ repositories {
 }
 
 dependencies {
-    implementation "ai.reveng:sdk:4.64.0"
+    implementation "ai.reveng:sdk:4.67.1"
 }
 ```
 
@@ -597,6 +597,7 @@ Class | Method | HTTP request | Description
  - [Display](docs/Display.md)
  - [DnsQuery](docs/DnsQuery.md)
  - [DrakvufFileMetadata](docs/DrakvufFileMetadata.md)
+ - [DynamicExecutionMetadata](docs/DynamicExecutionMetadata.md)
  - [DynamicExecutionStatus](docs/DynamicExecutionStatus.md)
  - [DynamicExecutionStatusResponse](docs/DynamicExecutionStatusResponse.md)
  - [ELFImportModel](docs/ELFImportModel.md)
@@ -804,10 +805,12 @@ Class | Method | HTTP request | Description
  - [NetworkingScanResult](docs/NetworkingScanResult.md)
  - [NetworkingVerification](docs/NetworkingVerification.md)
  - [OIDCCallbackInputBody](docs/OIDCCallbackInputBody.md)
+ - [OperandXref](docs/OperandXref.md)
  - [OperationBinaryExportMetadataBinaryExportResult](docs/OperationBinaryExportMetadataBinaryExportResult.md)
  - [OperationCreateMetadataCreateResult](docs/OperationCreateMetadataCreateResult.md)
  - [OperationCryptoExplainMetadataCryptoExplainResult](docs/OperationCryptoExplainMetadataCryptoExplainResult.md)
  - [OperationCryptoScanMetadataCryptoScanResult](docs/OperationCryptoScanMetadataCryptoScanResult.md)
+ - [OperationDynamicExecutionMetadataDynamicExecutionResult](docs/OperationDynamicExecutionMetadataDynamicExecutionResult.md)
  - [OperationExecutionExplainMetadataExecutionExplainResult](docs/OperationExecutionExplainMetadataExecutionExplainResult.md)
  - [OperationExecutionScanMetadataExecutionScanResult](docs/OperationExecutionScanMetadataExecutionScanResult.md)
  - [OperationFilesystemAnalyseMetadataFilesystemAnalyseResult](docs/OperationFilesystemAnalyseMetadataFilesystemAnalyseResult.md)
@@ -889,6 +892,7 @@ Class | Method | HTTP request | Description
  - [ResultBody](docs/ResultBody.md)
  - [RevokeBody](docs/RevokeBody.md)
  - [RuleKind](docs/RuleKind.md)
+ - [RunDynamicExecutionInputBody](docs/RunDynamicExecutionInputBody.md)
  - [SSOProvider](docs/SSOProvider.md)
  - [SSOProvidersOutputBody](docs/SSOProvidersOutputBody.md)
  - [SandboxConfig](docs/SandboxConfig.md)

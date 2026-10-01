@@ -90,7 +90,9 @@ public class ExternalSourcesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Request already queued </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call createExternalTaskVtCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -136,6 +138,7 @@ public class ExternalSourcesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createExternalTaskVtValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
@@ -161,7 +164,9 @@ public class ExternalSourcesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Request already queued </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BaseResponseStr createExternalTaskVt(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
         ApiResponse<BaseResponseStr> localVarResp = createExternalTaskVtWithHttpInfo(analysisId);
         return localVarResp.getData();
@@ -181,7 +186,9 @@ public class ExternalSourcesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Request already queued </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BaseResponseStr> createExternalTaskVtWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
         okhttp3.Call localVarCall = createExternalTaskVtValidateBeforeCall(analysisId, null);
         Type localVarReturnType = new TypeToken<BaseResponseStr>(){}.getType();
@@ -203,7 +210,9 @@ public class ExternalSourcesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Request already queued </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call createExternalTaskVtAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<BaseResponseStr> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createExternalTaskVtValidateBeforeCall(analysisId, _callback);
@@ -225,7 +234,9 @@ public class ExternalSourcesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> No data retrieved from VirusTotal for the given analysis_id </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getVtDataCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -271,6 +282,7 @@ public class ExternalSourcesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getVtDataValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
@@ -296,7 +308,9 @@ public class ExternalSourcesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> No data retrieved from VirusTotal for the given analysis_id </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BaseResponseExternalResponse getVtData(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
         ApiResponse<BaseResponseExternalResponse> localVarResp = getVtDataWithHttpInfo(analysisId);
         return localVarResp.getData();
@@ -316,7 +330,9 @@ public class ExternalSourcesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> No data retrieved from VirusTotal for the given analysis_id </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BaseResponseExternalResponse> getVtDataWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
         okhttp3.Call localVarCall = getVtDataValidateBeforeCall(analysisId, null);
         Type localVarReturnType = new TypeToken<BaseResponseExternalResponse>(){}.getType();
@@ -338,7 +354,9 @@ public class ExternalSourcesApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> No data retrieved from VirusTotal for the given analysis_id </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getVtDataAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<BaseResponseExternalResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getVtDataValidateBeforeCall(analysisId, _callback);
@@ -359,7 +377,9 @@ public class ExternalSourcesApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getVtTaskStatusCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -405,6 +425,7 @@ public class ExternalSourcesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getVtTaskStatusValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
@@ -429,7 +450,9 @@ public class ExternalSourcesApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BaseResponseTaskResponse getVtTaskStatus(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
         ApiResponse<BaseResponseTaskResponse> localVarResp = getVtTaskStatusWithHttpInfo(analysisId);
         return localVarResp.getData();
@@ -448,7 +471,9 @@ public class ExternalSourcesApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BaseResponseTaskResponse> getVtTaskStatusWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
         okhttp3.Call localVarCall = getVtTaskStatusValidateBeforeCall(analysisId, null);
         Type localVarReturnType = new TypeToken<BaseResponseTaskResponse>(){}.getType();
@@ -469,7 +494,9 @@ public class ExternalSourcesApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getVtTaskStatusAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<BaseResponseTaskResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getVtTaskStatusValidateBeforeCall(analysisId, _callback);

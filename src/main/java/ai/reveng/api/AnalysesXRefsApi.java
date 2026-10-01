@@ -88,7 +88,9 @@ public class AnalysesXRefsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Xref or analysis cache not found </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getXrefByVaddrCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer vaddr, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -135,6 +137,7 @@ public class AnalysesXRefsApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getXrefByVaddrValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer vaddr, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
@@ -166,7 +169,9 @@ public class AnalysesXRefsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Xref or analysis cache not found </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BaseResponseXrefResponse getXrefByVaddr(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer vaddr) throws ApiException {
         ApiResponse<BaseResponseXrefResponse> localVarResp = getXrefByVaddrWithHttpInfo(analysisId, vaddr);
         return localVarResp.getData();
@@ -187,7 +192,9 @@ public class AnalysesXRefsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Xref or analysis cache not found </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BaseResponseXrefResponse> getXrefByVaddrWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer vaddr) throws ApiException {
         okhttp3.Call localVarCall = getXrefByVaddrValidateBeforeCall(analysisId, vaddr, null);
         Type localVarReturnType = new TypeToken<BaseResponseXrefResponse>(){}.getType();
@@ -210,7 +217,9 @@ public class AnalysesXRefsApi {
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Xref or analysis cache not found </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getXrefByVaddrAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull Integer vaddr, final ApiCallback<BaseResponseXrefResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getXrefByVaddrValidateBeforeCall(analysisId, vaddr, _callback);
