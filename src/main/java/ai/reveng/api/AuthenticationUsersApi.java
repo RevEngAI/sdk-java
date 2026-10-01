@@ -92,7 +92,9 @@ public class AuthenticationUsersApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getUserCall(@javax.annotation.Nonnull Integer userId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -138,6 +140,7 @@ public class AuthenticationUsersApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getUserValidateBeforeCall(@javax.annotation.Nonnull Integer userId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'userId' is set
@@ -162,7 +165,9 @@ public class AuthenticationUsersApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BaseResponseGetPublicUserResponse getUser(@javax.annotation.Nonnull Integer userId) throws ApiException {
         ApiResponse<BaseResponseGetPublicUserResponse> localVarResp = getUserWithHttpInfo(userId);
         return localVarResp.getData();
@@ -181,7 +186,9 @@ public class AuthenticationUsersApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BaseResponseGetPublicUserResponse> getUserWithHttpInfo(@javax.annotation.Nonnull Integer userId) throws ApiException {
         okhttp3.Call localVarCall = getUserValidateBeforeCall(userId, null);
         Type localVarReturnType = new TypeToken<BaseResponseGetPublicUserResponse>(){}.getType();
@@ -202,7 +209,9 @@ public class AuthenticationUsersApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getUserAsync(@javax.annotation.Nonnull Integer userId, final ApiCallback<BaseResponseGetPublicUserResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getUserValidateBeforeCall(userId, _callback);
@@ -222,7 +231,9 @@ public class AuthenticationUsersApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getUserActivityCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -267,6 +278,7 @@ public class AuthenticationUsersApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getUserActivityValidateBeforeCall(final ApiCallback _callback) throws ApiException {
         return getUserActivityCall(_callback);
@@ -285,7 +297,9 @@ public class AuthenticationUsersApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BaseResponseListUserActivityResponse getUserActivity() throws ApiException {
         ApiResponse<BaseResponseListUserActivityResponse> localVarResp = getUserActivityWithHttpInfo();
         return localVarResp.getData();
@@ -303,7 +317,9 @@ public class AuthenticationUsersApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BaseResponseListUserActivityResponse> getUserActivityWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = getUserActivityValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<BaseResponseListUserActivityResponse>(){}.getType();
@@ -323,7 +339,9 @@ public class AuthenticationUsersApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getUserActivityAsync(final ApiCallback<BaseResponseListUserActivityResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getUserActivityValidateBeforeCall(_callback);
@@ -344,7 +362,9 @@ public class AuthenticationUsersApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call submitUserFeedbackCall(@javax.annotation.Nonnull SubmitUserFeedbackRequest submitUserFeedbackRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -390,6 +410,7 @@ public class AuthenticationUsersApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call submitUserFeedbackValidateBeforeCall(@javax.annotation.Nonnull SubmitUserFeedbackRequest submitUserFeedbackRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'submitUserFeedbackRequest' is set
@@ -414,7 +435,9 @@ public class AuthenticationUsersApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BaseResponse submitUserFeedback(@javax.annotation.Nonnull SubmitUserFeedbackRequest submitUserFeedbackRequest) throws ApiException {
         ApiResponse<BaseResponse> localVarResp = submitUserFeedbackWithHttpInfo(submitUserFeedbackRequest);
         return localVarResp.getData();
@@ -433,7 +456,9 @@ public class AuthenticationUsersApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BaseResponse> submitUserFeedbackWithHttpInfo(@javax.annotation.Nonnull SubmitUserFeedbackRequest submitUserFeedbackRequest) throws ApiException {
         okhttp3.Call localVarCall = submitUserFeedbackValidateBeforeCall(submitUserFeedbackRequest, null);
         Type localVarReturnType = new TypeToken<BaseResponse>(){}.getType();
@@ -454,7 +479,9 @@ public class AuthenticationUsersApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call submitUserFeedbackAsync(@javax.annotation.Nonnull SubmitUserFeedbackRequest submitUserFeedbackRequest, final ApiCallback<BaseResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = submitUserFeedbackValidateBeforeCall(submitUserFeedbackRequest, _callback);

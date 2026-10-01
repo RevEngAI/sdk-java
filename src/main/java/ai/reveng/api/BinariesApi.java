@@ -101,7 +101,9 @@ public class BinariesApi {
         <tr><td> 200 </td><td> Download file </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call downloadZippedBinaryCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -148,6 +150,7 @@ public class BinariesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call downloadZippedBinaryValidateBeforeCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'binaryId' is set
@@ -172,7 +175,9 @@ public class BinariesApi {
         <tr><td> 200 </td><td> Download file </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public File downloadZippedBinary(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
         ApiResponse<File> localVarResp = downloadZippedBinaryWithHttpInfo(binaryId);
         return localVarResp.getData();
@@ -191,7 +196,9 @@ public class BinariesApi {
         <tr><td> 200 </td><td> Download file </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<File> downloadZippedBinaryWithHttpInfo(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
         okhttp3.Call localVarCall = downloadZippedBinaryValidateBeforeCall(binaryId, null);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
@@ -212,7 +219,9 @@ public class BinariesApi {
         <tr><td> 200 </td><td> Download file </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call downloadZippedBinaryAsync(@javax.annotation.Nonnull Integer binaryId, final ApiCallback<File> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = downloadZippedBinaryValidateBeforeCall(binaryId, _callback);
@@ -799,7 +808,9 @@ public class BinariesApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getBinaryDetailsCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -845,6 +856,7 @@ public class BinariesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getBinaryDetailsValidateBeforeCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'binaryId' is set
@@ -869,7 +881,9 @@ public class BinariesApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BaseResponseBinaryDetailsResponse getBinaryDetails(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
         ApiResponse<BaseResponseBinaryDetailsResponse> localVarResp = getBinaryDetailsWithHttpInfo(binaryId);
         return localVarResp.getData();
@@ -888,7 +902,9 @@ public class BinariesApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BaseResponseBinaryDetailsResponse> getBinaryDetailsWithHttpInfo(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
         okhttp3.Call localVarCall = getBinaryDetailsValidateBeforeCall(binaryId, null);
         Type localVarReturnType = new TypeToken<BaseResponseBinaryDetailsResponse>(){}.getType();
@@ -909,7 +925,9 @@ public class BinariesApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getBinaryDetailsAsync(@javax.annotation.Nonnull Integer binaryId, final ApiCallback<BaseResponseBinaryDetailsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getBinaryDetailsValidateBeforeCall(binaryId, _callback);
@@ -1070,7 +1088,9 @@ public class BinariesApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getBinaryExternalsCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1116,6 +1136,7 @@ public class BinariesApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getBinaryExternalsValidateBeforeCall(@javax.annotation.Nonnull Integer binaryId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'binaryId' is set
@@ -1140,7 +1161,9 @@ public class BinariesApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BaseResponseBinaryExternalsResponse getBinaryExternals(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
         ApiResponse<BaseResponseBinaryExternalsResponse> localVarResp = getBinaryExternalsWithHttpInfo(binaryId);
         return localVarResp.getData();
@@ -1159,7 +1182,9 @@ public class BinariesApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BaseResponseBinaryExternalsResponse> getBinaryExternalsWithHttpInfo(@javax.annotation.Nonnull Integer binaryId) throws ApiException {
         okhttp3.Call localVarCall = getBinaryExternalsValidateBeforeCall(binaryId, null);
         Type localVarReturnType = new TypeToken<BaseResponseBinaryExternalsResponse>(){}.getType();
@@ -1180,7 +1205,9 @@ public class BinariesApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getBinaryExternalsAsync(@javax.annotation.Nonnull Integer binaryId, final ApiCallback<BaseResponseBinaryExternalsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getBinaryExternalsValidateBeforeCall(binaryId, _callback);

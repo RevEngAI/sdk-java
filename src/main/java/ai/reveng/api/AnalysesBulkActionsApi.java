@@ -92,7 +92,9 @@ public class AnalysesBulkActionsApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call bulkAddAnalysisTagsCall(@javax.annotation.Nonnull AnalysisBulkAddTagsRequest analysisBulkAddTagsRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -138,6 +140,7 @@ public class AnalysesBulkActionsApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call bulkAddAnalysisTagsValidateBeforeCall(@javax.annotation.Nonnull AnalysisBulkAddTagsRequest analysisBulkAddTagsRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisBulkAddTagsRequest' is set
@@ -162,7 +165,9 @@ public class AnalysesBulkActionsApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BaseResponseAnalysisBulkAddTagsResponse bulkAddAnalysisTags(@javax.annotation.Nonnull AnalysisBulkAddTagsRequest analysisBulkAddTagsRequest) throws ApiException {
         ApiResponse<BaseResponseAnalysisBulkAddTagsResponse> localVarResp = bulkAddAnalysisTagsWithHttpInfo(analysisBulkAddTagsRequest);
         return localVarResp.getData();
@@ -181,7 +186,9 @@ public class AnalysesBulkActionsApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BaseResponseAnalysisBulkAddTagsResponse> bulkAddAnalysisTagsWithHttpInfo(@javax.annotation.Nonnull AnalysisBulkAddTagsRequest analysisBulkAddTagsRequest) throws ApiException {
         okhttp3.Call localVarCall = bulkAddAnalysisTagsValidateBeforeCall(analysisBulkAddTagsRequest, null);
         Type localVarReturnType = new TypeToken<BaseResponseAnalysisBulkAddTagsResponse>(){}.getType();
@@ -202,7 +209,9 @@ public class AnalysesBulkActionsApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call bulkAddAnalysisTagsAsync(@javax.annotation.Nonnull AnalysisBulkAddTagsRequest analysisBulkAddTagsRequest, final ApiCallback<BaseResponseAnalysisBulkAddTagsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = bulkAddAnalysisTagsValidateBeforeCall(analysisBulkAddTagsRequest, _callback);

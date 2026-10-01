@@ -99,7 +99,9 @@ public class SearchApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> You must provide at least one of the filters; partial_name, partial_sha256, tags or model_name to search </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call searchBinariesCall(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialName, @javax.annotation.Nullable String partialSha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable Boolean userFilesOnly, @javax.annotation.Nullable Integer excludeBinaryId, @javax.annotation.Nullable List<Integer> userIds, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -180,6 +182,7 @@ public class SearchApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call searchBinariesValidateBeforeCall(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialName, @javax.annotation.Nullable String partialSha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable Boolean userFilesOnly, @javax.annotation.Nullable Integer excludeBinaryId, @javax.annotation.Nullable List<Integer> userIds, final ApiCallback _callback) throws ApiException {
         return searchBinariesCall(page, pageSize, partialName, partialSha256, tags, modelName, userFilesOnly, excludeBinaryId, userIds, _callback);
@@ -207,7 +210,9 @@ public class SearchApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> You must provide at least one of the filters; partial_name, partial_sha256, tags or model_name to search </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BaseResponseBinarySearchResponse searchBinaries(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialName, @javax.annotation.Nullable String partialSha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable Boolean userFilesOnly, @javax.annotation.Nullable Integer excludeBinaryId, @javax.annotation.Nullable List<Integer> userIds) throws ApiException {
         ApiResponse<BaseResponseBinarySearchResponse> localVarResp = searchBinariesWithHttpInfo(page, pageSize, partialName, partialSha256, tags, modelName, userFilesOnly, excludeBinaryId, userIds);
         return localVarResp.getData();
@@ -234,7 +239,9 @@ public class SearchApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> You must provide at least one of the filters; partial_name, partial_sha256, tags or model_name to search </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BaseResponseBinarySearchResponse> searchBinariesWithHttpInfo(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialName, @javax.annotation.Nullable String partialSha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable Boolean userFilesOnly, @javax.annotation.Nullable Integer excludeBinaryId, @javax.annotation.Nullable List<Integer> userIds) throws ApiException {
         okhttp3.Call localVarCall = searchBinariesValidateBeforeCall(page, pageSize, partialName, partialSha256, tags, modelName, userFilesOnly, excludeBinaryId, userIds, null);
         Type localVarReturnType = new TypeToken<BaseResponseBinarySearchResponse>(){}.getType();
@@ -263,7 +270,9 @@ public class SearchApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> You must provide at least one of the filters; partial_name, partial_sha256, tags or model_name to search </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call searchBinariesAsync(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialName, @javax.annotation.Nullable String partialSha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable String modelName, @javax.annotation.Nullable Boolean userFilesOnly, @javax.annotation.Nullable Integer excludeBinaryId, @javax.annotation.Nullable List<Integer> userIds, final ApiCallback<BaseResponseBinarySearchResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = searchBinariesValidateBeforeCall(page, pageSize, partialName, partialSha256, tags, modelName, userFilesOnly, excludeBinaryId, userIds, _callback);
@@ -293,7 +302,9 @@ public class SearchApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> You must provide at least one of the filters; partial_collection_name, partial_binary_name, partial_binary_sha256 or tags to search </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call searchCollectionsCall(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialCollectionName, @javax.annotation.Nullable String partialBinaryName, @javax.annotation.Nullable String partialBinarySha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable List<Filters> filters, @javax.annotation.Nullable AppApiRestV2CollectionsEnumsOrderBy orderBy, @javax.annotation.Nullable Order orderByDirection, @javax.annotation.Nullable List<Integer> userIds, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -378,6 +389,7 @@ public class SearchApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call searchCollectionsValidateBeforeCall(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialCollectionName, @javax.annotation.Nullable String partialBinaryName, @javax.annotation.Nullable String partialBinarySha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable List<Filters> filters, @javax.annotation.Nullable AppApiRestV2CollectionsEnumsOrderBy orderBy, @javax.annotation.Nullable Order orderByDirection, @javax.annotation.Nullable List<Integer> userIds, final ApiCallback _callback) throws ApiException {
         return searchCollectionsCall(page, pageSize, partialCollectionName, partialBinaryName, partialBinarySha256, tags, filters, orderBy, orderByDirection, userIds, _callback);
@@ -406,7 +418,9 @@ public class SearchApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> You must provide at least one of the filters; partial_collection_name, partial_binary_name, partial_binary_sha256 or tags to search </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BaseResponseCollectionSearchResponse searchCollections(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialCollectionName, @javax.annotation.Nullable String partialBinaryName, @javax.annotation.Nullable String partialBinarySha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable List<Filters> filters, @javax.annotation.Nullable AppApiRestV2CollectionsEnumsOrderBy orderBy, @javax.annotation.Nullable Order orderByDirection, @javax.annotation.Nullable List<Integer> userIds) throws ApiException {
         ApiResponse<BaseResponseCollectionSearchResponse> localVarResp = searchCollectionsWithHttpInfo(page, pageSize, partialCollectionName, partialBinaryName, partialBinarySha256, tags, filters, orderBy, orderByDirection, userIds);
         return localVarResp.getData();
@@ -434,7 +448,9 @@ public class SearchApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> You must provide at least one of the filters; partial_collection_name, partial_binary_name, partial_binary_sha256 or tags to search </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BaseResponseCollectionSearchResponse> searchCollectionsWithHttpInfo(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialCollectionName, @javax.annotation.Nullable String partialBinaryName, @javax.annotation.Nullable String partialBinarySha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable List<Filters> filters, @javax.annotation.Nullable AppApiRestV2CollectionsEnumsOrderBy orderBy, @javax.annotation.Nullable Order orderByDirection, @javax.annotation.Nullable List<Integer> userIds) throws ApiException {
         okhttp3.Call localVarCall = searchCollectionsValidateBeforeCall(page, pageSize, partialCollectionName, partialBinaryName, partialBinarySha256, tags, filters, orderBy, orderByDirection, userIds, null);
         Type localVarReturnType = new TypeToken<BaseResponseCollectionSearchResponse>(){}.getType();
@@ -464,7 +480,9 @@ public class SearchApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> You must provide at least one of the filters; partial_collection_name, partial_binary_name, partial_binary_sha256 or tags to search </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call searchCollectionsAsync(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialCollectionName, @javax.annotation.Nullable String partialBinaryName, @javax.annotation.Nullable String partialBinarySha256, @javax.annotation.Nullable List<String> tags, @javax.annotation.Nullable List<Filters> filters, @javax.annotation.Nullable AppApiRestV2CollectionsEnumsOrderBy orderBy, @javax.annotation.Nullable Order orderByDirection, @javax.annotation.Nullable List<Integer> userIds, final ApiCallback<BaseResponseCollectionSearchResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = searchCollectionsValidateBeforeCall(page, pageSize, partialCollectionName, partialBinaryName, partialBinarySha256, tags, filters, orderBy, orderByDirection, userIds, _callback);
@@ -488,7 +506,9 @@ public class SearchApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> You must provide at least one of the filters; partial_name, or model_name to search </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call searchFunctionsCall(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialName, @javax.annotation.Nullable String modelName, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -549,6 +569,7 @@ public class SearchApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call searchFunctionsValidateBeforeCall(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialName, @javax.annotation.Nullable String modelName, final ApiCallback _callback) throws ApiException {
         return searchFunctionsCall(page, pageSize, partialName, modelName, _callback);
@@ -571,7 +592,9 @@ public class SearchApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> You must provide at least one of the filters; partial_name, or model_name to search </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BaseResponseFunctionSearchResponse searchFunctions(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialName, @javax.annotation.Nullable String modelName) throws ApiException {
         ApiResponse<BaseResponseFunctionSearchResponse> localVarResp = searchFunctionsWithHttpInfo(page, pageSize, partialName, modelName);
         return localVarResp.getData();
@@ -593,7 +616,9 @@ public class SearchApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> You must provide at least one of the filters; partial_name, or model_name to search </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BaseResponseFunctionSearchResponse> searchFunctionsWithHttpInfo(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialName, @javax.annotation.Nullable String modelName) throws ApiException {
         okhttp3.Call localVarCall = searchFunctionsValidateBeforeCall(page, pageSize, partialName, modelName, null);
         Type localVarReturnType = new TypeToken<BaseResponseFunctionSearchResponse>(){}.getType();
@@ -617,7 +642,9 @@ public class SearchApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> You must provide at least one of the filters; partial_name, or model_name to search </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call searchFunctionsAsync(@javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String partialName, @javax.annotation.Nullable String modelName, final ApiCallback<BaseResponseFunctionSearchResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = searchFunctionsValidateBeforeCall(page, pageSize, partialName, modelName, _callback);
@@ -640,7 +667,9 @@ public class SearchApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> You must provide a partial_name to search and it must be greater than 3 characters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call searchTagsCall(@javax.annotation.Nonnull String partialName, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -697,6 +726,7 @@ public class SearchApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call searchTagsValidateBeforeCall(@javax.annotation.Nonnull String partialName, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'partialName' is set
@@ -723,7 +753,9 @@ public class SearchApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> You must provide a partial_name to search and it must be greater than 3 characters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BaseResponseTagSearchResponse searchTags(@javax.annotation.Nonnull String partialName, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize) throws ApiException {
         ApiResponse<BaseResponseTagSearchResponse> localVarResp = searchTagsWithHttpInfo(partialName, page, pageSize);
         return localVarResp.getData();
@@ -744,7 +776,9 @@ public class SearchApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> You must provide a partial_name to search and it must be greater than 3 characters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BaseResponseTagSearchResponse> searchTagsWithHttpInfo(@javax.annotation.Nonnull String partialName, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize) throws ApiException {
         okhttp3.Call localVarCall = searchTagsValidateBeforeCall(partialName, page, pageSize, null);
         Type localVarReturnType = new TypeToken<BaseResponseTagSearchResponse>(){}.getType();
@@ -767,7 +801,9 @@ public class SearchApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> You must provide a partial_name to search and it must be greater than 3 characters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call searchTagsAsync(@javax.annotation.Nonnull String partialName, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, final ApiCallback<BaseResponseTagSearchResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = searchTagsValidateBeforeCall(partialName, page, pageSize, _callback);

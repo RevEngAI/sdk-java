@@ -1027,7 +1027,9 @@ public class AnalysesCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getAnalysisFunctionMapCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1073,6 +1075,7 @@ public class AnalysesCoreApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getAnalysisFunctionMapValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
@@ -1097,7 +1100,9 @@ public class AnalysesCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BaseResponseAnalysisFunctionMapping getAnalysisFunctionMap(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
         ApiResponse<BaseResponseAnalysisFunctionMapping> localVarResp = getAnalysisFunctionMapWithHttpInfo(analysisId);
         return localVarResp.getData();
@@ -1116,7 +1121,9 @@ public class AnalysesCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BaseResponseAnalysisFunctionMapping> getAnalysisFunctionMapWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
         okhttp3.Call localVarCall = getAnalysisFunctionMapValidateBeforeCall(analysisId, null);
         Type localVarReturnType = new TypeToken<BaseResponseAnalysisFunctionMapping>(){}.getType();
@@ -1137,7 +1144,9 @@ public class AnalysesCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getAnalysisFunctionMapAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<BaseResponseAnalysisFunctionMapping> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getAnalysisFunctionMapValidateBeforeCall(analysisId, _callback);
@@ -1891,7 +1900,9 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getDynamicExecutionReportCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1937,6 +1948,7 @@ public class AnalysesCoreApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getDynamicExecutionReportValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
@@ -1964,7 +1976,9 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public AnalysisReport getDynamicExecutionReport(@javax.annotation.Nonnull Long analysisId) throws ApiException {
         ApiResponse<AnalysisReport> localVarResp = getDynamicExecutionReportWithHttpInfo(analysisId);
         return localVarResp.getData();
@@ -1986,7 +2000,9 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<AnalysisReport> getDynamicExecutionReportWithHttpInfo(@javax.annotation.Nonnull Long analysisId) throws ApiException {
         okhttp3.Call localVarCall = getDynamicExecutionReportValidateBeforeCall(analysisId, null);
         Type localVarReturnType = new TypeToken<AnalysisReport>(){}.getType();
@@ -2010,7 +2026,9 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getDynamicExecutionReportAsync(@javax.annotation.Nonnull Long analysisId, final ApiCallback<AnalysisReport> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getDynamicExecutionReportValidateBeforeCall(analysisId, _callback);
@@ -2033,7 +2051,9 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getDynamicExecutionStatusCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -2079,6 +2099,7 @@ public class AnalysesCoreApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getDynamicExecutionStatusValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
@@ -2105,7 +2126,9 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public DynamicExecutionStatusResponse getDynamicExecutionStatus(@javax.annotation.Nonnull Long analysisId) throws ApiException {
         ApiResponse<DynamicExecutionStatusResponse> localVarResp = getDynamicExecutionStatusWithHttpInfo(analysisId);
         return localVarResp.getData();
@@ -2126,7 +2149,9 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<DynamicExecutionStatusResponse> getDynamicExecutionStatusWithHttpInfo(@javax.annotation.Nonnull Long analysisId) throws ApiException {
         okhttp3.Call localVarCall = getDynamicExecutionStatusValidateBeforeCall(analysisId, null);
         Type localVarReturnType = new TypeToken<DynamicExecutionStatusResponse>(){}.getType();
@@ -2149,7 +2174,9 @@ public class AnalysesCoreApi {
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getDynamicExecutionStatusAsync(@javax.annotation.Nonnull Long analysisId, final ApiCallback<DynamicExecutionStatusResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getDynamicExecutionStatusValidateBeforeCall(analysisId, _callback);
@@ -3285,7 +3312,9 @@ public class AnalysesCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call updateAnalysisTagsCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateTagsRequest analysisUpdateTagsRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -3332,6 +3361,7 @@ public class AnalysesCoreApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateAnalysisTagsValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateTagsRequest analysisUpdateTagsRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
@@ -3362,7 +3392,9 @@ public class AnalysesCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BaseResponseAnalysisUpdateTagsResponse updateAnalysisTags(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateTagsRequest analysisUpdateTagsRequest) throws ApiException {
         ApiResponse<BaseResponseAnalysisUpdateTagsResponse> localVarResp = updateAnalysisTagsWithHttpInfo(analysisId, analysisUpdateTagsRequest);
         return localVarResp.getData();
@@ -3382,7 +3414,9 @@ public class AnalysesCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BaseResponseAnalysisUpdateTagsResponse> updateAnalysisTagsWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateTagsRequest analysisUpdateTagsRequest) throws ApiException {
         okhttp3.Call localVarCall = updateAnalysisTagsValidateBeforeCall(analysisId, analysisUpdateTagsRequest, null);
         Type localVarReturnType = new TypeToken<BaseResponseAnalysisUpdateTagsResponse>(){}.getType();
@@ -3404,7 +3438,9 @@ public class AnalysesCoreApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call updateAnalysisTagsAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull AnalysisUpdateTagsRequest analysisUpdateTagsRequest, final ApiCallback<BaseResponseAnalysisUpdateTagsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateAnalysisTagsValidateBeforeCall(analysisId, analysisUpdateTagsRequest, _callback);

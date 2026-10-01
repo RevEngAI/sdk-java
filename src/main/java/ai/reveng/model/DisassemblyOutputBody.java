@@ -13,13 +13,16 @@
 package ai.reveng.model;
 
 import java.util.Objects;
+import ai.reveng.model.OperandXref;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -69,6 +72,11 @@ public class DisassemblyOutputBody {
   @SerializedName(SERIALIZED_NAME_LOCAL_VARIABLES)
   @javax.annotation.Nullable
   private Object localVariables = null;
+
+  public static final String SERIALIZED_NAME_OPERAND_XREFS = "operand_xrefs";
+  @SerializedName(SERIALIZED_NAME_OPERAND_XREFS)
+  @javax.annotation.Nullable
+  private List<OperandXref> operandXrefs;
 
   public static final String SERIALIZED_NAME_PARAMS = "params";
   @SerializedName(SERIALIZED_NAME_PARAMS)
@@ -161,6 +169,33 @@ public class DisassemblyOutputBody {
 
   public void setLocalVariables(@javax.annotation.Nullable Object localVariables) {
     this.localVariables = localVariables;
+  }
+
+
+  public DisassemblyOutputBody operandXrefs(@javax.annotation.Nullable List<OperandXref> operandXrefs) {
+    this.operandXrefs = operandXrefs;
+    return this;
+  }
+
+  public DisassemblyOutputBody addOperandXrefsItem(OperandXref operandXrefsItem) {
+    if (this.operandXrefs == null) {
+      this.operandXrefs = new ArrayList<>();
+    }
+    this.operandXrefs.add(operandXrefsItem);
+    return this;
+  }
+
+  /**
+   * Instruction operands that reference a pointer slot, sorted by instruction_vaddr, target_vaddr, pointed_vaddr.
+   * @return operandXrefs
+   */
+  @javax.annotation.Nullable
+  public List<OperandXref> getOperandXrefs() {
+    return operandXrefs;
+  }
+
+  public void setOperandXrefs(@javax.annotation.Nullable List<OperandXref> operandXrefs) {
+    this.operandXrefs = operandXrefs;
   }
 
 
@@ -279,6 +314,7 @@ public class DisassemblyOutputBody {
         Objects.equals(this.functionId, disassemblyOutputBody.functionId) &&
         Objects.equals(this.globalVariables, disassemblyOutputBody.globalVariables) &&
         Objects.equals(this.localVariables, disassemblyOutputBody.localVariables) &&
+        Objects.equals(this.operandXrefs, disassemblyOutputBody.operandXrefs) &&
         Objects.equals(this.params, disassemblyOutputBody.params) &&
         Objects.equals(this.returnType, disassemblyOutputBody.returnType) &&
         Objects.equals(this.returns, disassemblyOutputBody.returns)&&
@@ -291,7 +327,7 @@ public class DisassemblyOutputBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(basicBlocks, functionId, globalVariables, localVariables, params, returnType, returns, additionalProperties);
+    return Objects.hash(basicBlocks, functionId, globalVariables, localVariables, operandXrefs, params, returnType, returns, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -309,6 +345,7 @@ public class DisassemblyOutputBody {
     sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
     sb.append("    globalVariables: ").append(toIndentedString(globalVariables)).append("\n");
     sb.append("    localVariables: ").append(toIndentedString(localVariables)).append("\n");
+    sb.append("    operandXrefs: ").append(toIndentedString(operandXrefs)).append("\n");
     sb.append("    params: ").append(toIndentedString(params)).append("\n");
     sb.append("    returnType: ").append(toIndentedString(returnType)).append("\n");
     sb.append("    returns: ").append(toIndentedString(returns)).append("\n");
@@ -331,7 +368,7 @@ public class DisassemblyOutputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("basic_blocks", "function_id", "global_variables", "local_variables", "params", "return_type", "returns"));
+    openapiFields = new HashSet<String>(Arrays.asList("basic_blocks", "function_id", "global_variables", "local_variables", "operand_xrefs", "params", "return_type", "returns"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("function_id", "returns"));
@@ -357,6 +394,10 @@ public class DisassemblyOutputBody {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("operand_xrefs") != null && !jsonObj.get("operand_xrefs").isJsonNull() && !jsonObj.get("operand_xrefs").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `operand_xrefs` to be an array in the JSON string but got `%s`", jsonObj.get("operand_xrefs").toString()));
+      }
       if ((jsonObj.get("return_type") != null && !jsonObj.get("return_type").isJsonNull()) && !jsonObj.get("return_type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `return_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("return_type").toString()));
       }

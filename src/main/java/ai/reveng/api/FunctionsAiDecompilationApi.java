@@ -853,7 +853,9 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getAiDecompilationRatingCall(@javax.annotation.Nonnull Long functionId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -899,6 +901,7 @@ public class FunctionsAiDecompilationApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getAiDecompilationRatingValidateBeforeCall(@javax.annotation.Nonnull Long functionId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'functionId' is set
@@ -923,7 +926,9 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BaseResponseUnionGetAiDecompilationRatingResponseNoneType getAiDecompilationRating(@javax.annotation.Nonnull Long functionId) throws ApiException {
         ApiResponse<BaseResponseUnionGetAiDecompilationRatingResponseNoneType> localVarResp = getAiDecompilationRatingWithHttpInfo(functionId);
         return localVarResp.getData();
@@ -942,7 +947,9 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BaseResponseUnionGetAiDecompilationRatingResponseNoneType> getAiDecompilationRatingWithHttpInfo(@javax.annotation.Nonnull Long functionId) throws ApiException {
         okhttp3.Call localVarCall = getAiDecompilationRatingValidateBeforeCall(functionId, null);
         Type localVarReturnType = new TypeToken<BaseResponseUnionGetAiDecompilationRatingResponseNoneType>(){}.getType();
@@ -963,7 +970,9 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getAiDecompilationRatingAsync(@javax.annotation.Nonnull Long functionId, final ApiCallback<BaseResponseUnionGetAiDecompilationRatingResponseNoneType> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getAiDecompilationRatingValidateBeforeCall(functionId, _callback);
@@ -1997,7 +2006,9 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 201 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call upsertAiDecompilationRatingCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull UpsertAiDecomplationRatingRequest upsertAiDecomplationRatingRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -2044,6 +2055,7 @@ public class FunctionsAiDecompilationApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call upsertAiDecompilationRatingValidateBeforeCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull UpsertAiDecomplationRatingRequest upsertAiDecomplationRatingRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'functionId' is set
@@ -2074,7 +2086,9 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 201 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BaseResponse upsertAiDecompilationRating(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull UpsertAiDecomplationRatingRequest upsertAiDecomplationRatingRequest) throws ApiException {
         ApiResponse<BaseResponse> localVarResp = upsertAiDecompilationRatingWithHttpInfo(functionId, upsertAiDecomplationRatingRequest);
         return localVarResp.getData();
@@ -2094,7 +2108,9 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 201 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BaseResponse> upsertAiDecompilationRatingWithHttpInfo(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull UpsertAiDecomplationRatingRequest upsertAiDecomplationRatingRequest) throws ApiException {
         okhttp3.Call localVarCall = upsertAiDecompilationRatingValidateBeforeCall(functionId, upsertAiDecomplationRatingRequest, null);
         Type localVarReturnType = new TypeToken<BaseResponse>(){}.getType();
@@ -2116,7 +2132,9 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 201 </td><td> Successful Response </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call upsertAiDecompilationRatingAsync(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull UpsertAiDecomplationRatingRequest upsertAiDecomplationRatingRequest, final ApiCallback<BaseResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = upsertAiDecompilationRatingValidateBeforeCall(functionId, upsertAiDecomplationRatingRequest, _callback);
