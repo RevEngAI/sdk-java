@@ -53,6 +53,11 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SuggestedTypeView {
+  public static final String SERIALIZED_NAME_APPLIED_DATA_TYPE_ID = "applied_data_type_id";
+  @SerializedName(SERIALIZED_NAME_APPLIED_DATA_TYPE_ID)
+  @javax.annotation.Nullable
+  private Long appliedDataTypeId;
+
   public static final String SERIALIZED_NAME_DATA_TYPE_ID = "data_type_id";
   @SerializedName(SERIALIZED_NAME_DATA_TYPE_ID)
   @javax.annotation.Nullable
@@ -96,13 +101,32 @@ public class SuggestedTypeView {
   public SuggestedTypeView() {
   }
 
+  public SuggestedTypeView appliedDataTypeId(@javax.annotation.Nullable Long appliedDataTypeId) {
+    this.appliedDataTypeId = appliedDataTypeId;
+    return this;
+  }
+
+  /**
+   * The type this suggestion became: a newly minted data type holding its name and members. Once set, the suggestion&#39;s entities resolve through this id rather than data_type_id. Null when it has not been applied, either because the pass is off or because nothing gave the suggestion a shape to store.
+   * @return appliedDataTypeId
+   */
+  @javax.annotation.Nullable
+  public Long getAppliedDataTypeId() {
+    return appliedDataTypeId;
+  }
+
+  public void setAppliedDataTypeId(@javax.annotation.Nullable Long appliedDataTypeId) {
+    this.appliedDataTypeId = appliedDataTypeId;
+  }
+
+
   public SuggestedTypeView dataTypeId(@javax.annotation.Nullable Long dataTypeId) {
     this.dataTypeId = dataTypeId;
     return this;
   }
 
   /**
-   * Existing data type the members were accessed through. Null when nothing resolved to a row; never minted for a suggestion.
+   * The type this suggestion is about: the existing data type the members were accessed through. Never modified by applying a suggestion. Null when nothing resolved to a row, which is what makes the suggestion a proposal.
    * @return dataTypeId
    */
   @javax.annotation.Nullable
@@ -167,7 +191,7 @@ public class SuggestedTypeView {
   }
 
   /**
-   * Identity of the suggestion: index:&lt;data_type_id&gt; where the access named a row, else token:&lt;type_token&gt;.
+   * Identity of the suggestion: index:&lt;data_type_id&gt; where the access named a row, type:&lt;type_token&gt; for a type with no observed members, else token:&lt;type_token&gt;. Do not infer data_type_id from the prefix: a type: key may carry one too.
    * @return key
    */
   @javax.annotation.Nonnull
@@ -318,7 +342,8 @@ public class SuggestedTypeView {
       return false;
     }
     SuggestedTypeView suggestedTypeView = (SuggestedTypeView) o;
-    return Objects.equals(this.dataTypeId, suggestedTypeView.dataTypeId) &&
+    return Objects.equals(this.appliedDataTypeId, suggestedTypeView.appliedDataTypeId) &&
+        Objects.equals(this.dataTypeId, suggestedTypeView.dataTypeId) &&
         Objects.equals(this.holes, suggestedTypeView.holes) &&
         Objects.equals(this.impliedSize, suggestedTypeView.impliedSize) &&
         Objects.equals(this.key, suggestedTypeView.key) &&
@@ -331,13 +356,14 @@ public class SuggestedTypeView {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataTypeId, holes, impliedSize, key, members, name, typeToken, underlyingType, additionalProperties);
+    return Objects.hash(appliedDataTypeId, dataTypeId, holes, impliedSize, key, members, name, typeToken, underlyingType, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SuggestedTypeView {\n");
+    sb.append("    appliedDataTypeId: ").append(toIndentedString(appliedDataTypeId)).append("\n");
     sb.append("    dataTypeId: ").append(toIndentedString(dataTypeId)).append("\n");
     sb.append("    holes: ").append(toIndentedString(holes)).append("\n");
     sb.append("    impliedSize: ").append(toIndentedString(impliedSize)).append("\n");
@@ -365,7 +391,7 @@ public class SuggestedTypeView {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("data_type_id", "holes", "implied_size", "key", "members", "name", "type_token", "underlying_type"));
+    openapiFields = new HashSet<String>(Arrays.asList("applied_data_type_id", "data_type_id", "holes", "implied_size", "key", "members", "name", "type_token", "underlying_type"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("holes", "key", "members", "name"));

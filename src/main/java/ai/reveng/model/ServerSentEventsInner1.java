@@ -22,6 +22,7 @@ import ai.reveng.model.EventProse;
 import ai.reveng.model.EventRenameApplied;
 import ai.reveng.model.EventSourceDelta;
 import ai.reveng.model.EventSourceReset;
+import ai.reveng.model.EventTypesApplied;
 import ai.reveng.model.EventTypesSuggested;
 import ai.reveng.model.EventWarning;
 import ai.reveng.model.WarningEvent;
@@ -89,6 +90,7 @@ public class ServerSentEventsInner1 extends AbstractOpenApiSchema {
             final TypeAdapter<EventRenameApplied> adapterEventRenameApplied = gson.getDelegateAdapter(this, TypeToken.get(EventRenameApplied.class));
             final TypeAdapter<EventSourceDelta> adapterEventSourceDelta = gson.getDelegateAdapter(this, TypeToken.get(EventSourceDelta.class));
             final TypeAdapter<EventSourceReset> adapterEventSourceReset = gson.getDelegateAdapter(this, TypeToken.get(EventSourceReset.class));
+            final TypeAdapter<EventTypesApplied> adapterEventTypesApplied = gson.getDelegateAdapter(this, TypeToken.get(EventTypesApplied.class));
             final TypeAdapter<EventTypesSuggested> adapterEventTypesSuggested = gson.getDelegateAdapter(this, TypeToken.get(EventTypesSuggested.class));
             final TypeAdapter<EventWarning> adapterEventWarning = gson.getDelegateAdapter(this, TypeToken.get(EventWarning.class));
 
@@ -154,6 +156,12 @@ public class ServerSentEventsInner1 extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
+                    // check if the actual instance is of the type `EventTypesApplied`
+                    if (value.getActualInstance() instanceof EventTypesApplied) {
+                        JsonElement element = adapterEventTypesApplied.toJsonTree((EventTypesApplied)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
                     // check if the actual instance is of the type `EventTypesSuggested`
                     if (value.getActualInstance() instanceof EventTypesSuggested) {
                         JsonElement element = adapterEventTypesSuggested.toJsonTree((EventTypesSuggested)value.getActualInstance());
@@ -166,7 +174,7 @@ public class ServerSentEventsInner1 extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: EventAttemptFailed, EventAttemptStarted, EventDecompFailed, EventDecompFinished, EventNamesFinished, EventProse, EventRenameApplied, EventSourceDelta, EventSourceReset, EventTypesSuggested, EventWarning");
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: EventAttemptFailed, EventAttemptStarted, EventDecompFailed, EventDecompFinished, EventNamesFinished, EventProse, EventRenameApplied, EventSourceDelta, EventSourceReset, EventTypesApplied, EventTypesSuggested, EventWarning");
                 }
 
                 @Override
@@ -286,6 +294,18 @@ public class ServerSentEventsInner1 extends AbstractOpenApiSchema {
                         errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EventSourceReset failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'EventSourceReset'", e);
                     }
+                    // deserialize EventTypesApplied
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EventTypesApplied.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEventTypesApplied;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EventTypesApplied'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EventTypesApplied failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EventTypesApplied'", e);
+                    }
                     // deserialize EventTypesSuggested
                     try {
                         // validate the JSON object to see if any exception is thrown
@@ -345,6 +365,7 @@ public class ServerSentEventsInner1 extends AbstractOpenApiSchema {
         schemas.put("EventRenameApplied", EventRenameApplied.class);
         schemas.put("EventSourceDelta", EventSourceDelta.class);
         schemas.put("EventSourceReset", EventSourceReset.class);
+        schemas.put("EventTypesApplied", EventTypesApplied.class);
         schemas.put("EventTypesSuggested", EventTypesSuggested.class);
         schemas.put("EventWarning", EventWarning.class);
     }
@@ -357,7 +378,7 @@ public class ServerSentEventsInner1 extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * EventAttemptFailed, EventAttemptStarted, EventDecompFailed, EventDecompFinished, EventNamesFinished, EventProse, EventRenameApplied, EventSourceDelta, EventSourceReset, EventTypesSuggested, EventWarning
+     * EventAttemptFailed, EventAttemptStarted, EventDecompFailed, EventDecompFinished, EventNamesFinished, EventProse, EventRenameApplied, EventSourceDelta, EventSourceReset, EventTypesApplied, EventTypesSuggested, EventWarning
      *
      * It could be an instance of the 'oneOf' schemas.
      */
@@ -408,6 +429,11 @@ public class ServerSentEventsInner1 extends AbstractOpenApiSchema {
             return;
         }
 
+        if (instance instanceof EventTypesApplied) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         if (instance instanceof EventTypesSuggested) {
             super.setActualInstance(instance);
             return;
@@ -418,14 +444,14 @@ public class ServerSentEventsInner1 extends AbstractOpenApiSchema {
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be EventAttemptFailed, EventAttemptStarted, EventDecompFailed, EventDecompFinished, EventNamesFinished, EventProse, EventRenameApplied, EventSourceDelta, EventSourceReset, EventTypesSuggested, EventWarning");
+        throw new RuntimeException("Invalid instance type. Must be EventAttemptFailed, EventAttemptStarted, EventDecompFailed, EventDecompFinished, EventNamesFinished, EventProse, EventRenameApplied, EventSourceDelta, EventSourceReset, EventTypesApplied, EventTypesSuggested, EventWarning");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * EventAttemptFailed, EventAttemptStarted, EventDecompFailed, EventDecompFinished, EventNamesFinished, EventProse, EventRenameApplied, EventSourceDelta, EventSourceReset, EventTypesSuggested, EventWarning
+     * EventAttemptFailed, EventAttemptStarted, EventDecompFailed, EventDecompFinished, EventNamesFinished, EventProse, EventRenameApplied, EventSourceDelta, EventSourceReset, EventTypesApplied, EventTypesSuggested, EventWarning
      *
-     * @return The actual instance (EventAttemptFailed, EventAttemptStarted, EventDecompFailed, EventDecompFinished, EventNamesFinished, EventProse, EventRenameApplied, EventSourceDelta, EventSourceReset, EventTypesSuggested, EventWarning)
+     * @return The actual instance (EventAttemptFailed, EventAttemptStarted, EventDecompFailed, EventDecompFinished, EventNamesFinished, EventProse, EventRenameApplied, EventSourceDelta, EventSourceReset, EventTypesApplied, EventTypesSuggested, EventWarning)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -542,6 +568,18 @@ public class ServerSentEventsInner1 extends AbstractOpenApiSchema {
     }
 
     /**
+     * Get the actual instance of `EventTypesApplied`. If the actual instance is not `EventTypesApplied`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EventTypesApplied`
+     * @throws ClassCastException if the instance is not `EventTypesApplied`
+     */
+    @SuppressWarnings("unchecked")
+    public EventTypesApplied getEventTypesApplied() throws ClassCastException {
+        return (EventTypesApplied)super.getActualInstance();
+    }
+
+    /**
      * Get the actual instance of `EventTypesSuggested`. If the actual instance is not `EventTypesSuggested`,
      * the ClassCastException will be thrown.
      *
@@ -647,6 +685,14 @@ public class ServerSentEventsInner1 extends AbstractOpenApiSchema {
             errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EventSourceReset failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
+        // validate the json string with EventTypesApplied
+        try {
+            EventTypesApplied.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EventTypesApplied failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
         // validate the json string with EventTypesSuggested
         try {
             EventTypesSuggested.validateJsonElement(jsonElement);
@@ -664,7 +710,7 @@ public class ServerSentEventsInner1 extends AbstractOpenApiSchema {
             // continue to the next one
         }
         if (validCount != 1) {
-            throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for ServerSentEventsInner1 with oneOf schemas: EventAttemptFailed, EventAttemptStarted, EventDecompFailed, EventDecompFinished, EventNamesFinished, EventProse, EventRenameApplied, EventSourceDelta, EventSourceReset, EventTypesSuggested, EventWarning. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for ServerSentEventsInner1 with oneOf schemas: EventAttemptFailed, EventAttemptStarted, EventDecompFailed, EventDecompFinished, EventNamesFinished, EventProse, EventRenameApplied, EventSourceDelta, EventSourceReset, EventTypesApplied, EventTypesSuggested, EventWarning. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 

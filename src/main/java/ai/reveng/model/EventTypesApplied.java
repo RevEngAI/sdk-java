@@ -13,17 +13,14 @@
 package ai.reveng.model;
 
 import java.util.Objects;
-import ai.reveng.model.AcceptedType;
-import ai.reveng.model.DataTypeEntry;
+import ai.reveng.model.TypesAppliedEvent;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -49,74 +46,158 @@ import java.util.Set;
 import ai.reveng.invoker.JSON;
 
 /**
- * AcceptTypeSuggestionsOutputBody
+ * EventTypesApplied
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class AcceptTypeSuggestionsOutputBody {
-  public static final String SERIALIZED_NAME_ACCEPTED = "accepted";
-  @SerializedName(SERIALIZED_NAME_ACCEPTED)
-  @javax.annotation.Nullable
-  private List<AcceptedType> accepted;
+public class EventTypesApplied {
+  public static final String SERIALIZED_NAME_DATA = "data";
+  @SerializedName(SERIALIZED_NAME_DATA)
+  @javax.annotation.Nonnull
+  private TypesAppliedEvent data;
 
-  public static final String SERIALIZED_NAME_DATA_TYPES = "data_types";
-  @SerializedName(SERIALIZED_NAME_DATA_TYPES)
-  @javax.annotation.Nullable
-  private List<DataTypeEntry> dataTypes;
+  /**
+   * The event name.
+   */
+  @JsonAdapter(EventEnum.Adapter.class)
+  public enum EventEnum {
+    TYPES_APPLIED("types_applied"),
+    
+    UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
-  public AcceptTypeSuggestionsOutputBody() {
-  }
+    private String value;
 
-  public AcceptTypeSuggestionsOutputBody accepted(@javax.annotation.Nullable List<AcceptedType> accepted) {
-    this.accepted = accepted;
-    return this;
-  }
-
-  public AcceptTypeSuggestionsOutputBody addAcceptedItem(AcceptedType acceptedItem) {
-    if (this.accepted == null) {
-      this.accepted = new ArrayList<>();
+    EventEnum(String value) {
+      this.value = value;
     }
-    this.accepted.add(acceptedItem);
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static EventEnum fromValue(String value) {
+      for (EventEnum b : EventEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return UNKNOWN_DEFAULT_OPEN_API;
+    }
+
+    public static class Adapter extends TypeAdapter<EventEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final EventEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public EventEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return EventEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      EventEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_EVENT = "event";
+  @SerializedName(SERIALIZED_NAME_EVENT)
+  @javax.annotation.Nonnull
+  private EventEnum event;
+
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  @javax.annotation.Nullable
+  private Integer id;
+
+  public static final String SERIALIZED_NAME_RETRY = "retry";
+  @SerializedName(SERIALIZED_NAME_RETRY)
+  @javax.annotation.Nullable
+  private Integer retry;
+
+  public EventTypesApplied() {
+  }
+
+  public EventTypesApplied data(@javax.annotation.Nonnull TypesAppliedEvent data) {
+    this.data = data;
     return this;
   }
 
   /**
-   * One entry per requested suggestion that had a shape to store, in request order.
-   * @return accepted
+   * Get data
+   * @return data
    */
-  @javax.annotation.Nullable
-  public List<AcceptedType> getAccepted() {
-    return accepted;
+  @javax.annotation.Nonnull
+  public TypesAppliedEvent getData() {
+    return data;
   }
 
-  public void setAccepted(@javax.annotation.Nullable List<AcceptedType> accepted) {
-    this.accepted = accepted;
+  public void setData(@javax.annotation.Nonnull TypesAppliedEvent data) {
+    this.data = data;
   }
 
 
-  public AcceptTypeSuggestionsOutputBody dataTypes(@javax.annotation.Nullable List<DataTypeEntry> dataTypes) {
-    this.dataTypes = dataTypes;
-    return this;
-  }
-
-  public AcceptTypeSuggestionsOutputBody addDataTypesItem(DataTypeEntry dataTypesItem) {
-    if (this.dataTypes == null) {
-      this.dataTypes = new ArrayList<>();
-    }
-    this.dataTypes.add(dataTypesItem);
+  public EventTypesApplied event(@javax.annotation.Nonnull EventEnum event) {
+    this.event = event;
     return this;
   }
 
   /**
-   * The type each requested suggestion resolved to, plus every type minted to satisfy one, ordered by data_type_id.
-   * @return dataTypes
+   * The event name.
+   * @return event
    */
-  @javax.annotation.Nullable
-  public List<DataTypeEntry> getDataTypes() {
-    return dataTypes;
+  @javax.annotation.Nonnull
+  public EventEnum getEvent() {
+    return event;
   }
 
-  public void setDataTypes(@javax.annotation.Nullable List<DataTypeEntry> dataTypes) {
-    this.dataTypes = dataTypes;
+  public void setEvent(@javax.annotation.Nonnull EventEnum event) {
+    this.event = event;
+  }
+
+
+  public EventTypesApplied id(@javax.annotation.Nullable Integer id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * The event ID.
+   * @return id
+   */
+  @javax.annotation.Nullable
+  public Integer getId() {
+    return id;
+  }
+
+  public void setId(@javax.annotation.Nullable Integer id) {
+    this.id = id;
+  }
+
+
+  public EventTypesApplied retry(@javax.annotation.Nullable Integer retry) {
+    this.retry = retry;
+    return this;
+  }
+
+  /**
+   * The retry time in milliseconds.
+   * @return retry
+   */
+  @javax.annotation.Nullable
+  public Integer getRetry() {
+    return retry;
+  }
+
+  public void setRetry(@javax.annotation.Nullable Integer retry) {
+    this.retry = retry;
   }
 
   /**
@@ -132,9 +213,9 @@ public class AcceptTypeSuggestionsOutputBody {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the AcceptTypeSuggestionsOutputBody instance itself
+   * @return the EventTypesApplied instance itself
    */
-  public AcceptTypeSuggestionsOutputBody putAdditionalProperty(String key, Object value) {
+  public EventTypesApplied putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -173,23 +254,27 @@ public class AcceptTypeSuggestionsOutputBody {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AcceptTypeSuggestionsOutputBody acceptTypeSuggestionsOutputBody = (AcceptTypeSuggestionsOutputBody) o;
-    return Objects.equals(this.accepted, acceptTypeSuggestionsOutputBody.accepted) &&
-        Objects.equals(this.dataTypes, acceptTypeSuggestionsOutputBody.dataTypes)&&
-        Objects.equals(this.additionalProperties, acceptTypeSuggestionsOutputBody.additionalProperties);
+    EventTypesApplied eventTypesApplied = (EventTypesApplied) o;
+    return Objects.equals(this.data, eventTypesApplied.data) &&
+        Objects.equals(this.event, eventTypesApplied.event) &&
+        Objects.equals(this.id, eventTypesApplied.id) &&
+        Objects.equals(this.retry, eventTypesApplied.retry)&&
+        Objects.equals(this.additionalProperties, eventTypesApplied.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accepted, dataTypes, additionalProperties);
+    return Objects.hash(data, event, id, retry, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AcceptTypeSuggestionsOutputBody {\n");
-    sb.append("    accepted: ").append(toIndentedString(accepted)).append("\n");
-    sb.append("    dataTypes: ").append(toIndentedString(dataTypes)).append("\n");
+    sb.append("class EventTypesApplied {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    event: ").append(toIndentedString(event)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    retry: ").append(toIndentedString(retry)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -209,64 +294,53 @@ public class AcceptTypeSuggestionsOutputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("accepted", "data_types"));
+    openapiFields = new HashSet<String>(Arrays.asList("data", "event", "id", "retry"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("accepted", "data_types"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("data", "event"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to AcceptTypeSuggestionsOutputBody
+   * @throws IOException if the JSON Element is invalid with respect to EventTypesApplied
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!AcceptTypeSuggestionsOutputBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in AcceptTypeSuggestionsOutputBody is not found in the empty JSON string", AcceptTypeSuggestionsOutputBody.openapiRequiredFields.toString()));
+        if (!EventTypesApplied.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in EventTypesApplied is not found in the empty JSON string", EventTypesApplied.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : AcceptTypeSuggestionsOutputBody.openapiRequiredFields) {
+      for (String requiredField : EventTypesApplied.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the required json array is present
-      if (jsonObj.get("accepted") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("accepted").isJsonArray() && !jsonObj.get("accepted").isJsonNull()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `accepted` to be an array in the JSON string but got `%s`", jsonObj.get("accepted").toString()));
+      if (!jsonObj.get("event").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `event` to be a primitive type in the JSON string but got `%s`", jsonObj.get("event").toString()));
       }
-      if (jsonObj.get("data_types") != null && !jsonObj.get("data_types").isJsonNull()) {
-        if (!jsonObj.get("data_types").isJsonArray()) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `data_types` to be an array in the JSON string but got `%s`", jsonObj.get("data_types").toString()));
-        }
-        JsonArray jsonArraydataTypes = jsonObj.getAsJsonArray("data_types");
-        // validate the required field `data_types` (array)
-        for (int i = 0; i < jsonArraydataTypes.size(); i++) {
-          DataTypeEntry.validateJsonElement(jsonArraydataTypes.get(i));
-        }
-      }
+      // validate the required field `event`
+      EventEnum.validateJsonElement(jsonObj.get("event"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!AcceptTypeSuggestionsOutputBody.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'AcceptTypeSuggestionsOutputBody' and its subtypes
+       if (!EventTypesApplied.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'EventTypesApplied' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<AcceptTypeSuggestionsOutputBody> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(AcceptTypeSuggestionsOutputBody.class));
+       final TypeAdapter<EventTypesApplied> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(EventTypesApplied.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<AcceptTypeSuggestionsOutputBody>() {
+       return (TypeAdapter<T>) new TypeAdapter<EventTypesApplied>() {
            @Override
-           public void write(JsonWriter out, AcceptTypeSuggestionsOutputBody value) throws IOException {
+           public void write(JsonWriter out, EventTypesApplied value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -294,12 +368,12 @@ public class AcceptTypeSuggestionsOutputBody {
            }
 
            @Override
-           public AcceptTypeSuggestionsOutputBody read(JsonReader in) throws IOException {
+           public EventTypesApplied read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             AcceptTypeSuggestionsOutputBody instance = thisAdapter.fromJsonTree(jsonObj);
+             EventTypesApplied instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -326,18 +400,18 @@ public class AcceptTypeSuggestionsOutputBody {
   }
 
   /**
-   * Create an instance of AcceptTypeSuggestionsOutputBody given an JSON string
+   * Create an instance of EventTypesApplied given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of AcceptTypeSuggestionsOutputBody
-   * @throws IOException if the JSON string is invalid with respect to AcceptTypeSuggestionsOutputBody
+   * @return An instance of EventTypesApplied
+   * @throws IOException if the JSON string is invalid with respect to EventTypesApplied
    */
-  public static AcceptTypeSuggestionsOutputBody fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, AcceptTypeSuggestionsOutputBody.class);
+  public static EventTypesApplied fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, EventTypesApplied.class);
   }
 
   /**
-   * Convert an instance of AcceptTypeSuggestionsOutputBody to an JSON string
+   * Convert an instance of EventTypesApplied to an JSON string
    *
    * @return JSON string
    */
