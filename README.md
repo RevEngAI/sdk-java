@@ -16,7 +16,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>ai.reveng</groupId>
     <artifactId>sdk</artifactId>
-    <version>4.67.1</version>
+    <version>4.69.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -31,7 +31,7 @@ repositories {
 }
 
 dependencies {
-    implementation "ai.reveng:sdk:4.67.1"
+    implementation "ai.reveng:sdk:4.69.0"
 }
 ```
 
@@ -272,6 +272,8 @@ Class | Method | HTTP request | Description
 *FunctionsAiDecompilationApi* | [**v3GetAiDecompilationRating**](docs/FunctionsAiDecompilationApi.md#v3GetAiDecompilationRating) | **GET** /v3/functions/{function_id}/ai-decompilation/rating | Get AI decompilation rating
 *FunctionsAiDecompilationApi* | [**v3GetAiDecompilationTokens**](docs/FunctionsAiDecompilationApi.md#v3GetAiDecompilationTokens) | **GET** /v3/functions/{function_id}/ai-decompilation/tokens | Get AI decompilation tokens and user overrides
 *FunctionsAiDecompilationApi* | [**v3GetAiDecompilationTypeSuggestions**](docs/FunctionsAiDecompilationApi.md#v3GetAiDecompilationTypeSuggestions) | **GET** /v3/functions/{function_id}/ai-decompilation/type-suggestions | Get AI decompilation type suggestions
+*FunctionsAiDecompilationApi* | [**v3GetAiDecompilationTypeSuggestionsStatus**](docs/FunctionsAiDecompilationApi.md#v3GetAiDecompilationTypeSuggestionsStatus) | **GET** /v3/functions/{function_id}/ai-decompilation/type-suggestions/status | Get type suggestion workflow status
+*FunctionsAiDecompilationApi* | [**v3RegenerateAiDecompilationTypeSuggestions**](docs/FunctionsAiDecompilationApi.md#v3RegenerateAiDecompilationTypeSuggestions) | **POST** /v3/functions/{function_id}/ai-decompilation/type-suggestions | Regenerate AI decompilation type suggestions
 *FunctionsAiDecompilationApi* | [**v3UpsertAiDecompilationOverrides**](docs/FunctionsAiDecompilationApi.md#v3UpsertAiDecompilationOverrides) | **PATCH** /v3/functions/{function_id}/ai-decompilation/overrides | Upsert variable/function name overrides
 *FunctionsAiDecompilationApi* | [**v3UpsertAiDecompilationRating**](docs/FunctionsAiDecompilationApi.md#v3UpsertAiDecompilationRating) | **PATCH** /v3/functions/{function_id}/ai-decompilation/rating | Upsert AI decompilation rating
 *FunctionsCoreApi* | [**addFunctionCallee**](docs/FunctionsCoreApi.md#addFunctionCallee) | **POST** /v3/functions/{function_id}/callees | Add a callee to a function
@@ -641,6 +643,7 @@ Class | Method | HTTP request | Description
  - [EventTOOLCALLRESULT](docs/EventTOOLCALLRESULT.md)
  - [EventTOOLCALLSTART](docs/EventTOOLCALLSTART.md)
  - [EventTOOLCONFIRMATIONREQUIRED](docs/EventTOOLCONFIRMATIONREQUIRED.md)
+ - [EventTypesApplied](docs/EventTypesApplied.md)
  - [EventTypesSuggested](docs/EventTypesSuggested.md)
  - [EventWarning](docs/EventWarning.md)
  - [EvidenceEffect](docs/EvidenceEffect.md)
@@ -1014,6 +1017,7 @@ Class | Method | HTTP request | Description
  - [TypeSuggestionsData](docs/TypeSuggestionsData.md)
  - [TypedefDataType](docs/TypedefDataType.md)
  - [TypedefDefinition](docs/TypedefDefinition.md)
+ - [TypesAppliedEvent](docs/TypesAppliedEvent.md)
  - [TypesSuggestedEvent](docs/TypesSuggestedEvent.md)
  - [UnionDataType](docs/UnionDataType.md)
  - [UnionDefinition](docs/UnionDefinition.md)

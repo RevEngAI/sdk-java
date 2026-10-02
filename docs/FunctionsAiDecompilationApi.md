@@ -23,13 +23,15 @@ All URIs are relative to *https://api.reveng.ai*
 | [**v3GetAiDecompilationRating**](FunctionsAiDecompilationApi.md#v3GetAiDecompilationRating) | **GET** /v3/functions/{function_id}/ai-decompilation/rating | Get AI decompilation rating |
 | [**v3GetAiDecompilationTokens**](FunctionsAiDecompilationApi.md#v3GetAiDecompilationTokens) | **GET** /v3/functions/{function_id}/ai-decompilation/tokens | Get AI decompilation tokens and user overrides |
 | [**v3GetAiDecompilationTypeSuggestions**](FunctionsAiDecompilationApi.md#v3GetAiDecompilationTypeSuggestions) | **GET** /v3/functions/{function_id}/ai-decompilation/type-suggestions | Get AI decompilation type suggestions |
+| [**v3GetAiDecompilationTypeSuggestionsStatus**](FunctionsAiDecompilationApi.md#v3GetAiDecompilationTypeSuggestionsStatus) | **GET** /v3/functions/{function_id}/ai-decompilation/type-suggestions/status | Get type suggestion workflow status |
+| [**v3RegenerateAiDecompilationTypeSuggestions**](FunctionsAiDecompilationApi.md#v3RegenerateAiDecompilationTypeSuggestions) | **POST** /v3/functions/{function_id}/ai-decompilation/type-suggestions | Regenerate AI decompilation type suggestions |
 | [**v3UpsertAiDecompilationOverrides**](FunctionsAiDecompilationApi.md#v3UpsertAiDecompilationOverrides) | **PATCH** /v3/functions/{function_id}/ai-decompilation/overrides | Upsert variable/function name overrides |
 | [**v3UpsertAiDecompilationRating**](FunctionsAiDecompilationApi.md#v3UpsertAiDecompilationRating) | **PATCH** /v3/functions/{function_id}/ai-decompilation/rating | Upsert AI decompilation rating |
 
 
 <a id="createAiDecompilation"></a>
 # **createAiDecompilation**
-> CreateAIDecompOutputBody createAiDecompilation(functionId, temperature, typeSuggestions)
+> CreateAIDecompOutputBody createAiDecompilation(functionId, temperature, typeSuggestions, applyTypes)
 
 Start AI decompilation
 
@@ -64,8 +66,9 @@ public class Example {
     Long functionId = 56L; // Long | Function ID
     Double temperature = -1D; // Double | LLM temperature (0.0-1.0). Overrides the server default when set. Omit or set to -1 to use the server default.
     Boolean typeSuggestions = true; // Boolean | Ask the language model to name the suggested types and their members. Set to false to skip the model call; the statically derived layouts are still computed and stored. Cannot re-enable the pass when the server has it off.
+    Boolean applyTypes = true; // Boolean | Store the suggested types as data types of this function's analysis, with a source_type of AI_DECOMP. Set to false to leave them as suggestions only. Cannot re-enable the pass when the server has it off.
     try {
-      CreateAIDecompOutputBody result = apiInstance.createAiDecompilation(functionId, temperature, typeSuggestions);
+      CreateAIDecompOutputBody result = apiInstance.createAiDecompilation(functionId, temperature, typeSuggestions, applyTypes);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsAiDecompilationApi#createAiDecompilation");
@@ -85,6 +88,7 @@ public class Example {
 | **functionId** | **Long**| Function ID | |
 | **temperature** | **Double**| LLM temperature (0.0-1.0). Overrides the server default when set. Omit or set to -1 to use the server default. | [optional] [default to -1] |
 | **typeSuggestions** | **Boolean**| Ask the language model to name the suggested types and their members. Set to false to skip the model call; the statically derived layouts are still computed and stored. Cannot re-enable the pass when the server has it off. | [optional] [default to true] |
+| **applyTypes** | **Boolean**| Store the suggested types as data types of this function&#39;s analysis, with a source_type of AI_DECOMP. Set to false to leave them as suggestions only. Cannot re-enable the pass when the server has it off. | [optional] [default to true] |
 
 ### Return type
 
@@ -1113,7 +1117,7 @@ public class Example {
 
 Accept AI decompilation type suggestions
 
-Stores the named type suggestions as data types of this function&#39;s analysis, with a &#x60;source_type&#x60; of &#x60;AI_DECOMP&#x60; and this function as their &#x60;source_function_id&#x60;.  Each suggestion is stored as the type suggestions endpoint renders it: a &#x60;STRUCT&#x60; where members were placed, a &#x60;TYPEDEF&#x60; where the suggestion is a name for a scalar, and an &#x60;UNKNOWN&#x60; type where nothing gave it a shape. A member with no offset or width is left out and counted in &#x60;skipped_members&#x60;. A type expression a member names is matched against the analysis by name alone and created where nothing matches: &#x60;char *&#x60; creates a &#x60;char&#x60; &#x60;BASE&#x60; type and a &#x60;POINTER&#x60; type pointing at it, reusing either where the analysis already holds it. A member naming another suggestion accepted by the same request resolves to it. Only a trailing &#x60;*&#x60; is taken apart, so a name like &#x60;int &amp;&#x60; stands for one type.  No size is stored: the widths a suggestion carries are lower bounds rather than the type&#39;s own. A suggestion the analysis already holds a type of that name and kind for resolves to it, so repeating a request stores nothing further.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;422&#x60; [&#x60;VALIDATION_FAILED&#x60;](/errors/VALIDATION_FAILED) — Validation Failed - &#x60;500&#x60; [&#x60;INTERNAL_ERROR&#x60;](/errors/INTERNAL_ERROR) — Internal Server Error
+Stores the named type suggestions as data types of this function&#39;s analysis, with a &#x60;source_type&#x60; of &#x60;AI_DECOMP&#x60; and this function as their &#x60;source_function_id&#x60;.  Each suggestion is stored as the type suggestions endpoint renders it: a &#x60;STRUCT&#x60; where members were placed and a &#x60;TYPEDEF&#x60; where the suggestion is a name for a scalar. A suggestion nothing gave a shape to is left out, so &#x60;accepted&#x60; can be shorter than the keys requested. A member with no offset or width is left out and counted in &#x60;skipped_members&#x60;. A type expression a member names is matched against the analysis by name alone and created where nothing matches: &#x60;char *&#x60; creates a &#x60;char&#x60; &#x60;BASE&#x60; type and a &#x60;POINTER&#x60; type pointing at it, reusing either where the analysis already holds it. A member naming another suggestion accepted by the same request resolves to it. Only a trailing &#x60;*&#x60; is taken apart, so a name like &#x60;int &amp;&#x60; stands for one type.  No size is stored: the widths a suggestion carries are lower bounds rather than the type&#39;s own. A suggestion the analysis already holds a type of that name and kind for resolves to it, so repeating a request stores nothing further.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;422&#x60; [&#x60;VALIDATION_FAILED&#x60;](/errors/VALIDATION_FAILED) — Validation Failed - &#x60;500&#x60; [&#x60;INTERNAL_ERROR&#x60;](/errors/INTERNAL_ERROR) — Internal Server Error
 
 ### Example
 ```java
@@ -1493,6 +1497,163 @@ public class Example {
 | **200** | OK |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **500** | Internal Server Error |  -  |
+
+<a id="v3GetAiDecompilationTypeSuggestionsStatus"></a>
+# **v3GetAiDecompilationTypeSuggestionsStatus**
+> WorkflowProgress v3GetAiDecompilationTypeSuggestionsStatus(functionId)
+
+Get type suggestion workflow status
+
+Returns fine-grained progress of the type suggestion workflow. Reports PENDING while a decompilation is running, because its own type-naming pass produces the same suggestions.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.FunctionsAiDecompilationApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    FunctionsAiDecompilationApi apiInstance = new FunctionsAiDecompilationApi(defaultClient);
+    Long functionId = 56L; // Long | Function ID
+    try {
+      WorkflowProgress result = apiInstance.v3GetAiDecompilationTypeSuggestionsStatus(functionId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling FunctionsAiDecompilationApi#v3GetAiDecompilationTypeSuggestionsStatus");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **functionId** | **Long**| Function ID | |
+
+### Return type
+
+[**WorkflowProgress**](WorkflowProgress.md)
+
+### Authorization
+
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **500** | Internal Server Error |  -  |
+
+<a id="v3RegenerateAiDecompilationTypeSuggestions"></a>
+# **v3RegenerateAiDecompilationTypeSuggestions**
+> RegenerateOutputBody v3RegenerateAiDecompilationTypeSuggestions(functionId, applyTypes)
+
+Regenerate AI decompilation type suggestions
+
+Starts a new type suggestion workflow for the function, discarding the suggestions already stored. Requires a successful decompilation; it re-runs only the type-naming pass, so it costs no decompilation credit. The regenerated types are stored as data types of the analysis unless &#x60;apply_types&#x3D;false&#x60;; types a previous run stored are not removed. Rejected while a decompilation is running: it runs the same pass itself once its output settles. Poll the type-suggestions status endpoint, which reports PENDING until then, and read the result from the type-suggestions endpoint.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;500&#x60; [&#x60;INTERNAL_ERROR&#x60;](/errors/INTERNAL_ERROR) — Internal Server Error
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.FunctionsAiDecompilationApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    FunctionsAiDecompilationApi apiInstance = new FunctionsAiDecompilationApi(defaultClient);
+    Long functionId = 56L; // Long | Function ID
+    Boolean applyTypes = true; // Boolean | Store the regenerated types as data types of this function's analysis, with a source_type of AI_DECOMP. Set to false to leave them as suggestions only. Cannot re-enable the pass when the server has it off.
+    try {
+      RegenerateOutputBody result = apiInstance.v3RegenerateAiDecompilationTypeSuggestions(functionId, applyTypes);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling FunctionsAiDecompilationApi#v3RegenerateAiDecompilationTypeSuggestions");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **functionId** | **Long**| Function ID | |
+| **applyTypes** | **Boolean**| Store the regenerated types as data types of this function&#39;s analysis, with a source_type of AI_DECOMP. Set to false to leave them as suggestions only. Cannot re-enable the pass when the server has it off. | [optional] [default to true] |
+
+### Return type
+
+[**RegenerateOutputBody**](RegenerateOutputBody.md)
+
+### Authorization
+
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **202** | Accepted |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 | **500** | Internal Server Error |  -  |
 

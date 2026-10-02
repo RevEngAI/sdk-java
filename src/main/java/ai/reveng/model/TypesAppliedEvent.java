@@ -13,17 +13,13 @@
 package ai.reveng.model;
 
 import java.util.Objects;
-import ai.reveng.model.AcceptedType;
-import ai.reveng.model.DataTypeEntry;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -49,74 +45,130 @@ import java.util.Set;
 import ai.reveng.invoker.JSON;
 
 /**
- * AcceptTypeSuggestionsOutputBody
+ * TypesAppliedEvent
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class AcceptTypeSuggestionsOutputBody {
-  public static final String SERIALIZED_NAME_ACCEPTED = "accepted";
-  @SerializedName(SERIALIZED_NAME_ACCEPTED)
-  @javax.annotation.Nullable
-  private List<AcceptedType> accepted;
+public class TypesAppliedEvent {
+  public static final String SERIALIZED_NAME_ATTEMPT = "attempt";
+  @SerializedName(SERIALIZED_NAME_ATTEMPT)
+  @javax.annotation.Nonnull
+  private Integer attempt;
 
-  public static final String SERIALIZED_NAME_DATA_TYPES = "data_types";
-  @SerializedName(SERIALIZED_NAME_DATA_TYPES)
-  @javax.annotation.Nullable
-  private List<DataTypeEntry> dataTypes;
+  public static final String SERIALIZED_NAME_SEQ = "seq";
+  @SerializedName(SERIALIZED_NAME_SEQ)
+  @javax.annotation.Nonnull
+  private Integer seq;
 
-  public AcceptTypeSuggestionsOutputBody() {
+  public static final String SERIALIZED_NAME_SKIPPED = "skipped";
+  @SerializedName(SERIALIZED_NAME_SKIPPED)
+  @javax.annotation.Nonnull
+  private Integer skipped;
+
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  @javax.annotation.Nonnull
+  private String type;
+
+  public static final String SERIALIZED_NAME_TYPES = "types";
+  @SerializedName(SERIALIZED_NAME_TYPES)
+  @javax.annotation.Nonnull
+  private Integer types;
+
+  public TypesAppliedEvent() {
   }
 
-  public AcceptTypeSuggestionsOutputBody accepted(@javax.annotation.Nullable List<AcceptedType> accepted) {
-    this.accepted = accepted;
-    return this;
-  }
-
-  public AcceptTypeSuggestionsOutputBody addAcceptedItem(AcceptedType acceptedItem) {
-    if (this.accepted == null) {
-      this.accepted = new ArrayList<>();
-    }
-    this.accepted.add(acceptedItem);
-    return this;
-  }
-
-  /**
-   * One entry per requested suggestion that had a shape to store, in request order.
-   * @return accepted
-   */
-  @javax.annotation.Nullable
-  public List<AcceptedType> getAccepted() {
-    return accepted;
-  }
-
-  public void setAccepted(@javax.annotation.Nullable List<AcceptedType> accepted) {
-    this.accepted = accepted;
-  }
-
-
-  public AcceptTypeSuggestionsOutputBody dataTypes(@javax.annotation.Nullable List<DataTypeEntry> dataTypes) {
-    this.dataTypes = dataTypes;
-    return this;
-  }
-
-  public AcceptTypeSuggestionsOutputBody addDataTypesItem(DataTypeEntry dataTypesItem) {
-    if (this.dataTypes == null) {
-      this.dataTypes = new ArrayList<>();
-    }
-    this.dataTypes.add(dataTypesItem);
+  public TypesAppliedEvent attempt(@javax.annotation.Nonnull Integer attempt) {
+    this.attempt = attempt;
     return this;
   }
 
   /**
-   * The type each requested suggestion resolved to, plus every type minted to satisfy one, ordered by data_type_id.
-   * @return dataTypes
+   * Get attempt
+   * @return attempt
    */
-  @javax.annotation.Nullable
-  public List<DataTypeEntry> getDataTypes() {
-    return dataTypes;
+  @javax.annotation.Nonnull
+  public Integer getAttempt() {
+    return attempt;
   }
 
-  public void setDataTypes(@javax.annotation.Nullable List<DataTypeEntry> dataTypes) {
-    this.dataTypes = dataTypes;
+  public void setAttempt(@javax.annotation.Nonnull Integer attempt) {
+    this.attempt = attempt;
+  }
+
+
+  public TypesAppliedEvent seq(@javax.annotation.Nonnull Integer seq) {
+    this.seq = seq;
+    return this;
+  }
+
+  /**
+   * Get seq
+   * @return seq
+   */
+  @javax.annotation.Nonnull
+  public Integer getSeq() {
+    return seq;
+  }
+
+  public void setSeq(@javax.annotation.Nonnull Integer seq) {
+    this.seq = seq;
+  }
+
+
+  public TypesAppliedEvent skipped(@javax.annotation.Nonnull Integer skipped) {
+    this.skipped = skipped;
+    return this;
+  }
+
+  /**
+   * Get skipped
+   * @return skipped
+   */
+  @javax.annotation.Nonnull
+  public Integer getSkipped() {
+    return skipped;
+  }
+
+  public void setSkipped(@javax.annotation.Nonnull Integer skipped) {
+    this.skipped = skipped;
+  }
+
+
+  public TypesAppliedEvent type(@javax.annotation.Nonnull String type) {
+    this.type = type;
+    return this;
+  }
+
+  /**
+   * Get type
+   * @return type
+   */
+  @javax.annotation.Nonnull
+  public String getType() {
+    return type;
+  }
+
+  public void setType(@javax.annotation.Nonnull String type) {
+    this.type = type;
+  }
+
+
+  public TypesAppliedEvent types(@javax.annotation.Nonnull Integer types) {
+    this.types = types;
+    return this;
+  }
+
+  /**
+   * Get types
+   * @return types
+   */
+  @javax.annotation.Nonnull
+  public Integer getTypes() {
+    return types;
+  }
+
+  public void setTypes(@javax.annotation.Nonnull Integer types) {
+    this.types = types;
   }
 
   /**
@@ -132,9 +184,9 @@ public class AcceptTypeSuggestionsOutputBody {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the AcceptTypeSuggestionsOutputBody instance itself
+   * @return the TypesAppliedEvent instance itself
    */
-  public AcceptTypeSuggestionsOutputBody putAdditionalProperty(String key, Object value) {
+  public TypesAppliedEvent putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -173,23 +225,29 @@ public class AcceptTypeSuggestionsOutputBody {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AcceptTypeSuggestionsOutputBody acceptTypeSuggestionsOutputBody = (AcceptTypeSuggestionsOutputBody) o;
-    return Objects.equals(this.accepted, acceptTypeSuggestionsOutputBody.accepted) &&
-        Objects.equals(this.dataTypes, acceptTypeSuggestionsOutputBody.dataTypes)&&
-        Objects.equals(this.additionalProperties, acceptTypeSuggestionsOutputBody.additionalProperties);
+    TypesAppliedEvent typesAppliedEvent = (TypesAppliedEvent) o;
+    return Objects.equals(this.attempt, typesAppliedEvent.attempt) &&
+        Objects.equals(this.seq, typesAppliedEvent.seq) &&
+        Objects.equals(this.skipped, typesAppliedEvent.skipped) &&
+        Objects.equals(this.type, typesAppliedEvent.type) &&
+        Objects.equals(this.types, typesAppliedEvent.types)&&
+        Objects.equals(this.additionalProperties, typesAppliedEvent.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accepted, dataTypes, additionalProperties);
+    return Objects.hash(attempt, seq, skipped, type, types, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AcceptTypeSuggestionsOutputBody {\n");
-    sb.append("    accepted: ").append(toIndentedString(accepted)).append("\n");
-    sb.append("    dataTypes: ").append(toIndentedString(dataTypes)).append("\n");
+    sb.append("class TypesAppliedEvent {\n");
+    sb.append("    attempt: ").append(toIndentedString(attempt)).append("\n");
+    sb.append("    seq: ").append(toIndentedString(seq)).append("\n");
+    sb.append("    skipped: ").append(toIndentedString(skipped)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    types: ").append(toIndentedString(types)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -209,47 +267,34 @@ public class AcceptTypeSuggestionsOutputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("accepted", "data_types"));
+    openapiFields = new HashSet<String>(Arrays.asList("attempt", "seq", "skipped", "type", "types"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("accepted", "data_types"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("attempt", "seq", "skipped", "type", "types"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to AcceptTypeSuggestionsOutputBody
+   * @throws IOException if the JSON Element is invalid with respect to TypesAppliedEvent
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!AcceptTypeSuggestionsOutputBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in AcceptTypeSuggestionsOutputBody is not found in the empty JSON string", AcceptTypeSuggestionsOutputBody.openapiRequiredFields.toString()));
+        if (!TypesAppliedEvent.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in TypesAppliedEvent is not found in the empty JSON string", TypesAppliedEvent.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : AcceptTypeSuggestionsOutputBody.openapiRequiredFields) {
+      for (String requiredField : TypesAppliedEvent.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the required json array is present
-      if (jsonObj.get("accepted") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("accepted").isJsonArray() && !jsonObj.get("accepted").isJsonNull()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `accepted` to be an array in the JSON string but got `%s`", jsonObj.get("accepted").toString()));
-      }
-      if (jsonObj.get("data_types") != null && !jsonObj.get("data_types").isJsonNull()) {
-        if (!jsonObj.get("data_types").isJsonArray()) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `data_types` to be an array in the JSON string but got `%s`", jsonObj.get("data_types").toString()));
-        }
-        JsonArray jsonArraydataTypes = jsonObj.getAsJsonArray("data_types");
-        // validate the required field `data_types` (array)
-        for (int i = 0; i < jsonArraydataTypes.size(); i++) {
-          DataTypeEntry.validateJsonElement(jsonArraydataTypes.get(i));
-        }
+      if (!jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
   }
 
@@ -257,16 +302,16 @@ public class AcceptTypeSuggestionsOutputBody {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!AcceptTypeSuggestionsOutputBody.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'AcceptTypeSuggestionsOutputBody' and its subtypes
+       if (!TypesAppliedEvent.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TypesAppliedEvent' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<AcceptTypeSuggestionsOutputBody> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(AcceptTypeSuggestionsOutputBody.class));
+       final TypeAdapter<TypesAppliedEvent> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TypesAppliedEvent.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<AcceptTypeSuggestionsOutputBody>() {
+       return (TypeAdapter<T>) new TypeAdapter<TypesAppliedEvent>() {
            @Override
-           public void write(JsonWriter out, AcceptTypeSuggestionsOutputBody value) throws IOException {
+           public void write(JsonWriter out, TypesAppliedEvent value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -294,12 +339,12 @@ public class AcceptTypeSuggestionsOutputBody {
            }
 
            @Override
-           public AcceptTypeSuggestionsOutputBody read(JsonReader in) throws IOException {
+           public TypesAppliedEvent read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             AcceptTypeSuggestionsOutputBody instance = thisAdapter.fromJsonTree(jsonObj);
+             TypesAppliedEvent instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -326,18 +371,18 @@ public class AcceptTypeSuggestionsOutputBody {
   }
 
   /**
-   * Create an instance of AcceptTypeSuggestionsOutputBody given an JSON string
+   * Create an instance of TypesAppliedEvent given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of AcceptTypeSuggestionsOutputBody
-   * @throws IOException if the JSON string is invalid with respect to AcceptTypeSuggestionsOutputBody
+   * @return An instance of TypesAppliedEvent
+   * @throws IOException if the JSON string is invalid with respect to TypesAppliedEvent
    */
-  public static AcceptTypeSuggestionsOutputBody fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, AcceptTypeSuggestionsOutputBody.class);
+  public static TypesAppliedEvent fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TypesAppliedEvent.class);
   }
 
   /**
-   * Convert an instance of AcceptTypeSuggestionsOutputBody to an JSON string
+   * Convert an instance of TypesAppliedEvent to an JSON string
    *
    * @return JSON string
    */
