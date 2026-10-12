@@ -16,7 +16,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>ai.reveng</groupId>
     <artifactId>sdk</artifactId>
-    <version>4.70.0</version>
+    <version>4.72.2</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -31,7 +31,7 @@ repositories {
 }
 
 dependencies {
-    implementation "ai.reveng:sdk:4.70.0"
+    implementation "ai.reveng:sdk:4.72.2"
 }
 ```
 
@@ -602,6 +602,8 @@ Class | Method | HTTP request | Description
  - [DynamicExecutionMetadata](docs/DynamicExecutionMetadata.md)
  - [DynamicExecutionStatus](docs/DynamicExecutionStatus.md)
  - [DynamicExecutionStatusResponse](docs/DynamicExecutionStatusResponse.md)
+ - [DynamicExecutionSummary](docs/DynamicExecutionSummary.md)
+ - [DynamicExecutionSummaryMetadata](docs/DynamicExecutionSummaryMetadata.md)
  - [ELFImportModel](docs/ELFImportModel.md)
  - [ELFModel](docs/ELFModel.md)
  - [ELFRelocation](docs/ELFRelocation.md)
@@ -814,6 +816,7 @@ Class | Method | HTTP request | Description
  - [OperationCryptoExplainMetadataCryptoExplainResult](docs/OperationCryptoExplainMetadataCryptoExplainResult.md)
  - [OperationCryptoScanMetadataCryptoScanResult](docs/OperationCryptoScanMetadataCryptoScanResult.md)
  - [OperationDynamicExecutionMetadataDynamicExecutionResult](docs/OperationDynamicExecutionMetadataDynamicExecutionResult.md)
+ - [OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResult](docs/OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResult.md)
  - [OperationExecutionExplainMetadataExecutionExplainResult](docs/OperationExecutionExplainMetadataExecutionExplainResult.md)
  - [OperationExecutionScanMetadataExecutionScanResult](docs/OperationExecutionScanMetadataExecutionScanResult.md)
  - [OperationFilesystemAnalyseMetadataFilesystemAnalyseResult](docs/OperationFilesystemAnalyseMetadataFilesystemAnalyseResult.md)

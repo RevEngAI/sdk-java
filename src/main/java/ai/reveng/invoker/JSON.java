@@ -443,6 +443,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.DrakvufFileMetadata.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.DynamicExecutionMetadata.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.DynamicExecutionStatusResponse.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.DynamicExecutionSummary.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.DynamicExecutionSummaryMetadata.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.ELFImportModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.ELFModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.ELFRelocation.CustomTypeAdapterFactory());
@@ -647,6 +649,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.OperationCryptoExplainMetadataCryptoExplainResult.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.OperationCryptoScanMetadataCryptoScanResult.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.OperationDynamicExecutionMetadataDynamicExecutionResult.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResult.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.OperationExecutionExplainMetadataExecutionExplainResult.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.OperationExecutionScanMetadataExecutionScanResult.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new ai.reveng.model.OperationFilesystemAnalyseMetadataFilesystemAnalyseResult.CustomTypeAdapterFactory());
