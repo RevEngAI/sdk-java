@@ -2850,7 +2850,9 @@ public class AnalysesCoreApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call requeueAnalysisCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull ReAnalysisForm reAnalysisForm, @javax.annotation.Nullable String xRevEngApplication, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -2902,6 +2904,7 @@ public class AnalysesCoreApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call requeueAnalysisValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull ReAnalysisForm reAnalysisForm, @javax.annotation.Nullable String xRevEngApplication, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
@@ -2935,7 +2938,9 @@ public class AnalysesCoreApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public BaseResponseCreated requeueAnalysis(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull ReAnalysisForm reAnalysisForm, @javax.annotation.Nullable String xRevEngApplication) throws ApiException {
         ApiResponse<BaseResponseCreated> localVarResp = requeueAnalysisWithHttpInfo(analysisId, reAnalysisForm, xRevEngApplication);
         return localVarResp.getData();
@@ -2958,7 +2963,9 @@ public class AnalysesCoreApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<BaseResponseCreated> requeueAnalysisWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull ReAnalysisForm reAnalysisForm, @javax.annotation.Nullable String xRevEngApplication) throws ApiException {
         okhttp3.Call localVarCall = requeueAnalysisValidateBeforeCall(analysisId, reAnalysisForm, xRevEngApplication, null);
         Type localVarReturnType = new TypeToken<BaseResponseCreated>(){}.getType();
@@ -2983,7 +2990,9 @@ public class AnalysesCoreApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call requeueAnalysisAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull ReAnalysisForm reAnalysisForm, @javax.annotation.Nullable String xRevEngApplication, final ApiCallback<BaseResponseCreated> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = requeueAnalysisValidateBeforeCall(analysisId, reAnalysisForm, xRevEngApplication, _callback);
