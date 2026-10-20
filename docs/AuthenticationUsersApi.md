@@ -9,6 +9,7 @@ All URIs are relative to *https://api.reveng.ai*
 | [**submitUserFeedback**](AuthenticationUsersApi.md#submitUserFeedback) | **POST** /v2/users/feedback | Submit feedback about the application |
 | [**v3GetUser**](AuthenticationUsersApi.md#v3GetUser) | **GET** /v3/users/{user_id} | Get a user&#39;s public information |
 | [**v3GetUserActivity**](AuthenticationUsersApi.md#v3GetUserActivity) | **GET** /v3/users/activity | Get the caller&#39;s activity feed |
+| [**v3ListUsers**](AuthenticationUsersApi.md#v3ListUsers) | **GET** /v3/users | Search users |
 | [**v3SubmitUserFeedback**](AuthenticationUsersApi.md#v3SubmitUserFeedback) | **POST** /v3/users/feedback | Submit feedback |
 
 
@@ -356,6 +357,80 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**GetUserActivityOutputBody**](GetUserActivityOutputBody.md)
+
+### Authorization
+
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **0** | Error |  -  |
+
+<a id="v3ListUsers"></a>
+# **v3ListUsers**
+> ListPublicUsersOutputBody v3ListUsers(searchTerm)
+
+Search users
+
+Returns up to 5 active users whose username contains the search term (case-insensitive), with their ID and username, ordered by username.
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.AuthenticationUsersApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    AuthenticationUsersApi apiInstance = new AuthenticationUsersApi(defaultClient);
+    String searchTerm = "searchTerm_example"; // String | Text the username contains (case-insensitive)
+    try {
+      ListPublicUsersOutputBody result = apiInstance.v3ListUsers(searchTerm);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AuthenticationUsersApi#v3ListUsers");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **searchTerm** | **String**| Text the username contains (case-insensitive) | |
+
+### Return type
+
+[**ListPublicUsersOutputBody**](ListPublicUsersOutputBody.md)
 
 ### Authorization
 

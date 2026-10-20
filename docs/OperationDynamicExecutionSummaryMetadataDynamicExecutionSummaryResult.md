@@ -11,7 +11,7 @@
 |**error** | **Status** | Failure detail, populated only when done is true and the operation failed. |  [optional] |
 |**metadata** | **DynamicExecutionSummaryMetadata** | In-flight information and details. |  [optional] |
 |**name** | **String** | API resource name. |  |
-|**response** | **Object** | Result, set only when done is true and the operation succeeded. |  [optional] |
+|**response** | **DynamicExecutionSummaryResult** | Result, set only when done is true and the operation succeeded. |  [optional] |
 
 
 

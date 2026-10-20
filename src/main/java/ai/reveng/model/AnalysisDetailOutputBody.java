@@ -158,6 +158,11 @@ public class AnalysisDetailOutputBody {
   @javax.annotation.Nonnull
   private String binaryType;
 
+  public static final String SERIALIZED_NAME_CAPABILITY_COUNT = "capability_count";
+  @SerializedName(SERIALIZED_NAME_CAPABILITY_COUNT)
+  @javax.annotation.Nullable
+  private Long capabilityCount;
+
   public static final String SERIALIZED_NAME_CREATION = "creation";
   @SerializedName(SERIALIZED_NAME_CREATION)
   @javax.annotation.Nonnull
@@ -183,10 +188,20 @@ public class AnalysisDetailOutputBody {
   @javax.annotation.Nonnull
   private RequestedConfigBody requestedConfig;
 
+  public static final String SERIALIZED_NAME_SECURITY_FINDING_COUNT = "security_finding_count";
+  @SerializedName(SERIALIZED_NAME_SECURITY_FINDING_COUNT)
+  @javax.annotation.Nullable
+  private Long securityFindingCount;
+
   public static final String SERIALIZED_NAME_SHA256_HASH = "sha_256_hash";
   @SerializedName(SERIALIZED_NAME_SHA256_HASH)
   @javax.annotation.Nonnull
   private String sha256Hash;
+
+  public static final String SERIALIZED_NAME_THREAT_SCORE = "threat_score";
+  @SerializedName(SERIALIZED_NAME_THREAT_SCORE)
+  @javax.annotation.Nullable
+  private Double threatScore;
 
   public AnalysisDetailOutputBody() {
   }
@@ -381,6 +396,26 @@ public class AnalysisDetailOutputBody {
   }
 
 
+  public AnalysisDetailOutputBody capabilityCount(@javax.annotation.Nullable Long capabilityCount) {
+    this.capabilityCount = capabilityCount;
+    return this;
+  }
+
+  /**
+   * Number of capabilities in the latest capabilities agent result. Null when the agent has not produced a result
+   * minimum: 0
+   * @return capabilityCount
+   */
+  @javax.annotation.Nullable
+  public Long getCapabilityCount() {
+    return capabilityCount;
+  }
+
+  public void setCapabilityCount(@javax.annotation.Nullable Long capabilityCount) {
+    this.capabilityCount = capabilityCount;
+  }
+
+
   public AnalysisDetailOutputBody creation(@javax.annotation.Nonnull String creation) {
     this.creation = creation;
     return this;
@@ -476,6 +511,26 @@ public class AnalysisDetailOutputBody {
   }
 
 
+  public AnalysisDetailOutputBody securityFindingCount(@javax.annotation.Nullable Long securityFindingCount) {
+    this.securityFindingCount = securityFindingCount;
+    return this;
+  }
+
+  /**
+   * Number of HIGH or CRITICAL findings in the latest security scan. Null when the scan has not produced a result
+   * minimum: 0
+   * @return securityFindingCount
+   */
+  @javax.annotation.Nullable
+  public Long getSecurityFindingCount() {
+    return securityFindingCount;
+  }
+
+  public void setSecurityFindingCount(@javax.annotation.Nullable Long securityFindingCount) {
+    this.securityFindingCount = securityFindingCount;
+  }
+
+
   public AnalysisDetailOutputBody sha256Hash(@javax.annotation.Nonnull String sha256Hash) {
     this.sha256Hash = sha256Hash;
     return this;
@@ -492,6 +547,27 @@ public class AnalysisDetailOutputBody {
 
   public void setSha256Hash(@javax.annotation.Nonnull String sha256Hash) {
     this.sha256Hash = sha256Hash;
+  }
+
+
+  public AnalysisDetailOutputBody threatScore(@javax.annotation.Nullable Double threatScore) {
+    this.threatScore = threatScore;
+    return this;
+  }
+
+  /**
+   * Software threat score from the latest triage result, from 0 to 1. Null when triage has not produced a result
+   * minimum: 0
+   * maximum: 1
+   * @return threatScore
+   */
+  @javax.annotation.Nullable
+  public Double getThreatScore() {
+    return threatScore;
+  }
+
+  public void setThreatScore(@javax.annotation.Nullable Double threatScore) {
+    this.threatScore = threatScore;
   }
 
   /**
@@ -559,18 +635,21 @@ public class AnalysisDetailOutputBody {
         Objects.equals(this.binaryName, analysisDetailOutputBody.binaryName) &&
         Objects.equals(this.binarySize, analysisDetailOutputBody.binarySize) &&
         Objects.equals(this.binaryType, analysisDetailOutputBody.binaryType) &&
+        Objects.equals(this.capabilityCount, analysisDetailOutputBody.capabilityCount) &&
         Objects.equals(this.creation, analysisDetailOutputBody.creation) &&
         Objects.equals(this.dashboardUrl, analysisDetailOutputBody.dashboardUrl) &&
         Objects.equals(this.debug, analysisDetailOutputBody.debug) &&
         Objects.equals(this.modelName, analysisDetailOutputBody.modelName) &&
         Objects.equals(this.requestedConfig, analysisDetailOutputBody.requestedConfig) &&
-        Objects.equals(this.sha256Hash, analysisDetailOutputBody.sha256Hash)&&
+        Objects.equals(this.securityFindingCount, analysisDetailOutputBody.securityFindingCount) &&
+        Objects.equals(this.sha256Hash, analysisDetailOutputBody.sha256Hash) &&
+        Objects.equals(this.threatScore, analysisDetailOutputBody.threatScore)&&
         Objects.equals(this.additionalProperties, analysisDetailOutputBody.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(access, analysisId, analysisScope, architecture, autoRunAgents, binaryDynamic, binaryFormat, binaryName, binarySize, binaryType, creation, dashboardUrl, debug, modelName, requestedConfig, sha256Hash, additionalProperties);
+    return Objects.hash(access, analysisId, analysisScope, architecture, autoRunAgents, binaryDynamic, binaryFormat, binaryName, binarySize, binaryType, capabilityCount, creation, dashboardUrl, debug, modelName, requestedConfig, securityFindingCount, sha256Hash, threatScore, additionalProperties);
   }
 
   @Override
@@ -587,12 +666,15 @@ public class AnalysisDetailOutputBody {
     sb.append("    binaryName: ").append(toIndentedString(binaryName)).append("\n");
     sb.append("    binarySize: ").append(toIndentedString(binarySize)).append("\n");
     sb.append("    binaryType: ").append(toIndentedString(binaryType)).append("\n");
+    sb.append("    capabilityCount: ").append(toIndentedString(capabilityCount)).append("\n");
     sb.append("    creation: ").append(toIndentedString(creation)).append("\n");
     sb.append("    dashboardUrl: ").append(toIndentedString(dashboardUrl)).append("\n");
     sb.append("    debug: ").append(toIndentedString(debug)).append("\n");
     sb.append("    modelName: ").append(toIndentedString(modelName)).append("\n");
     sb.append("    requestedConfig: ").append(toIndentedString(requestedConfig)).append("\n");
+    sb.append("    securityFindingCount: ").append(toIndentedString(securityFindingCount)).append("\n");
     sb.append("    sha256Hash: ").append(toIndentedString(sha256Hash)).append("\n");
+    sb.append("    threatScore: ").append(toIndentedString(threatScore)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -612,10 +694,10 @@ public class AnalysisDetailOutputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access", "analysis_id", "analysis_scope", "architecture", "auto_run_agents", "binary_dynamic", "binary_format", "binary_name", "binary_size", "binary_type", "creation", "dashboard_url", "debug", "model_name", "requested_config", "sha_256_hash"));
+    openapiFields = new HashSet<String>(Arrays.asList("access", "analysis_id", "analysis_scope", "architecture", "auto_run_agents", "binary_dynamic", "binary_format", "binary_name", "binary_size", "binary_type", "capability_count", "creation", "dashboard_url", "debug", "model_name", "requested_config", "security_finding_count", "sha_256_hash", "threat_score"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("access", "analysis_id", "analysis_scope", "architecture", "auto_run_agents", "binary_dynamic", "binary_format", "binary_name", "binary_size", "binary_type", "creation", "dashboard_url", "debug", "model_name", "requested_config", "sha_256_hash"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("access", "analysis_id", "analysis_scope", "architecture", "auto_run_agents", "binary_dynamic", "binary_format", "binary_name", "binary_size", "binary_type", "capability_count", "creation", "dashboard_url", "debug", "model_name", "requested_config", "security_finding_count", "sha_256_hash", "threat_score"));
   }
 
   /**

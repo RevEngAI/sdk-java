@@ -13,8 +13,7 @@
 package ai.reveng.model;
 
 import java.util.Objects;
-import ai.reveng.model.DecompilerSummary;
-import ai.reveng.model.EvidenceEffect;
+import ai.reveng.model.ReportCodeSummary;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -49,12 +48,71 @@ import java.util.Set;
 import ai.reveng.invoker.JSON;
 
 /**
- * Semantic summaries derived from decompiler output.
+ * DecompilerSummaryEvidence
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DecompilerSummaryEvidence {
   /**
-   * Gets or Sets evidenceKind
+   * Whether the evidence supports or refutes the finding.
+   */
+  @JsonAdapter(EffectEnum.Adapter.class)
+  public enum EffectEnum {
+    SUPPORTS("supports"),
+    
+    REFUTES("refutes"),
+    
+    UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+    private String value;
+
+    EffectEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static EffectEnum fromValue(String value) {
+      for (EffectEnum b : EffectEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return UNKNOWN_DEFAULT_OPEN_API;
+    }
+
+    public static class Adapter extends TypeAdapter<EffectEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final EffectEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public EffectEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return EffectEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      EffectEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_EFFECT = "effect";
+  @SerializedName(SERIALIZED_NAME_EFFECT)
+  @javax.annotation.Nonnull
+  private EffectEnum effect;
+
+  /**
+   * Kind of evidence.
    */
   @JsonAdapter(EvidenceKindEnum.Adapter.class)
   public enum EvidenceKindEnum {
@@ -107,11 +165,11 @@ public class DecompilerSummaryEvidence {
 
   public static final String SERIALIZED_NAME_EVIDENCE_KIND = "evidence_kind";
   @SerializedName(SERIALIZED_NAME_EVIDENCE_KIND)
-  @javax.annotation.Nullable
-  private EvidenceKindEnum evidenceKind = EvidenceKindEnum.DECOMPILER_SUMMARY;
+  @javax.annotation.Nonnull
+  private EvidenceKindEnum evidenceKind;
 
   /**
-   * Gets or Sets kind
+   * How the evidence was derived.
    */
   @JsonAdapter(KindEnum.Adapter.class)
   public enum KindEnum {
@@ -164,16 +222,11 @@ public class DecompilerSummaryEvidence {
 
   public static final String SERIALIZED_NAME_KIND = "kind";
   @SerializedName(SERIALIZED_NAME_KIND)
-  @javax.annotation.Nullable
-  private KindEnum kind = KindEnum.MODEL_INTERPRETATION;
-
-  public static final String SERIALIZED_NAME_EFFECT = "effect";
-  @SerializedName(SERIALIZED_NAME_EFFECT)
   @javax.annotation.Nonnull
-  private EvidenceEffect effect;
+  private KindEnum kind;
 
   /**
-   * Gets or Sets strength
+   * How directly the evidence bears on the finding.
    */
   @JsonAdapter(StrengthEnum.Adapter.class)
   public enum StrengthEnum {
@@ -226,99 +279,99 @@ public class DecompilerSummaryEvidence {
 
   public static final String SERIALIZED_NAME_STRENGTH = "strength";
   @SerializedName(SERIALIZED_NAME_STRENGTH)
-  @javax.annotation.Nullable
-  private StrengthEnum strength = StrengthEnum.INDIRECT;
+  @javax.annotation.Nonnull
+  private StrengthEnum strength;
 
   public static final String SERIALIZED_NAME_SUMMARIES = "summaries";
   @SerializedName(SERIALIZED_NAME_SUMMARIES)
   @javax.annotation.Nonnull
-  private List<DecompilerSummary> summaries = new ArrayList<>();
+  private List<ReportCodeSummary> summaries = new ArrayList<>();
 
   public DecompilerSummaryEvidence() {
   }
 
-  public DecompilerSummaryEvidence evidenceKind(@javax.annotation.Nullable EvidenceKindEnum evidenceKind) {
+  public DecompilerSummaryEvidence effect(@javax.annotation.Nonnull EffectEnum effect) {
+    this.effect = effect;
+    return this;
+  }
+
+  /**
+   * Whether the evidence supports or refutes the finding.
+   * @return effect
+   */
+  @javax.annotation.Nonnull
+  public EffectEnum getEffect() {
+    return effect;
+  }
+
+  public void setEffect(@javax.annotation.Nonnull EffectEnum effect) {
+    this.effect = effect;
+  }
+
+
+  public DecompilerSummaryEvidence evidenceKind(@javax.annotation.Nonnull EvidenceKindEnum evidenceKind) {
     this.evidenceKind = evidenceKind;
     return this;
   }
 
   /**
-   * Get evidenceKind
+   * Kind of evidence.
    * @return evidenceKind
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public EvidenceKindEnum getEvidenceKind() {
     return evidenceKind;
   }
 
-  public void setEvidenceKind(@javax.annotation.Nullable EvidenceKindEnum evidenceKind) {
+  public void setEvidenceKind(@javax.annotation.Nonnull EvidenceKindEnum evidenceKind) {
     this.evidenceKind = evidenceKind;
   }
 
 
-  public DecompilerSummaryEvidence kind(@javax.annotation.Nullable KindEnum kind) {
+  public DecompilerSummaryEvidence kind(@javax.annotation.Nonnull KindEnum kind) {
     this.kind = kind;
     return this;
   }
 
   /**
-   * Get kind
+   * How the evidence was derived.
    * @return kind
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public KindEnum getKind() {
     return kind;
   }
 
-  public void setKind(@javax.annotation.Nullable KindEnum kind) {
+  public void setKind(@javax.annotation.Nonnull KindEnum kind) {
     this.kind = kind;
   }
 
 
-  public DecompilerSummaryEvidence effect(@javax.annotation.Nonnull EvidenceEffect effect) {
-    this.effect = effect;
-    return this;
-  }
-
-  /**
-   * Get effect
-   * @return effect
-   */
-  @javax.annotation.Nonnull
-  public EvidenceEffect getEffect() {
-    return effect;
-  }
-
-  public void setEffect(@javax.annotation.Nonnull EvidenceEffect effect) {
-    this.effect = effect;
-  }
-
-
-  public DecompilerSummaryEvidence strength(@javax.annotation.Nullable StrengthEnum strength) {
+  public DecompilerSummaryEvidence strength(@javax.annotation.Nonnull StrengthEnum strength) {
     this.strength = strength;
     return this;
   }
 
   /**
-   * Get strength
+   * How directly the evidence bears on the finding.
    * @return strength
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public StrengthEnum getStrength() {
     return strength;
   }
 
-  public void setStrength(@javax.annotation.Nullable StrengthEnum strength) {
+  public void setStrength(@javax.annotation.Nonnull StrengthEnum strength) {
     this.strength = strength;
   }
 
 
-  public DecompilerSummaryEvidence summaries(@javax.annotation.Nonnull List<DecompilerSummary> summaries) {
+  public DecompilerSummaryEvidence summaries(@javax.annotation.Nonnull List<ReportCodeSummary> summaries) {
     this.summaries = summaries;
     return this;
   }
 
-  public DecompilerSummaryEvidence addSummariesItem(DecompilerSummary summariesItem) {
+  public DecompilerSummaryEvidence addSummariesItem(ReportCodeSummary summariesItem) {
     if (this.summaries == null) {
       this.summaries = new ArrayList<>();
     }
@@ -327,15 +380,15 @@ public class DecompilerSummaryEvidence {
   }
 
   /**
-   * Get summaries
+   * Summaries of the decompiled code.
    * @return summaries
    */
   @javax.annotation.Nonnull
-  public List<DecompilerSummary> getSummaries() {
+  public List<ReportCodeSummary> getSummaries() {
     return summaries;
   }
 
-  public void setSummaries(@javax.annotation.Nonnull List<DecompilerSummary> summaries) {
+  public void setSummaries(@javax.annotation.Nonnull List<ReportCodeSummary> summaries) {
     this.summaries = summaries;
   }
 
@@ -394,9 +447,9 @@ public class DecompilerSummaryEvidence {
       return false;
     }
     DecompilerSummaryEvidence decompilerSummaryEvidence = (DecompilerSummaryEvidence) o;
-    return Objects.equals(this.evidenceKind, decompilerSummaryEvidence.evidenceKind) &&
+    return Objects.equals(this.effect, decompilerSummaryEvidence.effect) &&
+        Objects.equals(this.evidenceKind, decompilerSummaryEvidence.evidenceKind) &&
         Objects.equals(this.kind, decompilerSummaryEvidence.kind) &&
-        Objects.equals(this.effect, decompilerSummaryEvidence.effect) &&
         Objects.equals(this.strength, decompilerSummaryEvidence.strength) &&
         Objects.equals(this.summaries, decompilerSummaryEvidence.summaries)&&
         Objects.equals(this.additionalProperties, decompilerSummaryEvidence.additionalProperties);
@@ -404,16 +457,16 @@ public class DecompilerSummaryEvidence {
 
   @Override
   public int hashCode() {
-    return Objects.hash(evidenceKind, kind, effect, strength, summaries, additionalProperties);
+    return Objects.hash(effect, evidenceKind, kind, strength, summaries, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DecompilerSummaryEvidence {\n");
+    sb.append("    effect: ").append(toIndentedString(effect)).append("\n");
     sb.append("    evidenceKind: ").append(toIndentedString(evidenceKind)).append("\n");
     sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
-    sb.append("    effect: ").append(toIndentedString(effect)).append("\n");
     sb.append("    strength: ").append(toIndentedString(strength)).append("\n");
     sb.append("    summaries: ").append(toIndentedString(summaries)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -435,10 +488,10 @@ public class DecompilerSummaryEvidence {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("evidence_kind", "kind", "effect", "strength", "summaries"));
+    openapiFields = new HashSet<String>(Arrays.asList("effect", "evidence_kind", "kind", "strength", "summaries"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("effect", "summaries"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("effect", "evidence_kind", "kind", "strength", "summaries"));
   }
 
   /**
@@ -461,38 +514,31 @@ public class DecompilerSummaryEvidence {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("evidence_kind") != null && !jsonObj.get("evidence_kind").isJsonNull()) && !jsonObj.get("evidence_kind").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `evidence_kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("evidence_kind").toString()));
-      }
-      // validate the optional field `evidence_kind`
-      if (jsonObj.get("evidence_kind") != null && !jsonObj.get("evidence_kind").isJsonNull()) {
-        EvidenceKindEnum.validateJsonElement(jsonObj.get("evidence_kind"));
-      }
-      if ((jsonObj.get("kind") != null && !jsonObj.get("kind").isJsonNull()) && !jsonObj.get("kind").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kind").toString()));
-      }
-      // validate the optional field `kind`
-      if (jsonObj.get("kind") != null && !jsonObj.get("kind").isJsonNull()) {
-        KindEnum.validateJsonElement(jsonObj.get("kind"));
+      if (!jsonObj.get("effect").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `effect` to be a primitive type in the JSON string but got `%s`", jsonObj.get("effect").toString()));
       }
       // validate the required field `effect`
-      EvidenceEffect.validateJsonElement(jsonObj.get("effect"));
-      if ((jsonObj.get("strength") != null && !jsonObj.get("strength").isJsonNull()) && !jsonObj.get("strength").isJsonPrimitive()) {
+      EffectEnum.validateJsonElement(jsonObj.get("effect"));
+      if (!jsonObj.get("evidence_kind").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `evidence_kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("evidence_kind").toString()));
+      }
+      // validate the required field `evidence_kind`
+      EvidenceKindEnum.validateJsonElement(jsonObj.get("evidence_kind"));
+      if (!jsonObj.get("kind").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kind").toString()));
+      }
+      // validate the required field `kind`
+      KindEnum.validateJsonElement(jsonObj.get("kind"));
+      if (!jsonObj.get("strength").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `strength` to be a primitive type in the JSON string but got `%s`", jsonObj.get("strength").toString()));
       }
-      // validate the optional field `strength`
-      if (jsonObj.get("strength") != null && !jsonObj.get("strength").isJsonNull()) {
-        StrengthEnum.validateJsonElement(jsonObj.get("strength"));
-      }
-      if (jsonObj.get("summaries") != null) {
-        if (!jsonObj.get("summaries").isJsonArray()) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `summaries` to be an array in the JSON string but got `%s`", jsonObj.get("summaries").toString()));
-        }
-        JsonArray jsonArraysummaries = jsonObj.getAsJsonArray("summaries");
-        // validate the required field `summaries` (array)
-        for (int i = 0; i < jsonArraysummaries.size(); i++) {
-          DecompilerSummary.validateJsonElement(jsonArraysummaries.get(i));
-        }
+      // validate the required field `strength`
+      StrengthEnum.validateJsonElement(jsonObj.get("strength"));
+      // ensure the required json array is present
+      if (jsonObj.get("summaries") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("summaries").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `summaries` to be an array in the JSON string but got `%s`", jsonObj.get("summaries").toString()));
       }
   }
 

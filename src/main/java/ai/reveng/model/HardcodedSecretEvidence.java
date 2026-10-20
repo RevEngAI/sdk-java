@@ -13,15 +13,12 @@
 package ai.reveng.model;
 
 import java.util.Objects;
-import ai.reveng.model.EvidenceStrength;
-import ai.reveng.model.RuleKind;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -50,126 +47,17 @@ import java.util.Set;
 import ai.reveng.invoker.JSON;
 
 /**
- * A hard-coded secret identified in the binary&#39;s data.
+ * HardcodedSecretEvidence
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class HardcodedSecretEvidence {
-  /**
-   * Gets or Sets evidenceKind
-   */
-  @JsonAdapter(EvidenceKindEnum.Adapter.class)
-  public enum EvidenceKindEnum {
-    HARDCODED_SECRET("hardcoded_secret"),
-    
-    UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
-
-    private String value;
-
-    EvidenceKindEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static EvidenceKindEnum fromValue(String value) {
-      for (EvidenceKindEnum b : EvidenceKindEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      return UNKNOWN_DEFAULT_OPEN_API;
-    }
-
-    public static class Adapter extends TypeAdapter<EvidenceKindEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final EvidenceKindEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public EvidenceKindEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return EvidenceKindEnum.fromValue(value);
-      }
-    }
-
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      String value = jsonElement.getAsString();
-      EvidenceKindEnum.fromValue(value);
-    }
-  }
-
-  public static final String SERIALIZED_NAME_EVIDENCE_KIND = "evidence_kind";
-  @SerializedName(SERIALIZED_NAME_EVIDENCE_KIND)
-  @javax.annotation.Nullable
-  private EvidenceKindEnum evidenceKind = EvidenceKindEnum.HARDCODED_SECRET;
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  @javax.annotation.Nonnull
+  private String description;
 
   /**
-   * Gets or Sets kind
-   */
-  @JsonAdapter(KindEnum.Adapter.class)
-  public enum KindEnum {
-    DETERMINISTIC_DERIVATION("deterministic_derivation"),
-    
-    UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
-
-    private String value;
-
-    KindEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static KindEnum fromValue(String value) {
-      for (KindEnum b : KindEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      return UNKNOWN_DEFAULT_OPEN_API;
-    }
-
-    public static class Adapter extends TypeAdapter<KindEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final KindEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public KindEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return KindEnum.fromValue(value);
-      }
-    }
-
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      String value = jsonElement.getAsString();
-      KindEnum.fromValue(value);
-    }
-  }
-
-  public static final String SERIALIZED_NAME_KIND = "kind";
-  @SerializedName(SERIALIZED_NAME_KIND)
-  @javax.annotation.Nullable
-  private KindEnum kind = KindEnum.DETERMINISTIC_DERIVATION;
-
-  /**
-   * Gets or Sets effect
+   * Whether the evidence supports or refutes the finding.
    */
   @JsonAdapter(EffectEnum.Adapter.class)
   public enum EffectEnum {
@@ -222,146 +110,282 @@ public class HardcodedSecretEvidence {
 
   public static final String SERIALIZED_NAME_EFFECT = "effect";
   @SerializedName(SERIALIZED_NAME_EFFECT)
-  @javax.annotation.Nullable
-  private EffectEnum effect = EffectEnum.SUPPORTS;
-
-  public static final String SERIALIZED_NAME_STRENGTH = "strength";
-  @SerializedName(SERIALIZED_NAME_STRENGTH)
   @javax.annotation.Nonnull
-  private EvidenceStrength strength;
+  private EffectEnum effect;
+
+  public static final String SERIALIZED_NAME_ENTROPY = "entropy";
+  @SerializedName(SERIALIZED_NAME_ENTROPY)
+  @javax.annotation.Nonnull
+  private Double entropy;
+
+  /**
+   * Kind of evidence.
+   */
+  @JsonAdapter(EvidenceKindEnum.Adapter.class)
+  public enum EvidenceKindEnum {
+    HARDCODED_SECRET("hardcoded_secret"),
+    
+    UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+    private String value;
+
+    EvidenceKindEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static EvidenceKindEnum fromValue(String value) {
+      for (EvidenceKindEnum b : EvidenceKindEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return UNKNOWN_DEFAULT_OPEN_API;
+    }
+
+    public static class Adapter extends TypeAdapter<EvidenceKindEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final EvidenceKindEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public EvidenceKindEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return EvidenceKindEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      EvidenceKindEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_EVIDENCE_KIND = "evidence_kind";
+  @SerializedName(SERIALIZED_NAME_EVIDENCE_KIND)
+  @javax.annotation.Nonnull
+  private EvidenceKindEnum evidenceKind;
+
+  /**
+   * How the evidence was derived.
+   */
+  @JsonAdapter(KindEnum.Adapter.class)
+  public enum KindEnum {
+    DETERMINISTIC_DERIVATION("deterministic_derivation"),
+    
+    UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+    private String value;
+
+    KindEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static KindEnum fromValue(String value) {
+      for (KindEnum b : KindEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return UNKNOWN_DEFAULT_OPEN_API;
+    }
+
+    public static class Adapter extends TypeAdapter<KindEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final KindEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public KindEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return KindEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      KindEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_KIND = "kind";
+  @SerializedName(SERIALIZED_NAME_KIND)
+  @javax.annotation.Nonnull
+  private KindEnum kind;
+
+  public static final String SERIALIZED_NAME_REFERENCES = "references";
+  @SerializedName(SERIALIZED_NAME_REFERENCES)
+  @javax.annotation.Nonnull
+  private List<Long> references = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_RULE_ID = "rule_id";
   @SerializedName(SERIALIZED_NAME_RULE_ID)
   @javax.annotation.Nonnull
   private String ruleId;
 
-  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nonnull
-  private String description;
-
-  public static final String SERIALIZED_NAME_SECRET_KIND = "secret_kind";
-  @SerializedName(SERIALIZED_NAME_SECRET_KIND)
-  @javax.annotation.Nonnull
-  private RuleKind secretKind;
-
   public static final String SERIALIZED_NAME_SECRET = "secret";
   @SerializedName(SERIALIZED_NAME_SECRET)
   @javax.annotation.Nonnull
   private String secret;
 
-  public static final String SERIALIZED_NAME_ENTROPY = "entropy";
-  @SerializedName(SERIALIZED_NAME_ENTROPY)
+  /**
+   * Category of the secret.
+   */
+  @JsonAdapter(SecretKindEnum.Adapter.class)
+  public enum SecretKindEnum {
+    CREDENTIALS("credentials"),
+    
+    API_CREDENTIALS("api-credentials"),
+    
+    OAUTH_CREDENTIALS("oauth-credentials"),
+    
+    ENCRYPTION_KEY("encryption-key"),
+    
+    JWT_TOKEN("jwt-token"),
+    
+    WEBHOOK_URL("webhook-url"),
+    
+    PRIVATE_KEY("private-key"),
+    
+    SIGNED_URL("signed-url"),
+    
+    GENERIC("generic"),
+    
+    UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+    private String value;
+
+    SecretKindEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static SecretKindEnum fromValue(String value) {
+      for (SecretKindEnum b : SecretKindEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return UNKNOWN_DEFAULT_OPEN_API;
+    }
+
+    public static class Adapter extends TypeAdapter<SecretKindEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final SecretKindEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public SecretKindEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return SecretKindEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      SecretKindEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_SECRET_KIND = "secret_kind";
+  @SerializedName(SERIALIZED_NAME_SECRET_KIND)
   @javax.annotation.Nonnull
-  private BigDecimal entropy;
+  private SecretKindEnum secretKind;
 
   public static final String SERIALIZED_NAME_SIZE = "size";
   @SerializedName(SERIALIZED_NAME_SIZE)
   @javax.annotation.Nonnull
-  private Integer size;
+  private Long size;
 
-  public static final String SERIALIZED_NAME_REFERENCES = "references";
-  @SerializedName(SERIALIZED_NAME_REFERENCES)
+  /**
+   * How directly the evidence bears on the finding.
+   */
+  @JsonAdapter(StrengthEnum.Adapter.class)
+  public enum StrengthEnum {
+    DIRECT("direct"),
+    
+    INDIRECT("indirect"),
+    
+    UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+    private String value;
+
+    StrengthEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static StrengthEnum fromValue(String value) {
+      for (StrengthEnum b : StrengthEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return UNKNOWN_DEFAULT_OPEN_API;
+    }
+
+    public static class Adapter extends TypeAdapter<StrengthEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StrengthEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public StrengthEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return StrengthEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      StrengthEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_STRENGTH = "strength";
+  @SerializedName(SERIALIZED_NAME_STRENGTH)
   @javax.annotation.Nonnull
-  private List<Integer> references = new ArrayList<>();
+  private StrengthEnum strength;
 
   public HardcodedSecretEvidence() {
   }
-
-  public HardcodedSecretEvidence evidenceKind(@javax.annotation.Nullable EvidenceKindEnum evidenceKind) {
-    this.evidenceKind = evidenceKind;
-    return this;
-  }
-
-  /**
-   * Get evidenceKind
-   * @return evidenceKind
-   */
-  @javax.annotation.Nullable
-  public EvidenceKindEnum getEvidenceKind() {
-    return evidenceKind;
-  }
-
-  public void setEvidenceKind(@javax.annotation.Nullable EvidenceKindEnum evidenceKind) {
-    this.evidenceKind = evidenceKind;
-  }
-
-
-  public HardcodedSecretEvidence kind(@javax.annotation.Nullable KindEnum kind) {
-    this.kind = kind;
-    return this;
-  }
-
-  /**
-   * Get kind
-   * @return kind
-   */
-  @javax.annotation.Nullable
-  public KindEnum getKind() {
-    return kind;
-  }
-
-  public void setKind(@javax.annotation.Nullable KindEnum kind) {
-    this.kind = kind;
-  }
-
-
-  public HardcodedSecretEvidence effect(@javax.annotation.Nullable EffectEnum effect) {
-    this.effect = effect;
-    return this;
-  }
-
-  /**
-   * Get effect
-   * @return effect
-   */
-  @javax.annotation.Nullable
-  public EffectEnum getEffect() {
-    return effect;
-  }
-
-  public void setEffect(@javax.annotation.Nullable EffectEnum effect) {
-    this.effect = effect;
-  }
-
-
-  public HardcodedSecretEvidence strength(@javax.annotation.Nonnull EvidenceStrength strength) {
-    this.strength = strength;
-    return this;
-  }
-
-  /**
-   * Get strength
-   * @return strength
-   */
-  @javax.annotation.Nonnull
-  public EvidenceStrength getStrength() {
-    return strength;
-  }
-
-  public void setStrength(@javax.annotation.Nonnull EvidenceStrength strength) {
-    this.strength = strength;
-  }
-
-
-  public HardcodedSecretEvidence ruleId(@javax.annotation.Nonnull String ruleId) {
-    this.ruleId = ruleId;
-    return this;
-  }
-
-  /**
-   * Get ruleId
-   * @return ruleId
-   */
-  @javax.annotation.Nonnull
-  public String getRuleId() {
-    return ruleId;
-  }
-
-  public void setRuleId(@javax.annotation.Nonnull String ruleId) {
-    this.ruleId = ruleId;
-  }
-
 
   public HardcodedSecretEvidence description(@javax.annotation.Nonnull String description) {
     this.description = description;
@@ -369,7 +393,7 @@ public class HardcodedSecretEvidence {
   }
 
   /**
-   * Get description
+   * What the rule detects.
    * @return description
    */
   @javax.annotation.Nonnull
@@ -382,22 +406,127 @@ public class HardcodedSecretEvidence {
   }
 
 
-  public HardcodedSecretEvidence secretKind(@javax.annotation.Nonnull RuleKind secretKind) {
-    this.secretKind = secretKind;
+  public HardcodedSecretEvidence effect(@javax.annotation.Nonnull EffectEnum effect) {
+    this.effect = effect;
     return this;
   }
 
   /**
-   * Get secretKind
-   * @return secretKind
+   * Whether the evidence supports or refutes the finding.
+   * @return effect
    */
   @javax.annotation.Nonnull
-  public RuleKind getSecretKind() {
-    return secretKind;
+  public EffectEnum getEffect() {
+    return effect;
   }
 
-  public void setSecretKind(@javax.annotation.Nonnull RuleKind secretKind) {
-    this.secretKind = secretKind;
+  public void setEffect(@javax.annotation.Nonnull EffectEnum effect) {
+    this.effect = effect;
+  }
+
+
+  public HardcodedSecretEvidence entropy(@javax.annotation.Nonnull Double entropy) {
+    this.entropy = entropy;
+    return this;
+  }
+
+  /**
+   * Shannon entropy of the secret, in bits per byte.
+   * minimum: 0
+   * maximum: 8
+   * @return entropy
+   */
+  @javax.annotation.Nonnull
+  public Double getEntropy() {
+    return entropy;
+  }
+
+  public void setEntropy(@javax.annotation.Nonnull Double entropy) {
+    this.entropy = entropy;
+  }
+
+
+  public HardcodedSecretEvidence evidenceKind(@javax.annotation.Nonnull EvidenceKindEnum evidenceKind) {
+    this.evidenceKind = evidenceKind;
+    return this;
+  }
+
+  /**
+   * Kind of evidence.
+   * @return evidenceKind
+   */
+  @javax.annotation.Nonnull
+  public EvidenceKindEnum getEvidenceKind() {
+    return evidenceKind;
+  }
+
+  public void setEvidenceKind(@javax.annotation.Nonnull EvidenceKindEnum evidenceKind) {
+    this.evidenceKind = evidenceKind;
+  }
+
+
+  public HardcodedSecretEvidence kind(@javax.annotation.Nonnull KindEnum kind) {
+    this.kind = kind;
+    return this;
+  }
+
+  /**
+   * How the evidence was derived.
+   * @return kind
+   */
+  @javax.annotation.Nonnull
+  public KindEnum getKind() {
+    return kind;
+  }
+
+  public void setKind(@javax.annotation.Nonnull KindEnum kind) {
+    this.kind = kind;
+  }
+
+
+  public HardcodedSecretEvidence references(@javax.annotation.Nonnull List<Long> references) {
+    this.references = references;
+    return this;
+  }
+
+  public HardcodedSecretEvidence addReferencesItem(Long referencesItem) {
+    if (this.references == null) {
+      this.references = new ArrayList<>();
+    }
+    this.references.add(referencesItem);
+    return this;
+  }
+
+  /**
+   * Address of the secret in the binary&#39;s data.
+   * @return references
+   */
+  @javax.annotation.Nonnull
+  public List<Long> getReferences() {
+    return references;
+  }
+
+  public void setReferences(@javax.annotation.Nonnull List<Long> references) {
+    this.references = references;
+  }
+
+
+  public HardcodedSecretEvidence ruleId(@javax.annotation.Nonnull String ruleId) {
+    this.ruleId = ruleId;
+    return this;
+  }
+
+  /**
+   * Identifier of the secret-scanning rule that matched.
+   * @return ruleId
+   */
+  @javax.annotation.Nonnull
+  public String getRuleId() {
+    return ruleId;
+  }
+
+  public void setRuleId(@javax.annotation.Nonnull String ruleId) {
+    this.ruleId = ruleId;
   }
 
 
@@ -407,7 +536,7 @@ public class HardcodedSecretEvidence {
   }
 
   /**
-   * Get secret
+   * The secret as it appears in the binary.
    * @return secret
    */
   @javax.annotation.Nonnull
@@ -420,71 +549,61 @@ public class HardcodedSecretEvidence {
   }
 
 
-  public HardcodedSecretEvidence entropy(@javax.annotation.Nonnull BigDecimal entropy) {
-    this.entropy = entropy;
+  public HardcodedSecretEvidence secretKind(@javax.annotation.Nonnull SecretKindEnum secretKind) {
+    this.secretKind = secretKind;
     return this;
   }
 
   /**
-   * Get entropy
-   * minimum: 0
-   * maximum: 8
-   * @return entropy
+   * Category of the secret.
+   * @return secretKind
    */
   @javax.annotation.Nonnull
-  public BigDecimal getEntropy() {
-    return entropy;
+  public SecretKindEnum getSecretKind() {
+    return secretKind;
   }
 
-  public void setEntropy(@javax.annotation.Nonnull BigDecimal entropy) {
-    this.entropy = entropy;
+  public void setSecretKind(@javax.annotation.Nonnull SecretKindEnum secretKind) {
+    this.secretKind = secretKind;
   }
 
 
-  public HardcodedSecretEvidence size(@javax.annotation.Nonnull Integer size) {
+  public HardcodedSecretEvidence size(@javax.annotation.Nonnull Long size) {
     this.size = size;
     return this;
   }
 
   /**
-   * Get size
+   * Size of the secret in bytes.
    * minimum: 1
    * @return size
    */
   @javax.annotation.Nonnull
-  public Integer getSize() {
+  public Long getSize() {
     return size;
   }
 
-  public void setSize(@javax.annotation.Nonnull Integer size) {
+  public void setSize(@javax.annotation.Nonnull Long size) {
     this.size = size;
   }
 
 
-  public HardcodedSecretEvidence references(@javax.annotation.Nonnull List<Integer> references) {
-    this.references = references;
-    return this;
-  }
-
-  public HardcodedSecretEvidence addReferencesItem(Integer referencesItem) {
-    if (this.references == null) {
-      this.references = new ArrayList<>();
-    }
-    this.references.add(referencesItem);
+  public HardcodedSecretEvidence strength(@javax.annotation.Nonnull StrengthEnum strength) {
+    this.strength = strength;
     return this;
   }
 
   /**
-   * Get references
-   * @return references
+   * How directly the evidence bears on the finding.
+   * @return strength
    */
   @javax.annotation.Nonnull
-  public List<Integer> getReferences() {
-    return references;
+  public StrengthEnum getStrength() {
+    return strength;
   }
 
-  public void setReferences(@javax.annotation.Nonnull List<Integer> references) {
-    this.references = references;
+  public void setStrength(@javax.annotation.Nonnull StrengthEnum strength) {
+    this.strength = strength;
   }
 
   /**
@@ -542,40 +661,40 @@ public class HardcodedSecretEvidence {
       return false;
     }
     HardcodedSecretEvidence hardcodedSecretEvidence = (HardcodedSecretEvidence) o;
-    return Objects.equals(this.evidenceKind, hardcodedSecretEvidence.evidenceKind) &&
-        Objects.equals(this.kind, hardcodedSecretEvidence.kind) &&
+    return Objects.equals(this.description, hardcodedSecretEvidence.description) &&
         Objects.equals(this.effect, hardcodedSecretEvidence.effect) &&
-        Objects.equals(this.strength, hardcodedSecretEvidence.strength) &&
-        Objects.equals(this.ruleId, hardcodedSecretEvidence.ruleId) &&
-        Objects.equals(this.description, hardcodedSecretEvidence.description) &&
-        Objects.equals(this.secretKind, hardcodedSecretEvidence.secretKind) &&
-        Objects.equals(this.secret, hardcodedSecretEvidence.secret) &&
         Objects.equals(this.entropy, hardcodedSecretEvidence.entropy) &&
+        Objects.equals(this.evidenceKind, hardcodedSecretEvidence.evidenceKind) &&
+        Objects.equals(this.kind, hardcodedSecretEvidence.kind) &&
+        Objects.equals(this.references, hardcodedSecretEvidence.references) &&
+        Objects.equals(this.ruleId, hardcodedSecretEvidence.ruleId) &&
+        Objects.equals(this.secret, hardcodedSecretEvidence.secret) &&
+        Objects.equals(this.secretKind, hardcodedSecretEvidence.secretKind) &&
         Objects.equals(this.size, hardcodedSecretEvidence.size) &&
-        Objects.equals(this.references, hardcodedSecretEvidence.references)&&
+        Objects.equals(this.strength, hardcodedSecretEvidence.strength)&&
         Objects.equals(this.additionalProperties, hardcodedSecretEvidence.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(evidenceKind, kind, effect, strength, ruleId, description, secretKind, secret, entropy, size, references, additionalProperties);
+    return Objects.hash(description, effect, entropy, evidenceKind, kind, references, ruleId, secret, secretKind, size, strength, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HardcodedSecretEvidence {\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    effect: ").append(toIndentedString(effect)).append("\n");
+    sb.append("    entropy: ").append(toIndentedString(entropy)).append("\n");
     sb.append("    evidenceKind: ").append(toIndentedString(evidenceKind)).append("\n");
     sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
-    sb.append("    effect: ").append(toIndentedString(effect)).append("\n");
-    sb.append("    strength: ").append(toIndentedString(strength)).append("\n");
-    sb.append("    ruleId: ").append(toIndentedString(ruleId)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    secretKind: ").append(toIndentedString(secretKind)).append("\n");
-    sb.append("    secret: ").append(toIndentedString(secret)).append("\n");
-    sb.append("    entropy: ").append(toIndentedString(entropy)).append("\n");
-    sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    references: ").append(toIndentedString(references)).append("\n");
+    sb.append("    ruleId: ").append(toIndentedString(ruleId)).append("\n");
+    sb.append("    secret: ").append(toIndentedString(secret)).append("\n");
+    sb.append("    secretKind: ").append(toIndentedString(secretKind)).append("\n");
+    sb.append("    size: ").append(toIndentedString(size)).append("\n");
+    sb.append("    strength: ").append(toIndentedString(strength)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -595,10 +714,10 @@ public class HardcodedSecretEvidence {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("evidence_kind", "kind", "effect", "strength", "rule_id", "description", "secret_kind", "secret", "entropy", "size", "references"));
+    openapiFields = new HashSet<String>(Arrays.asList("description", "effect", "entropy", "evidence_kind", "kind", "references", "rule_id", "secret", "secret_kind", "size", "strength"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("strength", "rule_id", "description", "secret_kind", "secret", "entropy", "size", "references"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("description", "effect", "entropy", "evidence_kind", "kind", "references", "rule_id", "secret", "secret_kind", "size", "strength"));
   }
 
   /**
@@ -621,46 +740,46 @@ public class HardcodedSecretEvidence {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("evidence_kind") != null && !jsonObj.get("evidence_kind").isJsonNull()) && !jsonObj.get("evidence_kind").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `evidence_kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("evidence_kind").toString()));
-      }
-      // validate the optional field `evidence_kind`
-      if (jsonObj.get("evidence_kind") != null && !jsonObj.get("evidence_kind").isJsonNull()) {
-        EvidenceKindEnum.validateJsonElement(jsonObj.get("evidence_kind"));
-      }
-      if ((jsonObj.get("kind") != null && !jsonObj.get("kind").isJsonNull()) && !jsonObj.get("kind").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kind").toString()));
-      }
-      // validate the optional field `kind`
-      if (jsonObj.get("kind") != null && !jsonObj.get("kind").isJsonNull()) {
-        KindEnum.validateJsonElement(jsonObj.get("kind"));
-      }
-      if ((jsonObj.get("effect") != null && !jsonObj.get("effect").isJsonNull()) && !jsonObj.get("effect").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `effect` to be a primitive type in the JSON string but got `%s`", jsonObj.get("effect").toString()));
-      }
-      // validate the optional field `effect`
-      if (jsonObj.get("effect") != null && !jsonObj.get("effect").isJsonNull()) {
-        EffectEnum.validateJsonElement(jsonObj.get("effect"));
-      }
-      // validate the required field `strength`
-      EvidenceStrength.validateJsonElement(jsonObj.get("strength"));
-      if (!jsonObj.get("rule_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rule_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rule_id").toString()));
-      }
       if (!jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
-      // validate the required field `secret_kind`
-      RuleKind.validateJsonElement(jsonObj.get("secret_kind"));
-      if (!jsonObj.get("secret").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secret` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secret").toString()));
+      if (!jsonObj.get("effect").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `effect` to be a primitive type in the JSON string but got `%s`", jsonObj.get("effect").toString()));
       }
+      // validate the required field `effect`
+      EffectEnum.validateJsonElement(jsonObj.get("effect"));
+      if (!jsonObj.get("evidence_kind").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `evidence_kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("evidence_kind").toString()));
+      }
+      // validate the required field `evidence_kind`
+      EvidenceKindEnum.validateJsonElement(jsonObj.get("evidence_kind"));
+      if (!jsonObj.get("kind").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kind").toString()));
+      }
+      // validate the required field `kind`
+      KindEnum.validateJsonElement(jsonObj.get("kind"));
       // ensure the required json array is present
       if (jsonObj.get("references") == null) {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
       } else if (!jsonObj.get("references").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `references` to be an array in the JSON string but got `%s`", jsonObj.get("references").toString()));
       }
+      if (!jsonObj.get("rule_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rule_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rule_id").toString()));
+      }
+      if (!jsonObj.get("secret").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secret` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secret").toString()));
+      }
+      if (!jsonObj.get("secret_kind").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secret_kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secret_kind").toString()));
+      }
+      // validate the required field `secret_kind`
+      SecretKindEnum.validateJsonElement(jsonObj.get("secret_kind"));
+      if (!jsonObj.get("strength").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `strength` to be a primitive type in the JSON string but got `%s`", jsonObj.get("strength").toString()));
+      }
+      // validate the required field `strength`
+      StrengthEnum.validateJsonElement(jsonObj.get("strength"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**findings** | **Object** |  |  |
-|**meta** | **Object** |  |  |
+|**findings** | **List&lt;ReportFinding&gt;** | The findings the agent reported, each with its supporting evidence. |  |
+|**meta** | **ReportMeta** | Report-level metadata. |  |
 
 
 

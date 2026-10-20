@@ -17,6 +17,7 @@
 |**detectedArchitecture** | **String** | Detected instruction-set architecture; empty when unavailable |  |
 |**detectedBinaryFormat** | **String** | Detected binary container format; empty when unavailable |  |
 |**detectedBinaryType** | **String** | Detected operating-system platform; empty when unavailable |  |
+|**detectedLanguage** | **String** | Detected source language; empty when unavailable |  |
 |**functionBoundariesHash** | **String** | Hash of the binary&#39;s provided function boundaries |  |
 |**isOwner** | **Boolean** | True when the caller owns the analysis |  |
 |**modelId** | **Long** | Model ID |  |

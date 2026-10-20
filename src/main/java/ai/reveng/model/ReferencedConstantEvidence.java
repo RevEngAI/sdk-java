@@ -13,8 +13,7 @@
 package ai.reveng.model;
 
 import java.util.Objects;
-import ai.reveng.model.EvidenceEffect;
-import ai.reveng.model.ReferencedConstant;
+import ai.reveng.model.ReportReferencedConstant;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -49,12 +48,76 @@ import java.util.Set;
 import ai.reveng.invoker.JSON;
 
 /**
- * Constants and the instructions that reference them.
+ * ReferencedConstantEvidence
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ReferencedConstantEvidence {
+  public static final String SERIALIZED_NAME_CONSTANTS = "constants";
+  @SerializedName(SERIALIZED_NAME_CONSTANTS)
+  @javax.annotation.Nonnull
+  private List<ReportReferencedConstant> constants = new ArrayList<>();
+
   /**
-   * Gets or Sets evidenceKind
+   * Whether the evidence supports or refutes the finding.
+   */
+  @JsonAdapter(EffectEnum.Adapter.class)
+  public enum EffectEnum {
+    SUPPORTS("supports"),
+    
+    REFUTES("refutes"),
+    
+    UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+    private String value;
+
+    EffectEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static EffectEnum fromValue(String value) {
+      for (EffectEnum b : EffectEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return UNKNOWN_DEFAULT_OPEN_API;
+    }
+
+    public static class Adapter extends TypeAdapter<EffectEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final EffectEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public EffectEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return EffectEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      EffectEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_EFFECT = "effect";
+  @SerializedName(SERIALIZED_NAME_EFFECT)
+  @javax.annotation.Nonnull
+  private EffectEnum effect;
+
+  /**
+   * Kind of evidence.
    */
   @JsonAdapter(EvidenceKindEnum.Adapter.class)
   public enum EvidenceKindEnum {
@@ -107,11 +170,11 @@ public class ReferencedConstantEvidence {
 
   public static final String SERIALIZED_NAME_EVIDENCE_KIND = "evidence_kind";
   @SerializedName(SERIALIZED_NAME_EVIDENCE_KIND)
-  @javax.annotation.Nullable
-  private EvidenceKindEnum evidenceKind = EvidenceKindEnum.REFERENCED_CONSTANT;
+  @javax.annotation.Nonnull
+  private EvidenceKindEnum evidenceKind;
 
   /**
-   * Gets or Sets kind
+   * How the evidence was derived.
    */
   @JsonAdapter(KindEnum.Adapter.class)
   public enum KindEnum {
@@ -164,16 +227,11 @@ public class ReferencedConstantEvidence {
 
   public static final String SERIALIZED_NAME_KIND = "kind";
   @SerializedName(SERIALIZED_NAME_KIND)
-  @javax.annotation.Nullable
-  private KindEnum kind = KindEnum.DETERMINISTIC_DERIVATION;
-
-  public static final String SERIALIZED_NAME_EFFECT = "effect";
-  @SerializedName(SERIALIZED_NAME_EFFECT)
   @javax.annotation.Nonnull
-  private EvidenceEffect effect;
+  private KindEnum kind;
 
   /**
-   * Gets or Sets strength
+   * How directly the evidence bears on the finding.
    */
   @JsonAdapter(StrengthEnum.Adapter.class)
   public enum StrengthEnum {
@@ -226,99 +284,18 @@ public class ReferencedConstantEvidence {
 
   public static final String SERIALIZED_NAME_STRENGTH = "strength";
   @SerializedName(SERIALIZED_NAME_STRENGTH)
-  @javax.annotation.Nullable
-  private StrengthEnum strength = StrengthEnum.DIRECT;
-
-  public static final String SERIALIZED_NAME_CONSTANTS = "constants";
-  @SerializedName(SERIALIZED_NAME_CONSTANTS)
   @javax.annotation.Nonnull
-  private List<ReferencedConstant> constants = new ArrayList<>();
+  private StrengthEnum strength;
 
   public ReferencedConstantEvidence() {
   }
 
-  public ReferencedConstantEvidence evidenceKind(@javax.annotation.Nullable EvidenceKindEnum evidenceKind) {
-    this.evidenceKind = evidenceKind;
-    return this;
-  }
-
-  /**
-   * Get evidenceKind
-   * @return evidenceKind
-   */
-  @javax.annotation.Nullable
-  public EvidenceKindEnum getEvidenceKind() {
-    return evidenceKind;
-  }
-
-  public void setEvidenceKind(@javax.annotation.Nullable EvidenceKindEnum evidenceKind) {
-    this.evidenceKind = evidenceKind;
-  }
-
-
-  public ReferencedConstantEvidence kind(@javax.annotation.Nullable KindEnum kind) {
-    this.kind = kind;
-    return this;
-  }
-
-  /**
-   * Get kind
-   * @return kind
-   */
-  @javax.annotation.Nullable
-  public KindEnum getKind() {
-    return kind;
-  }
-
-  public void setKind(@javax.annotation.Nullable KindEnum kind) {
-    this.kind = kind;
-  }
-
-
-  public ReferencedConstantEvidence effect(@javax.annotation.Nonnull EvidenceEffect effect) {
-    this.effect = effect;
-    return this;
-  }
-
-  /**
-   * Get effect
-   * @return effect
-   */
-  @javax.annotation.Nonnull
-  public EvidenceEffect getEffect() {
-    return effect;
-  }
-
-  public void setEffect(@javax.annotation.Nonnull EvidenceEffect effect) {
-    this.effect = effect;
-  }
-
-
-  public ReferencedConstantEvidence strength(@javax.annotation.Nullable StrengthEnum strength) {
-    this.strength = strength;
-    return this;
-  }
-
-  /**
-   * Get strength
-   * @return strength
-   */
-  @javax.annotation.Nullable
-  public StrengthEnum getStrength() {
-    return strength;
-  }
-
-  public void setStrength(@javax.annotation.Nullable StrengthEnum strength) {
-    this.strength = strength;
-  }
-
-
-  public ReferencedConstantEvidence constants(@javax.annotation.Nonnull List<ReferencedConstant> constants) {
+  public ReferencedConstantEvidence constants(@javax.annotation.Nonnull List<ReportReferencedConstant> constants) {
     this.constants = constants;
     return this;
   }
 
-  public ReferencedConstantEvidence addConstantsItem(ReferencedConstant constantsItem) {
+  public ReferencedConstantEvidence addConstantsItem(ReportReferencedConstant constantsItem) {
     if (this.constants == null) {
       this.constants = new ArrayList<>();
     }
@@ -327,16 +304,92 @@ public class ReferencedConstantEvidence {
   }
 
   /**
-   * Get constants
+   * The constants and where they are referenced.
    * @return constants
    */
   @javax.annotation.Nonnull
-  public List<ReferencedConstant> getConstants() {
+  public List<ReportReferencedConstant> getConstants() {
     return constants;
   }
 
-  public void setConstants(@javax.annotation.Nonnull List<ReferencedConstant> constants) {
+  public void setConstants(@javax.annotation.Nonnull List<ReportReferencedConstant> constants) {
     this.constants = constants;
+  }
+
+
+  public ReferencedConstantEvidence effect(@javax.annotation.Nonnull EffectEnum effect) {
+    this.effect = effect;
+    return this;
+  }
+
+  /**
+   * Whether the evidence supports or refutes the finding.
+   * @return effect
+   */
+  @javax.annotation.Nonnull
+  public EffectEnum getEffect() {
+    return effect;
+  }
+
+  public void setEffect(@javax.annotation.Nonnull EffectEnum effect) {
+    this.effect = effect;
+  }
+
+
+  public ReferencedConstantEvidence evidenceKind(@javax.annotation.Nonnull EvidenceKindEnum evidenceKind) {
+    this.evidenceKind = evidenceKind;
+    return this;
+  }
+
+  /**
+   * Kind of evidence.
+   * @return evidenceKind
+   */
+  @javax.annotation.Nonnull
+  public EvidenceKindEnum getEvidenceKind() {
+    return evidenceKind;
+  }
+
+  public void setEvidenceKind(@javax.annotation.Nonnull EvidenceKindEnum evidenceKind) {
+    this.evidenceKind = evidenceKind;
+  }
+
+
+  public ReferencedConstantEvidence kind(@javax.annotation.Nonnull KindEnum kind) {
+    this.kind = kind;
+    return this;
+  }
+
+  /**
+   * How the evidence was derived.
+   * @return kind
+   */
+  @javax.annotation.Nonnull
+  public KindEnum getKind() {
+    return kind;
+  }
+
+  public void setKind(@javax.annotation.Nonnull KindEnum kind) {
+    this.kind = kind;
+  }
+
+
+  public ReferencedConstantEvidence strength(@javax.annotation.Nonnull StrengthEnum strength) {
+    this.strength = strength;
+    return this;
+  }
+
+  /**
+   * How directly the evidence bears on the finding.
+   * @return strength
+   */
+  @javax.annotation.Nonnull
+  public StrengthEnum getStrength() {
+    return strength;
+  }
+
+  public void setStrength(@javax.annotation.Nonnull StrengthEnum strength) {
+    this.strength = strength;
   }
 
   /**
@@ -394,28 +447,28 @@ public class ReferencedConstantEvidence {
       return false;
     }
     ReferencedConstantEvidence referencedConstantEvidence = (ReferencedConstantEvidence) o;
-    return Objects.equals(this.evidenceKind, referencedConstantEvidence.evidenceKind) &&
-        Objects.equals(this.kind, referencedConstantEvidence.kind) &&
+    return Objects.equals(this.constants, referencedConstantEvidence.constants) &&
         Objects.equals(this.effect, referencedConstantEvidence.effect) &&
-        Objects.equals(this.strength, referencedConstantEvidence.strength) &&
-        Objects.equals(this.constants, referencedConstantEvidence.constants)&&
+        Objects.equals(this.evidenceKind, referencedConstantEvidence.evidenceKind) &&
+        Objects.equals(this.kind, referencedConstantEvidence.kind) &&
+        Objects.equals(this.strength, referencedConstantEvidence.strength)&&
         Objects.equals(this.additionalProperties, referencedConstantEvidence.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(evidenceKind, kind, effect, strength, constants, additionalProperties);
+    return Objects.hash(constants, effect, evidenceKind, kind, strength, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReferencedConstantEvidence {\n");
+    sb.append("    constants: ").append(toIndentedString(constants)).append("\n");
+    sb.append("    effect: ").append(toIndentedString(effect)).append("\n");
     sb.append("    evidenceKind: ").append(toIndentedString(evidenceKind)).append("\n");
     sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
-    sb.append("    effect: ").append(toIndentedString(effect)).append("\n");
     sb.append("    strength: ").append(toIndentedString(strength)).append("\n");
-    sb.append("    constants: ").append(toIndentedString(constants)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -435,10 +488,10 @@ public class ReferencedConstantEvidence {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("evidence_kind", "kind", "effect", "strength", "constants"));
+    openapiFields = new HashSet<String>(Arrays.asList("constants", "effect", "evidence_kind", "kind", "strength"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("effect", "constants"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("constants", "effect", "evidence_kind", "kind", "strength"));
   }
 
   /**
@@ -461,39 +514,32 @@ public class ReferencedConstantEvidence {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("evidence_kind") != null && !jsonObj.get("evidence_kind").isJsonNull()) && !jsonObj.get("evidence_kind").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `evidence_kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("evidence_kind").toString()));
+      // ensure the required json array is present
+      if (jsonObj.get("constants") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("constants").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `constants` to be an array in the JSON string but got `%s`", jsonObj.get("constants").toString()));
       }
-      // validate the optional field `evidence_kind`
-      if (jsonObj.get("evidence_kind") != null && !jsonObj.get("evidence_kind").isJsonNull()) {
-        EvidenceKindEnum.validateJsonElement(jsonObj.get("evidence_kind"));
-      }
-      if ((jsonObj.get("kind") != null && !jsonObj.get("kind").isJsonNull()) && !jsonObj.get("kind").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kind").toString()));
-      }
-      // validate the optional field `kind`
-      if (jsonObj.get("kind") != null && !jsonObj.get("kind").isJsonNull()) {
-        KindEnum.validateJsonElement(jsonObj.get("kind"));
+      if (!jsonObj.get("effect").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `effect` to be a primitive type in the JSON string but got `%s`", jsonObj.get("effect").toString()));
       }
       // validate the required field `effect`
-      EvidenceEffect.validateJsonElement(jsonObj.get("effect"));
-      if ((jsonObj.get("strength") != null && !jsonObj.get("strength").isJsonNull()) && !jsonObj.get("strength").isJsonPrimitive()) {
+      EffectEnum.validateJsonElement(jsonObj.get("effect"));
+      if (!jsonObj.get("evidence_kind").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `evidence_kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("evidence_kind").toString()));
+      }
+      // validate the required field `evidence_kind`
+      EvidenceKindEnum.validateJsonElement(jsonObj.get("evidence_kind"));
+      if (!jsonObj.get("kind").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kind").toString()));
+      }
+      // validate the required field `kind`
+      KindEnum.validateJsonElement(jsonObj.get("kind"));
+      if (!jsonObj.get("strength").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `strength` to be a primitive type in the JSON string but got `%s`", jsonObj.get("strength").toString()));
       }
-      // validate the optional field `strength`
-      if (jsonObj.get("strength") != null && !jsonObj.get("strength").isJsonNull()) {
-        StrengthEnum.validateJsonElement(jsonObj.get("strength"));
-      }
-      if (jsonObj.get("constants") != null) {
-        if (!jsonObj.get("constants").isJsonArray()) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `constants` to be an array in the JSON string but got `%s`", jsonObj.get("constants").toString()));
-        }
-        JsonArray jsonArrayconstants = jsonObj.getAsJsonArray("constants");
-        // validate the required field `constants` (array)
-        for (int i = 0; i < jsonArrayconstants.size(); i++) {
-          ReferencedConstant.validateJsonElement(jsonArrayconstants.get(i));
-        }
-      }
+      // validate the required field `strength`
+      StrengthEnum.validateJsonElement(jsonObj.get("strength"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
