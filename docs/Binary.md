@@ -13,6 +13,7 @@
 |**createdAt** | **OffsetDateTime** |  |  |
 |**detectedArchitecture** | **String** | Detected instruction-set architecture; empty when unavailable |  |
 |**detectedBinaryType** | **String** | Detected operating-system platform; empty when unavailable |  |
+|**detectedLanguage** | **String** | Detected source language; empty when unavailable |  |
 |**isSystemAnalysis** | **Boolean** |  |  |
 |**modelName** | **String** | Name of the model the analysis ran on |  |
 |**ownerId** | **Long** |  |  |

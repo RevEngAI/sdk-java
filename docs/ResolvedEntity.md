@@ -28,9 +28,11 @@
 |**suggestionConfidence** | **String** |  |  |
 |**token** | **String** | Search is applied to string value |  |
 |**typeIndex** | **Long** |  |  |
+|**typeSource** | **String** |  |  |
 |**vaddr** | **Long** |  |  |
 |**value** | **String** |  |  |
 |**valueConfidence** | **String** |  |  |
+|**valueKind** | **String** |  |  |
 |**valueType** | **String** |  |  |
 
 

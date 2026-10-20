@@ -159,6 +159,11 @@ public class AnalysisRecordBody {
   @javax.annotation.Nonnull
   private String detectedBinaryType;
 
+  public static final String SERIALIZED_NAME_DETECTED_LANGUAGE = "detected_language";
+  @SerializedName(SERIALIZED_NAME_DETECTED_LANGUAGE)
+  @javax.annotation.Nonnull
+  private String detectedLanguage;
+
   public static final String SERIALIZED_NAME_FUNCTION_BOUNDARIES_HASH = "function_boundaries_hash";
   @SerializedName(SERIALIZED_NAME_FUNCTION_BOUNDARIES_HASH)
   @javax.annotation.Nonnull
@@ -409,6 +414,25 @@ public class AnalysisRecordBody {
 
   public void setDetectedBinaryType(@javax.annotation.Nonnull String detectedBinaryType) {
     this.detectedBinaryType = detectedBinaryType;
+  }
+
+
+  public AnalysisRecordBody detectedLanguage(@javax.annotation.Nonnull String detectedLanguage) {
+    this.detectedLanguage = detectedLanguage;
+    return this;
+  }
+
+  /**
+   * Detected source language; empty when unavailable
+   * @return detectedLanguage
+   */
+  @javax.annotation.Nonnull
+  public String getDetectedLanguage() {
+    return detectedLanguage;
+  }
+
+  public void setDetectedLanguage(@javax.annotation.Nonnull String detectedLanguage) {
+    this.detectedLanguage = detectedLanguage;
   }
 
 
@@ -712,6 +736,7 @@ public class AnalysisRecordBody {
         Objects.equals(this.detectedArchitecture, analysisRecordBody.detectedArchitecture) &&
         Objects.equals(this.detectedBinaryFormat, analysisRecordBody.detectedBinaryFormat) &&
         Objects.equals(this.detectedBinaryType, analysisRecordBody.detectedBinaryType) &&
+        Objects.equals(this.detectedLanguage, analysisRecordBody.detectedLanguage) &&
         Objects.equals(this.functionBoundariesHash, analysisRecordBody.functionBoundariesHash) &&
         Objects.equals(this.isOwner, analysisRecordBody.isOwner) &&
         Objects.equals(this.modelId, analysisRecordBody.modelId) &&
@@ -729,7 +754,7 @@ public class AnalysisRecordBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(analysisId, analysisScope, baseAddress, binaryId, binaryName, binarySize, creation, detectedArchitecture, detectedBinaryFormat, detectedBinaryType, functionBoundariesHash, isOwner, modelId, modelName, modelUpgradeAvailable, sha256Hash, status, suppliedArchitecture, suppliedBinaryFormat, suppliedBinaryType, tags, username, additionalProperties);
+    return Objects.hash(analysisId, analysisScope, baseAddress, binaryId, binaryName, binarySize, creation, detectedArchitecture, detectedBinaryFormat, detectedBinaryType, detectedLanguage, functionBoundariesHash, isOwner, modelId, modelName, modelUpgradeAvailable, sha256Hash, status, suppliedArchitecture, suppliedBinaryFormat, suppliedBinaryType, tags, username, additionalProperties);
   }
 
   @Override
@@ -746,6 +771,7 @@ public class AnalysisRecordBody {
     sb.append("    detectedArchitecture: ").append(toIndentedString(detectedArchitecture)).append("\n");
     sb.append("    detectedBinaryFormat: ").append(toIndentedString(detectedBinaryFormat)).append("\n");
     sb.append("    detectedBinaryType: ").append(toIndentedString(detectedBinaryType)).append("\n");
+    sb.append("    detectedLanguage: ").append(toIndentedString(detectedLanguage)).append("\n");
     sb.append("    functionBoundariesHash: ").append(toIndentedString(functionBoundariesHash)).append("\n");
     sb.append("    isOwner: ").append(toIndentedString(isOwner)).append("\n");
     sb.append("    modelId: ").append(toIndentedString(modelId)).append("\n");
@@ -777,10 +803,10 @@ public class AnalysisRecordBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("analysis_id", "analysis_scope", "base_address", "binary_id", "binary_name", "binary_size", "creation", "detected_architecture", "detected_binary_format", "detected_binary_type", "function_boundaries_hash", "is_owner", "model_id", "model_name", "model_upgrade_available", "sha_256_hash", "status", "supplied_architecture", "supplied_binary_format", "supplied_binary_type", "tags", "username"));
+    openapiFields = new HashSet<String>(Arrays.asList("analysis_id", "analysis_scope", "base_address", "binary_id", "binary_name", "binary_size", "creation", "detected_architecture", "detected_binary_format", "detected_binary_type", "detected_language", "function_boundaries_hash", "is_owner", "model_id", "model_name", "model_upgrade_available", "sha_256_hash", "status", "supplied_architecture", "supplied_binary_format", "supplied_binary_type", "tags", "username"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("analysis_id", "analysis_scope", "base_address", "binary_id", "binary_name", "binary_size", "creation", "detected_architecture", "detected_binary_format", "detected_binary_type", "function_boundaries_hash", "is_owner", "model_id", "model_name", "model_upgrade_available", "sha_256_hash", "status", "supplied_architecture", "supplied_binary_format", "supplied_binary_type", "tags", "username"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("analysis_id", "analysis_scope", "base_address", "binary_id", "binary_name", "binary_size", "creation", "detected_architecture", "detected_binary_format", "detected_binary_type", "detected_language", "function_boundaries_hash", "is_owner", "model_id", "model_name", "model_upgrade_available", "sha_256_hash", "status", "supplied_architecture", "supplied_binary_format", "supplied_binary_type", "tags", "username"));
   }
 
   /**
@@ -819,6 +845,9 @@ public class AnalysisRecordBody {
       }
       if (!jsonObj.get("detected_binary_type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `detected_binary_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("detected_binary_type").toString()));
+      }
+      if (!jsonObj.get("detected_language").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `detected_language` to be a primitive type in the JSON string but got `%s`", jsonObj.get("detected_language").toString()));
       }
       if (!jsonObj.get("function_boundaries_hash").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `function_boundaries_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("function_boundaries_hash").toString()));

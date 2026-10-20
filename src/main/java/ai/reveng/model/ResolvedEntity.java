@@ -275,6 +275,11 @@ public class ResolvedEntity {
   @javax.annotation.Nullable
   private Long typeIndex;
 
+  public static final String SERIALIZED_NAME_TYPE_SOURCE = "type_source";
+  @SerializedName(SERIALIZED_NAME_TYPE_SOURCE)
+  @javax.annotation.Nullable
+  private String typeSource;
+
   public static final String SERIALIZED_NAME_VADDR = "vaddr";
   @SerializedName(SERIALIZED_NAME_VADDR)
   @javax.annotation.Nullable
@@ -289,6 +294,11 @@ public class ResolvedEntity {
   @SerializedName(SERIALIZED_NAME_VALUE_CONFIDENCE)
   @javax.annotation.Nullable
   private String valueConfidence;
+
+  public static final String SERIALIZED_NAME_VALUE_KIND = "value_kind";
+  @SerializedName(SERIALIZED_NAME_VALUE_KIND)
+  @javax.annotation.Nullable
+  private String valueKind;
 
   public static final String SERIALIZED_NAME_VALUE_TYPE = "value_type";
   @SerializedName(SERIALIZED_NAME_VALUE_TYPE)
@@ -705,6 +715,25 @@ public class ResolvedEntity {
   }
 
 
+  public ResolvedEntity typeSource(@javax.annotation.Nullable String typeSource) {
+    this.typeSource = typeSource;
+    return this;
+  }
+
+  /**
+   * Get typeSource
+   * @return typeSource
+   */
+  @javax.annotation.Nullable
+  public String getTypeSource() {
+    return typeSource;
+  }
+
+  public void setTypeSource(@javax.annotation.Nullable String typeSource) {
+    this.typeSource = typeSource;
+  }
+
+
   public ResolvedEntity vaddr(@javax.annotation.Nullable Long vaddr) {
     this.vaddr = vaddr;
     return this;
@@ -759,6 +788,25 @@ public class ResolvedEntity {
 
   public void setValueConfidence(@javax.annotation.Nullable String valueConfidence) {
     this.valueConfidence = valueConfidence;
+  }
+
+
+  public ResolvedEntity valueKind(@javax.annotation.Nullable String valueKind) {
+    this.valueKind = valueKind;
+    return this;
+  }
+
+  /**
+   * Get valueKind
+   * @return valueKind
+   */
+  @javax.annotation.Nullable
+  public String getValueKind() {
+    return valueKind;
+  }
+
+  public void setValueKind(@javax.annotation.Nullable String valueKind) {
+    this.valueKind = valueKind;
   }
 
 
@@ -856,9 +904,11 @@ public class ResolvedEntity {
         Objects.equals(this.suggestionConfidence, resolvedEntity.suggestionConfidence) &&
         Objects.equals(this.token, resolvedEntity.token) &&
         Objects.equals(this.typeIndex, resolvedEntity.typeIndex) &&
+        Objects.equals(this.typeSource, resolvedEntity.typeSource) &&
         Objects.equals(this.vaddr, resolvedEntity.vaddr) &&
         Objects.equals(this.value, resolvedEntity.value) &&
         Objects.equals(this.valueConfidence, resolvedEntity.valueConfidence) &&
+        Objects.equals(this.valueKind, resolvedEntity.valueKind) &&
         Objects.equals(this.valueType, resolvedEntity.valueType)&&
         Objects.equals(this.additionalProperties, resolvedEntity.additionalProperties);
   }
@@ -869,7 +919,7 @@ public class ResolvedEntity {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addrToken, allAddrTokens, bitOffset, byteOffset, byteSize, count, dataTypeIndex, fieldStatus, functionId, importedFunctionId, kind, name, nameSource, needsNaming, provenance, resolvedName, suggestedName, suggestedType, suggestionConfidence, token, typeIndex, vaddr, value, valueConfidence, valueType, additionalProperties);
+    return Objects.hash(addrToken, allAddrTokens, bitOffset, byteOffset, byteSize, count, dataTypeIndex, fieldStatus, functionId, importedFunctionId, kind, name, nameSource, needsNaming, provenance, resolvedName, suggestedName, suggestedType, suggestionConfidence, token, typeIndex, typeSource, vaddr, value, valueConfidence, valueKind, valueType, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -904,9 +954,11 @@ public class ResolvedEntity {
     sb.append("    suggestionConfidence: ").append(toIndentedString(suggestionConfidence)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    typeIndex: ").append(toIndentedString(typeIndex)).append("\n");
+    sb.append("    typeSource: ").append(toIndentedString(typeSource)).append("\n");
     sb.append("    vaddr: ").append(toIndentedString(vaddr)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    valueConfidence: ").append(toIndentedString(valueConfidence)).append("\n");
+    sb.append("    valueKind: ").append(toIndentedString(valueKind)).append("\n");
     sb.append("    valueType: ").append(toIndentedString(valueType)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -927,10 +979,10 @@ public class ResolvedEntity {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("addr_token", "all_addr_tokens", "bit_offset", "byte_offset", "byte_size", "count", "data_type_index", "field_status", "function_id", "imported_function_id", "kind", "name", "name_source", "needs_naming", "provenance", "resolved_name", "suggested_name", "suggested_type", "suggestion_confidence", "token", "type_index", "vaddr", "value", "value_confidence", "value_type"));
+    openapiFields = new HashSet<String>(Arrays.asList("addr_token", "all_addr_tokens", "bit_offset", "byte_offset", "byte_size", "count", "data_type_index", "field_status", "function_id", "imported_function_id", "kind", "name", "name_source", "needs_naming", "provenance", "resolved_name", "suggested_name", "suggested_type", "suggestion_confidence", "token", "type_index", "type_source", "vaddr", "value", "value_confidence", "value_kind", "value_type"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("addr_token", "all_addr_tokens", "bit_offset", "byte_offset", "byte_size", "count", "data_type_index", "kind", "name", "name_source", "needs_naming", "provenance", "resolved_name", "suggested_type", "suggestion_confidence", "token", "type_index", "vaddr", "value", "value_confidence", "value_type"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("addr_token", "all_addr_tokens", "bit_offset", "byte_offset", "byte_size", "count", "data_type_index", "kind", "name", "name_source", "needs_naming", "provenance", "resolved_name", "suggested_type", "suggestion_confidence", "token", "type_index", "type_source", "vaddr", "value", "value_confidence", "value_kind", "value_type"));
   }
 
   /**
@@ -998,11 +1050,17 @@ public class ResolvedEntity {
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
       }
+      if ((jsonObj.get("type_source") != null && !jsonObj.get("type_source").isJsonNull()) && !jsonObj.get("type_source").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `type_source` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type_source").toString()));
+      }
       if ((jsonObj.get("value") != null && !jsonObj.get("value").isJsonNull()) && !jsonObj.get("value").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
       }
       if ((jsonObj.get("value_confidence") != null && !jsonObj.get("value_confidence").isJsonNull()) && !jsonObj.get("value_confidence").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `value_confidence` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value_confidence").toString()));
+      }
+      if ((jsonObj.get("value_kind") != null && !jsonObj.get("value_kind").isJsonNull()) && !jsonObj.get("value_kind").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `value_kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value_kind").toString()));
       }
       if ((jsonObj.get("value_type") != null && !jsonObj.get("value_type").isJsonNull()) && !jsonObj.get("value_type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `value_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value_type").toString()));

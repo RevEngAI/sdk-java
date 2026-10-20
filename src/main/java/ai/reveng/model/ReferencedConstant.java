@@ -55,7 +55,7 @@ import ai.reveng.invoker.JSON;
 public class ReferencedConstant {
   public static final String SERIALIZED_NAME_SUBJECT = "subject";
   @SerializedName(SERIALIZED_NAME_SUBJECT)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private Subject subject;
 
   public static final String SERIALIZED_NAME_VALUE = "value";
@@ -71,7 +71,7 @@ public class ReferencedConstant {
   public ReferencedConstant() {
   }
 
-  public ReferencedConstant subject(@javax.annotation.Nonnull Subject subject) {
+  public ReferencedConstant subject(@javax.annotation.Nullable Subject subject) {
     this.subject = subject;
     return this;
   }
@@ -80,12 +80,12 @@ public class ReferencedConstant {
    * Get subject
    * @return subject
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public Subject getSubject() {
     return subject;
   }
 
-  public void setSubject(@javax.annotation.Nonnull Subject subject) {
+  public void setSubject(@javax.annotation.Nullable Subject subject) {
     this.subject = subject;
   }
 
@@ -256,8 +256,10 @@ public class ReferencedConstant {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (jsonObj.get("subject") != null && !jsonObj.get("subject").isJsonNull()) {
       // validate the required field `subject`
       Subject.validateJsonElement(jsonObj.get("subject"));
+      }
       // validate the optional field `display`
       if (jsonObj.get("display") != null && !jsonObj.get("display").isJsonNull()) {
         Display.validateJsonElement(jsonObj.get("display"));

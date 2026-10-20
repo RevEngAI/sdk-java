@@ -14,6 +14,7 @@ package ai.reveng.model;
 
 import java.util.Objects;
 import ai.reveng.model.DynamicExecutionSummaryMetadata;
+import ai.reveng.model.DynamicExecutionSummaryResult;
 import ai.reveng.model.Status;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -74,7 +75,7 @@ public class OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResu
   public static final String SERIALIZED_NAME_RESPONSE = "response";
   @SerializedName(SERIALIZED_NAME_RESPONSE)
   @javax.annotation.Nullable
-  private Object response;
+  private DynamicExecutionSummaryResult response;
 
   public OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResult() {
   }
@@ -155,7 +156,7 @@ public class OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResu
   }
 
 
-  public OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResult response(@javax.annotation.Nullable Object response) {
+  public OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResult response(@javax.annotation.Nullable DynamicExecutionSummaryResult response) {
     this.response = response;
     return this;
   }
@@ -165,11 +166,11 @@ public class OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResu
    * @return response
    */
   @javax.annotation.Nullable
-  public Object getResponse() {
+  public DynamicExecutionSummaryResult getResponse() {
     return response;
   }
 
-  public void setResponse(@javax.annotation.Nullable Object response) {
+  public void setResponse(@javax.annotation.Nullable DynamicExecutionSummaryResult response) {
     this.response = response;
   }
 

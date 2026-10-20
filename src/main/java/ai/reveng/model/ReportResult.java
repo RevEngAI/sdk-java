@@ -13,13 +13,17 @@
 package ai.reveng.model;
 
 import java.util.Objects;
+import ai.reveng.model.ReportFinding;
+import ai.reveng.model.ReportMeta;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,51 +55,59 @@ import ai.reveng.invoker.JSON;
 public class ReportResult {
   public static final String SERIALIZED_NAME_FINDINGS = "findings";
   @SerializedName(SERIALIZED_NAME_FINDINGS)
-  @javax.annotation.Nullable
-  private Object findings = null;
+  @javax.annotation.Nonnull
+  private List<ReportFinding> findings = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_META = "meta";
   @SerializedName(SERIALIZED_NAME_META)
-  @javax.annotation.Nullable
-  private Object meta = null;
+  @javax.annotation.Nonnull
+  private ReportMeta meta;
 
   public ReportResult() {
   }
 
-  public ReportResult findings(@javax.annotation.Nullable Object findings) {
+  public ReportResult findings(@javax.annotation.Nonnull List<ReportFinding> findings) {
     this.findings = findings;
     return this;
   }
 
+  public ReportResult addFindingsItem(ReportFinding findingsItem) {
+    if (this.findings == null) {
+      this.findings = new ArrayList<>();
+    }
+    this.findings.add(findingsItem);
+    return this;
+  }
+
   /**
-   * Get findings
+   * The findings the agent reported, each with its supporting evidence.
    * @return findings
    */
-  @javax.annotation.Nullable
-  public Object getFindings() {
+  @javax.annotation.Nonnull
+  public List<ReportFinding> getFindings() {
     return findings;
   }
 
-  public void setFindings(@javax.annotation.Nullable Object findings) {
+  public void setFindings(@javax.annotation.Nonnull List<ReportFinding> findings) {
     this.findings = findings;
   }
 
 
-  public ReportResult meta(@javax.annotation.Nullable Object meta) {
+  public ReportResult meta(@javax.annotation.Nonnull ReportMeta meta) {
     this.meta = meta;
     return this;
   }
 
   /**
-   * Get meta
+   * Report-level metadata.
    * @return meta
    */
-  @javax.annotation.Nullable
-  public Object getMeta() {
+  @javax.annotation.Nonnull
+  public ReportMeta getMeta() {
     return meta;
   }
 
-  public void setMeta(@javax.annotation.Nullable Object meta) {
+  public void setMeta(@javax.annotation.Nonnull ReportMeta meta) {
     this.meta = meta;
   }
 
@@ -215,6 +227,12 @@ public class ReportResult {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // ensure the required json array is present
+      if (jsonObj.get("findings") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("findings").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `findings` to be an array in the JSON string but got `%s`", jsonObj.get("findings").toString()));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

@@ -54,7 +54,7 @@ import ai.reveng.invoker.JSON;
 public class DecompilerSummary {
   public static final String SERIALIZED_NAME_SUBJECT = "subject";
   @SerializedName(SERIALIZED_NAME_SUBJECT)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private Subject subject;
 
   public static final String SERIALIZED_NAME_SUMMARY = "summary";
@@ -70,7 +70,7 @@ public class DecompilerSummary {
   public DecompilerSummary() {
   }
 
-  public DecompilerSummary subject(@javax.annotation.Nonnull Subject subject) {
+  public DecompilerSummary subject(@javax.annotation.Nullable Subject subject) {
     this.subject = subject;
     return this;
   }
@@ -79,12 +79,12 @@ public class DecompilerSummary {
    * Get subject
    * @return subject
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public Subject getSubject() {
     return subject;
   }
 
-  public void setSubject(@javax.annotation.Nonnull Subject subject) {
+  public void setSubject(@javax.annotation.Nullable Subject subject) {
     this.subject = subject;
   }
 
@@ -255,8 +255,10 @@ public class DecompilerSummary {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (jsonObj.get("subject") != null && !jsonObj.get("subject").isJsonNull()) {
       // validate the required field `subject`
       Subject.validateJsonElement(jsonObj.get("subject"));
+      }
       if (!jsonObj.get("summary").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `summary` to be a primitive type in the JSON string but got `%s`", jsonObj.get("summary").toString()));
       }
