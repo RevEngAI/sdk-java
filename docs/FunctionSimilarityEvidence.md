@@ -2,17 +2,26 @@
 
 # FunctionSimilarityEvidence
 
-Function-similarity results suggestive of a capability.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**evidenceKind** | [**EvidenceKindEnum**](#EvidenceKindEnum) |  |  [optional] |
-|**kind** | [**KindEnum**](#KindEnum) |  |  [optional] |
-|**effect** | **EvidenceEffect** |  |  |
-|**strength** | [**StrengthEnum**](#StrengthEnum) |  |  [optional] |
-|**similarities** | [**List&lt;FunctionSimilarity&gt;**](FunctionSimilarity.md) |  |  |
+|**effect** | [**EffectEnum**](#EffectEnum) | Whether the evidence supports or refutes the finding. |  |
+|**evidenceKind** | [**EvidenceKindEnum**](#EvidenceKindEnum) | Kind of evidence. |  |
+|**kind** | [**KindEnum**](#KindEnum) | How the evidence was derived. |  |
+|**similarities** | **List&lt;ReportFunctionSimilarity&gt;** | The similar functions. |  |
+|**strength** | [**StrengthEnum**](#StrengthEnum) | How directly the evidence bears on the finding. |  |
+
+
+
+## Enum: EffectEnum
+
+| Name | Value |
+|---- | -----|
+| SUPPORTS | &quot;supports&quot; |
+| REFUTES | &quot;refutes&quot; |
+| UNKNOWN_DEFAULT_OPEN_API | &quot;unknown_default_open_api&quot; |
 
 
 

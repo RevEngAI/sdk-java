@@ -16,7 +16,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>ai.reveng</groupId>
     <artifactId>sdk</artifactId>
-    <version>4.72.2</version>
+    <version>4.74.3</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -31,7 +31,7 @@ repositories {
 }
 
 dependencies {
-    implementation "ai.reveng:sdk:4.72.2"
+    implementation "ai.reveng:sdk:4.74.3"
 }
 ```
 
@@ -100,6 +100,7 @@ Class | Method | HTTP request | Description
 *AgentApi* | [**v3GetCapabilitiesOperation**](docs/AgentApi.md#v3GetCapabilitiesOperation) | **GET** /v3/operations/capabilities/{analysis_id} | Get a capabilities operation.
 *AgentApi* | [**v3GetCryptoExplainOperation**](docs/AgentApi.md#v3GetCryptoExplainOperation) | **GET** /v3/operations/crypto-explain/{function_id} | Get a crypto-explain operation.
 *AgentApi* | [**v3GetCryptoScanOperation**](docs/AgentApi.md#v3GetCryptoScanOperation) | **GET** /v3/operations/crypto-scan/{analysis_id} | Get a crypto-scan operation.
+*AgentApi* | [**v3GetCryptographyOperation**](docs/AgentApi.md#v3GetCryptographyOperation) | **GET** /v3/operations/cryptography/{analysis_id} | Get a cryptography operation.
 *AgentApi* | [**v3GetExecutionExplainOperation**](docs/AgentApi.md#v3GetExecutionExplainOperation) | **GET** /v3/operations/execution-explain/{function_id} | Get an execution-explain operation.
 *AgentApi* | [**v3GetExecutionScanOperation**](docs/AgentApi.md#v3GetExecutionScanOperation) | **GET** /v3/operations/execution-scan/{analysis_id} | Get an execution-scan operation.
 *AgentApi* | [**v3GetFilesystemAnalyseOperation**](docs/AgentApi.md#v3GetFilesystemAnalyseOperation) | **GET** /v3/operations/filesystem-analyse/{function_id} | Get a filesystem-analyse operation.
@@ -108,15 +109,18 @@ Class | Method | HTTP request | Description
 *AgentApi* | [**v3GetNetworkingScanOperation**](docs/AgentApi.md#v3GetNetworkingScanOperation) | **GET** /v3/operations/networking-scan/{analysis_id} | Get a networking-scan operation.
 *AgentApi* | [**v3GetProtocolsOperation**](docs/AgentApi.md#v3GetProtocolsOperation) | **GET** /v3/operations/protocols/{analysis_id} | Get a protocols operation.
 *AgentApi* | [**v3GetRemediationOperation**](docs/AgentApi.md#v3GetRemediationOperation) | **GET** /v3/operations/remediation/{analysis_id} | Get a remediation operation.
+*AgentApi* | [**v3GetRenameUnnamedFunctionsOperation**](docs/AgentApi.md#v3GetRenameUnnamedFunctionsOperation) | **GET** /v3/operations/rename-unnamed-functions/{analysis_id} | Get a rename-unnamed-functions operation.
 *AgentApi* | [**v3GetRenameUnnamedFunctionsResult**](docs/AgentApi.md#v3GetRenameUnnamedFunctionsResult) | **GET** /v3/analyses/{analysis_id}/agents/rename-unnamed-functions | Get rename-unnamed-functions agent result.
 *AgentApi* | [**v3GetRenameUnnamedFunctionsStatus**](docs/AgentApi.md#v3GetRenameUnnamedFunctionsStatus) | **GET** /v3/analyses/{analysis_id}/agents/rename-unnamed-functions/status | Get rename-unnamed-functions agent status.
 *AgentApi* | [**v3GetReportAnalysisOperation**](docs/AgentApi.md#v3GetReportAnalysisOperation) | **GET** /v3/operations/report-analysis/{analysis_id} | Get a report-analysis operation.
 *AgentApi* | [**v3GetSecretsOperation**](docs/AgentApi.md#v3GetSecretsOperation) | **GET** /v3/operations/secrets/{analysis_id} | Get a secrets operation.
 *AgentApi* | [**v3GetSecurityScanOperation**](docs/AgentApi.md#v3GetSecurityScanOperation) | **GET** /v3/operations/security-scan/{analysis_id} | Get a security-scan operation.
 *AgentApi* | [**v3GetTriageOperation**](docs/AgentApi.md#v3GetTriageOperation) | **GET** /v3/operations/triage/{analysis_id} | Get a triage operation.
+*AgentApi* | [**v3ListOperationPrerequisites**](docs/AgentApi.md#v3ListOperationPrerequisites) | **GET** /v3/operation-prerequisites | List operation prerequisites.
 *AgentApi* | [**v3RunCapabilities**](docs/AgentApi.md#v3RunCapabilities) | **POST** /v3/analyses/{analysis_id}/capabilities:run | Run the capabilities agent.
 *AgentApi* | [**v3RunCryptoExplain**](docs/AgentApi.md#v3RunCryptoExplain) | **POST** /v3/functions/{function_id}/crypto-explain:run | Run the crypto-explain agent.
 *AgentApi* | [**v3RunCryptoScan**](docs/AgentApi.md#v3RunCryptoScan) | **POST** /v3/analyses/{analysis_id}/crypto-scan:run | Run the crypto-scan agent.
+*AgentApi* | [**v3RunCryptography**](docs/AgentApi.md#v3RunCryptography) | **POST** /v3/analyses/{analysis_id}/cryptography:run | Run the cryptography agent.
 *AgentApi* | [**v3RunExecutionExplain**](docs/AgentApi.md#v3RunExecutionExplain) | **POST** /v3/functions/{function_id}/execution-explain:run | Run the execution-explain agent.
 *AgentApi* | [**v3RunExecutionScan**](docs/AgentApi.md#v3RunExecutionScan) | **POST** /v3/analyses/{analysis_id}/execution-scan:run | Run the execution-scan agent.
 *AgentApi* | [**v3RunFilesystemAnalyse**](docs/AgentApi.md#v3RunFilesystemAnalyse) | **POST** /v3/functions/{function_id}/filesystem-analyse:run | Run the filesystem-analyse agent.
@@ -167,17 +171,37 @@ Class | Method | HTTP request | Description
 *AnalysesCoreApi* | [**v3GetAnalysis**](docs/AnalysesCoreApi.md#v3GetAnalysis) | **GET** /v3/analyses/{analysis_id} | Get an analysis.
 *AnalysesCoreApi* | [**v3GetAnalysisAutoUnstripStatus**](docs/AnalysesCoreApi.md#v3GetAnalysisAutoUnstripStatus) | **GET** /v3/analyses/{analysis_id}/auto-unstrip/status | Get the auto-unstrip status for an analysis.
 *AnalysesCoreApi* | [**v3GetAnalysisFunctionsProgress**](docs/AnalysesCoreApi.md#v3GetAnalysisFunctionsProgress) | **GET** /v3/analyses/{analysis_id}/progress/functions | Get function embedding progress for an analysis.
+*AnalysesCoreApi* | [**v3GetAnalysisGlobal**](docs/AnalysesCoreApi.md#v3GetAnalysisGlobal) | **GET** /v3/analyses/{analysis_id}/globals/{vaddr} | Get one global variable.
+*AnalysesCoreApi* | [**v3GetAnalysisGlobalHistory**](docs/AnalysesCoreApi.md#v3GetAnalysisGlobalHistory) | **GET** /v3/analyses/{analysis_id}/globals/{vaddr}/history | List a global variable&#39;s replaced values.
 *AnalysesCoreApi* | [**v3GetAnalysisLogs**](docs/AnalysesCoreApi.md#v3GetAnalysisLogs) | **GET** /v3/analyses/{analysis_id}/logs | Get the Analysis log
 *AnalysesCoreApi* | [**v3GetAnalysisOperation**](docs/AnalysesCoreApi.md#v3GetAnalysisOperation) | **GET** /v3/operations/analyses/{analysis_id} | Get an Analysis-creation operation
 *AnalysesCoreApi* | [**v3GetAnalysisStrings**](docs/AnalysesCoreApi.md#v3GetAnalysisStrings) | **GET** /v3/analyses/{analysis_id}/functions/strings | List strings for an analysis.
 *AnalysesCoreApi* | [**v3GetAnalysisStringsStatus**](docs/AnalysesCoreApi.md#v3GetAnalysisStringsStatus) | **GET** /v3/analyses/{analysis_id}/functions/strings/status | Get the string-extraction status for an analysis.
 *AnalysesCoreApi* | [**v3GetBinaryExportOperation**](docs/AnalysesCoreApi.md#v3GetBinaryExportOperation) | **GET** /v3/operations/binary-export/{task_id} | Get a binary export operation
+*AnalysesCoreApi* | [**v3GetDynamicExecutionArtifact**](docs/AnalysesCoreApi.md#v3GetDynamicExecutionArtifact) | **GET** /v3/analyses/{analysis_id}/dynamic-execution/artifacts/{sha256} | Download an artifact.
+*AnalysesCoreApi* | [**v3GetDynamicExecutionLogsDownload**](docs/AnalysesCoreApi.md#v3GetDynamicExecutionLogsDownload) | **GET** /v3/analyses/{analysis_id}/dynamic-execution/logs/download | Download the execution logs archive.
+*AnalysesCoreApi* | [**v3GetDynamicExecutionMemdump**](docs/AnalysesCoreApi.md#v3GetDynamicExecutionMemdump) | **GET** /v3/analyses/{analysis_id}/dynamic-execution/memdumps/{sha256} | Download a memory dump.
+*AnalysesCoreApi* | [**v3GetDynamicExecutionOperation**](docs/AnalysesCoreApi.md#v3GetDynamicExecutionOperation) | **GET** /v3/operations/dynamic-execution/{analysis_id} | Get a dynamic execution operation.
+*AnalysesCoreApi* | [**v3GetDynamicExecutionPcap**](docs/AnalysesCoreApi.md#v3GetDynamicExecutionPcap) | **GET** /v3/analyses/{analysis_id}/dynamic-execution/pcap | Download the network capture.
+*AnalysesCoreApi* | [**v3GetDynamicExecutionReport**](docs/AnalysesCoreApi.md#v3GetDynamicExecutionReport) | **GET** /v3/analyses/{analysis_id}/dynamic-execution/report | Get the dynamic execution report.
+*AnalysesCoreApi* | [**v3GetDynamicExecutionScreenshot**](docs/AnalysesCoreApi.md#v3GetDynamicExecutionScreenshot) | **GET** /v3/analyses/{analysis_id}/dynamic-execution/screenshots/{index} | Download a screenshot.
+*AnalysesCoreApi* | [**v3GetDynamicExecutionSummary**](docs/AnalysesCoreApi.md#v3GetDynamicExecutionSummary) | **GET** /v3/analyses/{analysis_id}/dynamic-execution/summary | Get the dynamic execution summary.
+*AnalysesCoreApi* | [**v3GetDynamicExecutionSummaryOperation**](docs/AnalysesCoreApi.md#v3GetDynamicExecutionSummaryOperation) | **GET** /v3/operations/dynamic-execution-summary/{analysis_id} | Get a dynamic execution summary operation.
+*AnalysesCoreApi* | [**v3GetDynamicExecutionWiresharkKeys**](docs/AnalysesCoreApi.md#v3GetDynamicExecutionWiresharkKeys) | **GET** /v3/analyses/{analysis_id}/dynamic-execution/wireshark-keys | Download Wireshark TLS session keys.
 *AnalysesCoreApi* | [**v3ListAnalyses**](docs/AnalysesCoreApi.md#v3ListAnalyses) | **GET** /v3/analyses | List analyses
+*AnalysesCoreApi* | [**v3ListAnalysisGlobals**](docs/AnalysesCoreApi.md#v3ListAnalysisGlobals) | **GET** /v3/analyses/{analysis_id}/globals | List the global variables in an analysis.
+*AnalysesCoreApi* | [**v3ListAnalysisOperations**](docs/AnalysesCoreApi.md#v3ListAnalysisOperations) | **GET** /v3/analyses/{analysis_id}/operations | List the operations run on an analysis.
+*AnalysesCoreApi* | [**v3ListDynamicExecutionScreenshots**](docs/AnalysesCoreApi.md#v3ListDynamicExecutionScreenshots) | **GET** /v3/analyses/{analysis_id}/dynamic-execution/screenshots | List the screenshots captured during execution.
 *AnalysesCoreApi* | [**v3ListExampleAnalyses**](docs/AnalysesCoreApi.md#v3ListExampleAnalyses) | **GET** /v3/analyses/examples | List example analyses
+*AnalysesCoreApi* | [**v3ListGlobalFunctions**](docs/AnalysesCoreApi.md#v3ListGlobalFunctions) | **GET** /v3/analyses/{analysis_id}/globals/{vaddr}/functions | List the functions referencing a global variable.
 *AnalysesCoreApi* | [**v3LookupAnalysisByBinaryId**](docs/AnalysesCoreApi.md#v3LookupAnalysisByBinaryId) | **GET** /v3/analyses/lookup/{binary_id} | Look up the most recent analysis for a binary.
 *AnalysesCoreApi* | [**v3QueueBinaryExport**](docs/AnalysesCoreApi.md#v3QueueBinaryExport) | **POST** /v3/analyses/{analysis_id}/binary-export | Queue a binary export
+*AnalysesCoreApi* | [**v3RequeueAnalysis**](docs/AnalysesCoreApi.md#v3RequeueAnalysis) | **POST** /v3/analyses/{analysis_id}/requeue | Requeue an analysis
+*AnalysesCoreApi* | [**v3RunDynamicExecution**](docs/AnalysesCoreApi.md#v3RunDynamicExecution) | **POST** /v3/analyses/{analysis_id}/dynamic-execution:run | Trigger a dynamic execution run.
+*AnalysesCoreApi* | [**v3RunDynamicExecutionSummary**](docs/AnalysesCoreApi.md#v3RunDynamicExecutionSummary) | **POST** /v3/analyses/{analysis_id}/dynamic-execution/summary:run | Regenerate the dynamic execution summary.
 *AnalysesCoreApi* | [**v3SearchTags**](docs/AnalysesCoreApi.md#v3SearchTags) | **GET** /v3/tags | Search tags
 *AnalysesCoreApi* | [**v3UpdateAnalysis**](docs/AnalysesCoreApi.md#v3UpdateAnalysis) | **PATCH** /v3/analyses/{analysis_id} | Update an analysis.
+*AnalysesCoreApi* | [**v3UpdateAnalysisGlobal**](docs/AnalysesCoreApi.md#v3UpdateAnalysisGlobal) | **PATCH** /v3/analyses/{analysis_id}/globals/{vaddr} | Edit a global variable.
 *AnalysesCoreApi* | [**v3UpdateAnalysisTags**](docs/AnalysesCoreApi.md#v3UpdateAnalysisTags) | **PATCH** /v3/analyses/{analysis_id}/tags | Replace an analysis&#39; tags.
 *AnalysesCoreApi* | [**v3UpgradeAnalysisModel**](docs/AnalysesCoreApi.md#v3UpgradeAnalysisModel) | **POST** /v3/analyses/{analysis_id}/upgrade-model | Re-analyse on the latest model
 *AnalysesResultsMetadataApi* | [**getAnalysisFunctionsPaginated**](docs/AnalysesResultsMetadataApi.md#getAnalysisFunctionsPaginated) | **GET** /v2/analyses/{analysis_id}/functions | Get functions from analysis
@@ -193,6 +217,7 @@ Class | Method | HTTP request | Description
 *AuthenticationUsersApi* | [**submitUserFeedback**](docs/AuthenticationUsersApi.md#submitUserFeedback) | **POST** /v2/users/feedback | Submit feedback about the application
 *AuthenticationUsersApi* | [**v3GetUser**](docs/AuthenticationUsersApi.md#v3GetUser) | **GET** /v3/users/{user_id} | Get a user&#39;s public information
 *AuthenticationUsersApi* | [**v3GetUserActivity**](docs/AuthenticationUsersApi.md#v3GetUserActivity) | **GET** /v3/users/activity | Get the caller&#39;s activity feed
+*AuthenticationUsersApi* | [**v3ListUsers**](docs/AuthenticationUsersApi.md#v3ListUsers) | **GET** /v3/users | Search users
 *AuthenticationUsersApi* | [**v3SubmitUserFeedback**](docs/AuthenticationUsersApi.md#v3SubmitUserFeedback) | **POST** /v3/users/feedback | Submit feedback
 *BinariesApi* | [**downloadZippedBinary**](docs/BinariesApi.md#downloadZippedBinary) | **GET** /v2/binaries/{binary_id}/download-zipped | Downloads a zipped binary with password protection
 *BinariesApi* | [**getBinaryAdditionalDetails**](docs/BinariesApi.md#getBinaryAdditionalDetails) | **GET** /v2/binaries/{binary_id}/additional-details | Gets the additional details of a binary
@@ -301,6 +326,7 @@ Class | Method | HTTP request | Description
 *FunctionsCoreApi* | [**startFunctionsMatching**](docs/FunctionsCoreApi.md#startFunctionsMatching) | **POST** /v3/functions/matches | Start function matching for an explicit set of functions
 *FunctionsCoreApi* | [**v3CanonicalizeFunctionNames**](docs/FunctionsCoreApi.md#v3CanonicalizeFunctionNames) | **POST** /v3/functions/canonical-names | Canonicalize a batch of function names
 *FunctionsCoreApi* | [**v3GetAnalysisFuncMaps**](docs/FunctionsCoreApi.md#v3GetAnalysisFuncMaps) | **GET** /v3/analyses/{analysis_id}/func-maps | Get function ID/address maps for an analysis
+*FunctionsCoreApi* | [**v3ListFunctionGlobals**](docs/FunctionsCoreApi.md#v3ListFunctionGlobals) | **GET** /v3/functions/{function_id}/globals | List the global variables a function references.
 *FunctionsCoreApi* | [**v3SearchFunctions**](docs/FunctionsCoreApi.md#v3SearchFunctions) | **GET** /v3/functions | Search functions
 *FunctionsRenamingHistoryApi* | [**batchRenameFunction**](docs/FunctionsRenamingHistoryApi.md#batchRenameFunction) | **POST** /v2/functions/rename/batch | Batch Rename Functions
 *FunctionsRenamingHistoryApi* | [**batchRenameFunctions**](docs/FunctionsRenamingHistoryApi.md#batchRenameFunctions) | **POST** /v3/functions/rename | Batch rename functions
@@ -363,6 +389,8 @@ Class | Method | HTTP request | Description
  - [AnalysisLogEntry](docs/AnalysisLogEntry.md)
  - [AnalysisLogMessage](docs/AnalysisLogMessage.md)
  - [AnalysisLogs](docs/AnalysisLogs.md)
+ - [AnalysisOperationBody](docs/AnalysisOperationBody.md)
+ - [AnalysisOperationsOutputBody](docs/AnalysisOperationsOutputBody.md)
  - [AnalysisRecord](docs/AnalysisRecord.md)
  - [AnalysisRecordBody](docs/AnalysisRecordBody.md)
  - [AnalysisReport](docs/AnalysisReport.md)
@@ -596,14 +624,17 @@ Class | Method | HTTP request | Description
  - [DecompilerSummaryEvidence](docs/DecompilerSummaryEvidence.md)
  - [DieMatch](docs/DieMatch.md)
  - [DisassemblyOutputBody](docs/DisassemblyOutputBody.md)
+ - [DisassemblySummaryEvidence](docs/DisassemblySummaryEvidence.md)
  - [Display](docs/Display.md)
  - [DnsQuery](docs/DnsQuery.md)
  - [DrakvufFileMetadata](docs/DrakvufFileMetadata.md)
  - [DynamicExecutionMetadata](docs/DynamicExecutionMetadata.md)
+ - [DynamicExecutionResult](docs/DynamicExecutionResult.md)
  - [DynamicExecutionStatus](docs/DynamicExecutionStatus.md)
  - [DynamicExecutionStatusResponse](docs/DynamicExecutionStatusResponse.md)
  - [DynamicExecutionSummary](docs/DynamicExecutionSummary.md)
  - [DynamicExecutionSummaryMetadata](docs/DynamicExecutionSummaryMetadata.md)
+ - [DynamicExecutionSummaryResult](docs/DynamicExecutionSummaryResult.md)
  - [ELFImportModel](docs/ELFImportModel.md)
  - [ELFModel](docs/ELFModel.md)
  - [ELFRelocation](docs/ELFRelocation.md)
@@ -691,6 +722,7 @@ Class | Method | HTTP request | Description
  - [FunctionCapabilityResponse](docs/FunctionCapabilityResponse.md)
  - [FunctionDataType](docs/FunctionDataType.md)
  - [FunctionDetailsOutputBody](docs/FunctionDetailsOutputBody.md)
+ - [FunctionGlobalVariable](docs/FunctionGlobalVariable.md)
  - [FunctionListItem](docs/FunctionListItem.md)
  - [FunctionLocalVariableResponse](docs/FunctionLocalVariableResponse.md)
  - [FunctionMapping](docs/FunctionMapping.md)
@@ -712,6 +744,7 @@ Class | Method | HTTP request | Description
  - [FunctionStringItem](docs/FunctionStringItem.md)
  - [FunctionStringsResponse](docs/FunctionStringsResponse.md)
  - [FunctionTypeDefinition](docs/FunctionTypeDefinition.md)
+ - [FunctionUsage](docs/FunctionUsage.md)
  - [FunctionsDetailResponse](docs/FunctionsDetailResponse.md)
  - [FunctionsListRename](docs/FunctionsListRename.md)
  - [FunctionsProgressOutputBody](docs/FunctionsProgressOutputBody.md)
@@ -729,6 +762,7 @@ Class | Method | HTTP request | Description
  - [GetDieInfoOutputBody](docs/GetDieInfoOutputBody.md)
  - [GetFunctionMapsOutputBody](docs/GetFunctionMapsOutputBody.md)
  - [GetFunctionSignatureHistoryBody](docs/GetFunctionSignatureHistoryBody.md)
+ - [GetGlobalHistoryOutputBody](docs/GetGlobalHistoryOutputBody.md)
  - [GetMatchesOutputBody](docs/GetMatchesOutputBody.md)
  - [GetMatchesStatusOutputBody](docs/GetMatchesStatusOutputBody.md)
  - [GetModelsOutputBody](docs/GetModelsOutputBody.md)
@@ -740,6 +774,8 @@ Class | Method | HTTP request | Description
  - [GetSubscriptionOutputBody](docs/GetSubscriptionOutputBody.md)
  - [GetTokensResponse](docs/GetTokensResponse.md)
  - [GetUserActivityOutputBody](docs/GetUserActivityOutputBody.md)
+ - [GlobalHistoryEntry](docs/GlobalHistoryEntry.md)
+ - [GlobalVariable](docs/GlobalVariable.md)
  - [HardcodedSecretEvidence](docs/HardcodedSecretEvidence.md)
  - [HistoryActor](docs/HistoryActor.md)
  - [HistoryEntry](docs/HistoryEntry.md)
@@ -767,15 +803,20 @@ Class | Method | HTTP request | Description
  - [ListAnalysesOutputBody](docs/ListAnalysesOutputBody.md)
  - [ListAnalysisDataTypesOutputBody](docs/ListAnalysisDataTypesOutputBody.md)
  - [ListAnalysisFunctionsOutputBody](docs/ListAnalysisFunctionsOutputBody.md)
+ - [ListAnalysisGlobalsOutputBody](docs/ListAnalysisGlobalsOutputBody.md)
  - [ListAnalysisStringsOutputBody](docs/ListAnalysisStringsOutputBody.md)
  - [ListArchiveContentsOutputBody](docs/ListArchiveContentsOutputBody.md)
  - [ListCollectionResults](docs/ListCollectionResults.md)
  - [ListCollectionsOutputBody](docs/ListCollectionsOutputBody.md)
  - [ListDataTypeFunctionsBody](docs/ListDataTypeFunctionsBody.md)
  - [ListExampleAnalysesOutputBody](docs/ListExampleAnalysesOutputBody.md)
+ - [ListFunctionGlobalsOutputBody](docs/ListFunctionGlobalsOutputBody.md)
  - [ListFunctionSignaturesOutputBody](docs/ListFunctionSignaturesOutputBody.md)
  - [ListFunctionStringsOutputBody](docs/ListFunctionStringsOutputBody.md)
+ - [ListGlobalFunctionsOutputBody](docs/ListGlobalFunctionsOutputBody.md)
  - [ListImportedFunctionsOutputBody](docs/ListImportedFunctionsOutputBody.md)
+ - [ListOperationPrerequisitesOutputBody](docs/ListOperationPrerequisitesOutputBody.md)
+ - [ListPublicUsersOutputBody](docs/ListPublicUsersOutputBody.md)
  - [ListSecretStoreOutputBody](docs/ListSecretStoreOutputBody.md)
  - [ListTeamsOutputBody](docs/ListTeamsOutputBody.md)
  - [ListUsersOutputBody](docs/ListUsersOutputBody.md)
@@ -828,6 +869,8 @@ Class | Method | HTTP request | Description
  - [OperationMetadataTriageResult](docs/OperationMetadataTriageResult.md)
  - [OperationNetworkingExplainMetadataNetworkingExplainResult](docs/OperationNetworkingExplainMetadataNetworkingExplainResult.md)
  - [OperationNetworkingScanMetadataNetworkingScanResult](docs/OperationNetworkingScanMetadataNetworkingScanResult.md)
+ - [OperationPrerequisitesBody](docs/OperationPrerequisitesBody.md)
+ - [OperationRenameUnnamedFunctionsMetadataRenameUnnamedFunctionsResult](docs/OperationRenameUnnamedFunctionsMetadataRenameUnnamedFunctionsResult.md)
  - [OperationSecurityScanMetadataSecurityScanResult](docs/OperationSecurityScanMetadataSecurityScanResult.md)
  - [OperationVirusTotalScanMetadataVirusTotalScanResult](docs/OperationVirusTotalScanMetadataVirusTotalScanResult.md)
  - [OperationWorkflowProgressResultBody](docs/OperationWorkflowProgressResultBody.md)
@@ -864,6 +907,7 @@ Class | Method | HTTP request | Description
  - [ProgressMessage](docs/ProgressMessage.md)
  - [ProseEvent](docs/ProseEvent.md)
  - [ProtocolsAgentResponse](docs/ProtocolsAgentResponse.md)
+ - [PublicUserBody](docs/PublicUserBody.md)
  - [PutAnalysisStringsRequest](docs/PutAnalysisStringsRequest.md)
  - [QueuedWorkflowTaskResponse](docs/QueuedWorkflowTaskResponse.md)
  - [RatingOutputBody](docs/RatingOutputBody.md)
@@ -883,16 +927,33 @@ Class | Method | HTTP request | Description
  - [RenameAppliedEvent](docs/RenameAppliedEvent.md)
  - [RenameInputBody](docs/RenameInputBody.md)
  - [RenameOutputBody](docs/RenameOutputBody.md)
+ - [RenameUnnamedFunctionsMetadata](docs/RenameUnnamedFunctionsMetadata.md)
  - [RenameUnnamedFunctionsResult](docs/RenameUnnamedFunctionsResult.md)
  - [RenderedToken](docs/RenderedToken.md)
+ - [ReportAPICombinationEvidence](docs/ReportAPICombinationEvidence.md)
  - [ReportAnalysisBody](docs/ReportAnalysisBody.md)
  - [ReportAnalysisResponse](docs/ReportAnalysisResponse.md)
+ - [ReportBytesConstant](docs/ReportBytesConstant.md)
+ - [ReportCallChain](docs/ReportCallChain.md)
+ - [ReportCodeSummary](docs/ReportCodeSummary.md)
  - [ReportEvent](docs/ReportEvent.md)
+ - [ReportFinding](docs/ReportFinding.md)
+ - [ReportFindingEvidenceInner](docs/ReportFindingEvidenceInner.md)
+ - [ReportFunctionSimilarity](docs/ReportFunctionSimilarity.md)
+ - [ReportImportedAPI](docs/ReportImportedAPI.md)
+ - [ReportImportedAPICall](docs/ReportImportedAPICall.md)
+ - [ReportImportedAPICallEvidence](docs/ReportImportedAPICallEvidence.md)
  - [ReportInfo](docs/ReportInfo.md)
+ - [ReportMeta](docs/ReportMeta.md)
+ - [ReportModelInterpretation](docs/ReportModelInterpretation.md)
  - [ReportOptions](docs/ReportOptions.md)
  - [ReportReachabilityStatus](docs/ReportReachabilityStatus.md)
+ - [ReportReferencedConstant](docs/ReportReferencedConstant.md)
  - [ReportResult](docs/ReportResult.md)
+ - [ReportStringMatch](docs/ReportStringMatch.md)
+ - [ReportSubject](docs/ReportSubject.md)
  - [RequestedConfigBody](docs/RequestedConfigBody.md)
+ - [RequeueAnalysisRequest](docs/RequeueAnalysisRequest.md)
  - [ResendVerificationEmailInputBody](docs/ResendVerificationEmailInputBody.md)
  - [ResolvedEntity](docs/ResolvedEntity.md)
  - [ResultBody](docs/ResultBody.md)
@@ -1026,6 +1087,7 @@ Class | Method | HTTP request | Description
  - [UnionDefinition](docs/UnionDefinition.md)
  - [UnknownDataType](docs/UnknownDataType.md)
  - [UpdateAnalysisDataTypesInputBody](docs/UpdateAnalysisDataTypesInputBody.md)
+ - [UpdateAnalysisGlobalInputBody](docs/UpdateAnalysisGlobalInputBody.md)
  - [UpdateAnalysisInputBody](docs/UpdateAnalysisInputBody.md)
  - [UpdateArrayDataType](docs/UpdateArrayDataType.md)
  - [UpdateBaseDataType](docs/UpdateBaseDataType.md)

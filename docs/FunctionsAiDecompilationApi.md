@@ -31,11 +31,11 @@ All URIs are relative to *https://api.reveng.ai*
 
 <a id="createAiDecompilation"></a>
 # **createAiDecompilation**
-> CreateAIDecompOutputBody createAiDecompilation(functionId, temperature, typeSuggestions, applyTypes)
+> CreateAIDecompOutputBody createAiDecompilation(functionId, temperature, typeSuggestions, naming, applyTypes)
 
 Start AI decompilation
 
-Begins the AI decompilation process for a function. Charges team credits and starts the workflow.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;402&#x60; [&#x60;INSUFFICIENT_CREDITS&#x60;](/errors/INSUFFICIENT_CREDITS) — Insufficient Credits
+Begins the AI decompilation process for a function. Charges team credits and starts the workflow. Replacing an existing completed decompilation requires write access to the analysis; any caller with read access can decompile a function that has no completed result.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;402&#x60; [&#x60;INSUFFICIENT_CREDITS&#x60;](/errors/INSUFFICIENT_CREDITS) — Insufficient Credits
 
 ### Example
 ```java
@@ -66,9 +66,10 @@ public class Example {
     Long functionId = 56L; // Long | Function ID
     Double temperature = -1D; // Double | LLM temperature (0.0-1.0). Overrides the server default when set. Omit or set to -1 to use the server default.
     Boolean typeSuggestions = true; // Boolean | Ask the language model to name the suggested types and their members. Set to false to skip the model call; the statically derived layouts are still computed and stored. Cannot re-enable the pass when the server has it off.
+    Boolean naming = true; // Boolean | Ask the language model to name the placeholder variables. Set to false to skip the model call; the generic names are kept. Cannot re-enable the pass when the server has it off.
     Boolean applyTypes = true; // Boolean | Store the suggested types as data types of this function's analysis, with a source_type of AI_DECOMP. Set to false to leave them as suggestions only. Cannot re-enable the pass when the server has it off.
     try {
-      CreateAIDecompOutputBody result = apiInstance.createAiDecompilation(functionId, temperature, typeSuggestions, applyTypes);
+      CreateAIDecompOutputBody result = apiInstance.createAiDecompilation(functionId, temperature, typeSuggestions, naming, applyTypes);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsAiDecompilationApi#createAiDecompilation");
@@ -88,6 +89,7 @@ public class Example {
 | **functionId** | **Long**| Function ID | |
 | **temperature** | **Double**| LLM temperature (0.0-1.0). Overrides the server default when set. Omit or set to -1 to use the server default. | [optional] [default to -1] |
 | **typeSuggestions** | **Boolean**| Ask the language model to name the suggested types and their members. Set to false to skip the model call; the statically derived layouts are still computed and stored. Cannot re-enable the pass when the server has it off. | [optional] [default to true] |
+| **naming** | **Boolean**| Ask the language model to name the placeholder variables. Set to false to skip the model call; the generic names are kept. Cannot re-enable the pass when the server has it off. | [optional] [default to true] |
 | **applyTypes** | **Boolean**| Store the suggested types as data types of this function&#39;s analysis, with a source_type of AI_DECOMP. Set to false to leave them as suggestions only. Cannot re-enable the pass when the server has it off. | [optional] [default to true] |
 
 ### Return type
@@ -110,6 +112,7 @@ public class Example {
 | **400** | Bad Request |  -  |
 | **402** | Payment Required |  -  |
 | **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
 | **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 | **500** | Internal Server Error |  -  |
@@ -120,7 +123,7 @@ public class Example {
 
 Delete a single inline comment
 
-Removes the comment for the given line number. Requires comments to have been generated first.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+Removes the comment for the given line number. Requires write access to the analysis and comments to have been generated first.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
 
 ### Example
 ```java
@@ -733,7 +736,7 @@ public class Example {
 
 Update a single inline comment
 
-Merges a single line comment into the existing AI-generated inline comments. Requires comments to have been generated first.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+Merges a single line comment into the existing AI-generated inline comments. Requires write access to the analysis and comments to have been generated first.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
 
 ### Example
 ```java
@@ -812,7 +815,7 @@ public class Example {
 
 Regenerate AI decompilation inline comments
 
-Starts a new inline comments generation workflow for the function. Requires an existing decompilation with a summary. Rejected while a decompilation is running: its naming and type-suggestion passes are still changing the identifiers the comments would reference. Poll the inline comments status endpoint, which reports PENDING until then.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict
+Starts a new inline comments generation workflow for the function. Requires write access to the analysis and an existing decompilation with a summary. Rejected while a decompilation is running: its naming and type-suggestion passes are still changing the identifiers the comments would reference. Poll the inline comments status endpoint, which reports PENDING until then.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict
 
 ### Example
 ```java
@@ -891,7 +894,7 @@ public class Example {
 
 Regenerate AI decompilation summary
 
-Starts a new summary generation workflow for the function. Requires an existing decompilation. Rejected while a decompilation is running: its naming and type-suggestion passes are still changing the identifiers a summary would describe. Poll the summary status endpoint, which reports PENDING until then.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict
+Starts a new summary generation workflow for the function. Requires write access to the analysis and an existing decompilation. Rejected while a decompilation is running: its naming and type-suggestion passes are still changing the identifiers a summary would describe. Poll the summary status endpoint, which reports PENDING until then.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict
 
 ### Example
 ```java
@@ -1583,7 +1586,7 @@ public class Example {
 
 Regenerate AI decompilation type suggestions
 
-Starts a new type suggestion workflow for the function, discarding the suggestions already stored. Requires a successful decompilation; it re-runs only the type-naming pass, so it costs no decompilation credit. The regenerated types are stored as data types of the analysis unless &#x60;apply_types&#x3D;false&#x60;; types a previous run stored are not removed. Rejected while a decompilation is running: it runs the same pass itself once its output settles. Poll the type-suggestions status endpoint, which reports PENDING until then, and read the result from the type-suggestions endpoint.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;500&#x60; [&#x60;INTERNAL_ERROR&#x60;](/errors/INTERNAL_ERROR) — Internal Server Error
+Starts a new type suggestion workflow for the function, discarding the suggestions already stored. Requires write access to the analysis and a successful decompilation; it re-runs only the type-naming pass, so it costs no decompilation credit. The regenerated types are stored as data types of the analysis unless &#x60;apply_types&#x3D;false&#x60;; types a previous run stored are not removed. Rejected while a decompilation is running: it runs the same pass itself once its output settles. Poll the type-suggestions status endpoint, which reports PENDING until then, and read the result from the type-suggestions endpoint.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;500&#x60; [&#x60;INTERNAL_ERROR&#x60;](/errors/INTERNAL_ERROR) — Internal Server Error
 
 ### Example
 ```java
@@ -1663,7 +1666,7 @@ public class Example {
 
 Upsert variable/function name overrides
 
-Applies user-provided name overrides to placeholder tokens in the decompilation.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;500&#x60; [&#x60;INTERNAL_ERROR&#x60;](/errors/INTERNAL_ERROR) — Internal Server Error
+Applies user-provided name overrides to placeholder tokens in the decompilation. Requires write access to the analysis.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;500&#x60; [&#x60;INTERNAL_ERROR&#x60;](/errors/INTERNAL_ERROR) — Internal Server Error
 
 ### Example
 ```java

@@ -63,7 +63,7 @@ public class FunctionSimilarity {
 
   public static final String SERIALIZED_NAME_SUBJECT = "subject";
   @SerializedName(SERIALIZED_NAME_SUBJECT)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private Subject subject;
 
   public FunctionSimilarity() {
@@ -109,7 +109,7 @@ public class FunctionSimilarity {
   }
 
 
-  public FunctionSimilarity subject(@javax.annotation.Nonnull Subject subject) {
+  public FunctionSimilarity subject(@javax.annotation.Nullable Subject subject) {
     this.subject = subject;
     return this;
   }
@@ -118,12 +118,12 @@ public class FunctionSimilarity {
    * Get subject
    * @return subject
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public Subject getSubject() {
     return subject;
   }
 
-  public void setSubject(@javax.annotation.Nonnull Subject subject) {
+  public void setSubject(@javax.annotation.Nullable Subject subject) {
     this.subject = subject;
   }
 
@@ -248,8 +248,10 @@ public class FunctionSimilarity {
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
+      if (jsonObj.get("subject") != null && !jsonObj.get("subject").isJsonNull()) {
       // validate the required field `subject`
       Subject.validateJsonElement(jsonObj.get("subject"));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

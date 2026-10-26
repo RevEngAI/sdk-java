@@ -2,17 +2,26 @@
 
 # ReferencedConstantEvidence
 
-Constants and the instructions that reference them.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**evidenceKind** | [**EvidenceKindEnum**](#EvidenceKindEnum) |  |  [optional] |
-|**kind** | [**KindEnum**](#KindEnum) |  |  [optional] |
-|**effect** | **EvidenceEffect** |  |  |
-|**strength** | [**StrengthEnum**](#StrengthEnum) |  |  [optional] |
-|**constants** | [**List&lt;ReferencedConstant&gt;**](ReferencedConstant.md) |  |  |
+|**constants** | **List&lt;ReportReferencedConstant&gt;** | The constants and where they are referenced. |  |
+|**effect** | [**EffectEnum**](#EffectEnum) | Whether the evidence supports or refutes the finding. |  |
+|**evidenceKind** | [**EvidenceKindEnum**](#EvidenceKindEnum) | Kind of evidence. |  |
+|**kind** | [**KindEnum**](#KindEnum) | How the evidence was derived. |  |
+|**strength** | [**StrengthEnum**](#StrengthEnum) | How directly the evidence bears on the finding. |  |
+
+
+
+## Enum: EffectEnum
+
+| Name | Value |
+|---- | -----|
+| SUPPORTS | &quot;supports&quot; |
+| REFUTES | &quot;refutes&quot; |
+| UNKNOWN_DEFAULT_OPEN_API | &quot;unknown_default_open_api&quot; |
 
 
 
