@@ -80,6 +80,11 @@ public class Binary {
   @javax.annotation.Nonnull
   private String detectedBinaryType;
 
+  public static final String SERIALIZED_NAME_DETECTED_LANGUAGE = "detected_language";
+  @SerializedName(SERIALIZED_NAME_DETECTED_LANGUAGE)
+  @javax.annotation.Nonnull
+  private String detectedLanguage;
+
   public static final String SERIALIZED_NAME_IS_SYSTEM_ANALYSIS = "is_system_analysis";
   @SerializedName(SERIALIZED_NAME_IS_SYSTEM_ANALYSIS)
   @javax.annotation.Nonnull
@@ -224,6 +229,25 @@ public class Binary {
 
   public void setDetectedBinaryType(@javax.annotation.Nonnull String detectedBinaryType) {
     this.detectedBinaryType = detectedBinaryType;
+  }
+
+
+  public Binary detectedLanguage(@javax.annotation.Nonnull String detectedLanguage) {
+    this.detectedLanguage = detectedLanguage;
+    return this;
+  }
+
+  /**
+   * Detected source language; empty when unavailable
+   * @return detectedLanguage
+   */
+  @javax.annotation.Nonnull
+  public String getDetectedLanguage() {
+    return detectedLanguage;
+  }
+
+  public void setDetectedLanguage(@javax.annotation.Nonnull String detectedLanguage) {
+    this.detectedLanguage = detectedLanguage;
   }
 
 
@@ -401,6 +425,7 @@ public class Binary {
         Objects.equals(this.createdAt, binary.createdAt) &&
         Objects.equals(this.detectedArchitecture, binary.detectedArchitecture) &&
         Objects.equals(this.detectedBinaryType, binary.detectedBinaryType) &&
+        Objects.equals(this.detectedLanguage, binary.detectedLanguage) &&
         Objects.equals(this.isSystemAnalysis, binary.isSystemAnalysis) &&
         Objects.equals(this.modelName, binary.modelName) &&
         Objects.equals(this.ownerId, binary.ownerId) &&
@@ -412,7 +437,7 @@ public class Binary {
 
   @Override
   public int hashCode() {
-    return Objects.hash(analysisId, binaryId, binaryName, createdAt, detectedArchitecture, detectedBinaryType, isSystemAnalysis, modelName, ownerId, sha256Hash, suppliedArchitecture, suppliedBinaryType, additionalProperties);
+    return Objects.hash(analysisId, binaryId, binaryName, createdAt, detectedArchitecture, detectedBinaryType, detectedLanguage, isSystemAnalysis, modelName, ownerId, sha256Hash, suppliedArchitecture, suppliedBinaryType, additionalProperties);
   }
 
   @Override
@@ -425,6 +450,7 @@ public class Binary {
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    detectedArchitecture: ").append(toIndentedString(detectedArchitecture)).append("\n");
     sb.append("    detectedBinaryType: ").append(toIndentedString(detectedBinaryType)).append("\n");
+    sb.append("    detectedLanguage: ").append(toIndentedString(detectedLanguage)).append("\n");
     sb.append("    isSystemAnalysis: ").append(toIndentedString(isSystemAnalysis)).append("\n");
     sb.append("    modelName: ").append(toIndentedString(modelName)).append("\n");
     sb.append("    ownerId: ").append(toIndentedString(ownerId)).append("\n");
@@ -450,10 +476,10 @@ public class Binary {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("analysis_id", "binary_id", "binary_name", "created_at", "detected_architecture", "detected_binary_type", "is_system_analysis", "model_name", "owner_id", "sha_256_hash", "supplied_architecture", "supplied_binary_type"));
+    openapiFields = new HashSet<String>(Arrays.asList("analysis_id", "binary_id", "binary_name", "created_at", "detected_architecture", "detected_binary_type", "detected_language", "is_system_analysis", "model_name", "owner_id", "sha_256_hash", "supplied_architecture", "supplied_binary_type"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("analysis_id", "binary_id", "binary_name", "created_at", "detected_architecture", "detected_binary_type", "is_system_analysis", "model_name", "owner_id", "sha_256_hash", "supplied_architecture", "supplied_binary_type"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("analysis_id", "binary_id", "binary_name", "created_at", "detected_architecture", "detected_binary_type", "detected_language", "is_system_analysis", "model_name", "owner_id", "sha_256_hash", "supplied_architecture", "supplied_binary_type"));
   }
 
   /**
@@ -484,6 +510,9 @@ public class Binary {
       }
       if (!jsonObj.get("detected_binary_type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `detected_binary_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("detected_binary_type").toString()));
+      }
+      if (!jsonObj.get("detected_language").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `detected_language` to be a primitive type in the JSON string but got `%s`", jsonObj.get("detected_language").toString()));
       }
       if (!jsonObj.get("model_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `model_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("model_name").toString()));

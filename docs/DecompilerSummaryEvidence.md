@@ -2,17 +2,26 @@
 
 # DecompilerSummaryEvidence
 
-Semantic summaries derived from decompiler output.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**evidenceKind** | [**EvidenceKindEnum**](#EvidenceKindEnum) |  |  [optional] |
-|**kind** | [**KindEnum**](#KindEnum) |  |  [optional] |
-|**effect** | **EvidenceEffect** |  |  |
-|**strength** | [**StrengthEnum**](#StrengthEnum) |  |  [optional] |
-|**summaries** | [**List&lt;DecompilerSummary&gt;**](DecompilerSummary.md) |  |  |
+|**effect** | [**EffectEnum**](#EffectEnum) | Whether the evidence supports or refutes the finding. |  |
+|**evidenceKind** | [**EvidenceKindEnum**](#EvidenceKindEnum) | Kind of evidence. |  |
+|**kind** | [**KindEnum**](#KindEnum) | How the evidence was derived. |  |
+|**strength** | [**StrengthEnum**](#StrengthEnum) | How directly the evidence bears on the finding. |  |
+|**summaries** | **List&lt;ReportCodeSummary&gt;** | Summaries of the decompiled code. |  |
+
+
+
+## Enum: EffectEnum
+
+| Name | Value |
+|---- | -----|
+| SUPPORTS | &quot;supports&quot; |
+| REFUTES | &quot;refutes&quot; |
+| UNKNOWN_DEFAULT_OPEN_API | &quot;unknown_default_open_api&quot; |
 
 
 

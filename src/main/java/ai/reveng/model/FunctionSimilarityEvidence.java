@@ -13,8 +13,7 @@
 package ai.reveng.model;
 
 import java.util.Objects;
-import ai.reveng.model.EvidenceEffect;
-import ai.reveng.model.FunctionSimilarity;
+import ai.reveng.model.ReportFunctionSimilarity;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -49,12 +48,71 @@ import java.util.Set;
 import ai.reveng.invoker.JSON;
 
 /**
- * Function-similarity results suggestive of a capability.
+ * FunctionSimilarityEvidence
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FunctionSimilarityEvidence {
   /**
-   * Gets or Sets evidenceKind
+   * Whether the evidence supports or refutes the finding.
+   */
+  @JsonAdapter(EffectEnum.Adapter.class)
+  public enum EffectEnum {
+    SUPPORTS("supports"),
+    
+    REFUTES("refutes"),
+    
+    UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+    private String value;
+
+    EffectEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static EffectEnum fromValue(String value) {
+      for (EffectEnum b : EffectEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return UNKNOWN_DEFAULT_OPEN_API;
+    }
+
+    public static class Adapter extends TypeAdapter<EffectEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final EffectEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public EffectEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return EffectEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      EffectEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_EFFECT = "effect";
+  @SerializedName(SERIALIZED_NAME_EFFECT)
+  @javax.annotation.Nonnull
+  private EffectEnum effect;
+
+  /**
+   * Kind of evidence.
    */
   @JsonAdapter(EvidenceKindEnum.Adapter.class)
   public enum EvidenceKindEnum {
@@ -107,11 +165,11 @@ public class FunctionSimilarityEvidence {
 
   public static final String SERIALIZED_NAME_EVIDENCE_KIND = "evidence_kind";
   @SerializedName(SERIALIZED_NAME_EVIDENCE_KIND)
-  @javax.annotation.Nullable
-  private EvidenceKindEnum evidenceKind = EvidenceKindEnum.FUNCTION_SIMILARITY;
+  @javax.annotation.Nonnull
+  private EvidenceKindEnum evidenceKind;
 
   /**
-   * Gets or Sets kind
+   * How the evidence was derived.
    */
   @JsonAdapter(KindEnum.Adapter.class)
   public enum KindEnum {
@@ -164,16 +222,16 @@ public class FunctionSimilarityEvidence {
 
   public static final String SERIALIZED_NAME_KIND = "kind";
   @SerializedName(SERIALIZED_NAME_KIND)
-  @javax.annotation.Nullable
-  private KindEnum kind = KindEnum.DETERMINISTIC_DERIVATION;
-
-  public static final String SERIALIZED_NAME_EFFECT = "effect";
-  @SerializedName(SERIALIZED_NAME_EFFECT)
   @javax.annotation.Nonnull
-  private EvidenceEffect effect;
+  private KindEnum kind;
+
+  public static final String SERIALIZED_NAME_SIMILARITIES = "similarities";
+  @SerializedName(SERIALIZED_NAME_SIMILARITIES)
+  @javax.annotation.Nonnull
+  private List<ReportFunctionSimilarity> similarities = new ArrayList<>();
 
   /**
-   * Gets or Sets strength
+   * How directly the evidence bears on the finding.
    */
   @JsonAdapter(StrengthEnum.Adapter.class)
   public enum StrengthEnum {
@@ -226,99 +284,75 @@ public class FunctionSimilarityEvidence {
 
   public static final String SERIALIZED_NAME_STRENGTH = "strength";
   @SerializedName(SERIALIZED_NAME_STRENGTH)
-  @javax.annotation.Nullable
-  private StrengthEnum strength = StrengthEnum.INDIRECT;
-
-  public static final String SERIALIZED_NAME_SIMILARITIES = "similarities";
-  @SerializedName(SERIALIZED_NAME_SIMILARITIES)
   @javax.annotation.Nonnull
-  private List<FunctionSimilarity> similarities = new ArrayList<>();
+  private StrengthEnum strength;
 
   public FunctionSimilarityEvidence() {
   }
 
-  public FunctionSimilarityEvidence evidenceKind(@javax.annotation.Nullable EvidenceKindEnum evidenceKind) {
+  public FunctionSimilarityEvidence effect(@javax.annotation.Nonnull EffectEnum effect) {
+    this.effect = effect;
+    return this;
+  }
+
+  /**
+   * Whether the evidence supports or refutes the finding.
+   * @return effect
+   */
+  @javax.annotation.Nonnull
+  public EffectEnum getEffect() {
+    return effect;
+  }
+
+  public void setEffect(@javax.annotation.Nonnull EffectEnum effect) {
+    this.effect = effect;
+  }
+
+
+  public FunctionSimilarityEvidence evidenceKind(@javax.annotation.Nonnull EvidenceKindEnum evidenceKind) {
     this.evidenceKind = evidenceKind;
     return this;
   }
 
   /**
-   * Get evidenceKind
+   * Kind of evidence.
    * @return evidenceKind
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public EvidenceKindEnum getEvidenceKind() {
     return evidenceKind;
   }
 
-  public void setEvidenceKind(@javax.annotation.Nullable EvidenceKindEnum evidenceKind) {
+  public void setEvidenceKind(@javax.annotation.Nonnull EvidenceKindEnum evidenceKind) {
     this.evidenceKind = evidenceKind;
   }
 
 
-  public FunctionSimilarityEvidence kind(@javax.annotation.Nullable KindEnum kind) {
+  public FunctionSimilarityEvidence kind(@javax.annotation.Nonnull KindEnum kind) {
     this.kind = kind;
     return this;
   }
 
   /**
-   * Get kind
+   * How the evidence was derived.
    * @return kind
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public KindEnum getKind() {
     return kind;
   }
 
-  public void setKind(@javax.annotation.Nullable KindEnum kind) {
+  public void setKind(@javax.annotation.Nonnull KindEnum kind) {
     this.kind = kind;
   }
 
 
-  public FunctionSimilarityEvidence effect(@javax.annotation.Nonnull EvidenceEffect effect) {
-    this.effect = effect;
-    return this;
-  }
-
-  /**
-   * Get effect
-   * @return effect
-   */
-  @javax.annotation.Nonnull
-  public EvidenceEffect getEffect() {
-    return effect;
-  }
-
-  public void setEffect(@javax.annotation.Nonnull EvidenceEffect effect) {
-    this.effect = effect;
-  }
-
-
-  public FunctionSimilarityEvidence strength(@javax.annotation.Nullable StrengthEnum strength) {
-    this.strength = strength;
-    return this;
-  }
-
-  /**
-   * Get strength
-   * @return strength
-   */
-  @javax.annotation.Nullable
-  public StrengthEnum getStrength() {
-    return strength;
-  }
-
-  public void setStrength(@javax.annotation.Nullable StrengthEnum strength) {
-    this.strength = strength;
-  }
-
-
-  public FunctionSimilarityEvidence similarities(@javax.annotation.Nonnull List<FunctionSimilarity> similarities) {
+  public FunctionSimilarityEvidence similarities(@javax.annotation.Nonnull List<ReportFunctionSimilarity> similarities) {
     this.similarities = similarities;
     return this;
   }
 
-  public FunctionSimilarityEvidence addSimilaritiesItem(FunctionSimilarity similaritiesItem) {
+  public FunctionSimilarityEvidence addSimilaritiesItem(ReportFunctionSimilarity similaritiesItem) {
     if (this.similarities == null) {
       this.similarities = new ArrayList<>();
     }
@@ -327,16 +361,35 @@ public class FunctionSimilarityEvidence {
   }
 
   /**
-   * Get similarities
+   * The similar functions.
    * @return similarities
    */
   @javax.annotation.Nonnull
-  public List<FunctionSimilarity> getSimilarities() {
+  public List<ReportFunctionSimilarity> getSimilarities() {
     return similarities;
   }
 
-  public void setSimilarities(@javax.annotation.Nonnull List<FunctionSimilarity> similarities) {
+  public void setSimilarities(@javax.annotation.Nonnull List<ReportFunctionSimilarity> similarities) {
     this.similarities = similarities;
+  }
+
+
+  public FunctionSimilarityEvidence strength(@javax.annotation.Nonnull StrengthEnum strength) {
+    this.strength = strength;
+    return this;
+  }
+
+  /**
+   * How directly the evidence bears on the finding.
+   * @return strength
+   */
+  @javax.annotation.Nonnull
+  public StrengthEnum getStrength() {
+    return strength;
+  }
+
+  public void setStrength(@javax.annotation.Nonnull StrengthEnum strength) {
+    this.strength = strength;
   }
 
   /**
@@ -394,28 +447,28 @@ public class FunctionSimilarityEvidence {
       return false;
     }
     FunctionSimilarityEvidence functionSimilarityEvidence = (FunctionSimilarityEvidence) o;
-    return Objects.equals(this.evidenceKind, functionSimilarityEvidence.evidenceKind) &&
+    return Objects.equals(this.effect, functionSimilarityEvidence.effect) &&
+        Objects.equals(this.evidenceKind, functionSimilarityEvidence.evidenceKind) &&
         Objects.equals(this.kind, functionSimilarityEvidence.kind) &&
-        Objects.equals(this.effect, functionSimilarityEvidence.effect) &&
-        Objects.equals(this.strength, functionSimilarityEvidence.strength) &&
-        Objects.equals(this.similarities, functionSimilarityEvidence.similarities)&&
+        Objects.equals(this.similarities, functionSimilarityEvidence.similarities) &&
+        Objects.equals(this.strength, functionSimilarityEvidence.strength)&&
         Objects.equals(this.additionalProperties, functionSimilarityEvidence.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(evidenceKind, kind, effect, strength, similarities, additionalProperties);
+    return Objects.hash(effect, evidenceKind, kind, similarities, strength, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FunctionSimilarityEvidence {\n");
+    sb.append("    effect: ").append(toIndentedString(effect)).append("\n");
     sb.append("    evidenceKind: ").append(toIndentedString(evidenceKind)).append("\n");
     sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
-    sb.append("    effect: ").append(toIndentedString(effect)).append("\n");
-    sb.append("    strength: ").append(toIndentedString(strength)).append("\n");
     sb.append("    similarities: ").append(toIndentedString(similarities)).append("\n");
+    sb.append("    strength: ").append(toIndentedString(strength)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -435,10 +488,10 @@ public class FunctionSimilarityEvidence {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("evidence_kind", "kind", "effect", "strength", "similarities"));
+    openapiFields = new HashSet<String>(Arrays.asList("effect", "evidence_kind", "kind", "similarities", "strength"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("effect", "similarities"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("effect", "evidence_kind", "kind", "similarities", "strength"));
   }
 
   /**
@@ -461,39 +514,32 @@ public class FunctionSimilarityEvidence {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("evidence_kind") != null && !jsonObj.get("evidence_kind").isJsonNull()) && !jsonObj.get("evidence_kind").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `evidence_kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("evidence_kind").toString()));
-      }
-      // validate the optional field `evidence_kind`
-      if (jsonObj.get("evidence_kind") != null && !jsonObj.get("evidence_kind").isJsonNull()) {
-        EvidenceKindEnum.validateJsonElement(jsonObj.get("evidence_kind"));
-      }
-      if ((jsonObj.get("kind") != null && !jsonObj.get("kind").isJsonNull()) && !jsonObj.get("kind").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kind").toString()));
-      }
-      // validate the optional field `kind`
-      if (jsonObj.get("kind") != null && !jsonObj.get("kind").isJsonNull()) {
-        KindEnum.validateJsonElement(jsonObj.get("kind"));
+      if (!jsonObj.get("effect").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `effect` to be a primitive type in the JSON string but got `%s`", jsonObj.get("effect").toString()));
       }
       // validate the required field `effect`
-      EvidenceEffect.validateJsonElement(jsonObj.get("effect"));
-      if ((jsonObj.get("strength") != null && !jsonObj.get("strength").isJsonNull()) && !jsonObj.get("strength").isJsonPrimitive()) {
+      EffectEnum.validateJsonElement(jsonObj.get("effect"));
+      if (!jsonObj.get("evidence_kind").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `evidence_kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("evidence_kind").toString()));
+      }
+      // validate the required field `evidence_kind`
+      EvidenceKindEnum.validateJsonElement(jsonObj.get("evidence_kind"));
+      if (!jsonObj.get("kind").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kind").toString()));
+      }
+      // validate the required field `kind`
+      KindEnum.validateJsonElement(jsonObj.get("kind"));
+      // ensure the required json array is present
+      if (jsonObj.get("similarities") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("similarities").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `similarities` to be an array in the JSON string but got `%s`", jsonObj.get("similarities").toString()));
+      }
+      if (!jsonObj.get("strength").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `strength` to be a primitive type in the JSON string but got `%s`", jsonObj.get("strength").toString()));
       }
-      // validate the optional field `strength`
-      if (jsonObj.get("strength") != null && !jsonObj.get("strength").isJsonNull()) {
-        StrengthEnum.validateJsonElement(jsonObj.get("strength"));
-      }
-      if (jsonObj.get("similarities") != null) {
-        if (!jsonObj.get("similarities").isJsonArray()) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `similarities` to be an array in the JSON string but got `%s`", jsonObj.get("similarities").toString()));
-        }
-        JsonArray jsonArraysimilarities = jsonObj.getAsJsonArray("similarities");
-        // validate the required field `similarities` (array)
-        for (int i = 0; i < jsonArraysimilarities.size(); i++) {
-          FunctionSimilarity.validateJsonElement(jsonArraysimilarities.get(i));
-        }
-      }
+      // validate the required field `strength`
+      StrengthEnum.validateJsonElement(jsonObj.get("strength"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

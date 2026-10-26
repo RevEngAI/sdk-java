@@ -18,6 +18,7 @@
 |**detectedArchitecture** | **String** | Detected instruction-set architecture; empty when unavailable |  |
 |**detectedBinaryFormat** | **String** | Detected binary container format; empty when unavailable |  |
 |**detectedBinaryType** | **String** | Detected operating-system platform; empty when unavailable |  |
+|**detectedLanguage** | **String** | Detected source language; empty when unavailable |  |
 |**functionCount** | **Long** | Number of functions in the binary |  |
 |**isAdvanced** | **Boolean** | True when the analysis was run in advanced mode |  |
 |**isOwner** | **Boolean** | True when the caller is the analysis owner |  |

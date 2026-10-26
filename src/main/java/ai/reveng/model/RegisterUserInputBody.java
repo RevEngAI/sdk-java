@@ -49,6 +49,11 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class RegisterUserInputBody {
+  public static final String SERIALIZED_NAME_CAPTCHA_TOKEN = "captcha_token";
+  @SerializedName(SERIALIZED_NAME_CAPTCHA_TOKEN)
+  @javax.annotation.Nullable
+  private String captchaToken;
+
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
   @javax.annotation.Nonnull
@@ -81,6 +86,25 @@ public class RegisterUserInputBody {
 
   public RegisterUserInputBody() {
   }
+
+  public RegisterUserInputBody captchaToken(@javax.annotation.Nullable String captchaToken) {
+    this.captchaToken = captchaToken;
+    return this;
+  }
+
+  /**
+   * Google reCAPTCHA token. Required when the deployment has reCAPTCHA enabled; ignored otherwise.
+   * @return captchaToken
+   */
+  @javax.annotation.Nullable
+  public String getCaptchaToken() {
+    return captchaToken;
+  }
+
+  public void setCaptchaToken(@javax.annotation.Nullable String captchaToken) {
+    this.captchaToken = captchaToken;
+  }
+
 
   public RegisterUserInputBody email(@javax.annotation.Nonnull String email) {
     this.email = email;
@@ -250,7 +274,8 @@ public class RegisterUserInputBody {
       return false;
     }
     RegisterUserInputBody registerUserInputBody = (RegisterUserInputBody) o;
-    return Objects.equals(this.email, registerUserInputBody.email) &&
+    return Objects.equals(this.captchaToken, registerUserInputBody.captchaToken) &&
+        Objects.equals(this.email, registerUserInputBody.email) &&
         Objects.equals(this.firstName, registerUserInputBody.firstName) &&
         Objects.equals(this.inviteCode, registerUserInputBody.inviteCode) &&
         Objects.equals(this.lastName, registerUserInputBody.lastName) &&
@@ -261,13 +286,14 @@ public class RegisterUserInputBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, firstName, inviteCode, lastName, password, username, additionalProperties);
+    return Objects.hash(captchaToken, email, firstName, inviteCode, lastName, password, username, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RegisterUserInputBody {\n");
+    sb.append("    captchaToken: ").append(toIndentedString(captchaToken)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    inviteCode: ").append(toIndentedString(inviteCode)).append("\n");
@@ -293,7 +319,7 @@ public class RegisterUserInputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("email", "first_name", "invite_code", "last_name", "password", "username"));
+    openapiFields = new HashSet<String>(Arrays.asList("captcha_token", "email", "first_name", "invite_code", "last_name", "password", "username"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("email", "first_name", "last_name", "password", "username"));
@@ -319,6 +345,9 @@ public class RegisterUserInputBody {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("captcha_token") != null && !jsonObj.get("captcha_token").isJsonNull()) && !jsonObj.get("captcha_token").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `captcha_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("captcha_token").toString()));
+      }
       if (!jsonObj.get("email").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
       }
