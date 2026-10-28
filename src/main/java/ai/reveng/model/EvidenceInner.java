@@ -13,20 +13,20 @@
 package ai.reveng.model;
 
 import java.util.Objects;
-import ai.reveng.model.ApiCombinationEvidence;
+import ai.reveng.model.APICombinationEvidence;
 import ai.reveng.model.CallChainEvidence;
 import ai.reveng.model.DecompilerSummaryEvidence;
 import ai.reveng.model.FunctionSimilarityEvidence;
 import ai.reveng.model.HardcodedSecretEvidence;
-import ai.reveng.model.ImportedApi;
-import ai.reveng.model.ImportedApiCall;
-import ai.reveng.model.ImportedApiCallEvidence;
+import ai.reveng.model.ImportedAPICallEvidence;
 import ai.reveng.model.KnownConstantEvidence;
 import ai.reveng.model.ModelInterpretationEvidence;
 import ai.reveng.model.ReferencedConstantEvidence;
 import ai.reveng.model.ReportBytesConstant;
 import ai.reveng.model.ReportCodeSummary;
 import ai.reveng.model.ReportFunctionSimilarity;
+import ai.reveng.model.ReportImportedAPI;
+import ai.reveng.model.ReportImportedAPICall;
 import ai.reveng.model.ReportModelInterpretation;
 import ai.reveng.model.ReportReferencedConstant;
 import ai.reveng.model.ReportStringMatch;
@@ -90,10 +90,10 @@ public class EvidenceInner extends AbstractOpenApiSchema {
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
             final TypeAdapter<CallChainEvidence> adapterCallChainEvidence = gson.getDelegateAdapter(this, TypeToken.get(CallChainEvidence.class));
             final TypeAdapter<ReferencedConstantEvidence> adapterReferencedConstantEvidence = gson.getDelegateAdapter(this, TypeToken.get(ReferencedConstantEvidence.class));
-            final TypeAdapter<ImportedApiCallEvidence> adapterImportedApiCallEvidence = gson.getDelegateAdapter(this, TypeToken.get(ImportedApiCallEvidence.class));
+            final TypeAdapter<ImportedAPICallEvidence> adapterImportedAPICallEvidence = gson.getDelegateAdapter(this, TypeToken.get(ImportedAPICallEvidence.class));
             final TypeAdapter<StringMatchEvidence> adapterStringMatchEvidence = gson.getDelegateAdapter(this, TypeToken.get(StringMatchEvidence.class));
             final TypeAdapter<FunctionSimilarityEvidence> adapterFunctionSimilarityEvidence = gson.getDelegateAdapter(this, TypeToken.get(FunctionSimilarityEvidence.class));
-            final TypeAdapter<ApiCombinationEvidence> adapterApiCombinationEvidence = gson.getDelegateAdapter(this, TypeToken.get(ApiCombinationEvidence.class));
+            final TypeAdapter<APICombinationEvidence> adapterAPICombinationEvidence = gson.getDelegateAdapter(this, TypeToken.get(APICombinationEvidence.class));
             final TypeAdapter<DecompilerSummaryEvidence> adapterDecompilerSummaryEvidence = gson.getDelegateAdapter(this, TypeToken.get(DecompilerSummaryEvidence.class));
             final TypeAdapter<ModelInterpretationEvidence> adapterModelInterpretationEvidence = gson.getDelegateAdapter(this, TypeToken.get(ModelInterpretationEvidence.class));
             final TypeAdapter<KnownConstantEvidence> adapterKnownConstantEvidence = gson.getDelegateAdapter(this, TypeToken.get(KnownConstantEvidence.class));
@@ -119,9 +119,9 @@ public class EvidenceInner extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    // check if the actual instance is of the type `ImportedApiCallEvidence`
-                    if (value.getActualInstance() instanceof ImportedApiCallEvidence) {
-                        JsonElement element = adapterImportedApiCallEvidence.toJsonTree((ImportedApiCallEvidence)value.getActualInstance());
+                    // check if the actual instance is of the type `ImportedAPICallEvidence`
+                    if (value.getActualInstance() instanceof ImportedAPICallEvidence) {
+                        JsonElement element = adapterImportedAPICallEvidence.toJsonTree((ImportedAPICallEvidence)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
@@ -137,9 +137,9 @@ public class EvidenceInner extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    // check if the actual instance is of the type `ApiCombinationEvidence`
-                    if (value.getActualInstance() instanceof ApiCombinationEvidence) {
-                        JsonElement element = adapterApiCombinationEvidence.toJsonTree((ApiCombinationEvidence)value.getActualInstance());
+                    // check if the actual instance is of the type `APICombinationEvidence`
+                    if (value.getActualInstance() instanceof APICombinationEvidence) {
+                        JsonElement element = adapterAPICombinationEvidence.toJsonTree((APICombinationEvidence)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
@@ -167,7 +167,7 @@ public class EvidenceInner extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: ApiCombinationEvidence, CallChainEvidence, DecompilerSummaryEvidence, FunctionSimilarityEvidence, HardcodedSecretEvidence, ImportedApiCallEvidence, KnownConstantEvidence, ModelInterpretationEvidence, ReferencedConstantEvidence, StringMatchEvidence");
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: APICombinationEvidence, CallChainEvidence, DecompilerSummaryEvidence, FunctionSimilarityEvidence, HardcodedSecretEvidence, ImportedAPICallEvidence, KnownConstantEvidence, ModelInterpretationEvidence, ReferencedConstantEvidence, StringMatchEvidence");
                 }
 
                 @Override
@@ -203,17 +203,17 @@ public class EvidenceInner extends AbstractOpenApiSchema {
                         errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ReferencedConstantEvidence failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'ReferencedConstantEvidence'", e);
                     }
-                    // deserialize ImportedApiCallEvidence
+                    // deserialize ImportedAPICallEvidence
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        ImportedApiCallEvidence.validateJsonElement(jsonElement);
-                        actualAdapter = adapterImportedApiCallEvidence;
+                        ImportedAPICallEvidence.validateJsonElement(jsonElement);
+                        actualAdapter = adapterImportedAPICallEvidence;
                         match++;
-                        log.log(Level.FINER, "Input data matches schema 'ImportedApiCallEvidence'");
+                        log.log(Level.FINER, "Input data matches schema 'ImportedAPICallEvidence'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ImportedApiCallEvidence failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'ImportedApiCallEvidence'", e);
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ImportedAPICallEvidence failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'ImportedAPICallEvidence'", e);
                     }
                     // deserialize StringMatchEvidence
                     try {
@@ -239,17 +239,17 @@ public class EvidenceInner extends AbstractOpenApiSchema {
                         errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for FunctionSimilarityEvidence failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'FunctionSimilarityEvidence'", e);
                     }
-                    // deserialize ApiCombinationEvidence
+                    // deserialize APICombinationEvidence
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        ApiCombinationEvidence.validateJsonElement(jsonElement);
-                        actualAdapter = adapterApiCombinationEvidence;
+                        APICombinationEvidence.validateJsonElement(jsonElement);
+                        actualAdapter = adapterAPICombinationEvidence;
                         match++;
-                        log.log(Level.FINER, "Input data matches schema 'ApiCombinationEvidence'");
+                        log.log(Level.FINER, "Input data matches schema 'APICombinationEvidence'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ApiCombinationEvidence failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'ApiCombinationEvidence'", e);
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for APICombinationEvidence failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'APICombinationEvidence'", e);
                     }
                     // deserialize DecompilerSummaryEvidence
                     try {
@@ -327,10 +327,10 @@ public class EvidenceInner extends AbstractOpenApiSchema {
     static {
         schemas.put("CallChainEvidence", CallChainEvidence.class);
         schemas.put("ReferencedConstantEvidence", ReferencedConstantEvidence.class);
-        schemas.put("ImportedApiCallEvidence", ImportedApiCallEvidence.class);
+        schemas.put("ImportedAPICallEvidence", ImportedAPICallEvidence.class);
         schemas.put("StringMatchEvidence", StringMatchEvidence.class);
         schemas.put("FunctionSimilarityEvidence", FunctionSimilarityEvidence.class);
-        schemas.put("ApiCombinationEvidence", ApiCombinationEvidence.class);
+        schemas.put("APICombinationEvidence", APICombinationEvidence.class);
         schemas.put("DecompilerSummaryEvidence", DecompilerSummaryEvidence.class);
         schemas.put("ModelInterpretationEvidence", ModelInterpretationEvidence.class);
         schemas.put("KnownConstantEvidence", KnownConstantEvidence.class);
@@ -345,7 +345,7 @@ public class EvidenceInner extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * ApiCombinationEvidence, CallChainEvidence, DecompilerSummaryEvidence, FunctionSimilarityEvidence, HardcodedSecretEvidence, ImportedApiCallEvidence, KnownConstantEvidence, ModelInterpretationEvidence, ReferencedConstantEvidence, StringMatchEvidence
+     * APICombinationEvidence, CallChainEvidence, DecompilerSummaryEvidence, FunctionSimilarityEvidence, HardcodedSecretEvidence, ImportedAPICallEvidence, KnownConstantEvidence, ModelInterpretationEvidence, ReferencedConstantEvidence, StringMatchEvidence
      *
      * It could be an instance of the 'oneOf' schemas.
      */
@@ -361,7 +361,7 @@ public class EvidenceInner extends AbstractOpenApiSchema {
             return;
         }
 
-        if (instance instanceof ImportedApiCallEvidence) {
+        if (instance instanceof ImportedAPICallEvidence) {
             super.setActualInstance(instance);
             return;
         }
@@ -376,7 +376,7 @@ public class EvidenceInner extends AbstractOpenApiSchema {
             return;
         }
 
-        if (instance instanceof ApiCombinationEvidence) {
+        if (instance instanceof APICombinationEvidence) {
             super.setActualInstance(instance);
             return;
         }
@@ -401,14 +401,14 @@ public class EvidenceInner extends AbstractOpenApiSchema {
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be ApiCombinationEvidence, CallChainEvidence, DecompilerSummaryEvidence, FunctionSimilarityEvidence, HardcodedSecretEvidence, ImportedApiCallEvidence, KnownConstantEvidence, ModelInterpretationEvidence, ReferencedConstantEvidence, StringMatchEvidence");
+        throw new RuntimeException("Invalid instance type. Must be APICombinationEvidence, CallChainEvidence, DecompilerSummaryEvidence, FunctionSimilarityEvidence, HardcodedSecretEvidence, ImportedAPICallEvidence, KnownConstantEvidence, ModelInterpretationEvidence, ReferencedConstantEvidence, StringMatchEvidence");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * ApiCombinationEvidence, CallChainEvidence, DecompilerSummaryEvidence, FunctionSimilarityEvidence, HardcodedSecretEvidence, ImportedApiCallEvidence, KnownConstantEvidence, ModelInterpretationEvidence, ReferencedConstantEvidence, StringMatchEvidence
+     * APICombinationEvidence, CallChainEvidence, DecompilerSummaryEvidence, FunctionSimilarityEvidence, HardcodedSecretEvidence, ImportedAPICallEvidence, KnownConstantEvidence, ModelInterpretationEvidence, ReferencedConstantEvidence, StringMatchEvidence
      *
-     * @return The actual instance (ApiCombinationEvidence, CallChainEvidence, DecompilerSummaryEvidence, FunctionSimilarityEvidence, HardcodedSecretEvidence, ImportedApiCallEvidence, KnownConstantEvidence, ModelInterpretationEvidence, ReferencedConstantEvidence, StringMatchEvidence)
+     * @return The actual instance (APICombinationEvidence, CallChainEvidence, DecompilerSummaryEvidence, FunctionSimilarityEvidence, HardcodedSecretEvidence, ImportedAPICallEvidence, KnownConstantEvidence, ModelInterpretationEvidence, ReferencedConstantEvidence, StringMatchEvidence)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -441,15 +441,15 @@ public class EvidenceInner extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `ImportedApiCallEvidence`. If the actual instance is not `ImportedApiCallEvidence`,
+     * Get the actual instance of `ImportedAPICallEvidence`. If the actual instance is not `ImportedAPICallEvidence`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `ImportedApiCallEvidence`
-     * @throws ClassCastException if the instance is not `ImportedApiCallEvidence`
+     * @return The actual instance of `ImportedAPICallEvidence`
+     * @throws ClassCastException if the instance is not `ImportedAPICallEvidence`
      */
     @SuppressWarnings("unchecked")
-    public ImportedApiCallEvidence getImportedApiCallEvidence() throws ClassCastException {
-        return (ImportedApiCallEvidence)super.getActualInstance();
+    public ImportedAPICallEvidence getImportedAPICallEvidence() throws ClassCastException {
+        return (ImportedAPICallEvidence)super.getActualInstance();
     }
 
     /**
@@ -477,15 +477,15 @@ public class EvidenceInner extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `ApiCombinationEvidence`. If the actual instance is not `ApiCombinationEvidence`,
+     * Get the actual instance of `APICombinationEvidence`. If the actual instance is not `APICombinationEvidence`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `ApiCombinationEvidence`
-     * @throws ClassCastException if the instance is not `ApiCombinationEvidence`
+     * @return The actual instance of `APICombinationEvidence`
+     * @throws ClassCastException if the instance is not `APICombinationEvidence`
      */
     @SuppressWarnings("unchecked")
-    public ApiCombinationEvidence getApiCombinationEvidence() throws ClassCastException {
-        return (ApiCombinationEvidence)super.getActualInstance();
+    public APICombinationEvidence getAPICombinationEvidence() throws ClassCastException {
+        return (APICombinationEvidence)super.getActualInstance();
     }
 
     /**
@@ -562,12 +562,12 @@ public class EvidenceInner extends AbstractOpenApiSchema {
             errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ReferencedConstantEvidence failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with ImportedApiCallEvidence
+        // validate the json string with ImportedAPICallEvidence
         try {
-            ImportedApiCallEvidence.validateJsonElement(jsonElement);
+            ImportedAPICallEvidence.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ImportedApiCallEvidence failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ImportedAPICallEvidence failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         // validate the json string with StringMatchEvidence
@@ -586,12 +586,12 @@ public class EvidenceInner extends AbstractOpenApiSchema {
             errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for FunctionSimilarityEvidence failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with ApiCombinationEvidence
+        // validate the json string with APICombinationEvidence
         try {
-            ApiCombinationEvidence.validateJsonElement(jsonElement);
+            APICombinationEvidence.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ApiCombinationEvidence failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for APICombinationEvidence failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         // validate the json string with DecompilerSummaryEvidence
@@ -627,7 +627,7 @@ public class EvidenceInner extends AbstractOpenApiSchema {
             // continue to the next one
         }
         if (validCount != 1) {
-            throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for EvidenceInner with oneOf schemas: ApiCombinationEvidence, CallChainEvidence, DecompilerSummaryEvidence, FunctionSimilarityEvidence, HardcodedSecretEvidence, ImportedApiCallEvidence, KnownConstantEvidence, ModelInterpretationEvidence, ReferencedConstantEvidence, StringMatchEvidence. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for EvidenceInner with oneOf schemas: APICombinationEvidence, CallChainEvidence, DecompilerSummaryEvidence, FunctionSimilarityEvidence, HardcodedSecretEvidence, ImportedAPICallEvidence, KnownConstantEvidence, ModelInterpretationEvidence, ReferencedConstantEvidence, StringMatchEvidence. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 

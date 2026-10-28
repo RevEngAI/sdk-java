@@ -60,7 +60,7 @@ public class ImportedApiCall {
 
   public static final String SERIALIZED_NAME_SUBJECT = "subject";
   @SerializedName(SERIALIZED_NAME_SUBJECT)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private Subject subject;
 
   public static final String SERIALIZED_NAME_REACHABILITY = "reachability";
@@ -90,7 +90,7 @@ public class ImportedApiCall {
   }
 
 
-  public ImportedApiCall subject(@javax.annotation.Nonnull Subject subject) {
+  public ImportedApiCall subject(@javax.annotation.Nullable Subject subject) {
     this.subject = subject;
     return this;
   }
@@ -99,12 +99,12 @@ public class ImportedApiCall {
    * Get subject
    * @return subject
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public Subject getSubject() {
     return subject;
   }
 
-  public void setSubject(@javax.annotation.Nonnull Subject subject) {
+  public void setSubject(@javax.annotation.Nullable Subject subject) {
     this.subject = subject;
   }
 
@@ -258,8 +258,10 @@ public class ImportedApiCall {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the required field `imported_api`
       ImportedApi.validateJsonElement(jsonObj.get("imported_api"));
+      if (jsonObj.get("subject") != null && !jsonObj.get("subject").isJsonNull()) {
       // validate the required field `subject`
       Subject.validateJsonElement(jsonObj.get("subject"));
+      }
       // validate the optional field `reachability`
       if (jsonObj.get("reachability") != null && !jsonObj.get("reachability").isJsonNull()) {
         CallChain.validateJsonElement(jsonObj.get("reachability"));

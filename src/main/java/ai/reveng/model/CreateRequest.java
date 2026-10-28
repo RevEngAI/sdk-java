@@ -13,9 +13,9 @@
 package ai.reveng.model;
 
 import java.util.Objects;
-import ai.reveng.model.AutoRunAgents;
 import ai.reveng.model.BinaryConfig;
 import ai.reveng.model.Config;
+import ai.reveng.model.RequestedOperation;
 import ai.reveng.model.Symbols;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -122,11 +122,6 @@ public class CreateRequest {
   @javax.annotation.Nullable
   private AnalysisScopeEnum analysisScope = AnalysisScopeEnum.PRIVATE;
 
-  public static final String SERIALIZED_NAME_AUTO_RUN_AGENTS = "auto_run_agents";
-  @SerializedName(SERIALIZED_NAME_AUTO_RUN_AGENTS)
-  @javax.annotation.Nullable
-  private AutoRunAgents autoRunAgents;
-
   public static final String SERIALIZED_NAME_BINARY_CONFIG = "binary_config";
   @SerializedName(SERIALIZED_NAME_BINARY_CONFIG)
   @javax.annotation.Nullable
@@ -141,6 +136,16 @@ public class CreateRequest {
   @SerializedName(SERIALIZED_NAME_FILENAME)
   @javax.annotation.Nonnull
   private String filename;
+
+  public static final String SERIALIZED_NAME_INVESTIGATION_ID = "investigation_id";
+  @SerializedName(SERIALIZED_NAME_INVESTIGATION_ID)
+  @javax.annotation.Nullable
+  private Long investigationId;
+
+  public static final String SERIALIZED_NAME_OPERATIONS = "operations";
+  @SerializedName(SERIALIZED_NAME_OPERATIONS)
+  @javax.annotation.Nullable
+  private List<RequestedOperation> operations = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_SHA256_HASH = "sha_256_hash";
   @SerializedName(SERIALIZED_NAME_SHA256_HASH)
@@ -198,25 +203,6 @@ public class CreateRequest {
   }
 
 
-  public CreateRequest autoRunAgents(@javax.annotation.Nullable AutoRunAgents autoRunAgents) {
-    this.autoRunAgents = autoRunAgents;
-    return this;
-  }
-
-  /**
-   * Get autoRunAgents
-   * @return autoRunAgents
-   */
-  @javax.annotation.Nullable
-  public AutoRunAgents getAutoRunAgents() {
-    return autoRunAgents;
-  }
-
-  public void setAutoRunAgents(@javax.annotation.Nullable AutoRunAgents autoRunAgents) {
-    this.autoRunAgents = autoRunAgents;
-  }
-
-
   public CreateRequest binaryConfig(@javax.annotation.Nullable BinaryConfig binaryConfig) {
     this.binaryConfig = binaryConfig;
     return this;
@@ -271,6 +257,53 @@ public class CreateRequest {
 
   public void setFilename(@javax.annotation.Nonnull String filename) {
     this.filename = filename;
+  }
+
+
+  public CreateRequest investigationId(@javax.annotation.Nullable Long investigationId) {
+    this.investigationId = investigationId;
+    return this;
+  }
+
+  /**
+   * Adds the new analysis to this investigation, which you must own.
+   * minimum: 1
+   * @return investigationId
+   */
+  @javax.annotation.Nullable
+  public Long getInvestigationId() {
+    return investigationId;
+  }
+
+  public void setInvestigationId(@javax.annotation.Nullable Long investigationId) {
+    this.investigationId = investigationId;
+  }
+
+
+  public CreateRequest operations(@javax.annotation.Nullable List<RequestedOperation> operations) {
+    this.operations = operations;
+    return this;
+  }
+
+  public CreateRequest addOperationsItem(RequestedOperation operationsItem) {
+    if (this.operations == null) {
+      this.operations = new ArrayList<>();
+    }
+    this.operations.add(operationsItem);
+    return this;
+  }
+
+  /**
+   * Operations to run automatically once the analysis completes. Each operation&#39;s prerequisites must also be requested.
+   * @return operations
+   */
+  @javax.annotation.Nullable
+  public List<RequestedOperation> getOperations() {
+    return operations;
+  }
+
+  public void setOperations(@javax.annotation.Nullable List<RequestedOperation> operations) {
+    this.operations = operations;
   }
 
 
@@ -395,10 +428,11 @@ public class CreateRequest {
     CreateRequest createRequest = (CreateRequest) o;
     return Objects.equals(this.analysisConfig, createRequest.analysisConfig) &&
         Objects.equals(this.analysisScope, createRequest.analysisScope) &&
-        Objects.equals(this.autoRunAgents, createRequest.autoRunAgents) &&
         Objects.equals(this.binaryConfig, createRequest.binaryConfig) &&
         Objects.equals(this.debugHash, createRequest.debugHash) &&
         Objects.equals(this.filename, createRequest.filename) &&
+        Objects.equals(this.investigationId, createRequest.investigationId) &&
+        Objects.equals(this.operations, createRequest.operations) &&
         Objects.equals(this.sha256Hash, createRequest.sha256Hash) &&
         Objects.equals(this.symbols, createRequest.symbols) &&
         Objects.equals(this.tags, createRequest.tags)&&
@@ -411,7 +445,7 @@ public class CreateRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(analysisConfig, analysisScope, autoRunAgents, binaryConfig, debugHash, filename, sha256Hash, symbols, tags, additionalProperties);
+    return Objects.hash(analysisConfig, analysisScope, binaryConfig, debugHash, filename, investigationId, operations, sha256Hash, symbols, tags, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -427,10 +461,11 @@ public class CreateRequest {
     sb.append("class CreateRequest {\n");
     sb.append("    analysisConfig: ").append(toIndentedString(analysisConfig)).append("\n");
     sb.append("    analysisScope: ").append(toIndentedString(analysisScope)).append("\n");
-    sb.append("    autoRunAgents: ").append(toIndentedString(autoRunAgents)).append("\n");
     sb.append("    binaryConfig: ").append(toIndentedString(binaryConfig)).append("\n");
     sb.append("    debugHash: ").append(toIndentedString(debugHash)).append("\n");
     sb.append("    filename: ").append(toIndentedString(filename)).append("\n");
+    sb.append("    investigationId: ").append(toIndentedString(investigationId)).append("\n");
+    sb.append("    operations: ").append(toIndentedString(operations)).append("\n");
     sb.append("    sha256Hash: ").append(toIndentedString(sha256Hash)).append("\n");
     sb.append("    symbols: ").append(toIndentedString(symbols)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
@@ -453,7 +488,7 @@ public class CreateRequest {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("analysis_config", "analysis_scope", "auto_run_agents", "binary_config", "debug_hash", "filename", "sha_256_hash", "symbols", "tags"));
+    openapiFields = new HashSet<String>(Arrays.asList("analysis_config", "analysis_scope", "binary_config", "debug_hash", "filename", "investigation_id", "operations", "sha_256_hash", "symbols", "tags"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("filename", "sha_256_hash"));
@@ -491,6 +526,10 @@ public class CreateRequest {
       }
       if (!jsonObj.get("filename").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `filename` to be a primitive type in the JSON string but got `%s`", jsonObj.get("filename").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("operations") != null && !jsonObj.get("operations").isJsonNull() && !jsonObj.get("operations").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `operations` to be an array in the JSON string but got `%s`", jsonObj.get("operations").toString()));
       }
       if (!jsonObj.get("sha_256_hash").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sha_256_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sha_256_hash").toString()));

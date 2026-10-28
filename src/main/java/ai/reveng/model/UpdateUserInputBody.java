@@ -59,6 +59,11 @@ public class UpdateUserInputBody {
   @javax.annotation.Nullable
   private String firstName;
 
+  public static final String SERIALIZED_NAME_IS_ACTIVE = "is_active";
+  @SerializedName(SERIALIZED_NAME_IS_ACTIVE)
+  @javax.annotation.Nullable
+  private Boolean isActive;
+
   public static final String SERIALIZED_NAME_LAST_NAME = "last_name";
   @SerializedName(SERIALIZED_NAME_LAST_NAME)
   @javax.annotation.Nullable
@@ -241,6 +246,25 @@ public class UpdateUserInputBody {
   }
 
 
+  public UpdateUserInputBody isActive(@javax.annotation.Nullable Boolean isActive) {
+    this.isActive = isActive;
+    return this;
+  }
+
+  /**
+   * Whether the user can authenticate (SUPERADMIN only)
+   * @return isActive
+   */
+  @javax.annotation.Nullable
+  public Boolean getIsActive() {
+    return isActive;
+  }
+
+  public void setIsActive(@javax.annotation.Nullable Boolean isActive) {
+    this.isActive = isActive;
+  }
+
+
   public UpdateUserInputBody lastName(@javax.annotation.Nullable String lastName) {
     this.lastName = lastName;
     return this;
@@ -392,6 +416,7 @@ public class UpdateUserInputBody {
     UpdateUserInputBody updateUserInputBody = (UpdateUserInputBody) o;
     return Objects.equals(this.email, updateUserInputBody.email) &&
         Objects.equals(this.firstName, updateUserInputBody.firstName) &&
+        Objects.equals(this.isActive, updateUserInputBody.isActive) &&
         Objects.equals(this.lastName, updateUserInputBody.lastName) &&
         Objects.equals(this.role, updateUserInputBody.role) &&
         Objects.equals(this.tier, updateUserInputBody.tier) &&
@@ -402,7 +427,7 @@ public class UpdateUserInputBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, firstName, lastName, role, tier, timeZone, username, additionalProperties);
+    return Objects.hash(email, firstName, isActive, lastName, role, tier, timeZone, username, additionalProperties);
   }
 
   @Override
@@ -411,6 +436,7 @@ public class UpdateUserInputBody {
     sb.append("class UpdateUserInputBody {\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
+    sb.append("    isActive: ").append(toIndentedString(isActive)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");
     sb.append("    tier: ").append(toIndentedString(tier)).append("\n");
@@ -435,7 +461,7 @@ public class UpdateUserInputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("email", "first_name", "last_name", "role", "tier", "time_zone", "username"));
+    openapiFields = new HashSet<String>(Arrays.asList("email", "first_name", "is_active", "last_name", "role", "tier", "time_zone", "username"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);

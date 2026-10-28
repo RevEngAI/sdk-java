@@ -72,7 +72,7 @@ public class OrganisationIssuer {
 
   public static final String SERIALIZED_NAME_JWKS_URI = "jwks_uri";
   @SerializedName(SERIALIZED_NAME_JWKS_URI)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String jwksUri;
 
   public static final String SERIALIZED_NAME_ORGANISATION_ID = "organisation_id";
@@ -169,7 +169,7 @@ public class OrganisationIssuer {
   }
 
 
-  public OrganisationIssuer jwksUri(@javax.annotation.Nullable String jwksUri) {
+  public OrganisationIssuer jwksUri(@javax.annotation.Nonnull String jwksUri) {
     this.jwksUri = jwksUri;
     return this;
   }
@@ -178,12 +178,12 @@ public class OrganisationIssuer {
    * JSON Web Key Set URI discovered from the issuer&#39;s OIDC configuration. Populated automatically during issuer registration.
    * @return jwksUri
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getJwksUri() {
     return jwksUri;
   }
 
-  public void setJwksUri(@javax.annotation.Nullable String jwksUri) {
+  public void setJwksUri(@javax.annotation.Nonnull String jwksUri) {
     this.jwksUri = jwksUri;
   }
 
@@ -349,7 +349,7 @@ public class OrganisationIssuer {
     openapiFields = new HashSet<String>(Arrays.asList("client_id", "created_at", "enabled", "issuer_url", "jwks_uri", "organisation_id", "organisation_issuer_id", "updated_at"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("created_at", "enabled", "issuer_url", "organisation_id", "organisation_issuer_id", "updated_at"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("created_at", "enabled", "issuer_url", "jwks_uri", "organisation_id", "organisation_issuer_id", "updated_at"));
   }
 
   /**
@@ -378,7 +378,7 @@ public class OrganisationIssuer {
       if ((jsonObj.get("issuer_url") != null && !jsonObj.get("issuer_url").isJsonNull()) && !jsonObj.get("issuer_url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `issuer_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuer_url").toString()));
       }
-      if ((jsonObj.get("jwks_uri") != null && !jsonObj.get("jwks_uri").isJsonNull()) && !jsonObj.get("jwks_uri").isJsonPrimitive()) {
+      if (!jsonObj.get("jwks_uri").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `jwks_uri` to be a primitive type in the JSON string but got `%s`", jsonObj.get("jwks_uri").toString()));
       }
   }

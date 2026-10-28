@@ -91,6 +91,7 @@ public class ConversationsApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
@@ -154,7 +155,7 @@ public class ConversationsApi {
 
     /**
      * Cancel an active run
-     * Cancels the currently active agentic run for the given conversation. Returns 404 if no run is in progress.  **Error codes:** - &#x60;400&#x60; [&#x60;INVALID_CONVERSATION_ID&#x60;](/errors/INVALID_CONVERSATION_ID) — Invalid Conversation ID - &#x60;404&#x60; [&#x60;CONVERSATION_NOT_FOUND&#x60;](/errors/CONVERSATION_NOT_FOUND) — Conversation Not Found - &#x60;404&#x60; [&#x60;NO_ACTIVE_RUN&#x60;](/errors/NO_ACTIVE_RUN) — No Active Run
+     * Cancels the currently active agentic run for the given conversation. Returns 404 if no run is in progress.  **Error codes:** - &#x60;400&#x60; [&#x60;INVALID_CONVERSATION_ID&#x60;](/errors/INVALID_CONVERSATION_ID) — Invalid Conversation ID - &#x60;404&#x60; [&#x60;CONVERSATION_NOT_FOUND&#x60;](/errors/CONVERSATION_NOT_FOUND) — Conversation Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NO_ACTIVE_RUN&#x60;](/errors/NO_ACTIVE_RUN) — No Active Run
      * @param id Conversation UUID (required)
      * @return StatusResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -164,6 +165,7 @@ public class ConversationsApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
@@ -176,7 +178,7 @@ public class ConversationsApi {
 
     /**
      * Cancel an active run
-     * Cancels the currently active agentic run for the given conversation. Returns 404 if no run is in progress.  **Error codes:** - &#x60;400&#x60; [&#x60;INVALID_CONVERSATION_ID&#x60;](/errors/INVALID_CONVERSATION_ID) — Invalid Conversation ID - &#x60;404&#x60; [&#x60;CONVERSATION_NOT_FOUND&#x60;](/errors/CONVERSATION_NOT_FOUND) — Conversation Not Found - &#x60;404&#x60; [&#x60;NO_ACTIVE_RUN&#x60;](/errors/NO_ACTIVE_RUN) — No Active Run
+     * Cancels the currently active agentic run for the given conversation. Returns 404 if no run is in progress.  **Error codes:** - &#x60;400&#x60; [&#x60;INVALID_CONVERSATION_ID&#x60;](/errors/INVALID_CONVERSATION_ID) — Invalid Conversation ID - &#x60;404&#x60; [&#x60;CONVERSATION_NOT_FOUND&#x60;](/errors/CONVERSATION_NOT_FOUND) — Conversation Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NO_ACTIVE_RUN&#x60;](/errors/NO_ACTIVE_RUN) — No Active Run
      * @param id Conversation UUID (required)
      * @return ApiResponse&lt;StatusResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -186,6 +188,7 @@ public class ConversationsApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
@@ -199,7 +202,7 @@ public class ConversationsApi {
 
     /**
      * Cancel an active run (asynchronously)
-     * Cancels the currently active agentic run for the given conversation. Returns 404 if no run is in progress.  **Error codes:** - &#x60;400&#x60; [&#x60;INVALID_CONVERSATION_ID&#x60;](/errors/INVALID_CONVERSATION_ID) — Invalid Conversation ID - &#x60;404&#x60; [&#x60;CONVERSATION_NOT_FOUND&#x60;](/errors/CONVERSATION_NOT_FOUND) — Conversation Not Found - &#x60;404&#x60; [&#x60;NO_ACTIVE_RUN&#x60;](/errors/NO_ACTIVE_RUN) — No Active Run
+     * Cancels the currently active agentic run for the given conversation. Returns 404 if no run is in progress.  **Error codes:** - &#x60;400&#x60; [&#x60;INVALID_CONVERSATION_ID&#x60;](/errors/INVALID_CONVERSATION_ID) — Invalid Conversation ID - &#x60;404&#x60; [&#x60;CONVERSATION_NOT_FOUND&#x60;](/errors/CONVERSATION_NOT_FOUND) — Conversation Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NO_ACTIVE_RUN&#x60;](/errors/NO_ACTIVE_RUN) — No Active Run
      * @param id Conversation UUID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -210,6 +213,7 @@ public class ConversationsApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
@@ -235,6 +239,7 @@ public class ConversationsApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
@@ -304,7 +309,7 @@ public class ConversationsApi {
 
     /**
      * Approve or reject a pending tool confirmation
-     * Responds to a pending tool confirmation request. The agent pauses before executing certain tools and emits a &#x60;TOOL_CONFIRMATION_REQUIRED&#x60; event. Use this endpoint to approve or reject the tool call. Returns 404 if no confirmation is pending.  **Error codes:** - &#x60;400&#x60; [&#x60;INVALID_CONVERSATION_ID&#x60;](/errors/INVALID_CONVERSATION_ID) — Invalid Conversation ID - &#x60;404&#x60; [&#x60;CONVERSATION_NOT_FOUND&#x60;](/errors/CONVERSATION_NOT_FOUND) — Conversation Not Found - &#x60;404&#x60; [&#x60;NO_PENDING_CONFIRMATION&#x60;](/errors/NO_PENDING_CONFIRMATION) — No Pending Confirmation
+     * Responds to a pending tool confirmation request. The agent pauses before executing certain tools and emits a &#x60;TOOL_CONFIRMATION_REQUIRED&#x60; event. Use this endpoint to approve or reject the tool call. Returns 404 if no confirmation is pending.  **Error codes:** - &#x60;400&#x60; [&#x60;INVALID_CONVERSATION_ID&#x60;](/errors/INVALID_CONVERSATION_ID) — Invalid Conversation ID - &#x60;404&#x60; [&#x60;CONVERSATION_NOT_FOUND&#x60;](/errors/CONVERSATION_NOT_FOUND) — Conversation Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NO_PENDING_CONFIRMATION&#x60;](/errors/NO_PENDING_CONFIRMATION) — No Pending Confirmation
      * @param id Conversation UUID (required)
      * @param confirmToolInputBody  (required)
      * @return StatusResponse
@@ -315,6 +320,7 @@ public class ConversationsApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
@@ -327,7 +333,7 @@ public class ConversationsApi {
 
     /**
      * Approve or reject a pending tool confirmation
-     * Responds to a pending tool confirmation request. The agent pauses before executing certain tools and emits a &#x60;TOOL_CONFIRMATION_REQUIRED&#x60; event. Use this endpoint to approve or reject the tool call. Returns 404 if no confirmation is pending.  **Error codes:** - &#x60;400&#x60; [&#x60;INVALID_CONVERSATION_ID&#x60;](/errors/INVALID_CONVERSATION_ID) — Invalid Conversation ID - &#x60;404&#x60; [&#x60;CONVERSATION_NOT_FOUND&#x60;](/errors/CONVERSATION_NOT_FOUND) — Conversation Not Found - &#x60;404&#x60; [&#x60;NO_PENDING_CONFIRMATION&#x60;](/errors/NO_PENDING_CONFIRMATION) — No Pending Confirmation
+     * Responds to a pending tool confirmation request. The agent pauses before executing certain tools and emits a &#x60;TOOL_CONFIRMATION_REQUIRED&#x60; event. Use this endpoint to approve or reject the tool call. Returns 404 if no confirmation is pending.  **Error codes:** - &#x60;400&#x60; [&#x60;INVALID_CONVERSATION_ID&#x60;](/errors/INVALID_CONVERSATION_ID) — Invalid Conversation ID - &#x60;404&#x60; [&#x60;CONVERSATION_NOT_FOUND&#x60;](/errors/CONVERSATION_NOT_FOUND) — Conversation Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NO_PENDING_CONFIRMATION&#x60;](/errors/NO_PENDING_CONFIRMATION) — No Pending Confirmation
      * @param id Conversation UUID (required)
      * @param confirmToolInputBody  (required)
      * @return ApiResponse&lt;StatusResponse&gt;
@@ -338,6 +344,7 @@ public class ConversationsApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
@@ -351,7 +358,7 @@ public class ConversationsApi {
 
     /**
      * Approve or reject a pending tool confirmation (asynchronously)
-     * Responds to a pending tool confirmation request. The agent pauses before executing certain tools and emits a &#x60;TOOL_CONFIRMATION_REQUIRED&#x60; event. Use this endpoint to approve or reject the tool call. Returns 404 if no confirmation is pending.  **Error codes:** - &#x60;400&#x60; [&#x60;INVALID_CONVERSATION_ID&#x60;](/errors/INVALID_CONVERSATION_ID) — Invalid Conversation ID - &#x60;404&#x60; [&#x60;CONVERSATION_NOT_FOUND&#x60;](/errors/CONVERSATION_NOT_FOUND) — Conversation Not Found - &#x60;404&#x60; [&#x60;NO_PENDING_CONFIRMATION&#x60;](/errors/NO_PENDING_CONFIRMATION) — No Pending Confirmation
+     * Responds to a pending tool confirmation request. The agent pauses before executing certain tools and emits a &#x60;TOOL_CONFIRMATION_REQUIRED&#x60; event. Use this endpoint to approve or reject the tool call. Returns 404 if no confirmation is pending.  **Error codes:** - &#x60;400&#x60; [&#x60;INVALID_CONVERSATION_ID&#x60;](/errors/INVALID_CONVERSATION_ID) — Invalid Conversation ID - &#x60;404&#x60; [&#x60;CONVERSATION_NOT_FOUND&#x60;](/errors/CONVERSATION_NOT_FOUND) — Conversation Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NO_PENDING_CONFIRMATION&#x60;](/errors/NO_PENDING_CONFIRMATION) — No Pending Confirmation
      * @param id Conversation UUID (required)
      * @param confirmToolInputBody  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -363,6 +370,7 @@ public class ConversationsApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
@@ -863,7 +871,7 @@ public class ConversationsApi {
 
     /**
      * Send a message and start an agentic run
-     * Sends a user message to the conversation and kicks off an agentic processing loop in the background. Returns immediately with 202 Accepted. Subscribe to &#x60;/v2/conversations/{id}/events&#x60; via SSE to receive real-time updates including text deltas, tool calls, and run lifecycle events.  **Error codes:** - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;400&#x60; [&#x60;INVALID_CONVERSATION_ID&#x60;](/errors/INVALID_CONVERSATION_ID) — Invalid Conversation ID - &#x60;404&#x60; [&#x60;CONVERSATION_NOT_FOUND&#x60;](/errors/CONVERSATION_NOT_FOUND) — Conversation Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;402&#x60; [&#x60;INSUFFICIENT_CREDITS&#x60;](/errors/INSUFFICIENT_CREDITS) — Insufficient Credits - &#x60;409&#x60; [&#x60;RUN_ALREADY_ACTIVE&#x60;](/errors/RUN_ALREADY_ACTIVE) — Run Already Active
+     * Sends a user message to the conversation and kicks off an agentic processing loop in the background. Returns immediately with 202 Accepted. Subscribe to &#x60;/v2/conversations/{id}/events&#x60; via SSE to receive real-time updates including text deltas, tool calls, and run lifecycle events.  **Error codes:** - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;400&#x60; [&#x60;INVALID_CONVERSATION_ID&#x60;](/errors/INVALID_CONVERSATION_ID) — Invalid Conversation ID - &#x60;404&#x60; [&#x60;CONVERSATION_NOT_FOUND&#x60;](/errors/CONVERSATION_NOT_FOUND) — Conversation Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;402&#x60; [&#x60;INSUFFICIENT_CREDITS&#x60;](/errors/INSUFFICIENT_CREDITS) — Insufficient Credits - &#x60;402&#x60; [&#x60;INVESTIGATION_BUDGET_SPENT&#x60;](/errors/INVESTIGATION_BUDGET_SPENT) — Investigation Budget Spent - &#x60;409&#x60; [&#x60;RUN_ALREADY_ACTIVE&#x60;](/errors/RUN_ALREADY_ACTIVE) — Run Already Active
      * @param id Conversation UUID (required)
      * @param sendMessageRequest  (required)
      * @return StatusResponse
@@ -889,7 +897,7 @@ public class ConversationsApi {
 
     /**
      * Send a message and start an agentic run
-     * Sends a user message to the conversation and kicks off an agentic processing loop in the background. Returns immediately with 202 Accepted. Subscribe to &#x60;/v2/conversations/{id}/events&#x60; via SSE to receive real-time updates including text deltas, tool calls, and run lifecycle events.  **Error codes:** - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;400&#x60; [&#x60;INVALID_CONVERSATION_ID&#x60;](/errors/INVALID_CONVERSATION_ID) — Invalid Conversation ID - &#x60;404&#x60; [&#x60;CONVERSATION_NOT_FOUND&#x60;](/errors/CONVERSATION_NOT_FOUND) — Conversation Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;402&#x60; [&#x60;INSUFFICIENT_CREDITS&#x60;](/errors/INSUFFICIENT_CREDITS) — Insufficient Credits - &#x60;409&#x60; [&#x60;RUN_ALREADY_ACTIVE&#x60;](/errors/RUN_ALREADY_ACTIVE) — Run Already Active
+     * Sends a user message to the conversation and kicks off an agentic processing loop in the background. Returns immediately with 202 Accepted. Subscribe to &#x60;/v2/conversations/{id}/events&#x60; via SSE to receive real-time updates including text deltas, tool calls, and run lifecycle events.  **Error codes:** - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;400&#x60; [&#x60;INVALID_CONVERSATION_ID&#x60;](/errors/INVALID_CONVERSATION_ID) — Invalid Conversation ID - &#x60;404&#x60; [&#x60;CONVERSATION_NOT_FOUND&#x60;](/errors/CONVERSATION_NOT_FOUND) — Conversation Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;402&#x60; [&#x60;INSUFFICIENT_CREDITS&#x60;](/errors/INSUFFICIENT_CREDITS) — Insufficient Credits - &#x60;402&#x60; [&#x60;INVESTIGATION_BUDGET_SPENT&#x60;](/errors/INVESTIGATION_BUDGET_SPENT) — Investigation Budget Spent - &#x60;409&#x60; [&#x60;RUN_ALREADY_ACTIVE&#x60;](/errors/RUN_ALREADY_ACTIVE) — Run Already Active
      * @param id Conversation UUID (required)
      * @param sendMessageRequest  (required)
      * @return ApiResponse&lt;StatusResponse&gt;
@@ -916,7 +924,7 @@ public class ConversationsApi {
 
     /**
      * Send a message and start an agentic run (asynchronously)
-     * Sends a user message to the conversation and kicks off an agentic processing loop in the background. Returns immediately with 202 Accepted. Subscribe to &#x60;/v2/conversations/{id}/events&#x60; via SSE to receive real-time updates including text deltas, tool calls, and run lifecycle events.  **Error codes:** - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;400&#x60; [&#x60;INVALID_CONVERSATION_ID&#x60;](/errors/INVALID_CONVERSATION_ID) — Invalid Conversation ID - &#x60;404&#x60; [&#x60;CONVERSATION_NOT_FOUND&#x60;](/errors/CONVERSATION_NOT_FOUND) — Conversation Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;402&#x60; [&#x60;INSUFFICIENT_CREDITS&#x60;](/errors/INSUFFICIENT_CREDITS) — Insufficient Credits - &#x60;409&#x60; [&#x60;RUN_ALREADY_ACTIVE&#x60;](/errors/RUN_ALREADY_ACTIVE) — Run Already Active
+     * Sends a user message to the conversation and kicks off an agentic processing loop in the background. Returns immediately with 202 Accepted. Subscribe to &#x60;/v2/conversations/{id}/events&#x60; via SSE to receive real-time updates including text deltas, tool calls, and run lifecycle events.  **Error codes:** - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;400&#x60; [&#x60;INVALID_CONVERSATION_ID&#x60;](/errors/INVALID_CONVERSATION_ID) — Invalid Conversation ID - &#x60;404&#x60; [&#x60;CONVERSATION_NOT_FOUND&#x60;](/errors/CONVERSATION_NOT_FOUND) — Conversation Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;402&#x60; [&#x60;INSUFFICIENT_CREDITS&#x60;](/errors/INSUFFICIENT_CREDITS) — Insufficient Credits - &#x60;402&#x60; [&#x60;INVESTIGATION_BUDGET_SPENT&#x60;](/errors/INVESTIGATION_BUDGET_SPENT) — Investigation Budget Spent - &#x60;409&#x60; [&#x60;RUN_ALREADY_ACTIVE&#x60;](/errors/RUN_ALREADY_ACTIVE) — Run Already Active
      * @param id Conversation UUID (required)
      * @param sendMessageRequest  (required)
      * @param _callback The callback to be executed when the API call finishes

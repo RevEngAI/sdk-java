@@ -9,6 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**email** | **String** | Email address |  [optional] |
 |**firstName** | **String** | First name |  [optional] |
+|**isActive** | **Boolean** | Whether the user can authenticate (SUPERADMIN only) |  [optional] |
 |**lastName** | **String** | Last name |  [optional] |
 |**role** | [**RoleEnum**](#RoleEnum) | User role (SUPERADMIN only) |  [optional] |
 |**tier** | [**TierEnum**](#TierEnum) | User tier (SUPERADMIN only) |  [optional] |

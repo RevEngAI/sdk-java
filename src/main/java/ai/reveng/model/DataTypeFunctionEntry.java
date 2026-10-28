@@ -19,7 +19,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -59,6 +61,67 @@ public class DataTypeFunctionEntry {
   @javax.annotation.Nonnull
   private String functionName;
 
+  /**
+   * Gets or Sets usageKinds
+   */
+  @JsonAdapter(UsageKindsEnum.Adapter.class)
+  public enum UsageKindsEnum {
+    SIGNATURE("signature"),
+    
+    INLINE("inline"),
+    
+    MEMBER("member"),
+    
+    UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+    private String value;
+
+    UsageKindsEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static UsageKindsEnum fromValue(String value) {
+      for (UsageKindsEnum b : UsageKindsEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return UNKNOWN_DEFAULT_OPEN_API;
+    }
+
+    public static class Adapter extends TypeAdapter<UsageKindsEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final UsageKindsEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public UsageKindsEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return UsageKindsEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      UsageKindsEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_USAGE_KINDS = "usage_kinds";
+  @SerializedName(SERIALIZED_NAME_USAGE_KINDS)
+  @javax.annotation.Nonnull
+  private List<UsageKindsEnum> usageKinds = new ArrayList<>();
+
   public DataTypeFunctionEntry() {
   }
 
@@ -97,6 +160,33 @@ public class DataTypeFunctionEntry {
 
   public void setFunctionName(@javax.annotation.Nonnull String functionName) {
     this.functionName = functionName;
+  }
+
+
+  public DataTypeFunctionEntry usageKinds(@javax.annotation.Nonnull List<UsageKindsEnum> usageKinds) {
+    this.usageKinds = usageKinds;
+    return this;
+  }
+
+  public DataTypeFunctionEntry addUsageKindsItem(UsageKindsEnum usageKindsItem) {
+    if (this.usageKinds == null) {
+      this.usageKinds = new ArrayList<>();
+    }
+    this.usageKinds.add(usageKindsItem);
+    return this;
+  }
+
+  /**
+   * How the function uses the type, each listed once, in alphabetical order: signature (its return type or a parameter type), inline (its AI decompilation names the type in its code), member (its AI decompilation reads a struct or union member of this type, or it references a global variable of this type).
+   * @return usageKinds
+   */
+  @javax.annotation.Nonnull
+  public List<UsageKindsEnum> getUsageKinds() {
+    return usageKinds;
+  }
+
+  public void setUsageKinds(@javax.annotation.Nonnull List<UsageKindsEnum> usageKinds) {
+    this.usageKinds = usageKinds;
   }
 
   /**
@@ -155,13 +245,14 @@ public class DataTypeFunctionEntry {
     }
     DataTypeFunctionEntry dataTypeFunctionEntry = (DataTypeFunctionEntry) o;
     return Objects.equals(this.functionId, dataTypeFunctionEntry.functionId) &&
-        Objects.equals(this.functionName, dataTypeFunctionEntry.functionName)&&
+        Objects.equals(this.functionName, dataTypeFunctionEntry.functionName) &&
+        Objects.equals(this.usageKinds, dataTypeFunctionEntry.usageKinds)&&
         Objects.equals(this.additionalProperties, dataTypeFunctionEntry.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(functionId, functionName, additionalProperties);
+    return Objects.hash(functionId, functionName, usageKinds, additionalProperties);
   }
 
   @Override
@@ -170,6 +261,7 @@ public class DataTypeFunctionEntry {
     sb.append("class DataTypeFunctionEntry {\n");
     sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
     sb.append("    functionName: ").append(toIndentedString(functionName)).append("\n");
+    sb.append("    usageKinds: ").append(toIndentedString(usageKinds)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -189,10 +281,10 @@ public class DataTypeFunctionEntry {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("function_id", "function_name"));
+    openapiFields = new HashSet<String>(Arrays.asList("function_id", "function_name", "usage_kinds"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("function_id", "function_name"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("function_id", "function_name", "usage_kinds"));
   }
 
   /**
@@ -217,6 +309,12 @@ public class DataTypeFunctionEntry {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("function_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `function_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("function_name").toString()));
+      }
+      // ensure the required json array is present
+      if (jsonObj.get("usage_kinds") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("usage_kinds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `usage_kinds` to be an array in the JSON string but got `%s`", jsonObj.get("usage_kinds").toString()));
       }
   }
 

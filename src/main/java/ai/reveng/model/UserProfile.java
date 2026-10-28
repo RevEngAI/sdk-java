@@ -59,6 +59,11 @@ public class UserProfile {
   @javax.annotation.Nonnull
   private String firstName;
 
+  public static final String SERIALIZED_NAME_HIDE_AI_DECOMPILATION_COMMENTS = "hide_ai_decompilation_comments";
+  @SerializedName(SERIALIZED_NAME_HIDE_AI_DECOMPILATION_COMMENTS)
+  @javax.annotation.Nonnull
+  private Boolean hideAiDecompilationComments;
+
   public static final String SERIALIZED_NAME_HIDE_EXAMPLE_BINARIES = "hide_example_binaries";
   @SerializedName(SERIALIZED_NAME_HIDE_EXAMPLE_BINARIES)
   @javax.annotation.Nonnull
@@ -117,6 +122,25 @@ public class UserProfile {
 
   public void setFirstName(@javax.annotation.Nonnull String firstName) {
     this.firstName = firstName;
+  }
+
+
+  public UserProfile hideAiDecompilationComments(@javax.annotation.Nonnull Boolean hideAiDecompilationComments) {
+    this.hideAiDecompilationComments = hideAiDecompilationComments;
+    return this;
+  }
+
+  /**
+   * Get hideAiDecompilationComments
+   * @return hideAiDecompilationComments
+   */
+  @javax.annotation.Nonnull
+  public Boolean getHideAiDecompilationComments() {
+    return hideAiDecompilationComments;
+  }
+
+  public void setHideAiDecompilationComments(@javax.annotation.Nonnull Boolean hideAiDecompilationComments) {
+    this.hideAiDecompilationComments = hideAiDecompilationComments;
   }
 
 
@@ -252,6 +276,7 @@ public class UserProfile {
     UserProfile userProfile = (UserProfile) o;
     return Objects.equals(this.defaultTeamId, userProfile.defaultTeamId) &&
         Objects.equals(this.firstName, userProfile.firstName) &&
+        Objects.equals(this.hideAiDecompilationComments, userProfile.hideAiDecompilationComments) &&
         Objects.equals(this.hideExampleBinaries, userProfile.hideExampleBinaries) &&
         Objects.equals(this.lastName, userProfile.lastName) &&
         Objects.equals(this.timeZone, userProfile.timeZone) &&
@@ -261,7 +286,7 @@ public class UserProfile {
 
   @Override
   public int hashCode() {
-    return Objects.hash(defaultTeamId, firstName, hideExampleBinaries, lastName, timeZone, username, additionalProperties);
+    return Objects.hash(defaultTeamId, firstName, hideAiDecompilationComments, hideExampleBinaries, lastName, timeZone, username, additionalProperties);
   }
 
   @Override
@@ -270,6 +295,7 @@ public class UserProfile {
     sb.append("class UserProfile {\n");
     sb.append("    defaultTeamId: ").append(toIndentedString(defaultTeamId)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
+    sb.append("    hideAiDecompilationComments: ").append(toIndentedString(hideAiDecompilationComments)).append("\n");
     sb.append("    hideExampleBinaries: ").append(toIndentedString(hideExampleBinaries)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
     sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
@@ -293,10 +319,10 @@ public class UserProfile {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("default_team_id", "first_name", "hide_example_binaries", "last_name", "time_zone", "username"));
+    openapiFields = new HashSet<String>(Arrays.asList("default_team_id", "first_name", "hide_ai_decompilation_comments", "hide_example_binaries", "last_name", "time_zone", "username"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("first_name", "hide_example_binaries", "last_name", "time_zone", "username"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("first_name", "hide_ai_decompilation_comments", "hide_example_binaries", "last_name", "time_zone", "username"));
   }
 
   /**

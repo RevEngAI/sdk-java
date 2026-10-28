@@ -16,8 +16,6 @@ All URIs are relative to *https://api.reveng.ai*
 | [**getAnalysisLogs**](AnalysesCoreApi.md#getAnalysisLogs) | **GET** /v2/analyses/{analysis_id}/logs | Gets the logs of an analysis |
 | [**getAnalysisParams**](AnalysesCoreApi.md#getAnalysisParams) | **GET** /v2/analyses/{analysis_id}/params | Gets analysis param information |
 | [**getAnalysisStatus**](AnalysesCoreApi.md#getAnalysisStatus) | **GET** /v2/analyses/{analysis_id}/status | Gets the status of an analysis |
-| [**getDynamicExecutionReport**](AnalysesCoreApi.md#getDynamicExecutionReport) | **GET** /v2/analyses/{analysis_id}/dynamic-execution/report | Get dynamic execution report |
-| [**getDynamicExecutionStatus**](AnalysesCoreApi.md#getDynamicExecutionStatus) | **GET** /v2/analyses/{analysis_id}/dynamic-execution/status | Get dynamic execution status |
 | [**insertAnalysisLog**](AnalysesCoreApi.md#insertAnalysisLog) | **POST** /v2/analyses/{analysis_id}/logs | Insert a log entry for an analysis |
 | [**listAnalyses**](AnalysesCoreApi.md#listAnalyses) | **GET** /v2/analyses/list | Gets the most recent analyses |
 | [**lookupBinaryId**](AnalysesCoreApi.md#lookupBinaryId) | **GET** /v2/analyses/lookup/{binary_id} | Gets the analysis ID from binary ID |
@@ -27,6 +25,7 @@ All URIs are relative to *https://api.reveng.ai*
 | [**updateAnalysis**](AnalysesCoreApi.md#updateAnalysis) | **PATCH** /v2/analyses/{analysis_id} | Update Analysis |
 | [**updateAnalysisTags**](AnalysesCoreApi.md#updateAnalysisTags) | **PATCH** /v2/analyses/{analysis_id}/tags | Update Analysis Tags |
 | [**uploadFile**](AnalysesCoreApi.md#uploadFile) | **POST** /v2/upload | Upload File |
+| [**v3CreateAnalysis**](AnalysesCoreApi.md#v3CreateAnalysis) | **POST** /v3/analyses | Create an analysis |
 | [**v3DeleteAnalysis**](AnalysesCoreApi.md#v3DeleteAnalysis) | **DELETE** /v3/analyses/{analysis_id} | Delete an analysis. |
 | [**v3DownloadBinaryExport**](AnalysesCoreApi.md#v3DownloadBinaryExport) | **GET** /v3/analyses/{analysis_id}/binary-export | Download a binary export |
 | [**v3GetAnalysis**](AnalysesCoreApi.md#v3GetAnalysis) | **GET** /v3/analyses/{analysis_id} | Get an analysis. |
@@ -49,7 +48,9 @@ All URIs are relative to *https://api.reveng.ai*
 | [**v3GetDynamicExecutionSummary**](AnalysesCoreApi.md#v3GetDynamicExecutionSummary) | **GET** /v3/analyses/{analysis_id}/dynamic-execution/summary | Get the dynamic execution summary. |
 | [**v3GetDynamicExecutionSummaryOperation**](AnalysesCoreApi.md#v3GetDynamicExecutionSummaryOperation) | **GET** /v3/operations/dynamic-execution-summary/{analysis_id} | Get a dynamic execution summary operation. |
 | [**v3GetDynamicExecutionWiresharkKeys**](AnalysesCoreApi.md#v3GetDynamicExecutionWiresharkKeys) | **GET** /v3/analyses/{analysis_id}/dynamic-execution/wireshark-keys | Download Wireshark TLS session keys. |
+| [**v3GrantAnalysisAccess**](AnalysesCoreApi.md#v3GrantAnalysisAccess) | **POST** /v3/analyses/{analysis_id}/access-rules | Share an analysis with a user or team |
 | [**v3ListAnalyses**](AnalysesCoreApi.md#v3ListAnalyses) | **GET** /v3/analyses | List analyses |
+| [**v3ListAnalysisAccessRules**](AnalysesCoreApi.md#v3ListAnalysisAccessRules) | **GET** /v3/analyses/{analysis_id}/access-rules | List who an analysis is shared with |
 | [**v3ListAnalysisGlobals**](AnalysesCoreApi.md#v3ListAnalysisGlobals) | **GET** /v3/analyses/{analysis_id}/globals | List the global variables in an analysis. |
 | [**v3ListAnalysisOperations**](AnalysesCoreApi.md#v3ListAnalysisOperations) | **GET** /v3/analyses/{analysis_id}/operations | List the operations run on an analysis. |
 | [**v3ListDynamicExecutionScreenshots**](AnalysesCoreApi.md#v3ListDynamicExecutionScreenshots) | **GET** /v3/analyses/{analysis_id}/dynamic-execution/screenshots | List the screenshots captured during execution. |
@@ -58,6 +59,7 @@ All URIs are relative to *https://api.reveng.ai*
 | [**v3LookupAnalysisByBinaryId**](AnalysesCoreApi.md#v3LookupAnalysisByBinaryId) | **GET** /v3/analyses/lookup/{binary_id} | Look up the most recent analysis for a binary. |
 | [**v3QueueBinaryExport**](AnalysesCoreApi.md#v3QueueBinaryExport) | **POST** /v3/analyses/{analysis_id}/binary-export | Queue a binary export |
 | [**v3RequeueAnalysis**](AnalysesCoreApi.md#v3RequeueAnalysis) | **POST** /v3/analyses/{analysis_id}/requeue | Requeue an analysis |
+| [**v3RevokeAnalysisAccess**](AnalysesCoreApi.md#v3RevokeAnalysisAccess) | **DELETE** /v3/analyses/{analysis_id}/access-rules | Stop sharing an analysis with a user or team |
 | [**v3RunDynamicExecution**](AnalysesCoreApi.md#v3RunDynamicExecution) | **POST** /v3/analyses/{analysis_id}/dynamic-execution:run | Trigger a dynamic execution run. |
 | [**v3RunDynamicExecutionSummary**](AnalysesCoreApi.md#v3RunDynamicExecutionSummary) | **POST** /v3/analyses/{analysis_id}/dynamic-execution/summary:run | Regenerate the dynamic execution summary. |
 | [**v3SearchTags**](AnalysesCoreApi.md#v3SearchTags) | **GET** /v3/tags | Search tags |
@@ -986,159 +988,6 @@ public class Example {
 | **200** | Successful Response |  -  |
 | **422** | Invalid request parameters |  -  |
 
-<a id="getDynamicExecutionReport"></a>
-# **getDynamicExecutionReport**
-> AnalysisReport getDynamicExecutionReport(analysisId)
-
-Get dynamic execution report
-
-Returns the dynamic execution report JSON for the analysis. Requires the task to be in COMPLETED status.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
-
-### Example
-```java
-// Import classes:
-import ai.reveng.invoker.ApiClient;
-import ai.reveng.invoker.ApiException;
-import ai.reveng.invoker.Configuration;
-import ai.reveng.invoker.auth.*;
-import ai.reveng.invoker.models.*;
-import ai.reveng.api.AnalysesCoreApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.reveng.ai");
-    
-    // Configure API key authorization: APIKey
-    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
-    APIKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //APIKey.setApiKeyPrefix("Token");
-
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
-
-    AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
-    Long analysisId = 56L; // Long | Analysis ID
-    try {
-      AnalysisReport result = apiInstance.getDynamicExecutionReport(analysisId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling AnalysesCoreApi#getDynamicExecutionReport");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **analysisId** | **Long**| Analysis ID | |
-
-### Return type
-
-[**AnalysisReport**](AnalysisReport.md)
-
-### Authorization
-
-[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **403** | Forbidden |  -  |
-| **409** | Conflict |  -  |
-| **422** | Unprocessable Entity |  -  |
-| **500** | Internal Server Error |  -  |
-
-<a id="getDynamicExecutionStatus"></a>
-# **getDynamicExecutionStatus**
-> DynamicExecutionStatusResponse getDynamicExecutionStatus(analysisId)
-
-Get dynamic execution status
-
-Returns the status of the most recent dynamic execution task for the analysis. Returns UNINITIALISED if no task has been started.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
-
-### Example
-```java
-// Import classes:
-import ai.reveng.invoker.ApiClient;
-import ai.reveng.invoker.ApiException;
-import ai.reveng.invoker.Configuration;
-import ai.reveng.invoker.auth.*;
-import ai.reveng.invoker.models.*;
-import ai.reveng.api.AnalysesCoreApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.reveng.ai");
-    
-    // Configure API key authorization: APIKey
-    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
-    APIKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //APIKey.setApiKeyPrefix("Token");
-
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
-
-    AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
-    Long analysisId = 56L; // Long | Analysis ID
-    try {
-      DynamicExecutionStatusResponse result = apiInstance.getDynamicExecutionStatus(analysisId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling AnalysesCoreApi#getDynamicExecutionStatus");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **analysisId** | **Long**| Analysis ID | |
-
-### Return type
-
-[**DynamicExecutionStatusResponse**](DynamicExecutionStatusResponse.md)
-
-### Authorization
-
-[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **403** | Forbidden |  -  |
-| **422** | Unprocessable Entity |  -  |
-| **500** | Internal Server Error |  -  |
-
 <a id="insertAnalysisLog"></a>
 # **insertAnalysisLog**
 > BaseResponse insertAnalysisLog(analysisId, insertAnalysisLogRequest)
@@ -1848,6 +1697,89 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Successful Response |  -  |
 | **422** | Invalid request parameters |  -  |
+
+<a id="v3CreateAnalysis"></a>
+# **v3CreateAnalysis**
+> OperationCreateMetadataCreateResult v3CreateAnalysis(createRequest, xRevEngApplication)
+
+Create an analysis
+
+Queues a new Analysis for an uploaded Binary and returns the created Operation.  **Error codes:** - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;402&#x60; [&#x60;INSUFFICIENT_CREDITS&#x60;](/errors/INSUFFICIENT_CREDITS) — Insufficient Credits - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;413&#x60; [&#x60;REQUEST_ENTITY_TOO_LARGE&#x60;](/errors/REQUEST_ENTITY_TOO_LARGE) — Request Entity Too Large
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.AnalysesCoreApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
+    CreateRequest createRequest = new CreateRequest(); // CreateRequest | 
+    String xRevEngApplication = "xRevEngApplication_example"; // String | Identifies the calling RevEng application. Recorded on the Analysis log.
+    try {
+      OperationCreateMetadataCreateResult result = apiInstance.v3CreateAnalysis(createRequest, xRevEngApplication);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AnalysesCoreApi#v3CreateAnalysis");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createRequest** | [**CreateRequest**](CreateRequest.md)|  | |
+| **xRevEngApplication** | **String**| Identifies the calling RevEng application. Recorded on the Analysis log. | [optional] |
+
+### Return type
+
+[**OperationCreateMetadataCreateResult**](OperationCreateMetadataCreateResult.md)
+
+### Authorization
+
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Created |  -  |
+| **400** | Bad Request |  -  |
+| **402** | Payment Required |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **413** | Request Entity Too Large |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **500** | Internal Server Error |  -  |
 
 <a id="v3DeleteAnalysis"></a>
 # **v3DeleteAnalysis**
@@ -3573,6 +3505,85 @@ null (empty response body)
 | **422** | Unprocessable Entity |  -  |
 | **500** | Internal Server Error |  -  |
 
+<a id="v3GrantAnalysisAccess"></a>
+# **v3GrantAnalysisAccess**
+> v3GrantAnalysisAccess(analysisId, grantAccessInputBody)
+
+Share an analysis with a user or team
+
+Grants a user or a team access to the analysis. Sharing with a principal that already has a rule replaces its permission. The user or team must be one the caller can find through &#x60;GET /v3/principals&#x60;. Requires edit access to the analysis.  **Error codes:** - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.AnalysesCoreApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
+    Long analysisId = 56L; // Long | Analysis ID
+    GrantAccessInputBody grantAccessInputBody = new GrantAccessInputBody(); // GrantAccessInputBody | 
+    try {
+      apiInstance.v3GrantAnalysisAccess(analysisId, grantAccessInputBody);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AnalysesCoreApi#v3GrantAnalysisAccess");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **analysisId** | **Long**| Analysis ID | |
+| **grantAccessInputBody** | [**GrantAccessInputBody**](GrantAccessInputBody.md)|  | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **500** | Internal Server Error |  -  |
+
 <a id="v3ListAnalyses"></a>
 # **v3ListAnalyses**
 > ListAnalysesOutputBody v3ListAnalyses(searchTerm, analysisScope, status, modelName, usernames, sha256Hash, binaryId, platform, architecture, pageSize, nextPageToken, orderBy, order)
@@ -3608,7 +3619,7 @@ public class Example {
 
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
     String searchTerm = "searchTerm_example"; // String | 
-    List<String> analysisScope = Arrays.asList(); // List<String> | Leave empty to search your own, your team's and all public analyses
+    List<String> analysisScope = Arrays.asList(); // List<String> | Leave empty to search your own, your team's, all public analyses and those shared with you. SHARED_WITH_ME restricts to analyses another user or team gave you access to
     List<String> status = Arrays.asList(); // List<String> | 
     List<String> modelName = Arrays.asList(); // List<String> | 
     List<String> usernames = Arrays.asList(); // List<String> | 
@@ -3639,7 +3650,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **searchTerm** | **String**|  | [optional] |
-| **analysisScope** | [**List&lt;String&gt;**](String.md)| Leave empty to search your own, your team&#39;s and all public analyses | [optional] [enum: PRIVATE, PUBLIC, TEAM] |
+| **analysisScope** | [**List&lt;String&gt;**](String.md)| Leave empty to search your own, your team&#39;s, all public analyses and those shared with you. SHARED_WITH_ME restricts to analyses another user or team gave you access to | [optional] [enum: PRIVATE, PUBLIC, TEAM, SHARED_WITH_ME] |
 | **status** | [**List&lt;String&gt;**](String.md)|  | [optional] [enum: Uploaded, Queued, Complete, Error, Processing] |
 | **modelName** | [**List&lt;String&gt;**](String.md)|  | [optional] |
 | **usernames** | [**List&lt;String&gt;**](String.md)|  | [optional] |
@@ -3670,6 +3681,82 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **500** | Internal Server Error |  -  |
+
+<a id="v3ListAnalysisAccessRules"></a>
+# **v3ListAnalysisAccessRules**
+> ListAccessRulesOutputBody v3ListAnalysisAccessRules(analysisId)
+
+List who an analysis is shared with
+
+Returns the users and teams the analysis has been shared with and the permission each one holds. Requires read access to the analysis.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.AnalysesCoreApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
+    Long analysisId = 56L; // Long | Analysis ID
+    try {
+      ListAccessRulesOutputBody result = apiInstance.v3ListAnalysisAccessRules(analysisId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AnalysesCoreApi#v3ListAnalysisAccessRules");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **analysisId** | **Long**| Analysis ID | |
+
+### Return type
+
+[**ListAccessRulesOutputBody**](ListAccessRulesOutputBody.md)
+
+### Authorization
+
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **404** | Not Found |  -  |
 | **422** | Unprocessable Entity |  -  |
 | **500** | Internal Server Error |  -  |
 
@@ -4304,6 +4391,87 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **500** | Internal Server Error |  -  |
+
+<a id="v3RevokeAnalysisAccess"></a>
+# **v3RevokeAnalysisAccess**
+> v3RevokeAnalysisAccess(analysisId, userId, teamId)
+
+Stop sharing an analysis with a user or team
+
+Removes the access rule of one user or one team, identified by the &#x60;user_id&#x60; or &#x60;team_id&#x60; query parameter. Removing a rule that does not exist succeeds. Requires edit access to the analysis.  **Error codes:** - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.AnalysesCoreApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
+    Long analysisId = 56L; // Long | Analysis ID
+    Long userId = 56L; // Long | The user to stop sharing with. Exactly one of user_id and team_id is required
+    Long teamId = 56L; // Long | The team to stop sharing with. Exactly one of user_id and team_id is required
+    try {
+      apiInstance.v3RevokeAnalysisAccess(analysisId, userId, teamId);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AnalysesCoreApi#v3RevokeAnalysisAccess");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **analysisId** | **Long**| Analysis ID | |
+| **userId** | **Long**| The user to stop sharing with. Exactly one of user_id and team_id is required | [optional] |
+| **teamId** | **Long**| The team to stop sharing with. Exactly one of user_id and team_id is required | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+| **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 | **422** | Unprocessable Entity |  -  |

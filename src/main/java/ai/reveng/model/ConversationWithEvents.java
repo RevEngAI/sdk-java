@@ -13,6 +13,7 @@
 package ai.reveng.model;
 
 import java.util.Objects;
+import ai.reveng.model.ConversationContext;
 import ai.reveng.model.Event;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -24,7 +25,6 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -57,7 +57,7 @@ public class ConversationWithEvents {
   public static final String SERIALIZED_NAME_CONTEXT = "context";
   @SerializedName(SERIALIZED_NAME_CONTEXT)
   @javax.annotation.Nullable
-  private Object context = null;
+  private ConversationContext context;
 
   public static final String SERIALIZED_NAME_CONVERSATION_UUID = "conversation_uuid";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_UUID)
@@ -73,6 +73,11 @@ public class ConversationWithEvents {
   @SerializedName(SERIALIZED_NAME_EVENTS)
   @javax.annotation.Nullable
   private List<Event> events;
+
+  public static final String SERIALIZED_NAME_INVESTIGATION_ID = "investigation_id";
+  @SerializedName(SERIALIZED_NAME_INVESTIGATION_ID)
+  @javax.annotation.Nullable
+  private Long investigationId;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
@@ -92,21 +97,21 @@ public class ConversationWithEvents {
   public ConversationWithEvents() {
   }
 
-  public ConversationWithEvents context(@javax.annotation.Nullable Object context) {
+  public ConversationWithEvents context(@javax.annotation.Nullable ConversationContext context) {
     this.context = context;
     return this;
   }
 
   /**
-   * Get context
+   * The analysis, and optionally the function, the conversation is about. Absent when it is about neither.
    * @return context
    */
   @javax.annotation.Nullable
-  public Object getContext() {
+  public ConversationContext getContext() {
     return context;
   }
 
-  public void setContext(@javax.annotation.Nullable Object context) {
+  public void setContext(@javax.annotation.Nullable ConversationContext context) {
     this.context = context;
   }
 
@@ -173,6 +178,25 @@ public class ConversationWithEvents {
 
   public void setEvents(@javax.annotation.Nullable List<Event> events) {
     this.events = events;
+  }
+
+
+  public ConversationWithEvents investigationId(@javax.annotation.Nullable Long investigationId) {
+    this.investigationId = investigationId;
+    return this;
+  }
+
+  /**
+   * The investigation the conversation belongs to. Absent for a conversation outside any investigation.
+   * @return investigationId
+   */
+  @javax.annotation.Nullable
+  public Long getInvestigationId() {
+    return investigationId;
+  }
+
+  public void setInvestigationId(@javax.annotation.Nullable Long investigationId) {
+    this.investigationId = investigationId;
   }
 
 
@@ -291,26 +315,16 @@ public class ConversationWithEvents {
         Objects.equals(this.conversationUuid, conversationWithEvents.conversationUuid) &&
         Objects.equals(this.createdAt, conversationWithEvents.createdAt) &&
         Objects.equals(this.events, conversationWithEvents.events) &&
+        Objects.equals(this.investigationId, conversationWithEvents.investigationId) &&
         Objects.equals(this.title, conversationWithEvents.title) &&
         Objects.equals(this.updatedAt, conversationWithEvents.updatedAt) &&
         Objects.equals(this.userId, conversationWithEvents.userId)&&
         Objects.equals(this.additionalProperties, conversationWithEvents.additionalProperties);
   }
 
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
-  }
-
   @Override
   public int hashCode() {
-    return Objects.hash(context, conversationUuid, createdAt, events, title, updatedAt, userId, additionalProperties);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(context, conversationUuid, createdAt, events, investigationId, title, updatedAt, userId, additionalProperties);
   }
 
   @Override
@@ -321,6 +335,7 @@ public class ConversationWithEvents {
     sb.append("    conversationUuid: ").append(toIndentedString(conversationUuid)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    events: ").append(toIndentedString(events)).append("\n");
+    sb.append("    investigationId: ").append(toIndentedString(investigationId)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
@@ -343,7 +358,7 @@ public class ConversationWithEvents {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("context", "conversation_uuid", "created_at", "events", "title", "updated_at", "user_id"));
+    openapiFields = new HashSet<String>(Arrays.asList("context", "conversation_uuid", "created_at", "events", "investigation_id", "title", "updated_at", "user_id"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("conversation_uuid", "created_at", "events", "title", "updated_at", "user_id"));

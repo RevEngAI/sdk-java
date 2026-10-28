@@ -51,8 +51,8 @@ import ai.reveng.model.BaseResponseParams;
 import ai.reveng.model.BaseResponseRecent;
 import ai.reveng.model.BaseResponseStatus;
 import ai.reveng.model.BaseResponseUploadResponse;
+import ai.reveng.model.CreateRequest;
 import ai.reveng.model.DynamicExecutionStatus;
-import ai.reveng.model.DynamicExecutionStatusResponse;
 import ai.reveng.model.DynamicExecutionSummary;
 import java.io.File;
 import ai.reveng.model.FunctionsProgressOutputBody;
@@ -62,7 +62,9 @@ import ai.reveng.model.GetGlobalHistoryOutputBody;
 import ai.reveng.model.GetMatchesOutputBody;
 import ai.reveng.model.GetMatchesStatusOutputBody;
 import ai.reveng.model.GlobalVariable;
+import ai.reveng.model.GrantAccessInputBody;
 import ai.reveng.model.InsertAnalysisLogRequest;
+import ai.reveng.model.ListAccessRulesOutputBody;
 import ai.reveng.model.ListAnalysesOutputBody;
 import ai.reveng.model.ListAnalysisGlobalsOutputBody;
 import ai.reveng.model.ListAnalysisStringsOutputBody;
@@ -1897,306 +1899,6 @@ public class AnalysesCoreApi {
         return localVarCall;
     }
     /**
-     * Build call for getDynamicExecutionReport
-     * @param analysisId Analysis ID (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public okhttp3.Call getDynamicExecutionReportCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v2/analyses/{analysis_id}/dynamic-execution/report"
-            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @Deprecated
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call getDynamicExecutionReportValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'analysisId' is set
-        if (analysisId == null) {
-            throw new ApiException("Missing the required parameter 'analysisId' when calling getDynamicExecutionReport(Async)");
-        }
-
-        return getDynamicExecutionReportCall(analysisId, _callback);
-
-    }
-
-    /**
-     * Get dynamic execution report
-     * Returns the dynamic execution report JSON for the analysis. Requires the task to be in COMPLETED status.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
-     * @param analysisId Analysis ID (required)
-     * @return AnalysisReport
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public AnalysisReport getDynamicExecutionReport(@javax.annotation.Nonnull Long analysisId) throws ApiException {
-        ApiResponse<AnalysisReport> localVarResp = getDynamicExecutionReportWithHttpInfo(analysisId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get dynamic execution report
-     * Returns the dynamic execution report JSON for the analysis. Requires the task to be in COMPLETED status.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
-     * @param analysisId Analysis ID (required)
-     * @return ApiResponse&lt;AnalysisReport&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public ApiResponse<AnalysisReport> getDynamicExecutionReportWithHttpInfo(@javax.annotation.Nonnull Long analysisId) throws ApiException {
-        okhttp3.Call localVarCall = getDynamicExecutionReportValidateBeforeCall(analysisId, null);
-        Type localVarReturnType = new TypeToken<AnalysisReport>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Get dynamic execution report (asynchronously)
-     * Returns the dynamic execution report JSON for the analysis. Requires the task to be in COMPLETED status.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
-     * @param analysisId Analysis ID (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public okhttp3.Call getDynamicExecutionReportAsync(@javax.annotation.Nonnull Long analysisId, final ApiCallback<AnalysisReport> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = getDynamicExecutionReportValidateBeforeCall(analysisId, _callback);
-        Type localVarReturnType = new TypeToken<AnalysisReport>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for getDynamicExecutionStatus
-     * @param analysisId Analysis ID (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public okhttp3.Call getDynamicExecutionStatusCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v2/analyses/{analysis_id}/dynamic-execution/status"
-            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @Deprecated
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call getDynamicExecutionStatusValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'analysisId' is set
-        if (analysisId == null) {
-            throw new ApiException("Missing the required parameter 'analysisId' when calling getDynamicExecutionStatus(Async)");
-        }
-
-        return getDynamicExecutionStatusCall(analysisId, _callback);
-
-    }
-
-    /**
-     * Get dynamic execution status
-     * Returns the status of the most recent dynamic execution task for the analysis. Returns UNINITIALISED if no task has been started.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
-     * @param analysisId Analysis ID (required)
-     * @return DynamicExecutionStatusResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public DynamicExecutionStatusResponse getDynamicExecutionStatus(@javax.annotation.Nonnull Long analysisId) throws ApiException {
-        ApiResponse<DynamicExecutionStatusResponse> localVarResp = getDynamicExecutionStatusWithHttpInfo(analysisId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get dynamic execution status
-     * Returns the status of the most recent dynamic execution task for the analysis. Returns UNINITIALISED if no task has been started.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
-     * @param analysisId Analysis ID (required)
-     * @return ApiResponse&lt;DynamicExecutionStatusResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public ApiResponse<DynamicExecutionStatusResponse> getDynamicExecutionStatusWithHttpInfo(@javax.annotation.Nonnull Long analysisId) throws ApiException {
-        okhttp3.Call localVarCall = getDynamicExecutionStatusValidateBeforeCall(analysisId, null);
-        Type localVarReturnType = new TypeToken<DynamicExecutionStatusResponse>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Get dynamic execution status (asynchronously)
-     * Returns the status of the most recent dynamic execution task for the analysis. Returns UNINITIALISED if no task has been started.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
-     * @param analysisId Analysis ID (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public okhttp3.Call getDynamicExecutionStatusAsync(@javax.annotation.Nonnull Long analysisId, final ApiCallback<DynamicExecutionStatusResponse> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = getDynamicExecutionStatusValidateBeforeCall(analysisId, _callback);
-        Type localVarReturnType = new TypeToken<DynamicExecutionStatusResponse>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
      * Build call for insertAnalysisLog
      * @param analysisId  (required)
      * @param insertAnalysisLogRequest  (required)
@@ -3639,6 +3341,174 @@ public class AnalysesCoreApi {
 
         okhttp3.Call localVarCall = uploadFileValidateBeforeCall(uploadFileType, _file, packedPassword, forceOverwrite, _callback);
         Type localVarReturnType = new TypeToken<BaseResponseUploadResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for v3CreateAnalysis
+     * @param createRequest  (required)
+     * @param xRevEngApplication Identifies the calling RevEng application. Recorded on the Analysis log. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 402 </td><td> Payment Required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 413 </td><td> Request Entity Too Large </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3CreateAnalysisCall(@javax.annotation.Nonnull CreateRequest createRequest, @javax.annotation.Nullable String xRevEngApplication, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = createRequest;
+
+        // create path and map variables
+        String localVarPath = "/v3/analyses";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        if (xRevEngApplication != null) {
+            localVarHeaderParams.put("X-RevEng-Application", localVarApiClient.parameterToString(xRevEngApplication));
+        }
+
+
+        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call v3CreateAnalysisValidateBeforeCall(@javax.annotation.Nonnull CreateRequest createRequest, @javax.annotation.Nullable String xRevEngApplication, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'createRequest' is set
+        if (createRequest == null) {
+            throw new ApiException("Missing the required parameter 'createRequest' when calling v3CreateAnalysis(Async)");
+        }
+
+        return v3CreateAnalysisCall(createRequest, xRevEngApplication, _callback);
+
+    }
+
+    /**
+     * Create an analysis
+     * Queues a new Analysis for an uploaded Binary and returns the created Operation.  **Error codes:** - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;402&#x60; [&#x60;INSUFFICIENT_CREDITS&#x60;](/errors/INSUFFICIENT_CREDITS) — Insufficient Credits - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;413&#x60; [&#x60;REQUEST_ENTITY_TOO_LARGE&#x60;](/errors/REQUEST_ENTITY_TOO_LARGE) — Request Entity Too Large
+     * @param createRequest  (required)
+     * @param xRevEngApplication Identifies the calling RevEng application. Recorded on the Analysis log. (optional)
+     * @return OperationCreateMetadataCreateResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 402 </td><td> Payment Required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 413 </td><td> Request Entity Too Large </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public OperationCreateMetadataCreateResult v3CreateAnalysis(@javax.annotation.Nonnull CreateRequest createRequest, @javax.annotation.Nullable String xRevEngApplication) throws ApiException {
+        ApiResponse<OperationCreateMetadataCreateResult> localVarResp = v3CreateAnalysisWithHttpInfo(createRequest, xRevEngApplication);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create an analysis
+     * Queues a new Analysis for an uploaded Binary and returns the created Operation.  **Error codes:** - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;402&#x60; [&#x60;INSUFFICIENT_CREDITS&#x60;](/errors/INSUFFICIENT_CREDITS) — Insufficient Credits - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;413&#x60; [&#x60;REQUEST_ENTITY_TOO_LARGE&#x60;](/errors/REQUEST_ENTITY_TOO_LARGE) — Request Entity Too Large
+     * @param createRequest  (required)
+     * @param xRevEngApplication Identifies the calling RevEng application. Recorded on the Analysis log. (optional)
+     * @return ApiResponse&lt;OperationCreateMetadataCreateResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 402 </td><td> Payment Required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 413 </td><td> Request Entity Too Large </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<OperationCreateMetadataCreateResult> v3CreateAnalysisWithHttpInfo(@javax.annotation.Nonnull CreateRequest createRequest, @javax.annotation.Nullable String xRevEngApplication) throws ApiException {
+        okhttp3.Call localVarCall = v3CreateAnalysisValidateBeforeCall(createRequest, xRevEngApplication, null);
+        Type localVarReturnType = new TypeToken<OperationCreateMetadataCreateResult>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create an analysis (asynchronously)
+     * Queues a new Analysis for an uploaded Binary and returns the created Operation.  **Error codes:** - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;402&#x60; [&#x60;INSUFFICIENT_CREDITS&#x60;](/errors/INSUFFICIENT_CREDITS) — Insufficient Credits - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;413&#x60; [&#x60;REQUEST_ENTITY_TOO_LARGE&#x60;](/errors/REQUEST_ENTITY_TOO_LARGE) — Request Entity Too Large
+     * @param createRequest  (required)
+     * @param xRevEngApplication Identifies the calling RevEng application. Recorded on the Analysis log. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 402 </td><td> Payment Required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 413 </td><td> Request Entity Too Large </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3CreateAnalysisAsync(@javax.annotation.Nonnull CreateRequest createRequest, @javax.annotation.Nullable String xRevEngApplication, final ApiCallback<OperationCreateMetadataCreateResult> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = v3CreateAnalysisValidateBeforeCall(createRequest, xRevEngApplication, _callback);
+        Type localVarReturnType = new TypeToken<OperationCreateMetadataCreateResult>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -6924,9 +6794,162 @@ public class AnalysesCoreApi {
         return localVarCall;
     }
     /**
+     * Build call for v3GrantAnalysisAccess
+     * @param analysisId Analysis ID (required)
+     * @param grantAccessInputBody  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3GrantAnalysisAccessCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull GrantAccessInputBody grantAccessInputBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = grantAccessInputBody;
+
+        // create path and map variables
+        String localVarPath = "/v3/analyses/{analysis_id}/access-rules"
+            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call v3GrantAnalysisAccessValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull GrantAccessInputBody grantAccessInputBody, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'analysisId' is set
+        if (analysisId == null) {
+            throw new ApiException("Missing the required parameter 'analysisId' when calling v3GrantAnalysisAccess(Async)");
+        }
+
+        // verify the required parameter 'grantAccessInputBody' is set
+        if (grantAccessInputBody == null) {
+            throw new ApiException("Missing the required parameter 'grantAccessInputBody' when calling v3GrantAnalysisAccess(Async)");
+        }
+
+        return v3GrantAnalysisAccessCall(analysisId, grantAccessInputBody, _callback);
+
+    }
+
+    /**
+     * Share an analysis with a user or team
+     * Grants a user or a team access to the analysis. Sharing with a principal that already has a rule replaces its permission. The user or team must be one the caller can find through &#x60;GET /v3/principals&#x60;. Requires edit access to the analysis.  **Error codes:** - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param analysisId Analysis ID (required)
+     * @param grantAccessInputBody  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public void v3GrantAnalysisAccess(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull GrantAccessInputBody grantAccessInputBody) throws ApiException {
+        v3GrantAnalysisAccessWithHttpInfo(analysisId, grantAccessInputBody);
+    }
+
+    /**
+     * Share an analysis with a user or team
+     * Grants a user or a team access to the analysis. Sharing with a principal that already has a rule replaces its permission. The user or team must be one the caller can find through &#x60;GET /v3/principals&#x60;. Requires edit access to the analysis.  **Error codes:** - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param analysisId Analysis ID (required)
+     * @param grantAccessInputBody  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> v3GrantAnalysisAccessWithHttpInfo(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull GrantAccessInputBody grantAccessInputBody) throws ApiException {
+        okhttp3.Call localVarCall = v3GrantAnalysisAccessValidateBeforeCall(analysisId, grantAccessInputBody, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Share an analysis with a user or team (asynchronously)
+     * Grants a user or a team access to the analysis. Sharing with a principal that already has a rule replaces its permission. The user or team must be one the caller can find through &#x60;GET /v3/principals&#x60;. Requires edit access to the analysis.  **Error codes:** - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param analysisId Analysis ID (required)
+     * @param grantAccessInputBody  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3GrantAnalysisAccessAsync(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull GrantAccessInputBody grantAccessInputBody, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = v3GrantAnalysisAccessValidateBeforeCall(analysisId, grantAccessInputBody, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for v3ListAnalyses
      * @param searchTerm  (optional)
-     * @param analysisScope Leave empty to search your own, your team&#39;s and all public analyses (optional)
+     * @param analysisScope Leave empty to search your own, your team&#39;s, all public analyses and those shared with you. SHARED_WITH_ME restricts to analyses another user or team gave you access to (optional)
      * @param status  (optional)
      * @param modelName  (optional)
      * @param usernames  (optional)
@@ -7057,7 +7080,7 @@ public class AnalysesCoreApi {
      * List analyses
      * Returns a page of analyses visible to the caller, filtered and ordered by the query parameters.  **Error codes:** - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
      * @param searchTerm  (optional)
-     * @param analysisScope Leave empty to search your own, your team&#39;s and all public analyses (optional)
+     * @param analysisScope Leave empty to search your own, your team&#39;s, all public analyses and those shared with you. SHARED_WITH_ME restricts to analyses another user or team gave you access to (optional)
      * @param status  (optional)
      * @param modelName  (optional)
      * @param usernames  (optional)
@@ -7090,7 +7113,7 @@ public class AnalysesCoreApi {
      * List analyses
      * Returns a page of analyses visible to the caller, filtered and ordered by the query parameters.  **Error codes:** - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
      * @param searchTerm  (optional)
-     * @param analysisScope Leave empty to search your own, your team&#39;s and all public analyses (optional)
+     * @param analysisScope Leave empty to search your own, your team&#39;s, all public analyses and those shared with you. SHARED_WITH_ME restricts to analyses another user or team gave you access to (optional)
      * @param status  (optional)
      * @param modelName  (optional)
      * @param usernames  (optional)
@@ -7124,7 +7147,7 @@ public class AnalysesCoreApi {
      * List analyses (asynchronously)
      * Returns a page of analyses visible to the caller, filtered and ordered by the query parameters.  **Error codes:** - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
      * @param searchTerm  (optional)
-     * @param analysisScope Leave empty to search your own, your team&#39;s and all public analyses (optional)
+     * @param analysisScope Leave empty to search your own, your team&#39;s, all public analyses and those shared with you. SHARED_WITH_ME restricts to analyses another user or team gave you access to (optional)
      * @param status  (optional)
      * @param modelName  (optional)
      * @param usernames  (optional)
@@ -7153,6 +7176,145 @@ public class AnalysesCoreApi {
 
         okhttp3.Call localVarCall = v3ListAnalysesValidateBeforeCall(searchTerm, analysisScope, status, modelName, usernames, sha256Hash, binaryId, platform, architecture, pageSize, nextPageToken, orderBy, order, _callback);
         Type localVarReturnType = new TypeToken<ListAnalysesOutputBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for v3ListAnalysisAccessRules
+     * @param analysisId Analysis ID (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3ListAnalysisAccessRulesCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/analyses/{analysis_id}/access-rules"
+            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call v3ListAnalysisAccessRulesValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'analysisId' is set
+        if (analysisId == null) {
+            throw new ApiException("Missing the required parameter 'analysisId' when calling v3ListAnalysisAccessRules(Async)");
+        }
+
+        return v3ListAnalysisAccessRulesCall(analysisId, _callback);
+
+    }
+
+    /**
+     * List who an analysis is shared with
+     * Returns the users and teams the analysis has been shared with and the permission each one holds. Requires read access to the analysis.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * @param analysisId Analysis ID (required)
+     * @return ListAccessRulesOutputBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListAccessRulesOutputBody v3ListAnalysisAccessRules(@javax.annotation.Nonnull Long analysisId) throws ApiException {
+        ApiResponse<ListAccessRulesOutputBody> localVarResp = v3ListAnalysisAccessRulesWithHttpInfo(analysisId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List who an analysis is shared with
+     * Returns the users and teams the analysis has been shared with and the permission each one holds. Requires read access to the analysis.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * @param analysisId Analysis ID (required)
+     * @return ApiResponse&lt;ListAccessRulesOutputBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListAccessRulesOutputBody> v3ListAnalysisAccessRulesWithHttpInfo(@javax.annotation.Nonnull Long analysisId) throws ApiException {
+        okhttp3.Call localVarCall = v3ListAnalysisAccessRulesValidateBeforeCall(analysisId, null);
+        Type localVarReturnType = new TypeToken<ListAccessRulesOutputBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List who an analysis is shared with (asynchronously)
+     * Returns the users and teams the analysis has been shared with and the permission each one holds. Requires read access to the analysis.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * @param analysisId Analysis ID (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3ListAnalysisAccessRulesAsync(@javax.annotation.Nonnull Long analysisId, final ApiCallback<ListAccessRulesOutputBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = v3ListAnalysisAccessRulesValidateBeforeCall(analysisId, _callback);
+        Type localVarReturnType = new TypeToken<ListAccessRulesOutputBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -8388,6 +8550,165 @@ public class AnalysesCoreApi {
         okhttp3.Call localVarCall = v3RequeueAnalysisValidateBeforeCall(analysisId, requeueAnalysisRequest, _callback);
         Type localVarReturnType = new TypeToken<OperationCreateMetadataCreateResult>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for v3RevokeAnalysisAccess
+     * @param analysisId Analysis ID (required)
+     * @param userId The user to stop sharing with. Exactly one of user_id and team_id is required (optional)
+     * @param teamId The team to stop sharing with. Exactly one of user_id and team_id is required (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3RevokeAnalysisAccessCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable Long userId, @javax.annotation.Nullable Long teamId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/analyses/{analysis_id}/access-rules"
+            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (userId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("user_id", userId));
+        }
+
+        if (teamId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("team_id", teamId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call v3RevokeAnalysisAccessValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable Long userId, @javax.annotation.Nullable Long teamId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'analysisId' is set
+        if (analysisId == null) {
+            throw new ApiException("Missing the required parameter 'analysisId' when calling v3RevokeAnalysisAccess(Async)");
+        }
+
+        return v3RevokeAnalysisAccessCall(analysisId, userId, teamId, _callback);
+
+    }
+
+    /**
+     * Stop sharing an analysis with a user or team
+     * Removes the access rule of one user or one team, identified by the &#x60;user_id&#x60; or &#x60;team_id&#x60; query parameter. Removing a rule that does not exist succeeds. Requires edit access to the analysis.  **Error codes:** - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param analysisId Analysis ID (required)
+     * @param userId The user to stop sharing with. Exactly one of user_id and team_id is required (optional)
+     * @param teamId The team to stop sharing with. Exactly one of user_id and team_id is required (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public void v3RevokeAnalysisAccess(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable Long userId, @javax.annotation.Nullable Long teamId) throws ApiException {
+        v3RevokeAnalysisAccessWithHttpInfo(analysisId, userId, teamId);
+    }
+
+    /**
+     * Stop sharing an analysis with a user or team
+     * Removes the access rule of one user or one team, identified by the &#x60;user_id&#x60; or &#x60;team_id&#x60; query parameter. Removing a rule that does not exist succeeds. Requires edit access to the analysis.  **Error codes:** - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param analysisId Analysis ID (required)
+     * @param userId The user to stop sharing with. Exactly one of user_id and team_id is required (optional)
+     * @param teamId The team to stop sharing with. Exactly one of user_id and team_id is required (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> v3RevokeAnalysisAccessWithHttpInfo(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable Long userId, @javax.annotation.Nullable Long teamId) throws ApiException {
+        okhttp3.Call localVarCall = v3RevokeAnalysisAccessValidateBeforeCall(analysisId, userId, teamId, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Stop sharing an analysis with a user or team (asynchronously)
+     * Removes the access rule of one user or one team, identified by the &#x60;user_id&#x60; or &#x60;team_id&#x60; query parameter. Removing a rule that does not exist succeeds. Requires edit access to the analysis.  **Error codes:** - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param analysisId Analysis ID (required)
+     * @param userId The user to stop sharing with. Exactly one of user_id and team_id is required (optional)
+     * @param teamId The team to stop sharing with. Exactly one of user_id and team_id is required (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3RevokeAnalysisAccessAsync(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable Long userId, @javax.annotation.Nullable Long teamId, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = v3RevokeAnalysisAccessValidateBeforeCall(analysisId, userId, teamId, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**

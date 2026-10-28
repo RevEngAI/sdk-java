@@ -13,10 +13,10 @@
 |**kind** | [**KindEnum**](#KindEnum) | How the evidence was derived. |  |
 |**strength** | [**StrengthEnum**](#StrengthEnum) | How directly the evidence bears on the finding. |  |
 |**constants** | **List&lt;ReportReferencedConstant&gt;** | The constants and where they are referenced. |  |
-|**calls** | [**List&lt;ImportedApiCall&gt;**](ImportedApiCall.md) |  |  |
+|**calls** | **List&lt;ReportImportedAPICall&gt;** | The observed calls. |  |
 |**strings** | **List&lt;ReportStringMatch&gt;** | The matched strings. |  |
 |**similarities** | **List&lt;ReportFunctionSimilarity&gt;** | The similar functions. |  |
-|**apis** | [**List&lt;ImportedApi&gt;**](ImportedApi.md) |  |  |
+|**apis** | **List&lt;ReportImportedAPI&gt;** | The APIs in the combination. |  |
 |**summaries** | **List&lt;ReportCodeSummary&gt;** | Summaries of the decompiled code. |  |
 |**interpretations** | **List&lt;ReportModelInterpretation&gt;** | Interpretations of the code by an AI model. |  |
 |**values** | **List&lt;ReportBytesConstant&gt;** | The well-known constants found in the binary. |  |

@@ -13,6 +13,7 @@
 package ai.reveng.model;
 
 import java.util.Objects;
+import ai.reveng.model.EventAGENTRUNUPDATE;
 import ai.reveng.model.EventCONTEXTCOMPACTED;
 import ai.reveng.model.EventRUNCANCELLED;
 import ai.reveng.model.EventRUNERROR;
@@ -86,6 +87,7 @@ public class ServerSentEventsInner extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'ServerSentEventsInner' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+            final TypeAdapter<EventAGENTRUNUPDATE> adapterEventAGENTRUNUPDATE = gson.getDelegateAdapter(this, TypeToken.get(EventAGENTRUNUPDATE.class));
             final TypeAdapter<EventCONTEXTCOMPACTED> adapterEventCONTEXTCOMPACTED = gson.getDelegateAdapter(this, TypeToken.get(EventCONTEXTCOMPACTED.class));
             final TypeAdapter<EventRUNCANCELLED> adapterEventRUNCANCELLED = gson.getDelegateAdapter(this, TypeToken.get(EventRUNCANCELLED.class));
             final TypeAdapter<EventRUNERROR> adapterEventRUNERROR = gson.getDelegateAdapter(this, TypeToken.get(EventRUNERROR.class));
@@ -112,6 +114,12 @@ public class ServerSentEventsInner extends AbstractOpenApiSchema {
                         return;
                     }
 
+                    // check if the actual instance is of the type `EventAGENTRUNUPDATE`
+                    if (value.getActualInstance() instanceof EventAGENTRUNUPDATE) {
+                        JsonElement element = adapterEventAGENTRUNUPDATE.toJsonTree((EventAGENTRUNUPDATE)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
                     // check if the actual instance is of the type `EventCONTEXTCOMPACTED`
                     if (value.getActualInstance() instanceof EventCONTEXTCOMPACTED) {
                         JsonElement element = adapterEventCONTEXTCOMPACTED.toJsonTree((EventCONTEXTCOMPACTED)value.getActualInstance());
@@ -214,7 +222,7 @@ public class ServerSentEventsInner extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: EventCONTEXTCOMPACTED, EventRUNCANCELLED, EventRUNERROR, EventRUNFINISHED, EventRUNSTARTED, EventSTEPFINISHED, EventSTEPSTARTED, EventTEXTMESSAGECONTENT, EventTEXTMESSAGEEND, EventTEXTMESSAGESTART, EventTITLEUPDATED, EventTOOLCALLARGSDELTA, EventTOOLCALLEND, EventTOOLCALLPROGRESS, EventTOOLCALLRESULT, EventTOOLCALLSTART, EventTOOLCONFIRMATIONREQUIRED");
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: EventAGENTRUNUPDATE, EventCONTEXTCOMPACTED, EventRUNCANCELLED, EventRUNERROR, EventRUNFINISHED, EventRUNSTARTED, EventSTEPFINISHED, EventSTEPSTARTED, EventTEXTMESSAGECONTENT, EventTEXTMESSAGEEND, EventTEXTMESSAGESTART, EventTITLEUPDATED, EventTOOLCALLARGSDELTA, EventTOOLCALLEND, EventTOOLCALLPROGRESS, EventTOOLCALLRESULT, EventTOOLCALLSTART, EventTOOLCONFIRMATIONREQUIRED");
                 }
 
                 @Override
@@ -226,6 +234,18 @@ public class ServerSentEventsInner extends AbstractOpenApiSchema {
                     ArrayList<String> errorMessages = new ArrayList<>();
                     TypeAdapter actualAdapter = elementAdapter;
 
+                    // deserialize EventAGENTRUNUPDATE
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EventAGENTRUNUPDATE.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEventAGENTRUNUPDATE;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EventAGENTRUNUPDATE'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EventAGENTRUNUPDATE failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EventAGENTRUNUPDATE'", e);
+                    }
                     // deserialize EventCONTEXTCOMPACTED
                     try {
                         // validate the JSON object to see if any exception is thrown
@@ -456,6 +476,7 @@ public class ServerSentEventsInner extends AbstractOpenApiSchema {
     }
 
     static {
+        schemas.put("EventAGENTRUNUPDATE", EventAGENTRUNUPDATE.class);
         schemas.put("EventCONTEXTCOMPACTED", EventCONTEXTCOMPACTED.class);
         schemas.put("EventRUNCANCELLED", EventRUNCANCELLED.class);
         schemas.put("EventRUNERROR", EventRUNERROR.class);
@@ -483,12 +504,17 @@ public class ServerSentEventsInner extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * EventCONTEXTCOMPACTED, EventRUNCANCELLED, EventRUNERROR, EventRUNFINISHED, EventRUNSTARTED, EventSTEPFINISHED, EventSTEPSTARTED, EventTEXTMESSAGECONTENT, EventTEXTMESSAGEEND, EventTEXTMESSAGESTART, EventTITLEUPDATED, EventTOOLCALLARGSDELTA, EventTOOLCALLEND, EventTOOLCALLPROGRESS, EventTOOLCALLRESULT, EventTOOLCALLSTART, EventTOOLCONFIRMATIONREQUIRED
+     * EventAGENTRUNUPDATE, EventCONTEXTCOMPACTED, EventRUNCANCELLED, EventRUNERROR, EventRUNFINISHED, EventRUNSTARTED, EventSTEPFINISHED, EventSTEPSTARTED, EventTEXTMESSAGECONTENT, EventTEXTMESSAGEEND, EventTEXTMESSAGESTART, EventTITLEUPDATED, EventTOOLCALLARGSDELTA, EventTOOLCALLEND, EventTOOLCALLPROGRESS, EventTOOLCALLRESULT, EventTOOLCALLSTART, EventTOOLCONFIRMATIONREQUIRED
      *
      * It could be an instance of the 'oneOf' schemas.
      */
     @Override
     public void setActualInstance(Object instance) {
+        if (instance instanceof EventAGENTRUNUPDATE) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         if (instance instanceof EventCONTEXTCOMPACTED) {
             super.setActualInstance(instance);
             return;
@@ -574,19 +600,31 @@ public class ServerSentEventsInner extends AbstractOpenApiSchema {
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be EventCONTEXTCOMPACTED, EventRUNCANCELLED, EventRUNERROR, EventRUNFINISHED, EventRUNSTARTED, EventSTEPFINISHED, EventSTEPSTARTED, EventTEXTMESSAGECONTENT, EventTEXTMESSAGEEND, EventTEXTMESSAGESTART, EventTITLEUPDATED, EventTOOLCALLARGSDELTA, EventTOOLCALLEND, EventTOOLCALLPROGRESS, EventTOOLCALLRESULT, EventTOOLCALLSTART, EventTOOLCONFIRMATIONREQUIRED");
+        throw new RuntimeException("Invalid instance type. Must be EventAGENTRUNUPDATE, EventCONTEXTCOMPACTED, EventRUNCANCELLED, EventRUNERROR, EventRUNFINISHED, EventRUNSTARTED, EventSTEPFINISHED, EventSTEPSTARTED, EventTEXTMESSAGECONTENT, EventTEXTMESSAGEEND, EventTEXTMESSAGESTART, EventTITLEUPDATED, EventTOOLCALLARGSDELTA, EventTOOLCALLEND, EventTOOLCALLPROGRESS, EventTOOLCALLRESULT, EventTOOLCALLSTART, EventTOOLCONFIRMATIONREQUIRED");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * EventCONTEXTCOMPACTED, EventRUNCANCELLED, EventRUNERROR, EventRUNFINISHED, EventRUNSTARTED, EventSTEPFINISHED, EventSTEPSTARTED, EventTEXTMESSAGECONTENT, EventTEXTMESSAGEEND, EventTEXTMESSAGESTART, EventTITLEUPDATED, EventTOOLCALLARGSDELTA, EventTOOLCALLEND, EventTOOLCALLPROGRESS, EventTOOLCALLRESULT, EventTOOLCALLSTART, EventTOOLCONFIRMATIONREQUIRED
+     * EventAGENTRUNUPDATE, EventCONTEXTCOMPACTED, EventRUNCANCELLED, EventRUNERROR, EventRUNFINISHED, EventRUNSTARTED, EventSTEPFINISHED, EventSTEPSTARTED, EventTEXTMESSAGECONTENT, EventTEXTMESSAGEEND, EventTEXTMESSAGESTART, EventTITLEUPDATED, EventTOOLCALLARGSDELTA, EventTOOLCALLEND, EventTOOLCALLPROGRESS, EventTOOLCALLRESULT, EventTOOLCALLSTART, EventTOOLCONFIRMATIONREQUIRED
      *
-     * @return The actual instance (EventCONTEXTCOMPACTED, EventRUNCANCELLED, EventRUNERROR, EventRUNFINISHED, EventRUNSTARTED, EventSTEPFINISHED, EventSTEPSTARTED, EventTEXTMESSAGECONTENT, EventTEXTMESSAGEEND, EventTEXTMESSAGESTART, EventTITLEUPDATED, EventTOOLCALLARGSDELTA, EventTOOLCALLEND, EventTOOLCALLPROGRESS, EventTOOLCALLRESULT, EventTOOLCALLSTART, EventTOOLCONFIRMATIONREQUIRED)
+     * @return The actual instance (EventAGENTRUNUPDATE, EventCONTEXTCOMPACTED, EventRUNCANCELLED, EventRUNERROR, EventRUNFINISHED, EventRUNSTARTED, EventSTEPFINISHED, EventSTEPSTARTED, EventTEXTMESSAGECONTENT, EventTEXTMESSAGEEND, EventTEXTMESSAGESTART, EventTITLEUPDATED, EventTOOLCALLARGSDELTA, EventTOOLCALLEND, EventTOOLCALLPROGRESS, EventTOOLCALLRESULT, EventTOOLCALLSTART, EventTOOLCONFIRMATIONREQUIRED)
      */
     @SuppressWarnings("unchecked")
     @Override
     public Object getActualInstance() {
         return super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `EventAGENTRUNUPDATE`. If the actual instance is not `EventAGENTRUNUPDATE`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EventAGENTRUNUPDATE`
+     * @throws ClassCastException if the instance is not `EventAGENTRUNUPDATE`
+     */
+    @SuppressWarnings("unchecked")
+    public EventAGENTRUNUPDATE getEventAGENTRUNUPDATE() throws ClassCastException {
+        return (EventAGENTRUNUPDATE)super.getActualInstance();
     }
 
     /**
@@ -803,6 +841,14 @@ public class ServerSentEventsInner extends AbstractOpenApiSchema {
         // validate oneOf schemas one by one
         int validCount = 0;
         ArrayList<String> errorMessages = new ArrayList<>();
+        // validate the json string with EventAGENTRUNUPDATE
+        try {
+            EventAGENTRUNUPDATE.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for EventAGENTRUNUPDATE failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
         // validate the json string with EventCONTEXTCOMPACTED
         try {
             EventCONTEXTCOMPACTED.validateJsonElement(jsonElement);
@@ -940,7 +986,7 @@ public class ServerSentEventsInner extends AbstractOpenApiSchema {
             // continue to the next one
         }
         if (validCount != 1) {
-            throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for ServerSentEventsInner with oneOf schemas: EventCONTEXTCOMPACTED, EventRUNCANCELLED, EventRUNERROR, EventRUNFINISHED, EventRUNSTARTED, EventSTEPFINISHED, EventSTEPSTARTED, EventTEXTMESSAGECONTENT, EventTEXTMESSAGEEND, EventTEXTMESSAGESTART, EventTITLEUPDATED, EventTOOLCALLARGSDELTA, EventTOOLCALLEND, EventTOOLCALLPROGRESS, EventTOOLCALLRESULT, EventTOOLCALLSTART, EventTOOLCONFIRMATIONREQUIRED. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for ServerSentEventsInner with oneOf schemas: EventAGENTRUNUPDATE, EventCONTEXTCOMPACTED, EventRUNCANCELLED, EventRUNERROR, EventRUNFINISHED, EventRUNSTARTED, EventSTEPFINISHED, EventSTEPSTARTED, EventTEXTMESSAGECONTENT, EventTEXTMESSAGEEND, EventTEXTMESSAGESTART, EventTITLEUPDATED, EventTOOLCALLARGSDELTA, EventTOOLCALLEND, EventTOOLCALLPROGRESS, EventTOOLCALLRESULT, EventTOOLCALLSTART, EventTOOLCONFIRMATIONREQUIRED. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 

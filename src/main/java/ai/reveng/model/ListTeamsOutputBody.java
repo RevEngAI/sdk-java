@@ -13,7 +13,7 @@
 package ai.reveng.model;
 
 import java.util.Objects;
-import ai.reveng.model.Team;
+import ai.reveng.model.PublicTeamBody;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -52,62 +52,38 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ListTeamsOutputBody {
-  public static final String SERIALIZED_NAME_TEAMS = "teams";
-  @SerializedName(SERIALIZED_NAME_TEAMS)
+  public static final String SERIALIZED_NAME_RESULTS = "results";
+  @SerializedName(SERIALIZED_NAME_RESULTS)
   @javax.annotation.Nullable
-  private List<Team> teams;
-
-  public static final String SERIALIZED_NAME_TOTAL = "total";
-  @SerializedName(SERIALIZED_NAME_TOTAL)
-  @javax.annotation.Nonnull
-  private Long total;
+  private List<PublicTeamBody> results;
 
   public ListTeamsOutputBody() {
   }
 
-  public ListTeamsOutputBody teams(@javax.annotation.Nullable List<Team> teams) {
-    this.teams = teams;
+  public ListTeamsOutputBody results(@javax.annotation.Nullable List<PublicTeamBody> results) {
+    this.results = results;
     return this;
   }
 
-  public ListTeamsOutputBody addTeamsItem(Team teamsItem) {
-    if (this.teams == null) {
-      this.teams = new ArrayList<>();
+  public ListTeamsOutputBody addResultsItem(PublicTeamBody resultsItem) {
+    if (this.results == null) {
+      this.results = new ArrayList<>();
     }
-    this.teams.add(teamsItem);
+    this.results.add(resultsItem);
     return this;
   }
 
   /**
-   * Get teams
-   * @return teams
+   * Up to 5 matching teams, ordered by name
+   * @return results
    */
   @javax.annotation.Nullable
-  public List<Team> getTeams() {
-    return teams;
+  public List<PublicTeamBody> getResults() {
+    return results;
   }
 
-  public void setTeams(@javax.annotation.Nullable List<Team> teams) {
-    this.teams = teams;
-  }
-
-
-  public ListTeamsOutputBody total(@javax.annotation.Nonnull Long total) {
-    this.total = total;
-    return this;
-  }
-
-  /**
-   * Get total
-   * @return total
-   */
-  @javax.annotation.Nonnull
-  public Long getTotal() {
-    return total;
-  }
-
-  public void setTotal(@javax.annotation.Nonnull Long total) {
-    this.total = total;
+  public void setResults(@javax.annotation.Nullable List<PublicTeamBody> results) {
+    this.results = results;
   }
 
   /**
@@ -165,22 +141,20 @@ public class ListTeamsOutputBody {
       return false;
     }
     ListTeamsOutputBody listTeamsOutputBody = (ListTeamsOutputBody) o;
-    return Objects.equals(this.teams, listTeamsOutputBody.teams) &&
-        Objects.equals(this.total, listTeamsOutputBody.total)&&
+    return Objects.equals(this.results, listTeamsOutputBody.results)&&
         Objects.equals(this.additionalProperties, listTeamsOutputBody.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(teams, total, additionalProperties);
+    return Objects.hash(results, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListTeamsOutputBody {\n");
-    sb.append("    teams: ").append(toIndentedString(teams)).append("\n");
-    sb.append("    total: ").append(toIndentedString(total)).append("\n");
+    sb.append("    results: ").append(toIndentedString(results)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -200,10 +174,10 @@ public class ListTeamsOutputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("teams", "total"));
+    openapiFields = new HashSet<String>(Arrays.asList("results"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("teams", "total"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("results"));
   }
 
   /**
@@ -227,10 +201,10 @@ public class ListTeamsOutputBody {
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the required json array is present
-      if (jsonObj.get("teams") == null) {
+      if (jsonObj.get("results") == null) {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("teams").isJsonArray() && !jsonObj.get("teams").isJsonNull()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `teams` to be an array in the JSON string but got `%s`", jsonObj.get("teams").toString()));
+      } else if (!jsonObj.get("results").isJsonArray() && !jsonObj.get("results").isJsonNull()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `results` to be an array in the JSON string but got `%s`", jsonObj.get("results").toString()));
       }
   }
 

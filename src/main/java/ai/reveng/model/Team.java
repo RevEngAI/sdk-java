@@ -124,7 +124,7 @@ public class Team {
 
   public static final String SERIALIZED_NAME_TEAM_NAME = "team_name";
   @SerializedName(SERIALIZED_NAME_TEAM_NAME)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String teamName;
 
   public Team() {
@@ -187,21 +187,21 @@ public class Team {
   }
 
 
-  public Team teamName(@javax.annotation.Nonnull String teamName) {
+  public Team teamName(@javax.annotation.Nullable String teamName) {
     this.teamName = teamName;
     return this;
   }
 
   /**
-   * Get teamName
+   * Search is applied to string value
    * @return teamName
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getTeamName() {
     return teamName;
   }
 
-  public void setTeamName(@javax.annotation.Nonnull String teamName) {
+  public void setTeamName(@javax.annotation.Nullable String teamName) {
     this.teamName = teamName;
   }
 
@@ -330,7 +330,7 @@ public class Team {
       }
       // validate the required field `plan`
       PlanEnum.validateJsonElement(jsonObj.get("plan"));
-      if (!jsonObj.get("team_name").isJsonPrimitive()) {
+      if ((jsonObj.get("team_name") != null && !jsonObj.get("team_name").isJsonNull()) && !jsonObj.get("team_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `team_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("team_name").toString()));
       }
   }

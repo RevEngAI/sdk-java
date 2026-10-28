@@ -13,21 +13,21 @@
 package ai.reveng.model;
 
 import java.util.Objects;
+import ai.reveng.model.APICombinationEvidence;
 import ai.reveng.model.CallChainEvidence;
 import ai.reveng.model.DecompilerSummaryEvidence;
 import ai.reveng.model.DisassemblySummaryEvidence;
 import ai.reveng.model.FunctionSimilarityEvidence;
 import ai.reveng.model.HardcodedSecretEvidence;
+import ai.reveng.model.ImportedAPICallEvidence;
 import ai.reveng.model.KnownConstantEvidence;
 import ai.reveng.model.ModelInterpretationEvidence;
 import ai.reveng.model.ReferencedConstantEvidence;
-import ai.reveng.model.ReportAPICombinationEvidence;
 import ai.reveng.model.ReportBytesConstant;
 import ai.reveng.model.ReportCodeSummary;
 import ai.reveng.model.ReportFunctionSimilarity;
 import ai.reveng.model.ReportImportedAPI;
 import ai.reveng.model.ReportImportedAPICall;
-import ai.reveng.model.ReportImportedAPICallEvidence;
 import ai.reveng.model.ReportModelInterpretation;
 import ai.reveng.model.ReportReferencedConstant;
 import ai.reveng.model.ReportStringMatch;
@@ -91,10 +91,10 @@ public class ReportFindingEvidenceInner extends AbstractOpenApiSchema {
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
             final TypeAdapter<CallChainEvidence> adapterCallChainEvidence = gson.getDelegateAdapter(this, TypeToken.get(CallChainEvidence.class));
             final TypeAdapter<ReferencedConstantEvidence> adapterReferencedConstantEvidence = gson.getDelegateAdapter(this, TypeToken.get(ReferencedConstantEvidence.class));
-            final TypeAdapter<ReportImportedAPICallEvidence> adapterReportImportedAPICallEvidence = gson.getDelegateAdapter(this, TypeToken.get(ReportImportedAPICallEvidence.class));
+            final TypeAdapter<ImportedAPICallEvidence> adapterImportedAPICallEvidence = gson.getDelegateAdapter(this, TypeToken.get(ImportedAPICallEvidence.class));
             final TypeAdapter<StringMatchEvidence> adapterStringMatchEvidence = gson.getDelegateAdapter(this, TypeToken.get(StringMatchEvidence.class));
             final TypeAdapter<FunctionSimilarityEvidence> adapterFunctionSimilarityEvidence = gson.getDelegateAdapter(this, TypeToken.get(FunctionSimilarityEvidence.class));
-            final TypeAdapter<ReportAPICombinationEvidence> adapterReportAPICombinationEvidence = gson.getDelegateAdapter(this, TypeToken.get(ReportAPICombinationEvidence.class));
+            final TypeAdapter<APICombinationEvidence> adapterAPICombinationEvidence = gson.getDelegateAdapter(this, TypeToken.get(APICombinationEvidence.class));
             final TypeAdapter<DecompilerSummaryEvidence> adapterDecompilerSummaryEvidence = gson.getDelegateAdapter(this, TypeToken.get(DecompilerSummaryEvidence.class));
             final TypeAdapter<DisassemblySummaryEvidence> adapterDisassemblySummaryEvidence = gson.getDelegateAdapter(this, TypeToken.get(DisassemblySummaryEvidence.class));
             final TypeAdapter<ModelInterpretationEvidence> adapterModelInterpretationEvidence = gson.getDelegateAdapter(this, TypeToken.get(ModelInterpretationEvidence.class));
@@ -121,9 +121,9 @@ public class ReportFindingEvidenceInner extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    // check if the actual instance is of the type `ReportImportedAPICallEvidence`
-                    if (value.getActualInstance() instanceof ReportImportedAPICallEvidence) {
-                        JsonElement element = adapterReportImportedAPICallEvidence.toJsonTree((ReportImportedAPICallEvidence)value.getActualInstance());
+                    // check if the actual instance is of the type `ImportedAPICallEvidence`
+                    if (value.getActualInstance() instanceof ImportedAPICallEvidence) {
+                        JsonElement element = adapterImportedAPICallEvidence.toJsonTree((ImportedAPICallEvidence)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
@@ -139,9 +139,9 @@ public class ReportFindingEvidenceInner extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    // check if the actual instance is of the type `ReportAPICombinationEvidence`
-                    if (value.getActualInstance() instanceof ReportAPICombinationEvidence) {
-                        JsonElement element = adapterReportAPICombinationEvidence.toJsonTree((ReportAPICombinationEvidence)value.getActualInstance());
+                    // check if the actual instance is of the type `APICombinationEvidence`
+                    if (value.getActualInstance() instanceof APICombinationEvidence) {
+                        JsonElement element = adapterAPICombinationEvidence.toJsonTree((APICombinationEvidence)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
@@ -175,7 +175,7 @@ public class ReportFindingEvidenceInner extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: CallChainEvidence, DecompilerSummaryEvidence, DisassemblySummaryEvidence, FunctionSimilarityEvidence, HardcodedSecretEvidence, KnownConstantEvidence, ModelInterpretationEvidence, ReferencedConstantEvidence, ReportAPICombinationEvidence, ReportImportedAPICallEvidence, StringMatchEvidence");
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: APICombinationEvidence, CallChainEvidence, DecompilerSummaryEvidence, DisassemblySummaryEvidence, FunctionSimilarityEvidence, HardcodedSecretEvidence, ImportedAPICallEvidence, KnownConstantEvidence, ModelInterpretationEvidence, ReferencedConstantEvidence, StringMatchEvidence");
                 }
 
                 @Override
@@ -211,17 +211,17 @@ public class ReportFindingEvidenceInner extends AbstractOpenApiSchema {
                         errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ReferencedConstantEvidence failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'ReferencedConstantEvidence'", e);
                     }
-                    // deserialize ReportImportedAPICallEvidence
+                    // deserialize ImportedAPICallEvidence
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        ReportImportedAPICallEvidence.validateJsonElement(jsonElement);
-                        actualAdapter = adapterReportImportedAPICallEvidence;
+                        ImportedAPICallEvidence.validateJsonElement(jsonElement);
+                        actualAdapter = adapterImportedAPICallEvidence;
                         match++;
-                        log.log(Level.FINER, "Input data matches schema 'ReportImportedAPICallEvidence'");
+                        log.log(Level.FINER, "Input data matches schema 'ImportedAPICallEvidence'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ReportImportedAPICallEvidence failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'ReportImportedAPICallEvidence'", e);
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ImportedAPICallEvidence failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'ImportedAPICallEvidence'", e);
                     }
                     // deserialize StringMatchEvidence
                     try {
@@ -247,17 +247,17 @@ public class ReportFindingEvidenceInner extends AbstractOpenApiSchema {
                         errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for FunctionSimilarityEvidence failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'FunctionSimilarityEvidence'", e);
                     }
-                    // deserialize ReportAPICombinationEvidence
+                    // deserialize APICombinationEvidence
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        ReportAPICombinationEvidence.validateJsonElement(jsonElement);
-                        actualAdapter = adapterReportAPICombinationEvidence;
+                        APICombinationEvidence.validateJsonElement(jsonElement);
+                        actualAdapter = adapterAPICombinationEvidence;
                         match++;
-                        log.log(Level.FINER, "Input data matches schema 'ReportAPICombinationEvidence'");
+                        log.log(Level.FINER, "Input data matches schema 'APICombinationEvidence'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ReportAPICombinationEvidence failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'ReportAPICombinationEvidence'", e);
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for APICombinationEvidence failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'APICombinationEvidence'", e);
                     }
                     // deserialize DecompilerSummaryEvidence
                     try {
@@ -347,10 +347,10 @@ public class ReportFindingEvidenceInner extends AbstractOpenApiSchema {
     static {
         schemas.put("CallChainEvidence", CallChainEvidence.class);
         schemas.put("ReferencedConstantEvidence", ReferencedConstantEvidence.class);
-        schemas.put("ReportImportedAPICallEvidence", ReportImportedAPICallEvidence.class);
+        schemas.put("ImportedAPICallEvidence", ImportedAPICallEvidence.class);
         schemas.put("StringMatchEvidence", StringMatchEvidence.class);
         schemas.put("FunctionSimilarityEvidence", FunctionSimilarityEvidence.class);
-        schemas.put("ReportAPICombinationEvidence", ReportAPICombinationEvidence.class);
+        schemas.put("APICombinationEvidence", APICombinationEvidence.class);
         schemas.put("DecompilerSummaryEvidence", DecompilerSummaryEvidence.class);
         schemas.put("DisassemblySummaryEvidence", DisassemblySummaryEvidence.class);
         schemas.put("ModelInterpretationEvidence", ModelInterpretationEvidence.class);
@@ -366,7 +366,7 @@ public class ReportFindingEvidenceInner extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * CallChainEvidence, DecompilerSummaryEvidence, DisassemblySummaryEvidence, FunctionSimilarityEvidence, HardcodedSecretEvidence, KnownConstantEvidence, ModelInterpretationEvidence, ReferencedConstantEvidence, ReportAPICombinationEvidence, ReportImportedAPICallEvidence, StringMatchEvidence
+     * APICombinationEvidence, CallChainEvidence, DecompilerSummaryEvidence, DisassemblySummaryEvidence, FunctionSimilarityEvidence, HardcodedSecretEvidence, ImportedAPICallEvidence, KnownConstantEvidence, ModelInterpretationEvidence, ReferencedConstantEvidence, StringMatchEvidence
      *
      * It could be an instance of the 'oneOf' schemas.
      */
@@ -382,7 +382,7 @@ public class ReportFindingEvidenceInner extends AbstractOpenApiSchema {
             return;
         }
 
-        if (instance instanceof ReportImportedAPICallEvidence) {
+        if (instance instanceof ImportedAPICallEvidence) {
             super.setActualInstance(instance);
             return;
         }
@@ -397,7 +397,7 @@ public class ReportFindingEvidenceInner extends AbstractOpenApiSchema {
             return;
         }
 
-        if (instance instanceof ReportAPICombinationEvidence) {
+        if (instance instanceof APICombinationEvidence) {
             super.setActualInstance(instance);
             return;
         }
@@ -427,14 +427,14 @@ public class ReportFindingEvidenceInner extends AbstractOpenApiSchema {
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be CallChainEvidence, DecompilerSummaryEvidence, DisassemblySummaryEvidence, FunctionSimilarityEvidence, HardcodedSecretEvidence, KnownConstantEvidence, ModelInterpretationEvidence, ReferencedConstantEvidence, ReportAPICombinationEvidence, ReportImportedAPICallEvidence, StringMatchEvidence");
+        throw new RuntimeException("Invalid instance type. Must be APICombinationEvidence, CallChainEvidence, DecompilerSummaryEvidence, DisassemblySummaryEvidence, FunctionSimilarityEvidence, HardcodedSecretEvidence, ImportedAPICallEvidence, KnownConstantEvidence, ModelInterpretationEvidence, ReferencedConstantEvidence, StringMatchEvidence");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * CallChainEvidence, DecompilerSummaryEvidence, DisassemblySummaryEvidence, FunctionSimilarityEvidence, HardcodedSecretEvidence, KnownConstantEvidence, ModelInterpretationEvidence, ReferencedConstantEvidence, ReportAPICombinationEvidence, ReportImportedAPICallEvidence, StringMatchEvidence
+     * APICombinationEvidence, CallChainEvidence, DecompilerSummaryEvidence, DisassemblySummaryEvidence, FunctionSimilarityEvidence, HardcodedSecretEvidence, ImportedAPICallEvidence, KnownConstantEvidence, ModelInterpretationEvidence, ReferencedConstantEvidence, StringMatchEvidence
      *
-     * @return The actual instance (CallChainEvidence, DecompilerSummaryEvidence, DisassemblySummaryEvidence, FunctionSimilarityEvidence, HardcodedSecretEvidence, KnownConstantEvidence, ModelInterpretationEvidence, ReferencedConstantEvidence, ReportAPICombinationEvidence, ReportImportedAPICallEvidence, StringMatchEvidence)
+     * @return The actual instance (APICombinationEvidence, CallChainEvidence, DecompilerSummaryEvidence, DisassemblySummaryEvidence, FunctionSimilarityEvidence, HardcodedSecretEvidence, ImportedAPICallEvidence, KnownConstantEvidence, ModelInterpretationEvidence, ReferencedConstantEvidence, StringMatchEvidence)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -467,15 +467,15 @@ public class ReportFindingEvidenceInner extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `ReportImportedAPICallEvidence`. If the actual instance is not `ReportImportedAPICallEvidence`,
+     * Get the actual instance of `ImportedAPICallEvidence`. If the actual instance is not `ImportedAPICallEvidence`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `ReportImportedAPICallEvidence`
-     * @throws ClassCastException if the instance is not `ReportImportedAPICallEvidence`
+     * @return The actual instance of `ImportedAPICallEvidence`
+     * @throws ClassCastException if the instance is not `ImportedAPICallEvidence`
      */
     @SuppressWarnings("unchecked")
-    public ReportImportedAPICallEvidence getReportImportedAPICallEvidence() throws ClassCastException {
-        return (ReportImportedAPICallEvidence)super.getActualInstance();
+    public ImportedAPICallEvidence getImportedAPICallEvidence() throws ClassCastException {
+        return (ImportedAPICallEvidence)super.getActualInstance();
     }
 
     /**
@@ -503,15 +503,15 @@ public class ReportFindingEvidenceInner extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `ReportAPICombinationEvidence`. If the actual instance is not `ReportAPICombinationEvidence`,
+     * Get the actual instance of `APICombinationEvidence`. If the actual instance is not `APICombinationEvidence`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `ReportAPICombinationEvidence`
-     * @throws ClassCastException if the instance is not `ReportAPICombinationEvidence`
+     * @return The actual instance of `APICombinationEvidence`
+     * @throws ClassCastException if the instance is not `APICombinationEvidence`
      */
     @SuppressWarnings("unchecked")
-    public ReportAPICombinationEvidence getReportAPICombinationEvidence() throws ClassCastException {
-        return (ReportAPICombinationEvidence)super.getActualInstance();
+    public APICombinationEvidence getAPICombinationEvidence() throws ClassCastException {
+        return (APICombinationEvidence)super.getActualInstance();
     }
 
     /**
@@ -600,12 +600,12 @@ public class ReportFindingEvidenceInner extends AbstractOpenApiSchema {
             errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ReferencedConstantEvidence failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with ReportImportedAPICallEvidence
+        // validate the json string with ImportedAPICallEvidence
         try {
-            ReportImportedAPICallEvidence.validateJsonElement(jsonElement);
+            ImportedAPICallEvidence.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ReportImportedAPICallEvidence failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ImportedAPICallEvidence failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         // validate the json string with StringMatchEvidence
@@ -624,12 +624,12 @@ public class ReportFindingEvidenceInner extends AbstractOpenApiSchema {
             errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for FunctionSimilarityEvidence failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with ReportAPICombinationEvidence
+        // validate the json string with APICombinationEvidence
         try {
-            ReportAPICombinationEvidence.validateJsonElement(jsonElement);
+            APICombinationEvidence.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for ReportAPICombinationEvidence failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for APICombinationEvidence failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         // validate the json string with DecompilerSummaryEvidence
@@ -673,7 +673,7 @@ public class ReportFindingEvidenceInner extends AbstractOpenApiSchema {
             // continue to the next one
         }
         if (validCount != 1) {
-            throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for ReportFindingEvidenceInner with oneOf schemas: CallChainEvidence, DecompilerSummaryEvidence, DisassemblySummaryEvidence, FunctionSimilarityEvidence, HardcodedSecretEvidence, KnownConstantEvidence, ModelInterpretationEvidence, ReferencedConstantEvidence, ReportAPICombinationEvidence, ReportImportedAPICallEvidence, StringMatchEvidence. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for ReportFindingEvidenceInner with oneOf schemas: APICombinationEvidence, CallChainEvidence, DecompilerSummaryEvidence, DisassemblySummaryEvidence, FunctionSimilarityEvidence, HardcodedSecretEvidence, ImportedAPICallEvidence, KnownConstantEvidence, ModelInterpretationEvidence, ReferencedConstantEvidence, StringMatchEvidence. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 
