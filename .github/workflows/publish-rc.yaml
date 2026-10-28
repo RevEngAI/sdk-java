@@ -1,0 +1,149 @@
+name: Publish RC Package
+
+on:
+  workflow_dispatch:
+
+jobs:
+  publish-rc:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write  # Required for creating tags and releases
+      id-token: write  # Required for trusted publishing to Maven Central
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+    - name: Connect to Tailscale
+      uses: tailscale/github-action@d1b6cd204f8dceda5b3eaad7f1f767be390056cd # v4.2.0
+      with:
+        oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+        oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
+        tags: tag:ci
+
+    # Servers are pinned to production so the staging host never ships in the
+    # package: the generator bakes the server list into ApiClient's basePath.
+    #
+    # `disallowAdditionalPropertiesIfNotPresent: false` only covers schemas that
+    # omit additionalProperties. For an explicit `additionalProperties: false` the
+    # generator reads the OpenAPI 3.1 boolean schema inconsistently, so the
+    # additional-properties catch-all silently comes and goes between spec
+    # revisions. `true` has only one reading.
+    # Keep in lockstep with .github/workflows/check.yaml and
+    # scripts/generate-local.sh.
+    - name: Fetch and normalise staging OpenAPI spec
+      env:
+        STAGING_OPENAPI_URL: ${{ secrets.STAGING_OPENAPI_URL }}
+      run: |
+        curl -fsSL "$STAGING_OPENAPI_URL" -o openapi.json
+        python3 - <<'PY'
+        import json
+
+        with open("openapi.json") as f:
+            spec = json.load(f)
+
+        spec["servers"] = [{"description": "Production", "url": "https://api.reveng.ai"}]
+
+        for schema in spec.get("components", {}).get("schemas", {}).values():
+            if not isinstance(schema, dict) or schema.get("additionalProperties") is not False:
+                continue
+            if schema.get("properties"):
+                schema["additionalProperties"] = True
+            else:
+                # No properties means an empty response body; `true` would change
+                # its generated type, so drop the key instead.
+                del schema["additionalProperties"]
+
+        with open("openapi.json", "w") as f:
+            json.dump(spec, f)
+        PY
+
+    - name: Compute RC version
+      id: version
+      run: |
+        # Staging spec version is not semver; target the patch after the latest release
+        LATEST=$(git ls-remote --tags --refs origin \
+          | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+$' | sort -V | tail -1)
+        BASE=$(echo "$LATEST" | awk -F. -v OFS=. '{$3++; print}')
+
+        N=$(git ls-remote --tags --refs origin "refs/tags/${BASE}-rc.*" | wc -l)
+        VERSION="${BASE}-rc.$((N + 1))"
+
+        # The tag keeps the `v` prefix; Maven versions do not use one. Maven
+        # sorts the `rc` qualifier below the plain release, so an RC is never
+        # resolved in preference to ${BASE}.
+        echo "RC version: $VERSION"
+        echo "version=$VERSION" >> $GITHUB_OUTPUT
+        echo "maven_version=${VERSION#v}" >> $GITHUB_OUTPUT
+
+    - name: Generate Java SDK
+      uses: openapi-generators/openapitools-generator-action@b729d184e6b3459572c37c0e37f88a832e69b552 # v1.5.0
+      with:
+        generator: java
+        generator-tag: 'v7.23.0'
+        openapi-file: openapi.json
+        config-file: config.yml
+        template-dir: templates
+        command-args: >
+          --additional-properties=artifactVersion=${{ steps.version.outputs.maven_version }}
+
+    - name: Generate a token
+      id: generate-token
+      uses: actions/create-github-app-token@29824e69f54612133e76f7eaac726eef6c875baf # v2.2.1
+      with:
+        app-id: ${{ secrets.REVENG_APP_ID }}
+        private-key: ${{ secrets.REVENG_APP_PRIVATE_KEY }}
+
+    # The tag points at a detached commit holding the generated SDK; no branch is updated.
+    - name: Commit, tag and push
+      env:
+        APP_TOKEN: ${{ steps.generate-token.outputs.token }}
+        SDK_VERSION: ${{ steps.version.outputs.version }}
+        STAGING_OPENAPI_URL: ${{ secrets.STAGING_OPENAPI_URL }}
+      run: |
+        # Shared with scripts/generate-local.sh so the two cannot drift.
+        bash scripts/postprocess.sh
+
+        STAGING_HOST=$(echo "$STAGING_OPENAPI_URL" | awk -F/ '{print $3}')
+        if grep -rqF --exclude-dir=.git "$STAGING_HOST" .; then
+          echo "Error: staging host leaked into generated SDK"
+          exit 1
+        fi
+
+        git config --global user.name "reveng-github[bot]"
+        git config --global user.email "reveng-github[bot]@users.noreply.github.com"
+        git remote set-url origin "https://x-access-token:${APP_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+
+        git add .
+        git commit -m "RC SDK ${SDK_VERSION}"
+        git tag -a "$SDK_VERSION" -m "$SDK_VERSION"
+        git push origin "$SDK_VERSION"
+
+    - name: Create GitHub pre-release
+      env:
+        GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
+        SDK_VERSION: ${{ steps.version.outputs.version }}
+      run: |
+        gh release create "$SDK_VERSION" \
+          --title "$SDK_VERSION" \
+          --notes "$SDK_VERSION" \
+          --prerelease \
+          --latest=false \
+          --verify-tag
+
+    - name: Set up Java
+      uses: actions/setup-java@be666c2fcd27ec809703dec50e508c2fdc7f6654 # v5.2.0
+      with:
+        java-version-file: '.java-version'
+        distribution: 'temurin'
+
+    # The generator baked maven_version into build.gradle's `version` and
+    # `coordinates(...)`, so this publishes X.Y.Z-rc.N.
+    - name: Publish package
+      run: ./gradlew publishToMavenCentral
+      env:
+        ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.MAVEN_CENTRAL_TOKEN_USERNAME }}
+        ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.MAVEN_CENTRAL_TOKEN_PASSWORD }}
+        ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.REVENG_GPG_SIGNING_KEY }}
+        ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.REVENG_GPG_SIGNING_KEY_PASSWORD }}
