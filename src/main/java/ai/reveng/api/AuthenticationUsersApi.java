@@ -32,7 +32,9 @@ import ai.reveng.model.BaseResponseGetPublicUserResponse;
 import ai.reveng.model.BaseResponseListUserActivityResponse;
 import ai.reveng.model.GetPublicUserOutputBody;
 import ai.reveng.model.GetUserActivityOutputBody;
+import ai.reveng.model.ListPrincipalsOutputBody;
 import ai.reveng.model.ListPublicUsersOutputBody;
+import ai.reveng.model.ListTeamsOutputBody;
 import ai.reveng.model.SubmitFeedbackBody;
 import ai.reveng.model.SubmitFeedbackOutputBody;
 import ai.reveng.model.SubmitUserFeedbackRequest;
@@ -751,6 +753,274 @@ public class AuthenticationUsersApi {
         return localVarCall;
     }
     /**
+     * Build call for v3ListPrincipals
+     * @param searchTerm Text the user&#39;s username or team&#39;s name contains (case-insensitive) (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3ListPrincipalsCall(@javax.annotation.Nonnull String searchTerm, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/principals";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (searchTerm != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("search_term", searchTerm));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call v3ListPrincipalsValidateBeforeCall(@javax.annotation.Nonnull String searchTerm, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'searchTerm' is set
+        if (searchTerm == null) {
+            throw new ApiException("Missing the required parameter 'searchTerm' when calling v3ListPrincipals(Async)");
+        }
+
+        return v3ListPrincipalsCall(searchTerm, _callback);
+
+    }
+
+    /**
+     * Search users and teams
+     * Returns up to 5 matching users and up to 5 matching teams whose name contains the search term (case-insensitive), scoped to the caller&#39;s organisation using the same rules as the individual user and team search endpoints.
+     * @param searchTerm Text the user&#39;s username or team&#39;s name contains (case-insensitive) (required)
+     * @return ListPrincipalsOutputBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListPrincipalsOutputBody v3ListPrincipals(@javax.annotation.Nonnull String searchTerm) throws ApiException {
+        ApiResponse<ListPrincipalsOutputBody> localVarResp = v3ListPrincipalsWithHttpInfo(searchTerm);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Search users and teams
+     * Returns up to 5 matching users and up to 5 matching teams whose name contains the search term (case-insensitive), scoped to the caller&#39;s organisation using the same rules as the individual user and team search endpoints.
+     * @param searchTerm Text the user&#39;s username or team&#39;s name contains (case-insensitive) (required)
+     * @return ApiResponse&lt;ListPrincipalsOutputBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListPrincipalsOutputBody> v3ListPrincipalsWithHttpInfo(@javax.annotation.Nonnull String searchTerm) throws ApiException {
+        okhttp3.Call localVarCall = v3ListPrincipalsValidateBeforeCall(searchTerm, null);
+        Type localVarReturnType = new TypeToken<ListPrincipalsOutputBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Search users and teams (asynchronously)
+     * Returns up to 5 matching users and up to 5 matching teams whose name contains the search term (case-insensitive), scoped to the caller&#39;s organisation using the same rules as the individual user and team search endpoints.
+     * @param searchTerm Text the user&#39;s username or team&#39;s name contains (case-insensitive) (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3ListPrincipalsAsync(@javax.annotation.Nonnull String searchTerm, final ApiCallback<ListPrincipalsOutputBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = v3ListPrincipalsValidateBeforeCall(searchTerm, _callback);
+        Type localVarReturnType = new TypeToken<ListPrincipalsOutputBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for v3ListTeams
+     * @param searchTerm Text the team name contains (case-insensitive) (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3ListTeamsCall(@javax.annotation.Nonnull String searchTerm, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/teams";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (searchTerm != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("search_term", searchTerm));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call v3ListTeamsValidateBeforeCall(@javax.annotation.Nonnull String searchTerm, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'searchTerm' is set
+        if (searchTerm == null) {
+            throw new ApiException("Missing the required parameter 'searchTerm' when calling v3ListTeams(Async)");
+        }
+
+        return v3ListTeamsCall(searchTerm, _callback);
+
+    }
+
+    /**
+     * Search teams
+     * Returns up to 5 teams whose name contains the search term (case-insensitive). Returns every team in the caller&#39;s organisation, or — if the organisation is named \&quot;Internal\&quot; — only the teams the caller belongs to.
+     * @param searchTerm Text the team name contains (case-insensitive) (required)
+     * @return ListTeamsOutputBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListTeamsOutputBody v3ListTeams(@javax.annotation.Nonnull String searchTerm) throws ApiException {
+        ApiResponse<ListTeamsOutputBody> localVarResp = v3ListTeamsWithHttpInfo(searchTerm);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Search teams
+     * Returns up to 5 teams whose name contains the search term (case-insensitive). Returns every team in the caller&#39;s organisation, or — if the organisation is named \&quot;Internal\&quot; — only the teams the caller belongs to.
+     * @param searchTerm Text the team name contains (case-insensitive) (required)
+     * @return ApiResponse&lt;ListTeamsOutputBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListTeamsOutputBody> v3ListTeamsWithHttpInfo(@javax.annotation.Nonnull String searchTerm) throws ApiException {
+        okhttp3.Call localVarCall = v3ListTeamsValidateBeforeCall(searchTerm, null);
+        Type localVarReturnType = new TypeToken<ListTeamsOutputBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Search teams (asynchronously)
+     * Returns up to 5 teams whose name contains the search term (case-insensitive). Returns every team in the caller&#39;s organisation, or — if the organisation is named \&quot;Internal\&quot; — only the teams the caller belongs to.
+     * @param searchTerm Text the team name contains (case-insensitive) (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3ListTeamsAsync(@javax.annotation.Nonnull String searchTerm, final ApiCallback<ListTeamsOutputBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = v3ListTeamsValidateBeforeCall(searchTerm, _callback);
+        Type localVarReturnType = new TypeToken<ListTeamsOutputBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for v3ListUsers
      * @param searchTerm Text the username contains (case-insensitive) (required)
      * @param _callback Callback for upload/download progress
@@ -825,7 +1095,7 @@ public class AuthenticationUsersApi {
 
     /**
      * Search users
-     * Returns up to 5 active users whose username contains the search term (case-insensitive), with their ID and username, ordered by username.
+     * Returns up to 5 active users in the caller&#39;s organisation whose username contains the search term (case-insensitive), with their ID and username, ordered by username.
      * @param searchTerm Text the username contains (case-insensitive) (required)
      * @return ListPublicUsersOutputBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -844,7 +1114,7 @@ public class AuthenticationUsersApi {
 
     /**
      * Search users
-     * Returns up to 5 active users whose username contains the search term (case-insensitive), with their ID and username, ordered by username.
+     * Returns up to 5 active users in the caller&#39;s organisation whose username contains the search term (case-insensitive), with their ID and username, ordered by username.
      * @param searchTerm Text the username contains (case-insensitive) (required)
      * @return ApiResponse&lt;ListPublicUsersOutputBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -864,7 +1134,7 @@ public class AuthenticationUsersApi {
 
     /**
      * Search users (asynchronously)
-     * Returns up to 5 active users whose username contains the search term (case-insensitive), with their ID and username, ordered by username.
+     * Returns up to 5 active users in the caller&#39;s organisation whose username contains the search term (case-insensitive), with their ID and username, ordered by username.
      * @param searchTerm Text the username contains (case-insensitive) (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

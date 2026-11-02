@@ -9,6 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**defaultTeamId** | **Long** |  |  [optional] |
 |**firstName** | **String** |  |  |
+|**hideAiDecompilationComments** | **Boolean** |  |  |
 |**hideExampleBinaries** | **Boolean** |  |  |
 |**lastName** | **String** |  |  |
 |**timeZone** | **String** |  |  |

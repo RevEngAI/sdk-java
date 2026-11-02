@@ -9,6 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**createdAt** | **OffsetDateTime** |  |  |
 |**email** | **String** |  |  |
+|**isActive** | **Boolean** | Inactive users cannot authenticate |  |
 |**profile** | **UserProfile** |  |  |
 |**role** | [**RoleEnum**](#RoleEnum) |  |  |
 |**tier** | [**TierEnum**](#TierEnum) |  |  [optional] |

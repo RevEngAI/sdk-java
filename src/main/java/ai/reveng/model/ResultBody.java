@@ -92,7 +92,7 @@ public class ResultBody {
   }
 
   /**
-   * Child binaries recovered from the extraction.
+   * Every file recovered from the extraction, binary or not.
    * @return binaries
    */
   @javax.annotation.Nullable
@@ -157,7 +157,7 @@ public class ResultBody {
   }
 
   /**
-   * Files skipped because they were not recognised as binaries.
+   * Deprecated: always 0, every file is returned.
    * @return skippedFiles
    */
   @javax.annotation.Nonnull

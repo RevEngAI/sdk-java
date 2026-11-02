@@ -61,6 +61,11 @@ public class User {
   @javax.annotation.Nonnull
   private String email;
 
+  public static final String SERIALIZED_NAME_IS_ACTIVE = "is_active";
+  @SerializedName(SERIALIZED_NAME_IS_ACTIVE)
+  @javax.annotation.Nonnull
+  private Boolean isActive;
+
   public static final String SERIALIZED_NAME_PROFILE = "profile";
   @SerializedName(SERIALIZED_NAME_PROFILE)
   @javax.annotation.Nonnull
@@ -240,6 +245,25 @@ public class User {
   }
 
 
+  public User isActive(@javax.annotation.Nonnull Boolean isActive) {
+    this.isActive = isActive;
+    return this;
+  }
+
+  /**
+   * Inactive users cannot authenticate
+   * @return isActive
+   */
+  @javax.annotation.Nonnull
+  public Boolean getIsActive() {
+    return isActive;
+  }
+
+  public void setIsActive(@javax.annotation.Nonnull Boolean isActive) {
+    this.isActive = isActive;
+  }
+
+
   public User profile(@javax.annotation.Nonnull UserProfile profile) {
     this.profile = profile;
     return this;
@@ -372,6 +396,7 @@ public class User {
     User user = (User) o;
     return Objects.equals(this.createdAt, user.createdAt) &&
         Objects.equals(this.email, user.email) &&
+        Objects.equals(this.isActive, user.isActive) &&
         Objects.equals(this.profile, user.profile) &&
         Objects.equals(this.role, user.role) &&
         Objects.equals(this.tier, user.tier) &&
@@ -381,7 +406,7 @@ public class User {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, email, profile, role, tier, userId, additionalProperties);
+    return Objects.hash(createdAt, email, isActive, profile, role, tier, userId, additionalProperties);
   }
 
   @Override
@@ -390,6 +415,7 @@ public class User {
     sb.append("class User {\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    isActive: ").append(toIndentedString(isActive)).append("\n");
     sb.append("    profile: ").append(toIndentedString(profile)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");
     sb.append("    tier: ").append(toIndentedString(tier)).append("\n");
@@ -413,10 +439,10 @@ public class User {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("created_at", "email", "profile", "role", "tier", "user_id"));
+    openapiFields = new HashSet<String>(Arrays.asList("created_at", "email", "is_active", "profile", "role", "tier", "user_id"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("created_at", "email", "profile", "role", "user_id"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("created_at", "email", "is_active", "profile", "role", "user_id"));
   }
 
   /**

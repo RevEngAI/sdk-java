@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -52,6 +53,11 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GetMatchesStatusOutputBody {
+  public static final String SERIALIZED_NAME_COMPLETED_AT = "completed_at";
+  @SerializedName(SERIALIZED_NAME_COMPLETED_AT)
+  @javax.annotation.Nullable
+  private OffsetDateTime completedAt;
+
   public static final String SERIALIZED_NAME_MESSAGES = "messages";
   @SerializedName(SERIALIZED_NAME_MESSAGES)
   @javax.annotation.Nullable
@@ -164,6 +170,25 @@ public class GetMatchesStatusOutputBody {
 
   public GetMatchesStatusOutputBody() {
   }
+
+  public GetMatchesStatusOutputBody completedAt(@javax.annotation.Nullable OffsetDateTime completedAt) {
+    this.completedAt = completedAt;
+    return this;
+  }
+
+  /**
+   * When this run last completed. Absent until status&#x3D;COMPLETED.
+   * @return completedAt
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getCompletedAt() {
+    return completedAt;
+  }
+
+  public void setCompletedAt(@javax.annotation.Nullable OffsetDateTime completedAt) {
+    this.completedAt = completedAt;
+  }
+
 
   public GetMatchesStatusOutputBody messages(@javax.annotation.Nullable List<ProgressMessage> messages) {
     this.messages = messages;
@@ -417,7 +442,8 @@ public class GetMatchesStatusOutputBody {
       return false;
     }
     GetMatchesStatusOutputBody getMatchesStatusOutputBody = (GetMatchesStatusOutputBody) o;
-    return Objects.equals(this.messages, getMatchesStatusOutputBody.messages) &&
+    return Objects.equals(this.completedAt, getMatchesStatusOutputBody.completedAt) &&
+        Objects.equals(this.messages, getMatchesStatusOutputBody.messages) &&
         Objects.equals(this.percent, getMatchesStatusOutputBody.percent) &&
         Objects.equals(this.status, getMatchesStatusOutputBody.status) &&
         Objects.equals(this.step, getMatchesStatusOutputBody.step) &&
@@ -432,13 +458,14 @@ public class GetMatchesStatusOutputBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(messages, percent, status, step, stepIndex, stepShare, stepsTotal, subStep, subStepDone, subStepTotal, additionalProperties);
+    return Objects.hash(completedAt, messages, percent, status, step, stepIndex, stepShare, stepsTotal, subStep, subStepDone, subStepTotal, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetMatchesStatusOutputBody {\n");
+    sb.append("    completedAt: ").append(toIndentedString(completedAt)).append("\n");
     sb.append("    messages: ").append(toIndentedString(messages)).append("\n");
     sb.append("    percent: ").append(toIndentedString(percent)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
@@ -468,7 +495,7 @@ public class GetMatchesStatusOutputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("messages", "percent", "status", "step", "step_index", "step_share", "steps_total", "sub_step", "sub_step_done", "sub_step_total"));
+    openapiFields = new HashSet<String>(Arrays.asList("completed_at", "messages", "percent", "status", "step", "step_index", "step_share", "steps_total", "sub_step", "sub_step_done", "sub_step_total"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("messages", "percent", "status", "step", "step_index", "step_share", "steps_total"));

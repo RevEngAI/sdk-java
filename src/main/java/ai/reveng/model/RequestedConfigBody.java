@@ -13,13 +13,16 @@
 package ai.reveng.model;
 
 import java.util.Objects;
+import ai.reveng.model.RequestedOperation;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -59,6 +62,11 @@ public class RequestedConfigBody {
   @javax.annotation.Nonnull
   private Boolean functions;
 
+  public static final String SERIALIZED_NAME_OPERATIONS = "operations";
+  @SerializedName(SERIALIZED_NAME_OPERATIONS)
+  @javax.annotation.Nonnull
+  private List<RequestedOperation> operations = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_SANDBOX = "sandbox";
   @SerializedName(SERIALIZED_NAME_SANDBOX)
   @javax.annotation.Nonnull
@@ -70,6 +78,7 @@ public class RequestedConfigBody {
   private Boolean scrape;
 
   public static final String SERIALIZED_NAME_TRIAGE = "triage";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_TRIAGE)
   @javax.annotation.Nonnull
   private Boolean triage;
@@ -83,7 +92,7 @@ public class RequestedConfigBody {
   }
 
   /**
-   * Whether the capabilities agent was requested
+   * Whether static capability extraction was requested
    * @return capabilities
    */
   @javax.annotation.Nonnull
@@ -112,6 +121,33 @@ public class RequestedConfigBody {
 
   public void setFunctions(@javax.annotation.Nonnull Boolean functions) {
     this.functions = functions;
+  }
+
+
+  public RequestedConfigBody operations(@javax.annotation.Nonnull List<RequestedOperation> operations) {
+    this.operations = operations;
+    return this;
+  }
+
+  public RequestedConfigBody addOperationsItem(RequestedOperation operationsItem) {
+    if (this.operations == null) {
+      this.operations = new ArrayList<>();
+    }
+    this.operations.add(operationsItem);
+    return this;
+  }
+
+  /**
+   * Operations requested to run automatically once the analysis completes
+   * @return operations
+   */
+  @javax.annotation.Nonnull
+  public List<RequestedOperation> getOperations() {
+    return operations;
+  }
+
+  public void setOperations(@javax.annotation.Nonnull List<RequestedOperation> operations) {
+    this.operations = operations;
   }
 
 
@@ -153,6 +189,7 @@ public class RequestedConfigBody {
   }
 
 
+  @Deprecated
   public RequestedConfigBody triage(@javax.annotation.Nonnull Boolean triage) {
     this.triage = triage;
     return this;
@@ -161,12 +198,15 @@ public class RequestedConfigBody {
   /**
    * Whether the triage agent was requested
    * @return triage
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nonnull
   public Boolean getTriage() {
     return triage;
   }
 
+  @Deprecated
   public void setTriage(@javax.annotation.Nonnull Boolean triage) {
     this.triage = triage;
   }
@@ -228,6 +268,7 @@ public class RequestedConfigBody {
     RequestedConfigBody requestedConfigBody = (RequestedConfigBody) o;
     return Objects.equals(this.capabilities, requestedConfigBody.capabilities) &&
         Objects.equals(this.functions, requestedConfigBody.functions) &&
+        Objects.equals(this.operations, requestedConfigBody.operations) &&
         Objects.equals(this.sandbox, requestedConfigBody.sandbox) &&
         Objects.equals(this.scrape, requestedConfigBody.scrape) &&
         Objects.equals(this.triage, requestedConfigBody.triage)&&
@@ -236,7 +277,7 @@ public class RequestedConfigBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(capabilities, functions, sandbox, scrape, triage, additionalProperties);
+    return Objects.hash(capabilities, functions, operations, sandbox, scrape, triage, additionalProperties);
   }
 
   @Override
@@ -245,6 +286,7 @@ public class RequestedConfigBody {
     sb.append("class RequestedConfigBody {\n");
     sb.append("    capabilities: ").append(toIndentedString(capabilities)).append("\n");
     sb.append("    functions: ").append(toIndentedString(functions)).append("\n");
+    sb.append("    operations: ").append(toIndentedString(operations)).append("\n");
     sb.append("    sandbox: ").append(toIndentedString(sandbox)).append("\n");
     sb.append("    scrape: ").append(toIndentedString(scrape)).append("\n");
     sb.append("    triage: ").append(toIndentedString(triage)).append("\n");
@@ -267,10 +309,10 @@ public class RequestedConfigBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("capabilities", "functions", "sandbox", "scrape", "triage"));
+    openapiFields = new HashSet<String>(Arrays.asList("capabilities", "functions", "operations", "sandbox", "scrape", "triage"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("capabilities", "functions", "sandbox", "scrape", "triage"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("capabilities", "functions", "operations", "sandbox", "scrape", "triage"));
   }
 
   /**
@@ -293,6 +335,12 @@ public class RequestedConfigBody {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // ensure the required json array is present
+      if (jsonObj.get("operations") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("operations").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `operations` to be an array in the JSON string but got `%s`", jsonObj.get("operations").toString()));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

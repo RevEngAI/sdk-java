@@ -98,6 +98,8 @@ public class FunctionsAiDecompilationApi {
      * @param typeSuggestions Ask the language model to name the suggested types and their members. Set to false to skip the model call; the statically derived layouts are still computed and stored. Cannot re-enable the pass when the server has it off. (optional, default to true)
      * @param naming Ask the language model to name the placeholder variables. Set to false to skip the model call; the generic names are kept. Cannot re-enable the pass when the server has it off. (optional, default to true)
      * @param applyTypes Store the suggested types as data types of this function&#39;s analysis, with a source_type of AI_DECOMP. Set to false to leave them as suggestions only. Cannot re-enable the pass when the server has it off. (optional, default to true)
+     * @param repair Ask a language model to replace any unmatched placeholders left in the decompilation with grounded code. Off unless requested: the pass spends several model calls on top of the decompilation, and declines outright unless it can ground every placeholder. Runs after the result is stored, so it amends a decompilation you can already read. Cannot enable the pass when the server has it off. (optional, default to false)
+     * @param refine Ask a language model to rebuild output the decompiler returned degenerate, truncated or empty, and output a requested repair pass declined. Off unless requested: the pass is a bounded tool loop that can spend a dozen model calls. Runs after the result is stored, so it amends a decompilation you can already read. Cannot enable the pass when the server has it off. (optional, default to false)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -115,7 +117,7 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAiDecompilationCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Double temperature, @javax.annotation.Nullable Boolean typeSuggestions, @javax.annotation.Nullable Boolean naming, @javax.annotation.Nullable Boolean applyTypes, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createAiDecompilationCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Double temperature, @javax.annotation.Nullable Boolean typeSuggestions, @javax.annotation.Nullable Boolean naming, @javax.annotation.Nullable Boolean applyTypes, @javax.annotation.Nullable Boolean repair, @javax.annotation.Nullable Boolean refine, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -157,6 +159,14 @@ public class FunctionsAiDecompilationApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("apply_types", applyTypes));
         }
 
+        if (repair != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("repair", repair));
+        }
+
+        if (refine != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("refine", refine));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -177,13 +187,13 @@ public class FunctionsAiDecompilationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createAiDecompilationValidateBeforeCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Double temperature, @javax.annotation.Nullable Boolean typeSuggestions, @javax.annotation.Nullable Boolean naming, @javax.annotation.Nullable Boolean applyTypes, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createAiDecompilationValidateBeforeCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Double temperature, @javax.annotation.Nullable Boolean typeSuggestions, @javax.annotation.Nullable Boolean naming, @javax.annotation.Nullable Boolean applyTypes, @javax.annotation.Nullable Boolean repair, @javax.annotation.Nullable Boolean refine, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'functionId' is set
         if (functionId == null) {
             throw new ApiException("Missing the required parameter 'functionId' when calling createAiDecompilation(Async)");
         }
 
-        return createAiDecompilationCall(functionId, temperature, typeSuggestions, naming, applyTypes, _callback);
+        return createAiDecompilationCall(functionId, temperature, typeSuggestions, naming, applyTypes, repair, refine, _callback);
 
     }
 
@@ -195,6 +205,8 @@ public class FunctionsAiDecompilationApi {
      * @param typeSuggestions Ask the language model to name the suggested types and their members. Set to false to skip the model call; the statically derived layouts are still computed and stored. Cannot re-enable the pass when the server has it off. (optional, default to true)
      * @param naming Ask the language model to name the placeholder variables. Set to false to skip the model call; the generic names are kept. Cannot re-enable the pass when the server has it off. (optional, default to true)
      * @param applyTypes Store the suggested types as data types of this function&#39;s analysis, with a source_type of AI_DECOMP. Set to false to leave them as suggestions only. Cannot re-enable the pass when the server has it off. (optional, default to true)
+     * @param repair Ask a language model to replace any unmatched placeholders left in the decompilation with grounded code. Off unless requested: the pass spends several model calls on top of the decompilation, and declines outright unless it can ground every placeholder. Runs after the result is stored, so it amends a decompilation you can already read. Cannot enable the pass when the server has it off. (optional, default to false)
+     * @param refine Ask a language model to rebuild output the decompiler returned degenerate, truncated or empty, and output a requested repair pass declined. Off unless requested: the pass is a bounded tool loop that can spend a dozen model calls. Runs after the result is stored, so it amends a decompilation you can already read. Cannot enable the pass when the server has it off. (optional, default to false)
      * @return CreateAIDecompOutputBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -211,8 +223,8 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public CreateAIDecompOutputBody createAiDecompilation(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Double temperature, @javax.annotation.Nullable Boolean typeSuggestions, @javax.annotation.Nullable Boolean naming, @javax.annotation.Nullable Boolean applyTypes) throws ApiException {
-        ApiResponse<CreateAIDecompOutputBody> localVarResp = createAiDecompilationWithHttpInfo(functionId, temperature, typeSuggestions, naming, applyTypes);
+    public CreateAIDecompOutputBody createAiDecompilation(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Double temperature, @javax.annotation.Nullable Boolean typeSuggestions, @javax.annotation.Nullable Boolean naming, @javax.annotation.Nullable Boolean applyTypes, @javax.annotation.Nullable Boolean repair, @javax.annotation.Nullable Boolean refine) throws ApiException {
+        ApiResponse<CreateAIDecompOutputBody> localVarResp = createAiDecompilationWithHttpInfo(functionId, temperature, typeSuggestions, naming, applyTypes, repair, refine);
         return localVarResp.getData();
     }
 
@@ -224,6 +236,8 @@ public class FunctionsAiDecompilationApi {
      * @param typeSuggestions Ask the language model to name the suggested types and their members. Set to false to skip the model call; the statically derived layouts are still computed and stored. Cannot re-enable the pass when the server has it off. (optional, default to true)
      * @param naming Ask the language model to name the placeholder variables. Set to false to skip the model call; the generic names are kept. Cannot re-enable the pass when the server has it off. (optional, default to true)
      * @param applyTypes Store the suggested types as data types of this function&#39;s analysis, with a source_type of AI_DECOMP. Set to false to leave them as suggestions only. Cannot re-enable the pass when the server has it off. (optional, default to true)
+     * @param repair Ask a language model to replace any unmatched placeholders left in the decompilation with grounded code. Off unless requested: the pass spends several model calls on top of the decompilation, and declines outright unless it can ground every placeholder. Runs after the result is stored, so it amends a decompilation you can already read. Cannot enable the pass when the server has it off. (optional, default to false)
+     * @param refine Ask a language model to rebuild output the decompiler returned degenerate, truncated or empty, and output a requested repair pass declined. Off unless requested: the pass is a bounded tool loop that can spend a dozen model calls. Runs after the result is stored, so it amends a decompilation you can already read. Cannot enable the pass when the server has it off. (optional, default to false)
      * @return ApiResponse&lt;CreateAIDecompOutputBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -240,8 +254,8 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CreateAIDecompOutputBody> createAiDecompilationWithHttpInfo(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Double temperature, @javax.annotation.Nullable Boolean typeSuggestions, @javax.annotation.Nullable Boolean naming, @javax.annotation.Nullable Boolean applyTypes) throws ApiException {
-        okhttp3.Call localVarCall = createAiDecompilationValidateBeforeCall(functionId, temperature, typeSuggestions, naming, applyTypes, null);
+    public ApiResponse<CreateAIDecompOutputBody> createAiDecompilationWithHttpInfo(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Double temperature, @javax.annotation.Nullable Boolean typeSuggestions, @javax.annotation.Nullable Boolean naming, @javax.annotation.Nullable Boolean applyTypes, @javax.annotation.Nullable Boolean repair, @javax.annotation.Nullable Boolean refine) throws ApiException {
+        okhttp3.Call localVarCall = createAiDecompilationValidateBeforeCall(functionId, temperature, typeSuggestions, naming, applyTypes, repair, refine, null);
         Type localVarReturnType = new TypeToken<CreateAIDecompOutputBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -254,6 +268,8 @@ public class FunctionsAiDecompilationApi {
      * @param typeSuggestions Ask the language model to name the suggested types and their members. Set to false to skip the model call; the statically derived layouts are still computed and stored. Cannot re-enable the pass when the server has it off. (optional, default to true)
      * @param naming Ask the language model to name the placeholder variables. Set to false to skip the model call; the generic names are kept. Cannot re-enable the pass when the server has it off. (optional, default to true)
      * @param applyTypes Store the suggested types as data types of this function&#39;s analysis, with a source_type of AI_DECOMP. Set to false to leave them as suggestions only. Cannot re-enable the pass when the server has it off. (optional, default to true)
+     * @param repair Ask a language model to replace any unmatched placeholders left in the decompilation with grounded code. Off unless requested: the pass spends several model calls on top of the decompilation, and declines outright unless it can ground every placeholder. Runs after the result is stored, so it amends a decompilation you can already read. Cannot enable the pass when the server has it off. (optional, default to false)
+     * @param refine Ask a language model to rebuild output the decompiler returned degenerate, truncated or empty, and output a requested repair pass declined. Off unless requested: the pass is a bounded tool loop that can spend a dozen model calls. Runs after the result is stored, so it amends a decompilation you can already read. Cannot enable the pass when the server has it off. (optional, default to false)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -271,9 +287,9 @@ public class FunctionsAiDecompilationApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAiDecompilationAsync(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Double temperature, @javax.annotation.Nullable Boolean typeSuggestions, @javax.annotation.Nullable Boolean naming, @javax.annotation.Nullable Boolean applyTypes, final ApiCallback<CreateAIDecompOutputBody> _callback) throws ApiException {
+    public okhttp3.Call createAiDecompilationAsync(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Double temperature, @javax.annotation.Nullable Boolean typeSuggestions, @javax.annotation.Nullable Boolean naming, @javax.annotation.Nullable Boolean applyTypes, @javax.annotation.Nullable Boolean repair, @javax.annotation.Nullable Boolean refine, final ApiCallback<CreateAIDecompOutputBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createAiDecompilationValidateBeforeCall(functionId, temperature, typeSuggestions, naming, applyTypes, _callback);
+        okhttp3.Call localVarCall = createAiDecompilationValidateBeforeCall(functionId, temperature, typeSuggestions, naming, applyTypes, repair, refine, _callback);
         Type localVarReturnType = new TypeToken<CreateAIDecompOutputBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

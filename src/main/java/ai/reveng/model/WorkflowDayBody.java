@@ -13,7 +13,7 @@
 package ai.reveng.model;
 
 import java.util.Objects;
-import ai.reveng.model.AnalyseCapabilitiesBody;
+import ai.reveng.model.AgentCompletedBody;
 import ai.reveng.model.ReportAnalysisBody;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -54,22 +54,77 @@ public class WorkflowDayBody {
   public static final String SERIALIZED_NAME_ANALYSE_CAPABILITIES = "analyse_capabilities";
   @SerializedName(SERIALIZED_NAME_ANALYSE_CAPABILITIES)
   @javax.annotation.Nonnull
-  private AnalyseCapabilitiesBody analyseCapabilities;
+  private AgentCompletedBody analyseCapabilities;
+
+  public static final String SERIALIZED_NAME_CRYPTO_SCAN = "crypto_scan";
+  @SerializedName(SERIALIZED_NAME_CRYPTO_SCAN)
+  @javax.annotation.Nonnull
+  private AgentCompletedBody cryptoScan;
+
+  public static final String SERIALIZED_NAME_CRYPTOGRAPHY_BINARY = "cryptography_binary";
+  @SerializedName(SERIALIZED_NAME_CRYPTOGRAPHY_BINARY)
+  @javax.annotation.Nonnull
+  private AgentCompletedBody cryptographyBinary;
 
   public static final String SERIALIZED_NAME_DATE = "date";
   @SerializedName(SERIALIZED_NAME_DATE)
   @javax.annotation.Nonnull
   private String date;
 
+  public static final String SERIALIZED_NAME_EXECUTION_SCAN = "execution_scan";
+  @SerializedName(SERIALIZED_NAME_EXECUTION_SCAN)
+  @javax.annotation.Nonnull
+  private AgentCompletedBody executionScan;
+
+  public static final String SERIALIZED_NAME_FILESYSTEM_SCAN = "filesystem_scan";
+  @SerializedName(SERIALIZED_NAME_FILESYSTEM_SCAN)
+  @javax.annotation.Nonnull
+  private AgentCompletedBody filesystemScan;
+
+  public static final String SERIALIZED_NAME_NETWORKING_SCAN = "networking_scan";
+  @SerializedName(SERIALIZED_NAME_NETWORKING_SCAN)
+  @javax.annotation.Nonnull
+  private AgentCompletedBody networkingScan;
+
+  public static final String SERIALIZED_NAME_PROTOCOLS = "protocols";
+  @SerializedName(SERIALIZED_NAME_PROTOCOLS)
+  @javax.annotation.Nonnull
+  private AgentCompletedBody protocols;
+
+  public static final String SERIALIZED_NAME_REMEDIATION = "remediation";
+  @SerializedName(SERIALIZED_NAME_REMEDIATION)
+  @javax.annotation.Nonnull
+  private AgentCompletedBody remediation;
+
+  public static final String SERIALIZED_NAME_RENAME_UNNAMED_FUNCTIONS = "rename_unnamed_functions";
+  @SerializedName(SERIALIZED_NAME_RENAME_UNNAMED_FUNCTIONS)
+  @javax.annotation.Nonnull
+  private AgentCompletedBody renameUnnamedFunctions;
+
   public static final String SERIALIZED_NAME_REPORT_ANALYSIS = "report_analysis";
   @SerializedName(SERIALIZED_NAME_REPORT_ANALYSIS)
   @javax.annotation.Nonnull
   private ReportAnalysisBody reportAnalysis;
 
+  public static final String SERIALIZED_NAME_SECRETS = "secrets";
+  @SerializedName(SERIALIZED_NAME_SECRETS)
+  @javax.annotation.Nonnull
+  private AgentCompletedBody secrets;
+
+  public static final String SERIALIZED_NAME_SECURITY_SCAN = "security_scan";
+  @SerializedName(SERIALIZED_NAME_SECURITY_SCAN)
+  @javax.annotation.Nonnull
+  private AgentCompletedBody securityScan;
+
+  public static final String SERIALIZED_NAME_TRIAGE = "triage";
+  @SerializedName(SERIALIZED_NAME_TRIAGE)
+  @javax.annotation.Nonnull
+  private AgentCompletedBody triage;
+
   public WorkflowDayBody() {
   }
 
-  public WorkflowDayBody analyseCapabilities(@javax.annotation.Nonnull AnalyseCapabilitiesBody analyseCapabilities) {
+  public WorkflowDayBody analyseCapabilities(@javax.annotation.Nonnull AgentCompletedBody analyseCapabilities) {
     this.analyseCapabilities = analyseCapabilities;
     return this;
   }
@@ -79,12 +134,50 @@ public class WorkflowDayBody {
    * @return analyseCapabilities
    */
   @javax.annotation.Nonnull
-  public AnalyseCapabilitiesBody getAnalyseCapabilities() {
+  public AgentCompletedBody getAnalyseCapabilities() {
     return analyseCapabilities;
   }
 
-  public void setAnalyseCapabilities(@javax.annotation.Nonnull AnalyseCapabilitiesBody analyseCapabilities) {
+  public void setAnalyseCapabilities(@javax.annotation.Nonnull AgentCompletedBody analyseCapabilities) {
     this.analyseCapabilities = analyseCapabilities;
+  }
+
+
+  public WorkflowDayBody cryptoScan(@javax.annotation.Nonnull AgentCompletedBody cryptoScan) {
+    this.cryptoScan = cryptoScan;
+    return this;
+  }
+
+  /**
+   * CRYPTOGRAPHY agent-task stats for the day
+   * @return cryptoScan
+   */
+  @javax.annotation.Nonnull
+  public AgentCompletedBody getCryptoScan() {
+    return cryptoScan;
+  }
+
+  public void setCryptoScan(@javax.annotation.Nonnull AgentCompletedBody cryptoScan) {
+    this.cryptoScan = cryptoScan;
+  }
+
+
+  public WorkflowDayBody cryptographyBinary(@javax.annotation.Nonnull AgentCompletedBody cryptographyBinary) {
+    this.cryptographyBinary = cryptographyBinary;
+    return this;
+  }
+
+  /**
+   * CRYPTOGRAPHY_BINARY agent-task stats for the day
+   * @return cryptographyBinary
+   */
+  @javax.annotation.Nonnull
+  public AgentCompletedBody getCryptographyBinary() {
+    return cryptographyBinary;
+  }
+
+  public void setCryptographyBinary(@javax.annotation.Nonnull AgentCompletedBody cryptographyBinary) {
+    this.cryptographyBinary = cryptographyBinary;
   }
 
 
@@ -107,6 +200,120 @@ public class WorkflowDayBody {
   }
 
 
+  public WorkflowDayBody executionScan(@javax.annotation.Nonnull AgentCompletedBody executionScan) {
+    this.executionScan = executionScan;
+    return this;
+  }
+
+  /**
+   * EXECUTION agent-task stats for the day
+   * @return executionScan
+   */
+  @javax.annotation.Nonnull
+  public AgentCompletedBody getExecutionScan() {
+    return executionScan;
+  }
+
+  public void setExecutionScan(@javax.annotation.Nonnull AgentCompletedBody executionScan) {
+    this.executionScan = executionScan;
+  }
+
+
+  public WorkflowDayBody filesystemScan(@javax.annotation.Nonnull AgentCompletedBody filesystemScan) {
+    this.filesystemScan = filesystemScan;
+    return this;
+  }
+
+  /**
+   * FILESYSTEM agent-task stats for the day
+   * @return filesystemScan
+   */
+  @javax.annotation.Nonnull
+  public AgentCompletedBody getFilesystemScan() {
+    return filesystemScan;
+  }
+
+  public void setFilesystemScan(@javax.annotation.Nonnull AgentCompletedBody filesystemScan) {
+    this.filesystemScan = filesystemScan;
+  }
+
+
+  public WorkflowDayBody networkingScan(@javax.annotation.Nonnull AgentCompletedBody networkingScan) {
+    this.networkingScan = networkingScan;
+    return this;
+  }
+
+  /**
+   * NETWORKING agent-task stats for the day
+   * @return networkingScan
+   */
+  @javax.annotation.Nonnull
+  public AgentCompletedBody getNetworkingScan() {
+    return networkingScan;
+  }
+
+  public void setNetworkingScan(@javax.annotation.Nonnull AgentCompletedBody networkingScan) {
+    this.networkingScan = networkingScan;
+  }
+
+
+  public WorkflowDayBody protocols(@javax.annotation.Nonnull AgentCompletedBody protocols) {
+    this.protocols = protocols;
+    return this;
+  }
+
+  /**
+   * PROTOCOLS agent-task stats for the day
+   * @return protocols
+   */
+  @javax.annotation.Nonnull
+  public AgentCompletedBody getProtocols() {
+    return protocols;
+  }
+
+  public void setProtocols(@javax.annotation.Nonnull AgentCompletedBody protocols) {
+    this.protocols = protocols;
+  }
+
+
+  public WorkflowDayBody remediation(@javax.annotation.Nonnull AgentCompletedBody remediation) {
+    this.remediation = remediation;
+    return this;
+  }
+
+  /**
+   * REMEDIATION agent-task stats for the day
+   * @return remediation
+   */
+  @javax.annotation.Nonnull
+  public AgentCompletedBody getRemediation() {
+    return remediation;
+  }
+
+  public void setRemediation(@javax.annotation.Nonnull AgentCompletedBody remediation) {
+    this.remediation = remediation;
+  }
+
+
+  public WorkflowDayBody renameUnnamedFunctions(@javax.annotation.Nonnull AgentCompletedBody renameUnnamedFunctions) {
+    this.renameUnnamedFunctions = renameUnnamedFunctions;
+    return this;
+  }
+
+  /**
+   * RENAME_UNNAMED_FUNCTIONS agent-task stats for the day
+   * @return renameUnnamedFunctions
+   */
+  @javax.annotation.Nonnull
+  public AgentCompletedBody getRenameUnnamedFunctions() {
+    return renameUnnamedFunctions;
+  }
+
+  public void setRenameUnnamedFunctions(@javax.annotation.Nonnull AgentCompletedBody renameUnnamedFunctions) {
+    this.renameUnnamedFunctions = renameUnnamedFunctions;
+  }
+
+
   public WorkflowDayBody reportAnalysis(@javax.annotation.Nonnull ReportAnalysisBody reportAnalysis) {
     this.reportAnalysis = reportAnalysis;
     return this;
@@ -123,6 +330,63 @@ public class WorkflowDayBody {
 
   public void setReportAnalysis(@javax.annotation.Nonnull ReportAnalysisBody reportAnalysis) {
     this.reportAnalysis = reportAnalysis;
+  }
+
+
+  public WorkflowDayBody secrets(@javax.annotation.Nonnull AgentCompletedBody secrets) {
+    this.secrets = secrets;
+    return this;
+  }
+
+  /**
+   * SECRETS agent-task stats for the day
+   * @return secrets
+   */
+  @javax.annotation.Nonnull
+  public AgentCompletedBody getSecrets() {
+    return secrets;
+  }
+
+  public void setSecrets(@javax.annotation.Nonnull AgentCompletedBody secrets) {
+    this.secrets = secrets;
+  }
+
+
+  public WorkflowDayBody securityScan(@javax.annotation.Nonnull AgentCompletedBody securityScan) {
+    this.securityScan = securityScan;
+    return this;
+  }
+
+  /**
+   * SECURITY_SCAN agent-task stats for the day
+   * @return securityScan
+   */
+  @javax.annotation.Nonnull
+  public AgentCompletedBody getSecurityScan() {
+    return securityScan;
+  }
+
+  public void setSecurityScan(@javax.annotation.Nonnull AgentCompletedBody securityScan) {
+    this.securityScan = securityScan;
+  }
+
+
+  public WorkflowDayBody triage(@javax.annotation.Nonnull AgentCompletedBody triage) {
+    this.triage = triage;
+    return this;
+  }
+
+  /**
+   * TRIAGE agent-task stats for the day
+   * @return triage
+   */
+  @javax.annotation.Nonnull
+  public AgentCompletedBody getTriage() {
+    return triage;
+  }
+
+  public void setTriage(@javax.annotation.Nonnull AgentCompletedBody triage) {
+    this.triage = triage;
   }
 
   /**
@@ -181,14 +445,25 @@ public class WorkflowDayBody {
     }
     WorkflowDayBody workflowDayBody = (WorkflowDayBody) o;
     return Objects.equals(this.analyseCapabilities, workflowDayBody.analyseCapabilities) &&
+        Objects.equals(this.cryptoScan, workflowDayBody.cryptoScan) &&
+        Objects.equals(this.cryptographyBinary, workflowDayBody.cryptographyBinary) &&
         Objects.equals(this.date, workflowDayBody.date) &&
-        Objects.equals(this.reportAnalysis, workflowDayBody.reportAnalysis)&&
+        Objects.equals(this.executionScan, workflowDayBody.executionScan) &&
+        Objects.equals(this.filesystemScan, workflowDayBody.filesystemScan) &&
+        Objects.equals(this.networkingScan, workflowDayBody.networkingScan) &&
+        Objects.equals(this.protocols, workflowDayBody.protocols) &&
+        Objects.equals(this.remediation, workflowDayBody.remediation) &&
+        Objects.equals(this.renameUnnamedFunctions, workflowDayBody.renameUnnamedFunctions) &&
+        Objects.equals(this.reportAnalysis, workflowDayBody.reportAnalysis) &&
+        Objects.equals(this.secrets, workflowDayBody.secrets) &&
+        Objects.equals(this.securityScan, workflowDayBody.securityScan) &&
+        Objects.equals(this.triage, workflowDayBody.triage)&&
         Objects.equals(this.additionalProperties, workflowDayBody.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(analyseCapabilities, date, reportAnalysis, additionalProperties);
+    return Objects.hash(analyseCapabilities, cryptoScan, cryptographyBinary, date, executionScan, filesystemScan, networkingScan, protocols, remediation, renameUnnamedFunctions, reportAnalysis, secrets, securityScan, triage, additionalProperties);
   }
 
   @Override
@@ -196,8 +471,19 @@ public class WorkflowDayBody {
     StringBuilder sb = new StringBuilder();
     sb.append("class WorkflowDayBody {\n");
     sb.append("    analyseCapabilities: ").append(toIndentedString(analyseCapabilities)).append("\n");
+    sb.append("    cryptoScan: ").append(toIndentedString(cryptoScan)).append("\n");
+    sb.append("    cryptographyBinary: ").append(toIndentedString(cryptographyBinary)).append("\n");
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
+    sb.append("    executionScan: ").append(toIndentedString(executionScan)).append("\n");
+    sb.append("    filesystemScan: ").append(toIndentedString(filesystemScan)).append("\n");
+    sb.append("    networkingScan: ").append(toIndentedString(networkingScan)).append("\n");
+    sb.append("    protocols: ").append(toIndentedString(protocols)).append("\n");
+    sb.append("    remediation: ").append(toIndentedString(remediation)).append("\n");
+    sb.append("    renameUnnamedFunctions: ").append(toIndentedString(renameUnnamedFunctions)).append("\n");
     sb.append("    reportAnalysis: ").append(toIndentedString(reportAnalysis)).append("\n");
+    sb.append("    secrets: ").append(toIndentedString(secrets)).append("\n");
+    sb.append("    securityScan: ").append(toIndentedString(securityScan)).append("\n");
+    sb.append("    triage: ").append(toIndentedString(triage)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -217,10 +503,10 @@ public class WorkflowDayBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("analyse_capabilities", "date", "report_analysis"));
+    openapiFields = new HashSet<String>(Arrays.asList("analyse_capabilities", "crypto_scan", "cryptography_binary", "date", "execution_scan", "filesystem_scan", "networking_scan", "protocols", "remediation", "rename_unnamed_functions", "report_analysis", "secrets", "security_scan", "triage"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("analyse_capabilities", "date", "report_analysis"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("analyse_capabilities", "crypto_scan", "cryptography_binary", "date", "execution_scan", "filesystem_scan", "networking_scan", "protocols", "remediation", "rename_unnamed_functions", "report_analysis", "secrets", "security_scan", "triage"));
   }
 
   /**
