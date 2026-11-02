@@ -19,7 +19,7 @@ All URIs are relative to *https://api.reveng.ai*
 
 Cancel an active run
 
-Cancels the currently active agentic run for the given conversation. Returns 404 if no run is in progress.  **Error codes:** - &#x60;400&#x60; [&#x60;INVALID_CONVERSATION_ID&#x60;](/errors/INVALID_CONVERSATION_ID) — Invalid Conversation ID - &#x60;404&#x60; [&#x60;CONVERSATION_NOT_FOUND&#x60;](/errors/CONVERSATION_NOT_FOUND) — Conversation Not Found - &#x60;404&#x60; [&#x60;NO_ACTIVE_RUN&#x60;](/errors/NO_ACTIVE_RUN) — No Active Run
+Cancels the currently active agentic run for the given conversation. Returns 404 if no run is in progress.  **Error codes:** - &#x60;400&#x60; [&#x60;INVALID_CONVERSATION_ID&#x60;](/errors/INVALID_CONVERSATION_ID) — Invalid Conversation ID - &#x60;404&#x60; [&#x60;CONVERSATION_NOT_FOUND&#x60;](/errors/CONVERSATION_NOT_FOUND) — Conversation Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NO_ACTIVE_RUN&#x60;](/errors/NO_ACTIVE_RUN) — No Active Run
 
 ### Example
 ```java
@@ -86,6 +86,7 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 | **422** | Unprocessable Entity |  -  |
 | **500** | Internal Server Error |  -  |
@@ -96,7 +97,7 @@ public class Example {
 
 Approve or reject a pending tool confirmation
 
-Responds to a pending tool confirmation request. The agent pauses before executing certain tools and emits a &#x60;TOOL_CONFIRMATION_REQUIRED&#x60; event. Use this endpoint to approve or reject the tool call. Returns 404 if no confirmation is pending.  **Error codes:** - &#x60;400&#x60; [&#x60;INVALID_CONVERSATION_ID&#x60;](/errors/INVALID_CONVERSATION_ID) — Invalid Conversation ID - &#x60;404&#x60; [&#x60;CONVERSATION_NOT_FOUND&#x60;](/errors/CONVERSATION_NOT_FOUND) — Conversation Not Found - &#x60;404&#x60; [&#x60;NO_PENDING_CONFIRMATION&#x60;](/errors/NO_PENDING_CONFIRMATION) — No Pending Confirmation
+Responds to a pending tool confirmation request. The agent pauses before executing certain tools and emits a &#x60;TOOL_CONFIRMATION_REQUIRED&#x60; event. Use this endpoint to approve or reject the tool call. Returns 404 if no confirmation is pending.  **Error codes:** - &#x60;400&#x60; [&#x60;INVALID_CONVERSATION_ID&#x60;](/errors/INVALID_CONVERSATION_ID) — Invalid Conversation ID - &#x60;404&#x60; [&#x60;CONVERSATION_NOT_FOUND&#x60;](/errors/CONVERSATION_NOT_FOUND) — Conversation Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NO_PENDING_CONFIRMATION&#x60;](/errors/NO_PENDING_CONFIRMATION) — No Pending Confirmation
 
 ### Example
 ```java
@@ -165,6 +166,7 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 | **422** | Unprocessable Entity |  -  |
 | **500** | Internal Server Error |  -  |
@@ -398,7 +400,7 @@ This endpoint does not need any parameter.
 
 Send a message and start an agentic run
 
-Sends a user message to the conversation and kicks off an agentic processing loop in the background. Returns immediately with 202 Accepted. Subscribe to &#x60;/v2/conversations/{id}/events&#x60; via SSE to receive real-time updates including text deltas, tool calls, and run lifecycle events.  **Error codes:** - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;400&#x60; [&#x60;INVALID_CONVERSATION_ID&#x60;](/errors/INVALID_CONVERSATION_ID) — Invalid Conversation ID - &#x60;404&#x60; [&#x60;CONVERSATION_NOT_FOUND&#x60;](/errors/CONVERSATION_NOT_FOUND) — Conversation Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;402&#x60; [&#x60;INSUFFICIENT_CREDITS&#x60;](/errors/INSUFFICIENT_CREDITS) — Insufficient Credits - &#x60;409&#x60; [&#x60;RUN_ALREADY_ACTIVE&#x60;](/errors/RUN_ALREADY_ACTIVE) — Run Already Active
+Sends a user message to the conversation and kicks off an agentic processing loop in the background. Returns immediately with 202 Accepted. Subscribe to &#x60;/v2/conversations/{id}/events&#x60; via SSE to receive real-time updates including text deltas, tool calls, and run lifecycle events.  **Error codes:** - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;400&#x60; [&#x60;INVALID_CONVERSATION_ID&#x60;](/errors/INVALID_CONVERSATION_ID) — Invalid Conversation ID - &#x60;404&#x60; [&#x60;CONVERSATION_NOT_FOUND&#x60;](/errors/CONVERSATION_NOT_FOUND) — Conversation Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;402&#x60; [&#x60;INSUFFICIENT_CREDITS&#x60;](/errors/INSUFFICIENT_CREDITS) — Insufficient Credits - &#x60;402&#x60; [&#x60;INVESTIGATION_BUDGET_SPENT&#x60;](/errors/INVESTIGATION_BUDGET_SPENT) — Investigation Budget Spent - &#x60;409&#x60; [&#x60;RUN_ALREADY_ACTIVE&#x60;](/errors/RUN_ALREADY_ACTIVE) — Run Already Active
 
 ### Example
 ```java

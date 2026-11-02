@@ -7,6 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**completedAt** | **OffsetDateTime** | When this run last completed. Absent until status&#x3D;COMPLETED. |  [optional] |
 |**messages** | **List&lt;ProgressMessage&gt;** | Log messages emitted during execution |  |
 |**percent** | **Long** | Overall completion as a percentage, weighted by step duration |  |
 |**status** | [**StatusEnum**](#StatusEnum) | Current workflow status |  |

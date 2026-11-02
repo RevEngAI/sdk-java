@@ -456,6 +456,10 @@ public class AnalysisCreateRequest {
       if (jsonObj.get("analysis_config") != null && !jsonObj.get("analysis_config").isJsonNull()) {
         AnalysisConfig.validateJsonElement(jsonObj.get("analysis_config"));
       }
+      // validate the optional field `auto_run_agents`
+      if (jsonObj.get("auto_run_agents") != null && !jsonObj.get("auto_run_agents").isJsonNull()) {
+        AutoRunAgents.validateJsonElement(jsonObj.get("auto_run_agents"));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

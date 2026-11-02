@@ -15,7 +15,7 @@
 |**debugHash** | **String** | Hash of the debug file |  [optional] |
 |**analysisConfig** | [**AnalysisConfig**](AnalysisConfig.md) | The analysis config enables the configuration of optional analysis stages |  [optional] |
 |**binaryConfig** | **BinaryConfig** | The binary config can override automatically determined values such as ISA, Platform, File Format, etc |  [optional] |
-|**autoRunAgents** | **AutoRunAgents** |  |  [optional] |
+|**autoRunAgents** | [**AutoRunAgents**](AutoRunAgents.md) |  |  [optional] |
 
 
 

@@ -92,7 +92,7 @@ public class ExtractedBinary {
   }
 
   /**
-   * Content hash of the recovered binary
+   * Content hash of the recovered file
    * @return sha256Hash
    */
   @javax.annotation.Nonnull

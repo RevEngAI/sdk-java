@@ -13,6 +13,7 @@
 package ai.reveng.model;
 
 import java.util.Objects;
+import ai.reveng.model.RunFinishedData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -45,14 +46,14 @@ import java.util.Set;
 import ai.reveng.invoker.JSON;
 
 /**
- * SseEventRunFinishedData
+ * The event envelope, sent as the JSON of the SSE data line. Its type names the event, and its data is that event&#39;s payload.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SseEventRunFinishedData {
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
-  @javax.annotation.Nullable
-  private Object data = null;
+  @javax.annotation.Nonnull
+  private RunFinishedData data;
 
   public static final String SERIALIZED_NAME_EVENT_ID = "event_id";
   @SerializedName(SERIALIZED_NAME_EVENT_ID)
@@ -72,21 +73,21 @@ public class SseEventRunFinishedData {
   public SseEventRunFinishedData() {
   }
 
-  public SseEventRunFinishedData data(@javax.annotation.Nullable Object data) {
+  public SseEventRunFinishedData data(@javax.annotation.Nonnull RunFinishedData data) {
     this.data = data;
     return this;
   }
 
   /**
-   * Get data
+   * The payload of the event named in type.
    * @return data
    */
-  @javax.annotation.Nullable
-  public Object getData() {
+  @javax.annotation.Nonnull
+  public RunFinishedData getData() {
     return data;
   }
 
-  public void setData(@javax.annotation.Nullable Object data) {
+  public void setData(@javax.annotation.Nonnull RunFinishedData data) {
     this.data = data;
   }
 
@@ -97,7 +98,7 @@ public class SseEventRunFinishedData {
   }
 
   /**
-   * Get eventId
+   * The stored event&#39;s ID, the same as the SSE id field. Pass the last one received as last_event_id to resume after a reconnection.
    * @return eventId
    */
   @javax.annotation.Nonnull
@@ -135,7 +136,7 @@ public class SseEventRunFinishedData {
   }
 
   /**
-   * Get type
+   * The event name, the same as the SSE event field.
    * @return type
    */
   @javax.annotation.Nonnull

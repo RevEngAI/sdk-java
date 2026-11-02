@@ -31,7 +31,7 @@ All URIs are relative to *https://api.reveng.ai*
 
 <a id="createAiDecompilation"></a>
 # **createAiDecompilation**
-> CreateAIDecompOutputBody createAiDecompilation(functionId, temperature, typeSuggestions, naming, applyTypes)
+> CreateAIDecompOutputBody createAiDecompilation(functionId, temperature, typeSuggestions, naming, applyTypes, repair, refine)
 
 Start AI decompilation
 
@@ -68,8 +68,10 @@ public class Example {
     Boolean typeSuggestions = true; // Boolean | Ask the language model to name the suggested types and their members. Set to false to skip the model call; the statically derived layouts are still computed and stored. Cannot re-enable the pass when the server has it off.
     Boolean naming = true; // Boolean | Ask the language model to name the placeholder variables. Set to false to skip the model call; the generic names are kept. Cannot re-enable the pass when the server has it off.
     Boolean applyTypes = true; // Boolean | Store the suggested types as data types of this function's analysis, with a source_type of AI_DECOMP. Set to false to leave them as suggestions only. Cannot re-enable the pass when the server has it off.
+    Boolean repair = false; // Boolean | Ask a language model to replace any unmatched placeholders left in the decompilation with grounded code. Off unless requested: the pass spends several model calls on top of the decompilation, and declines outright unless it can ground every placeholder. Runs after the result is stored, so it amends a decompilation you can already read. Cannot enable the pass when the server has it off.
+    Boolean refine = false; // Boolean | Ask a language model to rebuild output the decompiler returned degenerate, truncated or empty, and output a requested repair pass declined. Off unless requested: the pass is a bounded tool loop that can spend a dozen model calls. Runs after the result is stored, so it amends a decompilation you can already read. Cannot enable the pass when the server has it off.
     try {
-      CreateAIDecompOutputBody result = apiInstance.createAiDecompilation(functionId, temperature, typeSuggestions, naming, applyTypes);
+      CreateAIDecompOutputBody result = apiInstance.createAiDecompilation(functionId, temperature, typeSuggestions, naming, applyTypes, repair, refine);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling FunctionsAiDecompilationApi#createAiDecompilation");
@@ -91,6 +93,8 @@ public class Example {
 | **typeSuggestions** | **Boolean**| Ask the language model to name the suggested types and their members. Set to false to skip the model call; the statically derived layouts are still computed and stored. Cannot re-enable the pass when the server has it off. | [optional] [default to true] |
 | **naming** | **Boolean**| Ask the language model to name the placeholder variables. Set to false to skip the model call; the generic names are kept. Cannot re-enable the pass when the server has it off. | [optional] [default to true] |
 | **applyTypes** | **Boolean**| Store the suggested types as data types of this function&#39;s analysis, with a source_type of AI_DECOMP. Set to false to leave them as suggestions only. Cannot re-enable the pass when the server has it off. | [optional] [default to true] |
+| **repair** | **Boolean**| Ask a language model to replace any unmatched placeholders left in the decompilation with grounded code. Off unless requested: the pass spends several model calls on top of the decompilation, and declines outright unless it can ground every placeholder. Runs after the result is stored, so it amends a decompilation you can already read. Cannot enable the pass when the server has it off. | [optional] [default to false] |
+| **refine** | **Boolean**| Ask a language model to rebuild output the decompiler returned degenerate, truncated or empty, and output a requested repair pass declined. Off unless requested: the pass is a bounded tool loop that can spend a dozen model calls. Runs after the result is stored, so it amends a decompilation you can already read. Cannot enable the pass when the server has it off. | [optional] [default to false] |
 
 ### Return type
 

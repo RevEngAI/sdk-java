@@ -11,7 +11,7 @@
 |**createdAt** | **OffsetDateTime** |  |  |
 |**enabled** | **Boolean** |  |  |
 |**issuerUrl** | **String** | Search is applied to string value |  |
-|**jwksUri** | **String** | JSON Web Key Set URI discovered from the issuer&#39;s OIDC configuration. Populated automatically during issuer registration. |  [optional] |
+|**jwksUri** | **String** | JSON Web Key Set URI discovered from the issuer&#39;s OIDC configuration. Populated automatically during issuer registration. |  |
 |**organisationId** | **Long** |  |  |
 |**organisationIssuerId** | **Long** |  |  |
 |**updatedAt** | **OffsetDateTime** |  |  |
