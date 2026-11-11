@@ -20,7 +20,7 @@
 |**detectedBinaryType** | **String** | Detected operating-system platform; empty when unavailable |  |
 |**detectedLanguage** | **String** | Detected source language; empty when unavailable |  |
 |**functionCount** | **Long** | Number of functions in the binary |  |
-|**isAdvanced** | **Boolean** | True when the analysis was run in advanced mode |  |
+|**isAdvanced** | **Boolean** | Always false; advanced (DFG) analysis has been removed |  |
 |**isOwner** | **Boolean** | True when the caller is the analysis owner |  |
 |**isSystem** | **Boolean** | True when the analysis is owned by a system user |  |
 |**modelId** | **Long** | Model ID |  |

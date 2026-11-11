@@ -64,7 +64,7 @@ public class ModelInterpretation {
   }
 
   /**
-   * Search is applied to string value
+   * Get interpretation
    * @return interpretation
    */
   @javax.annotation.Nullable

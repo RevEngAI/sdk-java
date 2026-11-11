@@ -56,12 +56,10 @@ public class DynamicExecutionMetadata {
   private AnalysisLogs logs;
 
   /**
-   * Run status. UNINITIALISED means this analysis has never had a run triggered.
+   * Run status
    */
   @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
-    UNINITIALISED("UNINITIALISED"),
-    
     PENDING("PENDING"),
     
     RUNNING("RUNNING"),
@@ -148,7 +146,7 @@ public class DynamicExecutionMetadata {
   }
 
   /**
-   * Run status. UNINITIALISED means this analysis has never had a run triggered.
+   * Run status
    * @return status
    */
   @javax.annotation.Nonnull

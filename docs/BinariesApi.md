@@ -19,6 +19,7 @@ All URIs are relative to *https://api.reveng.ai*
 | [**v3GetBinaryExternals**](BinariesApi.md#v3GetBinaryExternals) | **GET** /v3/binaries/{binary_id}/externals | Get third-party threat-intel lookups for a binary. |
 | [**v3GetBinaryRelated**](BinariesApi.md#v3GetBinaryRelated) | **GET** /v3/binaries/{binary_id}/related | Get the binaries related to this one by unpacking. |
 | [**v3GetBinaryRelatedStatus**](BinariesApi.md#v3GetBinaryRelatedStatus) | **GET** /v3/binaries/{binary_id}/related/status | Get the archive-unpacking status for a binary. |
+| [**v3ListMalwareFamilies**](BinariesApi.md#v3ListMalwareFamilies) | **GET** /v3/malware-families | Look up the malware families of binaries in the RevEng.AI malware corpus. |
 | [**v3SearchBinaries**](BinariesApi.md#v3SearchBinaries) | **GET** /v3/binaries | Search binaries |
 | [**v3UploadFile**](BinariesApi.md#v3UploadFile) | **POST** /v3/upload | Upload a file. |
 
@@ -1137,6 +1138,80 @@ public class Example {
 | **404** | Not Found |  -  |
 | **422** | Unprocessable Entity |  -  |
 | **500** | Internal Server Error |  -  |
+
+<a id="v3ListMalwareFamilies"></a>
+# **v3ListMalwareFamilies**
+> ListMalwareFamiliesOutputBody v3ListMalwareFamilies(binaryIds)
+
+Look up the malware families of binaries in the RevEng.AI malware corpus.
+
+Returns the malware family of each given binary that belongs to the RevEng.AI malware corpus, with every corpus binary in that family. Family names are lowercase without punctuation, with known aliases merged. Binaries outside the corpus or without a family are ignored.
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.BinariesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    BinariesApi apiInstance = new BinariesApi(defaultClient);
+    List<Long> binaryIds = Arrays.asList(); // List<Long> | Binaries to look up, typically those a function-matching run found in the malware corpus.
+    try {
+      ListMalwareFamiliesOutputBody result = apiInstance.v3ListMalwareFamilies(binaryIds);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling BinariesApi#v3ListMalwareFamilies");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **binaryIds** | [**List&lt;Long&gt;**](Long.md)| Binaries to look up, typically those a function-matching run found in the malware corpus. | |
+
+### Return type
+
+[**ListMalwareFamiliesOutputBody**](ListMalwareFamiliesOutputBody.md)
+
+### Authorization
+
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **0** | Error |  -  |
 
 <a id="v3SearchBinaries"></a>
 # **v3SearchBinaries**

@@ -52,6 +52,7 @@ import ai.reveng.model.BaseResponseRecent;
 import ai.reveng.model.BaseResponseStatus;
 import ai.reveng.model.BaseResponseUploadResponse;
 import ai.reveng.model.CreateRequest;
+import ai.reveng.model.DynamicExecutionRun;
 import ai.reveng.model.DynamicExecutionStatus;
 import ai.reveng.model.DynamicExecutionSummary;
 import java.io.File;
@@ -68,6 +69,7 @@ import ai.reveng.model.ListAccessRulesOutputBody;
 import ai.reveng.model.ListAnalysesOutputBody;
 import ai.reveng.model.ListAnalysisGlobalsOutputBody;
 import ai.reveng.model.ListAnalysisStringsOutputBody;
+import ai.reveng.model.ListDynamicExecutionRunsOutputBody;
 import ai.reveng.model.ListExampleAnalysesOutputBody;
 import ai.reveng.model.ListGlobalFunctionsOutputBody;
 import ai.reveng.model.LookupAnalysisByBinaryIDOutputBody;
@@ -77,7 +79,6 @@ import ai.reveng.model.OperationCreateMetadataCreateResult;
 import ai.reveng.model.OperationDynamicExecutionMetadataDynamicExecutionResult;
 import ai.reveng.model.OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResult;
 import ai.reveng.model.Order;
-import ai.reveng.model.PutAnalysisStringsRequest;
 import ai.reveng.model.ReAnalysisForm;
 import ai.reveng.model.RequeueAnalysisRequest;
 import ai.reveng.model.RunDynamicExecutionInputBody;
@@ -2398,156 +2399,6 @@ public class AnalysesCoreApi {
         return localVarCall;
     }
     /**
-     * Build call for putAnalysisStrings
-     * @param analysisId  (required)
-     * @param putAnalysisStringsRequest  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public okhttp3.Call putAnalysisStringsCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull PutAnalysisStringsRequest putAnalysisStringsRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = putAnalysisStringsRequest;
-
-        // create path and map variables
-        String localVarPath = "/v2/analyses/{analysis_id}/strings"
-            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @Deprecated
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call putAnalysisStringsValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull PutAnalysisStringsRequest putAnalysisStringsRequest, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'analysisId' is set
-        if (analysisId == null) {
-            throw new ApiException("Missing the required parameter 'analysisId' when calling putAnalysisStrings(Async)");
-        }
-
-        // verify the required parameter 'putAnalysisStringsRequest' is set
-        if (putAnalysisStringsRequest == null) {
-            throw new ApiException("Missing the required parameter 'putAnalysisStringsRequest' when calling putAnalysisStrings(Async)");
-        }
-
-        return putAnalysisStringsCall(analysisId, putAnalysisStringsRequest, _callback);
-
-    }
-
-    /**
-     * Add strings to the analysis
-     * Add strings to the analysis. Rejects if any string already exists at the given vaddr.
-     * @param analysisId  (required)
-     * @param putAnalysisStringsRequest  (required)
-     * @return BaseResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public BaseResponse putAnalysisStrings(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull PutAnalysisStringsRequest putAnalysisStringsRequest) throws ApiException {
-        ApiResponse<BaseResponse> localVarResp = putAnalysisStringsWithHttpInfo(analysisId, putAnalysisStringsRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Add strings to the analysis
-     * Add strings to the analysis. Rejects if any string already exists at the given vaddr.
-     * @param analysisId  (required)
-     * @param putAnalysisStringsRequest  (required)
-     * @return ApiResponse&lt;BaseResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public ApiResponse<BaseResponse> putAnalysisStringsWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull PutAnalysisStringsRequest putAnalysisStringsRequest) throws ApiException {
-        okhttp3.Call localVarCall = putAnalysisStringsValidateBeforeCall(analysisId, putAnalysisStringsRequest, null);
-        Type localVarReturnType = new TypeToken<BaseResponse>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Add strings to the analysis (asynchronously)
-     * Add strings to the analysis. Rejects if any string already exists at the given vaddr.
-     * @param analysisId  (required)
-     * @param putAnalysisStringsRequest  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public okhttp3.Call putAnalysisStringsAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nonnull PutAnalysisStringsRequest putAnalysisStringsRequest, final ApiCallback<BaseResponse> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = putAnalysisStringsValidateBeforeCall(analysisId, putAnalysisStringsRequest, _callback);
-        Type localVarReturnType = new TypeToken<BaseResponse>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
      * Build call for requeueAnalysis
      * @param analysisId  (required)
      * @param reAnalysisForm  (required)
@@ -3509,6 +3360,158 @@ public class AnalysesCoreApi {
 
         okhttp3.Call localVarCall = v3CreateAnalysisValidateBeforeCall(createRequest, xRevEngApplication, _callback);
         Type localVarReturnType = new TypeToken<OperationCreateMetadataCreateResult>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for v3CreateDynamicExecutionRun
+     * @param analysisId Analysis ID (required)
+     * @param runDynamicExecutionInputBody  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3CreateDynamicExecutionRunCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable RunDynamicExecutionInputBody runDynamicExecutionInputBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = runDynamicExecutionInputBody;
+
+        // create path and map variables
+        String localVarPath = "/v3/analyses/{analysis_id}/dynamic-execution/runs"
+            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call v3CreateDynamicExecutionRunValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable RunDynamicExecutionInputBody runDynamicExecutionInputBody, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'analysisId' is set
+        if (analysisId == null) {
+            throw new ApiException("Missing the required parameter 'analysisId' when calling v3CreateDynamicExecutionRun(Async)");
+        }
+
+        return v3CreateDynamicExecutionRunCall(analysisId, runDynamicExecutionInputBody, _callback);
+
+    }
+
+    /**
+     * Start a dynamic execution run.
+     * Starts a new sandbox run of the analysis&#39;s binary, alongside any runs already in progress, and returns the run&#39;s operation to poll for its outcome.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
+     * @param analysisId Analysis ID (required)
+     * @param runDynamicExecutionInputBody  (optional)
+     * @return OperationDynamicExecutionMetadataDynamicExecutionResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public OperationDynamicExecutionMetadataDynamicExecutionResult v3CreateDynamicExecutionRun(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable RunDynamicExecutionInputBody runDynamicExecutionInputBody) throws ApiException {
+        ApiResponse<OperationDynamicExecutionMetadataDynamicExecutionResult> localVarResp = v3CreateDynamicExecutionRunWithHttpInfo(analysisId, runDynamicExecutionInputBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Start a dynamic execution run.
+     * Starts a new sandbox run of the analysis&#39;s binary, alongside any runs already in progress, and returns the run&#39;s operation to poll for its outcome.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
+     * @param analysisId Analysis ID (required)
+     * @param runDynamicExecutionInputBody  (optional)
+     * @return ApiResponse&lt;OperationDynamicExecutionMetadataDynamicExecutionResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<OperationDynamicExecutionMetadataDynamicExecutionResult> v3CreateDynamicExecutionRunWithHttpInfo(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable RunDynamicExecutionInputBody runDynamicExecutionInputBody) throws ApiException {
+        okhttp3.Call localVarCall = v3CreateDynamicExecutionRunValidateBeforeCall(analysisId, runDynamicExecutionInputBody, null);
+        Type localVarReturnType = new TypeToken<OperationDynamicExecutionMetadataDynamicExecutionResult>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Start a dynamic execution run. (asynchronously)
+     * Starts a new sandbox run of the analysis&#39;s binary, alongside any runs already in progress, and returns the run&#39;s operation to poll for its outcome.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
+     * @param analysisId Analysis ID (required)
+     * @param runDynamicExecutionInputBody  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3CreateDynamicExecutionRunAsync(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable RunDynamicExecutionInputBody runDynamicExecutionInputBody, final ApiCallback<OperationDynamicExecutionMetadataDynamicExecutionResult> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = v3CreateDynamicExecutionRunValidateBeforeCall(analysisId, runDynamicExecutionInputBody, _callback);
+        Type localVarReturnType = new TypeToken<OperationDynamicExecutionMetadataDynamicExecutionResult>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -5310,473 +5313,8 @@ public class AnalysesCoreApi {
         return localVarCall;
     }
     /**
-     * Build call for v3GetDynamicExecutionArtifact
-     * @param analysisId Analysis ID (required)
-     * @param sha256 SHA-256 hex digest of the artifact (required)
-     * @param filename Optional name for the downloaded file (inside the zip and as the download filename). Defaults to the SHA-256 when omitted. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call v3GetDynamicExecutionArtifactCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String sha256, @javax.annotation.Nullable String filename, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v3/analyses/{analysis_id}/dynamic-execution/artifacts/{sha256}"
-            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()))
-            .replace("{" + "sha256" + "}", localVarApiClient.escapeString(sha256.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (filename != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("filename", filename));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call v3GetDynamicExecutionArtifactValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String sha256, @javax.annotation.Nullable String filename, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'analysisId' is set
-        if (analysisId == null) {
-            throw new ApiException("Missing the required parameter 'analysisId' when calling v3GetDynamicExecutionArtifact(Async)");
-        }
-
-        // verify the required parameter 'sha256' is set
-        if (sha256 == null) {
-            throw new ApiException("Missing the required parameter 'sha256' when calling v3GetDynamicExecutionArtifact(Async)");
-        }
-
-        return v3GetDynamicExecutionArtifactCall(analysisId, sha256, filename, _callback);
-
-    }
-
-    /**
-     * Download an artifact.
-     * Streams a file extracted during execution (filesystem, memory, or network), addressed by the SHA-256 referenced by &#x60;artifacts[].sha256&#x60; in the dynamic execution report. The response is a password-protected zip (password: &#x60;infected&#x60;).  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
-     * @param analysisId Analysis ID (required)
-     * @param sha256 SHA-256 hex digest of the artifact (required)
-     * @param filename Optional name for the downloaded file (inside the zip and as the download filename). Defaults to the SHA-256 when omitted. (optional)
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public void v3GetDynamicExecutionArtifact(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String sha256, @javax.annotation.Nullable String filename) throws ApiException {
-        v3GetDynamicExecutionArtifactWithHttpInfo(analysisId, sha256, filename);
-    }
-
-    /**
-     * Download an artifact.
-     * Streams a file extracted during execution (filesystem, memory, or network), addressed by the SHA-256 referenced by &#x60;artifacts[].sha256&#x60; in the dynamic execution report. The response is a password-protected zip (password: &#x60;infected&#x60;).  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
-     * @param analysisId Analysis ID (required)
-     * @param sha256 SHA-256 hex digest of the artifact (required)
-     * @param filename Optional name for the downloaded file (inside the zip and as the download filename). Defaults to the SHA-256 when omitted. (optional)
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<Void> v3GetDynamicExecutionArtifactWithHttpInfo(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String sha256, @javax.annotation.Nullable String filename) throws ApiException {
-        okhttp3.Call localVarCall = v3GetDynamicExecutionArtifactValidateBeforeCall(analysisId, sha256, filename, null);
-        return localVarApiClient.execute(localVarCall);
-    }
-
-    /**
-     * Download an artifact. (asynchronously)
-     * Streams a file extracted during execution (filesystem, memory, or network), addressed by the SHA-256 referenced by &#x60;artifacts[].sha256&#x60; in the dynamic execution report. The response is a password-protected zip (password: &#x60;infected&#x60;).  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
-     * @param analysisId Analysis ID (required)
-     * @param sha256 SHA-256 hex digest of the artifact (required)
-     * @param filename Optional name for the downloaded file (inside the zip and as the download filename). Defaults to the SHA-256 when omitted. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call v3GetDynamicExecutionArtifactAsync(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String sha256, @javax.annotation.Nullable String filename, final ApiCallback<Void> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = v3GetDynamicExecutionArtifactValidateBeforeCall(analysisId, sha256, filename, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for v3GetDynamicExecutionLogsDownload
-     * @param analysisId Analysis ID (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call v3GetDynamicExecutionLogsDownloadCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v3/analyses/{analysis_id}/dynamic-execution/logs/download"
-            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call v3GetDynamicExecutionLogsDownloadValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'analysisId' is set
-        if (analysisId == null) {
-            throw new ApiException("Missing the required parameter 'analysisId' when calling v3GetDynamicExecutionLogsDownload(Async)");
-        }
-
-        return v3GetDynamicExecutionLogsDownloadCall(analysisId, _callback);
-
-    }
-
-    /**
-     * Download the execution logs archive.
-     * Streams a ZIP archive of the sandbox logs collected during execution. Requires the run to be COMPLETED. Returns 404 if no logs were captured.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
-     * @param analysisId Analysis ID (required)
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public void v3GetDynamicExecutionLogsDownload(@javax.annotation.Nonnull Long analysisId) throws ApiException {
-        v3GetDynamicExecutionLogsDownloadWithHttpInfo(analysisId);
-    }
-
-    /**
-     * Download the execution logs archive.
-     * Streams a ZIP archive of the sandbox logs collected during execution. Requires the run to be COMPLETED. Returns 404 if no logs were captured.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
-     * @param analysisId Analysis ID (required)
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<Void> v3GetDynamicExecutionLogsDownloadWithHttpInfo(@javax.annotation.Nonnull Long analysisId) throws ApiException {
-        okhttp3.Call localVarCall = v3GetDynamicExecutionLogsDownloadValidateBeforeCall(analysisId, null);
-        return localVarApiClient.execute(localVarCall);
-    }
-
-    /**
-     * Download the execution logs archive. (asynchronously)
-     * Streams a ZIP archive of the sandbox logs collected during execution. Requires the run to be COMPLETED. Returns 404 if no logs were captured.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
-     * @param analysisId Analysis ID (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call v3GetDynamicExecutionLogsDownloadAsync(@javax.annotation.Nonnull Long analysisId, final ApiCallback<Void> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = v3GetDynamicExecutionLogsDownloadValidateBeforeCall(analysisId, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for v3GetDynamicExecutionMemdump
-     * @param analysisId Analysis ID (required)
-     * @param sha256 SHA-256 hex digest of the artifact (required)
-     * @param filename Optional name for the downloaded file (inside the zip and as the download filename). Defaults to the SHA-256 when omitted. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call v3GetDynamicExecutionMemdumpCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String sha256, @javax.annotation.Nullable String filename, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v3/analyses/{analysis_id}/dynamic-execution/memdumps/{sha256}"
-            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()))
-            .replace("{" + "sha256" + "}", localVarApiClient.escapeString(sha256.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (filename != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("filename", filename));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call v3GetDynamicExecutionMemdumpValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String sha256, @javax.annotation.Nullable String filename, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'analysisId' is set
-        if (analysisId == null) {
-            throw new ApiException("Missing the required parameter 'analysisId' when calling v3GetDynamicExecutionMemdump(Async)");
-        }
-
-        // verify the required parameter 'sha256' is set
-        if (sha256 == null) {
-            throw new ApiException("Missing the required parameter 'sha256' when calling v3GetDynamicExecutionMemdump(Async)");
-        }
-
-        return v3GetDynamicExecutionMemdumpCall(analysisId, sha256, filename, _callback);
-
-    }
-
-    /**
-     * Download a memory dump.
-     * Streams the memory dump for a SHA-256 referenced by &#x60;memdumps[].dumps[].sha256&#x60; in the dynamic execution report. The response is a password-protected zip (password: &#x60;infected&#x60;).  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
-     * @param analysisId Analysis ID (required)
-     * @param sha256 SHA-256 hex digest of the artifact (required)
-     * @param filename Optional name for the downloaded file (inside the zip and as the download filename). Defaults to the SHA-256 when omitted. (optional)
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public void v3GetDynamicExecutionMemdump(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String sha256, @javax.annotation.Nullable String filename) throws ApiException {
-        v3GetDynamicExecutionMemdumpWithHttpInfo(analysisId, sha256, filename);
-    }
-
-    /**
-     * Download a memory dump.
-     * Streams the memory dump for a SHA-256 referenced by &#x60;memdumps[].dumps[].sha256&#x60; in the dynamic execution report. The response is a password-protected zip (password: &#x60;infected&#x60;).  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
-     * @param analysisId Analysis ID (required)
-     * @param sha256 SHA-256 hex digest of the artifact (required)
-     * @param filename Optional name for the downloaded file (inside the zip and as the download filename). Defaults to the SHA-256 when omitted. (optional)
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<Void> v3GetDynamicExecutionMemdumpWithHttpInfo(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String sha256, @javax.annotation.Nullable String filename) throws ApiException {
-        okhttp3.Call localVarCall = v3GetDynamicExecutionMemdumpValidateBeforeCall(analysisId, sha256, filename, null);
-        return localVarApiClient.execute(localVarCall);
-    }
-
-    /**
-     * Download a memory dump. (asynchronously)
-     * Streams the memory dump for a SHA-256 referenced by &#x60;memdumps[].dumps[].sha256&#x60; in the dynamic execution report. The response is a password-protected zip (password: &#x60;infected&#x60;).  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
-     * @param analysisId Analysis ID (required)
-     * @param sha256 SHA-256 hex digest of the artifact (required)
-     * @param filename Optional name for the downloaded file (inside the zip and as the download filename). Defaults to the SHA-256 when omitted. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call v3GetDynamicExecutionMemdumpAsync(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String sha256, @javax.annotation.Nullable String filename, final ApiCallback<Void> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = v3GetDynamicExecutionMemdumpValidateBeforeCall(analysisId, sha256, filename, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
-        return localVarCall;
-    }
-    /**
      * Build call for v3GetDynamicExecutionOperation
-     * @param analysisId Analysis ID (required)
+     * @param runId Dynamic execution run ID (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -5791,7 +5329,7 @@ public class AnalysesCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call v3GetDynamicExecutionOperationCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call v3GetDynamicExecutionOperationCall(@javax.annotation.Nonnull String runId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5808,8 +5346,8 @@ public class AnalysesCoreApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/v3/operations/dynamic-execution/{analysis_id}"
-            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()));
+        String localVarPath = "/v3/operations/dynamic-execution/{run_id}"
+            .replace("{" + "run_id" + "}", localVarApiClient.escapeString(runId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5837,20 +5375,20 @@ public class AnalysesCoreApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call v3GetDynamicExecutionOperationValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'analysisId' is set
-        if (analysisId == null) {
-            throw new ApiException("Missing the required parameter 'analysisId' when calling v3GetDynamicExecutionOperation(Async)");
+    private okhttp3.Call v3GetDynamicExecutionOperationValidateBeforeCall(@javax.annotation.Nonnull String runId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'runId' is set
+        if (runId == null) {
+            throw new ApiException("Missing the required parameter 'runId' when calling v3GetDynamicExecutionOperation(Async)");
         }
 
-        return v3GetDynamicExecutionOperationCall(analysisId, _callback);
+        return v3GetDynamicExecutionOperationCall(runId, _callback);
 
     }
 
     /**
      * Get a dynamic execution operation.
-     * Returns the current state of the most recently triggered dynamic execution run for this analysis.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
-     * @param analysisId Analysis ID (required)
+     * Returns the current state of a dynamic execution run. Returns 404 for an unknown run.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param runId Dynamic execution run ID (required)
      * @return OperationDynamicExecutionMetadataDynamicExecutionResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5864,15 +5402,15 @@ public class AnalysesCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public OperationDynamicExecutionMetadataDynamicExecutionResult v3GetDynamicExecutionOperation(@javax.annotation.Nonnull Long analysisId) throws ApiException {
-        ApiResponse<OperationDynamicExecutionMetadataDynamicExecutionResult> localVarResp = v3GetDynamicExecutionOperationWithHttpInfo(analysisId);
+    public OperationDynamicExecutionMetadataDynamicExecutionResult v3GetDynamicExecutionOperation(@javax.annotation.Nonnull String runId) throws ApiException {
+        ApiResponse<OperationDynamicExecutionMetadataDynamicExecutionResult> localVarResp = v3GetDynamicExecutionOperationWithHttpInfo(runId);
         return localVarResp.getData();
     }
 
     /**
      * Get a dynamic execution operation.
-     * Returns the current state of the most recently triggered dynamic execution run for this analysis.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
-     * @param analysisId Analysis ID (required)
+     * Returns the current state of a dynamic execution run. Returns 404 for an unknown run.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param runId Dynamic execution run ID (required)
      * @return ApiResponse&lt;OperationDynamicExecutionMetadataDynamicExecutionResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5886,16 +5424,16 @@ public class AnalysesCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OperationDynamicExecutionMetadataDynamicExecutionResult> v3GetDynamicExecutionOperationWithHttpInfo(@javax.annotation.Nonnull Long analysisId) throws ApiException {
-        okhttp3.Call localVarCall = v3GetDynamicExecutionOperationValidateBeforeCall(analysisId, null);
+    public ApiResponse<OperationDynamicExecutionMetadataDynamicExecutionResult> v3GetDynamicExecutionOperationWithHttpInfo(@javax.annotation.Nonnull String runId) throws ApiException {
+        okhttp3.Call localVarCall = v3GetDynamicExecutionOperationValidateBeforeCall(runId, null);
         Type localVarReturnType = new TypeToken<OperationDynamicExecutionMetadataDynamicExecutionResult>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Get a dynamic execution operation. (asynchronously)
-     * Returns the current state of the most recently triggered dynamic execution run for this analysis.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
-     * @param analysisId Analysis ID (required)
+     * Returns the current state of a dynamic execution run. Returns 404 for an unknown run.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param runId Dynamic execution run ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -5910,16 +5448,17 @@ public class AnalysesCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call v3GetDynamicExecutionOperationAsync(@javax.annotation.Nonnull Long analysisId, final ApiCallback<OperationDynamicExecutionMetadataDynamicExecutionResult> _callback) throws ApiException {
+    public okhttp3.Call v3GetDynamicExecutionOperationAsync(@javax.annotation.Nonnull String runId, final ApiCallback<OperationDynamicExecutionMetadataDynamicExecutionResult> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = v3GetDynamicExecutionOperationValidateBeforeCall(analysisId, _callback);
+        okhttp3.Call localVarCall = v3GetDynamicExecutionOperationValidateBeforeCall(runId, _callback);
         Type localVarReturnType = new TypeToken<OperationDynamicExecutionMetadataDynamicExecutionResult>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for v3GetDynamicExecutionPcap
+     * Build call for v3GetDynamicExecutionRun
      * @param analysisId Analysis ID (required)
+     * @param runId Dynamic execution run ID (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -5930,12 +5469,11 @@ public class AnalysesCoreApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call v3GetDynamicExecutionPcapCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call v3GetDynamicExecutionRunCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5952,8 +5490,9 @@ public class AnalysesCoreApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/v3/analyses/{analysis_id}/dynamic-execution/pcap"
-            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()));
+        String localVarPath = "/v3/analyses/{analysis_id}/dynamic-execution/runs/{run_id}"
+            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()))
+            .replace("{" + "run_id" + "}", localVarApiClient.escapeString(runId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5981,20 +5520,194 @@ public class AnalysesCoreApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call v3GetDynamicExecutionPcapValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call v3GetDynamicExecutionRunValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
-            throw new ApiException("Missing the required parameter 'analysisId' when calling v3GetDynamicExecutionPcap(Async)");
+            throw new ApiException("Missing the required parameter 'analysisId' when calling v3GetDynamicExecutionRun(Async)");
         }
 
-        return v3GetDynamicExecutionPcapCall(analysisId, _callback);
+        // verify the required parameter 'runId' is set
+        if (runId == null) {
+            throw new ApiException("Missing the required parameter 'runId' when calling v3GetDynamicExecutionRun(Async)");
+        }
+
+        return v3GetDynamicExecutionRunCall(analysisId, runId, _callback);
 
     }
 
     /**
-     * Download the network capture.
-     * Streams the pcap of the analysis VM&#39;s traffic. Returns 404 if no pcap was captured.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
+     * Get a dynamic execution run.
+     * Returns the run&#39;s status and the parameters it was started with. An archive password is never returned, only whether one was given.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
      * @param analysisId Analysis ID (required)
+     * @param runId Dynamic execution run ID (required)
+     * @return DynamicExecutionRun
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public DynamicExecutionRun v3GetDynamicExecutionRun(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId) throws ApiException {
+        ApiResponse<DynamicExecutionRun> localVarResp = v3GetDynamicExecutionRunWithHttpInfo(analysisId, runId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get a dynamic execution run.
+     * Returns the run&#39;s status and the parameters it was started with. An archive password is never returned, only whether one was given.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param analysisId Analysis ID (required)
+     * @param runId Dynamic execution run ID (required)
+     * @return ApiResponse&lt;DynamicExecutionRun&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<DynamicExecutionRun> v3GetDynamicExecutionRunWithHttpInfo(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId) throws ApiException {
+        okhttp3.Call localVarCall = v3GetDynamicExecutionRunValidateBeforeCall(analysisId, runId, null);
+        Type localVarReturnType = new TypeToken<DynamicExecutionRun>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get a dynamic execution run. (asynchronously)
+     * Returns the run&#39;s status and the parameters it was started with. An archive password is never returned, only whether one was given.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param analysisId Analysis ID (required)
+     * @param runId Dynamic execution run ID (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3GetDynamicExecutionRunAsync(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId, final ApiCallback<DynamicExecutionRun> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = v3GetDynamicExecutionRunValidateBeforeCall(analysisId, runId, _callback);
+        Type localVarReturnType = new TypeToken<DynamicExecutionRun>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for v3GetDynamicExecutionRunArtifact
+     * @param analysisId Analysis ID (required)
+     * @param runId Dynamic execution run ID (required)
+     * @param sha256 SHA-256 hex digest of the artifact (required)
+     * @param filename Optional name for the downloaded file (inside the zip and as the download filename). Defaults to the SHA-256 when omitted. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3GetDynamicExecutionRunArtifactCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId, @javax.annotation.Nonnull String sha256, @javax.annotation.Nullable String filename, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/analyses/{analysis_id}/dynamic-execution/runs/{run_id}/artifacts/{sha256}"
+            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()))
+            .replace("{" + "run_id" + "}", localVarApiClient.escapeString(runId.toString()))
+            .replace("{" + "sha256" + "}", localVarApiClient.escapeString(sha256.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (filename != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("filename", filename));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call v3GetDynamicExecutionRunArtifactValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId, @javax.annotation.Nonnull String sha256, @javax.annotation.Nullable String filename, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'analysisId' is set
+        if (analysisId == null) {
+            throw new ApiException("Missing the required parameter 'analysisId' when calling v3GetDynamicExecutionRunArtifact(Async)");
+        }
+
+        // verify the required parameter 'runId' is set
+        if (runId == null) {
+            throw new ApiException("Missing the required parameter 'runId' when calling v3GetDynamicExecutionRunArtifact(Async)");
+        }
+
+        // verify the required parameter 'sha256' is set
+        if (sha256 == null) {
+            throw new ApiException("Missing the required parameter 'sha256' when calling v3GetDynamicExecutionRunArtifact(Async)");
+        }
+
+        return v3GetDynamicExecutionRunArtifactCall(analysisId, runId, sha256, filename, _callback);
+
+    }
+
+    /**
+     * Download a run&#39;s artifact.
+     * Streams a file extracted during execution (filesystem, memory, or network), addressed by the SHA-256 referenced by &#x60;artifacts[].sha256&#x60; in the run&#39;s report. The response is a password-protected zip (password: &#x60;infected&#x60;).  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
+     * @param analysisId Analysis ID (required)
+     * @param runId Dynamic execution run ID (required)
+     * @param sha256 SHA-256 hex digest of the artifact (required)
+     * @param filename Optional name for the downloaded file (inside the zip and as the download filename). Defaults to the SHA-256 when omitted. (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -6008,14 +5721,17 @@ public class AnalysesCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public void v3GetDynamicExecutionPcap(@javax.annotation.Nonnull Long analysisId) throws ApiException {
-        v3GetDynamicExecutionPcapWithHttpInfo(analysisId);
+    public void v3GetDynamicExecutionRunArtifact(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId, @javax.annotation.Nonnull String sha256, @javax.annotation.Nullable String filename) throws ApiException {
+        v3GetDynamicExecutionRunArtifactWithHttpInfo(analysisId, runId, sha256, filename);
     }
 
     /**
-     * Download the network capture.
-     * Streams the pcap of the analysis VM&#39;s traffic. Returns 404 if no pcap was captured.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
+     * Download a run&#39;s artifact.
+     * Streams a file extracted during execution (filesystem, memory, or network), addressed by the SHA-256 referenced by &#x60;artifacts[].sha256&#x60; in the run&#39;s report. The response is a password-protected zip (password: &#x60;infected&#x60;).  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
      * @param analysisId Analysis ID (required)
+     * @param runId Dynamic execution run ID (required)
+     * @param sha256 SHA-256 hex digest of the artifact (required)
+     * @param filename Optional name for the downloaded file (inside the zip and as the download filename). Defaults to the SHA-256 when omitted. (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -6030,15 +5746,18 @@ public class AnalysesCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> v3GetDynamicExecutionPcapWithHttpInfo(@javax.annotation.Nonnull Long analysisId) throws ApiException {
-        okhttp3.Call localVarCall = v3GetDynamicExecutionPcapValidateBeforeCall(analysisId, null);
+    public ApiResponse<Void> v3GetDynamicExecutionRunArtifactWithHttpInfo(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId, @javax.annotation.Nonnull String sha256, @javax.annotation.Nullable String filename) throws ApiException {
+        okhttp3.Call localVarCall = v3GetDynamicExecutionRunArtifactValidateBeforeCall(analysisId, runId, sha256, filename, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
-     * Download the network capture. (asynchronously)
-     * Streams the pcap of the analysis VM&#39;s traffic. Returns 404 if no pcap was captured.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
+     * Download a run&#39;s artifact. (asynchronously)
+     * Streams a file extracted during execution (filesystem, memory, or network), addressed by the SHA-256 referenced by &#x60;artifacts[].sha256&#x60; in the run&#39;s report. The response is a password-protected zip (password: &#x60;infected&#x60;).  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
      * @param analysisId Analysis ID (required)
+     * @param runId Dynamic execution run ID (required)
+     * @param sha256 SHA-256 hex digest of the artifact (required)
+     * @param filename Optional name for the downloaded file (inside the zip and as the download filename). Defaults to the SHA-256 when omitted. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -6054,15 +5773,16 @@ public class AnalysesCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call v3GetDynamicExecutionPcapAsync(@javax.annotation.Nonnull Long analysisId, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call v3GetDynamicExecutionRunArtifactAsync(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId, @javax.annotation.Nonnull String sha256, @javax.annotation.Nullable String filename, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = v3GetDynamicExecutionPcapValidateBeforeCall(analysisId, _callback);
+        okhttp3.Call localVarCall = v3GetDynamicExecutionRunArtifactValidateBeforeCall(analysisId, runId, sha256, filename, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
-     * Build call for v3GetDynamicExecutionReport
+     * Build call for v3GetDynamicExecutionRunLogsDownload
      * @param analysisId Analysis ID (required)
+     * @param runId Dynamic execution run ID (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -6078,7 +5798,7 @@ public class AnalysesCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call v3GetDynamicExecutionReportCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call v3GetDynamicExecutionRunLogsDownloadCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6095,8 +5815,9 @@ public class AnalysesCoreApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/v3/analyses/{analysis_id}/dynamic-execution/report"
-            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()));
+        String localVarPath = "/v3/analyses/{analysis_id}/dynamic-execution/runs/{run_id}/logs/download"
+            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()))
+            .replace("{" + "run_id" + "}", localVarApiClient.escapeString(runId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -6124,20 +5845,503 @@ public class AnalysesCoreApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call v3GetDynamicExecutionReportValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call v3GetDynamicExecutionRunLogsDownloadValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
-            throw new ApiException("Missing the required parameter 'analysisId' when calling v3GetDynamicExecutionReport(Async)");
+            throw new ApiException("Missing the required parameter 'analysisId' when calling v3GetDynamicExecutionRunLogsDownload(Async)");
         }
 
-        return v3GetDynamicExecutionReportCall(analysisId, _callback);
+        // verify the required parameter 'runId' is set
+        if (runId == null) {
+            throw new ApiException("Missing the required parameter 'runId' when calling v3GetDynamicExecutionRunLogsDownload(Async)");
+        }
+
+        return v3GetDynamicExecutionRunLogsDownloadCall(analysisId, runId, _callback);
 
     }
 
     /**
-     * Get the dynamic execution report.
-     * Returns the dynamic execution report JSON for the analysis. Requires the run to be COMPLETED.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
+     * Download a run&#39;s execution logs archive.
+     * Streams a ZIP archive of the sandbox logs collected during the run. Requires the run to be COMPLETED. Returns 404 if no logs were captured.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
      * @param analysisId Analysis ID (required)
+     * @param runId Dynamic execution run ID (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public void v3GetDynamicExecutionRunLogsDownload(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId) throws ApiException {
+        v3GetDynamicExecutionRunLogsDownloadWithHttpInfo(analysisId, runId);
+    }
+
+    /**
+     * Download a run&#39;s execution logs archive.
+     * Streams a ZIP archive of the sandbox logs collected during the run. Requires the run to be COMPLETED. Returns 404 if no logs were captured.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
+     * @param analysisId Analysis ID (required)
+     * @param runId Dynamic execution run ID (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> v3GetDynamicExecutionRunLogsDownloadWithHttpInfo(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId) throws ApiException {
+        okhttp3.Call localVarCall = v3GetDynamicExecutionRunLogsDownloadValidateBeforeCall(analysisId, runId, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Download a run&#39;s execution logs archive. (asynchronously)
+     * Streams a ZIP archive of the sandbox logs collected during the run. Requires the run to be COMPLETED. Returns 404 if no logs were captured.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
+     * @param analysisId Analysis ID (required)
+     * @param runId Dynamic execution run ID (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3GetDynamicExecutionRunLogsDownloadAsync(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = v3GetDynamicExecutionRunLogsDownloadValidateBeforeCall(analysisId, runId, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for v3GetDynamicExecutionRunMemdump
+     * @param analysisId Analysis ID (required)
+     * @param runId Dynamic execution run ID (required)
+     * @param sha256 SHA-256 hex digest of the artifact (required)
+     * @param filename Optional name for the downloaded file (inside the zip and as the download filename). Defaults to the SHA-256 when omitted. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3GetDynamicExecutionRunMemdumpCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId, @javax.annotation.Nonnull String sha256, @javax.annotation.Nullable String filename, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/analyses/{analysis_id}/dynamic-execution/runs/{run_id}/memdumps/{sha256}"
+            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()))
+            .replace("{" + "run_id" + "}", localVarApiClient.escapeString(runId.toString()))
+            .replace("{" + "sha256" + "}", localVarApiClient.escapeString(sha256.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (filename != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("filename", filename));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call v3GetDynamicExecutionRunMemdumpValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId, @javax.annotation.Nonnull String sha256, @javax.annotation.Nullable String filename, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'analysisId' is set
+        if (analysisId == null) {
+            throw new ApiException("Missing the required parameter 'analysisId' when calling v3GetDynamicExecutionRunMemdump(Async)");
+        }
+
+        // verify the required parameter 'runId' is set
+        if (runId == null) {
+            throw new ApiException("Missing the required parameter 'runId' when calling v3GetDynamicExecutionRunMemdump(Async)");
+        }
+
+        // verify the required parameter 'sha256' is set
+        if (sha256 == null) {
+            throw new ApiException("Missing the required parameter 'sha256' when calling v3GetDynamicExecutionRunMemdump(Async)");
+        }
+
+        return v3GetDynamicExecutionRunMemdumpCall(analysisId, runId, sha256, filename, _callback);
+
+    }
+
+    /**
+     * Download a run&#39;s memory dump.
+     * Streams the memory dump for a SHA-256 referenced by &#x60;memdumps[].dumps[].sha256&#x60; in the run&#39;s report. The response is a password-protected zip (password: &#x60;infected&#x60;).  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
+     * @param analysisId Analysis ID (required)
+     * @param runId Dynamic execution run ID (required)
+     * @param sha256 SHA-256 hex digest of the artifact (required)
+     * @param filename Optional name for the downloaded file (inside the zip and as the download filename). Defaults to the SHA-256 when omitted. (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public void v3GetDynamicExecutionRunMemdump(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId, @javax.annotation.Nonnull String sha256, @javax.annotation.Nullable String filename) throws ApiException {
+        v3GetDynamicExecutionRunMemdumpWithHttpInfo(analysisId, runId, sha256, filename);
+    }
+
+    /**
+     * Download a run&#39;s memory dump.
+     * Streams the memory dump for a SHA-256 referenced by &#x60;memdumps[].dumps[].sha256&#x60; in the run&#39;s report. The response is a password-protected zip (password: &#x60;infected&#x60;).  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
+     * @param analysisId Analysis ID (required)
+     * @param runId Dynamic execution run ID (required)
+     * @param sha256 SHA-256 hex digest of the artifact (required)
+     * @param filename Optional name for the downloaded file (inside the zip and as the download filename). Defaults to the SHA-256 when omitted. (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> v3GetDynamicExecutionRunMemdumpWithHttpInfo(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId, @javax.annotation.Nonnull String sha256, @javax.annotation.Nullable String filename) throws ApiException {
+        okhttp3.Call localVarCall = v3GetDynamicExecutionRunMemdumpValidateBeforeCall(analysisId, runId, sha256, filename, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Download a run&#39;s memory dump. (asynchronously)
+     * Streams the memory dump for a SHA-256 referenced by &#x60;memdumps[].dumps[].sha256&#x60; in the run&#39;s report. The response is a password-protected zip (password: &#x60;infected&#x60;).  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
+     * @param analysisId Analysis ID (required)
+     * @param runId Dynamic execution run ID (required)
+     * @param sha256 SHA-256 hex digest of the artifact (required)
+     * @param filename Optional name for the downloaded file (inside the zip and as the download filename). Defaults to the SHA-256 when omitted. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3GetDynamicExecutionRunMemdumpAsync(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId, @javax.annotation.Nonnull String sha256, @javax.annotation.Nullable String filename, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = v3GetDynamicExecutionRunMemdumpValidateBeforeCall(analysisId, runId, sha256, filename, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for v3GetDynamicExecutionRunPcap
+     * @param analysisId Analysis ID (required)
+     * @param runId Dynamic execution run ID (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3GetDynamicExecutionRunPcapCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/analyses/{analysis_id}/dynamic-execution/runs/{run_id}/pcap"
+            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()))
+            .replace("{" + "run_id" + "}", localVarApiClient.escapeString(runId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call v3GetDynamicExecutionRunPcapValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'analysisId' is set
+        if (analysisId == null) {
+            throw new ApiException("Missing the required parameter 'analysisId' when calling v3GetDynamicExecutionRunPcap(Async)");
+        }
+
+        // verify the required parameter 'runId' is set
+        if (runId == null) {
+            throw new ApiException("Missing the required parameter 'runId' when calling v3GetDynamicExecutionRunPcap(Async)");
+        }
+
+        return v3GetDynamicExecutionRunPcapCall(analysisId, runId, _callback);
+
+    }
+
+    /**
+     * Download a run&#39;s network capture.
+     * Streams the pcap of the analysis VM&#39;s traffic during the run. Returns 404 if no pcap was captured.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
+     * @param analysisId Analysis ID (required)
+     * @param runId Dynamic execution run ID (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public void v3GetDynamicExecutionRunPcap(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId) throws ApiException {
+        v3GetDynamicExecutionRunPcapWithHttpInfo(analysisId, runId);
+    }
+
+    /**
+     * Download a run&#39;s network capture.
+     * Streams the pcap of the analysis VM&#39;s traffic during the run. Returns 404 if no pcap was captured.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
+     * @param analysisId Analysis ID (required)
+     * @param runId Dynamic execution run ID (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> v3GetDynamicExecutionRunPcapWithHttpInfo(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId) throws ApiException {
+        okhttp3.Call localVarCall = v3GetDynamicExecutionRunPcapValidateBeforeCall(analysisId, runId, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Download a run&#39;s network capture. (asynchronously)
+     * Streams the pcap of the analysis VM&#39;s traffic during the run. Returns 404 if no pcap was captured.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
+     * @param analysisId Analysis ID (required)
+     * @param runId Dynamic execution run ID (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3GetDynamicExecutionRunPcapAsync(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = v3GetDynamicExecutionRunPcapValidateBeforeCall(analysisId, runId, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for v3GetDynamicExecutionRunReport
+     * @param analysisId Analysis ID (required)
+     * @param runId Dynamic execution run ID (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3GetDynamicExecutionRunReportCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/analyses/{analysis_id}/dynamic-execution/runs/{run_id}/report"
+            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()))
+            .replace("{" + "run_id" + "}", localVarApiClient.escapeString(runId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call v3GetDynamicExecutionRunReportValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'analysisId' is set
+        if (analysisId == null) {
+            throw new ApiException("Missing the required parameter 'analysisId' when calling v3GetDynamicExecutionRunReport(Async)");
+        }
+
+        // verify the required parameter 'runId' is set
+        if (runId == null) {
+            throw new ApiException("Missing the required parameter 'runId' when calling v3GetDynamicExecutionRunReport(Async)");
+        }
+
+        return v3GetDynamicExecutionRunReportCall(analysisId, runId, _callback);
+
+    }
+
+    /**
+     * Get a run&#39;s dynamic execution report.
+     * Returns the run&#39;s dynamic execution report JSON. Requires the run to be COMPLETED.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
+     * @param analysisId Analysis ID (required)
+     * @param runId Dynamic execution run ID (required)
      * @return AnalysisReport
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -6152,15 +6356,16 @@ public class AnalysesCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public AnalysisReport v3GetDynamicExecutionReport(@javax.annotation.Nonnull Long analysisId) throws ApiException {
-        ApiResponse<AnalysisReport> localVarResp = v3GetDynamicExecutionReportWithHttpInfo(analysisId);
+    public AnalysisReport v3GetDynamicExecutionRunReport(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId) throws ApiException {
+        ApiResponse<AnalysisReport> localVarResp = v3GetDynamicExecutionRunReportWithHttpInfo(analysisId, runId);
         return localVarResp.getData();
     }
 
     /**
-     * Get the dynamic execution report.
-     * Returns the dynamic execution report JSON for the analysis. Requires the run to be COMPLETED.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
+     * Get a run&#39;s dynamic execution report.
+     * Returns the run&#39;s dynamic execution report JSON. Requires the run to be COMPLETED.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
      * @param analysisId Analysis ID (required)
+     * @param runId Dynamic execution run ID (required)
      * @return ApiResponse&lt;AnalysisReport&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -6175,16 +6380,17 @@ public class AnalysesCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AnalysisReport> v3GetDynamicExecutionReportWithHttpInfo(@javax.annotation.Nonnull Long analysisId) throws ApiException {
-        okhttp3.Call localVarCall = v3GetDynamicExecutionReportValidateBeforeCall(analysisId, null);
+    public ApiResponse<AnalysisReport> v3GetDynamicExecutionRunReportWithHttpInfo(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId) throws ApiException {
+        okhttp3.Call localVarCall = v3GetDynamicExecutionRunReportValidateBeforeCall(analysisId, runId, null);
         Type localVarReturnType = new TypeToken<AnalysisReport>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Get the dynamic execution report. (asynchronously)
-     * Returns the dynamic execution report JSON for the analysis. Requires the run to be COMPLETED.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
+     * Get a run&#39;s dynamic execution report. (asynchronously)
+     * Returns the run&#39;s dynamic execution report JSON. Requires the run to be COMPLETED.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
      * @param analysisId Analysis ID (required)
+     * @param runId Dynamic execution run ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -6200,16 +6406,17 @@ public class AnalysesCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call v3GetDynamicExecutionReportAsync(@javax.annotation.Nonnull Long analysisId, final ApiCallback<AnalysisReport> _callback) throws ApiException {
+    public okhttp3.Call v3GetDynamicExecutionRunReportAsync(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId, final ApiCallback<AnalysisReport> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = v3GetDynamicExecutionReportValidateBeforeCall(analysisId, _callback);
+        okhttp3.Call localVarCall = v3GetDynamicExecutionRunReportValidateBeforeCall(analysisId, runId, _callback);
         Type localVarReturnType = new TypeToken<AnalysisReport>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for v3GetDynamicExecutionScreenshot
+     * Build call for v3GetDynamicExecutionRunScreenshot
      * @param analysisId Analysis ID (required)
+     * @param runId Dynamic execution run ID (required)
      * @param index Index of the screenshot, as listed by the screenshots endpoint (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -6226,7 +6433,7 @@ public class AnalysesCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call v3GetDynamicExecutionScreenshotCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull Long index, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call v3GetDynamicExecutionRunScreenshotCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId, @javax.annotation.Nonnull Long index, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6243,8 +6450,9 @@ public class AnalysesCoreApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/v3/analyses/{analysis_id}/dynamic-execution/screenshots/{index}"
+        String localVarPath = "/v3/analyses/{analysis_id}/dynamic-execution/runs/{run_id}/screenshots/{index}"
             .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()))
+            .replace("{" + "run_id" + "}", localVarApiClient.escapeString(runId.toString()))
             .replace("{" + "index" + "}", localVarApiClient.escapeString(index.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -6273,25 +6481,31 @@ public class AnalysesCoreApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call v3GetDynamicExecutionScreenshotValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull Long index, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call v3GetDynamicExecutionRunScreenshotValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId, @javax.annotation.Nonnull Long index, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
-            throw new ApiException("Missing the required parameter 'analysisId' when calling v3GetDynamicExecutionScreenshot(Async)");
+            throw new ApiException("Missing the required parameter 'analysisId' when calling v3GetDynamicExecutionRunScreenshot(Async)");
+        }
+
+        // verify the required parameter 'runId' is set
+        if (runId == null) {
+            throw new ApiException("Missing the required parameter 'runId' when calling v3GetDynamicExecutionRunScreenshot(Async)");
         }
 
         // verify the required parameter 'index' is set
         if (index == null) {
-            throw new ApiException("Missing the required parameter 'index' when calling v3GetDynamicExecutionScreenshot(Async)");
+            throw new ApiException("Missing the required parameter 'index' when calling v3GetDynamicExecutionRunScreenshot(Async)");
         }
 
-        return v3GetDynamicExecutionScreenshotCall(analysisId, index, _callback);
+        return v3GetDynamicExecutionRunScreenshotCall(analysisId, runId, index, _callback);
 
     }
 
     /**
-     * Download a screenshot.
-     * Streams one screenshot, 1-indexed as listed by the screenshots endpoint. Requires the run to be COMPLETED.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
+     * Download a run&#39;s screenshot.
+     * Streams one screenshot, 1-indexed as listed by the run&#39;s screenshots endpoint. Requires the run to be COMPLETED.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
      * @param analysisId Analysis ID (required)
+     * @param runId Dynamic execution run ID (required)
      * @param index Index of the screenshot, as listed by the screenshots endpoint (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -6306,14 +6520,15 @@ public class AnalysesCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public void v3GetDynamicExecutionScreenshot(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull Long index) throws ApiException {
-        v3GetDynamicExecutionScreenshotWithHttpInfo(analysisId, index);
+    public void v3GetDynamicExecutionRunScreenshot(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId, @javax.annotation.Nonnull Long index) throws ApiException {
+        v3GetDynamicExecutionRunScreenshotWithHttpInfo(analysisId, runId, index);
     }
 
     /**
-     * Download a screenshot.
-     * Streams one screenshot, 1-indexed as listed by the screenshots endpoint. Requires the run to be COMPLETED.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
+     * Download a run&#39;s screenshot.
+     * Streams one screenshot, 1-indexed as listed by the run&#39;s screenshots endpoint. Requires the run to be COMPLETED.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
      * @param analysisId Analysis ID (required)
+     * @param runId Dynamic execution run ID (required)
      * @param index Index of the screenshot, as listed by the screenshots endpoint (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6329,15 +6544,16 @@ public class AnalysesCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> v3GetDynamicExecutionScreenshotWithHttpInfo(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull Long index) throws ApiException {
-        okhttp3.Call localVarCall = v3GetDynamicExecutionScreenshotValidateBeforeCall(analysisId, index, null);
+    public ApiResponse<Void> v3GetDynamicExecutionRunScreenshotWithHttpInfo(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId, @javax.annotation.Nonnull Long index) throws ApiException {
+        okhttp3.Call localVarCall = v3GetDynamicExecutionRunScreenshotValidateBeforeCall(analysisId, runId, index, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
-     * Download a screenshot. (asynchronously)
-     * Streams one screenshot, 1-indexed as listed by the screenshots endpoint. Requires the run to be COMPLETED.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
+     * Download a run&#39;s screenshot. (asynchronously)
+     * Streams one screenshot, 1-indexed as listed by the run&#39;s screenshots endpoint. Requires the run to be COMPLETED.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
      * @param analysisId Analysis ID (required)
+     * @param runId Dynamic execution run ID (required)
      * @param index Index of the screenshot, as listed by the screenshots endpoint (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -6354,15 +6570,16 @@ public class AnalysesCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call v3GetDynamicExecutionScreenshotAsync(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull Long index, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call v3GetDynamicExecutionRunScreenshotAsync(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId, @javax.annotation.Nonnull Long index, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = v3GetDynamicExecutionScreenshotValidateBeforeCall(analysisId, index, _callback);
+        okhttp3.Call localVarCall = v3GetDynamicExecutionRunScreenshotValidateBeforeCall(analysisId, runId, index, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**
-     * Build call for v3GetDynamicExecutionSummary
+     * Build call for v3GetDynamicExecutionRunSummary
      * @param analysisId Analysis ID (required)
+     * @param runId Dynamic execution run ID (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -6378,7 +6595,7 @@ public class AnalysesCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call v3GetDynamicExecutionSummaryCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call v3GetDynamicExecutionRunSummaryCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6395,8 +6612,9 @@ public class AnalysesCoreApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/v3/analyses/{analysis_id}/dynamic-execution/summary"
-            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()));
+        String localVarPath = "/v3/analyses/{analysis_id}/dynamic-execution/runs/{run_id}/summary"
+            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()))
+            .replace("{" + "run_id" + "}", localVarApiClient.escapeString(runId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -6424,20 +6642,26 @@ public class AnalysesCoreApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call v3GetDynamicExecutionSummaryValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call v3GetDynamicExecutionRunSummaryValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
-            throw new ApiException("Missing the required parameter 'analysisId' when calling v3GetDynamicExecutionSummary(Async)");
+            throw new ApiException("Missing the required parameter 'analysisId' when calling v3GetDynamicExecutionRunSummary(Async)");
         }
 
-        return v3GetDynamicExecutionSummaryCall(analysisId, _callback);
+        // verify the required parameter 'runId' is set
+        if (runId == null) {
+            throw new ApiException("Missing the required parameter 'runId' when calling v3GetDynamicExecutionRunSummary(Async)");
+        }
+
+        return v3GetDynamicExecutionRunSummaryCall(analysisId, runId, _callback);
 
     }
 
     /**
-     * Get the dynamic execution summary.
+     * Get a run&#39;s dynamic execution summary.
      * Returns the LLM-generated Markdown summary of the run. Requires the run to be COMPLETED. Returns 404 if no summary has been generated.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
      * @param analysisId Analysis ID (required)
+     * @param runId Dynamic execution run ID (required)
      * @return DynamicExecutionSummary
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -6452,15 +6676,16 @@ public class AnalysesCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public DynamicExecutionSummary v3GetDynamicExecutionSummary(@javax.annotation.Nonnull Long analysisId) throws ApiException {
-        ApiResponse<DynamicExecutionSummary> localVarResp = v3GetDynamicExecutionSummaryWithHttpInfo(analysisId);
+    public DynamicExecutionSummary v3GetDynamicExecutionRunSummary(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId) throws ApiException {
+        ApiResponse<DynamicExecutionSummary> localVarResp = v3GetDynamicExecutionRunSummaryWithHttpInfo(analysisId, runId);
         return localVarResp.getData();
     }
 
     /**
-     * Get the dynamic execution summary.
+     * Get a run&#39;s dynamic execution summary.
      * Returns the LLM-generated Markdown summary of the run. Requires the run to be COMPLETED. Returns 404 if no summary has been generated.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
      * @param analysisId Analysis ID (required)
+     * @param runId Dynamic execution run ID (required)
      * @return ApiResponse&lt;DynamicExecutionSummary&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -6475,16 +6700,17 @@ public class AnalysesCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<DynamicExecutionSummary> v3GetDynamicExecutionSummaryWithHttpInfo(@javax.annotation.Nonnull Long analysisId) throws ApiException {
-        okhttp3.Call localVarCall = v3GetDynamicExecutionSummaryValidateBeforeCall(analysisId, null);
+    public ApiResponse<DynamicExecutionSummary> v3GetDynamicExecutionRunSummaryWithHttpInfo(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId) throws ApiException {
+        okhttp3.Call localVarCall = v3GetDynamicExecutionRunSummaryValidateBeforeCall(analysisId, runId, null);
         Type localVarReturnType = new TypeToken<DynamicExecutionSummary>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Get the dynamic execution summary. (asynchronously)
+     * Get a run&#39;s dynamic execution summary. (asynchronously)
      * Returns the LLM-generated Markdown summary of the run. Requires the run to be COMPLETED. Returns 404 if no summary has been generated.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
      * @param analysisId Analysis ID (required)
+     * @param runId Dynamic execution run ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -6500,16 +6726,17 @@ public class AnalysesCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call v3GetDynamicExecutionSummaryAsync(@javax.annotation.Nonnull Long analysisId, final ApiCallback<DynamicExecutionSummary> _callback) throws ApiException {
+    public okhttp3.Call v3GetDynamicExecutionRunSummaryAsync(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId, final ApiCallback<DynamicExecutionSummary> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = v3GetDynamicExecutionSummaryValidateBeforeCall(analysisId, _callback);
+        okhttp3.Call localVarCall = v3GetDynamicExecutionRunSummaryValidateBeforeCall(analysisId, runId, _callback);
         Type localVarReturnType = new TypeToken<DynamicExecutionSummary>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for v3GetDynamicExecutionSummaryOperation
+     * Build call for v3GetDynamicExecutionRunWiresharkKeys
      * @param analysisId Analysis ID (required)
+     * @param runId Dynamic execution run ID (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -6520,11 +6747,12 @@ public class AnalysesCoreApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call v3GetDynamicExecutionSummaryOperationCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call v3GetDynamicExecutionRunWiresharkKeysCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6541,8 +6769,9 @@ public class AnalysesCoreApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/v3/operations/dynamic-execution-summary/{analysis_id}"
-            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()));
+        String localVarPath = "/v3/analyses/{analysis_id}/dynamic-execution/runs/{run_id}/wireshark-keys"
+            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()))
+            .replace("{" + "run_id" + "}", localVarApiClient.escapeString(runId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -6570,164 +6799,26 @@ public class AnalysesCoreApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call v3GetDynamicExecutionSummaryOperationValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call v3GetDynamicExecutionRunWiresharkKeysValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
-            throw new ApiException("Missing the required parameter 'analysisId' when calling v3GetDynamicExecutionSummaryOperation(Async)");
+            throw new ApiException("Missing the required parameter 'analysisId' when calling v3GetDynamicExecutionRunWiresharkKeys(Async)");
         }
 
-        return v3GetDynamicExecutionSummaryOperationCall(analysisId, _callback);
+        // verify the required parameter 'runId' is set
+        if (runId == null) {
+            throw new ApiException("Missing the required parameter 'runId' when calling v3GetDynamicExecutionRunWiresharkKeys(Async)");
+        }
+
+        return v3GetDynamicExecutionRunWiresharkKeysCall(analysisId, runId, _callback);
 
     }
 
     /**
-     * Get a dynamic execution summary operation.
-     * Returns the state of the most recent summary attempt for this analysis, whether made by its run or by a regenerate.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * Download a run&#39;s Wireshark TLS session keys.
+     * Returns the Wireshark-format TLS session key log for decrypting HTTPS traffic in the run&#39;s pcap. Returns 404 if no keys were captured.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
      * @param analysisId Analysis ID (required)
-     * @return OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResult v3GetDynamicExecutionSummaryOperation(@javax.annotation.Nonnull Long analysisId) throws ApiException {
-        ApiResponse<OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResult> localVarResp = v3GetDynamicExecutionSummaryOperationWithHttpInfo(analysisId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get a dynamic execution summary operation.
-     * Returns the state of the most recent summary attempt for this analysis, whether made by its run or by a regenerate.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
-     * @param analysisId Analysis ID (required)
-     * @return ApiResponse&lt;OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResult> v3GetDynamicExecutionSummaryOperationWithHttpInfo(@javax.annotation.Nonnull Long analysisId) throws ApiException {
-        okhttp3.Call localVarCall = v3GetDynamicExecutionSummaryOperationValidateBeforeCall(analysisId, null);
-        Type localVarReturnType = new TypeToken<OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResult>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Get a dynamic execution summary operation. (asynchronously)
-     * Returns the state of the most recent summary attempt for this analysis, whether made by its run or by a regenerate.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
-     * @param analysisId Analysis ID (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call v3GetDynamicExecutionSummaryOperationAsync(@javax.annotation.Nonnull Long analysisId, final ApiCallback<OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResult> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = v3GetDynamicExecutionSummaryOperationValidateBeforeCall(analysisId, _callback);
-        Type localVarReturnType = new TypeToken<OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResult>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for v3GetDynamicExecutionWiresharkKeys
-     * @param analysisId Analysis ID (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call v3GetDynamicExecutionWiresharkKeysCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v3/analyses/{analysis_id}/dynamic-execution/wireshark-keys"
-            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call v3GetDynamicExecutionWiresharkKeysValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'analysisId' is set
-        if (analysisId == null) {
-            throw new ApiException("Missing the required parameter 'analysisId' when calling v3GetDynamicExecutionWiresharkKeys(Async)");
-        }
-
-        return v3GetDynamicExecutionWiresharkKeysCall(analysisId, _callback);
-
-    }
-
-    /**
-     * Download Wireshark TLS session keys.
-     * Returns the Wireshark-format TLS session key log for decrypting HTTPS traffic in the pcap. Returns 404 if no keys were captured.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
-     * @param analysisId Analysis ID (required)
+     * @param runId Dynamic execution run ID (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -6741,14 +6832,15 @@ public class AnalysesCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public void v3GetDynamicExecutionWiresharkKeys(@javax.annotation.Nonnull Long analysisId) throws ApiException {
-        v3GetDynamicExecutionWiresharkKeysWithHttpInfo(analysisId);
+    public void v3GetDynamicExecutionRunWiresharkKeys(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId) throws ApiException {
+        v3GetDynamicExecutionRunWiresharkKeysWithHttpInfo(analysisId, runId);
     }
 
     /**
-     * Download Wireshark TLS session keys.
-     * Returns the Wireshark-format TLS session key log for decrypting HTTPS traffic in the pcap. Returns 404 if no keys were captured.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
+     * Download a run&#39;s Wireshark TLS session keys.
+     * Returns the Wireshark-format TLS session key log for decrypting HTTPS traffic in the run&#39;s pcap. Returns 404 if no keys were captured.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
      * @param analysisId Analysis ID (required)
+     * @param runId Dynamic execution run ID (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -6763,15 +6855,16 @@ public class AnalysesCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> v3GetDynamicExecutionWiresharkKeysWithHttpInfo(@javax.annotation.Nonnull Long analysisId) throws ApiException {
-        okhttp3.Call localVarCall = v3GetDynamicExecutionWiresharkKeysValidateBeforeCall(analysisId, null);
+    public ApiResponse<Void> v3GetDynamicExecutionRunWiresharkKeysWithHttpInfo(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId) throws ApiException {
+        okhttp3.Call localVarCall = v3GetDynamicExecutionRunWiresharkKeysValidateBeforeCall(analysisId, runId, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
-     * Download Wireshark TLS session keys. (asynchronously)
-     * Returns the Wireshark-format TLS session key log for decrypting HTTPS traffic in the pcap. Returns 404 if no keys were captured.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
+     * Download a run&#39;s Wireshark TLS session keys. (asynchronously)
+     * Returns the Wireshark-format TLS session key log for decrypting HTTPS traffic in the run&#39;s pcap. Returns 404 if no keys were captured.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
      * @param analysisId Analysis ID (required)
+     * @param runId Dynamic execution run ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -6787,10 +6880,153 @@ public class AnalysesCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call v3GetDynamicExecutionWiresharkKeysAsync(@javax.annotation.Nonnull Long analysisId, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call v3GetDynamicExecutionRunWiresharkKeysAsync(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = v3GetDynamicExecutionWiresharkKeysValidateBeforeCall(analysisId, _callback);
+        okhttp3.Call localVarCall = v3GetDynamicExecutionRunWiresharkKeysValidateBeforeCall(analysisId, runId, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for v3GetDynamicExecutionSummaryOperation
+     * @param runId Dynamic execution run ID (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3GetDynamicExecutionSummaryOperationCall(@javax.annotation.Nonnull String runId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/operations/dynamic-execution-summary/{run_id}"
+            .replace("{" + "run_id" + "}", localVarApiClient.escapeString(runId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call v3GetDynamicExecutionSummaryOperationValidateBeforeCall(@javax.annotation.Nonnull String runId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'runId' is set
+        if (runId == null) {
+            throw new ApiException("Missing the required parameter 'runId' when calling v3GetDynamicExecutionSummaryOperation(Async)");
+        }
+
+        return v3GetDynamicExecutionSummaryOperationCall(runId, _callback);
+
+    }
+
+    /**
+     * Get a dynamic execution summary operation.
+     * Returns the state of a run&#39;s most recent summary attempt, whether made by the run itself or by a regenerate. Returns 404 for an unknown run.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param runId Dynamic execution run ID (required)
+     * @return OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResult v3GetDynamicExecutionSummaryOperation(@javax.annotation.Nonnull String runId) throws ApiException {
+        ApiResponse<OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResult> localVarResp = v3GetDynamicExecutionSummaryOperationWithHttpInfo(runId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get a dynamic execution summary operation.
+     * Returns the state of a run&#39;s most recent summary attempt, whether made by the run itself or by a regenerate. Returns 404 for an unknown run.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param runId Dynamic execution run ID (required)
+     * @return ApiResponse&lt;OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResult> v3GetDynamicExecutionSummaryOperationWithHttpInfo(@javax.annotation.Nonnull String runId) throws ApiException {
+        okhttp3.Call localVarCall = v3GetDynamicExecutionSummaryOperationValidateBeforeCall(runId, null);
+        Type localVarReturnType = new TypeToken<OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResult>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get a dynamic execution summary operation. (asynchronously)
+     * Returns the state of a run&#39;s most recent summary attempt, whether made by the run itself or by a regenerate. Returns 404 for an unknown run.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param runId Dynamic execution run ID (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3GetDynamicExecutionSummaryOperationAsync(@javax.annotation.Nonnull String runId, final ApiCallback<OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResult> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = v3GetDynamicExecutionSummaryOperationValidateBeforeCall(runId, _callback);
+        Type localVarReturnType = new TypeToken<OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResult>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
@@ -7612,7 +7848,7 @@ public class AnalysesCoreApi {
 
     /**
      * List the operations run on an analysis.
-     * Returns the analysis&#39; &#x60;static-analysis&#x60; operation, followed by the latest run of each other operation started on its binary: the binary agents, the script-agent scans and dynamic execution. The &#x60;static-analysis&#x60; operation is always included, even when no other operations have run. Each entry&#39;s &#x60;name&#x60; is the operation&#39;s resource name, polled at &#x60;/v3/{name}&#x60;. Other operations that have never run are omitted.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * Returns the analysis&#39; &#x60;static-analysis&#x60; operation, followed by the latest run of each other operation started on its binary (the binary agents and the script-agent scans), then one &#x60;dynamic-execution&#x60; operation per sandbox run of the analysis, newest first. The &#x60;static-analysis&#x60; operation is always included, even when no other operations have run. Each entry&#39;s &#x60;name&#x60; is the operation&#39;s resource name, polled at &#x60;/v3/{name}&#x60;. Other operations that have never run are omitted.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
      * @param analysisId Analysis ID (required)
      * @return AnalysisOperationsOutputBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7634,7 +7870,7 @@ public class AnalysesCoreApi {
 
     /**
      * List the operations run on an analysis.
-     * Returns the analysis&#39; &#x60;static-analysis&#x60; operation, followed by the latest run of each other operation started on its binary: the binary agents, the script-agent scans and dynamic execution. The &#x60;static-analysis&#x60; operation is always included, even when no other operations have run. Each entry&#39;s &#x60;name&#x60; is the operation&#39;s resource name, polled at &#x60;/v3/{name}&#x60;. Other operations that have never run are omitted.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * Returns the analysis&#39; &#x60;static-analysis&#x60; operation, followed by the latest run of each other operation started on its binary (the binary agents and the script-agent scans), then one &#x60;dynamic-execution&#x60; operation per sandbox run of the analysis, newest first. The &#x60;static-analysis&#x60; operation is always included, even when no other operations have run. Each entry&#39;s &#x60;name&#x60; is the operation&#39;s resource name, polled at &#x60;/v3/{name}&#x60;. Other operations that have never run are omitted.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
      * @param analysisId Analysis ID (required)
      * @return ApiResponse&lt;AnalysisOperationsOutputBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7657,7 +7893,7 @@ public class AnalysesCoreApi {
 
     /**
      * List the operations run on an analysis. (asynchronously)
-     * Returns the analysis&#39; &#x60;static-analysis&#x60; operation, followed by the latest run of each other operation started on its binary: the binary agents, the script-agent scans and dynamic execution. The &#x60;static-analysis&#x60; operation is always included, even when no other operations have run. Each entry&#39;s &#x60;name&#x60; is the operation&#39;s resource name, polled at &#x60;/v3/{name}&#x60;. Other operations that have never run are omitted.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * Returns the analysis&#39; &#x60;static-analysis&#x60; operation, followed by the latest run of each other operation started on its binary (the binary agents and the script-agent scans), then one &#x60;dynamic-execution&#x60; operation per sandbox run of the analysis, newest first. The &#x60;static-analysis&#x60; operation is always included, even when no other operations have run. Each entry&#39;s &#x60;name&#x60; is the operation&#39;s resource name, polled at &#x60;/v3/{name}&#x60;. Other operations that have never run are omitted.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
      * @param analysisId Analysis ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -7681,8 +7917,9 @@ public class AnalysesCoreApi {
         return localVarCall;
     }
     /**
-     * Build call for v3ListDynamicExecutionScreenshots
+     * Build call for v3ListDynamicExecutionRunScreenshots
      * @param analysisId Analysis ID (required)
+     * @param runId Dynamic execution run ID (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -7698,7 +7935,7 @@ public class AnalysesCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call v3ListDynamicExecutionScreenshotsCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call v3ListDynamicExecutionRunScreenshotsCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -7715,7 +7952,162 @@ public class AnalysesCoreApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/v3/analyses/{analysis_id}/dynamic-execution/screenshots"
+        String localVarPath = "/v3/analyses/{analysis_id}/dynamic-execution/runs/{run_id}/screenshots"
+            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()))
+            .replace("{" + "run_id" + "}", localVarApiClient.escapeString(runId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call v3ListDynamicExecutionRunScreenshotsValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'analysisId' is set
+        if (analysisId == null) {
+            throw new ApiException("Missing the required parameter 'analysisId' when calling v3ListDynamicExecutionRunScreenshots(Async)");
+        }
+
+        // verify the required parameter 'runId' is set
+        if (runId == null) {
+            throw new ApiException("Missing the required parameter 'runId' when calling v3ListDynamicExecutionRunScreenshots(Async)");
+        }
+
+        return v3ListDynamicExecutionRunScreenshotsCall(analysisId, runId, _callback);
+
+    }
+
+    /**
+     * List a run&#39;s screenshots.
+     * Returns the screenshots captured from the analysis VM during the run, in capture order. Requires the run to be COMPLETED. Returns an empty list when the run captured none.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
+     * @param analysisId Analysis ID (required)
+     * @param runId Dynamic execution run ID (required)
+     * @return ScreenshotsIndex
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ScreenshotsIndex v3ListDynamicExecutionRunScreenshots(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId) throws ApiException {
+        ApiResponse<ScreenshotsIndex> localVarResp = v3ListDynamicExecutionRunScreenshotsWithHttpInfo(analysisId, runId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List a run&#39;s screenshots.
+     * Returns the screenshots captured from the analysis VM during the run, in capture order. Requires the run to be COMPLETED. Returns an empty list when the run captured none.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
+     * @param analysisId Analysis ID (required)
+     * @param runId Dynamic execution run ID (required)
+     * @return ApiResponse&lt;ScreenshotsIndex&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ScreenshotsIndex> v3ListDynamicExecutionRunScreenshotsWithHttpInfo(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId) throws ApiException {
+        okhttp3.Call localVarCall = v3ListDynamicExecutionRunScreenshotsValidateBeforeCall(analysisId, runId, null);
+        Type localVarReturnType = new TypeToken<ScreenshotsIndex>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List a run&#39;s screenshots. (asynchronously)
+     * Returns the screenshots captured from the analysis VM during the run, in capture order. Requires the run to be COMPLETED. Returns an empty list when the run captured none.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
+     * @param analysisId Analysis ID (required)
+     * @param runId Dynamic execution run ID (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3ListDynamicExecutionRunScreenshotsAsync(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId, final ApiCallback<ScreenshotsIndex> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = v3ListDynamicExecutionRunScreenshotsValidateBeforeCall(analysisId, runId, _callback);
+        Type localVarReturnType = new TypeToken<ScreenshotsIndex>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for v3ListDynamicExecutionRuns
+     * @param analysisId Analysis ID (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3ListDynamicExecutionRunsCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/analyses/{analysis_id}/dynamic-execution/runs"
             .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -7744,21 +8136,21 @@ public class AnalysesCoreApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call v3ListDynamicExecutionScreenshotsValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call v3ListDynamicExecutionRunsValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
-            throw new ApiException("Missing the required parameter 'analysisId' when calling v3ListDynamicExecutionScreenshots(Async)");
+            throw new ApiException("Missing the required parameter 'analysisId' when calling v3ListDynamicExecutionRuns(Async)");
         }
 
-        return v3ListDynamicExecutionScreenshotsCall(analysisId, _callback);
+        return v3ListDynamicExecutionRunsCall(analysisId, _callback);
 
     }
 
     /**
-     * List the screenshots captured during execution.
-     * Returns the screenshots captured from the analysis VM, in capture order. Requires the run to be COMPLETED. Returns an empty list when the run captured none.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
+     * List the dynamic execution runs.
+     * Returns every dynamic execution run of the analysis, newest first, with its status and the parameters it was started with. An archive password is never returned, only whether one was given.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
      * @param analysisId Analysis ID (required)
-     * @return ScreenshotsIndex
+     * @return ListDynamicExecutionRunsOutputBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -7767,21 +8159,20 @@ public class AnalysesCoreApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ScreenshotsIndex v3ListDynamicExecutionScreenshots(@javax.annotation.Nonnull Long analysisId) throws ApiException {
-        ApiResponse<ScreenshotsIndex> localVarResp = v3ListDynamicExecutionScreenshotsWithHttpInfo(analysisId);
+    public ListDynamicExecutionRunsOutputBody v3ListDynamicExecutionRuns(@javax.annotation.Nonnull Long analysisId) throws ApiException {
+        ApiResponse<ListDynamicExecutionRunsOutputBody> localVarResp = v3ListDynamicExecutionRunsWithHttpInfo(analysisId);
         return localVarResp.getData();
     }
 
     /**
-     * List the screenshots captured during execution.
-     * Returns the screenshots captured from the analysis VM, in capture order. Requires the run to be COMPLETED. Returns an empty list when the run captured none.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
+     * List the dynamic execution runs.
+     * Returns every dynamic execution run of the analysis, newest first, with its status and the parameters it was started with. An archive password is never returned, only whether one was given.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
      * @param analysisId Analysis ID (required)
-     * @return ApiResponse&lt;ScreenshotsIndex&gt;
+     * @return ApiResponse&lt;ListDynamicExecutionRunsOutputBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -7790,20 +8181,19 @@ public class AnalysesCoreApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ScreenshotsIndex> v3ListDynamicExecutionScreenshotsWithHttpInfo(@javax.annotation.Nonnull Long analysisId) throws ApiException {
-        okhttp3.Call localVarCall = v3ListDynamicExecutionScreenshotsValidateBeforeCall(analysisId, null);
-        Type localVarReturnType = new TypeToken<ScreenshotsIndex>(){}.getType();
+    public ApiResponse<ListDynamicExecutionRunsOutputBody> v3ListDynamicExecutionRunsWithHttpInfo(@javax.annotation.Nonnull Long analysisId) throws ApiException {
+        okhttp3.Call localVarCall = v3ListDynamicExecutionRunsValidateBeforeCall(analysisId, null);
+        Type localVarReturnType = new TypeToken<ListDynamicExecutionRunsOutputBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * List the screenshots captured during execution. (asynchronously)
-     * Returns the screenshots captured from the analysis VM, in capture order. Requires the run to be COMPLETED. Returns an empty list when the run captured none.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
+     * List the dynamic execution runs. (asynchronously)
+     * Returns every dynamic execution run of the analysis, newest first, with its status and the parameters it was started with. An archive password is never returned, only whether one was given.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
      * @param analysisId Analysis ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -7815,15 +8205,14 @@ public class AnalysesCoreApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call v3ListDynamicExecutionScreenshotsAsync(@javax.annotation.Nonnull Long analysisId, final ApiCallback<ScreenshotsIndex> _callback) throws ApiException {
+    public okhttp3.Call v3ListDynamicExecutionRunsAsync(@javax.annotation.Nonnull Long analysisId, final ApiCallback<ListDynamicExecutionRunsOutputBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = v3ListDynamicExecutionScreenshotsValidateBeforeCall(analysisId, _callback);
-        Type localVarReturnType = new TypeToken<ScreenshotsIndex>(){}.getType();
+        okhttp3.Call localVarCall = v3ListDynamicExecutionRunsValidateBeforeCall(analysisId, _callback);
+        Type localVarReturnType = new TypeToken<ListDynamicExecutionRunsOutputBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -8712,9 +9101,9 @@ public class AnalysesCoreApi {
         return localVarCall;
     }
     /**
-     * Build call for v3RunDynamicExecution
+     * Build call for v3RunDynamicExecutionRunSummary
      * @param analysisId Analysis ID (required)
-     * @param runDynamicExecutionInputBody  (optional)
+     * @param runId Dynamic execution run ID (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -8723,7 +9112,6 @@ public class AnalysesCoreApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
@@ -8731,162 +9119,7 @@ public class AnalysesCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call v3RunDynamicExecutionCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable RunDynamicExecutionInputBody runDynamicExecutionInputBody, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = runDynamicExecutionInputBody;
-
-        // create path and map variables
-        String localVarPath = "/v3/analyses/{analysis_id}/dynamic-execution:run"
-            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call v3RunDynamicExecutionValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable RunDynamicExecutionInputBody runDynamicExecutionInputBody, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'analysisId' is set
-        if (analysisId == null) {
-            throw new ApiException("Missing the required parameter 'analysisId' when calling v3RunDynamicExecution(Async)");
-        }
-
-        return v3RunDynamicExecutionCall(analysisId, runDynamicExecutionInputBody, _callback);
-
-    }
-
-    /**
-     * Trigger a dynamic execution run.
-     * Submits the analysis&#39;s binary to the sandbox and returns the operation to poll for its outcome. Returns 409 while a run is already in progress for this analysis.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict
-     * @param analysisId Analysis ID (required)
-     * @param runDynamicExecutionInputBody  (optional)
-     * @return OperationDynamicExecutionMetadataDynamicExecutionResult
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public OperationDynamicExecutionMetadataDynamicExecutionResult v3RunDynamicExecution(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable RunDynamicExecutionInputBody runDynamicExecutionInputBody) throws ApiException {
-        ApiResponse<OperationDynamicExecutionMetadataDynamicExecutionResult> localVarResp = v3RunDynamicExecutionWithHttpInfo(analysisId, runDynamicExecutionInputBody);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Trigger a dynamic execution run.
-     * Submits the analysis&#39;s binary to the sandbox and returns the operation to poll for its outcome. Returns 409 while a run is already in progress for this analysis.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict
-     * @param analysisId Analysis ID (required)
-     * @param runDynamicExecutionInputBody  (optional)
-     * @return ApiResponse&lt;OperationDynamicExecutionMetadataDynamicExecutionResult&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<OperationDynamicExecutionMetadataDynamicExecutionResult> v3RunDynamicExecutionWithHttpInfo(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable RunDynamicExecutionInputBody runDynamicExecutionInputBody) throws ApiException {
-        okhttp3.Call localVarCall = v3RunDynamicExecutionValidateBeforeCall(analysisId, runDynamicExecutionInputBody, null);
-        Type localVarReturnType = new TypeToken<OperationDynamicExecutionMetadataDynamicExecutionResult>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Trigger a dynamic execution run. (asynchronously)
-     * Submits the analysis&#39;s binary to the sandbox and returns the operation to poll for its outcome. Returns 409 while a run is already in progress for this analysis.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict
-     * @param analysisId Analysis ID (required)
-     * @param runDynamicExecutionInputBody  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call v3RunDynamicExecutionAsync(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nullable RunDynamicExecutionInputBody runDynamicExecutionInputBody, final ApiCallback<OperationDynamicExecutionMetadataDynamicExecutionResult> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = v3RunDynamicExecutionValidateBeforeCall(analysisId, runDynamicExecutionInputBody, _callback);
-        Type localVarReturnType = new TypeToken<OperationDynamicExecutionMetadataDynamicExecutionResult>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for v3RunDynamicExecutionSummary
-     * @param analysisId Analysis ID (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-        <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call v3RunDynamicExecutionSummaryCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call v3RunDynamicExecutionRunSummaryCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -8903,8 +9136,9 @@ public class AnalysesCoreApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/v3/analyses/{analysis_id}/dynamic-execution/summary:run"
-            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()));
+        String localVarPath = "/v3/analyses/{analysis_id}/dynamic-execution/runs/{run_id}/summary:run"
+            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()))
+            .replace("{" + "run_id" + "}", localVarApiClient.escapeString(runId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -8932,20 +9166,26 @@ public class AnalysesCoreApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call v3RunDynamicExecutionSummaryValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call v3RunDynamicExecutionRunSummaryValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'analysisId' is set
         if (analysisId == null) {
-            throw new ApiException("Missing the required parameter 'analysisId' when calling v3RunDynamicExecutionSummary(Async)");
+            throw new ApiException("Missing the required parameter 'analysisId' when calling v3RunDynamicExecutionRunSummary(Async)");
         }
 
-        return v3RunDynamicExecutionSummaryCall(analysisId, _callback);
+        // verify the required parameter 'runId' is set
+        if (runId == null) {
+            throw new ApiException("Missing the required parameter 'runId' when calling v3RunDynamicExecutionRunSummary(Async)");
+        }
+
+        return v3RunDynamicExecutionRunSummaryCall(analysisId, runId, _callback);
 
     }
 
     /**
-     * Regenerate the dynamic execution summary.
-     * Starts a new LLM summary of the analysis&#39;s completed run and returns the operation to poll. The new summary replaces the stored one once it succeeds. Only the analysis owner may regenerate. Returns 409 while the run is incomplete or a summary is already in progress.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
+     * Regenerate a run&#39;s dynamic execution summary.
+     * Starts a new LLM summary of the completed run and returns the run&#39;s summary operation to poll. The new summary replaces the stored one once it succeeds. Only the analysis owner may regenerate. Returns 409 while the run is incomplete or a summary is already in progress.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
      * @param analysisId Analysis ID (required)
+     * @param runId Dynamic execution run ID (required)
      * @return OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -8953,7 +9193,6 @@ public class AnalysesCoreApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
@@ -8961,15 +9200,16 @@ public class AnalysesCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResult v3RunDynamicExecutionSummary(@javax.annotation.Nonnull Long analysisId) throws ApiException {
-        ApiResponse<OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResult> localVarResp = v3RunDynamicExecutionSummaryWithHttpInfo(analysisId);
+    public OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResult v3RunDynamicExecutionRunSummary(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId) throws ApiException {
+        ApiResponse<OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResult> localVarResp = v3RunDynamicExecutionRunSummaryWithHttpInfo(analysisId, runId);
         return localVarResp.getData();
     }
 
     /**
-     * Regenerate the dynamic execution summary.
-     * Starts a new LLM summary of the analysis&#39;s completed run and returns the operation to poll. The new summary replaces the stored one once it succeeds. Only the analysis owner may regenerate. Returns 409 while the run is incomplete or a summary is already in progress.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
+     * Regenerate a run&#39;s dynamic execution summary.
+     * Starts a new LLM summary of the completed run and returns the run&#39;s summary operation to poll. The new summary replaces the stored one once it succeeds. Only the analysis owner may regenerate. Returns 409 while the run is incomplete or a summary is already in progress.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
      * @param analysisId Analysis ID (required)
+     * @param runId Dynamic execution run ID (required)
      * @return ApiResponse&lt;OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -8977,7 +9217,6 @@ public class AnalysesCoreApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
@@ -8985,16 +9224,17 @@ public class AnalysesCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResult> v3RunDynamicExecutionSummaryWithHttpInfo(@javax.annotation.Nonnull Long analysisId) throws ApiException {
-        okhttp3.Call localVarCall = v3RunDynamicExecutionSummaryValidateBeforeCall(analysisId, null);
+    public ApiResponse<OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResult> v3RunDynamicExecutionRunSummaryWithHttpInfo(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId) throws ApiException {
+        okhttp3.Call localVarCall = v3RunDynamicExecutionRunSummaryValidateBeforeCall(analysisId, runId, null);
         Type localVarReturnType = new TypeToken<OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResult>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Regenerate the dynamic execution summary. (asynchronously)
-     * Starts a new LLM summary of the analysis&#39;s completed run and returns the operation to poll. The new summary replaces the stored one once it succeeds. Only the analysis owner may regenerate. Returns 409 while the run is incomplete or a summary is already in progress.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
+     * Regenerate a run&#39;s dynamic execution summary. (asynchronously)
+     * Starts a new LLM summary of the completed run and returns the run&#39;s summary operation to poll. The new summary replaces the stored one once it succeeds. Only the analysis owner may regenerate. Returns 409 while the run is incomplete or a summary is already in progress.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
      * @param analysisId Analysis ID (required)
+     * @param runId Dynamic execution run ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -9003,7 +9243,6 @@ public class AnalysesCoreApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
@@ -9011,9 +9250,9 @@ public class AnalysesCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call v3RunDynamicExecutionSummaryAsync(@javax.annotation.Nonnull Long analysisId, final ApiCallback<OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResult> _callback) throws ApiException {
+    public okhttp3.Call v3RunDynamicExecutionRunSummaryAsync(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String runId, final ApiCallback<OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResult> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = v3RunDynamicExecutionSummaryValidateBeforeCall(analysisId, _callback);
+        okhttp3.Call localVarCall = v3RunDynamicExecutionRunSummaryValidateBeforeCall(analysisId, runId, _callback);
         Type localVarReturnType = new TypeToken<OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResult>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

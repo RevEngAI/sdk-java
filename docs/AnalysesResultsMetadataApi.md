@@ -8,9 +8,11 @@ All URIs are relative to *https://api.reveng.ai*
 | [**getCapabilities**](AnalysesResultsMetadataApi.md#getCapabilities) | **GET** /v2/analyses/{analysis_id}/capabilities | Gets the capabilities from the analysis |
 | [**getFunctionsList**](AnalysesResultsMetadataApi.md#getFunctionsList) | **GET** /v2/analyses/{analysis_id}/functions/list | Gets functions from analysis |
 | [**getTags**](AnalysesResultsMetadataApi.md#getTags) | **GET** /v2/analyses/{analysis_id}/tags | Get function tags with maliciousness score |
+| [**v3GetAnalysisFeedback**](AnalysesResultsMetadataApi.md#v3GetAnalysisFeedback) | **GET** /v3/analyses/{analysis_id}/feedback/{type} | Get the caller&#39;s feedback on an analysis. |
 | [**v3GetAnalysisXref**](AnalysesResultsMetadataApi.md#v3GetAnalysisXref) | **GET** /v3/analyses/{analysis_id}/xrefs/{vaddr} | Look up xrefs by virtual address. |
 | [**v3ListAnalysisCapabilities**](AnalysesResultsMetadataApi.md#v3ListAnalysisCapabilities) | **GET** /v3/analyses/{analysis_id}/capabilities | List the capabilities found in an analysis. |
 | [**v3ListAnalysisTags**](AnalysesResultsMetadataApi.md#v3ListAnalysisTags) | **GET** /v3/analyses/{analysis_id}/tags | List the tags on an analysis. |
+| [**v3UpsertAnalysisFeedback**](AnalysesResultsMetadataApi.md#v3UpsertAnalysisFeedback) | **PUT** /v3/analyses/{analysis_id}/feedback/{type} | Record feedback on an analysis. |
 
 
 <a id="getAnalysisFunctionsPaginated"></a>
@@ -321,6 +323,85 @@ public class Example {
 | **200** | Successful Response |  -  |
 | **422** | Invalid request parameters |  -  |
 
+<a id="v3GetAnalysisFeedback"></a>
+# **v3GetAnalysisFeedback**
+> RecordedFeedback v3GetAnalysisFeedback(analysisId, type)
+
+Get the caller&#39;s feedback on an analysis.
+
+Returns the feedback the caller recorded for one kind of result on this analysis, or null fields when they have not recorded any.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.AnalysesResultsMetadataApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    AnalysesResultsMetadataApi apiInstance = new AnalysesResultsMetadataApi(defaultClient);
+    Long analysisId = 56L; // Long | Analysis ID
+    String type = "function-matching"; // String | What the feedback is about
+    try {
+      RecordedFeedback result = apiInstance.v3GetAnalysisFeedback(analysisId, type);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AnalysesResultsMetadataApi#v3GetAnalysisFeedback");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **analysisId** | **Long**| Analysis ID | |
+| **type** | **String**| What the feedback is about | [enum: function-matching] |
+
+### Return type
+
+[**RecordedFeedback**](RecordedFeedback.md)
+
+### Authorization
+
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **500** | Internal Server Error |  -  |
+
 <a id="v3GetAnalysisXref"></a>
 # **v3GetAnalysisXref**
 > AnalysisXrefOutputBody v3GetAnalysisXref(analysisId, vaddr)
@@ -549,6 +630,86 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **500** | Internal Server Error |  -  |
+
+<a id="v3UpsertAnalysisFeedback"></a>
+# **v3UpsertAnalysisFeedback**
+> v3UpsertAnalysisFeedback(analysisId, type, feedbackSubmission)
+
+Record feedback on an analysis.
+
+Records how useful the caller found one kind of result for this analysis, with any context the client captured. Replaces any feedback they recorded previously.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.AnalysesResultsMetadataApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    AnalysesResultsMetadataApi apiInstance = new AnalysesResultsMetadataApi(defaultClient);
+    Long analysisId = 56L; // Long | Analysis ID
+    String type = "function-matching"; // String | What the feedback is about
+    FeedbackSubmission feedbackSubmission = new FeedbackSubmission(); // FeedbackSubmission | 
+    try {
+      apiInstance.v3UpsertAnalysisFeedback(analysisId, type, feedbackSubmission);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AnalysesResultsMetadataApi#v3UpsertAnalysisFeedback");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **analysisId** | **Long**| Analysis ID | |
+| **type** | **String**| What the feedback is about | [enum: function-matching] |
+| **feedbackSubmission** | [**FeedbackSubmission**](FeedbackSubmission.md)|  | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 | **422** | Unprocessable Entity |  -  |

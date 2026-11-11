@@ -19,13 +19,13 @@ All URIs are relative to *https://api.reveng.ai*
 | [**insertAnalysisLog**](AnalysesCoreApi.md#insertAnalysisLog) | **POST** /v2/analyses/{analysis_id}/logs | Insert a log entry for an analysis |
 | [**listAnalyses**](AnalysesCoreApi.md#listAnalyses) | **GET** /v2/analyses/list | Gets the most recent analyses |
 | [**lookupBinaryId**](AnalysesCoreApi.md#lookupBinaryId) | **GET** /v2/analyses/lookup/{binary_id} | Gets the analysis ID from binary ID |
-| [**putAnalysisStrings**](AnalysesCoreApi.md#putAnalysisStrings) | **PUT** /v2/analyses/{analysis_id}/strings | Add strings to the analysis |
 | [**requeueAnalysis**](AnalysesCoreApi.md#requeueAnalysis) | **POST** /v2/analyses/{analysis_id}/requeue | Requeue Analysis |
 | [**startAnalysisFunctionMatching**](AnalysesCoreApi.md#startAnalysisFunctionMatching) | **POST** /v3/analyses/{analysis_id}/functions/matches | Start function matching for an analysis |
 | [**updateAnalysis**](AnalysesCoreApi.md#updateAnalysis) | **PATCH** /v2/analyses/{analysis_id} | Update Analysis |
 | [**updateAnalysisTags**](AnalysesCoreApi.md#updateAnalysisTags) | **PATCH** /v2/analyses/{analysis_id}/tags | Update Analysis Tags |
 | [**uploadFile**](AnalysesCoreApi.md#uploadFile) | **POST** /v2/upload | Upload File |
 | [**v3CreateAnalysis**](AnalysesCoreApi.md#v3CreateAnalysis) | **POST** /v3/analyses | Create an analysis |
+| [**v3CreateDynamicExecutionRun**](AnalysesCoreApi.md#v3CreateDynamicExecutionRun) | **POST** /v3/analyses/{analysis_id}/dynamic-execution/runs | Start a dynamic execution run. |
 | [**v3DeleteAnalysis**](AnalysesCoreApi.md#v3DeleteAnalysis) | **DELETE** /v3/analyses/{analysis_id} | Delete an analysis. |
 | [**v3DownloadBinaryExport**](AnalysesCoreApi.md#v3DownloadBinaryExport) | **GET** /v3/analyses/{analysis_id}/binary-export | Download a binary export |
 | [**v3GetAnalysis**](AnalysesCoreApi.md#v3GetAnalysis) | **GET** /v3/analyses/{analysis_id} | Get an analysis. |
@@ -38,30 +38,31 @@ All URIs are relative to *https://api.reveng.ai*
 | [**v3GetAnalysisStrings**](AnalysesCoreApi.md#v3GetAnalysisStrings) | **GET** /v3/analyses/{analysis_id}/functions/strings | List strings for an analysis. |
 | [**v3GetAnalysisStringsStatus**](AnalysesCoreApi.md#v3GetAnalysisStringsStatus) | **GET** /v3/analyses/{analysis_id}/functions/strings/status | Get the string-extraction status for an analysis. |
 | [**v3GetBinaryExportOperation**](AnalysesCoreApi.md#v3GetBinaryExportOperation) | **GET** /v3/operations/binary-export/{task_id} | Get a binary export operation |
-| [**v3GetDynamicExecutionArtifact**](AnalysesCoreApi.md#v3GetDynamicExecutionArtifact) | **GET** /v3/analyses/{analysis_id}/dynamic-execution/artifacts/{sha256} | Download an artifact. |
-| [**v3GetDynamicExecutionLogsDownload**](AnalysesCoreApi.md#v3GetDynamicExecutionLogsDownload) | **GET** /v3/analyses/{analysis_id}/dynamic-execution/logs/download | Download the execution logs archive. |
-| [**v3GetDynamicExecutionMemdump**](AnalysesCoreApi.md#v3GetDynamicExecutionMemdump) | **GET** /v3/analyses/{analysis_id}/dynamic-execution/memdumps/{sha256} | Download a memory dump. |
-| [**v3GetDynamicExecutionOperation**](AnalysesCoreApi.md#v3GetDynamicExecutionOperation) | **GET** /v3/operations/dynamic-execution/{analysis_id} | Get a dynamic execution operation. |
-| [**v3GetDynamicExecutionPcap**](AnalysesCoreApi.md#v3GetDynamicExecutionPcap) | **GET** /v3/analyses/{analysis_id}/dynamic-execution/pcap | Download the network capture. |
-| [**v3GetDynamicExecutionReport**](AnalysesCoreApi.md#v3GetDynamicExecutionReport) | **GET** /v3/analyses/{analysis_id}/dynamic-execution/report | Get the dynamic execution report. |
-| [**v3GetDynamicExecutionScreenshot**](AnalysesCoreApi.md#v3GetDynamicExecutionScreenshot) | **GET** /v3/analyses/{analysis_id}/dynamic-execution/screenshots/{index} | Download a screenshot. |
-| [**v3GetDynamicExecutionSummary**](AnalysesCoreApi.md#v3GetDynamicExecutionSummary) | **GET** /v3/analyses/{analysis_id}/dynamic-execution/summary | Get the dynamic execution summary. |
-| [**v3GetDynamicExecutionSummaryOperation**](AnalysesCoreApi.md#v3GetDynamicExecutionSummaryOperation) | **GET** /v3/operations/dynamic-execution-summary/{analysis_id} | Get a dynamic execution summary operation. |
-| [**v3GetDynamicExecutionWiresharkKeys**](AnalysesCoreApi.md#v3GetDynamicExecutionWiresharkKeys) | **GET** /v3/analyses/{analysis_id}/dynamic-execution/wireshark-keys | Download Wireshark TLS session keys. |
+| [**v3GetDynamicExecutionOperation**](AnalysesCoreApi.md#v3GetDynamicExecutionOperation) | **GET** /v3/operations/dynamic-execution/{run_id} | Get a dynamic execution operation. |
+| [**v3GetDynamicExecutionRun**](AnalysesCoreApi.md#v3GetDynamicExecutionRun) | **GET** /v3/analyses/{analysis_id}/dynamic-execution/runs/{run_id} | Get a dynamic execution run. |
+| [**v3GetDynamicExecutionRunArtifact**](AnalysesCoreApi.md#v3GetDynamicExecutionRunArtifact) | **GET** /v3/analyses/{analysis_id}/dynamic-execution/runs/{run_id}/artifacts/{sha256} | Download a run&#39;s artifact. |
+| [**v3GetDynamicExecutionRunLogsDownload**](AnalysesCoreApi.md#v3GetDynamicExecutionRunLogsDownload) | **GET** /v3/analyses/{analysis_id}/dynamic-execution/runs/{run_id}/logs/download | Download a run&#39;s execution logs archive. |
+| [**v3GetDynamicExecutionRunMemdump**](AnalysesCoreApi.md#v3GetDynamicExecutionRunMemdump) | **GET** /v3/analyses/{analysis_id}/dynamic-execution/runs/{run_id}/memdumps/{sha256} | Download a run&#39;s memory dump. |
+| [**v3GetDynamicExecutionRunPcap**](AnalysesCoreApi.md#v3GetDynamicExecutionRunPcap) | **GET** /v3/analyses/{analysis_id}/dynamic-execution/runs/{run_id}/pcap | Download a run&#39;s network capture. |
+| [**v3GetDynamicExecutionRunReport**](AnalysesCoreApi.md#v3GetDynamicExecutionRunReport) | **GET** /v3/analyses/{analysis_id}/dynamic-execution/runs/{run_id}/report | Get a run&#39;s dynamic execution report. |
+| [**v3GetDynamicExecutionRunScreenshot**](AnalysesCoreApi.md#v3GetDynamicExecutionRunScreenshot) | **GET** /v3/analyses/{analysis_id}/dynamic-execution/runs/{run_id}/screenshots/{index} | Download a run&#39;s screenshot. |
+| [**v3GetDynamicExecutionRunSummary**](AnalysesCoreApi.md#v3GetDynamicExecutionRunSummary) | **GET** /v3/analyses/{analysis_id}/dynamic-execution/runs/{run_id}/summary | Get a run&#39;s dynamic execution summary. |
+| [**v3GetDynamicExecutionRunWiresharkKeys**](AnalysesCoreApi.md#v3GetDynamicExecutionRunWiresharkKeys) | **GET** /v3/analyses/{analysis_id}/dynamic-execution/runs/{run_id}/wireshark-keys | Download a run&#39;s Wireshark TLS session keys. |
+| [**v3GetDynamicExecutionSummaryOperation**](AnalysesCoreApi.md#v3GetDynamicExecutionSummaryOperation) | **GET** /v3/operations/dynamic-execution-summary/{run_id} | Get a dynamic execution summary operation. |
 | [**v3GrantAnalysisAccess**](AnalysesCoreApi.md#v3GrantAnalysisAccess) | **POST** /v3/analyses/{analysis_id}/access-rules | Share an analysis with a user or team |
 | [**v3ListAnalyses**](AnalysesCoreApi.md#v3ListAnalyses) | **GET** /v3/analyses | List analyses |
 | [**v3ListAnalysisAccessRules**](AnalysesCoreApi.md#v3ListAnalysisAccessRules) | **GET** /v3/analyses/{analysis_id}/access-rules | List who an analysis is shared with |
 | [**v3ListAnalysisGlobals**](AnalysesCoreApi.md#v3ListAnalysisGlobals) | **GET** /v3/analyses/{analysis_id}/globals | List the global variables in an analysis. |
 | [**v3ListAnalysisOperations**](AnalysesCoreApi.md#v3ListAnalysisOperations) | **GET** /v3/analyses/{analysis_id}/operations | List the operations run on an analysis. |
-| [**v3ListDynamicExecutionScreenshots**](AnalysesCoreApi.md#v3ListDynamicExecutionScreenshots) | **GET** /v3/analyses/{analysis_id}/dynamic-execution/screenshots | List the screenshots captured during execution. |
+| [**v3ListDynamicExecutionRunScreenshots**](AnalysesCoreApi.md#v3ListDynamicExecutionRunScreenshots) | **GET** /v3/analyses/{analysis_id}/dynamic-execution/runs/{run_id}/screenshots | List a run&#39;s screenshots. |
+| [**v3ListDynamicExecutionRuns**](AnalysesCoreApi.md#v3ListDynamicExecutionRuns) | **GET** /v3/analyses/{analysis_id}/dynamic-execution/runs | List the dynamic execution runs. |
 | [**v3ListExampleAnalyses**](AnalysesCoreApi.md#v3ListExampleAnalyses) | **GET** /v3/analyses/examples | List example analyses |
 | [**v3ListGlobalFunctions**](AnalysesCoreApi.md#v3ListGlobalFunctions) | **GET** /v3/analyses/{analysis_id}/globals/{vaddr}/functions | List the functions referencing a global variable. |
 | [**v3LookupAnalysisByBinaryId**](AnalysesCoreApi.md#v3LookupAnalysisByBinaryId) | **GET** /v3/analyses/lookup/{binary_id} | Look up the most recent analysis for a binary. |
 | [**v3QueueBinaryExport**](AnalysesCoreApi.md#v3QueueBinaryExport) | **POST** /v3/analyses/{analysis_id}/binary-export | Queue a binary export |
 | [**v3RequeueAnalysis**](AnalysesCoreApi.md#v3RequeueAnalysis) | **POST** /v3/analyses/{analysis_id}/requeue | Requeue an analysis |
 | [**v3RevokeAnalysisAccess**](AnalysesCoreApi.md#v3RevokeAnalysisAccess) | **DELETE** /v3/analyses/{analysis_id}/access-rules | Stop sharing an analysis with a user or team |
-| [**v3RunDynamicExecution**](AnalysesCoreApi.md#v3RunDynamicExecution) | **POST** /v3/analyses/{analysis_id}/dynamic-execution:run | Trigger a dynamic execution run. |
-| [**v3RunDynamicExecutionSummary**](AnalysesCoreApi.md#v3RunDynamicExecutionSummary) | **POST** /v3/analyses/{analysis_id}/dynamic-execution/summary:run | Regenerate the dynamic execution summary. |
+| [**v3RunDynamicExecutionRunSummary**](AnalysesCoreApi.md#v3RunDynamicExecutionRunSummary) | **POST** /v3/analyses/{analysis_id}/dynamic-execution/runs/{run_id}/summary:run | Regenerate a run&#39;s dynamic execution summary. |
 | [**v3SearchTags**](AnalysesCoreApi.md#v3SearchTags) | **GET** /v3/tags | Search tags |
 | [**v3UpdateAnalysis**](AnalysesCoreApi.md#v3UpdateAnalysis) | **PATCH** /v3/analyses/{analysis_id} | Update an analysis. |
 | [**v3UpdateAnalysisGlobal**](AnalysesCoreApi.md#v3UpdateAnalysisGlobal) | **PATCH** /v3/analyses/{analysis_id}/globals/{vaddr} | Edit a global variable. |
@@ -1232,82 +1233,6 @@ public class Example {
 | **200** | Successful Response |  -  |
 | **422** | Invalid request parameters |  -  |
 
-<a id="putAnalysisStrings"></a>
-# **putAnalysisStrings**
-> BaseResponse putAnalysisStrings(analysisId, putAnalysisStringsRequest)
-
-Add strings to the analysis
-
-Add strings to the analysis. Rejects if any string already exists at the given vaddr.
-
-### Example
-```java
-// Import classes:
-import ai.reveng.invoker.ApiClient;
-import ai.reveng.invoker.ApiException;
-import ai.reveng.invoker.Configuration;
-import ai.reveng.invoker.auth.*;
-import ai.reveng.invoker.models.*;
-import ai.reveng.api.AnalysesCoreApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.reveng.ai");
-    
-    // Configure API key authorization: APIKey
-    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
-    APIKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //APIKey.setApiKeyPrefix("Token");
-
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
-
-    AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
-    Integer analysisId = 56; // Integer | 
-    PutAnalysisStringsRequest putAnalysisStringsRequest = new PutAnalysisStringsRequest(); // PutAnalysisStringsRequest | 
-    try {
-      BaseResponse result = apiInstance.putAnalysisStrings(analysisId, putAnalysisStringsRequest);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling AnalysesCoreApi#putAnalysisStrings");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **analysisId** | **Integer**|  | |
-| **putAnalysisStringsRequest** | [**PutAnalysisStringsRequest**](PutAnalysisStringsRequest.md)|  | |
-
-### Return type
-
-[**BaseResponse**](BaseResponse.md)
-
-### Authorization
-
-[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **201** | Successful Response |  -  |
-| **422** | Invalid request parameters |  -  |
-
 <a id="requeueAnalysis"></a>
 # **requeueAnalysis**
 > BaseResponseCreated requeueAnalysis(analysisId, reAnalysisForm, xRevEngApplication)
@@ -1778,6 +1703,86 @@ public class Example {
 | **404** | Not Found |  -  |
 | **409** | Conflict |  -  |
 | **413** | Request Entity Too Large |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **500** | Internal Server Error |  -  |
+
+<a id="v3CreateDynamicExecutionRun"></a>
+# **v3CreateDynamicExecutionRun**
+> OperationDynamicExecutionMetadataDynamicExecutionResult v3CreateDynamicExecutionRun(analysisId, runDynamicExecutionInputBody)
+
+Start a dynamic execution run.
+
+Starts a new sandbox run of the analysis&#39;s binary, alongside any runs already in progress, and returns the run&#39;s operation to poll for its outcome.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.AnalysesCoreApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
+    Long analysisId = 56L; // Long | Analysis ID
+    RunDynamicExecutionInputBody runDynamicExecutionInputBody = new RunDynamicExecutionInputBody(); // RunDynamicExecutionInputBody | 
+    try {
+      OperationDynamicExecutionMetadataDynamicExecutionResult result = apiInstance.v3CreateDynamicExecutionRun(analysisId, runDynamicExecutionInputBody);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AnalysesCoreApi#v3CreateDynamicExecutionRun");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **analysisId** | **Long**| Analysis ID | |
+| **runDynamicExecutionInputBody** | [**RunDynamicExecutionInputBody**](RunDynamicExecutionInputBody.md)|  | [optional] |
+
+### Return type
+
+[**OperationDynamicExecutionMetadataDynamicExecutionResult**](OperationDynamicExecutionMetadataDynamicExecutionResult.md)
+
+### Authorization
+
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
 | **422** | Unprocessable Entity |  -  |
 | **500** | Internal Server Error |  -  |
 
@@ -2723,252 +2728,13 @@ public class Example {
 | **422** | Unprocessable Entity |  -  |
 | **500** | Internal Server Error |  -  |
 
-<a id="v3GetDynamicExecutionArtifact"></a>
-# **v3GetDynamicExecutionArtifact**
-> v3GetDynamicExecutionArtifact(analysisId, sha256, filename)
-
-Download an artifact.
-
-Streams a file extracted during execution (filesystem, memory, or network), addressed by the SHA-256 referenced by &#x60;artifacts[].sha256&#x60; in the dynamic execution report. The response is a password-protected zip (password: &#x60;infected&#x60;).  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
-
-### Example
-```java
-// Import classes:
-import ai.reveng.invoker.ApiClient;
-import ai.reveng.invoker.ApiException;
-import ai.reveng.invoker.Configuration;
-import ai.reveng.invoker.auth.*;
-import ai.reveng.invoker.models.*;
-import ai.reveng.api.AnalysesCoreApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.reveng.ai");
-    
-    // Configure API key authorization: APIKey
-    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
-    APIKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //APIKey.setApiKeyPrefix("Token");
-
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
-
-    AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
-    Long analysisId = 56L; // Long | Analysis ID
-    String sha256 = "sha256_example"; // String | SHA-256 hex digest of the artifact
-    String filename = "filename_example"; // String | Optional name for the downloaded file (inside the zip and as the download filename). Defaults to the SHA-256 when omitted.
-    try {
-      apiInstance.v3GetDynamicExecutionArtifact(analysisId, sha256, filename);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling AnalysesCoreApi#v3GetDynamicExecutionArtifact");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **analysisId** | **Long**| Analysis ID | |
-| **sha256** | **String**| SHA-256 hex digest of the artifact | |
-| **filename** | **String**| Optional name for the downloaded file (inside the zip and as the download filename). Defaults to the SHA-256 when omitted. | [optional] |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **409** | Conflict |  -  |
-| **422** | Unprocessable Entity |  -  |
-| **500** | Internal Server Error |  -  |
-
-<a id="v3GetDynamicExecutionLogsDownload"></a>
-# **v3GetDynamicExecutionLogsDownload**
-> v3GetDynamicExecutionLogsDownload(analysisId)
-
-Download the execution logs archive.
-
-Streams a ZIP archive of the sandbox logs collected during execution. Requires the run to be COMPLETED. Returns 404 if no logs were captured.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
-
-### Example
-```java
-// Import classes:
-import ai.reveng.invoker.ApiClient;
-import ai.reveng.invoker.ApiException;
-import ai.reveng.invoker.Configuration;
-import ai.reveng.invoker.auth.*;
-import ai.reveng.invoker.models.*;
-import ai.reveng.api.AnalysesCoreApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.reveng.ai");
-    
-    // Configure API key authorization: APIKey
-    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
-    APIKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //APIKey.setApiKeyPrefix("Token");
-
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
-
-    AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
-    Long analysisId = 56L; // Long | Analysis ID
-    try {
-      apiInstance.v3GetDynamicExecutionLogsDownload(analysisId);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling AnalysesCoreApi#v3GetDynamicExecutionLogsDownload");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **analysisId** | **Long**| Analysis ID | |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **409** | Conflict |  -  |
-| **422** | Unprocessable Entity |  -  |
-| **500** | Internal Server Error |  -  |
-
-<a id="v3GetDynamicExecutionMemdump"></a>
-# **v3GetDynamicExecutionMemdump**
-> v3GetDynamicExecutionMemdump(analysisId, sha256, filename)
-
-Download a memory dump.
-
-Streams the memory dump for a SHA-256 referenced by &#x60;memdumps[].dumps[].sha256&#x60; in the dynamic execution report. The response is a password-protected zip (password: &#x60;infected&#x60;).  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
-
-### Example
-```java
-// Import classes:
-import ai.reveng.invoker.ApiClient;
-import ai.reveng.invoker.ApiException;
-import ai.reveng.invoker.Configuration;
-import ai.reveng.invoker.auth.*;
-import ai.reveng.invoker.models.*;
-import ai.reveng.api.AnalysesCoreApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.reveng.ai");
-    
-    // Configure API key authorization: APIKey
-    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
-    APIKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //APIKey.setApiKeyPrefix("Token");
-
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
-
-    AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
-    Long analysisId = 56L; // Long | Analysis ID
-    String sha256 = "sha256_example"; // String | SHA-256 hex digest of the artifact
-    String filename = "filename_example"; // String | Optional name for the downloaded file (inside the zip and as the download filename). Defaults to the SHA-256 when omitted.
-    try {
-      apiInstance.v3GetDynamicExecutionMemdump(analysisId, sha256, filename);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling AnalysesCoreApi#v3GetDynamicExecutionMemdump");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **analysisId** | **Long**| Analysis ID | |
-| **sha256** | **String**| SHA-256 hex digest of the artifact | |
-| **filename** | **String**| Optional name for the downloaded file (inside the zip and as the download filename). Defaults to the SHA-256 when omitted. | [optional] |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **409** | Conflict |  -  |
-| **422** | Unprocessable Entity |  -  |
-| **500** | Internal Server Error |  -  |
-
 <a id="v3GetDynamicExecutionOperation"></a>
 # **v3GetDynamicExecutionOperation**
-> OperationDynamicExecutionMetadataDynamicExecutionResult v3GetDynamicExecutionOperation(analysisId)
+> OperationDynamicExecutionMetadataDynamicExecutionResult v3GetDynamicExecutionOperation(runId)
 
 Get a dynamic execution operation.
 
-Returns the current state of the most recently triggered dynamic execution run for this analysis.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+Returns the current state of a dynamic execution run. Returns 404 for an unknown run.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
 
 ### Example
 ```java
@@ -2996,9 +2762,9 @@ public class Example {
     bearerAuth.setBearerToken("BEARER TOKEN");
 
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
-    Long analysisId = 56L; // Long | Analysis ID
+    String runId = "runId_example"; // String | Dynamic execution run ID
     try {
-      OperationDynamicExecutionMetadataDynamicExecutionResult result = apiInstance.v3GetDynamicExecutionOperation(analysisId);
+      OperationDynamicExecutionMetadataDynamicExecutionResult result = apiInstance.v3GetDynamicExecutionOperation(runId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AnalysesCoreApi#v3GetDynamicExecutionOperation");
@@ -3015,7 +2781,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **analysisId** | **Long**| Analysis ID | |
+| **runId** | **String**| Dynamic execution run ID | |
 
 ### Return type
 
@@ -3039,13 +2805,13 @@ public class Example {
 | **422** | Unprocessable Entity |  -  |
 | **500** | Internal Server Error |  -  |
 
-<a id="v3GetDynamicExecutionPcap"></a>
-# **v3GetDynamicExecutionPcap**
-> v3GetDynamicExecutionPcap(analysisId)
+<a id="v3GetDynamicExecutionRun"></a>
+# **v3GetDynamicExecutionRun**
+> DynamicExecutionRun v3GetDynamicExecutionRun(analysisId, runId)
 
-Download the network capture.
+Get a dynamic execution run.
 
-Streams the pcap of the analysis VM&#39;s traffic. Returns 404 if no pcap was captured.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
+Returns the run&#39;s status and the parameters it was started with. An archive password is never returned, only whether one was given.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
 
 ### Example
 ```java
@@ -3074,10 +2840,12 @@ public class Example {
 
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
     Long analysisId = 56L; // Long | Analysis ID
+    String runId = "runId_example"; // String | Dynamic execution run ID
     try {
-      apiInstance.v3GetDynamicExecutionPcap(analysisId);
+      DynamicExecutionRun result = apiInstance.v3GetDynamicExecutionRun(analysisId, runId);
+      System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling AnalysesCoreApi#v3GetDynamicExecutionPcap");
+      System.err.println("Exception when calling AnalysesCoreApi#v3GetDynamicExecutionRun");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -3092,6 +2860,89 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Long**| Analysis ID | |
+| **runId** | **String**| Dynamic execution run ID | |
+
+### Return type
+
+[**DynamicExecutionRun**](DynamicExecutionRun.md)
+
+### Authorization
+
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **500** | Internal Server Error |  -  |
+
+<a id="v3GetDynamicExecutionRunArtifact"></a>
+# **v3GetDynamicExecutionRunArtifact**
+> v3GetDynamicExecutionRunArtifact(analysisId, runId, sha256, filename)
+
+Download a run&#39;s artifact.
+
+Streams a file extracted during execution (filesystem, memory, or network), addressed by the SHA-256 referenced by &#x60;artifacts[].sha256&#x60; in the run&#39;s report. The response is a password-protected zip (password: &#x60;infected&#x60;).  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.AnalysesCoreApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
+    Long analysisId = 56L; // Long | Analysis ID
+    String runId = "runId_example"; // String | Dynamic execution run ID
+    String sha256 = "sha256_example"; // String | SHA-256 hex digest of the artifact
+    String filename = "filename_example"; // String | Optional name for the downloaded file (inside the zip and as the download filename). Defaults to the SHA-256 when omitted.
+    try {
+      apiInstance.v3GetDynamicExecutionRunArtifact(analysisId, runId, sha256, filename);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AnalysesCoreApi#v3GetDynamicExecutionRunArtifact");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **analysisId** | **Long**| Analysis ID | |
+| **runId** | **String**| Dynamic execution run ID | |
+| **sha256** | **String**| SHA-256 hex digest of the artifact | |
+| **filename** | **String**| Optional name for the downloaded file (inside the zip and as the download filename). Defaults to the SHA-256 when omitted. | [optional] |
 
 ### Return type
 
@@ -3116,13 +2967,13 @@ null (empty response body)
 | **422** | Unprocessable Entity |  -  |
 | **500** | Internal Server Error |  -  |
 
-<a id="v3GetDynamicExecutionReport"></a>
-# **v3GetDynamicExecutionReport**
-> AnalysisReport v3GetDynamicExecutionReport(analysisId)
+<a id="v3GetDynamicExecutionRunLogsDownload"></a>
+# **v3GetDynamicExecutionRunLogsDownload**
+> v3GetDynamicExecutionRunLogsDownload(analysisId, runId)
 
-Get the dynamic execution report.
+Download a run&#39;s execution logs archive.
 
-Returns the dynamic execution report JSON for the analysis. Requires the run to be COMPLETED.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
+Streams a ZIP archive of the sandbox logs collected during the run. Requires the run to be COMPLETED. Returns 404 if no logs were captured.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
 
 ### Example
 ```java
@@ -3151,11 +3002,11 @@ public class Example {
 
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
     Long analysisId = 56L; // Long | Analysis ID
+    String runId = "runId_example"; // String | Dynamic execution run ID
     try {
-      AnalysisReport result = apiInstance.v3GetDynamicExecutionReport(analysisId);
-      System.out.println(result);
+      apiInstance.v3GetDynamicExecutionRunLogsDownload(analysisId, runId);
     } catch (ApiException e) {
-      System.err.println("Exception when calling AnalysesCoreApi#v3GetDynamicExecutionReport");
+      System.err.println("Exception when calling AnalysesCoreApi#v3GetDynamicExecutionRunLogsDownload");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -3170,6 +3021,249 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Long**| Analysis ID | |
+| **runId** | **String**| Dynamic execution run ID | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **500** | Internal Server Error |  -  |
+
+<a id="v3GetDynamicExecutionRunMemdump"></a>
+# **v3GetDynamicExecutionRunMemdump**
+> v3GetDynamicExecutionRunMemdump(analysisId, runId, sha256, filename)
+
+Download a run&#39;s memory dump.
+
+Streams the memory dump for a SHA-256 referenced by &#x60;memdumps[].dumps[].sha256&#x60; in the run&#39;s report. The response is a password-protected zip (password: &#x60;infected&#x60;).  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.AnalysesCoreApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
+    Long analysisId = 56L; // Long | Analysis ID
+    String runId = "runId_example"; // String | Dynamic execution run ID
+    String sha256 = "sha256_example"; // String | SHA-256 hex digest of the artifact
+    String filename = "filename_example"; // String | Optional name for the downloaded file (inside the zip and as the download filename). Defaults to the SHA-256 when omitted.
+    try {
+      apiInstance.v3GetDynamicExecutionRunMemdump(analysisId, runId, sha256, filename);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AnalysesCoreApi#v3GetDynamicExecutionRunMemdump");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **analysisId** | **Long**| Analysis ID | |
+| **runId** | **String**| Dynamic execution run ID | |
+| **sha256** | **String**| SHA-256 hex digest of the artifact | |
+| **filename** | **String**| Optional name for the downloaded file (inside the zip and as the download filename). Defaults to the SHA-256 when omitted. | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **500** | Internal Server Error |  -  |
+
+<a id="v3GetDynamicExecutionRunPcap"></a>
+# **v3GetDynamicExecutionRunPcap**
+> v3GetDynamicExecutionRunPcap(analysisId, runId)
+
+Download a run&#39;s network capture.
+
+Streams the pcap of the analysis VM&#39;s traffic during the run. Returns 404 if no pcap was captured.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.AnalysesCoreApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
+    Long analysisId = 56L; // Long | Analysis ID
+    String runId = "runId_example"; // String | Dynamic execution run ID
+    try {
+      apiInstance.v3GetDynamicExecutionRunPcap(analysisId, runId);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AnalysesCoreApi#v3GetDynamicExecutionRunPcap");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **analysisId** | **Long**| Analysis ID | |
+| **runId** | **String**| Dynamic execution run ID | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **500** | Internal Server Error |  -  |
+
+<a id="v3GetDynamicExecutionRunReport"></a>
+# **v3GetDynamicExecutionRunReport**
+> AnalysisReport v3GetDynamicExecutionRunReport(analysisId, runId)
+
+Get a run&#39;s dynamic execution report.
+
+Returns the run&#39;s dynamic execution report JSON. Requires the run to be COMPLETED.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.AnalysesCoreApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
+    Long analysisId = 56L; // Long | Analysis ID
+    String runId = "runId_example"; // String | Dynamic execution run ID
+    try {
+      AnalysisReport result = apiInstance.v3GetDynamicExecutionRunReport(analysisId, runId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AnalysesCoreApi#v3GetDynamicExecutionRunReport");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **analysisId** | **Long**| Analysis ID | |
+| **runId** | **String**| Dynamic execution run ID | |
 
 ### Return type
 
@@ -3194,13 +3288,13 @@ public class Example {
 | **422** | Unprocessable Entity |  -  |
 | **500** | Internal Server Error |  -  |
 
-<a id="v3GetDynamicExecutionScreenshot"></a>
-# **v3GetDynamicExecutionScreenshot**
-> v3GetDynamicExecutionScreenshot(analysisId, index)
+<a id="v3GetDynamicExecutionRunScreenshot"></a>
+# **v3GetDynamicExecutionRunScreenshot**
+> v3GetDynamicExecutionRunScreenshot(analysisId, runId, index)
 
-Download a screenshot.
+Download a run&#39;s screenshot.
 
-Streams one screenshot, 1-indexed as listed by the screenshots endpoint. Requires the run to be COMPLETED.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
+Streams one screenshot, 1-indexed as listed by the run&#39;s screenshots endpoint. Requires the run to be COMPLETED.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
 
 ### Example
 ```java
@@ -3229,11 +3323,12 @@ public class Example {
 
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
     Long analysisId = 56L; // Long | Analysis ID
+    String runId = "runId_example"; // String | Dynamic execution run ID
     Long index = 56L; // Long | Index of the screenshot, as listed by the screenshots endpoint
     try {
-      apiInstance.v3GetDynamicExecutionScreenshot(analysisId, index);
+      apiInstance.v3GetDynamicExecutionRunScreenshot(analysisId, runId, index);
     } catch (ApiException e) {
-      System.err.println("Exception when calling AnalysesCoreApi#v3GetDynamicExecutionScreenshot");
+      System.err.println("Exception when calling AnalysesCoreApi#v3GetDynamicExecutionRunScreenshot");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -3248,6 +3343,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Long**| Analysis ID | |
+| **runId** | **String**| Dynamic execution run ID | |
 | **index** | **Long**| Index of the screenshot, as listed by the screenshots endpoint | |
 
 ### Return type
@@ -3273,11 +3369,11 @@ null (empty response body)
 | **422** | Unprocessable Entity |  -  |
 | **500** | Internal Server Error |  -  |
 
-<a id="v3GetDynamicExecutionSummary"></a>
-# **v3GetDynamicExecutionSummary**
-> DynamicExecutionSummary v3GetDynamicExecutionSummary(analysisId)
+<a id="v3GetDynamicExecutionRunSummary"></a>
+# **v3GetDynamicExecutionRunSummary**
+> DynamicExecutionSummary v3GetDynamicExecutionRunSummary(analysisId, runId)
 
-Get the dynamic execution summary.
+Get a run&#39;s dynamic execution summary.
 
 Returns the LLM-generated Markdown summary of the run. Requires the run to be COMPLETED. Returns 404 if no summary has been generated.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
 
@@ -3308,11 +3404,12 @@ public class Example {
 
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
     Long analysisId = 56L; // Long | Analysis ID
+    String runId = "runId_example"; // String | Dynamic execution run ID
     try {
-      DynamicExecutionSummary result = apiInstance.v3GetDynamicExecutionSummary(analysisId);
+      DynamicExecutionSummary result = apiInstance.v3GetDynamicExecutionRunSummary(analysisId, runId);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling AnalysesCoreApi#v3GetDynamicExecutionSummary");
+      System.err.println("Exception when calling AnalysesCoreApi#v3GetDynamicExecutionRunSummary");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -3327,6 +3424,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Long**| Analysis ID | |
+| **runId** | **String**| Dynamic execution run ID | |
 
 ### Return type
 
@@ -3351,90 +3449,13 @@ public class Example {
 | **422** | Unprocessable Entity |  -  |
 | **500** | Internal Server Error |  -  |
 
-<a id="v3GetDynamicExecutionSummaryOperation"></a>
-# **v3GetDynamicExecutionSummaryOperation**
-> OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResult v3GetDynamicExecutionSummaryOperation(analysisId)
+<a id="v3GetDynamicExecutionRunWiresharkKeys"></a>
+# **v3GetDynamicExecutionRunWiresharkKeys**
+> v3GetDynamicExecutionRunWiresharkKeys(analysisId, runId)
 
-Get a dynamic execution summary operation.
+Download a run&#39;s Wireshark TLS session keys.
 
-Returns the state of the most recent summary attempt for this analysis, whether made by its run or by a regenerate.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
-
-### Example
-```java
-// Import classes:
-import ai.reveng.invoker.ApiClient;
-import ai.reveng.invoker.ApiException;
-import ai.reveng.invoker.Configuration;
-import ai.reveng.invoker.auth.*;
-import ai.reveng.invoker.models.*;
-import ai.reveng.api.AnalysesCoreApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.reveng.ai");
-    
-    // Configure API key authorization: APIKey
-    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
-    APIKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //APIKey.setApiKeyPrefix("Token");
-
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
-
-    AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
-    Long analysisId = 56L; // Long | Analysis ID
-    try {
-      OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResult result = apiInstance.v3GetDynamicExecutionSummaryOperation(analysisId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling AnalysesCoreApi#v3GetDynamicExecutionSummaryOperation");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **analysisId** | **Long**| Analysis ID | |
-
-### Return type
-
-[**OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResult**](OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResult.md)
-
-### Authorization
-
-[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **422** | Unprocessable Entity |  -  |
-| **500** | Internal Server Error |  -  |
-
-<a id="v3GetDynamicExecutionWiresharkKeys"></a>
-# **v3GetDynamicExecutionWiresharkKeys**
-> v3GetDynamicExecutionWiresharkKeys(analysisId)
-
-Download Wireshark TLS session keys.
-
-Returns the Wireshark-format TLS session key log for decrypting HTTPS traffic in the pcap. Returns 404 if no keys were captured.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
+Returns the Wireshark-format TLS session key log for decrypting HTTPS traffic in the run&#39;s pcap. Returns 404 if no keys were captured.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
 
 ### Example
 ```java
@@ -3463,10 +3484,11 @@ public class Example {
 
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
     Long analysisId = 56L; // Long | Analysis ID
+    String runId = "runId_example"; // String | Dynamic execution run ID
     try {
-      apiInstance.v3GetDynamicExecutionWiresharkKeys(analysisId);
+      apiInstance.v3GetDynamicExecutionRunWiresharkKeys(analysisId, runId);
     } catch (ApiException e) {
-      System.err.println("Exception when calling AnalysesCoreApi#v3GetDynamicExecutionWiresharkKeys");
+      System.err.println("Exception when calling AnalysesCoreApi#v3GetDynamicExecutionRunWiresharkKeys");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -3481,6 +3503,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Long**| Analysis ID | |
+| **runId** | **String**| Dynamic execution run ID | |
 
 ### Return type
 
@@ -3502,6 +3525,83 @@ null (empty response body)
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 | **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **500** | Internal Server Error |  -  |
+
+<a id="v3GetDynamicExecutionSummaryOperation"></a>
+# **v3GetDynamicExecutionSummaryOperation**
+> OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResult v3GetDynamicExecutionSummaryOperation(runId)
+
+Get a dynamic execution summary operation.
+
+Returns the state of a run&#39;s most recent summary attempt, whether made by the run itself or by a regenerate. Returns 404 for an unknown run.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.AnalysesCoreApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
+    String runId = "runId_example"; // String | Dynamic execution run ID
+    try {
+      OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResult result = apiInstance.v3GetDynamicExecutionSummaryOperation(runId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AnalysesCoreApi#v3GetDynamicExecutionSummaryOperation");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **runId** | **String**| Dynamic execution run ID | |
+
+### Return type
+
+[**OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResult**](OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResult.md)
+
+### Authorization
+
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
 | **422** | Unprocessable Entity |  -  |
 | **500** | Internal Server Error |  -  |
 
@@ -3862,7 +3962,7 @@ public class Example {
 
 List the operations run on an analysis.
 
-Returns the analysis&#39; &#x60;static-analysis&#x60; operation, followed by the latest run of each other operation started on its binary: the binary agents, the script-agent scans and dynamic execution. The &#x60;static-analysis&#x60; operation is always included, even when no other operations have run. Each entry&#39;s &#x60;name&#x60; is the operation&#39;s resource name, polled at &#x60;/v3/{name}&#x60;. Other operations that have never run are omitted.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+Returns the analysis&#39; &#x60;static-analysis&#x60; operation, followed by the latest run of each other operation started on its binary (the binary agents and the script-agent scans), then one &#x60;dynamic-execution&#x60; operation per sandbox run of the analysis, newest first. The &#x60;static-analysis&#x60; operation is always included, even when no other operations have run. Each entry&#39;s &#x60;name&#x60; is the operation&#39;s resource name, polled at &#x60;/v3/{name}&#x60;. Other operations that have never run are omitted.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
 
 ### Example
 ```java
@@ -3933,13 +4033,93 @@ public class Example {
 | **422** | Unprocessable Entity |  -  |
 | **500** | Internal Server Error |  -  |
 
-<a id="v3ListDynamicExecutionScreenshots"></a>
-# **v3ListDynamicExecutionScreenshots**
-> ScreenshotsIndex v3ListDynamicExecutionScreenshots(analysisId)
+<a id="v3ListDynamicExecutionRunScreenshots"></a>
+# **v3ListDynamicExecutionRunScreenshots**
+> ScreenshotsIndex v3ListDynamicExecutionRunScreenshots(analysisId, runId)
 
-List the screenshots captured during execution.
+List a run&#39;s screenshots.
 
-Returns the screenshots captured from the analysis VM, in capture order. Requires the run to be COMPLETED. Returns an empty list when the run captured none.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
+Returns the screenshots captured from the analysis VM during the run, in capture order. Requires the run to be COMPLETED. Returns an empty list when the run captured none.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.AnalysesCoreApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
+    Long analysisId = 56L; // Long | Analysis ID
+    String runId = "runId_example"; // String | Dynamic execution run ID
+    try {
+      ScreenshotsIndex result = apiInstance.v3ListDynamicExecutionRunScreenshots(analysisId, runId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AnalysesCoreApi#v3ListDynamicExecutionRunScreenshots");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **analysisId** | **Long**| Analysis ID | |
+| **runId** | **String**| Dynamic execution run ID | |
+
+### Return type
+
+[**ScreenshotsIndex**](ScreenshotsIndex.md)
+
+### Authorization
+
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **500** | Internal Server Error |  -  |
+
+<a id="v3ListDynamicExecutionRuns"></a>
+# **v3ListDynamicExecutionRuns**
+> ListDynamicExecutionRunsOutputBody v3ListDynamicExecutionRuns(analysisId)
+
+List the dynamic execution runs.
+
+Returns every dynamic execution run of the analysis, newest first, with its status and the parameters it was started with. An archive password is never returned, only whether one was given.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
 
 ### Example
 ```java
@@ -3969,10 +4149,10 @@ public class Example {
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
     Long analysisId = 56L; // Long | Analysis ID
     try {
-      ScreenshotsIndex result = apiInstance.v3ListDynamicExecutionScreenshots(analysisId);
+      ListDynamicExecutionRunsOutputBody result = apiInstance.v3ListDynamicExecutionRuns(analysisId);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling AnalysesCoreApi#v3ListDynamicExecutionScreenshots");
+      System.err.println("Exception when calling AnalysesCoreApi#v3ListDynamicExecutionRuns");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -3990,7 +4170,7 @@ public class Example {
 
 ### Return type
 
-[**ScreenshotsIndex**](ScreenshotsIndex.md)
+[**ListDynamicExecutionRunsOutputBody**](ListDynamicExecutionRunsOutputBody.md)
 
 ### Authorization
 
@@ -4007,7 +4187,6 @@ public class Example {
 | **200** | OK |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
-| **409** | Conflict |  -  |
 | **422** | Unprocessable Entity |  -  |
 | **500** | Internal Server Error |  -  |
 
@@ -4477,94 +4656,13 @@ null (empty response body)
 | **422** | Unprocessable Entity |  -  |
 | **500** | Internal Server Error |  -  |
 
-<a id="v3RunDynamicExecution"></a>
-# **v3RunDynamicExecution**
-> OperationDynamicExecutionMetadataDynamicExecutionResult v3RunDynamicExecution(analysisId, runDynamicExecutionInputBody)
+<a id="v3RunDynamicExecutionRunSummary"></a>
+# **v3RunDynamicExecutionRunSummary**
+> OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResult v3RunDynamicExecutionRunSummary(analysisId, runId)
 
-Trigger a dynamic execution run.
+Regenerate a run&#39;s dynamic execution summary.
 
-Submits the analysis&#39;s binary to the sandbox and returns the operation to poll for its outcome. Returns 409 while a run is already in progress for this analysis.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict
-
-### Example
-```java
-// Import classes:
-import ai.reveng.invoker.ApiClient;
-import ai.reveng.invoker.ApiException;
-import ai.reveng.invoker.Configuration;
-import ai.reveng.invoker.auth.*;
-import ai.reveng.invoker.models.*;
-import ai.reveng.api.AnalysesCoreApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.reveng.ai");
-    
-    // Configure API key authorization: APIKey
-    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
-    APIKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //APIKey.setApiKeyPrefix("Token");
-
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
-
-    AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
-    Long analysisId = 56L; // Long | Analysis ID
-    RunDynamicExecutionInputBody runDynamicExecutionInputBody = new RunDynamicExecutionInputBody(); // RunDynamicExecutionInputBody | 
-    try {
-      OperationDynamicExecutionMetadataDynamicExecutionResult result = apiInstance.v3RunDynamicExecution(analysisId, runDynamicExecutionInputBody);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling AnalysesCoreApi#v3RunDynamicExecution");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **analysisId** | **Long**| Analysis ID | |
-| **runDynamicExecutionInputBody** | [**RunDynamicExecutionInputBody**](RunDynamicExecutionInputBody.md)|  | [optional] |
-
-### Return type
-
-[**OperationDynamicExecutionMetadataDynamicExecutionResult**](OperationDynamicExecutionMetadataDynamicExecutionResult.md)
-
-### Authorization
-
-[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
-| **409** | Conflict |  -  |
-| **422** | Unprocessable Entity |  -  |
-| **500** | Internal Server Error |  -  |
-
-<a id="v3RunDynamicExecutionSummary"></a>
-# **v3RunDynamicExecutionSummary**
-> OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResult v3RunDynamicExecutionSummary(analysisId)
-
-Regenerate the dynamic execution summary.
-
-Starts a new LLM summary of the analysis&#39;s completed run and returns the operation to poll. The new summary replaces the stored one once it succeeds. Only the analysis owner may regenerate. Returns 409 while the run is incomplete or a summary is already in progress.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;400&#x60; [&#x60;BAD_REQUEST&#x60;](/errors/BAD_REQUEST) — Bad Request - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
+Starts a new LLM summary of the completed run and returns the run&#39;s summary operation to poll. The new summary replaces the stored one once it succeeds. Only the analysis owner may regenerate. Returns 409 while the run is incomplete or a summary is already in progress.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;409&#x60; [&#x60;DYNAMIC_EXECUTION_INCOMPLETE&#x60;](/errors/DYNAMIC_EXECUTION_INCOMPLETE) — Dynamic Execution Incomplete
 
 ### Example
 ```java
@@ -4593,11 +4691,12 @@ public class Example {
 
     AnalysesCoreApi apiInstance = new AnalysesCoreApi(defaultClient);
     Long analysisId = 56L; // Long | Analysis ID
+    String runId = "runId_example"; // String | Dynamic execution run ID
     try {
-      OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResult result = apiInstance.v3RunDynamicExecutionSummary(analysisId);
+      OperationDynamicExecutionSummaryMetadataDynamicExecutionSummaryResult result = apiInstance.v3RunDynamicExecutionRunSummary(analysisId, runId);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling AnalysesCoreApi#v3RunDynamicExecutionSummary");
+      System.err.println("Exception when calling AnalysesCoreApi#v3RunDynamicExecutionRunSummary");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -4612,6 +4711,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **analysisId** | **Long**| Analysis ID | |
+| **runId** | **String**| Dynamic execution run ID | |
 
 ### Return type
 
@@ -4630,7 +4730,6 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-| **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 | **409** | Conflict |  -  |

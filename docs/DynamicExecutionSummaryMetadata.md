@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**status** | [**StatusEnum**](#StatusEnum) | Status of the most recent summary attempt. UNINITIALISED means no summary has been attempted for this analysis. |  |
+|**status** | [**StatusEnum**](#StatusEnum) | Status of the run&#39;s most recent summary attempt. UNINITIALISED means no summary has been attempted for the run. |  |
 
 
 

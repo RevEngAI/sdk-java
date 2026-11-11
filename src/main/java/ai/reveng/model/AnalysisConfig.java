@@ -66,11 +66,6 @@ public class AnalysisConfig {
   @javax.annotation.Nullable
   private Boolean noCache = false;
 
-  public static final String SERIALIZED_NAME_ADVANCED_ANALYSIS = "advanced_analysis";
-  @SerializedName(SERIALIZED_NAME_ADVANCED_ANALYSIS)
-  @javax.annotation.Nullable
-  private Boolean advancedAnalysis = false;
-
   public static final String SERIALIZED_NAME_SANDBOX_CONFIG = "sandbox_config";
   @SerializedName(SERIALIZED_NAME_SANDBOX_CONFIG)
   @javax.annotation.Nullable
@@ -133,25 +128,6 @@ public class AnalysisConfig {
 
   public void setNoCache(@javax.annotation.Nullable Boolean noCache) {
     this.noCache = noCache;
-  }
-
-
-  public AnalysisConfig advancedAnalysis(@javax.annotation.Nullable Boolean advancedAnalysis) {
-    this.advancedAnalysis = advancedAnalysis;
-    return this;
-  }
-
-  /**
-   * Enables an advanced security analysis.
-   * @return advancedAnalysis
-   */
-  @javax.annotation.Nullable
-  public Boolean getAdvancedAnalysis() {
-    return advancedAnalysis;
-  }
-
-  public void setAdvancedAnalysis(@javax.annotation.Nullable Boolean advancedAnalysis) {
-    this.advancedAnalysis = advancedAnalysis;
   }
 
 
@@ -231,14 +207,13 @@ public class AnalysisConfig {
     return Objects.equals(this.scrapeThirdPartyConfig, analysisConfig.scrapeThirdPartyConfig) &&
         Objects.equals(this.generateCapabilities, analysisConfig.generateCapabilities) &&
         Objects.equals(this.noCache, analysisConfig.noCache) &&
-        Objects.equals(this.advancedAnalysis, analysisConfig.advancedAnalysis) &&
         Objects.equals(this.sandboxConfig, analysisConfig.sandboxConfig)&&
         Objects.equals(this.additionalProperties, analysisConfig.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(scrapeThirdPartyConfig, generateCapabilities, noCache, advancedAnalysis, sandboxConfig, additionalProperties);
+    return Objects.hash(scrapeThirdPartyConfig, generateCapabilities, noCache, sandboxConfig, additionalProperties);
   }
 
   @Override
@@ -248,7 +223,6 @@ public class AnalysisConfig {
     sb.append("    scrapeThirdPartyConfig: ").append(toIndentedString(scrapeThirdPartyConfig)).append("\n");
     sb.append("    generateCapabilities: ").append(toIndentedString(generateCapabilities)).append("\n");
     sb.append("    noCache: ").append(toIndentedString(noCache)).append("\n");
-    sb.append("    advancedAnalysis: ").append(toIndentedString(advancedAnalysis)).append("\n");
     sb.append("    sandboxConfig: ").append(toIndentedString(sandboxConfig)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -269,7 +243,7 @@ public class AnalysisConfig {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("scrape_third_party_config", "generate_capabilities", "no_cache", "advanced_analysis", "sandbox_config"));
+    openapiFields = new HashSet<String>(Arrays.asList("scrape_third_party_config", "generate_capabilities", "no_cache", "sandbox_config"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);

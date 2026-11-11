@@ -53,6 +53,16 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ToolCallResultData {
+  public static final String SERIALIZED_NAME_BINARY_NAME = "binary_name";
+  @SerializedName(SERIALIZED_NAME_BINARY_NAME)
+  @javax.annotation.Nullable
+  private String binaryName;
+
+  public static final String SERIALIZED_NAME_FUNCTION_NAME = "function_name";
+  @SerializedName(SERIALIZED_NAME_FUNCTION_NAME)
+  @javax.annotation.Nullable
+  private String functionName;
+
   public static final String SERIALIZED_NAME_IS_ERROR = "is_error";
   @SerializedName(SERIALIZED_NAME_IS_ERROR)
   @javax.annotation.Nullable
@@ -80,6 +90,44 @@ public class ToolCallResultData {
 
   public ToolCallResultData() {
   }
+
+  public ToolCallResultData binaryName(@javax.annotation.Nullable String binaryName) {
+    this.binaryName = binaryName;
+    return this;
+  }
+
+  /**
+   * Get binaryName
+   * @return binaryName
+   */
+  @javax.annotation.Nullable
+  public String getBinaryName() {
+    return binaryName;
+  }
+
+  public void setBinaryName(@javax.annotation.Nullable String binaryName) {
+    this.binaryName = binaryName;
+  }
+
+
+  public ToolCallResultData functionName(@javax.annotation.Nullable String functionName) {
+    this.functionName = functionName;
+    return this;
+  }
+
+  /**
+   * Get functionName
+   * @return functionName
+   */
+  @javax.annotation.Nullable
+  public String getFunctionName() {
+    return functionName;
+  }
+
+  public void setFunctionName(@javax.annotation.Nullable String functionName) {
+    this.functionName = functionName;
+  }
+
 
   public ToolCallResultData isError(@javax.annotation.Nullable Boolean isError) {
     this.isError = isError;
@@ -238,7 +286,9 @@ public class ToolCallResultData {
       return false;
     }
     ToolCallResultData toolCallResultData = (ToolCallResultData) o;
-    return Objects.equals(this.isError, toolCallResultData.isError) &&
+    return Objects.equals(this.binaryName, toolCallResultData.binaryName) &&
+        Objects.equals(this.functionName, toolCallResultData.functionName) &&
+        Objects.equals(this.isError, toolCallResultData.isError) &&
         Objects.equals(this.result, toolCallResultData.result) &&
         Objects.equals(this.toolCallId, toolCallResultData.toolCallId) &&
         Objects.equals(this.toolName, toolCallResultData.toolName) &&
@@ -252,7 +302,7 @@ public class ToolCallResultData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(isError, result, toolCallId, toolName, updated, additionalProperties);
+    return Objects.hash(binaryName, functionName, isError, result, toolCallId, toolName, updated, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -266,6 +316,8 @@ public class ToolCallResultData {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ToolCallResultData {\n");
+    sb.append("    binaryName: ").append(toIndentedString(binaryName)).append("\n");
+    sb.append("    functionName: ").append(toIndentedString(functionName)).append("\n");
     sb.append("    isError: ").append(toIndentedString(isError)).append("\n");
     sb.append("    result: ").append(toIndentedString(result)).append("\n");
     sb.append("    toolCallId: ").append(toIndentedString(toolCallId)).append("\n");
@@ -290,7 +342,7 @@ public class ToolCallResultData {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("is_error", "result", "tool_call_id", "tool_name", "updated"));
+    openapiFields = new HashSet<String>(Arrays.asList("binary_name", "function_name", "is_error", "result", "tool_call_id", "tool_name", "updated"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -309,6 +361,12 @@ public class ToolCallResultData {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("binary_name") != null && !jsonObj.get("binary_name").isJsonNull()) && !jsonObj.get("binary_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `binary_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("binary_name").toString()));
+      }
+      if ((jsonObj.get("function_name") != null && !jsonObj.get("function_name").isJsonNull()) && !jsonObj.get("function_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `function_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("function_name").toString()));
+      }
       if ((jsonObj.get("result") != null && !jsonObj.get("result").isJsonNull()) && !jsonObj.get("result").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `result` to be a primitive type in the JSON string but got `%s`", jsonObj.get("result").toString()));
       }

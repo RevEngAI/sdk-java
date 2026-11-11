@@ -172,6 +172,7 @@ public class AnalysisBasicInfoOutputBody {
   private Long functionCount;
 
   public static final String SERIALIZED_NAME_IS_ADVANCED = "is_advanced";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_IS_ADVANCED)
   @javax.annotation.Nonnull
   private Boolean isAdvanced;
@@ -486,20 +487,24 @@ public class AnalysisBasicInfoOutputBody {
   }
 
 
+  @Deprecated
   public AnalysisBasicInfoOutputBody isAdvanced(@javax.annotation.Nonnull Boolean isAdvanced) {
     this.isAdvanced = isAdvanced;
     return this;
   }
 
   /**
-   * True when the analysis was run in advanced mode
+   * Always false; advanced (DFG) analysis has been removed
    * @return isAdvanced
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nonnull
   public Boolean getIsAdvanced() {
     return isAdvanced;
   }
 
+  @Deprecated
   public void setIsAdvanced(@javax.annotation.Nonnull Boolean isAdvanced) {
     this.isAdvanced = isAdvanced;
   }

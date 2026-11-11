@@ -17,16 +17,16 @@
 |**fieldStatus** | [**FieldStatusEnum**](#FieldStatusEnum) |  |  [optional] |
 |**functionId** | **Long** |  |  [optional] |
 |**importedFunctionId** | **Long** |  |  [optional] |
-|**kind** | **String** | Search is applied to string value |  |
-|**name** | **String** | Search is applied to string value |  |
+|**kind** | **String** |  |  |
+|**name** | **String** |  |  |
 |**nameSource** | [**NameSourceEnum**](#NameSourceEnum) |  |  |
 |**needsNaming** | **Boolean** |  |  |
-|**provenance** | **String** | Search is applied to string value |  |
+|**provenance** | **String** |  |  |
 |**resolvedName** | **String** |  |  |
-|**suggestedName** | **String** | Search is applied to string value |  [optional] |
+|**suggestedName** | **String** |  |  [optional] |
 |**suggestedType** | **String** |  |  |
 |**suggestionConfidence** | **String** |  |  |
-|**token** | **String** | Search is applied to string value |  |
+|**token** | **String** |  |  |
 |**typeIndex** | **Long** |  |  |
 |**typeSource** | **String** |  |  |
 |**vaddr** | **Long** |  |  |

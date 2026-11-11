@@ -35,6 +35,8 @@ import ai.reveng.model.BaseResponseAnalysisFunctions;
 import ai.reveng.model.BaseResponseAnalysisFunctionsList;
 import ai.reveng.model.BaseResponseAnalysisTags;
 import ai.reveng.model.BaseResponseCapabilities;
+import ai.reveng.model.FeedbackSubmission;
+import ai.reveng.model.RecordedFeedback;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -704,6 +706,159 @@ public class AnalysesResultsMetadataApi {
         return localVarCall;
     }
     /**
+     * Build call for v3GetAnalysisFeedback
+     * @param analysisId Analysis ID (required)
+     * @param type What the feedback is about (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3GetAnalysisFeedbackCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String type, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/analyses/{analysis_id}/feedback/{type}"
+            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()))
+            .replace("{" + "type" + "}", localVarApiClient.escapeString(type.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call v3GetAnalysisFeedbackValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String type, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'analysisId' is set
+        if (analysisId == null) {
+            throw new ApiException("Missing the required parameter 'analysisId' when calling v3GetAnalysisFeedback(Async)");
+        }
+
+        // verify the required parameter 'type' is set
+        if (type == null) {
+            throw new ApiException("Missing the required parameter 'type' when calling v3GetAnalysisFeedback(Async)");
+        }
+
+        return v3GetAnalysisFeedbackCall(analysisId, type, _callback);
+
+    }
+
+    /**
+     * Get the caller&#39;s feedback on an analysis.
+     * Returns the feedback the caller recorded for one kind of result on this analysis, or null fields when they have not recorded any.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param analysisId Analysis ID (required)
+     * @param type What the feedback is about (required)
+     * @return RecordedFeedback
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public RecordedFeedback v3GetAnalysisFeedback(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String type) throws ApiException {
+        ApiResponse<RecordedFeedback> localVarResp = v3GetAnalysisFeedbackWithHttpInfo(analysisId, type);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get the caller&#39;s feedback on an analysis.
+     * Returns the feedback the caller recorded for one kind of result on this analysis, or null fields when they have not recorded any.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param analysisId Analysis ID (required)
+     * @param type What the feedback is about (required)
+     * @return ApiResponse&lt;RecordedFeedback&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<RecordedFeedback> v3GetAnalysisFeedbackWithHttpInfo(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String type) throws ApiException {
+        okhttp3.Call localVarCall = v3GetAnalysisFeedbackValidateBeforeCall(analysisId, type, null);
+        Type localVarReturnType = new TypeToken<RecordedFeedback>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get the caller&#39;s feedback on an analysis. (asynchronously)
+     * Returns the feedback the caller recorded for one kind of result on this analysis, or null fields when they have not recorded any.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param analysisId Analysis ID (required)
+     * @param type What the feedback is about (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3GetAnalysisFeedbackAsync(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String type, final ApiCallback<RecordedFeedback> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = v3GetAnalysisFeedbackValidateBeforeCall(analysisId, type, _callback);
+        Type localVarReturnType = new TypeToken<RecordedFeedback>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for v3GetAnalysisXref
      * @param analysisId Analysis ID (required)
      * @param vaddr Virtual address to match against xrefs (required)
@@ -1140,6 +1295,165 @@ public class AnalysesResultsMetadataApi {
         okhttp3.Call localVarCall = v3ListAnalysisTagsValidateBeforeCall(analysisId, _callback);
         Type localVarReturnType = new TypeToken<AnalysisTagsOutputBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for v3UpsertAnalysisFeedback
+     * @param analysisId Analysis ID (required)
+     * @param type What the feedback is about (required)
+     * @param feedbackSubmission  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3UpsertAnalysisFeedbackCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String type, @javax.annotation.Nonnull FeedbackSubmission feedbackSubmission, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = feedbackSubmission;
+
+        // create path and map variables
+        String localVarPath = "/v3/analyses/{analysis_id}/feedback/{type}"
+            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()))
+            .replace("{" + "type" + "}", localVarApiClient.escapeString(type.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call v3UpsertAnalysisFeedbackValidateBeforeCall(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String type, @javax.annotation.Nonnull FeedbackSubmission feedbackSubmission, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'analysisId' is set
+        if (analysisId == null) {
+            throw new ApiException("Missing the required parameter 'analysisId' when calling v3UpsertAnalysisFeedback(Async)");
+        }
+
+        // verify the required parameter 'type' is set
+        if (type == null) {
+            throw new ApiException("Missing the required parameter 'type' when calling v3UpsertAnalysisFeedback(Async)");
+        }
+
+        // verify the required parameter 'feedbackSubmission' is set
+        if (feedbackSubmission == null) {
+            throw new ApiException("Missing the required parameter 'feedbackSubmission' when calling v3UpsertAnalysisFeedback(Async)");
+        }
+
+        return v3UpsertAnalysisFeedbackCall(analysisId, type, feedbackSubmission, _callback);
+
+    }
+
+    /**
+     * Record feedback on an analysis.
+     * Records how useful the caller found one kind of result for this analysis, with any context the client captured. Replaces any feedback they recorded previously.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param analysisId Analysis ID (required)
+     * @param type What the feedback is about (required)
+     * @param feedbackSubmission  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public void v3UpsertAnalysisFeedback(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String type, @javax.annotation.Nonnull FeedbackSubmission feedbackSubmission) throws ApiException {
+        v3UpsertAnalysisFeedbackWithHttpInfo(analysisId, type, feedbackSubmission);
+    }
+
+    /**
+     * Record feedback on an analysis.
+     * Records how useful the caller found one kind of result for this analysis, with any context the client captured. Replaces any feedback they recorded previously.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param analysisId Analysis ID (required)
+     * @param type What the feedback is about (required)
+     * @param feedbackSubmission  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> v3UpsertAnalysisFeedbackWithHttpInfo(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String type, @javax.annotation.Nonnull FeedbackSubmission feedbackSubmission) throws ApiException {
+        okhttp3.Call localVarCall = v3UpsertAnalysisFeedbackValidateBeforeCall(analysisId, type, feedbackSubmission, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Record feedback on an analysis. (asynchronously)
+     * Records how useful the caller found one kind of result for this analysis, with any context the client captured. Replaces any feedback they recorded previously.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param analysisId Analysis ID (required)
+     * @param type What the feedback is about (required)
+     * @param feedbackSubmission  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3UpsertAnalysisFeedbackAsync(@javax.annotation.Nonnull Long analysisId, @javax.annotation.Nonnull String type, @javax.annotation.Nonnull FeedbackSubmission feedbackSubmission, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = v3UpsertAnalysisFeedbackValidateBeforeCall(analysisId, type, feedbackSubmission, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
 }
