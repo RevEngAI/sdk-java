@@ -13,14 +13,17 @@
 package ai.reveng.model;
 
 import java.util.Objects;
-import ai.reveng.model.StringSource;
+import ai.reveng.model.OperationCostBody;
+import ai.reveng.model.SizeBucketBody;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,82 +49,74 @@ import java.util.Set;
 import ai.reveng.invoker.JSON;
 
 /**
- * FunctionString
+ * GetCreditEstimatesOutputBody
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class FunctionString {
-  public static final String SERIALIZED_NAME_VALUE = "value";
-  @SerializedName(SERIALIZED_NAME_VALUE)
+public class GetCreditEstimatesOutputBody {
+  public static final String SERIALIZED_NAME_OPERATIONS = "operations";
+  @SerializedName(SERIALIZED_NAME_OPERATIONS)
   @javax.annotation.Nonnull
-  private String value;
+  private List<OperationCostBody> operations = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_VADDR = "vaddr";
-  @SerializedName(SERIALIZED_NAME_VADDR)
+  public static final String SERIALIZED_NAME_SIZE_BUCKETS = "size_buckets";
+  @SerializedName(SERIALIZED_NAME_SIZE_BUCKETS)
   @javax.annotation.Nonnull
-  private Integer vaddr;
+  private List<SizeBucketBody> sizeBuckets = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_SOURCE = "source";
-  @SerializedName(SERIALIZED_NAME_SOURCE)
-  @javax.annotation.Nullable
-  private StringSource source = StringSource.SYSTEM;
-
-  public FunctionString() {
+  public GetCreditEstimatesOutputBody() {
   }
 
-  public FunctionString value(@javax.annotation.Nonnull String value) {
-    this.value = value;
+  public GetCreditEstimatesOutputBody operations(@javax.annotation.Nonnull List<OperationCostBody> operations) {
+    this.operations = operations;
+    return this;
+  }
+
+  public GetCreditEstimatesOutputBody addOperationsItem(OperationCostBody operationsItem) {
+    if (this.operations == null) {
+      this.operations = new ArrayList<>();
+    }
+    this.operations.add(operationsItem);
     return this;
   }
 
   /**
-   * The value of the string literal
-   * @return value
+   * Estimated cost of each operation
+   * @return operations
    */
   @javax.annotation.Nonnull
-  public String getValue() {
-    return value;
+  public List<OperationCostBody> getOperations() {
+    return operations;
   }
 
-  public void setValue(@javax.annotation.Nonnull String value) {
-    this.value = value;
+  public void setOperations(@javax.annotation.Nonnull List<OperationCostBody> operations) {
+    this.operations = operations;
   }
 
 
-  public FunctionString vaddr(@javax.annotation.Nonnull Integer vaddr) {
-    this.vaddr = vaddr;
+  public GetCreditEstimatesOutputBody sizeBuckets(@javax.annotation.Nonnull List<SizeBucketBody> sizeBuckets) {
+    this.sizeBuckets = sizeBuckets;
+    return this;
+  }
+
+  public GetCreditEstimatesOutputBody addSizeBucketsItem(SizeBucketBody sizeBucketsItem) {
+    if (this.sizeBuckets == null) {
+      this.sizeBuckets = new ArrayList<>();
+    }
+    this.sizeBuckets.add(sizeBucketsItem);
     return this;
   }
 
   /**
-   * The vaddr of the string value
-   * @return vaddr
+   * Size buckets in ascending order of size
+   * @return sizeBuckets
    */
   @javax.annotation.Nonnull
-  public Integer getVaddr() {
-    return vaddr;
+  public List<SizeBucketBody> getSizeBuckets() {
+    return sizeBuckets;
   }
 
-  public void setVaddr(@javax.annotation.Nonnull Integer vaddr) {
-    this.vaddr = vaddr;
-  }
-
-
-  public FunctionString source(@javax.annotation.Nullable StringSource source) {
-    this.source = source;
-    return this;
-  }
-
-  /**
-   * The source of the string
-   * @return source
-   */
-  @javax.annotation.Nullable
-  public StringSource getSource() {
-    return source;
-  }
-
-  public void setSource(@javax.annotation.Nullable StringSource source) {
-    this.source = source;
+  public void setSizeBuckets(@javax.annotation.Nonnull List<SizeBucketBody> sizeBuckets) {
+    this.sizeBuckets = sizeBuckets;
   }
 
   /**
@@ -137,9 +132,9 @@ public class FunctionString {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the FunctionString instance itself
+   * @return the GetCreditEstimatesOutputBody instance itself
    */
-  public FunctionString putAdditionalProperty(String key, Object value) {
+  public GetCreditEstimatesOutputBody putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -178,25 +173,23 @@ public class FunctionString {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FunctionString functionString = (FunctionString) o;
-    return Objects.equals(this.value, functionString.value) &&
-        Objects.equals(this.vaddr, functionString.vaddr) &&
-        Objects.equals(this.source, functionString.source)&&
-        Objects.equals(this.additionalProperties, functionString.additionalProperties);
+    GetCreditEstimatesOutputBody getCreditEstimatesOutputBody = (GetCreditEstimatesOutputBody) o;
+    return Objects.equals(this.operations, getCreditEstimatesOutputBody.operations) &&
+        Objects.equals(this.sizeBuckets, getCreditEstimatesOutputBody.sizeBuckets)&&
+        Objects.equals(this.additionalProperties, getCreditEstimatesOutputBody.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(value, vaddr, source, additionalProperties);
+    return Objects.hash(operations, sizeBuckets, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FunctionString {\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
-    sb.append("    vaddr: ").append(toIndentedString(vaddr)).append("\n");
-    sb.append("    source: ").append(toIndentedString(source)).append("\n");
+    sb.append("class GetCreditEstimatesOutputBody {\n");
+    sb.append("    operations: ").append(toIndentedString(operations)).append("\n");
+    sb.append("    sizeBuckets: ").append(toIndentedString(sizeBuckets)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -216,38 +209,43 @@ public class FunctionString {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("value", "vaddr", "source"));
+    openapiFields = new HashSet<String>(Arrays.asList("operations", "size_buckets"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("value", "vaddr"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("operations", "size_buckets"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to FunctionString
+   * @throws IOException if the JSON Element is invalid with respect to GetCreditEstimatesOutputBody
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!FunctionString.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in FunctionString is not found in the empty JSON string", FunctionString.openapiRequiredFields.toString()));
+        if (!GetCreditEstimatesOutputBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in GetCreditEstimatesOutputBody is not found in the empty JSON string", GetCreditEstimatesOutputBody.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : FunctionString.openapiRequiredFields) {
+      for (String requiredField : GetCreditEstimatesOutputBody.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("value").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
+      // ensure the required json array is present
+      if (jsonObj.get("operations") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("operations").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `operations` to be an array in the JSON string but got `%s`", jsonObj.get("operations").toString()));
       }
-      // validate the optional field `source`
-      if (jsonObj.get("source") != null && !jsonObj.get("source").isJsonNull()) {
-        StringSource.validateJsonElement(jsonObj.get("source"));
+      // ensure the required json array is present
+      if (jsonObj.get("size_buckets") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("size_buckets").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `size_buckets` to be an array in the JSON string but got `%s`", jsonObj.get("size_buckets").toString()));
       }
   }
 
@@ -255,16 +253,16 @@ public class FunctionString {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!FunctionString.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'FunctionString' and its subtypes
+       if (!GetCreditEstimatesOutputBody.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'GetCreditEstimatesOutputBody' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<FunctionString> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(FunctionString.class));
+       final TypeAdapter<GetCreditEstimatesOutputBody> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(GetCreditEstimatesOutputBody.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<FunctionString>() {
+       return (TypeAdapter<T>) new TypeAdapter<GetCreditEstimatesOutputBody>() {
            @Override
-           public void write(JsonWriter out, FunctionString value) throws IOException {
+           public void write(JsonWriter out, GetCreditEstimatesOutputBody value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -292,12 +290,12 @@ public class FunctionString {
            }
 
            @Override
-           public FunctionString read(JsonReader in) throws IOException {
+           public GetCreditEstimatesOutputBody read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             FunctionString instance = thisAdapter.fromJsonTree(jsonObj);
+             GetCreditEstimatesOutputBody instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -324,18 +322,18 @@ public class FunctionString {
   }
 
   /**
-   * Create an instance of FunctionString given an JSON string
+   * Create an instance of GetCreditEstimatesOutputBody given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of FunctionString
-   * @throws IOException if the JSON string is invalid with respect to FunctionString
+   * @return An instance of GetCreditEstimatesOutputBody
+   * @throws IOException if the JSON string is invalid with respect to GetCreditEstimatesOutputBody
    */
-  public static FunctionString fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, FunctionString.class);
+  public static GetCreditEstimatesOutputBody fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, GetCreditEstimatesOutputBody.class);
   }
 
   /**
-   * Convert an instance of FunctionString to an JSON string
+   * Convert an instance of GetCreditEstimatesOutputBody to an JSON string
    *
    * @return JSON string
    */

@@ -3148,7 +3148,7 @@ This endpoint does not need any parameter.
 
 Run the capabilities agent.
 
-Starts the capabilities agent, which attributes behavioural capabilities to individual functions, and returns the operation to poll for its outcome. Returns 409 while a run is already in progress for this analysis.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;402&#x60; [&#x60;INSUFFICIENT_CREDITS&#x60;](/errors/INSUFFICIENT_CREDITS) — Insufficient Credits - &#x60;409&#x60; [&#x60;OPERATION_PREREQUISITE_NOT_MET&#x60;](/errors/OPERATION_PREREQUISITE_NOT_MET) — Operation Prerequisite Not Met
+Starts the capabilities agent, which attributes behavioural capabilities to individual functions, and returns the operation to poll for its outcome. Returns 409 until the analysis is Complete, or while a run is already in progress for this analysis.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;402&#x60; [&#x60;INSUFFICIENT_CREDITS&#x60;](/errors/INSUFFICIENT_CREDITS) — Insufficient Credits - &#x60;409&#x60; [&#x60;OPERATION_PREREQUISITE_NOT_MET&#x60;](/errors/OPERATION_PREREQUISITE_NOT_MET) — Operation Prerequisite Not Met - &#x60;409&#x60; [&#x60;ANALYSIS_NOT_READY&#x60;](/errors/ANALYSIS_NOT_READY) — Analysis Not Ready
 
 ### Example
 ```java
@@ -3306,7 +3306,7 @@ public class Example {
 
 Run the crypto-scan agent.
 
-Starts an agent that name-matches the analysis&#39; functions and their callees against known crypto-library APIs, and returns the operation to poll for its outcome. Purely name-based — never triggers AI decompilation, so it costs no credits and runs in seconds. Returns 409 while a run is already in progress for this analysis.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;409&#x60; [&#x60;OPERATION_PREREQUISITE_NOT_MET&#x60;](/errors/OPERATION_PREREQUISITE_NOT_MET) — Operation Prerequisite Not Met
+Starts an agent that name-matches the analysis&#39; functions and their callees against known crypto-library APIs, and returns the operation to poll for its outcome. Purely name-based — never triggers AI decompilation, so it costs no credits and runs in seconds. Returns 409 until the analysis is Complete, or while a run is already in progress for this analysis.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;409&#x60; [&#x60;OPERATION_PREREQUISITE_NOT_MET&#x60;](/errors/OPERATION_PREREQUISITE_NOT_MET) — Operation Prerequisite Not Met - &#x60;409&#x60; [&#x60;ANALYSIS_NOT_READY&#x60;](/errors/ANALYSIS_NOT_READY) — Analysis Not Ready
 
 ### Example
 ```java
@@ -3386,7 +3386,7 @@ public class Example {
 
 Run the cryptography agent.
 
-Starts the cryptography agent, which identifies cryptographic operations in the binary and reports its findings, and returns the operation to poll for its outcome. Returns 409 while a run is already in progress for this analysis.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;402&#x60; [&#x60;INSUFFICIENT_CREDITS&#x60;](/errors/INSUFFICIENT_CREDITS) — Insufficient Credits - &#x60;409&#x60; [&#x60;OPERATION_PREREQUISITE_NOT_MET&#x60;](/errors/OPERATION_PREREQUISITE_NOT_MET) — Operation Prerequisite Not Met
+Starts the cryptography agent, which identifies cryptographic operations in the binary and reports its findings, and returns the operation to poll for its outcome. Returns 409 until the analysis is Complete, or while a run is already in progress for this analysis.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;402&#x60; [&#x60;INSUFFICIENT_CREDITS&#x60;](/errors/INSUFFICIENT_CREDITS) — Insufficient Credits - &#x60;409&#x60; [&#x60;OPERATION_PREREQUISITE_NOT_MET&#x60;](/errors/OPERATION_PREREQUISITE_NOT_MET) — Operation Prerequisite Not Met - &#x60;409&#x60; [&#x60;ANALYSIS_NOT_READY&#x60;](/errors/ANALYSIS_NOT_READY) — Analysis Not Ready
 
 ### Example
 ```java
@@ -3546,7 +3546,7 @@ public class Example {
 
 Run the execution-scan agent.
 
-Starts an agent that name-matches the analysis&#39; functions and their callees against known code-execution APIs, and returns the operation to poll for its outcome. Returns 409 while a run is already in progress for this analysis.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;409&#x60; [&#x60;OPERATION_PREREQUISITE_NOT_MET&#x60;](/errors/OPERATION_PREREQUISITE_NOT_MET) — Operation Prerequisite Not Met
+Starts an agent that name-matches the analysis&#39; functions and their callees against known code-execution APIs, and returns the operation to poll for its outcome. Returns 409 until the analysis is Complete, or while a run is already in progress for this analysis.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;409&#x60; [&#x60;OPERATION_PREREQUISITE_NOT_MET&#x60;](/errors/OPERATION_PREREQUISITE_NOT_MET) — Operation Prerequisite Not Met - &#x60;409&#x60; [&#x60;ANALYSIS_NOT_READY&#x60;](/errors/ANALYSIS_NOT_READY) — Analysis Not Ready
 
 ### Example
 ```java
@@ -3707,7 +3707,7 @@ public class Example {
 
 Run the filesystem-scan agent.
 
-Starts an agent that name-matches the analysis&#39; functions and their callees against known filesystem/system APIs, and returns the operation to poll for its outcome.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;409&#x60; [&#x60;OPERATION_PREREQUISITE_NOT_MET&#x60;](/errors/OPERATION_PREREQUISITE_NOT_MET) — Operation Prerequisite Not Met
+Starts an agent that name-matches the analysis&#39; functions and their callees against known filesystem/system APIs, and returns the operation to poll for its outcome. Returns 409 until the analysis is Complete.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;409&#x60; [&#x60;OPERATION_PREREQUISITE_NOT_MET&#x60;](/errors/OPERATION_PREREQUISITE_NOT_MET) — Operation Prerequisite Not Met - &#x60;409&#x60; [&#x60;ANALYSIS_NOT_READY&#x60;](/errors/ANALYSIS_NOT_READY) — Analysis Not Ready
 
 ### Example
 ```java
@@ -3868,7 +3868,7 @@ public class Example {
 
 Run the networking-scan agent.
 
-Starts an agent that name-matches the analysis&#39; functions and their callees against known networking APIs, and returns the operation to poll for its outcome.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;409&#x60; [&#x60;OPERATION_PREREQUISITE_NOT_MET&#x60;](/errors/OPERATION_PREREQUISITE_NOT_MET) — Operation Prerequisite Not Met
+Starts an agent that name-matches the analysis&#39; functions and their callees against known networking APIs, and returns the operation to poll for its outcome. Returns 409 until the analysis is Complete.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;409&#x60; [&#x60;OPERATION_PREREQUISITE_NOT_MET&#x60;](/errors/OPERATION_PREREQUISITE_NOT_MET) — Operation Prerequisite Not Met - &#x60;409&#x60; [&#x60;ANALYSIS_NOT_READY&#x60;](/errors/ANALYSIS_NOT_READY) — Analysis Not Ready
 
 ### Example
 ```java
@@ -3948,7 +3948,7 @@ public class Example {
 
 Run the protocols agent.
 
-Starts the protocols agent, which identifies the network and data protocols the binary implements, and returns the operation to poll for its outcome. Returns 409 while a run is already in progress for this analysis.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;402&#x60; [&#x60;INSUFFICIENT_CREDITS&#x60;](/errors/INSUFFICIENT_CREDITS) — Insufficient Credits - &#x60;409&#x60; [&#x60;OPERATION_PREREQUISITE_NOT_MET&#x60;](/errors/OPERATION_PREREQUISITE_NOT_MET) — Operation Prerequisite Not Met
+Starts the protocols agent, which identifies the network and data protocols the binary implements, and returns the operation to poll for its outcome. Returns 409 until the analysis is Complete, or while a run is already in progress for this analysis.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;402&#x60; [&#x60;INSUFFICIENT_CREDITS&#x60;](/errors/INSUFFICIENT_CREDITS) — Insufficient Credits - &#x60;409&#x60; [&#x60;OPERATION_PREREQUISITE_NOT_MET&#x60;](/errors/OPERATION_PREREQUISITE_NOT_MET) — Operation Prerequisite Not Met - &#x60;409&#x60; [&#x60;ANALYSIS_NOT_READY&#x60;](/errors/ANALYSIS_NOT_READY) — Analysis Not Ready
 
 ### Example
 ```java
@@ -4027,7 +4027,7 @@ public class Example {
 
 Run the remediation agent.
 
-Starts the remediation agent, which generates YARA, Snort and STIX detection rules for the binary, and returns the operation to poll for its outcome. Returns 409 while a run is already in progress for this analysis.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;402&#x60; [&#x60;INSUFFICIENT_CREDITS&#x60;](/errors/INSUFFICIENT_CREDITS) — Insufficient Credits - &#x60;409&#x60; [&#x60;OPERATION_PREREQUISITE_NOT_MET&#x60;](/errors/OPERATION_PREREQUISITE_NOT_MET) — Operation Prerequisite Not Met
+Starts the remediation agent, which generates YARA, Snort and STIX detection rules for the binary, and returns the operation to poll for its outcome. Returns 409 until the analysis is Complete, or while a run is already in progress for this analysis.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;402&#x60; [&#x60;INSUFFICIENT_CREDITS&#x60;](/errors/INSUFFICIENT_CREDITS) — Insufficient Credits - &#x60;409&#x60; [&#x60;OPERATION_PREREQUISITE_NOT_MET&#x60;](/errors/OPERATION_PREREQUISITE_NOT_MET) — Operation Prerequisite Not Met - &#x60;409&#x60; [&#x60;ANALYSIS_NOT_READY&#x60;](/errors/ANALYSIS_NOT_READY) — Analysis Not Ready
 
 ### Example
 ```java
@@ -4106,7 +4106,7 @@ public class Example {
 
 Run the report-analysis agent.
 
-Starts the report-analysis agent, which produces a combined threat report — summary, software type, attack flow, indicators of compromise, MITRE ATT&amp;CK techniques and a YARA rule — and returns the operation to poll for its outcome. Returns 409 while a run is already in progress for this analysis.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;402&#x60; [&#x60;INSUFFICIENT_CREDITS&#x60;](/errors/INSUFFICIENT_CREDITS) — Insufficient Credits - &#x60;409&#x60; [&#x60;OPERATION_PREREQUISITE_NOT_MET&#x60;](/errors/OPERATION_PREREQUISITE_NOT_MET) — Operation Prerequisite Not Met
+Starts the report-analysis agent, which produces a combined threat report — summary, software type, attack flow, indicators of compromise, MITRE ATT&amp;CK techniques and a YARA rule — and returns the operation to poll for its outcome. Returns 409 until the analysis is Complete, or while a run is already in progress for this analysis.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;402&#x60; [&#x60;INSUFFICIENT_CREDITS&#x60;](/errors/INSUFFICIENT_CREDITS) — Insufficient Credits - &#x60;409&#x60; [&#x60;OPERATION_PREREQUISITE_NOT_MET&#x60;](/errors/OPERATION_PREREQUISITE_NOT_MET) — Operation Prerequisite Not Met - &#x60;409&#x60; [&#x60;ANALYSIS_NOT_READY&#x60;](/errors/ANALYSIS_NOT_READY) — Analysis Not Ready
 
 ### Example
 ```java
@@ -4185,7 +4185,7 @@ public class Example {
 
 Run the secrets agent.
 
-Starts the secrets agent, which finds credentials and other hardcoded secrets in the binary, and returns the operation to poll for its outcome. Returns 409 while a run is already in progress for this analysis.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;402&#x60; [&#x60;INSUFFICIENT_CREDITS&#x60;](/errors/INSUFFICIENT_CREDITS) — Insufficient Credits - &#x60;409&#x60; [&#x60;OPERATION_PREREQUISITE_NOT_MET&#x60;](/errors/OPERATION_PREREQUISITE_NOT_MET) — Operation Prerequisite Not Met
+Starts the secrets agent, which finds credentials and other hardcoded secrets in the binary, and returns the operation to poll for its outcome. Returns 409 until the analysis is Complete, or while a run is already in progress for this analysis.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;402&#x60; [&#x60;INSUFFICIENT_CREDITS&#x60;](/errors/INSUFFICIENT_CREDITS) — Insufficient Credits - &#x60;409&#x60; [&#x60;OPERATION_PREREQUISITE_NOT_MET&#x60;](/errors/OPERATION_PREREQUISITE_NOT_MET) — Operation Prerequisite Not Met - &#x60;409&#x60; [&#x60;ANALYSIS_NOT_READY&#x60;](/errors/ANALYSIS_NOT_READY) — Analysis Not Ready
 
 ### Example
 ```java
@@ -4264,7 +4264,7 @@ public class Example {
 
 Run the security-scan agent.
 
-Starts an agent that decompiles the analysis&#39; functions and runs a security scan over the decompiled source, and returns the operation to poll for its outcome. Each function costs an AI decompilation, so a whole-analysis run can be expensive — use &#x60;max_functions_to_scan&#x60; to bound it. Returns 409 while a run is already in progress for this analysis.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;402&#x60; [&#x60;INSUFFICIENT_CREDITS&#x60;](/errors/INSUFFICIENT_CREDITS) — Insufficient Credits
+Starts an agent that decompiles the analysis&#39; functions and runs a security scan over the decompiled source, and returns the operation to poll for its outcome. Each function costs an AI decompilation, so a whole-analysis run can be expensive — use &#x60;max_functions_to_scan&#x60; to bound it. Returns 409 until the analysis is Complete, or while a run is already in progress for this analysis.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;402&#x60; [&#x60;INSUFFICIENT_CREDITS&#x60;](/errors/INSUFFICIENT_CREDITS) — Insufficient Credits - &#x60;409&#x60; [&#x60;ANALYSIS_NOT_READY&#x60;](/errors/ANALYSIS_NOT_READY) — Analysis Not Ready
 
 ### Example
 ```java
@@ -4345,7 +4345,7 @@ public class Example {
 
 Run the triage agent.
 
-Starts the triage agent, which scores the binary and each of its functions for maliciousness, and returns the operation to poll for its outcome. Unlike the other binary agents this one is not gated on subscription tier. Returns 409 while a run is already in progress for this analysis.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;402&#x60; [&#x60;INSUFFICIENT_CREDITS&#x60;](/errors/INSUFFICIENT_CREDITS) — Insufficient Credits - &#x60;409&#x60; [&#x60;OPERATION_PREREQUISITE_NOT_MET&#x60;](/errors/OPERATION_PREREQUISITE_NOT_MET) — Operation Prerequisite Not Met
+Starts the triage agent, which scores the binary and each of its functions for maliciousness, and returns the operation to poll for its outcome. Unlike the other binary agents this one is not gated on subscription tier. Returns 409 until the analysis is Complete, or while a run is already in progress for this analysis.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;402&#x60; [&#x60;INSUFFICIENT_CREDITS&#x60;](/errors/INSUFFICIENT_CREDITS) — Insufficient Credits - &#x60;409&#x60; [&#x60;OPERATION_PREREQUISITE_NOT_MET&#x60;](/errors/OPERATION_PREREQUISITE_NOT_MET) — Operation Prerequisite Not Met - &#x60;409&#x60; [&#x60;ANALYSIS_NOT_READY&#x60;](/errors/ANALYSIS_NOT_READY) — Analysis Not Ready
 
 ### Example
 ```java
@@ -4424,7 +4424,7 @@ public class Example {
 
 Run the rename-unnamed-functions agent.
 
-Starts an agent that renames the analysis&#39; unnamed functions from their AI decompilations. Each function costs an AI decompilation, so a whole-analysis run can be expensive — use &#x60;limit&#x60; to bound it. Returns 409 while a run is already in progress for this analysis.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;402&#x60; [&#x60;INSUFFICIENT_CREDITS&#x60;](/errors/INSUFFICIENT_CREDITS) — Insufficient Credits
+Starts an agent that renames the analysis&#39; unnamed functions from their AI decompilations. Each function costs an AI decompilation, so a whole-analysis run can be expensive — use &#x60;limit&#x60; to bound it. Returns 409 until the analysis is Complete, or while a run is already in progress for this analysis.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;409&#x60; [&#x60;CONFLICT&#x60;](/errors/CONFLICT) — Conflict - &#x60;402&#x60; [&#x60;INSUFFICIENT_CREDITS&#x60;](/errors/INSUFFICIENT_CREDITS) — Insufficient Credits - &#x60;409&#x60; [&#x60;ANALYSIS_NOT_READY&#x60;](/errors/ANALYSIS_NOT_READY) — Analysis Not Ready
 
 ### Example
 ```java

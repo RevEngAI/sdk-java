@@ -13,6 +13,7 @@
 package ai.reveng.model;
 
 import java.util.Objects;
+import ai.reveng.model.CapabilityImplementation;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -60,6 +62,11 @@ public class TriageFunction {
   @SerializedName(SERIALIZED_NAME_CAPABILITIES)
   @javax.annotation.Nullable
   private List<String> capabilities;
+
+  public static final String SERIALIZED_NAME_CAPABILITY_IMPLEMENTATIONS = "capability_implementations";
+  @SerializedName(SERIALIZED_NAME_CAPABILITY_IMPLEMENTATIONS)
+  @javax.annotation.Nullable
+  private List<CapabilityImplementation> capabilityImplementations;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -122,6 +129,33 @@ public class TriageFunction {
 
   public void setCapabilities(@javax.annotation.Nullable List<String> capabilities) {
     this.capabilities = capabilities;
+  }
+
+
+  public TriageFunction capabilityImplementations(@javax.annotation.Nullable List<CapabilityImplementation> capabilityImplementations) {
+    this.capabilityImplementations = capabilityImplementations;
+    return this;
+  }
+
+  public TriageFunction addCapabilityImplementationsItem(CapabilityImplementation capabilityImplementationsItem) {
+    if (this.capabilityImplementations == null) {
+      this.capabilityImplementations = new ArrayList<>();
+    }
+    this.capabilityImplementations.add(capabilityImplementationsItem);
+    return this;
+  }
+
+  /**
+   * How the function implements each assigned capability. Absent when the run did not record any.
+   * @return capabilityImplementations
+   */
+  @javax.annotation.Nullable
+  public List<CapabilityImplementation> getCapabilityImplementations() {
+    return capabilityImplementations;
+  }
+
+  public void setCapabilityImplementations(@javax.annotation.Nullable List<CapabilityImplementation> capabilityImplementations) {
+    this.capabilityImplementations = capabilityImplementations;
   }
 
 
@@ -238,15 +272,27 @@ public class TriageFunction {
     TriageFunction triageFunction = (TriageFunction) o;
     return Objects.equals(this.address, triageFunction.address) &&
         Objects.equals(this.capabilities, triageFunction.capabilities) &&
+        Objects.equals(this.capabilityImplementations, triageFunction.capabilityImplementations) &&
         Objects.equals(this.id, triageFunction.id) &&
         Objects.equals(this.score, triageFunction.score) &&
         Objects.equals(this.summary, triageFunction.summary)&&
         Objects.equals(this.additionalProperties, triageFunction.additionalProperties);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
-    return Objects.hash(address, capabilities, id, score, summary, additionalProperties);
+    return Objects.hash(address, capabilities, capabilityImplementations, id, score, summary, additionalProperties);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -255,6 +301,7 @@ public class TriageFunction {
     sb.append("class TriageFunction {\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
     sb.append("    capabilities: ").append(toIndentedString(capabilities)).append("\n");
+    sb.append("    capabilityImplementations: ").append(toIndentedString(capabilityImplementations)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    score: ").append(toIndentedString(score)).append("\n");
     sb.append("    summary: ").append(toIndentedString(summary)).append("\n");
@@ -277,7 +324,7 @@ public class TriageFunction {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("address", "capabilities", "id", "score", "summary"));
+    openapiFields = new HashSet<String>(Arrays.asList("address", "capabilities", "capability_implementations", "id", "score", "summary"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("address", "capabilities", "id", "score", "summary"));
@@ -308,6 +355,10 @@ public class TriageFunction {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
       } else if (!jsonObj.get("capabilities").isJsonArray() && !jsonObj.get("capabilities").isJsonNull()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `capabilities` to be an array in the JSON string but got `%s`", jsonObj.get("capabilities").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("capability_implementations") != null && !jsonObj.get("capability_implementations").isJsonNull() && !jsonObj.get("capability_implementations").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `capability_implementations` to be an array in the JSON string but got `%s`", jsonObj.get("capability_implementations").toString()));
       }
       if (!jsonObj.get("summary").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `summary` to be a primitive type in the JSON string but got `%s`", jsonObj.get("summary").toString()));

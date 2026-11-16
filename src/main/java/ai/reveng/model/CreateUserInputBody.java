@@ -226,6 +226,7 @@ public class CreateUserInputBody {
   /**
    * Initial credit balance in credits (1 credit &#x3D; 1000 units); defaults to 10 credits
    * minimum: 0
+   * maximum: 2147483
    * @return credits
    */
   @javax.annotation.Nullable

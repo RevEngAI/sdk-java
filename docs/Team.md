@@ -10,7 +10,7 @@
 |**organisationId** | **Long** | Organisation this team belongs to, if any |  [optional] |
 |**plan** | [**PlanEnum**](#PlanEnum) |  |  |
 |**teamId** | **Long** |  |  |
-|**teamName** | **String** | Search is applied to string value |  |
+|**teamName** | **String** |  |  |
 
 
 

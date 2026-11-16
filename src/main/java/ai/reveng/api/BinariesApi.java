@@ -42,6 +42,7 @@ import ai.reveng.model.GetBinaryExternalsOutputBody;
 import ai.reveng.model.GetDieInfoOutputBody;
 import ai.reveng.model.GetRelatedBinariesOutputBody;
 import ai.reveng.model.GetRelatedStatusOutputBody;
+import ai.reveng.model.ListMalwareFamiliesOutputBody;
 import ai.reveng.model.SearchBinariesOutputBody;
 import ai.reveng.model.UploadOutputBody;
 
@@ -2207,6 +2208,140 @@ public class BinariesApi {
 
         okhttp3.Call localVarCall = v3GetBinaryRelatedStatusValidateBeforeCall(binaryId, _callback);
         Type localVarReturnType = new TypeToken<GetRelatedStatusOutputBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for v3ListMalwareFamilies
+     * @param binaryIds Binaries to look up, typically those a function-matching run found in the malware corpus. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3ListMalwareFamiliesCall(@javax.annotation.Nullable List<Long> binaryIds, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/malware-families";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (binaryIds != null) {
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("csv", "binary_ids", binaryIds));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call v3ListMalwareFamiliesValidateBeforeCall(@javax.annotation.Nullable List<Long> binaryIds, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'binaryIds' is set
+        if (binaryIds == null) {
+            throw new ApiException("Missing the required parameter 'binaryIds' when calling v3ListMalwareFamilies(Async)");
+        }
+
+        return v3ListMalwareFamiliesCall(binaryIds, _callback);
+
+    }
+
+    /**
+     * Look up the malware families of binaries in the RevEng.AI malware corpus.
+     * Returns the malware family of each given binary that belongs to the RevEng.AI malware corpus, with every corpus binary in that family. Family names are lowercase without punctuation, with known aliases merged. Binaries outside the corpus or without a family are ignored.
+     * @param binaryIds Binaries to look up, typically those a function-matching run found in the malware corpus. (required)
+     * @return ListMalwareFamiliesOutputBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListMalwareFamiliesOutputBody v3ListMalwareFamilies(@javax.annotation.Nullable List<Long> binaryIds) throws ApiException {
+        ApiResponse<ListMalwareFamiliesOutputBody> localVarResp = v3ListMalwareFamiliesWithHttpInfo(binaryIds);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Look up the malware families of binaries in the RevEng.AI malware corpus.
+     * Returns the malware family of each given binary that belongs to the RevEng.AI malware corpus, with every corpus binary in that family. Family names are lowercase without punctuation, with known aliases merged. Binaries outside the corpus or without a family are ignored.
+     * @param binaryIds Binaries to look up, typically those a function-matching run found in the malware corpus. (required)
+     * @return ApiResponse&lt;ListMalwareFamiliesOutputBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListMalwareFamiliesOutputBody> v3ListMalwareFamiliesWithHttpInfo(@javax.annotation.Nullable List<Long> binaryIds) throws ApiException {
+        okhttp3.Call localVarCall = v3ListMalwareFamiliesValidateBeforeCall(binaryIds, null);
+        Type localVarReturnType = new TypeToken<ListMalwareFamiliesOutputBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Look up the malware families of binaries in the RevEng.AI malware corpus. (asynchronously)
+     * Returns the malware family of each given binary that belongs to the RevEng.AI malware corpus, with every corpus binary in that family. Family names are lowercase without punctuation, with known aliases merged. Binaries outside the corpus or without a family are ignored.
+     * @param binaryIds Binaries to look up, typically those a function-matching run found in the malware corpus. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3ListMalwareFamiliesAsync(@javax.annotation.Nullable List<Long> binaryIds, final ApiCallback<ListMalwareFamiliesOutputBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = v3ListMalwareFamiliesValidateBeforeCall(binaryIds, _callback);
+        Type localVarReturnType = new TypeToken<ListMalwareFamiliesOutputBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

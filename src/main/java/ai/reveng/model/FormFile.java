@@ -78,7 +78,7 @@ public class FormFile {
   }
 
   /**
-   * Search is applied to string value
+   * Get contentType
    * @return contentType
    */
   @javax.annotation.Nullable
@@ -97,7 +97,7 @@ public class FormFile {
   }
 
   /**
-   * Search is applied to string value
+   * Get filename
    * @return filename
    */
   @javax.annotation.Nullable

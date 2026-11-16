@@ -13,16 +13,15 @@
 package ai.reveng.model;
 
 import java.util.Objects;
-import ai.reveng.model.StringFunctions;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -48,66 +47,122 @@ import java.util.Set;
 import ai.reveng.invoker.JSON;
 
 /**
- * AnalysisStringsResponse
+ * FeedbackSubmission
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class AnalysisStringsResponse {
-  public static final String SERIALIZED_NAME_STRINGS = "strings";
-  @SerializedName(SERIALIZED_NAME_STRINGS)
-  @javax.annotation.Nonnull
-  private List<StringFunctions> strings = new ArrayList<>();
+public class FeedbackSubmission {
+  public static final String SERIALIZED_NAME_METADATA = "metadata";
+  @SerializedName(SERIALIZED_NAME_METADATA)
+  @javax.annotation.Nullable
+  private Map<String, Object> metadata = new HashMap<>();
 
-  public static final String SERIALIZED_NAME_TOTAL_STRINGS = "total_strings";
-  @SerializedName(SERIALIZED_NAME_TOTAL_STRINGS)
-  @javax.annotation.Nonnull
-  private Integer totalStrings;
+  /**
+   * How useful the caller found the result
+   */
+  @JsonAdapter(SentimentEnum.Adapter.class)
+  public enum SentimentEnum {
+    POSITIVE("POSITIVE"),
+    
+    NEUTRAL("NEUTRAL"),
+    
+    NEGATIVE("NEGATIVE"),
+    
+    UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
-  public AnalysisStringsResponse() {
-  }
+    private String value;
 
-  public AnalysisStringsResponse strings(@javax.annotation.Nonnull List<StringFunctions> strings) {
-    this.strings = strings;
-    return this;
-  }
-
-  public AnalysisStringsResponse addStringsItem(StringFunctions stringsItem) {
-    if (this.strings == null) {
-      this.strings = new ArrayList<>();
+    SentimentEnum(String value) {
+      this.value = value;
     }
-    this.strings.add(stringsItem);
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static SentimentEnum fromValue(String value) {
+      for (SentimentEnum b : SentimentEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return UNKNOWN_DEFAULT_OPEN_API;
+    }
+
+    public static class Adapter extends TypeAdapter<SentimentEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final SentimentEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public SentimentEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return SentimentEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      SentimentEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_SENTIMENT = "sentiment";
+  @SerializedName(SERIALIZED_NAME_SENTIMENT)
+  @javax.annotation.Nonnull
+  private SentimentEnum sentiment;
+
+  public FeedbackSubmission() {
+  }
+
+  public FeedbackSubmission metadata(@javax.annotation.Nullable Map<String, Object> metadata) {
+    this.metadata = metadata;
+    return this;
+  }
+
+  public FeedbackSubmission putMetadataItem(String key, Object metadataItem) {
+    if (this.metadata == null) {
+      this.metadata = new HashMap<>();
+    }
+    this.metadata.put(key, metadataItem);
     return this;
   }
 
   /**
-   * The strings associated with the analysis
-   * @return strings
+   * Context the client captured with the feedback, stored as-is (e.g. the binary hash and the matches the caller was shown)
+   * @return metadata
    */
-  @javax.annotation.Nonnull
-  public List<StringFunctions> getStrings() {
-    return strings;
+  @javax.annotation.Nullable
+  public Map<String, Object> getMetadata() {
+    return metadata;
   }
 
-  public void setStrings(@javax.annotation.Nonnull List<StringFunctions> strings) {
-    this.strings = strings;
+  public void setMetadata(@javax.annotation.Nullable Map<String, Object> metadata) {
+    this.metadata = metadata;
   }
 
 
-  public AnalysisStringsResponse totalStrings(@javax.annotation.Nonnull Integer totalStrings) {
-    this.totalStrings = totalStrings;
+  public FeedbackSubmission sentiment(@javax.annotation.Nonnull SentimentEnum sentiment) {
+    this.sentiment = sentiment;
     return this;
   }
 
   /**
-   * The total number of strings associated with this analysis
-   * @return totalStrings
+   * How useful the caller found the result
+   * @return sentiment
    */
   @javax.annotation.Nonnull
-  public Integer getTotalStrings() {
-    return totalStrings;
+  public SentimentEnum getSentiment() {
+    return sentiment;
   }
 
-  public void setTotalStrings(@javax.annotation.Nonnull Integer totalStrings) {
-    this.totalStrings = totalStrings;
+  public void setSentiment(@javax.annotation.Nonnull SentimentEnum sentiment) {
+    this.sentiment = sentiment;
   }
 
   /**
@@ -123,9 +178,9 @@ public class AnalysisStringsResponse {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the AnalysisStringsResponse instance itself
+   * @return the FeedbackSubmission instance itself
    */
-  public AnalysisStringsResponse putAdditionalProperty(String key, Object value) {
+  public FeedbackSubmission putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -164,23 +219,23 @@ public class AnalysisStringsResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AnalysisStringsResponse analysisStringsResponse = (AnalysisStringsResponse) o;
-    return Objects.equals(this.strings, analysisStringsResponse.strings) &&
-        Objects.equals(this.totalStrings, analysisStringsResponse.totalStrings)&&
-        Objects.equals(this.additionalProperties, analysisStringsResponse.additionalProperties);
+    FeedbackSubmission feedbackSubmission = (FeedbackSubmission) o;
+    return Objects.equals(this.metadata, feedbackSubmission.metadata) &&
+        Objects.equals(this.sentiment, feedbackSubmission.sentiment)&&
+        Objects.equals(this.additionalProperties, feedbackSubmission.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(strings, totalStrings, additionalProperties);
+    return Objects.hash(metadata, sentiment, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AnalysisStringsResponse {\n");
-    sb.append("    strings: ").append(toIndentedString(strings)).append("\n");
-    sb.append("    totalStrings: ").append(toIndentedString(totalStrings)).append("\n");
+    sb.append("class FeedbackSubmission {\n");
+    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    sentiment: ").append(toIndentedString(sentiment)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -200,58 +255,53 @@ public class AnalysisStringsResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("strings", "total_strings"));
+    openapiFields = new HashSet<String>(Arrays.asList("metadata", "sentiment"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("strings", "total_strings"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("sentiment"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to AnalysisStringsResponse
+   * @throws IOException if the JSON Element is invalid with respect to FeedbackSubmission
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!AnalysisStringsResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in AnalysisStringsResponse is not found in the empty JSON string", AnalysisStringsResponse.openapiRequiredFields.toString()));
+        if (!FeedbackSubmission.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in FeedbackSubmission is not found in the empty JSON string", FeedbackSubmission.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : AnalysisStringsResponse.openapiRequiredFields) {
+      for (String requiredField : FeedbackSubmission.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (jsonObj.get("strings") != null) {
-        if (!jsonObj.get("strings").isJsonArray()) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `strings` to be an array in the JSON string but got `%s`", jsonObj.get("strings").toString()));
-        }
-        JsonArray jsonArraystrings = jsonObj.getAsJsonArray("strings");
-        // validate the required field `strings` (array)
-        for (int i = 0; i < jsonArraystrings.size(); i++) {
-          StringFunctions.validateJsonElement(jsonArraystrings.get(i));
-        }
+      if (!jsonObj.get("sentiment").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sentiment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sentiment").toString()));
       }
+      // validate the required field `sentiment`
+      SentimentEnum.validateJsonElement(jsonObj.get("sentiment"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!AnalysisStringsResponse.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'AnalysisStringsResponse' and its subtypes
+       if (!FeedbackSubmission.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'FeedbackSubmission' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<AnalysisStringsResponse> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(AnalysisStringsResponse.class));
+       final TypeAdapter<FeedbackSubmission> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(FeedbackSubmission.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<AnalysisStringsResponse>() {
+       return (TypeAdapter<T>) new TypeAdapter<FeedbackSubmission>() {
            @Override
-           public void write(JsonWriter out, AnalysisStringsResponse value) throws IOException {
+           public void write(JsonWriter out, FeedbackSubmission value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -279,12 +329,12 @@ public class AnalysisStringsResponse {
            }
 
            @Override
-           public AnalysisStringsResponse read(JsonReader in) throws IOException {
+           public FeedbackSubmission read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             AnalysisStringsResponse instance = thisAdapter.fromJsonTree(jsonObj);
+             FeedbackSubmission instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -311,18 +361,18 @@ public class AnalysisStringsResponse {
   }
 
   /**
-   * Create an instance of AnalysisStringsResponse given an JSON string
+   * Create an instance of FeedbackSubmission given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of AnalysisStringsResponse
-   * @throws IOException if the JSON string is invalid with respect to AnalysisStringsResponse
+   * @return An instance of FeedbackSubmission
+   * @throws IOException if the JSON string is invalid with respect to FeedbackSubmission
    */
-  public static AnalysisStringsResponse fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, AnalysisStringsResponse.class);
+  public static FeedbackSubmission fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, FeedbackSubmission.class);
   }
 
   /**
-   * Convert an instance of AnalysisStringsResponse to an JSON string
+   * Convert an instance of FeedbackSubmission to an JSON string
    *
    * @return JSON string
    */

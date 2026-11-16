@@ -10,11 +10,11 @@ All URIs are relative to *https://api.reveng.ai*
 
 <a id="getMe"></a>
 # **getMe**
-> User getMe()
+> CurrentUser getMe()
 
 Get current user
 
-Returns the authenticated user&#39;s own information.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+Returns the authenticated user&#39;s own information, and how they sign in.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
 
 ### Example
 ```java
@@ -43,7 +43,7 @@ public class Example {
 
     IamUsersApi apiInstance = new IamUsersApi(defaultClient);
     try {
-      User result = apiInstance.getMe();
+      CurrentUser result = apiInstance.getMe();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling IamUsersApi#getMe");
@@ -61,7 +61,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**User**](User.md)
+[**CurrentUser**](CurrentUser.md)
 
 ### Authorization
 

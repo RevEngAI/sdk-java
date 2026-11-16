@@ -13,17 +13,15 @@
 package ai.reveng.model;
 
 import java.util.Objects;
-import ai.reveng.model.AppApiRestV2FunctionsResponsesFunction;
-import ai.reveng.model.StringSource;
+import ai.reveng.model.DynamicExecutionRunConfig;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.time.OffsetDateTime;
 import java.util.Arrays;
-import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -49,90 +47,164 @@ import java.util.Set;
 import ai.reveng.invoker.JSON;
 
 /**
- * This is a string with the functions where the string is used.  A function string is a string literal referenced within a function. When analyzing stripped or obfuscated binaries, function strings can help identify the function’s purpose.
+ * DynamicExecutionRun
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class StringFunctions {
-  public static final String SERIALIZED_NAME_VALUE = "value";
-  @SerializedName(SERIALIZED_NAME_VALUE)
+public class DynamicExecutionRun {
+  public static final String SERIALIZED_NAME_CONFIG = "config";
+  @SerializedName(SERIALIZED_NAME_CONFIG)
   @javax.annotation.Nonnull
-  private String value;
+  private DynamicExecutionRunConfig config;
 
-  public static final String SERIALIZED_NAME_FUNCTIONS = "functions";
-  @SerializedName(SERIALIZED_NAME_FUNCTIONS)
+  public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
+  @SerializedName(SERIALIZED_NAME_CREATED_AT)
   @javax.annotation.Nonnull
-  private List<AppApiRestV2FunctionsResponsesFunction> functions = new ArrayList<>();
+  private OffsetDateTime createdAt;
 
-  public static final String SERIALIZED_NAME_SOURCE = "source";
-  @SerializedName(SERIALIZED_NAME_SOURCE)
-  @javax.annotation.Nullable
-  private StringSource source = StringSource.SYSTEM;
-
-  public StringFunctions() {
-  }
-
-  public StringFunctions value(@javax.annotation.Nonnull String value) {
-    this.value = value;
-    return this;
-  }
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  @javax.annotation.Nonnull
+  private String id;
 
   /**
-   * The value of the string literal
-   * @return value
+   * Run status
    */
-  @javax.annotation.Nonnull
-  public String getValue() {
-    return value;
-  }
+  @JsonAdapter(StatusEnum.Adapter.class)
+  public enum StatusEnum {
+    PENDING("PENDING"),
+    
+    RUNNING("RUNNING"),
+    
+    COMPLETED("COMPLETED"),
+    
+    FAILED("FAILED"),
+    
+    UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
-  public void setValue(@javax.annotation.Nonnull String value) {
-    this.value = value;
-  }
+    private String value;
 
-
-  public StringFunctions functions(@javax.annotation.Nonnull List<AppApiRestV2FunctionsResponsesFunction> functions) {
-    this.functions = functions;
-    return this;
-  }
-
-  public StringFunctions addFunctionsItem(AppApiRestV2FunctionsResponsesFunction functionsItem) {
-    if (this.functions == null) {
-      this.functions = new ArrayList<>();
+    StatusEnum(String value) {
+      this.value = value;
     }
-    this.functions.add(functionsItem);
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static StatusEnum fromValue(String value) {
+      for (StatusEnum b : StatusEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return UNKNOWN_DEFAULT_OPEN_API;
+    }
+
+    public static class Adapter extends TypeAdapter<StatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public StatusEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return StatusEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      StatusEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_STATUS = "status";
+  @SerializedName(SERIALIZED_NAME_STATUS)
+  @javax.annotation.Nonnull
+  private StatusEnum status;
+
+  public DynamicExecutionRun() {
+  }
+
+  public DynamicExecutionRun config(@javax.annotation.Nonnull DynamicExecutionRunConfig config) {
+    this.config = config;
     return this;
   }
 
   /**
-   * The function ids the string literal was found within
-   * @return functions
+   * Parameters the run was started with
+   * @return config
    */
   @javax.annotation.Nonnull
-  public List<AppApiRestV2FunctionsResponsesFunction> getFunctions() {
-    return functions;
+  public DynamicExecutionRunConfig getConfig() {
+    return config;
   }
 
-  public void setFunctions(@javax.annotation.Nonnull List<AppApiRestV2FunctionsResponsesFunction> functions) {
-    this.functions = functions;
+  public void setConfig(@javax.annotation.Nonnull DynamicExecutionRunConfig config) {
+    this.config = config;
   }
 
 
-  public StringFunctions source(@javax.annotation.Nullable StringSource source) {
-    this.source = source;
+  public DynamicExecutionRun createdAt(@javax.annotation.Nonnull OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
     return this;
   }
 
   /**
-   * The source of the string
-   * @return source
+   * When the run was started
+   * @return createdAt
    */
-  @javax.annotation.Nullable
-  public StringSource getSource() {
-    return source;
+  @javax.annotation.Nonnull
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
   }
 
-  public void setSource(@javax.annotation.Nullable StringSource source) {
-    this.source = source;
+  public void setCreatedAt(@javax.annotation.Nonnull OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
+  }
+
+
+  public DynamicExecutionRun id(@javax.annotation.Nonnull String id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Run ID
+   * @return id
+   */
+  @javax.annotation.Nonnull
+  public String getId() {
+    return id;
+  }
+
+  public void setId(@javax.annotation.Nonnull String id) {
+    this.id = id;
+  }
+
+
+  public DynamicExecutionRun status(@javax.annotation.Nonnull StatusEnum status) {
+    this.status = status;
+    return this;
+  }
+
+  /**
+   * Run status
+   * @return status
+   */
+  @javax.annotation.Nonnull
+  public StatusEnum getStatus() {
+    return status;
+  }
+
+  public void setStatus(@javax.annotation.Nonnull StatusEnum status) {
+    this.status = status;
   }
 
   /**
@@ -148,9 +220,9 @@ public class StringFunctions {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the StringFunctions instance itself
+   * @return the DynamicExecutionRun instance itself
    */
-  public StringFunctions putAdditionalProperty(String key, Object value) {
+  public DynamicExecutionRun putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -189,25 +261,27 @@ public class StringFunctions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    StringFunctions stringFunctions = (StringFunctions) o;
-    return Objects.equals(this.value, stringFunctions.value) &&
-        Objects.equals(this.functions, stringFunctions.functions) &&
-        Objects.equals(this.source, stringFunctions.source)&&
-        Objects.equals(this.additionalProperties, stringFunctions.additionalProperties);
+    DynamicExecutionRun dynamicExecutionRun = (DynamicExecutionRun) o;
+    return Objects.equals(this.config, dynamicExecutionRun.config) &&
+        Objects.equals(this.createdAt, dynamicExecutionRun.createdAt) &&
+        Objects.equals(this.id, dynamicExecutionRun.id) &&
+        Objects.equals(this.status, dynamicExecutionRun.status)&&
+        Objects.equals(this.additionalProperties, dynamicExecutionRun.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(value, functions, source, additionalProperties);
+    return Objects.hash(config, createdAt, id, status, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class StringFunctions {\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
-    sb.append("    functions: ").append(toIndentedString(functions)).append("\n");
-    sb.append("    source: ").append(toIndentedString(source)).append("\n");
+    sb.append("class DynamicExecutionRun {\n");
+    sb.append("    config: ").append(toIndentedString(config)).append("\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -227,65 +301,56 @@ public class StringFunctions {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("value", "functions", "source"));
+    openapiFields = new HashSet<String>(Arrays.asList("config", "created_at", "id", "status"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("value", "functions"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("config", "created_at", "id", "status"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to StringFunctions
+   * @throws IOException if the JSON Element is invalid with respect to DynamicExecutionRun
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!StringFunctions.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in StringFunctions is not found in the empty JSON string", StringFunctions.openapiRequiredFields.toString()));
+        if (!DynamicExecutionRun.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in DynamicExecutionRun is not found in the empty JSON string", DynamicExecutionRun.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : StringFunctions.openapiRequiredFields) {
+      for (String requiredField : DynamicExecutionRun.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("value").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
+      if (!jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
-      if (jsonObj.get("functions") != null) {
-        if (!jsonObj.get("functions").isJsonArray()) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `functions` to be an array in the JSON string but got `%s`", jsonObj.get("functions").toString()));
-        }
-        JsonArray jsonArrayfunctions = jsonObj.getAsJsonArray("functions");
-        // validate the required field `functions` (array)
-        for (int i = 0; i < jsonArrayfunctions.size(); i++) {
-          AppApiRestV2FunctionsResponsesFunction.validateJsonElement(jsonArrayfunctions.get(i));
-        }
+      if (!jsonObj.get("status").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
       }
-      // validate the optional field `source`
-      if (jsonObj.get("source") != null && !jsonObj.get("source").isJsonNull()) {
-        StringSource.validateJsonElement(jsonObj.get("source"));
-      }
+      // validate the required field `status`
+      StatusEnum.validateJsonElement(jsonObj.get("status"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!StringFunctions.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'StringFunctions' and its subtypes
+       if (!DynamicExecutionRun.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'DynamicExecutionRun' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<StringFunctions> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(StringFunctions.class));
+       final TypeAdapter<DynamicExecutionRun> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(DynamicExecutionRun.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<StringFunctions>() {
+       return (TypeAdapter<T>) new TypeAdapter<DynamicExecutionRun>() {
            @Override
-           public void write(JsonWriter out, StringFunctions value) throws IOException {
+           public void write(JsonWriter out, DynamicExecutionRun value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -313,12 +378,12 @@ public class StringFunctions {
            }
 
            @Override
-           public StringFunctions read(JsonReader in) throws IOException {
+           public DynamicExecutionRun read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             StringFunctions instance = thisAdapter.fromJsonTree(jsonObj);
+             DynamicExecutionRun instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -345,18 +410,18 @@ public class StringFunctions {
   }
 
   /**
-   * Create an instance of StringFunctions given an JSON string
+   * Create an instance of DynamicExecutionRun given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of StringFunctions
-   * @throws IOException if the JSON string is invalid with respect to StringFunctions
+   * @return An instance of DynamicExecutionRun
+   * @throws IOException if the JSON string is invalid with respect to DynamicExecutionRun
    */
-  public static StringFunctions fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, StringFunctions.class);
+  public static DynamicExecutionRun fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, DynamicExecutionRun.class);
   }
 
   /**
-   * Convert an instance of StringFunctions to an JSON string
+   * Convert an instance of DynamicExecutionRun to an JSON string
    *
    * @return JSON string
    */

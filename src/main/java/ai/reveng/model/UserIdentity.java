@@ -108,7 +108,7 @@ public class UserIdentity {
   }
 
   /**
-   * Search is applied to string value
+   * Get issuerUrl
    * @return issuerUrl
    */
   @javax.annotation.Nullable
@@ -127,7 +127,7 @@ public class UserIdentity {
   }
 
   /**
-   * Search is applied to string value
+   * Get subject
    * @return subject
    */
   @javax.annotation.Nullable

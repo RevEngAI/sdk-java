@@ -117,9 +117,10 @@ public class Basic {
   private Integer functionCount;
 
   public static final String SERIALIZED_NAME_IS_ADVANCED = "is_advanced";
+  @Deprecated
   @SerializedName(SERIALIZED_NAME_IS_ADVANCED)
-  @javax.annotation.Nonnull
-  private Boolean isAdvanced;
+  @javax.annotation.Nullable
+  private Boolean isAdvanced = false;
 
   public static final String SERIALIZED_NAME_BASE_ADDRESS = "base_address";
   @SerializedName(SERIALIZED_NAME_BASE_ADDRESS)
@@ -391,21 +392,25 @@ public class Basic {
   }
 
 
-  public Basic isAdvanced(@javax.annotation.Nonnull Boolean isAdvanced) {
+  @Deprecated
+  public Basic isAdvanced(@javax.annotation.Nullable Boolean isAdvanced) {
     this.isAdvanced = isAdvanced;
     return this;
   }
 
   /**
-   * Whether the analysis was advanced
+   * Always false; advanced (DFG) analysis has been removed
    * @return isAdvanced
+   * @deprecated
    */
-  @javax.annotation.Nonnull
+  @Deprecated
+  @javax.annotation.Nullable
   public Boolean getIsAdvanced() {
     return isAdvanced;
   }
 
-  public void setIsAdvanced(@javax.annotation.Nonnull Boolean isAdvanced) {
+  @Deprecated
+  public void setIsAdvanced(@javax.annotation.Nullable Boolean isAdvanced) {
     this.isAdvanced = isAdvanced;
   }
 
@@ -621,7 +626,7 @@ public class Basic {
     openapiFields = new HashSet<String>(Arrays.asList("binary_id", "binary_name", "binary_size", "creation", "sha_256_hash", "model_name", "model_id", "owner_username", "is_system", "analysis_scope", "is_owner", "debug", "function_count", "is_advanced", "base_address", "binary_uuid", "sequencer_version", "team_id"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("binary_id", "binary_name", "binary_size", "creation", "sha_256_hash", "model_name", "model_id", "owner_username", "is_system", "analysis_scope", "is_owner", "debug", "function_count", "is_advanced", "base_address", "team_id"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("binary_id", "binary_name", "binary_size", "creation", "sha_256_hash", "model_name", "model_id", "owner_username", "is_system", "analysis_scope", "is_owner", "debug", "function_count", "base_address", "team_id"));
   }
 
   /**

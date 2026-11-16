@@ -49,6 +49,65 @@ import ai.reveng.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UserProfile {
+  /**
+   * Gets or Sets agentChatLayout
+   */
+  @JsonAdapter(AgentChatLayoutEnum.Adapter.class)
+  public enum AgentChatLayoutEnum {
+    FLOATING("floating"),
+    
+    FIXED("fixed"),
+    
+    UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+    private String value;
+
+    AgentChatLayoutEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static AgentChatLayoutEnum fromValue(String value) {
+      for (AgentChatLayoutEnum b : AgentChatLayoutEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return UNKNOWN_DEFAULT_OPEN_API;
+    }
+
+    public static class Adapter extends TypeAdapter<AgentChatLayoutEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final AgentChatLayoutEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public AgentChatLayoutEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return AgentChatLayoutEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      AgentChatLayoutEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_AGENT_CHAT_LAYOUT = "agent_chat_layout";
+  @SerializedName(SERIALIZED_NAME_AGENT_CHAT_LAYOUT)
+  @javax.annotation.Nonnull
+  private AgentChatLayoutEnum agentChatLayout;
+
   public static final String SERIALIZED_NAME_DEFAULT_TEAM_ID = "default_team_id";
   @SerializedName(SERIALIZED_NAME_DEFAULT_TEAM_ID)
   @javax.annotation.Nullable
@@ -86,6 +145,25 @@ public class UserProfile {
 
   public UserProfile() {
   }
+
+  public UserProfile agentChatLayout(@javax.annotation.Nonnull AgentChatLayoutEnum agentChatLayout) {
+    this.agentChatLayout = agentChatLayout;
+    return this;
+  }
+
+  /**
+   * Get agentChatLayout
+   * @return agentChatLayout
+   */
+  @javax.annotation.Nonnull
+  public AgentChatLayoutEnum getAgentChatLayout() {
+    return agentChatLayout;
+  }
+
+  public void setAgentChatLayout(@javax.annotation.Nonnull AgentChatLayoutEnum agentChatLayout) {
+    this.agentChatLayout = agentChatLayout;
+  }
+
 
   public UserProfile defaultTeamId(@javax.annotation.Nullable Long defaultTeamId) {
     this.defaultTeamId = defaultTeamId;
@@ -274,7 +352,8 @@ public class UserProfile {
       return false;
     }
     UserProfile userProfile = (UserProfile) o;
-    return Objects.equals(this.defaultTeamId, userProfile.defaultTeamId) &&
+    return Objects.equals(this.agentChatLayout, userProfile.agentChatLayout) &&
+        Objects.equals(this.defaultTeamId, userProfile.defaultTeamId) &&
         Objects.equals(this.firstName, userProfile.firstName) &&
         Objects.equals(this.hideAiDecompilationComments, userProfile.hideAiDecompilationComments) &&
         Objects.equals(this.hideExampleBinaries, userProfile.hideExampleBinaries) &&
@@ -286,13 +365,14 @@ public class UserProfile {
 
   @Override
   public int hashCode() {
-    return Objects.hash(defaultTeamId, firstName, hideAiDecompilationComments, hideExampleBinaries, lastName, timeZone, username, additionalProperties);
+    return Objects.hash(agentChatLayout, defaultTeamId, firstName, hideAiDecompilationComments, hideExampleBinaries, lastName, timeZone, username, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UserProfile {\n");
+    sb.append("    agentChatLayout: ").append(toIndentedString(agentChatLayout)).append("\n");
     sb.append("    defaultTeamId: ").append(toIndentedString(defaultTeamId)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    hideAiDecompilationComments: ").append(toIndentedString(hideAiDecompilationComments)).append("\n");
@@ -319,10 +399,10 @@ public class UserProfile {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("default_team_id", "first_name", "hide_ai_decompilation_comments", "hide_example_binaries", "last_name", "time_zone", "username"));
+    openapiFields = new HashSet<String>(Arrays.asList("agent_chat_layout", "default_team_id", "first_name", "hide_ai_decompilation_comments", "hide_example_binaries", "last_name", "time_zone", "username"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("first_name", "hide_ai_decompilation_comments", "hide_example_binaries", "last_name", "time_zone", "username"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("agent_chat_layout", "first_name", "hide_ai_decompilation_comments", "hide_example_binaries", "last_name", "time_zone", "username"));
   }
 
   /**
@@ -345,6 +425,11 @@ public class UserProfile {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("agent_chat_layout").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `agent_chat_layout` to be a primitive type in the JSON string but got `%s`", jsonObj.get("agent_chat_layout").toString()));
+      }
+      // validate the required field `agent_chat_layout`
+      AgentChatLayoutEnum.validateJsonElement(jsonObj.get("agent_chat_layout"));
       if (!jsonObj.get("first_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `first_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("first_name").toString()));
       }

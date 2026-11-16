@@ -20,7 +20,7 @@
 |**isOwner** | **Boolean** | Whether the current user is the owner |  |
 |**debug** | **Boolean** | Whether the current analysis was analysed with debug symbols |  |
 |**functionCount** | **Integer** | The number of functions in the binary |  |
-|**isAdvanced** | **Boolean** | Whether the analysis was advanced |  |
+|**isAdvanced** | **Boolean** | Always false; advanced (DFG) analysis has been removed |  [optional] |
 |**baseAddress** | **Integer** | The base address of the binary |  |
 |**binaryUuid** | **String** | The UUID of the binary |  [optional] |
 |**sequencerVersion** | **String** | The sequencer version used for analysis |  [optional] |

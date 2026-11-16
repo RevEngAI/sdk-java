@@ -512,7 +512,7 @@ public class ResolvedEntity {
   }
 
   /**
-   * Search is applied to string value
+   * Get kind
    * @return kind
    */
   @javax.annotation.Nullable
@@ -531,7 +531,7 @@ public class ResolvedEntity {
   }
 
   /**
-   * Search is applied to string value
+   * Get name
    * @return name
    */
   @javax.annotation.Nullable
@@ -588,7 +588,7 @@ public class ResolvedEntity {
   }
 
   /**
-   * Search is applied to string value
+   * Get provenance
    * @return provenance
    */
   @javax.annotation.Nullable
@@ -626,7 +626,7 @@ public class ResolvedEntity {
   }
 
   /**
-   * Search is applied to string value
+   * Get suggestedName
    * @return suggestedName
    */
   @javax.annotation.Nullable
@@ -683,7 +683,7 @@ public class ResolvedEntity {
   }
 
   /**
-   * Search is applied to string value
+   * Get token
    * @return token
    */
   @javax.annotation.Nullable

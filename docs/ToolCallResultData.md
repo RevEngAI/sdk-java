@@ -7,6 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**binaryName** | **String** |  |  [optional] |
+|**functionName** | **String** |  |  [optional] |
 |**isError** | **Boolean** |  |  [optional] |
 |**result** | **String** |  |  [optional] |
 |**toolCallId** | **String** |  |  [optional] |

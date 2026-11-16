@@ -98,7 +98,7 @@ public class Organisation {
   }
 
   /**
-   * Search is applied to string value
+   * Get name
    * @return name
    */
   @javax.annotation.Nullable

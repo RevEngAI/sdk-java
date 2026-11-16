@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**interpretation** | **String** | Search is applied to string value |  [optional] |
+|**interpretation** | **String** |  |  [optional] |
 
 
 

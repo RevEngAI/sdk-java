@@ -13,16 +13,13 @@
 package ai.reveng.model;
 
 import java.util.Objects;
-import ai.reveng.model.FunctionString;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -48,66 +45,34 @@ import java.util.Set;
 import ai.reveng.invoker.JSON;
 
 /**
- * Response for listing all the strings of a function.
+ * DeleteMeBody
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class FunctionStringsResponse {
-  public static final String SERIALIZED_NAME_STRINGS = "strings";
-  @SerializedName(SERIALIZED_NAME_STRINGS)
-  @javax.annotation.Nonnull
-  private List<FunctionString> strings = new ArrayList<>();
+public class DeleteMeBody {
+  public static final String SERIALIZED_NAME_PASSWORD = "password";
+  @SerializedName(SERIALIZED_NAME_PASSWORD)
+  @javax.annotation.Nullable
+  private String password;
 
-  public static final String SERIALIZED_NAME_TOTAL_STRINGS = "total_strings";
-  @SerializedName(SERIALIZED_NAME_TOTAL_STRINGS)
-  @javax.annotation.Nonnull
-  private Integer totalStrings;
-
-  public FunctionStringsResponse() {
+  public DeleteMeBody() {
   }
 
-  public FunctionStringsResponse strings(@javax.annotation.Nonnull List<FunctionString> strings) {
-    this.strings = strings;
-    return this;
-  }
-
-  public FunctionStringsResponse addStringsItem(FunctionString stringsItem) {
-    if (this.strings == null) {
-      this.strings = new ArrayList<>();
-    }
-    this.strings.add(stringsItem);
+  public DeleteMeBody password(@javax.annotation.Nullable String password) {
+    this.password = password;
     return this;
   }
 
   /**
-   * The strings associated with this function
-   * @return strings
+   * Current password. Required for users who sign in with a password; ignored for users from an external identity provider.
+   * @return password
    */
-  @javax.annotation.Nonnull
-  public List<FunctionString> getStrings() {
-    return strings;
+  @javax.annotation.Nullable
+  public String getPassword() {
+    return password;
   }
 
-  public void setStrings(@javax.annotation.Nonnull List<FunctionString> strings) {
-    this.strings = strings;
-  }
-
-
-  public FunctionStringsResponse totalStrings(@javax.annotation.Nonnull Integer totalStrings) {
-    this.totalStrings = totalStrings;
-    return this;
-  }
-
-  /**
-   * The total number of strings associated with this function
-   * @return totalStrings
-   */
-  @javax.annotation.Nonnull
-  public Integer getTotalStrings() {
-    return totalStrings;
-  }
-
-  public void setTotalStrings(@javax.annotation.Nonnull Integer totalStrings) {
-    this.totalStrings = totalStrings;
+  public void setPassword(@javax.annotation.Nullable String password) {
+    this.password = password;
   }
 
   /**
@@ -123,9 +88,9 @@ public class FunctionStringsResponse {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the FunctionStringsResponse instance itself
+   * @return the DeleteMeBody instance itself
    */
-  public FunctionStringsResponse putAdditionalProperty(String key, Object value) {
+  public DeleteMeBody putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -164,23 +129,21 @@ public class FunctionStringsResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FunctionStringsResponse functionStringsResponse = (FunctionStringsResponse) o;
-    return Objects.equals(this.strings, functionStringsResponse.strings) &&
-        Objects.equals(this.totalStrings, functionStringsResponse.totalStrings)&&
-        Objects.equals(this.additionalProperties, functionStringsResponse.additionalProperties);
+    DeleteMeBody deleteMeBody = (DeleteMeBody) o;
+    return Objects.equals(this.password, deleteMeBody.password)&&
+        Objects.equals(this.additionalProperties, deleteMeBody.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(strings, totalStrings, additionalProperties);
+    return Objects.hash(password, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FunctionStringsResponse {\n");
-    sb.append("    strings: ").append(toIndentedString(strings)).append("\n");
-    sb.append("    totalStrings: ").append(toIndentedString(totalStrings)).append("\n");
+    sb.append("class DeleteMeBody {\n");
+    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -200,41 +163,27 @@ public class FunctionStringsResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("strings", "total_strings"));
+    openapiFields = new HashSet<String>(Arrays.asList("password"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("strings", "total_strings"));
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to FunctionStringsResponse
+   * @throws IOException if the JSON Element is invalid with respect to DeleteMeBody
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!FunctionStringsResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in FunctionStringsResponse is not found in the empty JSON string", FunctionStringsResponse.openapiRequiredFields.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : FunctionStringsResponse.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (!DeleteMeBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in DeleteMeBody is not found in the empty JSON string", DeleteMeBody.openapiRequiredFields.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (jsonObj.get("strings") != null) {
-        if (!jsonObj.get("strings").isJsonArray()) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `strings` to be an array in the JSON string but got `%s`", jsonObj.get("strings").toString()));
-        }
-        JsonArray jsonArraystrings = jsonObj.getAsJsonArray("strings");
-        // validate the required field `strings` (array)
-        for (int i = 0; i < jsonArraystrings.size(); i++) {
-          FunctionString.validateJsonElement(jsonArraystrings.get(i));
-        }
+      if ((jsonObj.get("password") != null && !jsonObj.get("password").isJsonNull()) && !jsonObj.get("password").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password").toString()));
       }
   }
 
@@ -242,16 +191,16 @@ public class FunctionStringsResponse {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!FunctionStringsResponse.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'FunctionStringsResponse' and its subtypes
+       if (!DeleteMeBody.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'DeleteMeBody' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<FunctionStringsResponse> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(FunctionStringsResponse.class));
+       final TypeAdapter<DeleteMeBody> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(DeleteMeBody.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<FunctionStringsResponse>() {
+       return (TypeAdapter<T>) new TypeAdapter<DeleteMeBody>() {
            @Override
-           public void write(JsonWriter out, FunctionStringsResponse value) throws IOException {
+           public void write(JsonWriter out, DeleteMeBody value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -279,12 +228,12 @@ public class FunctionStringsResponse {
            }
 
            @Override
-           public FunctionStringsResponse read(JsonReader in) throws IOException {
+           public DeleteMeBody read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             FunctionStringsResponse instance = thisAdapter.fromJsonTree(jsonObj);
+             DeleteMeBody instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -311,18 +260,18 @@ public class FunctionStringsResponse {
   }
 
   /**
-   * Create an instance of FunctionStringsResponse given an JSON string
+   * Create an instance of DeleteMeBody given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of FunctionStringsResponse
-   * @throws IOException if the JSON string is invalid with respect to FunctionStringsResponse
+   * @return An instance of DeleteMeBody
+   * @throws IOException if the JSON string is invalid with respect to DeleteMeBody
    */
-  public static FunctionStringsResponse fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, FunctionStringsResponse.class);
+  public static DeleteMeBody fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, DeleteMeBody.class);
   }
 
   /**
-   * Convert an instance of FunctionStringsResponse to an JSON string
+   * Convert an instance of DeleteMeBody to an JSON string
    *
    * @return JSON string
    */
