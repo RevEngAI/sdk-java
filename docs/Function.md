@@ -1,6 +1,6 @@
 
 
-# AppApiRestV2FunctionsTypesFunction
+# Function
 
 
 ## Properties

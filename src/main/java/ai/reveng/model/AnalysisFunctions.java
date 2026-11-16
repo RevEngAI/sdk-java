@@ -13,7 +13,7 @@
 package ai.reveng.model;
 
 import java.util.Objects;
-import ai.reveng.model.AppApiRestV2FunctionsTypesFunction;
+import ai.reveng.model.Function;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -55,17 +55,17 @@ public class AnalysisFunctions {
   public static final String SERIALIZED_NAME_FUNCTIONS = "functions";
   @SerializedName(SERIALIZED_NAME_FUNCTIONS)
   @javax.annotation.Nonnull
-  private List<AppApiRestV2FunctionsTypesFunction> functions = new ArrayList<>();
+  private List<Function> functions = new ArrayList<>();
 
   public AnalysisFunctions() {
   }
 
-  public AnalysisFunctions functions(@javax.annotation.Nonnull List<AppApiRestV2FunctionsTypesFunction> functions) {
+  public AnalysisFunctions functions(@javax.annotation.Nonnull List<Function> functions) {
     this.functions = functions;
     return this;
   }
 
-  public AnalysisFunctions addFunctionsItem(AppApiRestV2FunctionsTypesFunction functionsItem) {
+  public AnalysisFunctions addFunctionsItem(Function functionsItem) {
     if (this.functions == null) {
       this.functions = new ArrayList<>();
     }
@@ -78,11 +78,11 @@ public class AnalysisFunctions {
    * @return functions
    */
   @javax.annotation.Nonnull
-  public List<AppApiRestV2FunctionsTypesFunction> getFunctions() {
+  public List<Function> getFunctions() {
     return functions;
   }
 
-  public void setFunctions(@javax.annotation.Nonnull List<AppApiRestV2FunctionsTypesFunction> functions) {
+  public void setFunctions(@javax.annotation.Nonnull List<Function> functions) {
     this.functions = functions;
   }
 
@@ -207,7 +207,7 @@ public class AnalysisFunctions {
         JsonArray jsonArrayfunctions = jsonObj.getAsJsonArray("functions");
         // validate the required field `functions` (array)
         for (int i = 0; i < jsonArrayfunctions.size(); i++) {
-          AppApiRestV2FunctionsTypesFunction.validateJsonElement(jsonArrayfunctions.get(i));
+          Function.validateJsonElement(jsonArrayfunctions.get(i));
         }
       }
   }

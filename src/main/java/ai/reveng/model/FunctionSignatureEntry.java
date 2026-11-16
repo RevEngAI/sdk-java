@@ -104,6 +104,8 @@ public class FunctionSignatureEntry {
     
     AUTO_UNSTRIP("AUTO_UNSTRIP"),
     
+    AI_AGENT("AI_AGENT"),
+    
     UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
     private String value;

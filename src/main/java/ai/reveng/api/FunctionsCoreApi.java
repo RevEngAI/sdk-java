@@ -30,12 +30,9 @@ import ai.reveng.model.APIError;
 import ai.reveng.model.AddCalleeInputBody;
 import ai.reveng.model.AddUserStringToFunctionInputBody;
 import ai.reveng.model.BaseResponse;
-import ai.reveng.model.BaseResponseAnalysisStringsResponse;
-import ai.reveng.model.BaseResponseAnalysisStringsStatusResponse;
 import ai.reveng.model.BaseResponseCalleesCallerFunctionsResponse;
 import ai.reveng.model.BaseResponseFunctionBlocksResponse;
 import ai.reveng.model.BaseResponseFunctionCapabilityResponse;
-import ai.reveng.model.BaseResponseFunctionStringsResponse;
 import ai.reveng.model.BaseResponseFunctionsDetailResponse;
 import ai.reveng.model.BaseResponseListCalleesCallerFunctionsResponse;
 import ai.reveng.model.CallEdgesOutputBody;
@@ -43,6 +40,7 @@ import ai.reveng.model.CanonicalizeNamesInputBody;
 import ai.reveng.model.CanonicalizeNamesOutputBody;
 import ai.reveng.model.CapabilitiesOutputBody;
 import ai.reveng.model.DisassemblyOutputBody;
+import ai.reveng.model.FeedbackSubmission;
 import ai.reveng.model.FunctionDetailsOutputBody;
 import ai.reveng.model.GetFunctionMapsOutputBody;
 import ai.reveng.model.GetMatchesOutputBody;
@@ -53,6 +51,7 @@ import ai.reveng.model.ListAnalysisFunctionsOutputBody;
 import ai.reveng.model.ListFunctionGlobalsOutputBody;
 import ai.reveng.model.ListFunctionStringsOutputBody;
 import ai.reveng.model.ListImportedFunctionsOutputBody;
+import ai.reveng.model.RecordedFeedback;
 import ai.reveng.model.SearchFunctionsOutputBody;
 import ai.reveng.model.StartMatchingForFunctionsInputBody;
 import ai.reveng.model.StartMatchingOutputBody;
@@ -411,334 +410,6 @@ public class FunctionsCoreApi {
         return localVarCall;
     }
     /**
-     * Build call for getAnalysisStrings
-     * @param analysisId  (required)
-     * @param page The page number to retrieve. (optional, default to 1)
-     * @param pageSize Number of items per page. (optional, default to 100)
-     * @param search Search is applied to string value (optional)
-     * @param functionSearch Search is applied to function names (optional)
-     * @param orderBy Order by field (optional, default to value)
-     * @param sortOrder Sort order for the results (optional, default to ASC)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public okhttp3.Call getAnalysisStringsCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String functionSearch, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String sortOrder, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v2/analyses/{analysis_id}/functions/strings"
-            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (page != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
-        }
-
-        if (pageSize != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page_size", pageSize));
-        }
-
-        if (search != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("search", search));
-        }
-
-        if (functionSearch != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("function_search", functionSearch));
-        }
-
-        if (orderBy != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("order_by", orderBy));
-        }
-
-        if (sortOrder != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sort_order", sortOrder));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @Deprecated
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAnalysisStringsValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String functionSearch, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String sortOrder, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'analysisId' is set
-        if (analysisId == null) {
-            throw new ApiException("Missing the required parameter 'analysisId' when calling getAnalysisStrings(Async)");
-        }
-
-        return getAnalysisStringsCall(analysisId, page, pageSize, search, functionSearch, orderBy, sortOrder, _callback);
-
-    }
-
-    /**
-     * Get string information found in the Analysis
-     * Get string information found in the analysis
-     * @param analysisId  (required)
-     * @param page The page number to retrieve. (optional, default to 1)
-     * @param pageSize Number of items per page. (optional, default to 100)
-     * @param search Search is applied to string value (optional)
-     * @param functionSearch Search is applied to function names (optional)
-     * @param orderBy Order by field (optional, default to value)
-     * @param sortOrder Sort order for the results (optional, default to ASC)
-     * @return BaseResponseAnalysisStringsResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public BaseResponseAnalysisStringsResponse getAnalysisStrings(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String functionSearch, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String sortOrder) throws ApiException {
-        ApiResponse<BaseResponseAnalysisStringsResponse> localVarResp = getAnalysisStringsWithHttpInfo(analysisId, page, pageSize, search, functionSearch, orderBy, sortOrder);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get string information found in the Analysis
-     * Get string information found in the analysis
-     * @param analysisId  (required)
-     * @param page The page number to retrieve. (optional, default to 1)
-     * @param pageSize Number of items per page. (optional, default to 100)
-     * @param search Search is applied to string value (optional)
-     * @param functionSearch Search is applied to function names (optional)
-     * @param orderBy Order by field (optional, default to value)
-     * @param sortOrder Sort order for the results (optional, default to ASC)
-     * @return ApiResponse&lt;BaseResponseAnalysisStringsResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public ApiResponse<BaseResponseAnalysisStringsResponse> getAnalysisStringsWithHttpInfo(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String functionSearch, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String sortOrder) throws ApiException {
-        okhttp3.Call localVarCall = getAnalysisStringsValidateBeforeCall(analysisId, page, pageSize, search, functionSearch, orderBy, sortOrder, null);
-        Type localVarReturnType = new TypeToken<BaseResponseAnalysisStringsResponse>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Get string information found in the Analysis (asynchronously)
-     * Get string information found in the analysis
-     * @param analysisId  (required)
-     * @param page The page number to retrieve. (optional, default to 1)
-     * @param pageSize Number of items per page. (optional, default to 100)
-     * @param search Search is applied to string value (optional)
-     * @param functionSearch Search is applied to function names (optional)
-     * @param orderBy Order by field (optional, default to value)
-     * @param sortOrder Sort order for the results (optional, default to ASC)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public okhttp3.Call getAnalysisStringsAsync(@javax.annotation.Nonnull Integer analysisId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search, @javax.annotation.Nullable String functionSearch, @javax.annotation.Nullable String orderBy, @javax.annotation.Nullable String sortOrder, final ApiCallback<BaseResponseAnalysisStringsResponse> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = getAnalysisStringsValidateBeforeCall(analysisId, page, pageSize, search, functionSearch, orderBy, sortOrder, _callback);
-        Type localVarReturnType = new TypeToken<BaseResponseAnalysisStringsResponse>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for getAnalysisStringsStatus
-     * @param analysisId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public okhttp3.Call getAnalysisStringsStatusCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v2/analyses/{analysis_id}/functions/strings/status"
-            .replace("{" + "analysis_id" + "}", localVarApiClient.escapeString(analysisId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @Deprecated
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAnalysisStringsStatusValidateBeforeCall(@javax.annotation.Nonnull Integer analysisId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'analysisId' is set
-        if (analysisId == null) {
-            throw new ApiException("Missing the required parameter 'analysisId' when calling getAnalysisStringsStatus(Async)");
-        }
-
-        return getAnalysisStringsStatusCall(analysisId, _callback);
-
-    }
-
-    /**
-     * Get string processing state for the Analysis
-     * Get string processing state for the Analysis
-     * @param analysisId  (required)
-     * @return BaseResponseAnalysisStringsStatusResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public BaseResponseAnalysisStringsStatusResponse getAnalysisStringsStatus(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
-        ApiResponse<BaseResponseAnalysisStringsStatusResponse> localVarResp = getAnalysisStringsStatusWithHttpInfo(analysisId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get string processing state for the Analysis
-     * Get string processing state for the Analysis
-     * @param analysisId  (required)
-     * @return ApiResponse&lt;BaseResponseAnalysisStringsStatusResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public ApiResponse<BaseResponseAnalysisStringsStatusResponse> getAnalysisStringsStatusWithHttpInfo(@javax.annotation.Nonnull Integer analysisId) throws ApiException {
-        okhttp3.Call localVarCall = getAnalysisStringsStatusValidateBeforeCall(analysisId, null);
-        Type localVarReturnType = new TypeToken<BaseResponseAnalysisStringsStatusResponse>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Get string processing state for the Analysis (asynchronously)
-     * Get string processing state for the Analysis
-     * @param analysisId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public okhttp3.Call getAnalysisStringsStatusAsync(@javax.annotation.Nonnull Integer analysisId, final ApiCallback<BaseResponseAnalysisStringsStatusResponse> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = getAnalysisStringsStatusValidateBeforeCall(analysisId, _callback);
-        Type localVarReturnType = new TypeToken<BaseResponseAnalysisStringsStatusResponse>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
      * Build call for getFunctionBlocks
      * @param functionId  (required)
      * @param _callback Callback for upload/download progress
@@ -958,7 +629,7 @@ public class FunctionsCoreApi {
 
     /**
      * Get function disassembly
-     * Returns the function&#39;s disassembly metadata (JSON blob containing basic blocks + local variables) along with parameter and return-type info. A function that carries no disassembly (externals, thunks) returns 200 with the block fields omitted; disassembly that exists but cannot be read yet returns 409 ANALYSIS_NOT_READY.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;409&#x60; [&#x60;ANALYSIS_NOT_READY&#x60;](/errors/ANALYSIS_NOT_READY) — Analysis Not Ready
+     * Returns the function&#39;s disassembly metadata (JSON blob containing basic blocks + local variables). Parameters and return type are not part of the disassembly; read them from GET /v3/analyses/{analysis_id}/functions/{function_id}/signature. A function that carries no disassembly (externals, thunks) returns 200 with the block fields omitted; disassembly that exists but cannot be read yet returns 409 ANALYSIS_NOT_READY.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;409&#x60; [&#x60;ANALYSIS_NOT_READY&#x60;](/errors/ANALYSIS_NOT_READY) — Analysis Not Ready
      * @param functionId Function ID (required)
      * @return DisassemblyOutputBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -981,7 +652,7 @@ public class FunctionsCoreApi {
 
     /**
      * Get function disassembly
-     * Returns the function&#39;s disassembly metadata (JSON blob containing basic blocks + local variables) along with parameter and return-type info. A function that carries no disassembly (externals, thunks) returns 200 with the block fields omitted; disassembly that exists but cannot be read yet returns 409 ANALYSIS_NOT_READY.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;409&#x60; [&#x60;ANALYSIS_NOT_READY&#x60;](/errors/ANALYSIS_NOT_READY) — Analysis Not Ready
+     * Returns the function&#39;s disassembly metadata (JSON blob containing basic blocks + local variables). Parameters and return type are not part of the disassembly; read them from GET /v3/analyses/{analysis_id}/functions/{function_id}/signature. A function that carries no disassembly (externals, thunks) returns 200 with the block fields omitted; disassembly that exists but cannot be read yet returns 409 ANALYSIS_NOT_READY.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;409&#x60; [&#x60;ANALYSIS_NOT_READY&#x60;](/errors/ANALYSIS_NOT_READY) — Analysis Not Ready
      * @param functionId Function ID (required)
      * @return ApiResponse&lt;DisassemblyOutputBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1005,7 +676,7 @@ public class FunctionsCoreApi {
 
     /**
      * Get function disassembly (asynchronously)
-     * Returns the function&#39;s disassembly metadata (JSON blob containing basic blocks + local variables) along with parameter and return-type info. A function that carries no disassembly (externals, thunks) returns 200 with the block fields omitted; disassembly that exists but cannot be read yet returns 409 ANALYSIS_NOT_READY.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;409&#x60; [&#x60;ANALYSIS_NOT_READY&#x60;](/errors/ANALYSIS_NOT_READY) — Analysis Not Ready
+     * Returns the function&#39;s disassembly metadata (JSON blob containing basic blocks + local variables). Parameters and return type are not part of the disassembly; read them from GET /v3/analyses/{analysis_id}/functions/{function_id}/signature. A function that carries no disassembly (externals, thunks) returns 200 with the block fields omitted; disassembly that exists but cannot be read yet returns 409 ANALYSIS_NOT_READY.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;409&#x60; [&#x60;ANALYSIS_NOT_READY&#x60;](/errors/ANALYSIS_NOT_READY) — Analysis Not Ready
      * @param functionId Function ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2170,170 +1841,6 @@ public class FunctionsCoreApi {
     }
     /**
      * Build call for getFunctionStrings
-     * @param functionId  (required)
-     * @param page The page number to retrieve. (optional, default to 1)
-     * @param pageSize Number of items per page. (optional, default to 100)
-     * @param search Search is applied to string value (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public okhttp3.Call getFunctionStringsCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/v2/functions/{function_id}/strings"
-            .replace("{" + "function_id" + "}", localVarApiClient.escapeString(functionId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (page != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
-        }
-
-        if (pageSize != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page_size", pageSize));
-        }
-
-        if (search != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("search", search));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @Deprecated
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call getFunctionStringsValidateBeforeCall(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'functionId' is set
-        if (functionId == null) {
-            throw new ApiException("Missing the required parameter 'functionId' when calling getFunctionStrings(Async)");
-        }
-
-        return getFunctionStringsCall(functionId, page, pageSize, search, _callback);
-
-    }
-
-    /**
-     * Get string information found in the function
-     * Get string information found in the function
-     * @param functionId  (required)
-     * @param page The page number to retrieve. (optional, default to 1)
-     * @param pageSize Number of items per page. (optional, default to 100)
-     * @param search Search is applied to string value (optional)
-     * @return BaseResponseFunctionStringsResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public BaseResponseFunctionStringsResponse getFunctionStrings(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search) throws ApiException {
-        ApiResponse<BaseResponseFunctionStringsResponse> localVarResp = getFunctionStringsWithHttpInfo(functionId, page, pageSize, search);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get string information found in the function
-     * Get string information found in the function
-     * @param functionId  (required)
-     * @param page The page number to retrieve. (optional, default to 1)
-     * @param pageSize Number of items per page. (optional, default to 100)
-     * @param search Search is applied to string value (optional)
-     * @return ApiResponse&lt;BaseResponseFunctionStringsResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public ApiResponse<BaseResponseFunctionStringsResponse> getFunctionStringsWithHttpInfo(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search) throws ApiException {
-        okhttp3.Call localVarCall = getFunctionStringsValidateBeforeCall(functionId, page, pageSize, search, null);
-        Type localVarReturnType = new TypeToken<BaseResponseFunctionStringsResponse>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Get string information found in the function (asynchronously)
-     * Get string information found in the function
-     * @param functionId  (required)
-     * @param page The page number to retrieve. (optional, default to 1)
-     * @param pageSize Number of items per page. (optional, default to 100)
-     * @param search Search is applied to string value (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successful Response </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Invalid request parameters </td><td>  -  </td></tr>
-     </table>
-     * @deprecated
-     */
-    @Deprecated
-    public okhttp3.Call getFunctionStringsAsync(@javax.annotation.Nonnull Integer functionId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer pageSize, @javax.annotation.Nullable String search, final ApiCallback<BaseResponseFunctionStringsResponse> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = getFunctionStringsValidateBeforeCall(functionId, page, pageSize, search, _callback);
-        Type localVarReturnType = new TypeToken<BaseResponseFunctionStringsResponse>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for getFunctionStrings_0
      * @param functionId Function ID (required)
      * @param page Page number (1-indexed). (optional, default to 1)
      * @param pageSize Number of results per page. (optional, default to 100)
@@ -2352,7 +1859,7 @@ public class FunctionsCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFunctionStrings_0Call(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Long page, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String search, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getFunctionStringsCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Long page, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String search, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2410,13 +1917,13 @@ public class FunctionsCoreApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getFunctionStrings_0ValidateBeforeCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Long page, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String search, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getFunctionStringsValidateBeforeCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Long page, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String search, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'functionId' is set
         if (functionId == null) {
-            throw new ApiException("Missing the required parameter 'functionId' when calling getFunctionStrings_0(Async)");
+            throw new ApiException("Missing the required parameter 'functionId' when calling getFunctionStrings(Async)");
         }
 
-        return getFunctionStrings_0Call(functionId, page, pageSize, search, _callback);
+        return getFunctionStringsCall(functionId, page, pageSize, search, _callback);
 
     }
 
@@ -2440,8 +1947,8 @@ public class FunctionsCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ListFunctionStringsOutputBody getFunctionStrings_0(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Long page, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String search) throws ApiException {
-        ApiResponse<ListFunctionStringsOutputBody> localVarResp = getFunctionStrings_0WithHttpInfo(functionId, page, pageSize, search);
+    public ListFunctionStringsOutputBody getFunctionStrings(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Long page, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String search) throws ApiException {
+        ApiResponse<ListFunctionStringsOutputBody> localVarResp = getFunctionStringsWithHttpInfo(functionId, page, pageSize, search);
         return localVarResp.getData();
     }
 
@@ -2465,8 +1972,8 @@ public class FunctionsCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListFunctionStringsOutputBody> getFunctionStrings_0WithHttpInfo(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Long page, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String search) throws ApiException {
-        okhttp3.Call localVarCall = getFunctionStrings_0ValidateBeforeCall(functionId, page, pageSize, search, null);
+    public ApiResponse<ListFunctionStringsOutputBody> getFunctionStringsWithHttpInfo(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Long page, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String search) throws ApiException {
+        okhttp3.Call localVarCall = getFunctionStringsValidateBeforeCall(functionId, page, pageSize, search, null);
         Type localVarReturnType = new TypeToken<ListFunctionStringsOutputBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2492,9 +1999,9 @@ public class FunctionsCoreApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getFunctionStrings_0Async(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Long page, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String search, final ApiCallback<ListFunctionStringsOutputBody> _callback) throws ApiException {
+    public okhttp3.Call getFunctionStringsAsync(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nullable Long page, @javax.annotation.Nullable Long pageSize, @javax.annotation.Nullable String search, final ApiCallback<ListFunctionStringsOutputBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getFunctionStrings_0ValidateBeforeCall(functionId, page, pageSize, search, _callback);
+        okhttp3.Call localVarCall = getFunctionStringsValidateBeforeCall(functionId, page, pageSize, search, _callback);
         Type localVarReturnType = new TypeToken<ListFunctionStringsOutputBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3860,6 +3367,159 @@ public class FunctionsCoreApi {
         return localVarCall;
     }
     /**
+     * Build call for v3GetFunctionFeedback
+     * @param functionId Function ID (required)
+     * @param type What the feedback is about (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3GetFunctionFeedbackCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull String type, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v3/functions/{function_id}/feedback/{type}"
+            .replace("{" + "function_id" + "}", localVarApiClient.escapeString(functionId.toString()))
+            .replace("{" + "type" + "}", localVarApiClient.escapeString(type.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call v3GetFunctionFeedbackValidateBeforeCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull String type, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'functionId' is set
+        if (functionId == null) {
+            throw new ApiException("Missing the required parameter 'functionId' when calling v3GetFunctionFeedback(Async)");
+        }
+
+        // verify the required parameter 'type' is set
+        if (type == null) {
+            throw new ApiException("Missing the required parameter 'type' when calling v3GetFunctionFeedback(Async)");
+        }
+
+        return v3GetFunctionFeedbackCall(functionId, type, _callback);
+
+    }
+
+    /**
+     * Get the caller&#39;s feedback on a function.
+     * Returns the feedback the caller recorded for one kind of result on this function, or null fields when they have not recorded any.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param functionId Function ID (required)
+     * @param type What the feedback is about (required)
+     * @return RecordedFeedback
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public RecordedFeedback v3GetFunctionFeedback(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull String type) throws ApiException {
+        ApiResponse<RecordedFeedback> localVarResp = v3GetFunctionFeedbackWithHttpInfo(functionId, type);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get the caller&#39;s feedback on a function.
+     * Returns the feedback the caller recorded for one kind of result on this function, or null fields when they have not recorded any.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param functionId Function ID (required)
+     * @param type What the feedback is about (required)
+     * @return ApiResponse&lt;RecordedFeedback&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<RecordedFeedback> v3GetFunctionFeedbackWithHttpInfo(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull String type) throws ApiException {
+        okhttp3.Call localVarCall = v3GetFunctionFeedbackValidateBeforeCall(functionId, type, null);
+        Type localVarReturnType = new TypeToken<RecordedFeedback>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get the caller&#39;s feedback on a function. (asynchronously)
+     * Returns the feedback the caller recorded for one kind of result on this function, or null fields when they have not recorded any.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param functionId Function ID (required)
+     * @param type What the feedback is about (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3GetFunctionFeedbackAsync(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull String type, final ApiCallback<RecordedFeedback> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = v3GetFunctionFeedbackValidateBeforeCall(functionId, type, _callback);
+        Type localVarReturnType = new TypeToken<RecordedFeedback>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for v3ListFunctionGlobals
      * @param functionId Function ID (required)
      * @param _callback Callback for upload/download progress
@@ -4157,6 +3817,165 @@ public class FunctionsCoreApi {
         okhttp3.Call localVarCall = v3SearchFunctionsValidateBeforeCall(partialName, modelName, limit, offset, _callback);
         Type localVarReturnType = new TypeToken<SearchFunctionsOutputBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for v3UpsertFunctionFeedback
+     * @param functionId Function ID (required)
+     * @param type What the feedback is about (required)
+     * @param feedbackSubmission  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3UpsertFunctionFeedbackCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull String type, @javax.annotation.Nonnull FeedbackSubmission feedbackSubmission, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = feedbackSubmission;
+
+        // create path and map variables
+        String localVarPath = "/v3/functions/{function_id}/feedback/{type}"
+            .replace("{" + "function_id" + "}", localVarApiClient.escapeString(functionId.toString()))
+            .replace("{" + "type" + "}", localVarApiClient.escapeString(type.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "APIKey", "bearerAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call v3UpsertFunctionFeedbackValidateBeforeCall(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull String type, @javax.annotation.Nonnull FeedbackSubmission feedbackSubmission, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'functionId' is set
+        if (functionId == null) {
+            throw new ApiException("Missing the required parameter 'functionId' when calling v3UpsertFunctionFeedback(Async)");
+        }
+
+        // verify the required parameter 'type' is set
+        if (type == null) {
+            throw new ApiException("Missing the required parameter 'type' when calling v3UpsertFunctionFeedback(Async)");
+        }
+
+        // verify the required parameter 'feedbackSubmission' is set
+        if (feedbackSubmission == null) {
+            throw new ApiException("Missing the required parameter 'feedbackSubmission' when calling v3UpsertFunctionFeedback(Async)");
+        }
+
+        return v3UpsertFunctionFeedbackCall(functionId, type, feedbackSubmission, _callback);
+
+    }
+
+    /**
+     * Record feedback on a function.
+     * Records how useful the caller found one kind of result for this function, with any context the client captured. Replaces any feedback they recorded previously.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param functionId Function ID (required)
+     * @param type What the feedback is about (required)
+     * @param feedbackSubmission  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public void v3UpsertFunctionFeedback(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull String type, @javax.annotation.Nonnull FeedbackSubmission feedbackSubmission) throws ApiException {
+        v3UpsertFunctionFeedbackWithHttpInfo(functionId, type, feedbackSubmission);
+    }
+
+    /**
+     * Record feedback on a function.
+     * Records how useful the caller found one kind of result for this function, with any context the client captured. Replaces any feedback they recorded previously.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param functionId Function ID (required)
+     * @param type What the feedback is about (required)
+     * @param feedbackSubmission  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> v3UpsertFunctionFeedbackWithHttpInfo(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull String type, @javax.annotation.Nonnull FeedbackSubmission feedbackSubmission) throws ApiException {
+        okhttp3.Call localVarCall = v3UpsertFunctionFeedbackValidateBeforeCall(functionId, type, feedbackSubmission, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Record feedback on a function. (asynchronously)
+     * Records how useful the caller found one kind of result for this function, with any context the client captured. Replaces any feedback they recorded previously.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+     * @param functionId Function ID (required)
+     * @param type What the feedback is about (required)
+     * @param feedbackSubmission  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call v3UpsertFunctionFeedbackAsync(@javax.annotation.Nonnull Long functionId, @javax.annotation.Nonnull String type, @javax.annotation.Nonnull FeedbackSubmission feedbackSubmission, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = v3UpsertFunctionFeedbackValidateBeforeCall(functionId, type, feedbackSubmission, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
 }

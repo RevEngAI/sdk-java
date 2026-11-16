@@ -27,8 +27,8 @@ import java.io.IOException;
 
 
 import ai.reveng.model.APIError;
+import ai.reveng.model.CurrentUser;
 import ai.reveng.model.Permissions;
-import ai.reveng.model.User;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -139,8 +139,8 @@ public class IamUsersApi {
 
     /**
      * Get current user
-     * Returns the authenticated user&#39;s own information.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
-     * @return User
+     * Returns the authenticated user&#39;s own information, and how they sign in.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * @return CurrentUser
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -151,15 +151,15 @@ public class IamUsersApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public User getMe() throws ApiException {
-        ApiResponse<User> localVarResp = getMeWithHttpInfo();
+    public CurrentUser getMe() throws ApiException {
+        ApiResponse<CurrentUser> localVarResp = getMeWithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
      * Get current user
-     * Returns the authenticated user&#39;s own information.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
-     * @return ApiResponse&lt;User&gt;
+     * Returns the authenticated user&#39;s own information, and how they sign in.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * @return ApiResponse&lt;CurrentUser&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -170,15 +170,15 @@ public class IamUsersApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<User> getMeWithHttpInfo() throws ApiException {
+    public ApiResponse<CurrentUser> getMeWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = getMeValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<User>(){}.getType();
+        Type localVarReturnType = new TypeToken<CurrentUser>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Get current user (asynchronously)
-     * Returns the authenticated user&#39;s own information.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
+     * Returns the authenticated user&#39;s own information, and how they sign in.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -191,10 +191,10 @@ public class IamUsersApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMeAsync(final ApiCallback<User> _callback) throws ApiException {
+    public okhttp3.Call getMeAsync(final ApiCallback<CurrentUser> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getMeValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<User>(){}.getType();
+        Type localVarReturnType = new TypeToken<CurrentUser>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

@@ -8,6 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**dataTypeId** | **Long** | Data type this token names, or for a field the type that declares it. Scoped by the response&#39;s analysis_id. |  [optional] |
+|**enumValue** | **String** | Integer value of an enum the decompiler recovered a name for. Absent for an unnamed enum, which already renders as its value. |  [optional] |
 |**functionId** | **Long** | Function this token calls or names. Absent when the address reaches no function of this binary. |  [optional] |
 |**importedFunctionId** | **Long** | Imported function this token calls. Set instead of function_id for an external call. |  [optional] |
 |**kind** | [**KindEnum**](#KindEnum) | What the token names. |  |

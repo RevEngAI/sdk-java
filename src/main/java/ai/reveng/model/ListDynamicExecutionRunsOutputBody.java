@@ -13,14 +13,16 @@
 package ai.reveng.model;
 
 import java.util.Objects;
-import ai.reveng.model.StringSource;
+import ai.reveng.model.DynamicExecutionRun;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,82 +48,42 @@ import java.util.Set;
 import ai.reveng.invoker.JSON;
 
 /**
- * Input model for inserting a string into an analysis.
+ * ListDynamicExecutionRunsOutputBody
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class AnalysisStringInput {
-  public static final String SERIALIZED_NAME_VALUE = "value";
-  @SerializedName(SERIALIZED_NAME_VALUE)
+public class ListDynamicExecutionRunsOutputBody {
+  public static final String SERIALIZED_NAME_RUNS = "runs";
+  @SerializedName(SERIALIZED_NAME_RUNS)
   @javax.annotation.Nonnull
-  private String value;
+  private List<DynamicExecutionRun> runs = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_VADDR = "vaddr";
-  @SerializedName(SERIALIZED_NAME_VADDR)
-  @javax.annotation.Nonnull
-  private Integer vaddr;
-
-  public static final String SERIALIZED_NAME_SOURCE = "source";
-  @SerializedName(SERIALIZED_NAME_SOURCE)
-  @javax.annotation.Nonnull
-  private StringSource source;
-
-  public AnalysisStringInput() {
+  public ListDynamicExecutionRunsOutputBody() {
   }
 
-  public AnalysisStringInput value(@javax.annotation.Nonnull String value) {
-    this.value = value;
+  public ListDynamicExecutionRunsOutputBody runs(@javax.annotation.Nonnull List<DynamicExecutionRun> runs) {
+    this.runs = runs;
+    return this;
+  }
+
+  public ListDynamicExecutionRunsOutputBody addRunsItem(DynamicExecutionRun runsItem) {
+    if (this.runs == null) {
+      this.runs = new ArrayList<>();
+    }
+    this.runs.add(runsItem);
     return this;
   }
 
   /**
-   * The string literal value
-   * @return value
+   * The analysis&#39;s runs, newest first
+   * @return runs
    */
   @javax.annotation.Nonnull
-  public String getValue() {
-    return value;
+  public List<DynamicExecutionRun> getRuns() {
+    return runs;
   }
 
-  public void setValue(@javax.annotation.Nonnull String value) {
-    this.value = value;
-  }
-
-
-  public AnalysisStringInput vaddr(@javax.annotation.Nonnull Integer vaddr) {
-    this.vaddr = vaddr;
-    return this;
-  }
-
-  /**
-   * The virtual address of the string
-   * @return vaddr
-   */
-  @javax.annotation.Nonnull
-  public Integer getVaddr() {
-    return vaddr;
-  }
-
-  public void setVaddr(@javax.annotation.Nonnull Integer vaddr) {
-    this.vaddr = vaddr;
-  }
-
-
-  public AnalysisStringInput source(@javax.annotation.Nonnull StringSource source) {
-    this.source = source;
-    return this;
-  }
-
-  /**
-   * The source of the string
-   * @return source
-   */
-  @javax.annotation.Nonnull
-  public StringSource getSource() {
-    return source;
-  }
-
-  public void setSource(@javax.annotation.Nonnull StringSource source) {
-    this.source = source;
+  public void setRuns(@javax.annotation.Nonnull List<DynamicExecutionRun> runs) {
+    this.runs = runs;
   }
 
   /**
@@ -137,9 +99,9 @@ public class AnalysisStringInput {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the AnalysisStringInput instance itself
+   * @return the ListDynamicExecutionRunsOutputBody instance itself
    */
-  public AnalysisStringInput putAdditionalProperty(String key, Object value) {
+  public ListDynamicExecutionRunsOutputBody putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -178,25 +140,21 @@ public class AnalysisStringInput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AnalysisStringInput analysisStringInput = (AnalysisStringInput) o;
-    return Objects.equals(this.value, analysisStringInput.value) &&
-        Objects.equals(this.vaddr, analysisStringInput.vaddr) &&
-        Objects.equals(this.source, analysisStringInput.source)&&
-        Objects.equals(this.additionalProperties, analysisStringInput.additionalProperties);
+    ListDynamicExecutionRunsOutputBody listDynamicExecutionRunsOutputBody = (ListDynamicExecutionRunsOutputBody) o;
+    return Objects.equals(this.runs, listDynamicExecutionRunsOutputBody.runs)&&
+        Objects.equals(this.additionalProperties, listDynamicExecutionRunsOutputBody.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(value, vaddr, source, additionalProperties);
+    return Objects.hash(runs, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AnalysisStringInput {\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
-    sb.append("    vaddr: ").append(toIndentedString(vaddr)).append("\n");
-    sb.append("    source: ").append(toIndentedString(source)).append("\n");
+    sb.append("class ListDynamicExecutionRunsOutputBody {\n");
+    sb.append("    runs: ").append(toIndentedString(runs)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -216,53 +174,54 @@ public class AnalysisStringInput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("value", "vaddr", "source"));
+    openapiFields = new HashSet<String>(Arrays.asList("runs"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("value", "vaddr", "source"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("runs"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to AnalysisStringInput
+   * @throws IOException if the JSON Element is invalid with respect to ListDynamicExecutionRunsOutputBody
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!AnalysisStringInput.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in AnalysisStringInput is not found in the empty JSON string", AnalysisStringInput.openapiRequiredFields.toString()));
+        if (!ListDynamicExecutionRunsOutputBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ListDynamicExecutionRunsOutputBody is not found in the empty JSON string", ListDynamicExecutionRunsOutputBody.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : AnalysisStringInput.openapiRequiredFields) {
+      for (String requiredField : ListDynamicExecutionRunsOutputBody.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("value").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
+      // ensure the required json array is present
+      if (jsonObj.get("runs") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("runs").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `runs` to be an array in the JSON string but got `%s`", jsonObj.get("runs").toString()));
       }
-      // validate the required field `source`
-      StringSource.validateJsonElement(jsonObj.get("source"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!AnalysisStringInput.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'AnalysisStringInput' and its subtypes
+       if (!ListDynamicExecutionRunsOutputBody.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ListDynamicExecutionRunsOutputBody' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<AnalysisStringInput> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(AnalysisStringInput.class));
+       final TypeAdapter<ListDynamicExecutionRunsOutputBody> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ListDynamicExecutionRunsOutputBody.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<AnalysisStringInput>() {
+       return (TypeAdapter<T>) new TypeAdapter<ListDynamicExecutionRunsOutputBody>() {
            @Override
-           public void write(JsonWriter out, AnalysisStringInput value) throws IOException {
+           public void write(JsonWriter out, ListDynamicExecutionRunsOutputBody value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -290,12 +249,12 @@ public class AnalysisStringInput {
            }
 
            @Override
-           public AnalysisStringInput read(JsonReader in) throws IOException {
+           public ListDynamicExecutionRunsOutputBody read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             AnalysisStringInput instance = thisAdapter.fromJsonTree(jsonObj);
+             ListDynamicExecutionRunsOutputBody instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -322,18 +281,18 @@ public class AnalysisStringInput {
   }
 
   /**
-   * Create an instance of AnalysisStringInput given an JSON string
+   * Create an instance of ListDynamicExecutionRunsOutputBody given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of AnalysisStringInput
-   * @throws IOException if the JSON string is invalid with respect to AnalysisStringInput
+   * @return An instance of ListDynamicExecutionRunsOutputBody
+   * @throws IOException if the JSON string is invalid with respect to ListDynamicExecutionRunsOutputBody
    */
-  public static AnalysisStringInput fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, AnalysisStringInput.class);
+  public static ListDynamicExecutionRunsOutputBody fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ListDynamicExecutionRunsOutputBody.class);
   }
 
   /**
-   * Convert an instance of AnalysisStringInput to an JSON string
+   * Convert an instance of ListDynamicExecutionRunsOutputBody to an JSON string
    *
    * @return JSON string
    */

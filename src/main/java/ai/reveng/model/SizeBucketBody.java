@@ -20,7 +20,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,58 +45,82 @@ import java.util.Set;
 import ai.reveng.invoker.JSON;
 
 /**
- * Function schema used in function strings response.
+ * SizeBucketBody
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class AppApiRestV2FunctionsResponsesFunction {
-  public static final String SERIALIZED_NAME_FUNCTION_ID = "function_id";
-  @SerializedName(SERIALIZED_NAME_FUNCTION_ID)
+public class SizeBucketBody {
+  public static final String SERIALIZED_NAME_BELOW_BYTES = "below_bytes";
+  @SerializedName(SERIALIZED_NAME_BELOW_BYTES)
   @javax.annotation.Nullable
-  private Integer functionId;
+  private Long belowBytes;
 
-  public static final String SERIALIZED_NAME_FUNCTION_VADDR = "function_vaddr";
-  @SerializedName(SERIALIZED_NAME_FUNCTION_VADDR)
+  public static final String SERIALIZED_NAME_FUNCTIONS = "functions";
+  @SerializedName(SERIALIZED_NAME_FUNCTIONS)
   @javax.annotation.Nonnull
-  private Long functionVaddr;
+  private Long functions;
 
-  public AppApiRestV2FunctionsResponsesFunction() {
+  public static final String SERIALIZED_NAME_UNCERTAIN = "uncertain";
+  @SerializedName(SERIALIZED_NAME_UNCERTAIN)
+  @javax.annotation.Nonnull
+  private Boolean uncertain;
+
+  public SizeBucketBody() {
   }
 
-  public AppApiRestV2FunctionsResponsesFunction functionId(@javax.annotation.Nullable Integer functionId) {
-    this.functionId = functionId;
+  public SizeBucketBody belowBytes(@javax.annotation.Nullable Long belowBytes) {
+    this.belowBytes = belowBytes;
     return this;
   }
 
   /**
-   * Get functionId
-   * @return functionId
+   * Exclusive upper bound of the bucket, in bytes. Null for the last bucket, which has no upper bound.
+   * @return belowBytes
    */
   @javax.annotation.Nullable
-  public Integer getFunctionId() {
-    return functionId;
+  public Long getBelowBytes() {
+    return belowBytes;
   }
 
-  public void setFunctionId(@javax.annotation.Nullable Integer functionId) {
-    this.functionId = functionId;
+  public void setBelowBytes(@javax.annotation.Nullable Long belowBytes) {
+    this.belowBytes = belowBytes;
   }
 
 
-  public AppApiRestV2FunctionsResponsesFunction functionVaddr(@javax.annotation.Nonnull Long functionVaddr) {
-    this.functionVaddr = functionVaddr;
+  public SizeBucketBody functions(@javax.annotation.Nonnull Long functions) {
+    this.functions = functions;
     return this;
   }
 
   /**
-   * Function virtual address
-   * @return functionVaddr
+   * Functions a binary this size is estimated to have
+   * @return functions
    */
   @javax.annotation.Nonnull
-  public Long getFunctionVaddr() {
-    return functionVaddr;
+  public Long getFunctions() {
+    return functions;
   }
 
-  public void setFunctionVaddr(@javax.annotation.Nonnull Long functionVaddr) {
-    this.functionVaddr = functionVaddr;
+  public void setFunctions(@javax.annotation.Nonnull Long functions) {
+    this.functions = functions;
+  }
+
+
+  public SizeBucketBody uncertain(@javax.annotation.Nonnull Boolean uncertain) {
+    this.uncertain = uncertain;
+    return this;
+  }
+
+  /**
+   * True where too few operations have run on binaries this size for the estimate to be reliable
+   * @return uncertain
+   */
+  @javax.annotation.Nonnull
+  public Boolean getUncertain() {
+    return uncertain;
+  }
+
+  public void setUncertain(@javax.annotation.Nonnull Boolean uncertain) {
+    this.uncertain = uncertain;
   }
 
   /**
@@ -113,9 +136,9 @@ public class AppApiRestV2FunctionsResponsesFunction {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the AppApiRestV2FunctionsResponsesFunction instance itself
+   * @return the SizeBucketBody instance itself
    */
-  public AppApiRestV2FunctionsResponsesFunction putAdditionalProperty(String key, Object value) {
+  public SizeBucketBody putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -154,34 +177,25 @@ public class AppApiRestV2FunctionsResponsesFunction {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AppApiRestV2FunctionsResponsesFunction appApiRestV2FunctionsResponsesFunction = (AppApiRestV2FunctionsResponsesFunction) o;
-    return Objects.equals(this.functionId, appApiRestV2FunctionsResponsesFunction.functionId) &&
-        Objects.equals(this.functionVaddr, appApiRestV2FunctionsResponsesFunction.functionVaddr)&&
-        Objects.equals(this.additionalProperties, appApiRestV2FunctionsResponsesFunction.additionalProperties);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+    SizeBucketBody sizeBucketBody = (SizeBucketBody) o;
+    return Objects.equals(this.belowBytes, sizeBucketBody.belowBytes) &&
+        Objects.equals(this.functions, sizeBucketBody.functions) &&
+        Objects.equals(this.uncertain, sizeBucketBody.uncertain)&&
+        Objects.equals(this.additionalProperties, sizeBucketBody.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(functionId, functionVaddr, additionalProperties);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(belowBytes, functions, uncertain, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AppApiRestV2FunctionsResponsesFunction {\n");
-    sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
-    sb.append("    functionVaddr: ").append(toIndentedString(functionVaddr)).append("\n");
+    sb.append("class SizeBucketBody {\n");
+    sb.append("    belowBytes: ").append(toIndentedString(belowBytes)).append("\n");
+    sb.append("    functions: ").append(toIndentedString(functions)).append("\n");
+    sb.append("    uncertain: ").append(toIndentedString(uncertain)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -201,27 +215,27 @@ public class AppApiRestV2FunctionsResponsesFunction {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("function_id", "function_vaddr"));
+    openapiFields = new HashSet<String>(Arrays.asList("below_bytes", "functions", "uncertain"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("function_vaddr"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("below_bytes", "functions", "uncertain"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to AppApiRestV2FunctionsResponsesFunction
+   * @throws IOException if the JSON Element is invalid with respect to SizeBucketBody
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!AppApiRestV2FunctionsResponsesFunction.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in AppApiRestV2FunctionsResponsesFunction is not found in the empty JSON string", AppApiRestV2FunctionsResponsesFunction.openapiRequiredFields.toString()));
+        if (!SizeBucketBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in SizeBucketBody is not found in the empty JSON string", SizeBucketBody.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : AppApiRestV2FunctionsResponsesFunction.openapiRequiredFields) {
+      for (String requiredField : SizeBucketBody.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
@@ -233,16 +247,16 @@ public class AppApiRestV2FunctionsResponsesFunction {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!AppApiRestV2FunctionsResponsesFunction.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'AppApiRestV2FunctionsResponsesFunction' and its subtypes
+       if (!SizeBucketBody.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'SizeBucketBody' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<AppApiRestV2FunctionsResponsesFunction> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(AppApiRestV2FunctionsResponsesFunction.class));
+       final TypeAdapter<SizeBucketBody> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(SizeBucketBody.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<AppApiRestV2FunctionsResponsesFunction>() {
+       return (TypeAdapter<T>) new TypeAdapter<SizeBucketBody>() {
            @Override
-           public void write(JsonWriter out, AppApiRestV2FunctionsResponsesFunction value) throws IOException {
+           public void write(JsonWriter out, SizeBucketBody value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -270,12 +284,12 @@ public class AppApiRestV2FunctionsResponsesFunction {
            }
 
            @Override
-           public AppApiRestV2FunctionsResponsesFunction read(JsonReader in) throws IOException {
+           public SizeBucketBody read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             AppApiRestV2FunctionsResponsesFunction instance = thisAdapter.fromJsonTree(jsonObj);
+             SizeBucketBody instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -302,18 +316,18 @@ public class AppApiRestV2FunctionsResponsesFunction {
   }
 
   /**
-   * Create an instance of AppApiRestV2FunctionsResponsesFunction given an JSON string
+   * Create an instance of SizeBucketBody given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of AppApiRestV2FunctionsResponsesFunction
-   * @throws IOException if the JSON string is invalid with respect to AppApiRestV2FunctionsResponsesFunction
+   * @return An instance of SizeBucketBody
+   * @throws IOException if the JSON string is invalid with respect to SizeBucketBody
    */
-  public static AppApiRestV2FunctionsResponsesFunction fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, AppApiRestV2FunctionsResponsesFunction.class);
+  public static SizeBucketBody fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, SizeBucketBody.class);
   }
 
   /**
-   * Convert an instance of AppApiRestV2FunctionsResponsesFunction to an JSON string
+   * Convert an instance of SizeBucketBody to an JSON string
    *
    * @return JSON string
    */

@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**functions** | [**List&lt;AppApiRestV2FunctionsTypesFunction&gt;**](AppApiRestV2FunctionsTypesFunction.md) | The functions associated with the analysis |  |
+|**functions** | [**List&lt;Function&gt;**](Function.md) | The functions associated with the analysis |  |
 
 
 

@@ -78,16 +78,6 @@ public class DisassemblyOutputBody {
   @javax.annotation.Nullable
   private List<OperandXref> operandXrefs;
 
-  public static final String SERIALIZED_NAME_PARAMS = "params";
-  @SerializedName(SERIALIZED_NAME_PARAMS)
-  @javax.annotation.Nullable
-  private Object params = null;
-
-  public static final String SERIALIZED_NAME_RETURN_TYPE = "return_type";
-  @SerializedName(SERIALIZED_NAME_RETURN_TYPE)
-  @javax.annotation.Nullable
-  private String returnType;
-
   public static final String SERIALIZED_NAME_RETURNS = "returns";
   @SerializedName(SERIALIZED_NAME_RETURNS)
   @javax.annotation.Nonnull
@@ -199,44 +189,6 @@ public class DisassemblyOutputBody {
   }
 
 
-  public DisassemblyOutputBody params(@javax.annotation.Nullable Object params) {
-    this.params = params;
-    return this;
-  }
-
-  /**
-   * Get params
-   * @return params
-   */
-  @javax.annotation.Nullable
-  public Object getParams() {
-    return params;
-  }
-
-  public void setParams(@javax.annotation.Nullable Object params) {
-    this.params = params;
-  }
-
-
-  public DisassemblyOutputBody returnType(@javax.annotation.Nullable String returnType) {
-    this.returnType = returnType;
-    return this;
-  }
-
-  /**
-   * Get returnType
-   * @return returnType
-   */
-  @javax.annotation.Nullable
-  public String getReturnType() {
-    return returnType;
-  }
-
-  public void setReturnType(@javax.annotation.Nullable String returnType) {
-    this.returnType = returnType;
-  }
-
-
   public DisassemblyOutputBody returns(@javax.annotation.Nonnull Boolean returns) {
     this.returns = returns;
     return this;
@@ -315,8 +267,6 @@ public class DisassemblyOutputBody {
         Objects.equals(this.globalVariables, disassemblyOutputBody.globalVariables) &&
         Objects.equals(this.localVariables, disassemblyOutputBody.localVariables) &&
         Objects.equals(this.operandXrefs, disassemblyOutputBody.operandXrefs) &&
-        Objects.equals(this.params, disassemblyOutputBody.params) &&
-        Objects.equals(this.returnType, disassemblyOutputBody.returnType) &&
         Objects.equals(this.returns, disassemblyOutputBody.returns)&&
         Objects.equals(this.additionalProperties, disassemblyOutputBody.additionalProperties);
   }
@@ -327,7 +277,7 @@ public class DisassemblyOutputBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(basicBlocks, functionId, globalVariables, localVariables, operandXrefs, params, returnType, returns, additionalProperties);
+    return Objects.hash(basicBlocks, functionId, globalVariables, localVariables, operandXrefs, returns, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -346,8 +296,6 @@ public class DisassemblyOutputBody {
     sb.append("    globalVariables: ").append(toIndentedString(globalVariables)).append("\n");
     sb.append("    localVariables: ").append(toIndentedString(localVariables)).append("\n");
     sb.append("    operandXrefs: ").append(toIndentedString(operandXrefs)).append("\n");
-    sb.append("    params: ").append(toIndentedString(params)).append("\n");
-    sb.append("    returnType: ").append(toIndentedString(returnType)).append("\n");
     sb.append("    returns: ").append(toIndentedString(returns)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -368,7 +316,7 @@ public class DisassemblyOutputBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("basic_blocks", "function_id", "global_variables", "local_variables", "operand_xrefs", "params", "return_type", "returns"));
+    openapiFields = new HashSet<String>(Arrays.asList("basic_blocks", "function_id", "global_variables", "local_variables", "operand_xrefs", "returns"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("function_id", "returns"));
@@ -397,9 +345,6 @@ public class DisassemblyOutputBody {
       // ensure the optional json data is an array if present
       if (jsonObj.get("operand_xrefs") != null && !jsonObj.get("operand_xrefs").isJsonNull() && !jsonObj.get("operand_xrefs").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `operand_xrefs` to be an array in the JSON string but got `%s`", jsonObj.get("operand_xrefs").toString()));
-      }
-      if ((jsonObj.get("return_type") != null && !jsonObj.get("return_type").isJsonNull()) && !jsonObj.get("return_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `return_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("return_type").toString()));
       }
   }
 

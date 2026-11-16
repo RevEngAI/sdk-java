@@ -141,7 +141,7 @@ public class TeamMember {
   }
 
   /**
-   * Search is applied to string value
+   * Get email
    * @return email
    */
   @javax.annotation.Nullable
@@ -217,7 +217,7 @@ public class TeamMember {
   }
 
   /**
-   * Search is applied to string value
+   * Get username
    * @return username
    */
   @javax.annotation.Nullable

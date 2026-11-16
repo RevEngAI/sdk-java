@@ -50,7 +50,7 @@ import ai.reveng.invoker.JSON;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DynamicExecutionSummaryMetadata {
   /**
-   * Status of the most recent summary attempt. UNINITIALISED means no summary has been attempted for this analysis.
+   * Status of the run&#39;s most recent summary attempt. UNINITIALISED means no summary has been attempted for the run.
    */
   @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
@@ -123,7 +123,7 @@ public class DynamicExecutionSummaryMetadata {
   }
 
   /**
-   * Status of the most recent summary attempt. UNINITIALISED means no summary has been attempted for this analysis.
+   * Status of the run&#39;s most recent summary attempt. UNINITIALISED means no summary has been attempted for the run.
    * @return status
    */
   @javax.annotation.Nonnull

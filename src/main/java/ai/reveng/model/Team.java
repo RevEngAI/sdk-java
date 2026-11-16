@@ -193,7 +193,7 @@ public class Team {
   }
 
   /**
-   * Search is applied to string value
+   * Get teamName
    * @return teamName
    */
   @javax.annotation.Nullable

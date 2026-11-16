@@ -20,6 +20,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -45,154 +47,122 @@ import java.util.Set;
 import ai.reveng.invoker.JSON;
 
 /**
- * AppApiRestV2FunctionsTypesFunction
+ * RecordedFeedback
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class AppApiRestV2FunctionsTypesFunction {
-  public static final String SERIALIZED_NAME_FUNCTION_ID = "function_id";
-  @SerializedName(SERIALIZED_NAME_FUNCTION_ID)
+public class RecordedFeedback {
+  public static final String SERIALIZED_NAME_METADATA = "metadata";
+  @SerializedName(SERIALIZED_NAME_METADATA)
   @javax.annotation.Nonnull
-  private Long functionId;
+  private Map<String, Object> metadata = new HashMap<>();
 
-  public static final String SERIALIZED_NAME_FUNCTION_NAME = "function_name";
-  @SerializedName(SERIALIZED_NAME_FUNCTION_NAME)
-  @javax.annotation.Nonnull
-  private String functionName;
+  /**
+   * The sentiment the caller recorded, or null when they have not left any
+   */
+  @JsonAdapter(SentimentEnum.Adapter.class)
+  public enum SentimentEnum {
+    POSITIVE("POSITIVE"),
+    
+    NEUTRAL("NEUTRAL"),
+    
+    NEGATIVE("NEGATIVE"),
+    
+    UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
-  public static final String SERIALIZED_NAME_FUNCTION_MANGLED_NAME = "function_mangled_name";
-  @SerializedName(SERIALIZED_NAME_FUNCTION_MANGLED_NAME)
-  @javax.annotation.Nonnull
-  private String functionMangledName;
+    private String value;
 
-  public static final String SERIALIZED_NAME_FUNCTION_VADDR = "function_vaddr";
-  @SerializedName(SERIALIZED_NAME_FUNCTION_VADDR)
-  @javax.annotation.Nonnull
-  private Long functionVaddr;
+    SentimentEnum(String value) {
+      this.value = value;
+    }
 
-  public static final String SERIALIZED_NAME_FUNCTION_SIZE = "function_size";
-  @SerializedName(SERIALIZED_NAME_FUNCTION_SIZE)
-  @javax.annotation.Nonnull
-  private Integer functionSize;
+    public String getValue() {
+      return value;
+    }
 
-  public static final String SERIALIZED_NAME_DEBUG = "debug";
-  @SerializedName(SERIALIZED_NAME_DEBUG)
-  @javax.annotation.Nonnull
-  private Boolean debug;
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
 
-  public AppApiRestV2FunctionsTypesFunction() {
+    public static SentimentEnum fromValue(String value) {
+      for (SentimentEnum b : SentimentEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<SentimentEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final SentimentEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public SentimentEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return SentimentEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      SentimentEnum.fromValue(value);
+    }
   }
 
-  public AppApiRestV2FunctionsTypesFunction functionId(@javax.annotation.Nonnull Long functionId) {
-    this.functionId = functionId;
+  public static final String SERIALIZED_NAME_SENTIMENT = "sentiment";
+  @SerializedName(SERIALIZED_NAME_SENTIMENT)
+  @javax.annotation.Nullable
+  private SentimentEnum sentiment;
+
+  public RecordedFeedback() {
+  }
+
+  public RecordedFeedback metadata(@javax.annotation.Nonnull Map<String, Object> metadata) {
+    this.metadata = metadata;
+    return this;
+  }
+
+  public RecordedFeedback putMetadataItem(String key, Object metadataItem) {
+    if (this.metadata == null) {
+      this.metadata = new HashMap<>();
+    }
+    this.metadata.put(key, metadataItem);
     return this;
   }
 
   /**
-   * Function id
-   * @return functionId
+   * The context recorded with the feedback, or null when there is none
+   * @return metadata
    */
   @javax.annotation.Nonnull
-  public Long getFunctionId() {
-    return functionId;
+  public Map<String, Object> getMetadata() {
+    return metadata;
   }
 
-  public void setFunctionId(@javax.annotation.Nonnull Long functionId) {
-    this.functionId = functionId;
+  public void setMetadata(@javax.annotation.Nonnull Map<String, Object> metadata) {
+    this.metadata = metadata;
   }
 
 
-  public AppApiRestV2FunctionsTypesFunction functionName(@javax.annotation.Nonnull String functionName) {
-    this.functionName = functionName;
+  public RecordedFeedback sentiment(@javax.annotation.Nullable SentimentEnum sentiment) {
+    this.sentiment = sentiment;
     return this;
   }
 
   /**
-   * Demangled name of the function
-   * @return functionName
+   * The sentiment the caller recorded, or null when they have not left any
+   * @return sentiment
    */
-  @javax.annotation.Nonnull
-  public String getFunctionName() {
-    return functionName;
+  @javax.annotation.Nullable
+  public SentimentEnum getSentiment() {
+    return sentiment;
   }
 
-  public void setFunctionName(@javax.annotation.Nonnull String functionName) {
-    this.functionName = functionName;
-  }
-
-
-  public AppApiRestV2FunctionsTypesFunction functionMangledName(@javax.annotation.Nonnull String functionMangledName) {
-    this.functionMangledName = functionMangledName;
-    return this;
-  }
-
-  /**
-   * Mangled name of the function
-   * @return functionMangledName
-   */
-  @javax.annotation.Nonnull
-  public String getFunctionMangledName() {
-    return functionMangledName;
-  }
-
-  public void setFunctionMangledName(@javax.annotation.Nonnull String functionMangledName) {
-    this.functionMangledName = functionMangledName;
-  }
-
-
-  public AppApiRestV2FunctionsTypesFunction functionVaddr(@javax.annotation.Nonnull Long functionVaddr) {
-    this.functionVaddr = functionVaddr;
-    return this;
-  }
-
-  /**
-   * Function virtual address
-   * @return functionVaddr
-   */
-  @javax.annotation.Nonnull
-  public Long getFunctionVaddr() {
-    return functionVaddr;
-  }
-
-  public void setFunctionVaddr(@javax.annotation.Nonnull Long functionVaddr) {
-    this.functionVaddr = functionVaddr;
-  }
-
-
-  public AppApiRestV2FunctionsTypesFunction functionSize(@javax.annotation.Nonnull Integer functionSize) {
-    this.functionSize = functionSize;
-    return this;
-  }
-
-  /**
-   * Function size
-   * @return functionSize
-   */
-  @javax.annotation.Nonnull
-  public Integer getFunctionSize() {
-    return functionSize;
-  }
-
-  public void setFunctionSize(@javax.annotation.Nonnull Integer functionSize) {
-    this.functionSize = functionSize;
-  }
-
-
-  public AppApiRestV2FunctionsTypesFunction debug(@javax.annotation.Nonnull Boolean debug) {
-    this.debug = debug;
-    return this;
-  }
-
-  /**
-   * Whether the function is debug
-   * @return debug
-   */
-  @javax.annotation.Nonnull
-  public Boolean getDebug() {
-    return debug;
-  }
-
-  public void setDebug(@javax.annotation.Nonnull Boolean debug) {
-    this.debug = debug;
+  public void setSentiment(@javax.annotation.Nullable SentimentEnum sentiment) {
+    this.sentiment = sentiment;
   }
 
   /**
@@ -208,9 +178,9 @@ public class AppApiRestV2FunctionsTypesFunction {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the AppApiRestV2FunctionsTypesFunction instance itself
+   * @return the RecordedFeedback instance itself
    */
-  public AppApiRestV2FunctionsTypesFunction putAdditionalProperty(String key, Object value) {
+  public RecordedFeedback putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -249,31 +219,23 @@ public class AppApiRestV2FunctionsTypesFunction {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AppApiRestV2FunctionsTypesFunction appApiRestV2FunctionsTypesFunction = (AppApiRestV2FunctionsTypesFunction) o;
-    return Objects.equals(this.functionId, appApiRestV2FunctionsTypesFunction.functionId) &&
-        Objects.equals(this.functionName, appApiRestV2FunctionsTypesFunction.functionName) &&
-        Objects.equals(this.functionMangledName, appApiRestV2FunctionsTypesFunction.functionMangledName) &&
-        Objects.equals(this.functionVaddr, appApiRestV2FunctionsTypesFunction.functionVaddr) &&
-        Objects.equals(this.functionSize, appApiRestV2FunctionsTypesFunction.functionSize) &&
-        Objects.equals(this.debug, appApiRestV2FunctionsTypesFunction.debug)&&
-        Objects.equals(this.additionalProperties, appApiRestV2FunctionsTypesFunction.additionalProperties);
+    RecordedFeedback recordedFeedback = (RecordedFeedback) o;
+    return Objects.equals(this.metadata, recordedFeedback.metadata) &&
+        Objects.equals(this.sentiment, recordedFeedback.sentiment)&&
+        Objects.equals(this.additionalProperties, recordedFeedback.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(functionId, functionName, functionMangledName, functionVaddr, functionSize, debug, additionalProperties);
+    return Objects.hash(metadata, sentiment, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AppApiRestV2FunctionsTypesFunction {\n");
-    sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
-    sb.append("    functionName: ").append(toIndentedString(functionName)).append("\n");
-    sb.append("    functionMangledName: ").append(toIndentedString(functionMangledName)).append("\n");
-    sb.append("    functionVaddr: ").append(toIndentedString(functionVaddr)).append("\n");
-    sb.append("    functionSize: ").append(toIndentedString(functionSize)).append("\n");
-    sb.append("    debug: ").append(toIndentedString(debug)).append("\n");
+    sb.append("class RecordedFeedback {\n");
+    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    sentiment: ").append(toIndentedString(sentiment)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -293,37 +255,38 @@ public class AppApiRestV2FunctionsTypesFunction {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("function_id", "function_name", "function_mangled_name", "function_vaddr", "function_size", "debug"));
+    openapiFields = new HashSet<String>(Arrays.asList("metadata", "sentiment"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("function_id", "function_name", "function_mangled_name", "function_vaddr", "function_size", "debug"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("metadata", "sentiment"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to AppApiRestV2FunctionsTypesFunction
+   * @throws IOException if the JSON Element is invalid with respect to RecordedFeedback
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!AppApiRestV2FunctionsTypesFunction.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in AppApiRestV2FunctionsTypesFunction is not found in the empty JSON string", AppApiRestV2FunctionsTypesFunction.openapiRequiredFields.toString()));
+        if (!RecordedFeedback.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in RecordedFeedback is not found in the empty JSON string", RecordedFeedback.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : AppApiRestV2FunctionsTypesFunction.openapiRequiredFields) {
+      for (String requiredField : RecordedFeedback.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("function_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `function_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("function_name").toString()));
+      if ((jsonObj.get("sentiment") != null && !jsonObj.get("sentiment").isJsonNull()) && !jsonObj.get("sentiment").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sentiment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sentiment").toString()));
       }
-      if (!jsonObj.get("function_mangled_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `function_mangled_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("function_mangled_name").toString()));
+      if (jsonObj.get("sentiment") != null && !jsonObj.get("sentiment").isJsonNull()) {
+      // validate the required field `sentiment`
+      SentimentEnum.validateJsonElement(jsonObj.get("sentiment"));
       }
   }
 
@@ -331,16 +294,16 @@ public class AppApiRestV2FunctionsTypesFunction {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!AppApiRestV2FunctionsTypesFunction.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'AppApiRestV2FunctionsTypesFunction' and its subtypes
+       if (!RecordedFeedback.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'RecordedFeedback' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<AppApiRestV2FunctionsTypesFunction> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(AppApiRestV2FunctionsTypesFunction.class));
+       final TypeAdapter<RecordedFeedback> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(RecordedFeedback.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<AppApiRestV2FunctionsTypesFunction>() {
+       return (TypeAdapter<T>) new TypeAdapter<RecordedFeedback>() {
            @Override
-           public void write(JsonWriter out, AppApiRestV2FunctionsTypesFunction value) throws IOException {
+           public void write(JsonWriter out, RecordedFeedback value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -368,12 +331,12 @@ public class AppApiRestV2FunctionsTypesFunction {
            }
 
            @Override
-           public AppApiRestV2FunctionsTypesFunction read(JsonReader in) throws IOException {
+           public RecordedFeedback read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             AppApiRestV2FunctionsTypesFunction instance = thisAdapter.fromJsonTree(jsonObj);
+             RecordedFeedback instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -400,18 +363,18 @@ public class AppApiRestV2FunctionsTypesFunction {
   }
 
   /**
-   * Create an instance of AppApiRestV2FunctionsTypesFunction given an JSON string
+   * Create an instance of RecordedFeedback given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of AppApiRestV2FunctionsTypesFunction
-   * @throws IOException if the JSON string is invalid with respect to AppApiRestV2FunctionsTypesFunction
+   * @return An instance of RecordedFeedback
+   * @throws IOException if the JSON string is invalid with respect to RecordedFeedback
    */
-  public static AppApiRestV2FunctionsTypesFunction fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, AppApiRestV2FunctionsTypesFunction.class);
+  public static RecordedFeedback fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, RecordedFeedback.class);
   }
 
   /**
-   * Convert an instance of AppApiRestV2FunctionsTypesFunction to an JSON string
+   * Convert an instance of RecordedFeedback to an JSON string
    *
    * @return JSON string
    */

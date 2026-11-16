@@ -89,6 +89,65 @@ public class CallEdge {
   @javax.annotation.Nonnull
   private Boolean isExternal;
 
+  /**
+   * Who found the edge: SYSTEM for the analysis, AI_AGENT for a call AI decompilation recovered that the analysis missed.
+   */
+  @JsonAdapter(SourceEnum.Adapter.class)
+  public enum SourceEnum {
+    SYSTEM("SYSTEM"),
+    
+    AI_AGENT("AI_AGENT"),
+    
+    UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+    private String value;
+
+    SourceEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static SourceEnum fromValue(String value) {
+      for (SourceEnum b : SourceEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return UNKNOWN_DEFAULT_OPEN_API;
+    }
+
+    public static class Adapter extends TypeAdapter<SourceEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final SourceEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public SourceEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return SourceEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      SourceEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_SOURCE = "source";
+  @SerializedName(SERIALIZED_NAME_SOURCE)
+  @javax.annotation.Nonnull
+  private SourceEnum source;
+
   public static final String SERIALIZED_NAME_THUNKED_VADDR = "thunked_vaddr";
   @SerializedName(SERIALIZED_NAME_THUNKED_VADDR)
   @javax.annotation.Nullable
@@ -249,6 +308,25 @@ public class CallEdge {
   }
 
 
+  public CallEdge source(@javax.annotation.Nonnull SourceEnum source) {
+    this.source = source;
+    return this;
+  }
+
+  /**
+   * Who found the edge: SYSTEM for the analysis, AI_AGENT for a call AI decompilation recovered that the analysis missed.
+   * @return source
+   */
+  @javax.annotation.Nonnull
+  public SourceEnum getSource() {
+    return source;
+  }
+
+  public void setSource(@javax.annotation.Nonnull SourceEnum source) {
+    this.source = source;
+  }
+
+
   public CallEdge thunkedVaddr(@javax.annotation.Nullable Long thunkedVaddr) {
     this.thunkedVaddr = thunkedVaddr;
     return this;
@@ -330,13 +408,14 @@ public class CallEdge {
         Objects.equals(this.callerVaddr, callEdge.callerVaddr) &&
         Objects.equals(this.importedFunctionId, callEdge.importedFunctionId) &&
         Objects.equals(this.isExternal, callEdge.isExternal) &&
+        Objects.equals(this.source, callEdge.source) &&
         Objects.equals(this.thunkedVaddr, callEdge.thunkedVaddr)&&
         Objects.equals(this.additionalProperties, callEdge.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(calleeFunctionId, calleeName, calleeVaddr, callerFunctionId, callerName, callerVaddr, importedFunctionId, isExternal, thunkedVaddr, additionalProperties);
+    return Objects.hash(calleeFunctionId, calleeName, calleeVaddr, callerFunctionId, callerName, callerVaddr, importedFunctionId, isExternal, source, thunkedVaddr, additionalProperties);
   }
 
   @Override
@@ -351,6 +430,7 @@ public class CallEdge {
     sb.append("    callerVaddr: ").append(toIndentedString(callerVaddr)).append("\n");
     sb.append("    importedFunctionId: ").append(toIndentedString(importedFunctionId)).append("\n");
     sb.append("    isExternal: ").append(toIndentedString(isExternal)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    thunkedVaddr: ").append(toIndentedString(thunkedVaddr)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -371,10 +451,10 @@ public class CallEdge {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("callee_function_id", "callee_name", "callee_vaddr", "caller_function_id", "caller_name", "caller_vaddr", "imported_function_id", "is_external", "thunked_vaddr"));
+    openapiFields = new HashSet<String>(Arrays.asList("callee_function_id", "callee_name", "callee_vaddr", "caller_function_id", "caller_name", "caller_vaddr", "imported_function_id", "is_external", "source", "thunked_vaddr"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("callee_vaddr", "caller_function_id", "caller_vaddr", "is_external"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("callee_vaddr", "caller_function_id", "caller_vaddr", "is_external", "source"));
   }
 
   /**
@@ -403,6 +483,11 @@ public class CallEdge {
       if ((jsonObj.get("caller_name") != null && !jsonObj.get("caller_name").isJsonNull()) && !jsonObj.get("caller_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `caller_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("caller_name").toString()));
       }
+      if (!jsonObj.get("source").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `source` to be a primitive type in the JSON string but got `%s`", jsonObj.get("source").toString()));
+      }
+      // validate the required field `source`
+      SourceEnum.validateJsonElement(jsonObj.get("source"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

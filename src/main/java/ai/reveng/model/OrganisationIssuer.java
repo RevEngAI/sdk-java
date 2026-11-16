@@ -156,7 +156,7 @@ public class OrganisationIssuer {
   }
 
   /**
-   * Search is applied to string value
+   * Get issuerUrl
    * @return issuerUrl
    */
   @javax.annotation.Nullable

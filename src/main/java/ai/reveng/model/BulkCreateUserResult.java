@@ -89,7 +89,7 @@ public class BulkCreateUserResult {
   }
 
   /**
-   * Search is applied to string value
+   * Get email
    * @return email
    */
   @javax.annotation.Nullable
@@ -184,7 +184,7 @@ public class BulkCreateUserResult {
   }
 
   /**
-   * Search is applied to string value
+   * Get username
    * @return username
    */
   @javax.annotation.Nullable

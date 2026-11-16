@@ -6,8 +6,6 @@ All URIs are relative to *https://api.reveng.ai*
 |------------- | ------------- | -------------|
 | [**addFunctionCallee**](FunctionsCoreApi.md#addFunctionCallee) | **POST** /v3/functions/{function_id}/callees | Add a callee to a function |
 | [**addUserStringToFunction**](FunctionsCoreApi.md#addUserStringToFunction) | **POST** /v3/functions/{function_id}/user-provided-strings | Add a user-provided string to a function. |
-| [**getAnalysisStrings**](FunctionsCoreApi.md#getAnalysisStrings) | **GET** /v2/analyses/{analysis_id}/functions/strings | Get string information found in the Analysis |
-| [**getAnalysisStringsStatus**](FunctionsCoreApi.md#getAnalysisStringsStatus) | **GET** /v2/analyses/{analysis_id}/functions/strings/status | Get string processing state for the Analysis |
 | [**getFunctionBlocks**](FunctionsCoreApi.md#getFunctionBlocks) | **GET** /v2/functions/{function_id}/blocks | Get disassembly blocks related to the function |
 | [**getFunctionBlocks_0**](FunctionsCoreApi.md#getFunctionBlocks_0) | **GET** /v3/functions/{function_id}/blocks | Get function disassembly |
 | [**getFunctionCalleesCallers**](FunctionsCoreApi.md#getFunctionCalleesCallers) | **GET** /v2/functions/{function_id}/callees_callers | Get list of functions that call or are called by the specified function |
@@ -18,8 +16,7 @@ All URIs are relative to *https://api.reveng.ai*
 | [**getFunctionDetails**](FunctionsCoreApi.md#getFunctionDetails) | **GET** /v2/functions/{function_id} | Get function details |
 | [**getFunctionDetails_0**](FunctionsCoreApi.md#getFunctionDetails_0) | **GET** /v3/functions/{function_id} | Get function details |
 | [**getFunctionIndirectCallSites**](FunctionsCoreApi.md#getFunctionIndirectCallSites) | **GET** /v3/functions/{function_id}/indirect-call-sites | Get indirect call sites for a function |
-| [**getFunctionStrings**](FunctionsCoreApi.md#getFunctionStrings) | **GET** /v2/functions/{function_id}/strings | Get string information found in the function |
-| [**getFunctionStrings_0**](FunctionsCoreApi.md#getFunctionStrings_0) | **GET** /v3/functions/{function_id}/strings | List strings for a function. |
+| [**getFunctionStrings**](FunctionsCoreApi.md#getFunctionStrings) | **GET** /v3/functions/{function_id}/strings | List strings for a function. |
 | [**getFunctionsCalleesCallers**](FunctionsCoreApi.md#getFunctionsCalleesCallers) | **GET** /v3/functions/callees-callers | Get callees and callers for many functions |
 | [**getFunctionsMatches**](FunctionsCoreApi.md#getFunctionsMatches) | **GET** /v3/functions/matches | Get function-matching results for an explicit set of functions |
 | [**getFunctionsMatchingStatus**](FunctionsCoreApi.md#getFunctionsMatchingStatus) | **GET** /v3/functions/matches/status | Get function-matching status for an explicit set of functions |
@@ -29,8 +26,10 @@ All URIs are relative to *https://api.reveng.ai*
 | [**startFunctionsMatching**](FunctionsCoreApi.md#startFunctionsMatching) | **POST** /v3/functions/matches | Start function matching for an explicit set of functions |
 | [**v3CanonicalizeFunctionNames**](FunctionsCoreApi.md#v3CanonicalizeFunctionNames) | **POST** /v3/functions/canonical-names | Canonicalize a batch of function names |
 | [**v3GetAnalysisFuncMaps**](FunctionsCoreApi.md#v3GetAnalysisFuncMaps) | **GET** /v3/analyses/{analysis_id}/func-maps | Get function ID/address maps for an analysis |
+| [**v3GetFunctionFeedback**](FunctionsCoreApi.md#v3GetFunctionFeedback) | **GET** /v3/functions/{function_id}/feedback/{type} | Get the caller&#39;s feedback on a function. |
 | [**v3ListFunctionGlobals**](FunctionsCoreApi.md#v3ListFunctionGlobals) | **GET** /v3/functions/{function_id}/globals | List the global variables a function references. |
 | [**v3SearchFunctions**](FunctionsCoreApi.md#v3SearchFunctions) | **GET** /v3/functions | Search functions |
+| [**v3UpsertFunctionFeedback**](FunctionsCoreApi.md#v3UpsertFunctionFeedback) | **PUT** /v3/functions/{function_id}/feedback/{type} | Record feedback on a function. |
 
 
 <a id="addFunctionCallee"></a>
@@ -192,166 +191,6 @@ public class Example {
 | **422** | Unprocessable Entity |  -  |
 | **500** | Internal Server Error |  -  |
 
-<a id="getAnalysisStrings"></a>
-# **getAnalysisStrings**
-> BaseResponseAnalysisStringsResponse getAnalysisStrings(analysisId, page, pageSize, search, functionSearch, orderBy, sortOrder)
-
-Get string information found in the Analysis
-
-Get string information found in the analysis
-
-### Example
-```java
-// Import classes:
-import ai.reveng.invoker.ApiClient;
-import ai.reveng.invoker.ApiException;
-import ai.reveng.invoker.Configuration;
-import ai.reveng.invoker.auth.*;
-import ai.reveng.invoker.models.*;
-import ai.reveng.api.FunctionsCoreApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.reveng.ai");
-    
-    // Configure API key authorization: APIKey
-    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
-    APIKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //APIKey.setApiKeyPrefix("Token");
-
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
-
-    FunctionsCoreApi apiInstance = new FunctionsCoreApi(defaultClient);
-    Integer analysisId = 56; // Integer | 
-    Integer page = 1; // Integer | The page number to retrieve.
-    Integer pageSize = 100; // Integer | Number of items per page.
-    String search = "search_example"; // String | Search is applied to string value
-    String functionSearch = "functionSearch_example"; // String | Search is applied to function names
-    String orderBy = "length"; // String | Order by field
-    String sortOrder = "ASC"; // String | Sort order for the results
-    try {
-      BaseResponseAnalysisStringsResponse result = apiInstance.getAnalysisStrings(analysisId, page, pageSize, search, functionSearch, orderBy, sortOrder);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling FunctionsCoreApi#getAnalysisStrings");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **analysisId** | **Integer**|  | |
-| **page** | **Integer**| The page number to retrieve. | [optional] [default to 1] |
-| **pageSize** | **Integer**| Number of items per page. | [optional] [default to 100] |
-| **search** | **String**| Search is applied to string value | [optional] |
-| **functionSearch** | **String**| Search is applied to function names | [optional] |
-| **orderBy** | **String**| Order by field | [optional] [default to value] [enum: length, value] |
-| **sortOrder** | **String**| Sort order for the results | [optional] [default to ASC] [enum: ASC, DESC] |
-
-### Return type
-
-[**BaseResponseAnalysisStringsResponse**](BaseResponseAnalysisStringsResponse.md)
-
-### Authorization
-
-[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successful Response |  -  |
-| **422** | Invalid request parameters |  -  |
-
-<a id="getAnalysisStringsStatus"></a>
-# **getAnalysisStringsStatus**
-> BaseResponseAnalysisStringsStatusResponse getAnalysisStringsStatus(analysisId)
-
-Get string processing state for the Analysis
-
-Get string processing state for the Analysis
-
-### Example
-```java
-// Import classes:
-import ai.reveng.invoker.ApiClient;
-import ai.reveng.invoker.ApiException;
-import ai.reveng.invoker.Configuration;
-import ai.reveng.invoker.auth.*;
-import ai.reveng.invoker.models.*;
-import ai.reveng.api.FunctionsCoreApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.reveng.ai");
-    
-    // Configure API key authorization: APIKey
-    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
-    APIKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //APIKey.setApiKeyPrefix("Token");
-
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
-
-    FunctionsCoreApi apiInstance = new FunctionsCoreApi(defaultClient);
-    Integer analysisId = 56; // Integer | 
-    try {
-      BaseResponseAnalysisStringsStatusResponse result = apiInstance.getAnalysisStringsStatus(analysisId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling FunctionsCoreApi#getAnalysisStringsStatus");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **analysisId** | **Integer**|  | |
-
-### Return type
-
-[**BaseResponseAnalysisStringsStatusResponse**](BaseResponseAnalysisStringsStatusResponse.md)
-
-### Authorization
-
-[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successful Response |  -  |
-| **422** | Invalid request parameters |  -  |
-
 <a id="getFunctionBlocks"></a>
 # **getFunctionBlocks**
 > BaseResponseFunctionBlocksResponse getFunctionBlocks(functionId)
@@ -433,7 +272,7 @@ public class Example {
 
 Get function disassembly
 
-Returns the function&#39;s disassembly metadata (JSON blob containing basic blocks + local variables) along with parameter and return-type info. A function that carries no disassembly (externals, thunks) returns 200 with the block fields omitted; disassembly that exists but cannot be read yet returns 409 ANALYSIS_NOT_READY.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;409&#x60; [&#x60;ANALYSIS_NOT_READY&#x60;](/errors/ANALYSIS_NOT_READY) — Analysis Not Ready
+Returns the function&#39;s disassembly metadata (JSON blob containing basic blocks + local variables). Parameters and return type are not part of the disassembly; read them from GET /v3/analyses/{analysis_id}/functions/{function_id}/signature. A function that carries no disassembly (externals, thunks) returns 200 with the block fields omitted; disassembly that exists but cannot be read yet returns 409 ANALYSIS_NOT_READY.  **Error codes:** - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;409&#x60; [&#x60;ANALYSIS_NOT_READY&#x60;](/errors/ANALYSIS_NOT_READY) — Analysis Not Ready
 
 ### Example
 ```java
@@ -1104,87 +943,7 @@ public class Example {
 
 <a id="getFunctionStrings"></a>
 # **getFunctionStrings**
-> BaseResponseFunctionStringsResponse getFunctionStrings(functionId, page, pageSize, search)
-
-Get string information found in the function
-
-Get string information found in the function
-
-### Example
-```java
-// Import classes:
-import ai.reveng.invoker.ApiClient;
-import ai.reveng.invoker.ApiException;
-import ai.reveng.invoker.Configuration;
-import ai.reveng.invoker.auth.*;
-import ai.reveng.invoker.models.*;
-import ai.reveng.api.FunctionsCoreApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.reveng.ai");
-    
-    // Configure API key authorization: APIKey
-    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
-    APIKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //APIKey.setApiKeyPrefix("Token");
-
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
-
-    FunctionsCoreApi apiInstance = new FunctionsCoreApi(defaultClient);
-    Integer functionId = 56; // Integer | 
-    Integer page = 1; // Integer | The page number to retrieve.
-    Integer pageSize = 100; // Integer | Number of items per page.
-    String search = "search_example"; // String | Search is applied to string value
-    try {
-      BaseResponseFunctionStringsResponse result = apiInstance.getFunctionStrings(functionId, page, pageSize, search);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling FunctionsCoreApi#getFunctionStrings");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **functionId** | **Integer**|  | |
-| **page** | **Integer**| The page number to retrieve. | [optional] [default to 1] |
-| **pageSize** | **Integer**| Number of items per page. | [optional] [default to 100] |
-| **search** | **String**| Search is applied to string value | [optional] |
-
-### Return type
-
-[**BaseResponseFunctionStringsResponse**](BaseResponseFunctionStringsResponse.md)
-
-### Authorization
-
-[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successful Response |  -  |
-| **422** | Invalid request parameters |  -  |
-
-<a id="getFunctionStrings_0"></a>
-# **getFunctionStrings_0**
-> ListFunctionStringsOutputBody getFunctionStrings_0(functionId, page, pageSize, search)
+> ListFunctionStringsOutputBody getFunctionStrings(functionId, page, pageSize, search)
 
 List strings for a function.
 
@@ -1221,10 +980,10 @@ public class Example {
     Long pageSize = 100L; // Long | Number of results per page.
     String search = "search_example"; // String | Filter by string value (case-insensitive substring match).
     try {
-      ListFunctionStringsOutputBody result = apiInstance.getFunctionStrings_0(functionId, page, pageSize, search);
+      ListFunctionStringsOutputBody result = apiInstance.getFunctionStrings(functionId, page, pageSize, search);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling FunctionsCoreApi#getFunctionStrings_0");
+      System.err.println("Exception when calling FunctionsCoreApi#getFunctionStrings");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1976,6 +1735,85 @@ public class Example {
 | **422** | Unprocessable Entity |  -  |
 | **500** | Internal Server Error |  -  |
 
+<a id="v3GetFunctionFeedback"></a>
+# **v3GetFunctionFeedback**
+> RecordedFeedback v3GetFunctionFeedback(functionId, type)
+
+Get the caller&#39;s feedback on a function.
+
+Returns the feedback the caller recorded for one kind of result on this function, or null fields when they have not recorded any.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.FunctionsCoreApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    FunctionsCoreApi apiInstance = new FunctionsCoreApi(defaultClient);
+    Long functionId = 56L; // Long | Function ID
+    String type = "function-matching"; // String | What the feedback is about
+    try {
+      RecordedFeedback result = apiInstance.v3GetFunctionFeedback(functionId, type);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling FunctionsCoreApi#v3GetFunctionFeedback");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **functionId** | **Long**| Function ID | |
+| **type** | **String**| What the feedback is about | [enum: function-matching] |
+
+### Return type
+
+[**RecordedFeedback**](RecordedFeedback.md)
+
+### Authorization
+
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **500** | Internal Server Error |  -  |
+
 <a id="v3ListFunctionGlobals"></a>
 # **v3ListFunctionGlobals**
 > ListFunctionGlobalsOutputBody v3ListFunctionGlobals(functionId)
@@ -2131,6 +1969,86 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **500** | Internal Server Error |  -  |
+
+<a id="v3UpsertFunctionFeedback"></a>
+# **v3UpsertFunctionFeedback**
+> v3UpsertFunctionFeedback(functionId, type, feedbackSubmission)
+
+Record feedback on a function.
+
+Records how useful the caller found one kind of result for this function, with any context the client captured. Replaces any feedback they recorded previously.  **Error codes:** - &#x60;404&#x60; [&#x60;NOT_FOUND&#x60;](/errors/NOT_FOUND) — Not Found - &#x60;403&#x60; [&#x60;ACCESS_DENIED&#x60;](/errors/ACCESS_DENIED) — Access Denied
+
+### Example
+```java
+// Import classes:
+import ai.reveng.invoker.ApiClient;
+import ai.reveng.invoker.ApiException;
+import ai.reveng.invoker.Configuration;
+import ai.reveng.invoker.auth.*;
+import ai.reveng.invoker.models.*;
+import ai.reveng.api.FunctionsCoreApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.reveng.ai");
+    
+    // Configure API key authorization: APIKey
+    ApiKeyAuth APIKey = (ApiKeyAuth) defaultClient.getAuthentication("APIKey");
+    APIKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //APIKey.setApiKeyPrefix("Token");
+
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    FunctionsCoreApi apiInstance = new FunctionsCoreApi(defaultClient);
+    Long functionId = 56L; // Long | Function ID
+    String type = "function-matching"; // String | What the feedback is about
+    FeedbackSubmission feedbackSubmission = new FeedbackSubmission(); // FeedbackSubmission | 
+    try {
+      apiInstance.v3UpsertFunctionFeedback(functionId, type, feedbackSubmission);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling FunctionsCoreApi#v3UpsertFunctionFeedback");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **functionId** | **Long**| Function ID | |
+| **type** | **String**| What the feedback is about | [enum: function-matching] |
+| **feedbackSubmission** | [**FeedbackSubmission**](FeedbackSubmission.md)|  | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[APIKey](../README.md#APIKey), [bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
 | **422** | Unprocessable Entity |  -  |
 | **500** | Internal Server Error |  -  |
 

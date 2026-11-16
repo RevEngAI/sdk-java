@@ -54,6 +54,11 @@ public class RenderedToken {
   @javax.annotation.Nullable
   private Long dataTypeId;
 
+  public static final String SERIALIZED_NAME_ENUM_VALUE = "enum_value";
+  @SerializedName(SERIALIZED_NAME_ENUM_VALUE)
+  @javax.annotation.Nullable
+  private String enumValue;
+
   public static final String SERIALIZED_NAME_FUNCTION_ID = "function_id";
   @SerializedName(SERIALIZED_NAME_FUNCTION_ID)
   @javax.annotation.Nullable
@@ -172,6 +177,25 @@ public class RenderedToken {
 
   public void setDataTypeId(@javax.annotation.Nullable Long dataTypeId) {
     this.dataTypeId = dataTypeId;
+  }
+
+
+  public RenderedToken enumValue(@javax.annotation.Nullable String enumValue) {
+    this.enumValue = enumValue;
+    return this;
+  }
+
+  /**
+   * Integer value of an enum the decompiler recovered a name for. Absent for an unnamed enum, which already renders as its value.
+   * @return enumValue
+   */
+  @javax.annotation.Nullable
+  public String getEnumValue() {
+    return enumValue;
+  }
+
+  public void setEnumValue(@javax.annotation.Nullable String enumValue) {
+    this.enumValue = enumValue;
   }
 
 
@@ -325,6 +349,7 @@ public class RenderedToken {
     }
     RenderedToken renderedToken = (RenderedToken) o;
     return Objects.equals(this.dataTypeId, renderedToken.dataTypeId) &&
+        Objects.equals(this.enumValue, renderedToken.enumValue) &&
         Objects.equals(this.functionId, renderedToken.functionId) &&
         Objects.equals(this.importedFunctionId, renderedToken.importedFunctionId) &&
         Objects.equals(this.kind, renderedToken.kind) &&
@@ -335,7 +360,7 @@ public class RenderedToken {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataTypeId, functionId, importedFunctionId, kind, vaddr, value, additionalProperties);
+    return Objects.hash(dataTypeId, enumValue, functionId, importedFunctionId, kind, vaddr, value, additionalProperties);
   }
 
   @Override
@@ -343,6 +368,7 @@ public class RenderedToken {
     StringBuilder sb = new StringBuilder();
     sb.append("class RenderedToken {\n");
     sb.append("    dataTypeId: ").append(toIndentedString(dataTypeId)).append("\n");
+    sb.append("    enumValue: ").append(toIndentedString(enumValue)).append("\n");
     sb.append("    functionId: ").append(toIndentedString(functionId)).append("\n");
     sb.append("    importedFunctionId: ").append(toIndentedString(importedFunctionId)).append("\n");
     sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
@@ -367,7 +393,7 @@ public class RenderedToken {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("data_type_id", "function_id", "imported_function_id", "kind", "vaddr", "value"));
+    openapiFields = new HashSet<String>(Arrays.asList("data_type_id", "enum_value", "function_id", "imported_function_id", "kind", "vaddr", "value"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("kind", "value"));
@@ -393,6 +419,9 @@ public class RenderedToken {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("enum_value") != null && !jsonObj.get("enum_value").isJsonNull()) && !jsonObj.get("enum_value").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `enum_value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enum_value").toString()));
+      }
       if (!jsonObj.get("kind").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kind").toString()));
       }
